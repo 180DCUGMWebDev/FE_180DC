@@ -53,11 +53,11 @@ export default function Navbar() {
   return (
     <div
       className={
-        "fixed top-0 z-[999] flex w-full py-[10px] px-[20px] transition-transform duration-[300ms] " +
+        "fixed top-0 left-0 z-[999] flex w-full py-[10px] px-[20px] transition-transform duration-[300ms] " +
         (scroll !== "down" ? "" : "translate-y-[-200%]")
       }
     >
-      <nav className="flex relative top-0 w-full">
+      <nav className="flex relative top-0 left-0 w-full">
         <div className="flex w-[5%]">
           <Image
             src="/img/logo180dctrns.png"
