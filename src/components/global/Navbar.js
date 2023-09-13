@@ -4,15 +4,9 @@ import { useState, useEffect } from "react";
 
 import Image from "next/image";
 import Button from "./Button";
+import NavFootItems from "./NavFootItems";
 
 export default function Navbar() {
-  const options = ["Home", "About Us", "Our Clients", "Telescope"];
-  const directs = [
-    "https://www.google.com",
-    "https://www.youtube.com",
-    "https://www.gmail.com",
-    "https://www.facebook.com",
-  ];
 
   // Scroll Direction Hook
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -70,17 +64,11 @@ export default function Navbar() {
           />
         </div>
         <div className="flex w-[80%]">
-          <ul className="flex w-full items-center justify-center gap-[60px]">
-            {options.map((val, idx) => {
-              return (
-                <li className="flex justify-center text-lightWhite font-mulishRegular hover:font-mulishBold w-[10%]" key={val}>
-                  <a href={directs[idx]} target="_blank">
-                    {val}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
+          <NavFootItems
+            ulClass="flex w-full items-center justify-center gap-[60px]"
+            liClass="flex justify-center w-[10%]"
+            aClass="text-lightWhite font-mulishRegular hover:font-mulishBold"
+          />
         </div>
         <div className="flex justify-end items-center w-[15%]">
           <Button
