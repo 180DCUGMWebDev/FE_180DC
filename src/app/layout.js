@@ -1,6 +1,7 @@
 import "./globals.css";
 
 import Navbar from "@/components/global/Navbar";
+import Footer from "@/components/global/Footer";
 
 export const metadata = {
   title: "180 DC UGM",
@@ -10,9 +11,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={"p-[20px] bg-black"}>
+      <body className={"bg-black"}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

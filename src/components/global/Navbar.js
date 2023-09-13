@@ -57,7 +57,7 @@ export default function Navbar() {
         (scroll !== "down" ? "" : "translate-y-[-200%]")
       }
     >
-      <nav className="flex relative top-0 left-0 w-full">
+      <nav className="flex w-full">
         <div className="flex w-[5%]">
           <Image
             src="/img/logo180dctrns.png"
@@ -73,7 +73,7 @@ export default function Navbar() {
           <ul className="flex w-full items-center justify-center gap-[60px]">
             {options.map((val, idx) => {
               return (
-                <li className="flex justify-center text-lightWhite font-mulishRegular hover:font-mulishBold w-[10%]">
+                <li className="flex justify-center text-lightWhite font-mulishRegular hover:font-mulishBold w-[10%]" key={val}>
                   <a href={directs[idx]} target="_blank">
                     {val}
                   </a>
