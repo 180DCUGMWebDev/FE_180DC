@@ -24,6 +24,7 @@ module.exports = {
         avenirLight: ["avenir-light"],
         avenirRegular: ["avenir-regular"],
         latoBold: ["lato-bold"],
+        latoBoldItalic: ["lato-bold-italic"],
         latoRegular: ["lato-regular"],
         latoSemibold: ["lato-semibold"],
       },

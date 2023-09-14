@@ -53,6 +53,7 @@ export default function DesignSystem() {
                 {"This is font-avenirRegular"}
               </h1>
               <h1 className="font-latoBold">{"This is font-latoBold"}</h1>
+              <h1 className="font-latoBoldItalic">{"This is font-latoBoldItalic"}</h1>
               <h1 className="font-latoRegular">{"This is font-latoRegular"}</h1>
               <h1 className="font-latoSemibold">
                 {"This is font-latoSemibold"}
