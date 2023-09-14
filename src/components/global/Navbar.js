@@ -52,7 +52,7 @@ export default function Navbar() {
   return (
     <div
       className={
-        "fixed top-0 left-0 z-[999] flex w-full py-[10px] px-[30px] transition-transform duration-[300ms] " +
+        "fixed top-0 left-0 z-[999] flex w-full py-[20px] px-[50px] transition-transform duration-[300ms] " +
         (scroll !== "down" ? "" : "translate-y-[-200%]")
       }
     >
@@ -60,7 +60,7 @@ export default function Navbar() {
         {/* Logo */}
         <div className="flex w-[5%]">
           <ImgF
-            src="/img/logo180dctrns.png"
+            src="/img/global/logo180dctrns.png"
             alt="logo 180dc"
             action={() => {
               router.push(navLinks.Home);

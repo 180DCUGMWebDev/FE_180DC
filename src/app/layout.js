@@ -11,7 +11,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={"bg-black"}>
+      <body className={"relative h-fit w-fit"}>
+        {/* Background */}
+        <div className="absolute -z-[999] top-0 left-0 w-full h-full bg-black" />
+
+        {/* Content */}
         <Navbar />
         {children}
         <Footer />

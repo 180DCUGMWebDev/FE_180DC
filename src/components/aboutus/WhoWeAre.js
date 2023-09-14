@@ -1,4 +1,5 @@
 import { FaPlay } from "react-icons/fa";
+import ImgF from "../global/ImgF";
 
 export default function WhoWeAre() {
   return (
@@ -10,14 +11,24 @@ export default function WhoWeAre() {
             <h1>{"Who Are We?"}</h1>
           </div>
           {/* 20+ Clients */}
-          <div className="w-full h-[75%] flex flex-col items-start bg-[#ff8484] rounded-[10px] text-lightWhite p-[40px]">
-            <div className="w-full flex flex-col font-avenirBlack">
-              <h1 className="text-[124px] -mt-[30px]">{"20+"}</h1>
-              <h1 className="text-[36px] -mt-[60px] ml-[4px]">{"Clients"}</h1>
+          <div className="relative w-full h-[75%] flex flex-col items-start rounded-[10px] text-lightWhite p-[40px]">
+            {/* Background */}
+            <div className="absolute -z-[1] top-0 left-0 w-full h-full rounded-[10px] overflow-clip">
+              <ImgF
+                src="/img/aboutus/WhatWeAre/leftcontent.png"
+                alt="180dc who we are leftcontent"
+              />
             </div>
-            <div className="w-full font-latoRegular">
+            {/* Content */}
+            <div className="w-full h-[60%] flex flex-col font-avenirBlack">
+              <h1 className="text-[144px]/[110px]">{"20+"}</h1>
+              <h1 className="text-[40px]/[30px] ml-[4px]">{"Clients"}</h1>
+            </div>
+            <div className="w-full h-[40%] flex items-end font-latoRegular">
               <p className="text-[14px] ml-[4px]">
-                {"Successfully assisted both national and international enterprises to tackle their problems and reach their respective goals."}
+                {
+                  "Successfully assisted both national and international enterprises to tackle their problems and reach their respective goals."
+                }
               </p>
             </div>
           </div>
@@ -30,11 +41,21 @@ export default function WhoWeAre() {
             }
           </div>
           {/* Video */}
-          <div className="relative w-full h-[75%] flex items-start bg-[#ff8484] rounded-[10px]">
-            <div className="absolute p-[8px] -right-[20px] -bottom-[20px] rounded-full w-[100px] h-[100px] bg-black">
-              <div className="rounded-full bg-lightWhite w-full h-full p-[20px] pl-[28px]">
-                <FaPlay className="w-full h-full text-primary" />
-              </div>
+          <div className="relative w-full h-[75%] flex items-start rounded-[10px]">
+            {/* Background Content */}
+            <div className="absolute -z-[1] top-0 left-0 w-full h-full rounded-[10px] overflow-clip">
+              <ImgF
+                src="/img/aboutus/WhatWeAre/rightcontent.png"
+                alt="180dc who we are rightcontent"
+              />
+            </div>
+            {/* Button */}
+            <div className="absolute p-[10px] -right-[10px] -bottom-[20px] rounded-full rounded-br-none w-[100px] h-[100px] bg-black">
+              <a href="#">
+                <div className="rounded-full bg-lightWhite w-full h-full p-[16px] pl-[24px]">
+                  <FaPlay className="w-full h-full text-primary" />
+                </div>
+              </a>
             </div>
           </div>
         </div>
