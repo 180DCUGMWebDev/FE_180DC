@@ -22,7 +22,7 @@ export default function Footer() {
 
   return (
     <div className="flex w-full bg-gradient-to-br from-black to-primary  rounded-tl-[20px] rounded-tr-[20px] p-[3px]">
-      <div className="flex flex-col w-full bg-black rounded-tl-[20px] rounded-tr-[20px] px-[20px] py-[35px] pb-[2px] gap-[16px]">
+      <div className="flex flex-col w-full bg-black rounded-tl-[20px] rounded-tr-[20px] px-[27px] py-[35px] pb-[2px] gap-[16px]">
         {/* Contents */}
         <div className="flex w-full gap-[60px] text-lightWhite">
           {/* Logo */}

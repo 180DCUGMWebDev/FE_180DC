@@ -52,7 +52,7 @@ export default function Navbar() {
   return (
     <div
       className={
-        "fixed top-0 left-0 z-[999] flex w-full py-[10px] px-[20px] transition-transform duration-[300ms] " +
+        "fixed top-0 left-0 z-[999] flex w-full py-[10px] px-[30px] transition-transform duration-[300ms] " +
         (scroll !== "down" ? "" : "translate-y-[-200%]")
       }
     >
