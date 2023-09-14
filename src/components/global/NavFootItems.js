@@ -1,6 +1,6 @@
 "use client";
 
-import { navLinks } from "@/config/ExternalLinks";
+import { navLinks } from "@/config/Links";
 
 export default function NavFootItems({ ulClass, liClass, aClass }) {
   let options = new Array();
@@ -17,7 +17,7 @@ export default function NavFootItems({ ulClass, liClass, aClass }) {
       {options.map((val, idx) => {
         return (
           <li className={liClass} key={val}>
-            <a className={aClass} href={directs[idx]} target="_blank">
+            <a className={aClass} href={directs[idx]}>
               {val}
             </a>
           </li>

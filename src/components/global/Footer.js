@@ -1,27 +1,35 @@
 "use client";
 
-import Image from "next/image";
-import { FaArrowRight, FaInstagram, FaLinkedin, FaSpotify } from "react-icons/fa";
+import { useRouter } from "next/navigation";
+
+import {
+  FaArrowRight,
+  FaInstagram,
+  FaLinkedin,
+  FaSpotify,
+} from "react-icons/fa";
 import NavFootItems from "./NavFootItems";
+import ImgF from "./ImgF";
+
+import { navLinks } from "@/config/Links";
 
 export default function Footer() {
-  const classHead = "font-mulishBold text-[24px]";
+  // Router Hook
+  const router = useRouter();
+
+  // Classes
+  const classHead = "font-latoBold text-[24px]";
 
   return (
     <div className="flex w-full bg-gradient-to-br from-black to-primary  rounded-tl-[20px] rounded-tr-[20px] p-[3px]">
       <div className="flex flex-col w-full bg-black rounded-tl-[20px] rounded-tr-[20px] px-[20px] py-[35px] pb-[2px] gap-[16px]">
+        {/* Contents */}
         <div className="flex w-full gap-[60px] text-lightWhite">
+          {/* Logo */}
           <div className="w-2/12">
-            <Image
-              src="/img/footerlogo180dc.png"
-              alt="logo footer 180dc"
-              width={0}
-              height={0}
-              sizes="100vw"
-              style={{ width: "100%", height: "auto" }}
-              draggable="false"
-            />
+            <ImgF src="/img/footerlogo180dc.png" alt="logo footer 180dc" action={() => {router.push(navLinks.Home)}} />
           </div>
+          {/* Office */}
           <div className="flex flex-col w-3/12 gap-[8px]">
             <h1 className={classHead}>{"Office"}</h1>
             <p className="text-[12px]">
@@ -31,18 +39,20 @@ export default function Footer() {
             </p>
             <p className="text-[12px]">{"ugm@180dc.org"}</p>
           </div>
+          {/* Navigation */}
           <div className="flex flex-col w-2/12 gap-[8px]">
             <h1 className={classHead}>{"Navigation"}</h1>
             <NavFootItems
               ulClass="flex flex-col w-full gap-[2.5px] text-[12px]"
               liClass="flex w-full"
-              aClass="text-lightWhite font-mulishRegular hover:font-mulishBold"
+              aClass="text-lightWhite font-latoRegular hover:font-latoBold"
             />
           </div>
+          {/* Stay Connected */}
           <form className="flex flex-col justify-center w-[41.67%] gap-[8px]">
             <div className="flex items-start w-full">
               <div className="w-8/12">
-                <h1 className="font-mulishLight text-[24px]">
+                <h1 className="font-avenirRegular text-[24px]">
                   {"Let's Stay Connected"}
                 </h1>
               </div>
@@ -76,8 +86,9 @@ export default function Footer() {
             </div>
           </form>
         </div>
+        {/* Copyright */}
         <div className="flex justify-center w-full">
-          <h3 className="text-primary font-mulishLight text-[12px]">
+          <h3 className="text-primary font-avenirBook text-[12px]">
             {"©2023 by 180 Degrees Consulting UGM"}
           </h3>
         </div>

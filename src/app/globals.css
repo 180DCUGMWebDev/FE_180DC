@@ -27,6 +27,46 @@
     font-family: "mulish-extrabold";
     src: url("/fonts/Mulish/Mulish-ExtraBold.ttf") format("truetype");
   }
+
+  @font-face {
+    font-family: "avenir-black";
+    src: url("/fonts/Avenir/Avenir Black.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "avenir-book";
+    src: url("/fonts/Avenir/Avenir Book.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "avenir-heavy";
+    src: url("/fonts/Avenir/Avenir Heavy.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "avenir-light";
+    src: url("/fonts/Avenir/Avenir Light.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "avenir-regular";
+    src: url("/fonts/Avenir/Avenir Regular.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "lato-bold";
+    src: url("/fonts/Lato/Lato-Bold.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "lato-regular";
+    src: url("/fonts/Lato/Lato-Regular.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "lato-semibold";
+    src: url("/fonts/Lato/Lato-Semibold.ttf") format("truetype");
+  }
 }
 
 /* :root {
