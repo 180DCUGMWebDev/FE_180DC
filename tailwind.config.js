@@ -43,7 +43,7 @@ module.exports = {
         green180: "#00C04D",
         yellow180: "#FFBB00",
         red180: "#ED455D",
-      },
+      }
     },
   },
   plugins: [],

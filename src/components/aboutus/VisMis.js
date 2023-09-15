@@ -2,6 +2,7 @@ import React from "react";
 import { FaBriefcase } from "react-icons/fa";
 
 export default function VisMis() {
+  // Values
   const vision =
     "To be the leading consulting organization that empowers individuals, creates social impact, and fosters sustainable growth through comprehensive strategies and collaborative partnerships";
 
@@ -14,6 +15,7 @@ export default function VisMis() {
       "Fostering sustainable growth by continuously improving our internal processes, expanding our partnerships, and attracting diversified talents from various disciplines",
   };
 
+  // Extraction
   let titles = new Array();
   let values = new Array();
 
@@ -43,10 +45,11 @@ export default function VisMis() {
     );
   };
 
+  // Page
   return (
     <section className="w-full h-screen flex flex-col justify-center items-center px-[40px]">
       {/* Title */}
-      <div className="w-full text-center">
+      <div className="w-full">
         <h1 className="text-center text-primary text-[64px]/[60px] font-avenirBlack">
           {"180DC UGM"}
           <br />
