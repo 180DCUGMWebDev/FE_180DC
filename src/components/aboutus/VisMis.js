@@ -47,7 +47,7 @@ export default function VisMis() {
 
   // Page
   return (
-    <section className="w-full h-screen flex flex-col justify-center items-center px-[40px]">
+    <section className="w-full h-screen flex flex-col justify-center items-center px-[90px]">
       {/* Title */}
       <div className="w-full">
         <h1 className="text-center text-primary text-[64px]/[60px] font-avenirBlack">

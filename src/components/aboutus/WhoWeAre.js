@@ -4,7 +4,7 @@ import ImgF from "../global/ImgF";
 export default function WhoWeAre() {
   return (
     <section>
-      <div className="w-full h-screen pt-[12%] pb-[5%] flex justify-center items-center gap-[60px]">
+      <div className="w-full h-screen px-[50px] pt-[12%] pb-[5%] flex justify-center items-center gap-[60px]">
         <div className="w-3/12 h-full flex flex-col gap-[20px]">
           {/* Who Are We? */}
           <div className="w-full h-[25%] flex items-center text-lightWhite font-avenirBlack text-[52px]">

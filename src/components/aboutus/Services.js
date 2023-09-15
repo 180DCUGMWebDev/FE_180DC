@@ -61,7 +61,7 @@ export default function Services() {
 
   // Page
   return (
-    <section className="w-full h-screen flex flex-col justify-center items-center gap-[60px] py-[20px]">
+    <section className="w-full h-screen flex flex-col justify-center items-center gap-[60px] py-[20px] px-[50px]">
       <div className="flex w-full h-[25%]">
         <div className="flex w-6/12 items-end">
           <h1 className="text-start text-primary text-[64px]/[60px] font-avenirBlack">
@@ -79,6 +79,7 @@ export default function Services() {
         </div>
       </div>
       <div className="flex grow w-full h-[75%] justify-center gap-[72px]">
+        {/* Cards */}
         {titles.map((val, idx) => {
           return (
             <div className="relative flex items-end h-full w-full rounded-t-[20px] bg-gradient-to-b from-transparent from-20% to-black to-[62%] p-[30px] pb-0 overflow-clip">

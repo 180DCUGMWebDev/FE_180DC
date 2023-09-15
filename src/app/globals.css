@@ -72,6 +72,11 @@
     font-family: "lato-semibold";
     src: url("/fonts/Lato/Lato-Semibold.ttf") format("truetype");
   }
+
+  @font-face {
+    font-family: "lato-semibold-italic";
+    src: url("/fonts/Lato/Lato-SemiboldItalic.ttf") format("truetype");
+  }
 }
 
 /* :root {

@@ -6,7 +6,7 @@ import LookForward from "@/components/aboutus/LookForward";
 
 export default function AboutUs() {
   return (
-    <main className="px-[50px]">
+    <main>
       <WhoWeAre />
       <VisMis />
       <Services />

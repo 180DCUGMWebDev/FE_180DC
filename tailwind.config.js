@@ -27,6 +27,7 @@ module.exports = {
         latoBoldItalic: ["lato-bold-italic"],
         latoRegular: ["lato-regular"],
         latoSemibold: ["lato-semibold"],
+        latoSemiboldItalic: ["lato-semibold-italic"],
       },
       colors: {
         primary: "#6FAA26",

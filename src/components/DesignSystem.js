@@ -58,6 +58,9 @@ export default function DesignSystem() {
               <h1 className="font-latoSemibold">
                 {"This is font-latoSemibold"}
               </h1>
+              <h1 className="font-latoSemiboldItalic">
+                {"This is font-latoSemiboldItalic"}
+              </h1>
             </div>
             <div className="w-6/12">
               <h1 className="font-mulishExtrabold text-[24px]">{"Colors:"}</h1>
