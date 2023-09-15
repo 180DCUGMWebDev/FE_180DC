@@ -55,6 +55,36 @@ export default function Team() {
         role: "BoA Staff",
       },
     ],
+    [
+      {
+        position: "-top-[20%]",
+        src: "/img/aboutus/Team/board.svg",
+        alt: "180dc bod profile picture",
+        name: "Ahmed Sheraz",
+        role: "BoA Staff",
+      },
+      {
+        position: "-top-[20%]",
+        src: "/img/aboutus/Team/board.svg",
+        alt: "180dc bod profile picture",
+        name: "Ahmed Sheraz",
+        role: "BoA Staff",
+      },
+      {
+        position: "-top-[20%]",
+        src: "/img/aboutus/Team/board.svg",
+        alt: "180dc bod profile picture",
+        name: "Ahmed Sheraz",
+        role: "BoA Staff",
+      },
+      {
+        position: "-top-[20%]",
+        src: "/img/aboutus/Team/board.svg",
+        alt: "180dc bod profile picture",
+        name: "Ahmed Sheraz",
+        role: "BoA Staff",
+      },
+    ],
   ];
 
   const highRoles = [
