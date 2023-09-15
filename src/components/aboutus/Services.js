@@ -61,8 +61,9 @@ export default function Services() {
 
   // Page
   return (
-    <section className="w-full h-screen flex flex-col justify-center items-center gap-[60px] py-[20px] px-[50px]">
+    <section className="w-full h-screen flex flex-col justify-center items-center gap-[60px] pt-[20px] pb-[30px] px-[50px]">
       <div className="flex w-full h-[25%]">
+        {/* Titles */}
         <div className="flex w-6/12 items-end">
           <h1 className="text-start text-primary text-[64px]/[60px] font-avenirBlack">
             {"Our Services"}

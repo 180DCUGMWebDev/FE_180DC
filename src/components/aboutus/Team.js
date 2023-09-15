@@ -113,7 +113,7 @@ export default function Team() {
         </div>
       </div>
       {/* BoDs */}
-      <div className="relative flex flex-col w-full min-h-[75vh] h-fit items-center px-[130px] pb-[20px] gap-[60px]">
+      <div className="relative flex flex-col w-full min-h-[75vh] h-fit items-center px-[130px] pb-[60px] gap-[60px]">
         {/* White Background */}
         <div className="absolute -z-[998] w-full h-full bg-white" />
 
