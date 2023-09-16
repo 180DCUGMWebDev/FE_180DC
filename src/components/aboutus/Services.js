@@ -74,22 +74,22 @@ export default function Services() {
       {createBackground("dark")}
       <div className="hidden lg:flex w-full h-screen justify-center items-center">
         <div className="flex w-full h-full flex-col justify-center items-center gap-[60px] pt-[20px] pb-[30px] px-[50px] 2xl:w-[1536px] 2xl:h-fit">
-          <div className="flex w-full h-[25%]">
+          <div className="flex w-full h-[28%]">
             {/* Titles */}
-            <div className="flex w-6/12 items-end">
+            <div className="flex w-5/12 items-end">
               <h1 className="text-start text-primary text-[4vw]/[3.9vw] font-avenirBlack 2xl:text-[61px]/[60px]">
                 {"Our Services"}
                 <br />
                 {"Offered for You"}
               </h1>
             </div>
-            <div className="flex w-6/12 items-end">
-              <p className="font-latoRegular text-lightWhite text-[24px]/[32px]">
+            <div className="flex w-7/12 items-end">
+              <p className="font-latoRegular text-lightWhite text-[2vw]/[2.67vw] 2xl:text-[30.7px]/[41px]">
                 {content.desc}
               </p>
             </div>
           </div>
-          <div className="flex grow w-full h-[75%] justify-center gap-[72px] 2xl:h-fit">
+          <div className="flex grow w-full h-[72%] justify-center gap-[72px] 2xl:h-fit">
             {/* Cards */}
             {titles.map((val, idx) => {
               return (

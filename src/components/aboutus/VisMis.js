@@ -57,7 +57,7 @@ export default function VisMis() {
 
       {/* Content */}
       <div className="hidden lg:flex w-full h-screen items-center justify-center">
-        <div className="flex flex-col justify-center items-center px-[6vw] 2xl:w-[1300px] 2xl:px-0">
+        <div className="flex flex-col justify-center items-center px-[6vw] 2xl:w-[1536px] 2xl:px-[100px]">
           {/* Title */}
           <div className="w-full">
             <h1 className="text-center text-primary text-[4vw]/[3.8vw] font-avenirBlack 2xl:text-[61px]/[58px]">
