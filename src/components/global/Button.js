@@ -10,7 +10,7 @@ export default function Button({ color, text, action = "", addClass = "" }) {
         btnColor +
         " " +
         addClass +
-        " rounded-[40px] text-white px-auto py-[9px] font-latoRegular"
+        " rounded-[40px] text-white px-auto font-latoRegular"
       }
       onClick={
         action !== ""

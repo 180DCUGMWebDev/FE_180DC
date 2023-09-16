@@ -4,6 +4,7 @@ export const navLinks = {
   "About Us": "/aboutus",
   "Our Clients": "/clients",
   "Telescope": "/telescope",
+  "Apply": "/apply",
 }
 // External Links
 export const socLinks = {

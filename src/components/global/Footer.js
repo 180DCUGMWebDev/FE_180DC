@@ -22,6 +22,9 @@ export default function Footer() {
   const router = useRouter();
   const pathname = usePathname();
 
+  // Without Footer Routes
+  const disableRoute = [navLinks.Apply]
+
   // Themes
   //// Registered Light Themes
   const lightThemes = [navLinks["About Us"]];
@@ -50,7 +53,7 @@ export default function Footer() {
 
   // Page
   return (
-    <div className={"w-full h-full" + bgTheme}>
+    <div className={"w-full h-full" + bgTheme + (disableRoute.includes(pathname) ? " hidden " : "")}>
       <div className="hidden relative lg:flex w-full bg-gradient-to-br from-black to-primary rounded-tl-[20px] rounded-tr-[20px] p-[3px]">
         {/* Background */}
         <div className="absolute -z-[999] top-0 left-0 w-full h-full bg-white" />

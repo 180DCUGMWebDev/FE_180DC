@@ -20,7 +20,7 @@ export default function DesignSystem() {
           action={() => {
             changeDesign();
           }}
-          addClass={"text-[16px] px-[20px]"}
+          addClass={"text-[16px] px-[20px] py-[9px]"}
         />
       </div>
 
