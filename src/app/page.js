@@ -1,9 +1,15 @@
+// Import Components
 import DesignSystem from "@/components/DesignSystem";
+
+// Import Configs
+import { createBackground } from "@/config/Functions";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen w-full flex-col items-center py-[100px] p-[30px]">
+    <main className="relative flex min-h-screen w-full flex-col items-center py-[100px] p-[30px]">
+      {createBackground("dark")}
+      
       <DesignSystem />
     </main>
-  )
+  );
 }

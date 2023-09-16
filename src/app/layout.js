@@ -1,9 +1,11 @@
+// Import
 import "./globals.css";
 
 // Import Components
 import Navbar from "@/components/global/Navbar";
 import Footer from "@/components/global/Footer";
 import { ToastContainer } from "react-toastify";
+import { Children } from "react";
 
 export const metadata = {
   title: "180DC UGM",
@@ -13,14 +15,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={"relative h-full w-full"}>
-        {/* Background */}
-        <div className="absolute -z-[999] top-0 left-0 w-full h-full bg-black" />
-
+      <body>
         {/* Content */}
         <Navbar />
         {children}
         <Footer />
+        {/* Toastify */}
         <ToastContainer />
       </body>
     </html>

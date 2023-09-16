@@ -1,5 +1,9 @@
+// Import Packages
 import React from "react";
 import { FaBriefcase } from "react-icons/fa";
+
+// Import Configs
+import { createBackground } from "@/config/Functions";
 
 export default function VisMis() {
   // Values
@@ -47,35 +51,39 @@ export default function VisMis() {
 
   // Page
   return (
-    <section className="w-full h-screen flex flex-col justify-center items-center px-[90px]">
-      {/* Title */}
-      <div className="w-full">
-        <h1 className="text-center text-primary text-[64px]/[60px] font-avenirBlack">
-          {"180DC UGM"}
-          <br />
-          {"Vision & Mission"}
-        </h1>
-      </div>
-      {/* Vision */}
-      <div className="flex mt-[40px] w-full">
-        <h2 className="font-avenirBlack text-secondary text-[36px]/[30px] w-[14.2%]">
-          {"Vision"}
-        </h2>
-        <p className="font-latoRegular text-lightWhite text-justify text-[24px]/[32px] w-[85.8%]">
-          {vision}
-        </p>
-      </div>
-      {/* Mision */}
-      <div className="flex mt-[28px] w-full">
-        <h2 className="font-avenirBlack text-secondary text-[36px]/[30px] w-[14.2%] mt-[10px]">
-          {"Mision"}
-        </h2>
-        <div className="flex w-[85.8%] gap-[120px]">
-          {titles.map((title, idx) => {
-            return (
-              missionFormat(title, values[idx])
-            );
-          })}
+    <section className="relative">
+      {/* Background */}
+      {createBackground("dark")}
+
+      {/* Content */}
+      <div className="w-full h-screen flex flex-col justify-center items-center px-[90px]">
+        {/* Title */}
+        <div className="w-full">
+          <h1 className="text-center text-primary text-[64px]/[60px] font-avenirBlack">
+            {"180DC UGM"}
+            <br />
+            {"Vision & Mission"}
+          </h1>
+        </div>
+        {/* Vision */}
+        <div className="flex mt-[40px] w-full">
+          <h2 className="font-avenirBlack text-secondary text-[36px]/[30px] w-[14.2%]">
+            {"Vision"}
+          </h2>
+          <p className="font-latoRegular text-lightWhite text-justify text-[24px]/[32px] w-[85.8%]">
+            {vision}
+          </p>
+        </div>
+        {/* Mision */}
+        <div className="flex mt-[28px] w-full">
+          <h2 className="font-avenirBlack text-secondary text-[36px]/[30px] w-[14.2%] mt-[10px]">
+            {"Mision"}
+          </h2>
+          <div className="flex w-[85.8%] gap-[120px]">
+            {titles.map((title, idx) => {
+              return missionFormat(title, values[idx]);
+            })}
+          </div>
         </div>
       </div>
     </section>

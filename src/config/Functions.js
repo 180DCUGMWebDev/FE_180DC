@@ -2,6 +2,20 @@
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+// Background Function
+export const createBackground = (theme) => {
+  const bgTheme =
+    theme === "light"
+      ? " bg-white "
+      : theme === "dark"
+      ? " bg-black "
+      : " bg-primary ";
+
+  return (
+    <div className={"absolute -z-[999] top-0 left-0 w-full h-full" + bgTheme} />
+  );
+};
+
 // Copy Function
 export const copyContent = (content, context) => {
   // Toasters
@@ -16,13 +30,12 @@ export const copyContent = (content, context) => {
   };
 
   navigator.clipboard.writeText(content, context);
-  toast.info((context + " sucessfully copied!"), toastOptions());
+  toast.info(context + " sucessfully copied!", toastOptions());
 };
 
 // Routing Function
 export const directRoute = (link, router, pathname) => {
-  console.log("Comparing to " + link + " with current " + pathname)
+  console.log("Comparing to " + link + " with current " + pathname);
 
-  if (pathname !== link)
-    router.push(link);
+  if (pathname !== link) router.push(link);
 };

@@ -1,9 +1,19 @@
+// Import Packages
 import { FaPlay } from "react-icons/fa";
+
+// Import Components
 import ImgF from "../global/ImgF";
+
+// Import Configs
+import { createBackground } from "@/config/Functions";
 
 export default function WhoWeAre() {
   return (
-    <section>
+    <section className="relative">
+      {/* Background */}
+      {createBackground("dark")}
+
+      {/* Content */}
       <div className="w-full h-screen px-[50px] pt-[12%] pb-[5%] flex justify-center items-center gap-[60px]">
         <div className="w-3/12 h-full flex flex-col gap-[20px]">
           {/* Who Are We? */}
