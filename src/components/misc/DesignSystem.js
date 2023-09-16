@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import Button from "./global/Button";
+import Button from "../global/Button";
 
 export default function DesignSystem() {
   const [seeDesign, setSeeDesign] = useState(true);

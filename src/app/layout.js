@@ -5,7 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/global/Navbar";
 import Footer from "@/components/global/Footer";
 import { ToastContainer } from "react-toastify";
-import { Children } from "react";
+import TooSmall from "@/components/misc/TooSmall";
 
 export const metadata = {
   title: "180DC UGM",
@@ -16,12 +16,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="select-none">
-        {/* Content */}
-        <Navbar />
-        {children}
-        <Footer />
-        {/* Toastify */}
-        <ToastContainer />
+        {/* First Option */}
+        <div className="hidden min-[250px]:flex flex-col">
+          {/* Content */}
+          <Navbar />
+          {children}
+          <Footer />
+          {/* Toastify */}
+          <ToastContainer />
+        </div>
+        {/* Second Option */}
+        <TooSmall />
       </body>
     </html>
   );

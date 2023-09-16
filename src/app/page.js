@@ -1,5 +1,5 @@
 // Import Components
-import DesignSystem from "@/components/DesignSystem";
+import DesignSystem from "@/components/misc/DesignSystem";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";
