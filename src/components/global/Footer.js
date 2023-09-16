@@ -71,11 +71,12 @@ export default function Footer() {
               </div>
             </div>
             {/* Office n Navigation */}
-            <div className="flex w-[41.66%] gap-[60px]">
+            <div className="flex w-[41.66%] gap-[60px] 2xl:w-fit">
               {/* Office */}
-              <div className="flex flex-col items-end w-[60%] 2xl:w-[57%]">
+              <div className="flex flex-col items-end w-[60%] 2xl:w-fit">
                 <div className="2xl:w-[320px]">
                   <h1 className={classHead}>{"Office"}</h1>
+                  {/* Address */}
                   <p
                     className="text-[0.9vw] 2xl:text-[13.8px] w-fit hover:cursor-pointer"
                     onClick={() => {
@@ -84,6 +85,7 @@ export default function Footer() {
                   >
                     {office.addr}
                   </p>
+                  {/* Website */}
                   <p
                     className="text-[0.9vw] 2xl:text-[13.8px] w-fit hover:cursor-pointer mt-[8px]"
                     onClick={() => {
@@ -94,8 +96,8 @@ export default function Footer() {
                   </p>
                 </div>
               </div>
-              {/* Navigation */}
-              <div className="flex flex-col w-[40%] gap-[8px] 2xl:w-[43%]">
+              {/* Navigations */}
+              <div className="flex flex-col w-[40%] 2xl:w-fit">
                 <h1 className={classHead}>{"Navigation"}</h1>
                 <NavFootItems
                   ulClass="flex flex-col w-full gap-[2.5px] text-[12px] 2xl:w-[150px]"
