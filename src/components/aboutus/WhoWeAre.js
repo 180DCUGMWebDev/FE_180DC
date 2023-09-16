@@ -25,8 +25,8 @@ export default function WhoWeAre() {
       {createBackground("dark")}
 
       {/* Content */}
-      <div className="flex justify-center items-center w-full h-screen">
-        <div className="hidden lg:flex justify-center items-center w-full h-full px-[50px] pt-[12%] pb-[5%] gap-[3.5vw] 2xl:gap-[72px]">
+      <div className="hidden lg:flex justify-center items-center w-full h-screen">
+        <div className="flex justify-center items-center w-full h-full px-[50px] pt-[12%] pb-[5%] gap-[3.5vw] 2xl:gap-[72px]">
           <div className="w-3/12 h-full flex flex-col gap-[20px] 2xl:w-[384px]">
             {/* Who Are We? */}
             <div className="w-full h-[25%] flex items-center text-lightWhite font-avenirBlack text-[3vw] 2xl:text-[46px]">
