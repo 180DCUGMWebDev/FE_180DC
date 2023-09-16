@@ -27,7 +27,7 @@ export default function WhoWeAre() {
 
       {/* Content */}
       <div className="hidden lg:flex justify-center items-center w-full h-screen">
-        <div className="flex flex-col justify-center items-center w-full h-fit px-[50px] pt-[12%] pb-[5%] 2xl:w-[1536px]">
+        <div className="flex flex-col justify-center items-center w-full h-full px-[50px] pt-[12%] pb-[5%] 2xl:w-[1536px]">
           <div className="flex flex-col w-full h-full gap-[1vw] 2xl:gap-[16px] 2xl:h-fit">
             <div className="w-full h-fit flex gap-[3.5vw] 2xl:gap-[72px]">
               {/* Who Are We? Title */}
