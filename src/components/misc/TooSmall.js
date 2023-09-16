@@ -6,8 +6,8 @@ import { createBackground } from "@/config/Functions";
 
 export default function TooSmall() {
   return (
-    <main>
-      <div className="relative flex w-full h-screen items-center justify-center p-[15vw]">
+    <main className="min-[250px]:hidden flex">
+      <div className="relative flex w-full h-[100vmax] items-center justify-center p-[15vw]">
         {/* Background */}
         {createBackground("dark")}
 
