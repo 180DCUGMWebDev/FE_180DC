@@ -99,7 +99,7 @@ export default function Footer() {
                   className={classFavIcon}
                   onClick={() => {
                     window.open(
-                      "https://www.instagram.com/180dcugm/",
+                      navLinks.Instagram,
                       "_blank"
                     );
                   }}
@@ -108,7 +108,7 @@ export default function Footer() {
                   className={classFavIcon}
                   onClick={() => {
                     window.open(
-                      "https://www.linkedin.com/company/180dcugm/",
+                      navLinks.LinkedIn,
                       "_blank"
                     );
                   }}
@@ -117,7 +117,7 @@ export default function Footer() {
                   className={classFavIcon}
                   onClick={() => {
                     window.open(
-                      "https://open.spotify.com/show/4JoRSSOG8SospplfsJTxSe",
+                      navLinks.Spotify,
                       "_blank"
                     );
                   }}
