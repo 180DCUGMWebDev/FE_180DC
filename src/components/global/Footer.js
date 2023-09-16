@@ -14,7 +14,7 @@ import NavFootItems from "./NavFootItems";
 import ImgF from "./ImgF";
 
 // Import Configs
-import { navLinks } from "@/config/Links";
+import { navLinks, socLinks } from "@/config/Links";
 import { copyContent, directRoute } from "@/config/Functions"
 
 export default function Footer() {
@@ -99,7 +99,7 @@ export default function Footer() {
                   className={classFavIcon}
                   onClick={() => {
                     window.open(
-                      navLinks.Instagram,
+                      socLinks.Instagram,
                       "_blank"
                     );
                   }}
@@ -108,7 +108,7 @@ export default function Footer() {
                   className={classFavIcon}
                   onClick={() => {
                     window.open(
-                      navLinks.LinkedIn,
+                      socLinks.LinkedIn,
                       "_blank"
                     );
                   }}
@@ -117,7 +117,7 @@ export default function Footer() {
                   className={classFavIcon}
                   onClick={() => {
                     window.open(
-                      navLinks.Spotify,
+                      socLinks.Spotify,
                       "_blank"
                     );
                   }}
