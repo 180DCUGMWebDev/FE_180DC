@@ -1,8 +1,18 @@
 "use client";
 
+// Import Packages
+import { useRouter, usePathname } from "next/navigation";
+
+// Import Configs
 import { navLinks } from "@/config/Links";
+import { directRoute } from "@/config/Functions";
 
 export default function NavFootItems({ ulClass, liClass, aClass }) {
+  // Router Hook
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // Extractor
   let options = new Array();
   let directs = new Array();
 
@@ -12,14 +22,20 @@ export default function NavFootItems({ ulClass, liClass, aClass }) {
     directs.push(value);
   });
 
+  // Component
   return (
-    <ul className={ulClass}>
+    <ul className={ulClass + " select-none"}>
       {options.map((val, idx) => {
         return (
           <li className={liClass} key={val}>
-            <a className={aClass} href={directs[idx]}>
+            <p
+              className={aClass + " hover:cursor-pointer"}
+              onClick={() => {
+                directRoute(directs[idx], router, pathname);
+              }}
+            >
               {val}
-            </a>
+            </p>
           </li>
         );
       })}

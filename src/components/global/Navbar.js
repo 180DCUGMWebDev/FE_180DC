@@ -1,17 +1,22 @@
 "use client";
 
+// Import Packages
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
+// Import Components
 import Button from "./Button";
 import NavFootItems from "./NavFootItems";
 import ImgF from "./ImgF";
 
+// Import Configs
 import { navLinks } from "@/config/Links";
+import { directRoute } from "@/config/Functions"
 
 export default function Navbar() {
   // Router Hook
   const router = useRouter();
+  const pathname = usePathname();
 
   // Scroll Direction Hook
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -56,23 +61,25 @@ export default function Navbar() {
         (scroll !== "down" ? "" : "translate-y-[-200%]")
       }
     >
-      <nav className="flex w-full">
+      <nav className="hidden lg:flex w-full">
         {/* Logo */}
         <div className="flex w-[5%]">
-          <ImgF
-            src="/img/global/logo180dctrns.png"
-            alt="logo 180dc"
-            action={() => {
-              router.push(navLinks.Home);
-            }}
-          />
+          <div className="w-full 2xl:w-[77px] h-full">
+            <ImgF
+              src="/img/global/logo180dctrns.png"
+              alt="logo 180dc"
+              action={() => {
+                directRoute(navLinks.Home, router, pathname);
+              }}
+            />
+          </div>
         </div>
         {/* Navigations */}
         <div className="flex w-[80%]">
           <NavFootItems
-            ulClass="flex w-full items-center justify-center gap-[60px]"
-            liClass="flex justify-center w-[10%]"
-            aClass="text-lightWhite font-latoRegular hover:font-latoBold"
+            ulClass="flex w-full items-center justify-center gap-[4vw]"
+            liClass="flex justify-center w-fit"
+            aClass="text-lightWhite text-[1.3vw] font-latoRegular hover:font-latoBold 2xl:text-[20px]"
           />
         </div>
         {/* Consult */}
@@ -80,7 +87,7 @@ export default function Navbar() {
           <Button
             color={"green"}
             text={"Consult Now!"}
-            addClass={"w-[170px] text-[16px]"}
+            addClass={"w-[11vw] text-[1.1vw] 2xl:w-[170px] 2xl:text-[17px]"}
           />
         </div>
       </nav>
