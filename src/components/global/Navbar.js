@@ -57,21 +57,23 @@ export default function Navbar() {
   return (
     <div
       className={
-        "fixed top-0 left-0 z-[999] flex w-full py-[20px] px-[50px] transition-transform duration-[300ms] " +
+        "fixed top-0 left-0 z-[999] hidden lg:flex w-full py-[20px] px-[50px] transition-transform duration-[300ms] " +
         (scroll !== "down" ? "" : "translate-y-[-200%]")
       }
     >
-      <nav className="hidden lg:flex w-full">
+      <nav className="flex w-full">
         {/* Logo */}
-        <div className="flex w-[5%]">
-          <div className="w-full 2xl:w-[77px] h-full">
-            <ImgF
-              src="/img/global/logo180dctrns.png"
-              alt="logo 180dc"
-              action={() => {
-                directRoute(navLinks.Home, router, pathname);
-              }}
-            />
+        <div className="w-[15%] h-full">
+          <div className="flex w-[33%] h-full">
+            <div className="w-full 2xl:w-[77px] h-full">
+              <ImgF
+                src="/img/global/logo180dctrns.png"
+                alt="logo 180dc"
+                action={() => {
+                  directRoute(navLinks.Home, router, pathname);
+                }}
+              />
+            </div>
           </div>
         </div>
         {/* Navigations */}
