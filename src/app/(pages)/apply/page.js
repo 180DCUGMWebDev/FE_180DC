@@ -147,92 +147,99 @@ export default function Apply() {
 
   return (
     <main>
-      <section className="relative h-fit overflow-clip">
+      <section className="relative flex min-h-screen h-fit overflow-clip justify-center items-center">
         {/* Background */}
         {createBackground("dark")}
 
-        {/* Green Flowers */}
-        {/* Bottom-Most Right-Most */}
-        <div className="absolute bottom-[5%] right-0 opacity-[.06]">
-          <ImgF src="/img/apply/type1green.png" alt="deco img" />
-        </div>
+        {/* Background Assets */}
+        <div className="hidden lg:flex absolute w-[100vw] h-[112.5vw]">
+          {/* Green Flowers */}
+          {/* Bottom-Most Right-Most */}
+          <div className="absolute bottom-[5%] right-0 opacity-[.06]">
+            <ImgF src="/img/apply/type1green.png" alt="deco img" />
+          </div>
 
-        {/* Bottom-Most Left-Most */}
-        <div className="absolute bottom-[15%] left-[30%] opacity-[.06] rotate-[12deg] scale-[.5]">
-          <ImgF src="/img/apply/type1green.png" alt="deco img" />
-        </div>
+          {/* Bottom-Most Left-Most */}
+          <div className="absolute bottom-[15%] left-[30%] opacity-[.06] rotate-[12deg] scale-[.5]">
+            <ImgF src="/img/apply/type1green.png" alt="deco img" />
+          </div>
 
-        {/* Left-Most Second */}
-        <div className="absolute top-[35%] left-[30%] opacity-[.06] rotate-[40deg] scale-[.3]">
-          <ImgF src="/img/apply/type1green.png" alt="deco img" />
-        </div>
+          {/* Left-Most Second */}
+          <div className="absolute top-[35%] left-[30%] opacity-[.06] rotate-[40deg] scale-[.3]">
+            <ImgF src="/img/apply/type1green.png" alt="deco img" />
+          </div>
 
-        {/* Left-Most Top-Most */}
-        <div className="absolute -top-[1.5%] left-[14%] opacity-[.06] -rotate-[15deg] scale-[.3]">
-          <ImgF src="/img/apply/type1green.png" alt="deco img" />
-        </div>
+          {/* Left-Most Top-Most */}
+          <div className="absolute -top-[1.5%] left-[14%] opacity-[.06] -rotate-[15deg] scale-[.3]">
+            <ImgF src="/img/apply/type1green.png" alt="deco img" />
+          </div>
 
-        {/* Light Blue Flowers */}
-        <div className="absolute top-[4%] left-[5%] opacity-[.06] ">
-          <ImgF src="/img/apply/type3lgblue.png" alt="deco img" />
-        </div>
+          {/* Light Blue Flowers */}
+          <div className="absolute top-[4%] left-[5%] opacity-[.06] ">
+            <ImgF src="/img/apply/type3lgblue.png" alt="deco img" />
+          </div>
 
-        {/* Blue Flowers */}
-        {/* Right-Most Top-Most */}
-        <div className="absolute top-[6%] right-[5%] opacity-[.08] ">
-          <ImgF src="/img/apply/type2blue.png" alt="deco img" />
-        </div>
+          {/* Blue Flowers */}
+          {/* Right-Most Top-Most */}
+          <div className="absolute top-[6%] right-[5%] opacity-[.08] ">
+            <ImgF src="/img/apply/type2blue.png" alt="deco img" />
+          </div>
 
-        {/* Right-Most Second */}
-        <div className="absolute bottom-[26%] left-[4%] opacity-[.08] ">
-          <ImgF src="/img/apply/type2blue.png" alt="deco img" />
-        </div>
+          {/* Left-Most Second */}
+          <div className="absolute bottom-[26%] left-[4%] opacity-[.08] ">
+            <ImgF src="/img/apply/type2blue.png" alt="deco img" />
+          </div>
 
-        {/* Right-Most Bottom-Most */}
-        <div className="absolute -bottom-[9%] left-[1%] opacity-[.08] rotate-[45deg] scale-[2]">
-          <ImgF src="/img/apply/type2blue.png" alt="deco img" />
+          {/* Left-Most Bottom-Most */}
+          <div className="absolute -bottom-[9%] left-[1%] opacity-[.08] rotate-[45deg] scale-[2]">
+            <ImgF src="/img/apply/type2blue.png" alt="deco img" />
+          </div>
         </div>
 
         {/* Content */}
-        <div className="flex flex-col w-full h-fit pt-[120px] pb-[60px] px-[50px] gap-[30px]">
+        <div className="hidden lg:flex flex-col w-full h-fit pt-[120px] pb-[60px] px-[50px] gap-[2.2vw] overflow-clip 2xl:gap-[33.8px] 2xl:w-[1536px]">
           {/* Title */}
           <div className="flex w-full justify-center">
-            <h1 className="text-center text-primary text-[5vw] font-avenirBlack">
+            <h1 className="text-center text-primary text-[5vw] font-avenirBlack 2xl:text-[76.8px]">
               {"Client Application Form"}
             </h1>
           </div>
           {/* Steps n Forms */}
           <div className="flex w-full gap-[40px]">
             {/* Left-Steps */}
-            <div className="flex flex-col w-[40%] gap-[45px]">
+            <div className="flex flex-col w-[40%] gap-[4%]">
               {steps.map((step, idx) => {
                 return (
-                  <div className="flex flex-col w-full h-fit gap-[10px]">
-                    {/* Balls and Title */}
-                    <div className="flex w-full items-center h-fit gap-[5%]">
-                      <div className="flex w-[5%] justify-center">
-                        <div className="w-[17px] h-[17px] bg-primary rounded-full mb-[3px]" />
-                      </div>
-                      <div className="flex w-[90%]">
-                        <h1 className="text-primary text-[1.9vw] leading-[1.1] font-avenirBlack w-full">
-                          {step.title}
-                        </h1>
-                      </div>
-                    </div>
-                    {/* Poles and Descriptions */}
-                    <div className="flex w-full h-fit gap-[5%]">
-                      <div className="flex w-[5%] justify-center">
+                  <div className="relative flex flex-col w-full h-fit gap-[15px]">
+                    {/* Poles */}
+                    <div className="absolute flex justify-center w-[5%] h-[165%] mt-[3%]">
+                      <div className="flex w-[40%] justify-center">
                         <div
                           className={
-                            "relative w-[4px] h-[230%] -mt-[140%] " +
+                            "relative w-[0.4vw] h-full 2xl:w-[6.1px] " +
                             (idx !== steps.length - 1 ? " " : " hidden")
                           }
                         >
                           <div className="absolute -z-[997] w-full h-full  bg-secondary" />
                         </div>
                       </div>
+                    </div>
+                    {/* Balls and Title */}
+                    <div className="flex w-full items-center h-fit gap-[5%]">
+                      <div className="flex w-[5%] justify-center">
+                        <div className="w-[1.5vw] h-[1.5vw] bg-primary rounded-full mb-[3px] 2xl:w-[23px] 2xl:h-[23px]" />
+                      </div>
                       <div className="flex w-[90%]">
-                        <p className="font-latoRegular text-lightWhite text-[1.3vw] leading-[1.25]">
+                        <h1 className="text-primary text-[1.9vw] leading-[1.1] font-avenirBlack w-full 2xl:text-[29px]">
+                          {step.title}
+                        </h1>
+                      </div>
+                    </div>
+                    {/* Descriptions */}
+                    <div className="flex w-full h-fit">
+                      <div className="relative w-[10%]"></div>
+                      <div className="flex w-[90%]">
+                        <p className="font-latoRegular text-lightWhite text-[1.13vw] leading-[1.25] 2xl:text-[17.3px]">
                           {step.desc}
                         </p>
                       </div>
@@ -242,27 +249,41 @@ export default function Apply() {
               })}
             </div>
             {/* Right Forms */}
-            <form className="flex flex-col w-[60%] gap-[20px]">
+            <form className="flex flex-col w-[60%] gap-[1.6vw] 2xl:gap-[24.5px]">
               {forms.map((form, idx) => {
                 return (
                   <>
                     <div className="flex flex-col w-full">
                       {/* Question */}
-                      <label className="font-latoRegular text-lightWhite text-[1.3vw]">
+                      <label className="font-latoRegular text-lightWhite text-[1.13vw] 2xl:text-[17.3px]">
                         {form.question}
                       </label>
                       {/* Answer Box */}
-                      <input
-                        className={
-                          "text-start outline-none rounded-[4px] px-[9px] py-[4px] " +
-                          form.className
-                        }
-                        id={idx + "_applyform"}
-                        name={form.question}
-                        type={form.type}
-                        autoComplete="off"
-                        placeholder={form.placeholder}
-                      />
+                      {form.type === "textarea" ? (
+                        <textarea
+                          className={
+                            "text-start outline-none rounded-[4px] px-[9px] py-[4px] h-[90px] text-[1.13vw] 2xl:text-[17.3px]" +
+                            form.className
+                          }
+                          id={idx + "_applyform"}
+                          name={form.question}
+                          type={form.type}
+                          autoComplete="off"
+                          placeholder={form.placeholder}
+                        />
+                      ) : (
+                        <input
+                          className={
+                            "text-start outline-none rounded-[4px] px-[9px] py-[4px] text-[1.13vw] 2xl:text-[17.3px]" +
+                            form.className
+                          }
+                          id={idx + "_applyform"}
+                          name={form.question}
+                          type={form.type}
+                          autoComplete="off"
+                          placeholder={form.placeholder}
+                        />
+                      )}
                     </div>
                     {/* Sneaking the Project Scope */}
                     {idx === 9 ? (
@@ -270,7 +291,7 @@ export default function Apply() {
                         {/* Project Scope */}
                         <div className="flex flex-col my-[10px]">
                           {/* Title */}
-                          <h1 className="font-latoRegular text-lightWhite text-[1.3vw]">
+                          <h1 className="font-latoRegular text-lightWhite text-[1.13vw] 2xl:text-[17.3px]">
                             {"Project Scope"}
                           </h1>
                           {/* Contents */}
@@ -281,7 +302,7 @@ export default function Apply() {
                                   {project.map((item) => {
                                     return (
                                       <li
-                                        className="font-latoRegular text-lightWhite text-[1.3vw] flex items-center gap-[5px]"
+                                        className="font-latoRegular text-lightWhite text-[1.13vw] flex items-center gap-[5px] 2xl:text-[17.3px]"
                                         key={item}
                                       >
                                         <div className="w-[12px] h-[12px] bg-primary rounded-full mb-[3px]" />
@@ -304,7 +325,9 @@ export default function Apply() {
               <Button
                 color={"green"}
                 text={"Submit"}
-                addClass={"w-[9vw] h-[30px] text-[1.1vw]"}
+                addClass={
+                  "w-[9vw] h-[30px] text-[1.1vw] 2xl:w-[138px] 2xl:text-[16.8px]"
+                }
               />
             </form>
           </div>
