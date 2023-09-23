@@ -35,7 +35,7 @@ export const copyContent = (content, context) => {
 
 // Routing Function
 export const directRoute = (link, router, pathname) => {
-  console.log("Comparing to " + link + " with current " + pathname);
+  // console.log("Comparing to " + link + " with current " + pathname);
 
   if (pathname !== link) router.push(link);
 };

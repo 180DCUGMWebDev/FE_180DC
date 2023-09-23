@@ -1,9 +1,12 @@
+"use client";
+
 // Import Components
 import Button from "@/components/global/Button";
 import ImgF from "@/components/global/ImgF";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";
+import { useState } from "react";
 
 export default function Apply() {
   const steps = [
@@ -34,13 +37,14 @@ export default function Apply() {
     },
   ];
 
-  const forms = [
+  const [forms, setForm] = useState([
     {
       question: "Applicant Name",
       placeholder: "Input your name",
       type: "text",
       required: false,
       className: "",
+      answer: "",
     },
     {
       question: "Applicant position in the entity",
@@ -48,6 +52,7 @@ export default function Apply() {
       type: "text",
       required: false,
       className: "",
+      answer: "",
     },
     {
       question: "Email Address",
@@ -55,6 +60,7 @@ export default function Apply() {
       type: "text",
       required: false,
       className: "",
+      answer: "",
     },
     {
       question: "Phone Number",
@@ -62,6 +68,7 @@ export default function Apply() {
       type: "text",
       required: false,
       className: "",
+      answer: "",
     },
     {
       question: "Entity's Name",
@@ -69,6 +76,7 @@ export default function Apply() {
       type: "text",
       required: false,
       className: "",
+      answer: "",
     },
     {
       question: "Entity's Location",
@@ -76,6 +84,7 @@ export default function Apply() {
       type: "text",
       required: false,
       className: "",
+      answer: "",
     },
     {
       question: "Entity's Social Media",
@@ -84,6 +93,7 @@ export default function Apply() {
       type: "text",
       required: false,
       className: "",
+      answer: "",
     },
     {
       question: "Explain your entity's background model in a short description",
@@ -92,6 +102,7 @@ export default function Apply() {
       type: "textarea",
       required: false,
       className: "",
+      answer: "",
     },
     {
       question: "Length of entity",
@@ -99,6 +110,7 @@ export default function Apply() {
       type: "text",
       required: false,
       className: "",
+      answer: "",
     },
     {
       question: "Entity's size",
@@ -106,6 +118,7 @@ export default function Apply() {
       type: "text",
       required: false,
       className: "",
+      answer: "",
     },
     {
       question: "Project scope elaboration",
@@ -113,6 +126,7 @@ export default function Apply() {
       type: "text",
       required: false,
       className: "",
+      answer: "",
     },
     {
       question: "Project Outcome",
@@ -120,6 +134,7 @@ export default function Apply() {
       type: "text",
       required: false,
       className: "",
+      answer: "",
     },
     {
       question: "How did you hear about us?",
@@ -127,9 +142,28 @@ export default function Apply() {
       type: "text",
       required: false,
       className: "",
+      answer: "",
     },
-  ];
+  ]);
 
+  // Form Editor
+  const editForm = (answer, idx) => {
+    // Copy the form and then update the value there
+    const copyForm = Array.from(forms, (form) => form);
+    copyForm[idx].answer = answer;
+
+    // Save the updated form
+    setForm(copyForm);
+  };
+
+  // Forn OnClick
+  const formEditBtn = (e, idx) => {
+    e.preventDefault();
+    const answer = e.target.value;
+    editForm(answer, idx);
+  };
+
+  // Points in the middle of the form, seperate columns by new array
   const projectScope = [
     [
       "Impact Model Analysis",
@@ -152,7 +186,7 @@ export default function Apply() {
         {createBackground("dark")}
 
         {/* Background Assets */}
-        <div className="hidden lg:flex absolute w-[100vw] h-[112.5vw]">
+        <div className="hidden lg:flex absolute -z-[997] w-[100vw] h-[112.5vw]">
           {/* Green Flowers */}
           {/* Bottom-Most Right-Most */}
           <div className="absolute bottom-[5%] right-0 opacity-[.06]">
@@ -270,6 +304,10 @@ export default function Apply() {
                           type={form.type}
                           autoComplete="off"
                           placeholder={form.placeholder}
+                          value={form.answer}
+                          onChange={(e) => {
+                            formEditBtn(e, idx);
+                          }}
                         />
                       ) : (
                         <input
@@ -282,6 +320,10 @@ export default function Apply() {
                           type={form.type}
                           autoComplete="off"
                           placeholder={form.placeholder}
+                          value={form.answer}
+                          onChange={(e) => {
+                            formEditBtn(e, idx);
+                          }}
                         />
                       )}
                     </div>
