@@ -4,8 +4,12 @@ export const navLinks = {
   "About Us": "/aboutus",
   "Our Clients": "/clients",
   "Telescope": "/telescope",
+}
+// Internal Links
+export const intLinks = {
   "Apply": "/apply",
 }
+
 // External Links
 export const socLinks = {
   "Instagram": "https://www.instagram.com/180dcugm/",
