@@ -273,7 +273,7 @@ export default function Apply() {
             <div className="flex flex-col w-[40%] gap-[4%]">
               {steps.map((step, idx) => {
                 return (
-                  <div className="relative flex flex-col w-full h-fit gap-[15px]">
+                  <div key={idx} className="relative flex flex-col w-full h-fit gap-[15px]">
                     {/* Poles */}
                     <div className="absolute flex justify-center w-[5%] h-[165%] mt-[3%]">
                       <div className="flex w-[40%] justify-center">
@@ -367,9 +367,9 @@ export default function Apply() {
                           </h1>
                           {/* Contents */}
                           <div className="flex w-full">
-                            {projectScope.map((project) => {
+                            {projectScope.map((project, idx) => {
                               return (
-                                <ul className="flex flex-col w-full">
+                                <ul key={idx} className="flex flex-col w-full">
                                   {project.map((item) => {
                                     return (
                                       <li

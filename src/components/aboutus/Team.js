@@ -137,9 +137,9 @@ export default function Team() {
               {"Board of Directors"}
             </h2>
             {/* Cards Row */}
-            {values.map((value) => {
+            {values.map((value, idx) => {
               return (
-                <div className="flex w-full h-fit justify-center items-end mt-[24px] gap-[5vw] 2xl:gap-[76.8px]">
+                <div key={idx} className="flex w-full h-fit justify-center items-end mt-[24px] gap-[5vw] 2xl:gap-[76.8px]">
                   {value.map((valuePerRow) => {
                     return (
                       <>

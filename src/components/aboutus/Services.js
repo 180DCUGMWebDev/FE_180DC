@@ -93,7 +93,7 @@ export default function Services() {
             {/* Cards */}
             {titles.map((val, idx) => {
               return (
-                <div className="relative flex items-end h-full w-full rounded-t-[20px] bg-gradient-to-b from-transparent from-20% to-black to-[62%] p-[30px] pb-0 overflow-clip 2xl:h-[440px]">
+                <div key={idx} className="relative flex items-end h-full w-full rounded-t-[20px] bg-gradient-to-b from-transparent from-20% to-black to-[62%] p-[30px] pb-0 overflow-clip 2xl:h-[440px]">
                   {/* Background */}
                   <div
                     className={
@@ -109,7 +109,7 @@ export default function Services() {
                     </h2>
                     <ul className="list-disc ms-8 text-lightWhite font-latoRegular text-[1.15vw] 2xl:text-[17.6px]">
                       {values[idx].values.map((value) => {
-                        return <li key={value + " " + idx}>{value}</li>;
+                        return <li key={value + "_" + idx}>{value}</li>;
                       })}
                     </ul>
                   </div>
