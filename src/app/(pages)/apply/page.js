@@ -6,7 +6,7 @@ import ImgF from "@/components/global/ImgF";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Apply() {
   const steps = [
@@ -140,13 +140,20 @@ export default function Apply() {
       question: "How did you hear about us?",
       placeholder: "Our instagram, words of mouth, etc",
       type: "text",
-      required: false,
+      required: true,
       className: "",
       answer: "",
     },
   ]);
 
-  // Form Editor
+  // Forn OnClick
+  const formEditBtn = (e, idx) => {
+    e.preventDefault();
+    const answer = e.target.value;
+    editForm(answer, idx);
+  };
+
+  // Form OnChange
   const editForm = (answer, idx) => {
     // Copy the form and then update the value there
     const copyForm = Array.from(forms, (form) => form);
@@ -156,11 +163,33 @@ export default function Apply() {
     setForm(copyForm);
   };
 
-  // Forn OnClick
-  const formEditBtn = (e, idx) => {
+  const [formComplete, setFormComplete] = useState(true);
+  useEffect(() => {
+    const valid = forms.every((form) => {
+      if (form.required) {
+        return form.answer != "";
+      } else {
+        return true;
+      }
+    });
+
+    // console.log("Edit check: ", valid);
+
+    if (valid) {
+      setFormComplete(true);
+    } else {
+      setFormComplete(false);
+    }
+
+    // console.log("Out Result: ", formComplete);
+  }, [forms]);
+
+  // Form OnSubmit
+  const formSubmitBtn = (e) => {
     e.preventDefault();
-    const answer = e.target.value;
-    editForm(answer, idx);
+
+    // ############ FOR BACKEND: Input the action here later on. (No need to worry if the data is already completed or not).
+    // console.log("Test Button Click");
   };
 
   // Points in the middle of the form, seperate columns by new array
@@ -367,8 +396,13 @@ export default function Apply() {
               <Button
                 color={"green"}
                 text={"Submit"}
+                disableForm={!formComplete}
+                action={(e) => {
+                  formSubmitBtn(e);
+                }}
                 addClass={
-                  "w-[9vw] h-[30px] text-[1.1vw] 2xl:w-[138px] 2xl:text-[16.8px]"
+                  "w-[9vw] h-[30px] text-[1.1vw] 2xl:w-[138px] 2xl:text-[16.8px] " +
+                  (!formComplete ? "opacity-[70%]" : "")
                 }
               />
             </form>

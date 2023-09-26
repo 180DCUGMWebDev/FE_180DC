@@ -1,6 +1,6 @@
 "use client";
 
-export default function Button({ color, text, action = "", addClass = "" }) {
+export default function Button({ color, text, action = "", addClass = "", disableForm = false }) {
   const btnColor =
     color === "green" ? "bg-primary" : color === "black" ? "bg-black" : "";
 
@@ -12,10 +12,11 @@ export default function Button({ color, text, action = "", addClass = "" }) {
         addClass +
         " rounded-[40px] text-white px-auto font-latoRegular"
       }
+      disabled={disableForm}
       onClick={
         action !== ""
-          ? () => action()
-          : () => console.log("Clicked a non-functional button!")
+          ? (e) => action(e)
+          : (e) => console.log("Clicked a non-functional button!")
       }
     >
       {text}
