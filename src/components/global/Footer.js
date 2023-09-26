@@ -14,7 +14,7 @@ import NavFootItems from "./NavFootItems";
 import ImgF from "./ImgF";
 
 // Import Configs
-import { navLinks, socLinks } from "@/config/Links";
+import { navLinks, socLinks, intLinks } from "@/config/Links";
 import { copyContent, directRoute } from "@/config/Functions";
 
 export default function Footer() {
@@ -30,7 +30,7 @@ export default function Footer() {
   const lightThemes = [navLinks["About Us"]];
 
   //// Registered Dark Themes
-  const darkThemes = [navLinks.Home];
+  const darkThemes = [navLinks.Home, intLinks.Apply];
 
   const bgTheme =
     lightThemes.includes(pathname)
