@@ -42,8 +42,8 @@ export default function WhoWeAre() {
               </div>
             </div>
             {/* Images */}
-            <div className="w-full h-full flex gap-[3.5vw] 2xl:gap-[72px] 2xl:h-[350px]">
-              <div className="relative w-[27%] flex flex-col items-start rounded-[10px] text-lightWhite p-[40px] pb-[15px] 2xl:h-[350px] 2xl:pb-[25px]">
+            <div className="w-full h-full flex gap-[3.5vw] 2xl:gap-[72px]">
+              <div className="relative w-[27%] h-full flex flex-col items-start rounded-[10px] text-lightWhite p-[2vw] pb-[15px] 2xl:pb-[25px] 2xl:p-[30px] 2xl:gap-[40px]">
                 {/* Background */}
                 <div className="absolute -z-[1] top-0 left-0 w-full h-full rounded-[10px] overflow-clip">
                   <ImgF
@@ -60,14 +60,14 @@ export default function WhoWeAre() {
                     {content.clientsTitle}
                   </h1>
                 </div>
-                <div className="w-full h-[40%] flex items-end font-latoRegular">
+                <div className="w-full h-full flex items-end font-latoRegular">
                   <p className="text-[0.9vw] ml-[4px] 2xl:text-[15.4px]">
                     {content.clientsDesc}
                   </p>
                 </div>
               </div>
               {/* Video */}
-              <div className="relative w-[73%] flex items-start rounded-[10px] 2xl:h-[350px]">
+              <div className="relative w-[73%] h-full flex items-start rounded-[10px]">
                 {/* Background Content */}
                 <div className="absolute -z-[1] top-0 left-0 w-full h-full rounded-[10px] overflow-clip">
                   <ImgF

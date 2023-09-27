@@ -105,9 +105,9 @@ export default function Team() {
   ];
 
   const classes = {
-    presClass: "h-[62vh] rounded-t-[10vw] 2xl:h-[430px] 2xl:rounded-t-[154px] ",
-    vPresClass: "h-[57vh] rounded-t-[11vw] 2xl:h-[400px] 2xl:rounded-t-[169px] ",
-    nonPresClass: "h-[54vh] rounded-t-full 2xl:h-[330px] ",
+    presClass: "h-[430px] rounded-t-[10vw] 2xl:rounded-t-[154px] ",
+    vPresClass: "h-[400px] rounded-t-[11vw] 2xl:rounded-t-[169px] ",
+    nonPresClass: "h-[330px] rounded-t-full ",
   };
 
   return (

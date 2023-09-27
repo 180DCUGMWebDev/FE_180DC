@@ -89,11 +89,11 @@ export default function Services() {
               </p>
             </div>
           </div>
-          <div className="flex grow w-full h-[72%] justify-center gap-[3vw] 2xl:gap-[72px] 2xl:h-fit">
+          <div className="flex grow w-full h-fit justify-center gap-[3vw] 2xl:gap-[72px]">
             {/* Cards */}
             {titles.map((val, idx) => {
               return (
-                <div key={idx} className="relative flex items-end h-full w-full rounded-t-[20px] bg-gradient-to-b from-transparent from-20% to-black to-[62%] p-[1.5vw] pb-0 overflow-clip 2xl:h-[440px] 2xl:p-[30px]">
+                <div key={idx} className="relative flex items-end h-[360px] max-h-full w-full rounded-t-[20px] bg-gradient-to-b from-transparent from-20% to-black to-[58%] p-[1.5vw] pb-0 overflow-clip 2xl:h-[440px] 2xl:p-[30px]">
                   {/* Background */}
                   <div
                     className={
@@ -103,11 +103,11 @@ export default function Services() {
                     <ImgF src={values[idx].src} alt={values[idx].alt} />
                   </div>
                   {/* Content */}
-                  <div className="flex flex-col justify-start text-start w-full h-[50%]">
+                  <div className="flex flex-col justify-start text-start w-full h-[52%] 2xl:h-[187px]">
                     <h2 className="text-secondary font-avenirBlack text-[1.9vw] 2xl:text-[29px]">
                       {val}
                     </h2>
-                    <ul className="list-disc ms-8 text-lightWhite font-latoRegular leading-[1.2] text-[1.15vw] 2xl:text-[17.6px] ml-[1.9vw] 2xl:ml-[30px]">
+                    <ul className="w-full list-disc text-lightWhite font-latoRegular leading-[1.2] text-[1.15vw] 2xl:text-[17.6px] pl-[1.9vw] 2xl:pl-[30px]">
                       {values[idx].values.map((value) => {
                         return <li key={value + "_" + idx}>{value}</li>;
                       })}

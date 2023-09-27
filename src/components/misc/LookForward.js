@@ -42,7 +42,7 @@ export default function LookForward({ theme }) {
             <Button
               color={"green"}
               text={"Consult Now!"}
-              addClass={"w-[11vw] text-[1.1vw] py-[9px] 2xl:w-[170px] 2xl:text-[17px"}
+              addClass={"w-[11vw] text-[1.1vw] py-[9px] 2xl:w-[170px] 2xl:text-[17px]"}
             />
           </div>
         </div>
