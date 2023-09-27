@@ -133,9 +133,9 @@ export default function PreviousClients() {
         <div className="w-full h-full">
           {/* Card Frame */}
           <div className="flex grow justify-start items-end w-full h-[85%] pb-[50px] gap-[8vw] 2xl:gap-[123px] overflow-clip">
-            {clientsPorto.map((client) => {
+            {clientsPorto.map((client, idx) => {
               return (
-                <div className="relative flex-col min-w-[45%] h-[80%] max-h-[400px] 2xl:w-[690px]">
+                <div key={idx} className="relative flex-col min-w-[45%] h-[80%] max-h-[400px] 2xl:w-[690px]">
                   {/* Background */}
                   <div className="absolute w-full h-[60%] rounded-[1.25vw] rounded-bl-none overflow-clip 2xl:rounded-[19.2px]">
                     <div className="relative w-full h-full bg-[#0A1E22]/[47%]">
