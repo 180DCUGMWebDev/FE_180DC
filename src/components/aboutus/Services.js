@@ -89,11 +89,11 @@ export default function Services() {
               </p>
             </div>
           </div>
-          <div className="flex grow w-full h-[72%] justify-center gap-[72px] 2xl:h-fit">
+          <div className="flex grow w-full h-[72%] justify-center gap-[3vw] 2xl:gap-[72px] 2xl:h-fit">
             {/* Cards */}
             {titles.map((val, idx) => {
               return (
-                <div key={idx} className="relative flex items-end h-full w-full rounded-t-[20px] bg-gradient-to-b from-transparent from-20% to-black to-[62%] p-[30px] pb-0 overflow-clip 2xl:h-[440px]">
+                <div key={idx} className="relative flex items-end h-full w-full rounded-t-[20px] bg-gradient-to-b from-transparent from-20% to-black to-[62%] p-[1.5vw] pb-0 overflow-clip 2xl:h-[440px] 2xl:p-[30px]">
                   {/* Background */}
                   <div
                     className={
@@ -107,7 +107,7 @@ export default function Services() {
                     <h2 className="text-secondary font-avenirBlack text-[1.9vw] 2xl:text-[29px]">
                       {val}
                     </h2>
-                    <ul className="list-disc ms-8 text-lightWhite font-latoRegular text-[1.15vw] 2xl:text-[17.6px]">
+                    <ul className="list-disc ms-8 text-lightWhite font-latoRegular leading-[1.2] text-[1.15vw] 2xl:text-[17.6px] ml-[1.9vw] 2xl:ml-[30px]">
                       {values[idx].values.map((value) => {
                         return <li key={value + "_" + idx}>{value}</li>;
                       })}
