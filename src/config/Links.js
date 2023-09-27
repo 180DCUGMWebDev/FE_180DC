@@ -2,7 +2,7 @@
 export const navLinks = {
   "Home": "/",
   "About Us": "/aboutus",
-  "Our Clients": "/clients",
+  "Our Clients": "/portofolio",
   "Telescope": "/telescope",
 }
 // Internal Links

@@ -5,8 +5,6 @@ import Team from "@/components/aboutus/Team";
 import LookForward from "@/components/misc/LookForward";
 
 export default async function AboutUs() {
-  const footerTheme = "light";
-
   return (
     <main>
       <WhoWeAre />

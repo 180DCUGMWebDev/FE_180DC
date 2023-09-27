@@ -1,6 +1,21 @@
+"use client"
+
+// Import Packages
+import { useRouter, usePathname } from "next/navigation";
+
+// Import Components
 import Button from "../global/Button";
 
+// Import Configs
+import { intLinks } from "@/config/Links";
+import { directRoute } from "@/config/Functions"
+
 export default function LookForward({ theme }) {
+  // Router Hook
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // Themes
   const bgTheme =
     theme === "light"
       ? " bg-white "
@@ -43,6 +58,9 @@ export default function LookForward({ theme }) {
               color={"green"}
               text={"Consult Now!"}
               addClass={"w-[11vw] text-[1.1vw] py-[9px] 2xl:w-[170px] 2xl:text-[17px]"}
+              action={() => {
+                directRoute(intLinks.Apply, router, pathname);
+              }}
             />
           </div>
         </div>

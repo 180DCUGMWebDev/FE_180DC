@@ -44,6 +44,18 @@ module.exports = {
         green180: "#00C04D",
         yellow180: "#FFBB00",
         red180: "#ED455D",
+      },
+      keyframes: {
+        downPointer: {
+          "0%": { transform: "translateY(0)" },
+          "10%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(50%)" },
+          "90%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        movingPointer: "downPointer 2s ease-in-out infinite",
       }
     },
   },

@@ -77,11 +77,11 @@ export default function WhoWeAre() {
                 </div>
                 {/* Button */}
                 <div className="absolute p-[0.6vw] -right-[10px] -bottom-[20px] rounded-full rounded-br-none w-[6.5vw] h-[6.5vw] bg-black 2xl:w-[100px] 2xl:h-[100px] 2xl:p-[9.2px]">
-                  <a href="#">
-                    <div className="rounded-full bg-lightWhite w-full h-full p-[1vw] pl-[1.5vw] 2xl:p-[15.36px] 2xl:pl-[23px]">
-                      <FaPlay className="w-full h-full text-primary" />
-                    </div>
-                  </a>
+                <a href="#">
+                  <div className="rounded-full bg-lightWhite w-full h-full p-[1vw] pl-[1.5vw] 2xl:p-[15.36px] 2xl:pl-[23px]">
+                    <FaPlay className="w-full h-full text-primary" />
+                  </div>
+                </a>
                 </div>
               </div>
             </div>

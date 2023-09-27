@@ -10,7 +10,7 @@ import NavFootItems from "./NavFootItems";
 import ImgF from "./ImgF";
 
 // Import Configs
-import { navLinks } from "@/config/Links";
+import { intLinks, navLinks } from "@/config/Links";
 import { directRoute } from "@/config/Functions"
 
 export default function Navbar() {
@@ -89,7 +89,11 @@ export default function Navbar() {
           <Button
             color={"green"}
             text={"Consult Now!"}
-            addClass={"w-[11vw] text-[1.1vw] py-[9px] 2xl:w-[170px] 2xl:text-[17px]"}
+            disableForm={intLinks.Apply == pathname}
+            addClass={"w-[11vw] text-[1.1vw] py-[9px] 2xl:w-[170px] 2xl:text-[17px] " + (intLinks.Apply == pathname ? " opacity-[70%]" : "")}
+            action={() => {
+              directRoute(intLinks.Apply, router, pathname);
+            }}
           />
         </div>
       </nav>

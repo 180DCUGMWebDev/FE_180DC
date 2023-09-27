@@ -30,7 +30,7 @@ export default function Footer() {
   const lightThemes = [navLinks["About Us"]];
 
   //// Registered Dark Themes
-  const darkThemes = [navLinks.Home, intLinks.Apply];
+  const darkThemes = [navLinks.Home, intLinks.Apply, navLinks["Our Clients"]];
 
   const bgTheme =
     lightThemes.includes(pathname)
