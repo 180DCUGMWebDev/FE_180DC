@@ -172,10 +172,12 @@ export default function PreviousClients() {
               }}
               spaceBetween={100}
               slidesPerView={2}
-              loop={true}
               autoplay={{
                 delay: 5000,
                 disableOnInteraction: false,
+              }}
+              onSlideChange={(swiper) => {
+                setSlide(swiper.realIndex)
               }}
             >
               {clientsPorto.map((client, idx) => {
