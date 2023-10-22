@@ -127,7 +127,7 @@ export default function PreviousClients() {
       {createBackground("dark")}
 
       {/* Section 1: Title */}
-      <div className="relative hidden lg:flex flex-col justify-center items-center w-full h-[100vh] px-[50px] bg-[#0A1E22]/[47%] overflow-clip">
+      <div className="relative hidden lg:flex flex-col justify-center items-center w-full h-[100vh] px-[50px] overflow-clip">
         {/* Background */}
         <div className="absolute w-full h-full -z-[998] overflow-clip">
           <ImgF
@@ -135,12 +135,8 @@ export default function PreviousClients() {
             src="/img/portofolio/hero_bg.png"
           />
         </div>
-        {/* <div className="absolute w-full h-full -z-[997] -top-[50%]">
-          <ImgF
-            alt="portofolio shading background"
-            src="/img/portofolio/back_rectangle.png"
-          />
-        </div> */}
+        <div className="absolute w-full h-full -z-[997] bg-gradient-to-b from-transparent from-[70%] to-lightWhite to-[90%]" />
+        <div className="absolute w-full h-full -z-[996] bg-black opacity-[85%]" />
 
         {/* Hero */}
         <h1 className="text-lightWhite text-center text-[4.9vw]/[4.8vw] font-avenirBlack 2xl:text-[75px]/[64.5px]">
@@ -161,7 +157,17 @@ export default function PreviousClients() {
       </div>
 
       {/* Section 2: Portos */}
-      <div className="hidden lg:flex flex-col justify-center items-center w-full h-[100vh] px-[50px]">
+      <div className="relative hidden lg:flex flex-col justify-center items-center w-full h-[100vh] px-[50px]">
+        {/* Background */}
+        <div className="absolute w-full h-full top-0 -z-[998] overflow-clip">
+          <ImgF
+            alt="portofolio hero background"
+            src="/img/portofolio/hero_bg.png"
+          />
+        </div>
+        <div className="absolute w-full h-full -z-[997] bg-gradient-to-b from-lightWhite from-[20%] via-transparent via-[45%] to-black to-[75%]" />
+        <div className="absolute w-full h-full top-0 -z-[997] bg-black opacity-[85%]" />
+        
         <div className="w-full h-full 2xl:w-[1536px]">
           {/* Card Frame */}
           <div className="flex w-full justify-center items-end h-[85%] pb-[50px] overflow-clip">
