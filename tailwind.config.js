@@ -26,6 +26,7 @@ module.exports = {
         latoBold: ["lato-bold"],
         latoBoldItalic: ["lato-bold-italic"],
         latoRegular: ["lato-regular"],
+        latoLight: ["lato-light"],
         latoSemibold: ["lato-semibold"],
         latoSemiboldItalic: ["lato-semibold-italic"],
       },

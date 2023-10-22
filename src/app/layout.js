@@ -17,14 +17,16 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="select-none">
         {/* First Option */}
+
         <div className="hidden min-[250px]:flex flex-col">
           {/* Content */}
           <Navbar />
           {children}
           <Footer />
-          {/* Toastify */}
-          <ToastContainer />
         </div>
+        {/* Toastify */}
+        <ToastContainer />
+
         {/* Second Option */}
         <TooSmall />
       </body>

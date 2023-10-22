@@ -12,6 +12,7 @@ import ImgF from "./ImgF";
 // Import Configs
 import { intLinks, navLinks } from "@/config/Links";
 import { directRoute } from "@/config/Functions"
+import { FaBars, FaCommentDots } from "react-icons/fa";
 
 export default function Navbar() {
   // Router Hook
@@ -19,8 +20,6 @@ export default function Navbar() {
   const pathname = usePathname();
 
   // Scroll Direction Hook
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   const useLastScrollDirection = () => {
     const [lastScrollTop, setLastScrollTop] = useState(0);
     const [scrollDirection, setScrollDirection] = useState(null);
@@ -54,49 +53,92 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   }, [scroll]);
 
+  // MOBILE HANDLER
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+
   return (
-    <div
-      className={
-        "fixed top-0 left-0 z-[999] hidden lg:flex w-full py-[20px] px-[50px] transition-transform duration-[300ms] " +
-        (scroll !== "down" ? "" : "translate-y-[-200%]")
-      }
-    >
-      <nav className="flex w-full">
-        {/* Logo */}
-        <div className="w-[15%] h-full">
-          <div className="flex w-[33%] h-full">
-            <div className="w-full 2xl:w-[77px] h-full">
-              <ImgF
-                src="/img/global/logo180dctrns.png"
-                alt="logo 180dc"
-                action={() => {
-                  directRoute(navLinks.Home, router, pathname);
-                }}
-              />
+    <>
+      {/* DESKTOP */}
+      <div
+        className={
+          "fixed top-0 left-0 z-[100] hidden lg:flex w-full py-[20px] px-[50px] transition-transform duration-[300ms] " +
+          (scroll !== "down" ? "" : "translate-y-[-200%]")
+        }
+      >
+        <nav className="flex w-full">
+          {/* Logo */}
+          <div className="w-[15%] h-full">
+            <div className="flex w-[33%] h-full">
+              <div className="w-full 2xl:w-[77px] h-full">
+                <ImgF
+                  src="/img/global/logo180dctrns.png"
+                  alt="logo 180dc"
+                  action={() => {
+                    directRoute(navLinks.Home, router, pathname);
+                  }}
+                />
+              </div>
             </div>
           </div>
-        </div>
-        {/* Navigations */}
-        <div className="flex w-[80%]">
-          <NavFootItems
-            ulClass="flex w-full items-center justify-center gap-[4vw]"
-            liClass="flex justify-center w-fit"
-            aClass="text-lightWhite text-[1.3vw] font-latoRegular hover:font-latoBold 2xl:text-[20px]"
-          />
-        </div>
-        {/* Consult */}
-        <div className="flex justify-end items-center w-[15%]">
-          <Button
-            color={"green"}
-            text={"Consult Now!"}
-            disableForm={intLinks.Apply == pathname}
-            addClass={"w-[11vw] text-[1.1vw] py-[9px] 2xl:w-[170px] 2xl:text-[17px] " + (intLinks.Apply == pathname ? " opacity-[70%]" : "")}
-            action={() => {
+          {/* Navigations */}
+          <div className="flex w-[80%]">
+            <NavFootItems
+              ulClass="flex w-full items-center justify-center gap-[4vw]"
+              liClass="flex justify-center w-fit"
+              aClass="text-lightWhite text-[1.3vw] font-latoRegular hover:font-latoBold 2xl:text-[20px]"
+            />
+          </div>
+          {/* Consult */}
+          <div className="flex justify-end items-center w-[15%]">
+            <Button
+              color={"green"}
+              text={"Consult Now!"}
+              disableForm={intLinks.Apply == pathname}
+              addClass={"w-[11vw] text-[1.1vw] py-[9px] 2xl:w-[170px] 2xl:text-[17px] " + (intLinks.Apply == pathname ? " opacity-[70%]" : "")}
+              action={() => {
+                directRoute(intLinks.Apply, router, pathname);
+              }}
+            />
+          </div>
+        </nav>
+      </div>
+      {/* MOBILE */}
+      <div
+        className={
+          "fixed top-0 left-0 z-[100] lg:hidden flex w-full py-[20px] px-[30px] transition-transform duration-[300ms] " +
+          (scroll !== "down" ? "" : "translate-y-[-200%]")
+        }
+      >
+        <nav className="flex w-full">
+          {/* Logo */}
+          <div className="w-[12%] h-full">
+            <div className="flex w-full h-full">
+              <div className="w-full h-full">
+                <ImgF
+                  src="/img/global/logo180dctrns.png"
+                  alt="logo 180dc"
+                  action={() => {
+                    directRoute(navLinks.Home, router, pathname);
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="w-[88%] h-full flex items-center justify-end gap-[20px]">
+            <FaCommentDots className="text-[10vw] text-primary origin-center scale-[.7] hover:cursor-pointer" onClick={() => {
               directRoute(intLinks.Apply, router, pathname);
-            }}
-          />
+            }} />
+            <FaBars className="text-[10vw] text-primary origin-center scale-[.7] hover:cursor-pointer" />
+          </div>
+        </nav>
+      </div>
+
+      {/* <div className="fixed top-0 right-0 z-[101] h-full w-[45vw] py-[5vh] flex flex-col">
+        <div className="flex flex-col bg-white w-full h-full">
+
         </div>
-      </nav>
-    </div>
+      </div> */}
+    </>
   );
 }
