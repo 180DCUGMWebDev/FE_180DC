@@ -4,6 +4,7 @@
 import { useRouter, usePathname } from "next/navigation";
 
 // Import Components
+import ImgF from "../global/ImgF";
 import Button from "../global/Button";
 
 // Import Configs
@@ -30,10 +31,28 @@ export default function LookForward({ theme }) {
       ? " text-white "
       : " txt-primary ";
 
+  const topLeftShard = pathname === "/portofolio" ?
+  <div className="absolute left-0 -top-[25vw] w-[25vw] opacity-[40%] 2xl:-top-[384px] 2xl:w-[384px]">
+    <ImgF
+      alt="portofolio shard left"
+      src="/img/portofolio/shard1.png"
+    />
+  </div> : <></>
+
+const topRightShard = pathname === "/portofolio" ?
+<div className="absolute right-0 -top-[15vw] w-[15vw] opacity-[25%] 2xl:-top-[230px] 2xl:w-[230px]">
+  <ImgF
+    alt="portofolio shard left"
+    src="/img/portofolio/shard2.png"
+  />
+</div> : <></>
+
   return (
     <section className="w-full h-fit">
       <div className="relative hidden lg:flex w-full h-full items-center justify-center">
         {/* Background */}
+        {topLeftShard}
+        {topRightShard}
         <div className={"absolute -z-[998] w-full h-full " + bgTheme} />
 
         {/* Content */}
