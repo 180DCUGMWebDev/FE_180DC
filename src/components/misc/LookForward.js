@@ -30,7 +30,7 @@ export default function LookForward({ theme }) {
       <ImgF
         alit="building background lookforward"
         src="/img/global/bgimg-lookforward.png"
-        className="absolute -bottom-[10%]"
+        className="absolute top-0"
       />
       <div className="absolute -z-[0] top-0 left-0 w-full h-[115%] bg-black opacity-[85%]" />
     </div>
@@ -63,7 +63,7 @@ export default function LookForward({ theme }) {
 
   return (
     <section className="w-full h-fit">
-      <div className="relative flex w-full h-[100vh] lg:h-full items-center justify-center">
+      <div className="relative flex w-full max-lg:max-h-[100vmin] h-[100vh] lg:h-full items-center justify-center">
         {/* Background */}
         {topLeftShard}
         {topRightShard}

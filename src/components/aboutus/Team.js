@@ -104,9 +104,9 @@ export default function Team() {
   ];
 
   const classes = {
-    presClass: "h-[430px] rounded-t-[10vw] 2xl:rounded-t-[154px] w-3/12 max-lg:max-h-[22vmax] min-h-[400px] ",
-    vPresClass: "h-[400px] rounded-t-[11vw] 2xl:rounded-t-[169px] w-3/12 max-lg:max-h-[20vmax] min-h-[360px] ",
-    nonPresClass: "h-[330px] rounded-t-full w-3/12 max-lg:max-h-[20vmax] min-[1500px]:w-2/12 w-3/12 min-h-[360px] ",
+    presClass: "h-[430px] rounded-t-[10vw] 2xl:rounded-t-[154px] w-3/12 max-lg:h-[62vw] ",
+    vPresClass: "h-[400px] rounded-t-[11vw] 2xl:rounded-t-[169px] w-3/12 max-lg:h-[56vw] ",
+    nonPresClass: "h-[330px] rounded-t-full w-3/12 max-lg:h-[52vw] min-[1500px]:w-2/12 w-3/12 ",
   };
 
   return (
@@ -118,7 +118,7 @@ export default function Team() {
       <div className="flex items-center justify-center w-full min-h-screen h-fit">
         <div className="flex w-full min-h-full h-fit flex-col items-center 2xl:w-[1536px]">
           {/* Title */}
-          <div className="flex flex-col w-full min-h-[25vh] justify-end bg-black px-[50px]">
+          <div className="flex flex-col w-full min-h-[15vh] lg:min-h-[25vh] justify-end bg-black px-[50px]">
             <div className="w-full justify-center text-center mb-[24px]">
               <h1 className="text-primary text-[8vw]/[7.8vw] lg:text-[4vw]/[3.9vw] font-avenirBlack 2xl:text-[61px]/[60px]">
                 {content.welcoming}

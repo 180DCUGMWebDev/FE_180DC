@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
       <body className="select-none">
         {/* First Option */}
 
-        <div className="hidden min-[250px]:flex flex-col">
+        <div className="hidden min-[250px]:flex flex-col overflow-clip">
           {/* Content */}
           <Navbar />
           {children}

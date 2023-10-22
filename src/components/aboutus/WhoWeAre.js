@@ -70,13 +70,13 @@ export default function WhoWeAre() {
 
       {/* Content */}
       <div className="flex justify-center items-center w-full h-fit lg:h-screen">
-        <div className="flex flex-col justify-center items-center w-full h-fit lg:h-full px-[50px] pt-[12%] pb-[5%] 2xl:w-[1536px]">
-          <div className="flex flex-col max-lg:justify-center w-full h-fit py-[6vh] lg:py-0 lg:h-full gap-[2vmax] 2xl:gap-[16px] 2xl:h-fit">
+        <div className="flex flex-col justify-center items-center w-full h-fit lg:h-full px-[6vw] lg:px-[50px] pt-[12%] pb-[5%] 2xl:w-[1536px]">
+          <div className="flex flex-col justify-center w-full h-fit py-[6vh] lg:py-0 lg:h-full gap-[2vmax] 2xl:gap-[16px] 2xl:h-fit">
             <div className="hidden w-full h-fit lg:flex gap-[3.5vw] 2xl:gap-[72px]">
               {contentTag}
             </div>
             {/* Images / All for Mobile */}
-            <div className="w-full h-fit lg:h-[300px] flex lg:flex-row gap-[4vw] lg:gap-[3.5vw] 2xl:gap-[72px]">
+            <div className="w-full h-fit lg:h-[38vh] lg:max-h-[22vw] flex lg:flex-row gap-[4vw] lg:gap-[3.5vw] 2xl:gap-[72px] 2xl:h-[350px]">
               <div className="relative max-lg:grow w-[26vw] lg:w-[27%] h-[26vw] lg:h-full flex flex-col items-start rounded-[10px] text-lightWhite p-[2vw] pb-[15px] 2xl:pb-[25px] 2xl:p-[30px] 2xl:gap-[40px]">
                 {/* Background */}
                 <div className="absolute -z-[1] top-0 left-0 w-full h-full rounded-[10px] overflow-clip">
@@ -110,7 +110,7 @@ export default function WhoWeAre() {
               </div>
             </div>
             {/* Video MOBILE */}
-            <div className="lg:hidden relative w-full h-[12vh] min-h-[250px] min-[300px]:h-[15vh] md:h-[18vh]">
+            <div className="lg:hidden relative w-full h-[12vh] min-[300px]:h-[15vh] md:h-[18vh]">
               {videoTag}
             </div>
           </div>
