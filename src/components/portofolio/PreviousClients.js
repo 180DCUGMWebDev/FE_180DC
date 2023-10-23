@@ -17,68 +17,71 @@ import "swiper/css";
 
 export default function PreviousClients() {
   // Data
-  const clientsPorto = useMemo(() => [
-    {
-      name: "Kopi Sembilan",
-      nps: "100%",
-      backgr: "/img/portofolio/company_bgs/kopi_sembilan.png",
-      logo: "/img/portofolio/company_logos/kopi_sembilan.png",
-      pleft:
-        "Kopi Sembilan faced problems regarding to supply chain, ambiguity of their management structure, and challenges on getting structured budget planning and bookkeeping.",
-      pright:
-        "We provided organization structure, inventory management, and management controlling system which are more effective for financial reporting. It also affects for the better operational controlling and decision making in Kopi Sembilan.",
-    },
-    {
-      name: "Planet Protector Packaging",
-      nps: "100%",
-      backgr: "/img/portofolio/company_bgs/planet_protector_packaging.png",
-      logo: "/img/portofolio/company_logos/planet_protector_packaging.png",
-      pleft:
-        "PPP needs advice to penetrate the Indonesian market as the part of their market expansion.",
-      pright:
-        "We had been able to secure several companies to make partnership with PPP and recommended strategy to approach the government. The insights that we had got, helped PPP to penetrate Indonesian market.",
-    },
-    {
-      name: "Kopi Sembilan",
-      nps: "100%",
-      backgr: "/img/portofolio/company_bgs/kopi_sembilan.png",
-      logo: "/img/portofolio/company_logos/kopi_sembilan.png",
-      pleft:
-        "Kopi Sembilan faced problems regarding to supply chain, ambiguity of their management structure, and challenges on getting structured budget planning and bookkeeping.",
-      pright:
-        "We provided organization structure, inventory management, and management controlling system which are more effective for financial reporting. It also affects for the better operational controlling and decision making in Kopi Sembilan.",
-    },
-    {
-      name: "Planet Protector Packaging",
-      nps: "100%",
-      backgr: "/img/portofolio/company_bgs/planet_protector_packaging.png",
-      logo: "/img/portofolio/company_logos/planet_protector_packaging.png",
-      pleft:
-        "PPP needs advice to penetrate the Indonesian market as the part of their market expansion.",
-      pright:
-        "We had been able to secure several companies to make partnership with PPP and recommended strategy to approach the government. The insights that we had got, helped PPP to penetrate Indonesian market.",
-    },
-    {
-      name: "Kopi Sembilan",
-      nps: "100%",
-      backgr: "/img/portofolio/company_bgs/kopi_sembilan.png",
-      logo: "/img/portofolio/company_logos/kopi_sembilan.png",
-      pleft:
-        "Kopi Sembilan faced problems regarding to supply chain, ambiguity of their management structure, and challenges on getting structured budget planning and bookkeeping.",
-      pright:
-        "We provided organization structure, inventory management, and management controlling system which are more effective for financial reporting. It also affects for the better operational controlling and decision making in Kopi Sembilan.",
-    },
-    {
-      name: "Planet Protector Packaging",
-      nps: "100%",
-      backgr: "/img/portofolio/company_bgs/planet_protector_packaging.png",
-      logo: "/img/portofolio/company_logos/planet_protector_packaging.png",
-      pleft:
-        "PPP needs advice to penetrate the Indonesian market as the part of their market expansion.",
-      pright:
-        "We had been able to secure several companies to make partnership with PPP and recommended strategy to approach the government. The insights that we had got, helped PPP to penetrate Indonesian market.",
-    },
-  ], []);
+  const clientsPorto = useMemo(
+    () => [
+      {
+        name: "Kopi Sembilan",
+        nps: "100%",
+        backgr: "/img/portofolio/company_bgs/kopi_sembilan.png",
+        logo: "/img/portofolio/company_logos/kopi_sembilan.png",
+        pleft:
+          "Kopi Sembilan faced problems regarding to supply chain, ambiguity of their management structure, and challenges on getting structured budget planning and bookkeeping.",
+        pright:
+          "We provided organization structure, inventory management, and management controlling system which are more effective for financial reporting. It also affects for the better operational controlling and decision making in Kopi Sembilan.",
+      },
+      {
+        name: "Planet Protector Packaging",
+        nps: "100%",
+        backgr: "/img/portofolio/company_bgs/planet_protector_packaging.png",
+        logo: "/img/portofolio/company_logos/planet_protector_packaging.png",
+        pleft:
+          "PPP needs advice to penetrate the Indonesian market as the part of their market expansion.",
+        pright:
+          "We had been able to secure several companies to make partnership with PPP and recommended strategy to approach the government. The insights that we had got, helped PPP to penetrate Indonesian market.",
+      },
+      {
+        name: "Kopi Sembilan",
+        nps: "100%",
+        backgr: "/img/portofolio/company_bgs/kopi_sembilan.png",
+        logo: "/img/portofolio/company_logos/kopi_sembilan.png",
+        pleft:
+          "Kopi Sembilan faced problems regarding to supply chain, ambiguity of their management structure, and challenges on getting structured budget planning and bookkeeping.",
+        pright:
+          "We provided organization structure, inventory management, and management controlling system which are more effective for financial reporting. It also affects for the better operational controlling and decision making in Kopi Sembilan.",
+      },
+      {
+        name: "Planet Protector Packaging",
+        nps: "100%",
+        backgr: "/img/portofolio/company_bgs/planet_protector_packaging.png",
+        logo: "/img/portofolio/company_logos/planet_protector_packaging.png",
+        pleft:
+          "PPP needs advice to penetrate the Indonesian market as the part of their market expansion.",
+        pright:
+          "We had been able to secure several companies to make partnership with PPP and recommended strategy to approach the government. The insights that we had got, helped PPP to penetrate Indonesian market.",
+      },
+      {
+        name: "Kopi Sembilan",
+        nps: "100%",
+        backgr: "/img/portofolio/company_bgs/kopi_sembilan.png",
+        logo: "/img/portofolio/company_logos/kopi_sembilan.png",
+        pleft:
+          "Kopi Sembilan faced problems regarding to supply chain, ambiguity of their management structure, and challenges on getting structured budget planning and bookkeeping.",
+        pright:
+          "We provided organization structure, inventory management, and management controlling system which are more effective for financial reporting. It also affects for the better operational controlling and decision making in Kopi Sembilan.",
+      },
+      {
+        name: "Planet Protector Packaging",
+        nps: "100%",
+        backgr: "/img/portofolio/company_bgs/planet_protector_packaging.png",
+        logo: "/img/portofolio/company_logos/planet_protector_packaging.png",
+        pleft:
+          "PPP needs advice to penetrate the Indonesian market as the part of their market expansion.",
+        pright:
+          "We had been able to secure several companies to make partnership with PPP and recommended strategy to approach the government. The insights that we had got, helped PPP to penetrate Indonesian market.",
+      },
+    ],
+    []
+  );
 
   // Scroll Down Button
   const handleClick = () => {
@@ -167,7 +170,7 @@ export default function PreviousClients() {
         </div>
         <div className="absolute w-full h-full -z-[997] bg-gradient-to-b from-lightWhite from-[20%] via-transparent via-[45%] to-black to-[75%]" />
         <div className="absolute w-full h-full top-0 -z-[997] bg-black opacity-[85%]" />
-        
+
         <div className="w-full h-full 2xl:w-[1536px]">
           {/* Card Frame */}
           <div className="flex w-full justify-center items-end h-[85%] pb-[50px] overflow-clip">
@@ -182,17 +185,15 @@ export default function PreviousClients() {
                 delay: 5000,
                 disableOnInteraction: false,
               }}
+              // loop={true}
               onSlideChange={(swiper) => {
-                setSlide(swiper.realIndex)
+                setSlide(swiper.realIndex);
               }}
             >
               {clientsPorto.map((client, idx) => {
                 return (
                   <SwiperSlide key={idx}>
-                    <div
-                      key={idx}
-                      className="relative min-w-[45%] h-[26vw] 2xl:w-[690px] 2xl:h-[400px]"
-                    >
+                    <div className="relative min-w-[45%] h-[26vw] 2xl:w-[690px] 2xl:h-[400px]">
                       {/* Background */}
                       <div className="absolute w-full h-[60%] rounded-[1.25vw] rounded-bl-none overflow-clip 2xl:rounded-[19.2px]">
                         <div className="relative w-full h-full bg-[#0A1E22]/[47%]">
