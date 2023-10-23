@@ -22,12 +22,12 @@ export default function WhoWeAre() {
   const contentTag = (
     <>
       {/* Who Are We? Title */}
-      <div className="w-full lg:w-[27%] flex items-center text-lightWhite font-avenirBlack text-[3.5vw] lg:text-[3vw] 2xl:text-[46px]">
+      <div className="w-full lg:w-[27%] flex items-center text-lightWhite font-avenirBlack text-[5.5vw] lg:text-[3vw] 2xl:text-[46px]">
         <h1>{content.title}</h1>
       </div>
       {/* Who Are We? Content */}
-      <div className="w-full lg:w-[73%] flex items-center">
-        <p className="text-lightWhite font-latoRegular text-justify text-[2vw] lg:text-[1.3vw] 2xl:text-[20px]">
+      <div className="w-full h-full lg:w-[73%] flex items-center">
+        <p className="text-lightWhite font-latoRegular text-justify text-[3vw]/[2.7vw] lg:text-[1.3vw] 2xl:text-[20px]">
           {content.weDesc}
         </p>
       </div>
@@ -69,15 +69,15 @@ export default function WhoWeAre() {
       {createBackground("dark")}
 
       {/* Content */}
-      <div className="flex justify-center items-center w-full h-fit lg:h-screen">
-        <div className="flex flex-col justify-center items-center w-full h-fit lg:h-full px-[6vw] lg:px-[50px] pt-[12%] pb-[5%] 2xl:w-[1536px]">
+      <div className="flex justify-center items-center w-full h-screen">
+        <div className="flex flex-col justify-center items-center w-full h-fit lg:h-full px-[6vw] lg:px-[50px] lg:pt-[12%] lg:pb-[5%] 2xl:w-[1536px]">
           <div className="flex flex-col justify-center w-full h-fit py-[6vh] lg:py-0 lg:h-full gap-[2vmax] 2xl:gap-[16px] 2xl:h-fit">
             <div className="hidden w-full h-fit lg:flex gap-[3.5vw] 2xl:gap-[72px]">
               {contentTag}
             </div>
             {/* Images / All for Mobile */}
-            <div className="w-full h-fit lg:h-[38vh] lg:max-h-[22vw] flex lg:flex-row gap-[4vw] lg:gap-[3.5vw] 2xl:gap-[72px] 2xl:h-[350px]">
-              <div className="relative max-lg:grow w-[26vw] lg:w-[27%] h-[26vw] lg:h-full flex flex-col items-start rounded-[10px] text-lightWhite p-[2vw] pb-[15px] 2xl:pb-[25px] 2xl:p-[30px] 2xl:gap-[40px]">
+            <div className="w-full h-fit lg:h-[38vh] lg:max-h-[26vw] flex lg:flex-row gap-[4vw] lg:gap-[3.5vw] 2xl:gap-[72px] 2xl:h-[350px]">
+              <div className="relative max-lg:grow w-[35vw] lg:w-[27%] h-[35vw] lg:h-full flex flex-col items-start rounded-[10px] text-lightWhite p-[2vw] pb-[15px] 2xl:pb-[25px] 2xl:p-[30px] 2xl:gap-[40px]">
                 {/* Background */}
                 <div className="absolute -z-[1] top-0 left-0 w-full h-full rounded-[10px] overflow-clip">
                   <ImgF
@@ -95,13 +95,13 @@ export default function WhoWeAre() {
                   </h1>
                 </div>
                 <div className="w-full h-full flex items-end font-latoRegular">
-                  <p className="text-[1.3vw] lg:text-[0.9vw] ml-[4px] 2xl:text-[15.4px]">
+                  <p className="text-[3vw]/[2.8vw] lg:text-[0.9vw] ml-[4px] 2xl:text-[15.4px]">
                     {content.clientsDesc}
                   </p>
                 </div>
               </div>
               {/* Mobile Content Position */}
-              <div className="lg:hidden grow w-[44vw] h-[26vw] flex flex-wrap">
+              <div className="lg:hidden grow w-[40vw] h-[26vw] flex flex-wrap">
                 {contentTag}
               </div>
               {/* Video DESKTOP */}
