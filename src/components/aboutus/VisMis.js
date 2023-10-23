@@ -88,7 +88,7 @@ export default function VisMis() {
             <div className="flex flex-col lg:flex-row w-full lg:w-[85.8%] gap-[2.5vw] lg:gap-[120px] max-lg:mt-[2.5vw]">
               {titles.map((title, idx) => {
                 return (
-                  <div className="max-lg:flex">
+                  <div key={title + "_" + idx} className="max-lg:flex">
                     {/* Bar Left MOBILE */}
                     <div className="lg:hidden h-[16.7vw] w-[6%] flex justify-start">
                       <div className="bg-primary rounded-[4vw] w-[60%] h-full" />
