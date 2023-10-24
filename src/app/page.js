@@ -1,12 +1,12 @@
-import { AboutUs, ConsultNow, Hero, OurClients } from "@/components/homepage";
+import { Hero, OurClients } from "@/components/homepage";
+import LookForward from "@/components/misc/LookForward";
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      <AboutUs />
       <OurClients />
-      <ConsultNow />
+      <LookForward theme="dark" />
     </main>
   );
 }
