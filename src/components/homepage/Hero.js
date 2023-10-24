@@ -2,6 +2,8 @@ import Image from "next/image";
 import Button from "../global/Button";
 
 export function Hero() {
+  const podcastLink =
+    "https://open.spotify.com/episode/1IogEVhcWmggBfkz3k7Ovg?si=50ac78066a434705";
   return (
     <section className="flex flex-col">
       {/* Hero */}
@@ -52,7 +54,7 @@ export function Hero() {
           {/* Kolom Kanan */}
           <div className="max-lg:hidden flex flex-col w-[45%] justify-between">
             {/* Bagian atas */}
-            <div className="h-[54%] flex justify-between">
+            <div className="h-[60%] flex justify-between">
               <div className="relative w-[62%] rounded-r-[7%] rounded-bl-[7%] rounded-tl-[60%] bg-[red] overflow-hidden">
                 <Image
                   src="/img/homepage/hero1.png"
@@ -76,8 +78,14 @@ export function Hero() {
               </div>
             </div>
             {/* Bagian bawah */}
-            <div className="h-[40%] bg-black flex justify-center items-center">
-              Spotify
+            <div className="h-fit flex flex-col justify-center items-center">
+              <iframe
+                title="Spotify Web Player"
+                src={`https://open.spotify.com/embed${
+                  new URL(podcastLink).pathname
+                }`}
+                className="rounded-[8px] w-full h-[152px]"
+              />
             </div>
           </div>
         </div>
