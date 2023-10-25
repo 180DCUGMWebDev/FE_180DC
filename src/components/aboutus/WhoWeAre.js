@@ -27,7 +27,7 @@ export default function WhoWeAre() {
       </div>
       {/* Who Are We? Content */}
       <div className="w-full h-full lg:w-[73%] flex items-center">
-        <p className="text-lightWhite font-latoRegular text-justify text-[3vw]/[2.7vw] lg:text-[1.3vw] 2xl:text-[20px]">
+        <p className="text-lightWhite font-latoRegular text-justify text-[3vw]/[2.7vw] lg:text-[1.5vw]/[2vw] 2xl:text-[23.1px]/[30.8px]">
           {content.weDesc}
         </p>
       </div>
@@ -95,7 +95,7 @@ export default function WhoWeAre() {
                   </h1>
                 </div>
                 <div className="w-full h-full flex items-end font-latoRegular">
-                  <p className="text-[3vw]/[2.8vw] lg:text-[0.9vw] ml-[4px] 2xl:text-[15.4px]">
+                  <p className="text-[3vw]/[2.8vw] lg:text-[1.3vw]/[1.3vw] ml-[4px] 2xl:text-[23.1px]/[23.1px]">
                     {content.clientsDesc}
                   </p>
                 </div>

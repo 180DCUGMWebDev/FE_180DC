@@ -26,17 +26,17 @@ export default function Footer() {
   const disableRoute = [navLinks.Apply];
 
   // Themes
-  //// Registered Light Themes
-  // const lightThemes = [navLinks["About Us"]];
+  // Registered Light Themes
+  const lightThemes = [navLinks["About Us"]];
 
-  //// Registered Dark Themes
-  // const darkThemes = [navLinks.Home, intLinks.Apply, navLinks["Our Clients"]];
+  // Registered Dark Themes
+  const darkThemes = [navLinks.Home, intLinks.Apply, navLinks["Our Clients"]];
 
-  // const bgTheme = lightThemes.includes(pathname)
-  //   ? " bg-white "
-  //   : darkThemes.includes(pathname)
-  //   ? " bg-black "
-  //   : " bg-primary ";
+  const bgTheme = lightThemes.includes(pathname)
+    ? " lg:bg-white "
+    : darkThemes.includes(pathname)
+    ? " lg:bg-black "
+    : " lg:bg-primary ";
 
   // Classes
   const classHead = "font-latoBold text-[2vw] 2xl:text-[30.7px]";
@@ -80,7 +80,7 @@ export default function Footer() {
   return (
     <div
       className={
-        "w-full h-full bg-transparent " +
+        "w-full h-full max-lg:bg-transparent " + bgTheme +
         (disableRoute.includes(pathname) ? " hidden " : "")
       }
     >

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 // Import Packages
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -81,7 +81,8 @@ export default function Services() {
     <section className="relative">
       {/* Background */}
       {createBackground("dark")}
-      <div className="flex w-full h-screen justify-center items-center">
+      <div className="flex w-full h-screen max-lg:min-h-[100
+        vmax] justify-center items-center">
         <div className="flex w-full h-fit lg:h-full flex-col justify-center items-center lg:gap-[60px] pt-[20px] pb-[30px] px-[6vw] lg:px-[50px] 2xl:w-[1536px] 2xl:h-fit">
           <div className="flex flex-col lg:flex-row w-full h-fit lg:h-[28%] max-lg:gap-[1vh]">
             {/* Titles */}
@@ -130,47 +131,49 @@ export default function Services() {
             })}
 
             {/* Cards MOBILE */}
-            <Swiper
-              modules={[Autoplay]}
-              slidesPerView={2}
-              spaceBetween={18}
-              loop={true}
-              autoplay={{
-                delay: 5000,
-                disableOnInteraction: false,
-              }}
-            >
-              {titles.map((val, idx) => {
-                return (
-                  <SwiperSlide key={idx}>
-                    <div className="relative lg:hidden flex items-end h-[30vh] max-h-full w-full rounded-t-[20px] bg-gradient-to-b from-primary/[50%] from-20% to-black to-[85%] p-[1.5vw] pb-0 overflow-clip">
-                      {/* Background */}
-                      <div
-                        className={
-                          "absolute -z-[1] w-[250%] h-full " +
-                          values[idx].position
-                        }
-                      >
-                        <ImgF src={values[idx].src} alt={values[idx].alt} />
-                      </div>
-                      {/* Content */}
-                      <div className="flex flex-col items-center justify-center text-start w-full h-full">
-                        <div className="flex justify-center items-end w-8/12 h-[6vh] mb-[1vh]">
-                          <h2 className="text-secondary font-avenirBlack text-[4vw]/[3.5vw] text-center">
-                            {val}
-                          </h2>
+            <div className="lg:hidden flex w-full">
+              <Swiper
+                modules={[Autoplay]}
+                slidesPerView={2}
+                spaceBetween={18}
+                loop={true}
+                autoplay={{
+                  delay: 5000,
+                  disableOnInteraction: false,
+                }}
+              >
+                {titles.map((val, idx) => {
+                  return (
+                    <SwiperSlide key={idx}>
+                      <div className="relative lg:hidden flex items-end h-[30vh] max-h-full w-full rounded-t-[20px] bg-gradient-to-b from-primary/[50%] from-20% to-black to-[85%] p-[1.5vw] pb-0 overflow-clip">
+                        {/* Background */}
+                        <div
+                          className={
+                            "absolute -z-[1] w-[250%] h-full " +
+                            values[idx].position
+                          }
+                        >
+                          <ImgF src={values[idx].src} alt={values[idx].alt} />
                         </div>
-                        <ul className="w-10/12 list-disc text-lightWhite font-latoRegular text-[3.2vw]/[3.2vw] pl-[1.9vw] h-[16vh]">
-                          {values[idx].values.map((value) => {
-                            return <li key={value + "_" + idx}>{value}</li>;
-                          })}
-                        </ul>
+                        {/* Content */}
+                        <div className="flex flex-col items-center justify-center text-start w-full h-full">
+                          <div className="flex justify-center items-end w-8/12 h-[6vh] mb-[1vh]">
+                            <h2 className="text-secondary font-avenirBlack text-[4vw]/[3.5vw] text-center">
+                              {val}
+                            </h2>
+                          </div>
+                          <ul className="w-10/12 list-disc text-lightWhite font-latoRegular text-[3.2vw]/[3.2vw] pl-[1.9vw] h-[16vh]">
+                            {values[idx].values.map((value) => {
+                              return <li key={value + "_" + idx}>{value}</li>;
+                            })}
+                          </ul>
+                        </div>
                       </div>
-                    </div>
-                  </SwiperSlide>
-                );
-              })}
-            </Swiper>
+                    </SwiperSlide>
+                  );
+                })}
+              </Swiper>
+            </div>
           </div>
           <div className="lg:hidden flex w-full justify-center items-center">
             <p className="text-lightWhite font-latoBoldItalic text-[3vw] grow text-start">
