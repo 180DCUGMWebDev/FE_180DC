@@ -130,26 +130,27 @@ export default function PreviousClients() {
       {createBackground("dark")}
 
       {/* Section 1: Title */}
-      <div className="relative hidden lg:flex flex-col justify-center items-center w-full h-[100vh] px-[50px] overflow-clip">
+      <div className="relative flex flex-col justify-center items-center w-full h-[100vh] px-[10vw] overflow-clip max-lg:gap-[2vh]">
         {/* Background */}
-        <div className="absolute w-full h-full -z-[998] overflow-clip">
+        <div className="absolute w-[240vh] lg:w-full h-full -z-[998] overflow-clip">
           <ImgF
             alt="portofolio hero background"
             src="/img/portofolio/hero_bg.png"
           />
         </div>
         <div className="absolute w-full h-full -z-[997] bg-gradient-to-b from-transparent from-[70%] to-lightWhite to-[90%]" />
-        <div className="absolute w-full h-full -z-[996] bg-black opacity-[85%]" />
+        <div className="absolute w-full h-full -z-[996] bg-black opacity-[85.45%]" />
 
         {/* Hero */}
-        <h1 className="text-lightWhite text-center text-[4.9vw]/[4.8vw] font-avenirBlack 2xl:text-[75px]/[64.5px]">
+        <h1 className="text-lightWhite text-center text-[12vw]/[11vw] lg:text-[4.9vw]/[4.8vw] font-avenirBlack 2xl:text-[75px]/[64.5px]">
           {"Our Previous Clients"}
         </h1>
 
-        <h2 className="font-latoBold text-lightWhite text-[1vw] mt-[1.4vw] 2xl:text-[15.36px] 2xl:mt-[21.5px]">
+        {/* Scroll Down [DESKTOP] */}
+        <h2 className="max-lg:hidden font-latoBold text-lightWhite text-[1vw] mt-[1.4vw] 2xl:text-[15.36px] 2xl:mt-[21.5px]">
           {"SCROLL DOWN"}
         </h2>
-        <a href="#">
+        <a href="#" className="max-lg:hidden">
           <FaChevronDown
             className="text-lightWhite text-[1.4vw] animate-movingPointer hover:cursor-pointer 2xl:text-[21.5px]"
             onClick={() => {
@@ -157,10 +158,93 @@ export default function PreviousClients() {
             }}
           />
         </a>
+
+        {/* Swiper [MOBILE] */}
+        <div className="lg:hidden w-full h-fit rounded-[5vw] rounded-bl-none overflow-clip">
+          <Swiper
+            modules={[Autoplay]}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            slidesPerView={1}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            // loop={true}
+            onSlideChange={(swiper) => {
+              setSlide(swiper.realIndex);
+            }}
+          >
+            {clientsPorto.map((client, idx) => {
+              return (
+                <SwiperSlide key={idx}>
+                  <div className="relative w-full h-[50vmax]">
+                    {/* Background */}
+                    <div className="absolute w-full h-full -z-[990]">
+                      <div className="relative w-full h-full bg-[#2C6970]/[47%]">
+                        <div className="absolute left-0 w-[70vmax] h-full -z-[990]">
+                          <ImgF
+                            alt={client.name + "_bg" + "_" + { idx }}
+                            src={client.backgr}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col items-center justify-center w-full h-full px-[8vw] py-[6vw] gap-[5vw] overflow-clip">
+                      {/* Upper Body: Identity */}
+                      <div className="relative flex w-full h-[30%] gap-[4vw] mt-[1.1vw]">
+                        {/* Company Logo */}
+                        <div className="flex justify-end items-center w-[35%] h-full">
+                          <div className="flex w-[100%]">
+                            <ImgF
+                              alt={client.name + "_logo"}
+                              src={client.logo}
+                            />
+                          </div>
+                        </div>
+
+                        {/* Title & NPS */}
+                        <div className="flex flex-col w-[65%] h-full justify-center items-start">
+                          <p className="text-primary font-avenirBlack text-[5vw] leading-none">
+                            {client.name}
+                          </p>
+                          <p className="text-secondary font-avenirLight text-[4.5vw] leading-none">
+                            {"NPS of "}
+                            <strong className="font-avenirHeavy">
+                              {client.nps}
+                            </strong>
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Lower Body: Description */}
+                      <div className="flex flex-col w-full h-[68%] gap-[2vh] overflow-scroll">
+                        <p className="font-latoRegular text-lightWhite text-[3.5vw] leading-[1.2]">
+                          {client.pright}
+                        </p>
+                        <p className="font-latoRegular text-lightWhite text-[3.5vw] leading-[1.2]">
+                          {client.pleft}
+                        </p>
+                      </div>
+
+                      <div className="h-[2%]">
+                        <p className="text-lightWhite font-latoSemiboldItalic text-[4vw]">
+                          {"Slide For More"}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
       </div>
 
-      {/* Section 2: Portos */}
-      <div className="relative hidden lg:flex flex-col justify-center items-center w-full h-[100vh] px-[50px]">
+      {/* Section 2: Portos [DESKTOP] */}
+      <div className="relative hidden lg:flex flex-col justify-center items-center w-full lg:h-[100vh] px-[50px]">
         {/* Background */}
         <div className="absolute w-full h-full top-0 -z-[998] overflow-clip">
           <ImgF

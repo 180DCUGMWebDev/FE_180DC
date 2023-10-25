@@ -37,10 +37,10 @@ export default function ProjectStructureList({ divConfig, lineConfig }) {
           >
             {/* Poles */}
             {idx !== steps.length - 1 ? (
-              <div className={"absolute flex justify-center w-[5%] " + lineConfig}>
+              <div className={"absolute flex justify-center w-[10%] lg:w-[5%] " + lineConfig}>
                 <div className="flex w-[40%] justify-center">
-                  <div className={"relative w-[0.4vw] h-full 2xl:w-[6.1px]"}>
-                    <div className="absolute -z-[997] w-full h-full  bg-secondary" />
+                  <div className={"relative w-[2.5vw] lg:-[0.4vw] h-full 2xl:w-[6.1px]"}>
+                    <div className="absolute -z-[997] w-full h-full max-lg:top-[1vh] bg-secondary" />
                   </div>
                 </div>
               </div>
@@ -49,20 +49,20 @@ export default function ProjectStructureList({ divConfig, lineConfig }) {
             )}
             {/* Balls and Title */}
             <div className="flex w-full items-center h-fit gap-[5%]">
-              <div className="flex w-[5%] justify-center">
-                <div className="w-[1.5vw] h-[1.5vw] bg-primary rounded-full mb-[3px] 2xl:w-[23px] 2xl:h-[23px]" />
+              <div className="flex w-[10%] lg:w-[5%] justify-center">
+                <div className="w-[6vw] h-[6vw] lg:w-[1.5vw] lg:h-[1.5vw] bg-primary rounded-full mb-[3px] 2xl:w-[23px] 2xl:h-[23px]" />
               </div>
               <div className="flex w-[90%]">
-                <h1 className="text-primary text-[1.9vw] leading-[1.1] font-avenirBlack w-full 2xl:text-[29px]">
+                <h1 className="text-primary text-[5vw] lg:text-[1.9vw] leading-[1.1] font-avenirBlack w-full 2xl:text-[29px]">
                   {step.title}
                 </h1>
               </div>
             </div>
             {/* Descriptions */}
             <div className="flex w-full h-fit">
-              <div className="relative w-[10%]"></div>
-              <div className="flex w-[90%]">
-                <p className="font-latoRegular text-lightWhite text-[1.13vw] leading-[1.25] 2xl:text-[17.3px]">
+              <div className="relative w-[15%] lg:w-[10%]"></div>
+              <div className="flex w-[85%] lg:w-[90%]">
+                <p className="font-latoRegular text-lightWhite text-[3.7vw] lg:text-[1.13vw] leading-[1.25] 2xl:text-[17.3px]">
                   {step.desc}
                 </p>
               </div>
