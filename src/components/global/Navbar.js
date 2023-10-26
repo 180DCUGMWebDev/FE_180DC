@@ -11,10 +11,13 @@ import ImgF from "./ImgF";
 
 // Import Configs
 import { intLinks, navLinks } from "@/config/Links";
-import { directRoute } from "@/config/Functions"
+import { directRoute } from "@/config/Functions";
 import { FaBars, FaCommentDots } from "react-icons/fa";
 
 export default function Navbar() {
+  // CONTENTS
+  const copyright = "©2023 by 180 Degrees Consulting UGM";
+
   // Router Hook
   const router = useRouter();
   const pathname = usePathname();
@@ -56,14 +59,14 @@ export default function Navbar() {
   // MOBILE HANDLER
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-
   return (
     <>
       {/* DESKTOP */}
       <div
         className={
           "fixed top-0 left-0 z-[100] hidden lg:flex w-full py-[20px] px-[50px] transition-transform duration-[300ms] " +
-          (scroll !== "down" ? "" : "translate-y-[-200%]")
+          (scroll !== "down" ? "" : "translate-y-[-200%]") +
+          (mobileMenuOpen ? "overflow-y-clip" : "")
         }
       >
         <nav className="flex w-full">
@@ -95,7 +98,10 @@ export default function Navbar() {
               color={"green"}
               text={"Consult Now!"}
               disableForm={intLinks.Apply == pathname}
-              addClass={"w-[11vw] text-[1.1vw] py-[9px] 2xl:w-[170px] 2xl:text-[17px] " + (intLinks.Apply == pathname ? " opacity-[70%]" : "")}
+              addClass={
+                "w-[11vw] text-[1.1vw] py-[9px] 2xl:w-[170px] 2xl:text-[17px] " +
+                (intLinks.Apply == pathname ? " opacity-[70%]" : "")
+              }
               action={() => {
                 directRoute(intLinks.Apply, router, pathname);
               }}
@@ -126,12 +132,67 @@ export default function Navbar() {
             </div>
           </div>
           <div className="w-[88%] h-full flex items-center justify-end gap-[20px]">
-            <FaCommentDots className="text-[10vw] text-primary origin-center scale-[.7] hover:cursor-pointer" onClick={() => {
-              directRoute(intLinks.Apply, router, pathname);
-            }} />
-            <FaBars className="text-[10vw] text-primary origin-center scale-[.7] hover:cursor-pointer" />
+            <FaCommentDots
+              className="text-[10vw] text-primary origin-center scale-[.7] hover:cursor-pointer"
+              onClick={() => {
+                directRoute(intLinks.Apply, router, pathname);
+              }}
+            />
+            <FaBars
+              className="text-[10vw] text-primary origin-center scale-[.7] hover:cursor-pointer"
+              onClick={() => setMobileMenuOpen(true)}
+            />
           </div>
         </nav>
+      </div>
+
+      {/* Mobile Navbar */}
+      <div className="w-full h-full">
+        <div
+          className={
+            "fixed z-[100] top-0 w-full h-full bg-black/[80%] " +
+            (mobileMenuOpen ? "" : "hidden")
+          }
+          onClick={() => {
+            setMobileMenuOpen(false);
+          }}
+        />
+
+        <div
+          className={
+            "lg:hidden fixed z-[101] h-full w-[45vw] py-[5vh] flex flex-col transition " +
+            (mobileMenuOpen ? "right-0 " : "right-[100%] ")
+          }
+        >
+          <div className="flex flex-col items-center bg-[#F4F4F4] w-full h-full px-[4vw] pt-[4vh] pb-[1vh] gap-[3vh] rounded-l-[5vw]">
+            {/* Logo */}
+            <div className="w-8/12">
+              <ImgF
+                src="/img/global/mobnavbarlogo180dc.png"
+                alt="logo navbar mobile 180dc"
+                action={() => {
+                  directRoute(navLinks.Home, router, pathname);
+                }}
+              />
+            </div>
+            {/* Menu List */}
+            <div className="flex flex-col w-full grow">
+              <NavFootItems
+                ulClass="flex flex-col w-full gap-[1vh]"
+                liClass="flex items-center w-full gap-[1.8vw] rounded-[1vw] py-[1vh] px-[3vw]"
+                aClass="text-[4vw]/[2.9vw] font-latoBold"
+                sidebar={true}
+                callback={() => setMobileMenuOpen(false)}
+              />
+            </div>
+            {/* Copyright */}
+            <div className="flex w-full justify-center items-center">
+              <h3 className="text-black font-avenirBook text-[2vw]">
+                {copyright}
+              </h3>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

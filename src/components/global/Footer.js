@@ -18,6 +18,14 @@ import { navLinks, socLinks, intLinks } from "@/config/Links";
 import { copyContent, directRoute } from "@/config/Functions";
 
 export default function Footer() {
+  // Contents
+  const office = {
+    addr: "180 Degrees Consulting UGM Universitas Gadjah Mada Bulaksumur, Caturtunggal, Depok, Sleman, Yogyakarta 55281",
+    link: "ugm@180dc.org",
+  };
+
+  const copyright = "©2023 by 180 Degrees Consulting UGM";
+
   // Router Hooks
   const router = useRouter();
   const pathname = usePathname();
@@ -38,18 +46,10 @@ export default function Footer() {
     ? " lg:bg-black "
     : " lg:bg-primary ";
 
-  // Classes
+  // Classes  
   const classHead = "font-latoBold text-[2vw] 2xl:text-[30.7px]";
   const classFavIcon = "text-[2.4vw] 2xl:text-[28px] hover:cursor-pointer"; // Let's Stay Connected
-
-  // Contents
-  const office = {
-    addr: "180 Degrees Consulting UGM Universitas Gadjah Mada Bulaksumur, Caturtunggal, Depok, Sleman, Yogyakarta 55281",
-    link: "ugm@180dc.org",
-  };
-
-  const copyright = "©2023 by 180 Degrees Consulting UGM";
-
+  
   const getAddress = (inClass) => {
     return (
       <p
@@ -135,7 +135,7 @@ export default function Footer() {
               <div className="lg:hidden w-full h-[75%]">
                 <NavFootItems
                   ulClass="flex flex-col w-full gap-[2vw] text-[2vw]"
-                  liClass="flex w-full border-b-[0.25vw] border-b-primary"
+                  liClass="w-full border-b-[0.25vw] border-b-primary"
                   aClass="text-lightWhite font-latoLight hover:font-latoRegular"
                 />
               </div>
