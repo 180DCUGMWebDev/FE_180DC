@@ -27,6 +27,7 @@ module.exports = {
         latoBoldItalic: ["lato-bold-italic"],
         latoRegular: ["lato-regular"],
         latoLight: ["lato-light"],
+        latoLightItalic: ["lato-light-italic"],
         latoSemibold: ["lato-semibold"],
         latoSemiboldItalic: ["lato-semibold-italic"],
       },
@@ -60,5 +61,12 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+
+  corePlugins: {
+    aspectRatio: false,
+  },
+
+  plugins: [
+    require("@tailwindcss/aspect-ratio"),
+  ],
 };

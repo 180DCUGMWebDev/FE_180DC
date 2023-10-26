@@ -3,14 +3,14 @@
 // Import Packages
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import { useMemo, useCallback, useEffect, useRef, useState } from "react";
 
 // Import Components
 import ImgF from "../global/ImgF";
+import { FaChevronDown, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";
-import { FaChevronDown, FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { useMemo, useCallback, useEffect, useRef, useState } from "react";
 
 // Import Styles
 import "swiper/css";
@@ -94,6 +94,7 @@ export default function PreviousClients() {
   // Slide Position
   const [slide, setSlide] = useState(0);
   const swiperRef = useRef();
+  const swiperRefMobile = useRef();
 
   // Bullets
   const loopForBullets = useCallback(() => {
@@ -122,6 +123,7 @@ export default function PreviousClients() {
   useEffect(() => {
     setSlideBullets(loopForBullets);
     swiperRef.current.slideTo(slide);
+    swiperRefMobile.current.slideTo(slide);
   }, [loopForBullets, slide]);
 
   return (
@@ -130,7 +132,7 @@ export default function PreviousClients() {
       {createBackground("dark")}
 
       {/* Section 1: Title */}
-      <div className="relative flex flex-col justify-center items-center w-full h-[100vh] px-[10vw] overflow-clip max-lg:gap-[2vh]">
+      <div className="relative flex flex-col justify-center items-center w-full h-[100vmax] lg:h-[100vh] px-[10vw] overflow-clip max-lg:gap-[2vh]">
         {/* Background */}
         <div className="absolute w-[240vh] lg:w-full h-full -z-[998] overflow-clip">
           <ImgF
@@ -164,8 +166,9 @@ export default function PreviousClients() {
           <Swiper
             modules={[Autoplay]}
             onSwiper={(swiper) => {
-              swiperRef.current = swiper;
+              swiperRefMobile.current = swiper;
             }}
+            spaceBetween={50}
             slidesPerView={1}
             autoplay={{
               delay: 5000,
@@ -179,11 +182,11 @@ export default function PreviousClients() {
             {clientsPorto.map((client, idx) => {
               return (
                 <SwiperSlide key={idx}>
-                  <div className="relative w-full h-[50vmax]">
+                  <div className="relative w-full h-[55vmax] rounded-[5vw] rounded-bl-none overflow-clip">
                     {/* Background */}
                     <div className="absolute w-full h-full -z-[990]">
                       <div className="relative w-full h-full bg-[#2C6970]/[47%]">
-                        <div className="absolute left-0 w-[70vmax] h-full -z-[990]">
+                        <div className="absolute left-0 w-[70vh] h-full -z-[990]">
                           <ImgF
                             alt={client.name + "_bg" + "_" + { idx }}
                             src={client.backgr}
@@ -192,47 +195,70 @@ export default function PreviousClients() {
                       </div>
                     </div>
 
-                    <div className="flex flex-col items-center justify-center w-full h-full px-[8vw] py-[6vw] gap-[5vw] overflow-clip">
-                      {/* Upper Body: Identity */}
-                      <div className="relative flex w-full h-[30%] gap-[4vw] mt-[1.1vw]">
-                        {/* Company Logo */}
-                        <div className="flex justify-end items-center w-[35%] h-full">
-                          <div className="flex w-[100%]">
-                            <ImgF
-                              alt={client.name + "_logo"}
-                              src={client.logo}
-                            />
+                    {/* Cards */}
+                    <div className="flex w-full h-full items-center justify-center px-[1vmin] py-[1.5vh]">
+                      {/* Side Arrow Left */}
+                      <div
+                        className="w-fit mr-[1vw]"
+                        onClick={() => {
+                          setSlide((slide - 1) % (clientsPorto.length - 1));
+                        }}
+                      >
+                        <FaChevronLeft className="text-lightWhite/[35%] text-[6vw]" />
+                      </div>
+
+                      <div className="flex flex-col items-center justify-center w-full h-full gap-[5vw] overflow-clip">
+                        {/* Identity */}
+                        <div className="relative flex w-full h-[30%] gap-[4vw] mt-[1.1vw]">
+                          {/* Company Logo */}
+                          <div className="flex justify-end items-center w-[35%] h-full">
+                            <div className="flex w-[100%] rounded-[3vw] overflow-clip">
+                              <ImgF
+                                alt={client.name + "_logo"}
+                                src={client.logo}
+                              />
+                            </div>
+                          </div>
+
+                          {/* Title & NPS */}
+                          <div className="flex flex-col w-[65%] h-full justify-center items-start gap-[.8vh]">
+                            <p className="text-primary font-avenirBlack text-[5vw] leading-none">
+                              {client.name}
+                            </p>
+                            <p className="text-secondary font-avenirLight text-[4.5vw] leading-none">
+                              {"NPS of "}
+                              <strong className="font-avenirHeavy">
+                                {client.nps}
+                              </strong>
+                            </p>
                           </div>
                         </div>
 
-                        {/* Title & NPS */}
-                        <div className="flex flex-col w-[65%] h-full justify-center items-start">
-                          <p className="text-primary font-avenirBlack text-[5vw] leading-none">
-                            {client.name}
+                        {/* Lower Body: Description */}
+                        <div className="flex flex-col w-full h-[60%] gap-[2vh] overflow-y-scroll swiper-no-swiping">
+                          <p className="font-latoRegular text-lightWhite text-[3.5vw] leading-[1.2]">
+                            {client.pright}
                           </p>
-                          <p className="text-secondary font-avenirLight text-[4.5vw] leading-none">
-                            {"NPS of "}
-                            <strong className="font-avenirHeavy">
-                              {client.nps}
-                            </strong>
+                          <p className="font-latoRegular text-lightWhite text-[3.5vw] leading-[1.2]">
+                            {client.pleft}
+                          </p>
+                        </div>
+
+                        <div className="h-[10%]">
+                          <p className="text-lightWhite font-latoLightItalic text-[3.5vmin]">
+                            {"Slide For More"}
                           </p>
                         </div>
                       </div>
 
-                      {/* Lower Body: Description */}
-                      <div className="flex flex-col w-full h-[68%] gap-[2vh] overflow-scroll">
-                        <p className="font-latoRegular text-lightWhite text-[3.5vw] leading-[1.2]">
-                          {client.pright}
-                        </p>
-                        <p className="font-latoRegular text-lightWhite text-[3.5vw] leading-[1.2]">
-                          {client.pleft}
-                        </p>
-                      </div>
-
-                      <div className="h-[2%]">
-                        <p className="text-lightWhite font-latoSemiboldItalic text-[4vw]">
-                          {"Slide For More"}
-                        </p>
+                      {/* Side Arrow Right */}
+                      <div
+                        className="w-fit ml-[1vw]"
+                        onClick={() => {
+                          setSlide((slide + 1) % (clientsPorto.length + 1));
+                        }}
+                      >
+                        <FaChevronRight className="text-lightWhite/[35%] text-[6vw] w-fit" />
                       </div>
                     </div>
                   </div>
@@ -307,7 +333,7 @@ export default function PreviousClients() {
 
                         {/* Company Logo */}
                         <div className="flex justify-end items-center w-6/12 h-full">
-                          <div className="flex w-[67%] 2xl:w-[60%]">
+                          <div className="flex w-[67%] 2xl:w-[60%] rounded-[1.5vw] overflow-clip 2x:rounded-[23px]">
                             <ImgF
                               alt={client.name + "_logo"}
                               src={client.logo}
@@ -333,19 +359,23 @@ export default function PreviousClients() {
           {/* Dot Frame */}
           <div className="flex justify-center items-start h-[15%]">
             <div className="h-fit flex items-center gap-[10px]">
-              <FaChevronLeft
-                className="text-lightWhite text-[1.4vw] 2xl:text-[21.5px] hover:cursor-pointer"
+              <div
+                className="w-fit"
                 onClick={() => {
                   setSlide((slide - 1) % (clientsPorto.length - 1));
                 }}
-              />
+              >
+                <FaChevronLeft className="text-lightWhite text-[1.4vw] 2xl:text-[21.5px] hover:cursor-pointer" />
+              </div>
               <div className="flex items-center gap-[8px]">{slideBullets}</div>
-              <FaChevronRight
-                className="text-lightWhite text-[1.4vw] 2xl:text-[21.5px] hover:cursor-pointer"
+              <div
+                className="w-fit"
                 onClick={() => {
                   setSlide((slide + 1) % (clientsPorto.length - 1));
                 }}
-              />
+              >
+                <FaChevronRight className="text-lightWhite text-[1.4vw] 2xl:text-[21.5px] hover:cursor-pointer" />
+              </div>
             </div>
           </div>
         </div>

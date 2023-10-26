@@ -74,6 +74,11 @@
   }
 
   @font-face {
+    font-family: "lato-light-italic";
+    src: url("/fonts/Lato/Lato-LightItalic.ttf") format("truetype");
+  }
+
+  @font-face {
     font-family: "lato-semibold";
     src: url("/fonts/Lato/Lato-Semibold.ttf") format("truetype");
   }

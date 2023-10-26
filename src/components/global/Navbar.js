@@ -133,12 +133,6 @@ export default function Navbar() {
           </div>
         </nav>
       </div>
-
-      {/* <div className="fixed top-0 right-0 z-[101] h-full w-[45vw] py-[5vh] flex flex-col">
-        <div className="flex flex-col bg-white w-full h-full">
-
-        </div>
-      </div> */}
     </>
   );
 }
