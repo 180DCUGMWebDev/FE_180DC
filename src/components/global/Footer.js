@@ -36,20 +36,28 @@ export default function Footer() {
   // Themes
   // Registered Light Themes
   const lightThemes = [navLinks["About Us"]];
+  const lightThemesMobile = [];
 
   // Registered Dark Themes
   const darkThemes = [navLinks.Home, intLinks.Apply, navLinks["Our Clients"]];
+  const darkThemesMobile = [intLinks.Apply];
 
   const bgTheme = lightThemes.includes(pathname)
-    ? " lg:bg-white "
+    ? "bg-white "
     : darkThemes.includes(pathname)
-    ? " lg:bg-black "
-    : " lg:bg-primary ";
+    ? "bg-black "
+    : "bg-transparent ";
 
-  // Classes  
+  const bgThemeMobile = lightThemesMobile.includes(pathname)
+    ? "bg-white "
+    : darkThemesMobile.includes(pathname)
+    ? "bg-black "
+    : "bg-transparent ";
+
+  // Classes
   const classHead = "font-latoBold text-[2vw] 2xl:text-[30.7px]";
   const classFavIcon = "text-[2.4vw] 2xl:text-[28px] hover:cursor-pointer"; // Let's Stay Connected
-  
+
   const getAddress = (inClass) => {
     return (
       <p
@@ -78,15 +86,18 @@ export default function Footer() {
 
   // Page
   return (
-    <div
-      className={
-        "w-full h-full max-lg:bg-transparent " + bgTheme +
-        (disableRoute.includes(pathname) ? " hidden " : "")
-      }
-    >
+    <div className="w-full h-full max-lg:bg-transparent ">
       <div className="relative flex w-full bg-gradient-to-br from-black to-primary rounded-tl-[20px] rounded-tr-[20px] p-[3px]">
         {/* Background */}
-        <div className="absolute -z-[999] top-0 left-0 w-full h-full bg-white" />
+        <div
+          className={
+            "absolute -z-[999] top-0 left-0 w-full h-full " +
+            "lg:" +
+            bgTheme + // desktop
+            bgThemeMobile + // mobile
+            (disableRoute.includes(pathname) ? " hidden " : "") // no footer page
+          }
+        />
 
         <div className="flex flex-col w-full bg-black rounded-tl-[20px] rounded-tr-[20px] px-[3vw] py-[2.2vw] pb-[2px] gap-[16px] select-none 2xl:px-[46px] 2xl:py-[33.8px]">
           {/* Contents */}

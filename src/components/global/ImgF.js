@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export default function ImgF({ src, alt, action = "", className = "" }) {
+export default function ImgF({ src, alt, action = "", className = "", heightPtg = "auto" }) {
   return (
     <Image
       src={src}
@@ -16,7 +16,7 @@ export default function ImgF({ src, alt, action = "", className = "" }) {
       width={0}
       height={0}
       sizes="100vw"
-      style={{ width: "100%", height: "100%" }}
+      style={{ width: "100%", height: heightPtg }}
       draggable="false"
     />
   );

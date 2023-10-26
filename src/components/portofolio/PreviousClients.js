@@ -190,6 +190,7 @@ export default function PreviousClients() {
                           <ImgF
                             alt={client.name + "_bg" + "_" + { idx }}
                             src={client.backgr}
+                            heightPtg={"100%"}
                           />
                         </div>
                       </div>
