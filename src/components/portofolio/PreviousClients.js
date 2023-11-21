@@ -197,7 +197,10 @@ export default function PreviousClients() {
                       <div
                         className="w-fit mr-[1vw]"
                         onClick={() => {
-                          setSlide((slide - 1) % (clientsPorto.length - 1));
+                          setSlide(
+                            (slide - 1 + clientsPorto.length - 1) %
+                              (clientsPorto.length - 1)
+                          );
                         }}
                       >
                         <FaChevronLeft className="text-lightWhite/[35%] text-[6vw]" />
@@ -361,7 +364,10 @@ export default function PreviousClients() {
               <div
                 className="w-fit"
                 onClick={() => {
-                  setSlide((slide - 1) % (clientsPorto.length - 1));
+                  setSlide(
+                    (slide - 1 + clientsPorto.length - 1) %
+                      (clientsPorto.length - 1)
+                  );
                 }}
               >
                 <FaChevronLeft className="text-lightWhite text-[1.4vw] 2xl:text-[21.5px] hover:cursor-pointer" />
