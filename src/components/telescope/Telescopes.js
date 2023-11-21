@@ -120,6 +120,7 @@ export function Telescopes() {
                       className={`w-[17px] h-[17px] rounded-full ${
                         slide === idx ? "bg-primary" : "bg-lightWhite"
                       }`}
+                      onClick={() => setSlide(idx)}
                     />
                   )
               )}
