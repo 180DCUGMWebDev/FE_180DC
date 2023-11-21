@@ -55,7 +55,7 @@ export function Hero() {
           <div className="max-lg:hidden flex flex-col w-[45%] justify-between">
             {/* Bagian atas */}
             <div className="h-[60%] flex justify-between">
-              <div className="relative w-[62%] rounded-r-[7%] rounded-bl-[7%] rounded-tl-[60%] bg-[red] overflow-hidden">
+              <div className="relative w-[62%] rounded-r-[7%] rounded-bl-[7%] rounded-tl-[60%] overflow-hidden">
                 <Image
                   src="/img/homepage/hero1.png"
                   alt="Gambar Homepage Kanan"
