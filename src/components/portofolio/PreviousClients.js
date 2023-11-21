@@ -84,17 +84,14 @@ export default function PreviousClients() {
   );
 
   // Scroll Down Button
-  const handleClick = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: "smooth",
-    });
-  };
+  const handleClick = () =>
+    scrollRef.current.scrollIntoView({ behavior: "smooth" });
 
   // Slide Position
   const [slide, setSlide] = useState(0);
   const swiperRef = useRef();
   const swiperRefMobile = useRef();
+  const scrollRef = useRef();
 
   // Bullets
   const loopForBullets = useCallback(() => {
@@ -149,17 +146,15 @@ export default function PreviousClients() {
         </h1>
 
         {/* Scroll Down [DESKTOP] */}
-        <h2 className="max-lg:hidden font-latoBold text-lightWhite text-[1vw] mt-[1.4vw] 2xl:text-[15.36px] 2xl:mt-[21.5px]">
-          {"SCROLL DOWN"}
-        </h2>
-        <a href="#" className="max-lg:hidden">
-          <FaChevronDown
-            className="text-lightWhite text-[1.4vw] animate-movingPointer hover:cursor-pointer 2xl:text-[21.5px]"
-            onClick={() => {
-              handleClick();
-            }}
-          />
-        </a>
+        <button
+          className="flex flex-col items-center outline-0"
+          onClick={handleClick}
+        >
+          <h2 className="max-lg:hidden font-latoBold text-lightWhite text-[1vw] mt-[1.4vw] 2xl:text-[15.36px] 2xl:mt-[21.5px]">
+            {"SCROLL DOWN"}
+          </h2>
+          <FaChevronDown className="text-lightWhite text-[1.4vw] animate-movingPointer hover:cursor-pointer 2xl:text-[21.5px]" />
+        </button>
 
         {/* Swiper [MOBILE] */}
         <div className="lg:hidden w-full h-fit rounded-[5vw] rounded-bl-none overflow-clip">
@@ -271,7 +266,10 @@ export default function PreviousClients() {
       </div>
 
       {/* Section 2: Portos [DESKTOP] */}
-      <div className="relative hidden lg:flex flex-col justify-center items-center w-full lg:h-[100vh] px-[50px]">
+      <div
+        ref={scrollRef}
+        className="relative hidden lg:flex flex-col justify-center items-center w-full lg:h-[100vh] px-[50px]"
+      >
         {/* Background */}
         <div className="absolute w-full h-full top-0 -z-[998] overflow-clip">
           <ImgF
