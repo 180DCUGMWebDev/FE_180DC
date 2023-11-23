@@ -64,14 +64,14 @@ export const articles = [
         you 😉
         <br />
         <br />
-        Interested in being our client? Reach us through
+        Interested in being our client? Reach us through&nbsp;
         <Link
           href="bit.ly/ClientRegistrationForm-180DCUGM"
           className="underline"
         >
           bit.ly/ClientRegistrationForm-180DCUGM
         </Link>
-        or Contact us through nprasetio@180dc.org
+        &nbsp; or Contact us through nprasetio@180dc.org
         <br />
         <br />
         <span className="underline">
@@ -88,7 +88,17 @@ export const articles = [
     author: "John Doe",
     date: "7/7/2022",
     image: "/img/telescope/telescope2.png",
-    content: <></>,
+    content: (
+      <>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </>
+    ),
   },
   {
     id: "its-beginning-to-look-like-a-lot",
@@ -97,7 +107,17 @@ export const articles = [
     author: "John Doe",
     date: "7/7/2022",
     image: "/img/telescope/telescope3.png",
-    content: <></>,
+    content: (
+      <>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </>
+    ),
   },
   {
     id: "is-your-backburner-actually-important",
@@ -106,7 +126,17 @@ export const articles = [
     author: "John Doe",
     date: "7/7/2022",
     image: "/img/telescope/telescope2.png",
-    content: <></>,
+    content: (
+      <>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </>
+    ),
   },
   {
     id: "is-your-backburner-actually-important",
@@ -115,6 +145,16 @@ export const articles = [
     author: "John Doe",
     date: "7/7/2022",
     image: "/img/telescope/telescope2.png",
-    content: <></>,
+    content: (
+      <>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </>
+    ),
   },
 ];

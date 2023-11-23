@@ -1,8 +1,8 @@
 "use client";
-import LookForward from "@/components/misc/LookForward";
 import { notFound } from "next/navigation";
 import { articles } from "@/components/content";
 import Image from "next/image";
+import { TelescopeBox } from "@/components/telescope/TelescopeBox";
 
 export default function Article({ params }) {
   const article = articles.find((article) => article.id == params.article);
@@ -31,6 +31,13 @@ export default function Article({ params }) {
         <p className="mt-[20px] text-[3.3vw] lg:text-[1.2vw] text-justify">
           {article.content}
         </p>
+        <div className="mt-[20px] font-avenirBlack text-[5vw] lg:text-[2.5vw] flex flex-col">
+          Our Recommendation
+          <TelescopeBox
+            article={articles.find((article) => article.id != params.article)}
+            type="article"
+          />
+        </div>
       </div>
     </main>
   );

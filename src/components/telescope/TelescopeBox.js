@@ -7,9 +7,11 @@ export function TelescopeBox({ article, type, className }) {
     <Link href={`/telescope/${article.id}`}>
       <div
         className={`w-full ${
-          type === "lg"
-            ? "aspect-w-[326] aspect-h-[154]"
-            : "aspect-w-[154] aspect-h-[106]"
+          type !== "article"
+            ? type === "lg"
+              ? "aspect-w-[326] aspect-h-[154]"
+              : "aspect-w-[154] aspect-h-[106]"
+            : "aspect-w-[1068] aspect-h-[400]"
         } ${className}`}
       >
         <div
@@ -19,14 +21,22 @@ export function TelescopeBox({ article, type, className }) {
         >
           {/* Background */}
           <div className="z-10 absolute inset-0 rounded-[10px] overflow-hidden">
-            <div className="absolute inset-0 [background-image:linear-gradient(120deg,var(--tw-gradient-stops))] from-primary from-20% to-secondary to-80%" />
-            <div className="absolute inset-0 bg-black opacity-[0.35]" />
+            {type === "article" || (
+              <>
+                <div className="absolute inset-0 [background-image:linear-gradient(120deg,var(--tw-gradient-stops))] from-primary from-20% to-secondary to-80%" />
+                <div className="absolute inset-0 bg-black opacity-[0.35]" />
+              </>
+            )}
             <Image
               src={article.image}
               alt="article image"
               width={2000}
               height={2000}
-              className="absolute inset-0 w-full h-full object-cover grayscale blur-[2px] opacity-20"
+              className={`absolute inset-0 w-full h-full object-cover ${
+                type === "article"
+                  ? "opacity-50"
+                  : "grayscale blur-[2px] opacity-20"
+              }`}
             />
           </div>
           {/* Text */}
