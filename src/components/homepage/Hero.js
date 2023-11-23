@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "../global/Button";
+import Link from "next/link";
 
 export function Hero() {
   const podcastLink =
@@ -39,11 +40,16 @@ export function Hero() {
             </div>
             {/* Tombol */}
             <div className="flex gap-8 max-lg:w-full max-lg:justify-center">
-              <Button
-                color="green"
-                text="Consult Now!"
-                addClass="w-[50%] lg:w-[30%] h-fit py-2 lg:py-3 text-sm sm:text-base lg:text-lg max-lg:max-w-[200px]"
-              />
+              <Link
+                href="/apply"
+                className="w-[50%] lg:w-[30%] max-lg:max-w-[200px]"
+              >
+                <Button
+                  color="green"
+                  text="Consult Now!"
+                  addClass="w-full h-fit py-2 lg:py-3 text-sm sm:text-base lg:text-lg"
+                />
+              </Link>
               <Button
                 color="green"
                 text="Contact Us"
@@ -123,16 +129,20 @@ export function Hero() {
                 extremely affordable costs.{" "}
               </div>
             </div>
-            <Button
-              color="black"
-              text="Read More"
-              addClass="w-[15%] h-fit py-3 text-lg max-lg:hidden"
-            />
-            <Button
-              color="green"
-              text="Read More"
-              addClass="w-[40%] h-fit py-2 text-sm sm:text-base lg:hidden"
-            />
+            <Link href="/aboutus" className="w-[15%] max-lg:hidden">
+              <Button
+                color="black"
+                text="Read More"
+                addClass="w-full h-fit py-3 text-lg"
+              />
+            </Link>
+            <Link href="/aboutus" className="w-[40%] lg:hidden">
+              <Button
+                color="green"
+                text="Read More"
+                addClass="w-full h-fit py-2 text-sm sm:text-base"
+              />
+            </Link>
           </div>
         </div>
       </div>

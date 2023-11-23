@@ -2,6 +2,7 @@ import Image from "next/image";
 import Button from "../global/Button";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
+import Link from "next/link";
 
 export function OurClients() {
   return (
@@ -19,25 +20,29 @@ export function OurClients() {
           <div className="text-2xl sm:text-4xl lg:text-[80px] 2xl:text-[112px] lg:leading-none text-white font-avenirBlack">
             Our Previous Clients
           </div>
-          <Button
-            color="black"
-            text={
-              <>
-                <div>Read More</div>
-                <AiOutlineArrowRight />
-              </>
-            }
-            addClass="w-[15%] h-fit py-3 text-xl max-lg:hidden flex justify-between items-center px-10"
-          />
-          <Button
-            color="green"
-            text={<HiOutlineArrowUpRight />}
-            addClass="w-fit h-fit rounded-full p-[3px] sm:p-[4px] text-lg sm:text-xl lg:hidden"
-          />
+          <Link href="/portofolio" className="w-[15%] max-lg:hidden">
+            <Button
+              color="black"
+              text={
+                <>
+                  <div>Read More</div>
+                  <AiOutlineArrowRight />
+                </>
+              }
+              addClass="w-full h-fit py-3 text-xl flex justify-between items-center px-10"
+            />
+          </Link>
+          <Link href="/portofolio" className="w-fit lg:hidden">
+            <Button
+              color="green"
+              text={<HiOutlineArrowUpRight />}
+              addClass="h-fit rounded-full p-[3px] sm:p-[4px] text-lg sm:text-xl"
+            />
+          </Link>
         </div>
       </div>
       {/* Newsletter & Press Releases */}
-      <div className="py-[9vh] px-[4%] flex flex-col gap-[30px]">
+      <div className="max-lg:pt-[10vw] py-[9vh] px-[4%] flex flex-col gap-[10px] lg:gap-[30px]">
         <div className="text-2xl sm:text-4xl lg:text-[80px] 2xl:text-[112px] lg:leading-none font-avenirBlack">
           Newsletter & Press Releases
         </div>
@@ -60,16 +65,20 @@ export function OurClients() {
               className="w-full h-full object-cover"
             />
           </div>
-          <Button
-            color="black"
-            text={<HiOutlineArrowUpRight />}
-            addClass="w-fit h-fit rounded-full p-[6px] text-2xl max-lg:hidden"
-          />
-          <Button
-            color="green"
-            text="View more"
-            addClass="px-[20px] h-fit py-2 text-sm sm:text-base lg:hidden"
-          />
+          <Link href="/telescope">
+            <Button
+              color="black"
+              text={<HiOutlineArrowUpRight />}
+              addClass="w-fit h-fit rounded-full p-[6px] text-2xl max-lg:hidden"
+            />
+          </Link>
+          <Link href="/telescope">
+            <Button
+              color="green"
+              text="View more"
+              addClass="px-[20px] h-fit py-2 text-sm sm:text-base lg:hidden"
+            />
+          </Link>
         </div>
       </div>
     </section>
