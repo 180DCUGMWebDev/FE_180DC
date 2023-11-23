@@ -139,7 +139,7 @@ export function Telescopes() {
             Find The Article
           </div>
           <input
-            className="rounded-[4px] px-[9px] py-[4px] w-full text-[3.6vw] outline-none outline-grey-white180 outline-offset-0"
+            className="rounded-[4px] px-[9px] py-[4px] w-full text-[3.6vw] outline-none outline-grey-white180 outline-offset-0 font-latoSemibold"
             placeholder="Type the news title or the author's name"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
