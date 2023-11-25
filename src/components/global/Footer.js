@@ -39,16 +39,25 @@ export default function Footer() {
   const lightThemesMobile = [];
 
   // Registered Dark Themes
-  const darkThemes = [navLinks.Home, intLinks.Apply, navLinks["Our Clients"]];
+  const darkThemes = [
+    navLinks.Home,
+    intLinks.Apply,
+    navLinks["Our Clients"],
+    navLinks.Telescope,
+  ];
   const darkThemesMobile = [intLinks.Apply];
 
-  const bgTheme = lightThemes.includes(pathname)
+  const bgTheme = pathname.includes("/telescope/")
+    ? "bg-[black] "
+    : lightThemes.includes(pathname)
     ? "bg-white "
     : darkThemes.includes(pathname)
     ? "bg-black "
     : "bg-transparent ";
 
-  const bgThemeMobile = lightThemesMobile.includes(pathname)
+  const bgThemeMobile = pathname.includes("/telescope/")
+    ? "bg-[black]"
+    : lightThemesMobile.includes(pathname)
     ? "bg-white "
     : darkThemesMobile.includes(pathname)
     ? "bg-black "
