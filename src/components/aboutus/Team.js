@@ -14,84 +14,56 @@ export default function Team() {
   // Values
   const boas = [
     {
-      position: "-bottom-[10%] origin-center scale-[3]",
-      src: "https://www.shutterstock.com/image-photo/smiling-mature-businessman-talking-through-260nw-2230592845.jpg",
+      position: "-bottom-[10%] origin-center",
+      src: "/img/aboutus/Team/External-M.png",
       alt: "180dc bod profile picture",
-      name: "Ahmed Sheraz",
+      name: "Martinus Kurnia Yunaiko Putra",
       role: "Vice President of External",
     },
     {
-      position: "-bottom-[10%] origin-center scale-[3]",
-      src: "https://www.shutterstock.com/image-photo/smiling-mature-businessman-talking-through-260nw-2230592845.jpg",
+      position: "-bottom-[10%] origin-center",
+      src: "/img/aboutus/Team/Pres-BS.png",
       alt: "180dc bod profile picture",
-      name: "Ahmed Sheraz",
+      name: "Beatrice Sarah Tiominar Silalahi",
       role: "President of 180DC UGM",
     },
     {
-      position: "-bottom-[10%] origin-center scale-[3]",
-      src: "https://www.shutterstock.com/image-photo/smiling-mature-businessman-talking-through-260nw-2230592845.jpg",
+      position: "-bottom-[10%] origin-center",
+      src: "/img/aboutus/Team/Internal-Y.png",
       alt: "180dc bod profile picture",
-      name: "Ahmed Sheraz",
+      name: "Yoanita Dinda Pasavrilia",
       role: "Vice President of Internal",
     },
   ];
 
   const staffs = [
     {
-      position: "-bottom-[10%] origin-center scale-[3]",
-      src: "https://www.shutterstock.com/image-photo/smiling-mature-businessman-talking-through-260nw-2230592845.jpg",
+      position: "-bottom-[10%] origin-center",
+      src: "/img/aboutus/Team/Consulting-Z.png",
       alt: "180dc bod profile picture",
-      name: "Ahmed Sheraz",
-      role: "BoA Staff",
+      name: "Zahid Arkaan",
+      role: "Director of Consulting",
     },
     {
-      position: "-bottom-[10%] origin-center scale-[3]",
-      src: "https://www.shutterstock.com/image-photo/smiling-mature-businessman-talking-through-260nw-2230592845.jpg",
+      position: "-bottom-[10%] origin-center",
+      src: "/img/aboutus/Team/Market-J.png",
       alt: "180dc bod profile picture",
-      name: "Ahmed Sheraz",
-      role: "BoA Staff",
+      name: "Jasmine Iliyya",
+      role: "Director of Marketing",
     },
     {
-      position: "-bottom-[10%] origin-center scale-[3]",
-      src: "https://www.shutterstock.com/image-photo/smiling-mature-businessman-talking-through-260nw-2230592845.jpg",
+      position: "-bottom-[10%] origin-center",
+      src: "/img/aboutus/Team/CE-Rio.png",
       alt: "180dc bod profile picture",
-      name: "Ahmed Sheraz",
-      role: "BoA Staff",
+      name: "Rio Agustino Handoyo",
+      role: "Director of Client Engagement",
     },
     {
-      position: "-bottom-[10%] origin-center scale-[3]",
-      src: "https://www.shutterstock.com/image-photo/smiling-mature-businessman-talking-through-260nw-2230592845.jpg",
+      position: "-bottom-[10%] origin-center",
+      src: "/img/aboutus/Team/HR-T.png",
       alt: "180dc bod profile picture",
-      name: "Ahmed Sheraz",
-      role: "BoA Staff",
-    },
-    {
-      position: "-bottom-[10%] origin-center scale-[3]",
-      src: "https://www.shutterstock.com/image-photo/smiling-mature-businessman-talking-through-260nw-2230592845.jpg",
-      alt: "180dc bod profile picture",
-      name: "Ahmed Sheraz",
-      role: "BoA Staff",
-    },
-    {
-      position: "-bottom-[10%] origin-center scale-[3]",
-      src: "https://www.shutterstock.com/image-photo/smiling-mature-businessman-talking-through-260nw-2230592845.jpg",
-      alt: "180dc bod profile picture",
-      name: "Ahmed Sheraz",
-      role: "BoA Staff",
-    },
-    {
-      position: "-bottom-[10%] origin-center scale-[3]",
-      src: "https://www.shutterstock.com/image-photo/smiling-mature-businessman-talking-through-260nw-2230592845.jpg",
-      alt: "180dc bod profile picture",
-      name: "Ahmed Sheraz",
-      role: "BoA Staff",
-    },
-    {
-      position: "-bottom-[10%] origin-center scale-[3]",
-      src: "https://www.shutterstock.com/image-photo/smiling-mature-businessman-talking-through-260nw-2230592845.jpg",
-      alt: "180dc bod profile picture",
-      name: "Ahmed Sheraz",
-      role: "BoA Staff",
+      name: "Thara Zahira Merdy",
+      role: "Director of Human Resources",
     },
   ]
 
@@ -169,20 +141,20 @@ export default function Team() {
                           <div className="flex flex-col items-center w-full mb-[16px]">
                             <h3
                               className={
-                                "font-avenirBlack text-primary mt-[24px] " +
+                                "font-avenirBlack text-primary mt-[24px] text-center " +
                                 (highRoles.includes(valuePerRow.role)
-                                  ? "text-[3.5vw] lg:text-[2.55vw]/[2.6vw] 2xl:text-[39px]/[40px]"
-                                  : "text-[3vw] lg:text-[2vw]/[2.3vw] 2xl:text-[30.7px]/[35px]")
+                                  ? "text-[3.5vw]/[3.5vw] lg:text-[2.55vw]/[2.6vw] 2xl:text-[39px]/[40px]"
+                                  : "text-[3vw]/[3vw] lg:text-[2vw]/[2.3vw] 2xl:text-[30.7px]/[35px]")
                               }
                             >
                               {valuePerRow.name}
                             </h3>
                             <h4
                               className={
-                                "font-avenirBook text-secondary -mt-[6px] " +
+                                "font-avenirBook text-secondary text-center " +
                                 (highRoles.includes(valuePerRow.role)
-                                  ? "text-[2.1vw] lg:text-[1.5vw]/[1.55vw] 2xl:text-[23px]/[23.8px]"
-                                  : "text-[1.8vw] lg:text-[1.35vw]/[1.45vw] 2xl:text-[20.7px]/[22.2px]")
+                                  ? "text-[2.1vw]/[2.1vw] lg:text-[1.5vw]/[1.55vw] 2xl:text-[23px]/[23.8px]"
+                                  : "text-[1.8vw]/[1.8vw] lg:text-[1.35vw]/[1.45vw] 2xl:text-[20.7px]/[22.2px]")
                               }
                             >
                               {valuePerRow.role}
