@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import { articles } from "@/components/content";
 import { TelescopeBox } from "./TelescopeBox";
 import { useEffect, useRef, useState } from "react";
 import { FaChevronDown, FaChevronLeft, FaChevronRight } from "react-icons/fa";
@@ -8,7 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
 
-export function Telescopes() {
+export function Telescopes({ articles }) {
   const [showArticles, setShowArticles] = useState(false);
   const [slide, setSlide] = useState(0);
   const [search, setSearch] = useState("");
@@ -116,7 +115,7 @@ export function Telescopes() {
                 (articles, idx) =>
                   idx < swiperArticles.length - 1 && (
                     <button
-                      key={articles.id}
+                      key={articles.slug + idx}
                       className={`w-[17px] h-[17px] rounded-full ${
                         slide === idx ? "bg-primary" : "bg-lightWhite"
                       }`}
@@ -163,7 +162,6 @@ export function Telescopes() {
                   type="sm"
                 />
               ))}
-            {JSON.stringify(search.split(/\s+/))}
           </div>
         </div>
       </div>

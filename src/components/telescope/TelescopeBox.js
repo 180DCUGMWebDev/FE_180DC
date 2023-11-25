@@ -3,8 +3,9 @@ import Link from "next/link";
 
 export function TelescopeBox({ article, type, className }) {
   // type = "lg" or "sm"
+  if (!article) return null;
   return (
-    <Link href={`/telescope/${article.id}`}>
+    <Link href={`/telescope/${article.slug}`}>
       <div
         className={`w-full ${
           type !== "article"
@@ -28,7 +29,7 @@ export function TelescopeBox({ article, type, className }) {
               </>
             )}
             <Image
-              src={article.image}
+              src={`https://goldfish-app-38lif.ondigitalocean.app${article.thumbnail.data.attributes.url}`}
               alt="article image"
               width={2000}
               height={2000}
@@ -55,7 +56,7 @@ export function TelescopeBox({ article, type, className }) {
               </div>
               {type === "lg" && (
                 <div className="font-latoRegular text-[2.7vw] leading-[1.2]">
-                  {article.subtitle}
+                  {article.previewText}
                 </div>
               )}
             </div>
