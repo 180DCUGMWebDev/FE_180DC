@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 async function getData() {
   const res = await fetch(
-    "https://goldfish-app-38lif.ondigitalocean.app/api/articles?populate=*",
+    "https://goldfish-app-38lif.ondigitalocean.app/api/articles?populate=*&sort=publishedAt:desc",
     {
       next: { revalidate: 60 },
     }

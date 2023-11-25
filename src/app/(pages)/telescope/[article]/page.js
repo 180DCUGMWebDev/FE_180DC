@@ -4,10 +4,12 @@ import Image from "next/image";
 import { TelescopeBox } from "@/components/telescope/TelescopeBox";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import { MdxComponents } from "@/components/telescope";
+import rehypeRaw from "rehype-raw";
 
 async function getData() {
   const res = await fetch(
-    "https://goldfish-app-38lif.ondigitalocean.app/api/articles?populate=*",
+    "https://goldfish-app-38lif.ondigitalocean.app/api/articles?populate=*&sort=publishedAt:desc",
     {
       next: { revalidate: 60 },
     }
@@ -27,7 +29,7 @@ export default function Article({ params }) {
     });
   }, []);
   const article = articles?.find((article) => article.slug == params.article);
-  if (!articles) return <div className="min-h-screen bg-[black]" />;
+  if (!articles) return <div className="h-[120vh] bg-[black]" />;
   if (articles && !article) notFound();
   return (
     <main className="min-h-screen bg-[black]">
@@ -52,7 +54,9 @@ export default function Article({ params }) {
         </div>
         {/* Article */}
         <div className="mt-[20px] text-[3.3vw] lg:text-[1.2vw] text-justify">
-          <ReactMarkdown>{article.body}</ReactMarkdown>
+          <ReactMarkdown components={MdxComponents} rehypePlugins={rehypeRaw}>
+            {article.body}
+          </ReactMarkdown>
         </div>
         <div className="mt-[20px] font-avenirBlack text-[5vw] lg:text-[2.5vw] flex flex-col">
           Our Recommendation
