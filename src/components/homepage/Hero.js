@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export function Hero() {
   const podcastLink =
-    "https://open.spotify.com/episode/1IogEVhcWmggBfkz3k7Ovg?si=50ac78066a434705";
+    "https://open.spotify.com/episode/3LRLqk6d9B7XkSA5zekYC8?si=c122ebff6e664062";
   return (
     <section className="flex flex-col">
       {/* Hero */}
