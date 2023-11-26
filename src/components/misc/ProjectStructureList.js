@@ -1,4 +1,4 @@
-export default function ProjectStructureList({ divConfig, lineConfig }) {
+export default function ProjectStructureList({ divConfig, lineConfig, componentExtra="" }) {
   const steps = [
     {
       title: "Pre-Week 1 : Initial Consultation",
@@ -33,7 +33,7 @@ export default function ProjectStructureList({ divConfig, lineConfig }) {
         return (
           <div
             key={idx}
-            className="relative flex flex-col w-full h-fit gap-[15px]"
+            className={"relative flex flex-col w-full h-fit " + ((componentExtra === "" ? " gap-[15px]" : componentExtra))}
           >
             {/* Poles */}
             {idx !== steps.length - 1 ? (
@@ -48,7 +48,7 @@ export default function ProjectStructureList({ divConfig, lineConfig }) {
               ""
             )}
             {/* Balls and Title */}
-            <div className="flex w-full items-center h-fit gap-[5%]">
+            <div className={"flex w-full items-center h-fit gap-[5%]"}>
               <div className="flex w-[10%] lg:w-[5%] justify-center">
                 <div className="w-[6vw] h-[6vw] lg:w-[1.5vw] lg:h-[1.5vw] bg-primary rounded-full mb-[3px] 2xl:w-[23px] 2xl:h-[23px]" />
               </div>
