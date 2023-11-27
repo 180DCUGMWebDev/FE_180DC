@@ -19,6 +19,12 @@ export const createBackground = ( theme, className="" ) => {
 // Copy Function
 export const copyContent = (content, context) => {
   // Toasters
+  navigator.clipboard.writeText(content, context);
+  toastNotify(context + " sucessfully copied!");
+};
+
+// Toast
+export const toastNotify = (content, status="info") => {
   const toastOptions = () => {
     return {
       position: "top-center",
@@ -29,9 +35,11 @@ export const copyContent = (content, context) => {
     };
   };
 
-  navigator.clipboard.writeText(content, context);
-  toast.info(context + " sucessfully copied!", toastOptions());
-};
+  if (status === "info")
+    toast.info(content, toastOptions());
+  else if (status === "success")
+    toast.success(content, toastOptions());
+}
 
 // Routing Function
 export const directRoute = (link, router, pathname) => {

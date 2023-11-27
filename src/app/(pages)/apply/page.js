@@ -11,6 +11,8 @@ import ProjectStructureList from "@/components/misc/ProjectStructureList";
 // Import Configs
 import { createBackground } from "@/config/Functions";
 import { useEffect, useState } from "react";
+import { connectSS, uploadData } from "@/components/apply/connectSpreadsheets";
+import { toastNotify } from "@/config/Functions";
 
 export default function Apply() {
   const [forms, setForm] = useState([
@@ -167,8 +169,14 @@ export default function Apply() {
   const formSubmitBtn = (e) => {
     e.preventDefault();
 
-    // ############ FOR BACKEND: Input the action here later on. (No need to worry if the data is already completed or not).
-    // console.log("Test Button Click");
+    connectSS();
+    uploadData(forms);
+
+    toastNotify("Data has been submitted!", "success");
+
+    forms.map((id, idx) => {
+      editForm("", idx);
+    });
   };
 
   // Points in the middle of the form, seperate columns by new array
@@ -247,17 +255,28 @@ export default function Apply() {
             </h1>
           </div>
           {/* Steps n Forms */}
-          <div className={"flex flex-col lg:flex-row w-full h-fit lg:gap-[40px] duration-300 " + (openPS ? " gap-[40px] " : " gap-0 ")}>
+          <div
+            className={
+              "flex flex-col lg:flex-row w-full h-fit lg:gap-[40px] duration-300 " +
+              (openPS ? " gap-[40px] " : " gap-0 ")
+            }
+          >
             {/* Project Structure */}
             <div className="w-full lg:w-[40%]">
               <div className="lg:hidden relative my-[2vh] w-full flex items-center justify-center text-primary font-avenirBook text-[5vw] bg-lightWhite/[2%]">
-                <FaPlay className="scale-y-[1.4] scale-x-[1.05]" onClick={() => setOpenPS(!openPS)} />
+                <FaPlay
+                  className="scale-y-[1.4] scale-x-[1.05]"
+                  onClick={() => setOpenPS(!openPS)}
+                />
                 <p className="w-full text-center">{"Project Structure"}</p>
               </div>
               {/* Left-Steps */}
               <div className="flex overflow-clip">
                 <ProjectStructureList
-                  divConfig={"w-full gap-[4%] duration-500 " + (openPS ? " max-lg:-mt-0" : " max-lg:-mt-[300%]")}
+                  divConfig={
+                    "w-full gap-[4%] duration-500 " +
+                    (openPS ? " max-lg:-mt-0" : " max-lg:-mt-[400%]")
+                  }
                   lineConfig={"h-[120%] lg:h-[130%] mt-[3%] "}
                   componentExtra={" mb-[1vh] gap-[1vh]"}
                 />
@@ -321,7 +340,10 @@ export default function Apply() {
                           <div className="flex w-full">
                             {projectScope.map((project, idx) => {
                               return (
-                                <ul key={idx} className="flex flex-col w-full max-lg:gap-[0.45vh]">
+                                <ul
+                                  key={idx}
+                                  className="flex flex-col w-full max-lg:gap-[0.45vh]"
+                                >
                                   {project.map((item) => {
                                     return (
                                       <li
