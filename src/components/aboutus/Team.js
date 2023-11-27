@@ -15,21 +15,21 @@ export default function Team() {
   const boas = [
     {
       position: "max-2xl:bottom-0 2xl:-top-0 origin-center",
-      src: "/img/aboutus/Team/External-M.png",
+      src: "https://utfs.io/f/2297509e-a2f6-450c-934a-9a14fee3daec-4uuzu3.png",
       alt: "180dc bod profile picture",
       name: "Martinus Kurnia Y. P.",
       role: "Vice President of External",
     },
     {
       position: "max-2xl:-bottom-0 2xl:top-[5%] origin-center scale-[1.1]",
-      src: "/img/aboutus/Team/Pres-BS.png",
+      src: "https://utfs.io/f/91e4d0b7-0657-4a6d-90a2-cb0d0ab967dd-m9kbn2.png",
       alt: "180dc bod profile picture",
       name: "Beatrice Sarah T. S.",
       role: "President of 180DC UGM",
     },
     {
       position: "max-2xl:-bottom-0 2xl:-top-[5%] origin-center",
-      src: "/img/aboutus/Team/Internal-Y.png",
+      src: "https://utfs.io/f/61b6d197-4eff-4609-a069-daa6cd0eb9ba-6nj4o9.png",
       alt: "180dc bod profile picture",
       name: "Yoanita Dinda P.",
       role: "Vice President of Internal",
@@ -39,28 +39,28 @@ export default function Team() {
   const staffs = [
     {
       position: "-top-[10%] xl:-top-[15%] origin-center",
-      src: "/img/aboutus/Team/Consulting-Z.png",
+      src: "https://utfs.io/f/cac27f85-0a5f-4af9-95fa-c272f16e8974-iw0cgt.png",
       alt: "180dc bod profile picture",
       name: "Zahid Arkaan",
       role: "Director of Consulting",
     },
     {
       position: "-top-[10%] xl:-top-[8%] origin-center",
-      src: "/img/aboutus/Team/BM-J.png",
+      src: "https://utfs.io/f/a0f542ac-89f8-45b1-948a-5735b4e342f5-17rd4.png",
       alt: "180dc bod profile picture",
       name: "Jasmine Iliyya",
       role: "Director of Marketing",
     },
     {
       position: "-top-[10%] xl:-top-[15%] origin-center",
-      src: "/img/aboutus/Team/CE-Rio.png",
+      src: "https://utfs.io/f/3c0975a2-622c-42f6-bc01-cdf673e77949-wssz65.png",
       alt: "180dc bod profile picture",
       name: "Rio Agustino H.",
       role: "Director of Client Engagement",
     },
     {
       position: "-top-[10%] xl:-top-[15%] origin-center",
-      src: "/img/aboutus/Team/HR-T.png",
+      src: "https://utfs.io/f/bd293e59-3653-4c6c-bc93-0dfedf5b458e-1bp01.png",
       alt: "180dc bod profile picture",
       name: "Thara Zahira M.",
       role: "Director of Human Resources",
