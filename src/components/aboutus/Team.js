@@ -14,55 +14,55 @@ export default function Team() {
   // Values
   const boas = [
     {
-      position: "-bottom-[10%] origin-center",
+      position: "max-2xl:bottom-0 2xl:-top-0 origin-center",
       src: "/img/aboutus/Team/External-M.png",
       alt: "180dc bod profile picture",
-      name: "Martinus Kurnia Yunaiko Putra",
+      name: "Martinus Kurnia Y. P.",
       role: "Vice President of External",
     },
     {
-      position: "-bottom-[10%] origin-center",
+      position: "max-2xl:-bottom-0 2xl:top-[5%] origin-center scale-[1.1]",
       src: "/img/aboutus/Team/Pres-BS.png",
       alt: "180dc bod profile picture",
-      name: "Beatrice Sarah Tiominar Silalahi",
+      name: "Beatrice Sarah T. S.",
       role: "President of 180DC UGM",
     },
     {
-      position: "-bottom-[10%] origin-center",
+      position: "max-2xl:-bottom-0 2xl:-top-[5%] origin-center",
       src: "/img/aboutus/Team/Internal-Y.png",
       alt: "180dc bod profile picture",
-      name: "Yoanita Dinda Pasavrilia",
+      name: "Yoanita Dinda P.",
       role: "Vice President of Internal",
     },
   ];
 
   const staffs = [
     {
-      position: "-bottom-[10%] origin-center",
+      position: "-top-[10%] xl:-top-[15%] origin-center",
       src: "/img/aboutus/Team/Consulting-Z.png",
       alt: "180dc bod profile picture",
       name: "Zahid Arkaan",
       role: "Director of Consulting",
     },
     {
-      position: "-bottom-[10%] origin-center",
-      src: "/img/aboutus/Team/Market-J.png",
+      position: "-top-[10%] xl:-top-[8%] origin-center",
+      src: "/img/aboutus/Team/BM-J.png",
       alt: "180dc bod profile picture",
       name: "Jasmine Iliyya",
       role: "Director of Marketing",
     },
     {
-      position: "-bottom-[10%] origin-center",
+      position: "-top-[10%] xl:-top-[15%] origin-center",
       src: "/img/aboutus/Team/CE-Rio.png",
       alt: "180dc bod profile picture",
-      name: "Rio Agustino Handoyo",
+      name: "Rio Agustino H.",
       role: "Director of Client Engagement",
     },
     {
-      position: "-bottom-[10%] origin-center",
+      position: "-top-[10%] xl:-top-[15%] origin-center",
       src: "/img/aboutus/Team/HR-T.png",
       alt: "180dc bod profile picture",
-      name: "Thara Zahira Merdy",
+      name: "Thara Zahira M.",
       role: "Director of Human Resources",
     },
   ]
@@ -76,9 +76,9 @@ export default function Team() {
   ];
 
   const classes = {
-    presClass: "h-[430px] rounded-t-[10vw] 2xl:rounded-t-[154px] w-3/12 max-lg:h-[62vw] ",
-    vPresClass: "h-[400px] rounded-t-[11vw] 2xl:rounded-t-[169px] w-3/12 max-lg:h-[56vw] ",
-    nonPresClass: "h-[330px] rounded-t-full w-3/12 max-lg:h-[52vw] min-[1500px]:w-2/12 w-3/12 ",
+    presClass: "h-[430px] rounded-t-[10vw] 2xl:rounded-t-[154px] w-3/12 max-lg:h-[27vh] ",
+    vPresClass: "h-[400px] rounded-t-[11vw] 2xl:rounded-t-[169px] w-3/12 max-lg:h-[25vh] ",
+    nonPresClass: "h-[330px] rounded-t-full w-3/12 max-lg:h-[20vh] min-[1500px]:w-2/12 ",
   };
 
   return (
@@ -117,7 +117,7 @@ export default function Team() {
                         {/* Cards */}
                         <div
                           className={
-                            "relative flex justify-center items-end bg-gradient-to-b from-transparent from-[65%] to-white to-[85%] overflow-clip " +
+                            "relative flex justify-center items-end bg-gradient-to-b from-transparent from-[45%] lg:from-[65%] 2xl:from-[70%] to-white to-[85%] overflow-clip " +
                             (valuePerRow.role === "President of 180DC UGM"
                               ? classes.presClass
                               : valuePerRow.role ===
@@ -143,15 +143,15 @@ export default function Team() {
                               className={
                                 "font-avenirBlack text-primary mt-[24px] text-center " +
                                 (highRoles.includes(valuePerRow.role)
-                                  ? "text-[3.5vw]/[3.5vw] lg:text-[2.55vw]/[2.6vw] 2xl:text-[39px]/[40px]"
-                                  : "text-[3vw]/[3vw] lg:text-[2vw]/[2.3vw] 2xl:text-[30.7px]/[35px]")
+                                  ? "text-[3.2vw]/[3.2vw] lg:text-[2.55vw]/[2.6vw] 2xl:text-[32px]/[40px]"
+                                  : "text-[3vw]/[3vw] lg:text-[2vw]/[2.3vw] 2xl:text-[28px]/[35px]")
                               }
                             >
                               {valuePerRow.name}
                             </h3>
                             <h4
                               className={
-                                "font-avenirBook text-secondary text-center " +
+                                "font-avenirBook text-secondary text-center h-[2vh] " +
                                 (highRoles.includes(valuePerRow.role)
                                   ? "text-[2.1vw]/[2.1vw] lg:text-[1.5vw]/[1.55vw] 2xl:text-[23px]/[23.8px]"
                                   : "text-[1.8vw]/[1.8vw] lg:text-[1.35vw]/[1.45vw] 2xl:text-[20.7px]/[22.2px]")
