@@ -11,7 +11,7 @@ import ProjectStructureList from "@/components/misc/ProjectStructureList";
 // Import Configs
 import { createBackground } from "@/config/Functions";
 import { useEffect, useState } from "react";
-import { connectSS, uploadData } from "@/components/apply/connectSpreadsheets";
+import { connectSS } from "@/components/apply/connectSpreadsheets";
 import { toastNotify } from "@/config/Functions";
 
 export default function Apply() {
@@ -169,14 +169,13 @@ export default function Apply() {
   const formSubmitBtn = (e) => {
     e.preventDefault();
 
-    connectSS();
-    uploadData(forms);
+    connectSS(forms, "Applicants", () => {
+      forms.map((id, idx) => {
+        editForm("", idx);
+      });
+    });
 
     toastNotify("Data has been submitted!", "success");
-
-    forms.map((id, idx) => {
-      editForm("", idx);
-    });
   };
 
   // Points in the middle of the form, seperate columns by new array
@@ -367,7 +366,7 @@ export default function Apply() {
                   </>
                 );
               })}
-              <div className="w-full flex justify-center max-lg:mt-[1.5vh]">
+              <div className="w-full flex max-lg:justify-center max-lg:mt-[1.5vh]">
                 <Button
                   color={"green"}
                   text={"Submit"}

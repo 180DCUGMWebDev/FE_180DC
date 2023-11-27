@@ -35,5 +35,8 @@
     "path": false,
     "os": false,
     "child_process": false
+  },
+  "devDependencies": {
+    "encoding": "^0.1.13"
   }
 }

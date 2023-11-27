@@ -15,7 +15,9 @@ import ImgF from "./ImgF";
 
 // Import Configs
 import { navLinks, socLinks, intLinks } from "@/config/Links";
-import { copyContent, directRoute } from "@/config/Functions";
+import { copyContent, directRoute, toastNotify } from "@/config/Functions";
+import { connectSS } from "../apply/connectSpreadsheets";
+import { useState } from "react";
 
 export default function Footer() {
   // Contents
@@ -92,6 +94,9 @@ export default function Footer() {
       </p>
     );
   };
+
+  // Email State
+  const [email, setEmail] = useState("");
 
   // Page
   return (
@@ -193,8 +198,19 @@ export default function Footer() {
                     type="text"
                     className="w-full h-full px-[1.5vw] py-[1vw] rounded-tl-[.7vw] rounded-bl-[.7vw] outline-none text-black bg-white180 text-[1.3vw] lg:text-[0.9vw] 2xl:text-[13.8px] 2xl:px-[23.1px] 2xl:py-[15.4px] 2xl:rounded-tl-[10.8px] 2xl:rounded-bl-[10.8px]"
                     placeholder="Enter Your Email to Subscribe to Our Newsletter"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
-                  <button className="h-full bg-white180 rounded-tr-[.7vw] rounded-br-[.7vw] pr-[12px] 2xl:rounded-tr-[10.8px] 2xl:rounded-br-[10.8px]">
+                  <button
+                    className="h-full bg-white180 rounded-tr-[.7vw] rounded-br-[.7vw] pr-[12px] 2xl:rounded-tr-[10.8px] 2xl:rounded-br-[10.8px]"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      connectSS(email, "Newsletter", () => {
+                        setEmail("");
+                      });
+                      toastNotify("Email has been submitted!", "success");
+                    }}
+                  >
                     <FaArrowRight className="text-black opacity-[57%] text-[2.5vw] lg:text-[2vw] 2xl:text-[30.7px]" />
                   </button>
                 </div>
