@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
 
-export function Telescopes({ articles }) {
+export function Telescopes({ articles, subscribeScrollRef }) {
   const [showArticles, setShowArticles] = useState(false);
   const [slide, setSlide] = useState(0);
   const [search, setSearch] = useState("");
@@ -45,7 +45,16 @@ export function Telescopes({ articles }) {
           </h2>
           <h2 className="text-lightWhite text-center font-latoRegular text-[3.5vw] lg:text-[1.5vw] leading-[1.2]">
             View it here or{" "}
-            <span className="underline">subscribe for free!</span>
+            <button
+              className="underline"
+              onClick={() =>
+                subscribeScrollRef.current.scrollIntoView({
+                  behavior: "smooth",
+                })
+              }
+            >
+              subscribe for free!
+            </button>
           </h2>
           <button
             className="max-lg:hidden text-lightWhite flex flex-col items-center outline-0"

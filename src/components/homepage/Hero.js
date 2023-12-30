@@ -2,7 +2,7 @@ import Image from "next/image";
 import Button from "../global/Button";
 import Link from "next/link";
 
-export function Hero() {
+export function Hero({ contactRef }) {
   const podcastLink =
     "https://open.spotify.com/episode/3LRLqk6d9B7XkSA5zekYC8?si=c122ebff6e664062";
   return (
@@ -54,6 +54,9 @@ export function Hero() {
                 color="green"
                 text="Contact Us"
                 addClass="w-[30%] h-fit py-3 text-lg max-lg:hidden"
+                action={() =>
+                  contactRef.current.scrollIntoView({ behavior: "smooth" })
+                }
               />
             </div>
           </div>
