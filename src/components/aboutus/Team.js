@@ -14,21 +14,21 @@ export default function Team() {
   // Values
   const boas = [
     {
-      position: "max-2xl:bottom-0 2xl:-top-0 origin-center",
+      position: "-bottom-[30%] max-lg:-left-[5%] lg:-bottom-[7%] origin-center max-lg:scale-[1.4]",
       src: "https://utfs.io/f/2297509e-a2f6-450c-934a-9a14fee3daec-4uuzu3.png",
       alt: "180dc bod profile picture",
-      name: "Martinus Kurnia Y. P.",
+      name: "Martinus K. Y. P.",
       role: "Vice President of External",
     },
     {
-      position: "max-2xl:-bottom-0 2xl:top-[5%] origin-center scale-[1.1]",
-      src: "https://utfs.io/f/91e4d0b7-0657-4a6d-90a2-cb0d0ab967dd-m9kbn2.png",
+      position: "left-[5%] -bottom-[40%] lg:-bottom-[25%] origin-center scale-[1.7] lg:scale-[1.5]",
+      src: "https://utfs.io/f/18e06f42-87b3-4143-9980-61bbba216e62-o58nz6.png",
       alt: "180dc bod profile picture",
-      name: "Beatrice Sarah T. S.",
+      name: "Beatrice S. T. S.",
       role: "President of 180DC UGM",
     },
     {
-      position: "max-2xl:-bottom-0 2xl:-top-[5%] origin-center",
+      position: "max-lg:-bottom-[10%] max-2xl:-bottom-0 2xl:-top-[5%] origin-center lg:scale-[0.8]",
       src: "https://utfs.io/f/61b6d197-4eff-4609-a069-daa6cd0eb9ba-6nj4o9.png",
       alt: "180dc bod profile picture",
       name: "Yoanita Dinda P.",
@@ -38,32 +38,46 @@ export default function Team() {
 
   const staffs = [
     {
-      position: "-top-[10%] xl:-top-[15%] origin-center",
+      position: "bottom-[10%] origin-center scale-[1.2]",
       src: "https://utfs.io/f/cac27f85-0a5f-4af9-95fa-c272f16e8974-iw0cgt.png",
       alt: "180dc bod profile picture",
       name: "Zahid Arkaan",
       role: "Director of Consulting",
     },
     {
-      position: "-top-[10%] xl:-top-[8%] origin-center",
+      position: "bottom-[5%] origin-center scale-[1.2]",
       src: "https://utfs.io/f/a0f542ac-89f8-45b1-948a-5735b4e342f5-17rd4.png",
       alt: "180dc bod profile picture",
       name: "Jasmine Iliyya",
       role: "Director of Marketing",
     },
     {
-      position: "-top-[10%] xl:-top-[15%] origin-center",
-      src: "https://utfs.io/f/3c0975a2-622c-42f6-bc01-cdf673e77949-wssz65.png",
+      position: "-bottom-[20%] origin-center scale-[1.6]",
+      src: "https://utfs.io/f/9c8920c6-e550-4421-9e6d-9675b212c350-lw7fzc.png",
+      alt: "180dc bod profile picture",
+      name: "Josephine F. W.",
+      role: "Co-Director of Marketing",
+    },
+    {
+      position: "bottom-[10%] origin-center scale-[1.2]",
+      src: "https://utfs.io/f/9d693fe5-952e-44a3-bd6a-36cfa1a7aacc-mddipe.png",
       alt: "180dc bod profile picture",
       name: "Rio Agustino H.",
       role: "Director of Client Engagement",
     },
     {
-      position: "-top-[10%] xl:-top-[15%] origin-center",
-      src: "https://utfs.io/f/bd293e59-3653-4c6c-bc93-0dfedf5b458e-1bp01.png",
+      position: "bottom-[10%] origin-center scale-[1.2]",
+      src: "https://utfs.io/f/b0d34327-7077-407b-ac47-0655a42661e0-152j3i.png",
       alt: "180dc bod profile picture",
       name: "Thara Zahira M.",
       role: "Director of Human Resources",
+    },
+    {
+      position: "-bottom-[30%] origin-center scale-[1.7] left-[7%]",
+      src: "https://utfs.io/f/af8ecfb3-7d8d-44ff-92bc-e5cfbed0de97-vmtptr.png",
+      alt: "180dc bod profile picture",
+      name: "Windra A. P.",
+      role: "Co-Director of Human Resources",
     },
   ]
 
@@ -76,9 +90,9 @@ export default function Team() {
   ];
 
   const classes = {
-    presClass: "h-[430px] rounded-t-[10vw] 2xl:rounded-t-[154px] w-3/12 max-lg:h-[27vh] ",
-    vPresClass: "h-[400px] rounded-t-[11vw] 2xl:rounded-t-[169px] w-3/12 max-lg:h-[25vh] ",
-    nonPresClass: "h-[330px] rounded-t-full w-3/12 max-lg:h-[20vh] min-[1500px]:w-2/12 ",
+    presClass: "h-[430px] rounded-t-[10vw] 2xl:rounded-t-[154px] w-3/12 max-lg:h-[25vh] ",
+    vPresClass: "h-[400px] rounded-t-[11vw] 2xl:rounded-t-[169px] w-3/12 max-lg:h-[23vh] ",
+    nonPresClass: "h-[350px] rounded-t-full w-3/12 max-lg:h-[20vh] min-[1500px]:w-2/12 ",
   };
 
   return (
@@ -110,14 +124,14 @@ export default function Team() {
             {/* Cards Row */}
             {values.map((value, idx) => {
               return (
-                <div key={idx} className="flex flex-wrap w-full h-fit justify-center items-end mt-[24px] gap-[5vw] 2xl:gap-[76.8px]">
+                <div key={idx} className="flex flex-wrap w-full h-fit justify-center items-end mt-[24px] gap-[5vw] 2xl:gap-[76.8px] overflow-y-visible">
                   {value.map((valuePerRow) => {
                     return (
                       <>
                         {/* Cards */}
                         <div
                           className={
-                            "relative flex justify-center items-end bg-gradient-to-b from-transparent from-[45%] lg:from-[65%] 2xl:from-[70%] to-white to-[85%] overflow-clip " +
+                            "relative flex justify-center items-end bg-gradient-to-b from-transparent from-[65%] 2xl:from-[70%] to-white to-[85%] overflow-x-clip " +
                             (valuePerRow.role === "President of 180DC UGM"
                               ? classes.presClass
                               : valuePerRow.role ===
@@ -135,15 +149,15 @@ export default function Team() {
                               valuePerRow.position
                             }
                           >
-                            <ImgF src={valuePerRow.src} alt={valuePerRow.alt} />
+                            <ImgF src={valuePerRow.src} alt={valuePerRow.alt} prioritize={true} />
                           </div>
                           {/* Content */}
-                          <div className="flex flex-col items-center w-full mb-[16px]">
+                          <div className="flex flex-col items-center w-full mb-0 lg:mb-[1vh] overflow-y-visible">
                             <h3
                               className={
                                 "font-avenirBlack text-primary mt-[24px] text-center " +
                                 (highRoles.includes(valuePerRow.role)
-                                  ? "text-[3.2vw]/[3.2vw] lg:text-[2.55vw]/[2.6vw] 2xl:text-[32px]/[40px]"
+                                  ? "text-[2.88vw]/[2.88vw] lg:text-[2.3vw]/[2.34vw] 2xl:text-[29px]/[36px]"
                                   : "text-[3vw]/[3vw] lg:text-[2vw]/[2.3vw] 2xl:text-[28px]/[35px]")
                               }
                             >

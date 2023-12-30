@@ -92,7 +92,7 @@ export default function WhoWeAre() {
       {/* Background Content */}
 
       <div className="absolute -z-[1] top-0 left-0 w-full h-full rounded-[10px] overflow-clip flex items-center justify-center">
-        <video id="vidRef" playsinline loop>
+        <video id="vidRef" playsInline loop>
           <source
             src="https://utfs.io/f/7156b8ed-3306-4165-9cd7-c167defff825-brzyqj.mp4"
             type="video/mp4"
@@ -123,7 +123,7 @@ export default function WhoWeAre() {
                 {/* Background */}
                 <div className="absolute -z-[1] top-0 left-0 w-full h-full rounded-[10px] overflow-clip">
                   <ImgF
-                    src="/img/aboutus/WhatWeAre/leftcontent.png"
+                    src="/img/aboutus/WhatWeAre/left_content.png"
                     alt="180dc who we are leftcontent"
                   />
                 </div>

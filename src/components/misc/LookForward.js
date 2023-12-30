@@ -28,8 +28,8 @@ export default function LookForward({ theme }) {
   <div className="lg:hidden absolute -z-[998] left-0 top-0 w-full h-full">
     <div className="relative w-full h-full">
       <ImgF
-        alit="building background lookforward"
-        src="/img/global/bgimg-lookforward.png"
+        alt="building background lookforward"
+        src="/img/global/bgimg_lookforward.png"
         className="absolute top-0"
       />
       <div className="absolute -z-[0] top-0 left-0 w-full h-[115%] bg-black opacity-[85%]" />

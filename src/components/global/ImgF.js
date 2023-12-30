@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 
-export default function ImgF({ src, alt, action = "", className = "", heightPtg = "auto" }) {
+export default function ImgF({ src, alt, action = "", className = "", heightPtg = "auto", prioritize=false }) {
   return (
     <Image
+      priority={prioritize}
       src={src}
       alt={alt}
       onClick={

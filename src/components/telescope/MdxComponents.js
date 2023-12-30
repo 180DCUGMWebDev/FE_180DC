@@ -4,7 +4,7 @@ function P({ children }) {
   return <p className="mb-6 mt-4 text-justify">{children}</p>;
 }
 
-function Img({ src, alt }) {
+function Img({ src, alt="" }) {
   return (
     <div className="flex justify-center">
       <div className="relative w-[70%] aspect-w-[1920] aspect-h-[1080]">
