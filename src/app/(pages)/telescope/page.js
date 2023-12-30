@@ -1,7 +1,7 @@
 "use client";
 import LookForward from "@/components/misc/LookForward";
 import { Telescopes } from "@/components/telescope";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 async function getData() {
   const res = await fetch(
@@ -18,6 +18,7 @@ async function getData() {
 
 export default function Telescope() {
   const [articles, setArticles] = useState([]);
+  const subscribeScrollRef = useRef();
   useEffect(() => {
     getData().then((res) => {
       const data = res.data.map((e) => e.attributes);
@@ -26,8 +27,9 @@ export default function Telescope() {
   }, []);
   return (
     <main>
-      <Telescopes articles={articles} />
+      <Telescopes articles={articles} subscribeScrollRef={subscribeScrollRef} />
       <LookForward theme={"dark"} />
+      <div ref={subscribeScrollRef} />
     </main>
   );
 }
