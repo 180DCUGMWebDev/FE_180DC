@@ -91,7 +91,7 @@ export default function WhoWeAre() {
     <>
       {/* Background Content */}
 
-      <div className="absolute -z-[1] top-0 left-0 w-full h-full rounded-[10px] overflow-clip flex items-center justify-center">
+      <div className="absolute -z-[1] top-0 left-0 w-full h-full rounded-[7vw] lg:rounded-[1vw] 2xl:rounded-[15.36px] overflow-clip flex items-center justify-center">
         <video id="vidRef" playsInline loop>
           <source
             src="https://utfs.io/f/7156b8ed-3306-4165-9cd7-c167defff825-brzyqj.mp4"
