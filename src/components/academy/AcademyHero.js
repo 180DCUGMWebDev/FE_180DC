@@ -14,15 +14,22 @@ export default function AcademyHero() {
 
       {/* Content */}
       <div className="flex w-full h-fit max-lg:py-[8vh] lg:h-screen items-center justify-center">
-        <div className="flex flex-col justify-center items-center px-[6vw] 2xl:w-[1536px] 2xl:px-[100px]">
+        {/* Desktop */}
+        <div className="flex flex-col justify-center items-center px-[6vw] 2xl:w-[1536px] 2xl:px-[100px] max-lg:hidden">
           {/* Title */}
           <div className="w-full">
             <h1 className="text-center text-lightWhite lg:text-primary text-[8vw]/[7.2vw] lg:text-[4vw]/[3.8vw] font-avenirBlack 2xl:text-[61px]/[58px]">
               {"Dummy 180DC Academy"}
-              <br />
             </h1>
           </div>
+          <div className="pt-[3vh]"></div>
+        </div>
 
+        {/* Mobile */}
+        <div className="flex flex-col lg:hidden w-full items-center mb-[40vw] z-[2] mt-[24.372vw]">
+          <div className="text-[8.6vw] text-primary font-avenirBlack ">
+            Mobile View{" "}
+          </div>
         </div>
       </div>
     </section>
