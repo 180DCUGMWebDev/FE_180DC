@@ -1,11 +1,17 @@
 // Import Packages
+'use client'
+
 import React from "react";
 import { FaBriefcase } from "react-icons/fa";
+import ReactPlayer from "react-player/youtube";
+import dynamic from 'next/dynamic';
 
 // Import Configs
 import { createBackground } from "@/config/Functions";
 
 export default function SecondPage() {
+  //Ignore Hydration Error 
+  const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
   // Page
   return (
     <section className="relative">
@@ -22,7 +28,13 @@ export default function SecondPage() {
               <br />
             </h1>
           </div>
-
+          <div className="pt-[3vh]">
+          <ReactPlayer 
+            url={"https://www.youtube.com/watch?v=zkgZ5LiRiZA"} 
+            controls={true}
+            light={true}
+            />
+          </div>
         </div>
       </div>
     </section>
