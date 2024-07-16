@@ -20,16 +20,16 @@ export default function SecondPage() {
 
       {/* Content */}
       <div className="flex w-full h-fit max-lg:py-[8vh] lg:h-screen items-center justify-center">
-        
+
         {/* Desktop */}
         <div className="flex flex-col justify-center items-center px-[6vw] 2xl:w-[1536px] 2xl:px-[100px] max-lg:hidden">
           {/* Title */}
-          <div className="w-full">
+          <div className="w-full pb-[3vh]">
             <h1 className="text-center text-lightWhite lg:text-primary text-[8vw]/[7.2vw] lg:text-[4vw]/[3.8vw] font-avenirBlack 2xl:text-[61px]/[58px]">
               {"Dummy 180DC Academy"}
             </h1>
           </div>
-          <div className="pt-[3vh]">
+          <div className=" rounded-3xl overflow-clip">
             <ReactPlayer
               url={"https://www.youtube.com/watch?v=zkgZ5LiRiZA"}
               controls={true}
