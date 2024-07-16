@@ -26,7 +26,7 @@ export default function AcademyHero() {
         <div className="flex flex-col justify-center items-center max-lg:hidden relative">
           {/* Content */}
           <div className="w-full flex flex-col justify-center items-center ">
-            <div className="py-[8vw]">
+            <div className="py-[10vw]">
               <h1 className="text-center bg-clip-text text-transparent bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] text-[5.833vw]/[7.2vw]  font-avenirBlack ">
                 {"180DC Academy"}
               </h1>
@@ -36,7 +36,7 @@ export default function AcademyHero() {
                 }
               </h1>
             </div>
-            <h1 className="text-center bottom-[0vw] w-[60.219vw] text-lightWhite text-[1.302vw]/[2vw] pt-[2vw] font-avenirRegular">
+            <h1 className="text-center w-[60.219vw] text-lightWhite text-[1.302vw]/[2vw] pt-[4vw] font-avenirRegular">
               {"SCROLL DOWN"}
               <Image
                 src="/img/academy/scrollDownArrow.png"
