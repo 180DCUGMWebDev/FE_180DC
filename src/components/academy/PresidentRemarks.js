@@ -9,7 +9,7 @@ import dynamic from "next/dynamic";
 // Import Configs
 import { createBackground } from "@/config/Functions";
 
-export default function SecondPage() {
+export default function PresidentRemarks() {
   //Ignore Hydration Error
   const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
   // Page

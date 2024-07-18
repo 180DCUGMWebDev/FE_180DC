@@ -1,11 +1,13 @@
 import AcademyHero from "@/components/academy/AcademyHero";
-import SecondPage from "@/components/academy/SecondPage";
+import PresidentRemarks from "@/components/academy/PresidentRemarks";
+import CourseSection from "@/components/academy/CourseSection";
 
 export default async function Academy() {
   return (
     <main>
         <AcademyHero />
-        <SecondPage/>
+        <PresidentRemarks/>
+        <CourseSection/>
     </main>
   );
 }
