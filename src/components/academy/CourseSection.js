@@ -1,10 +1,10 @@
 // Import Packages
-'use client'
+"use client";
 
 import React from "react";
 import { FaBriefcase } from "react-icons/fa";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 // Import Configs
 import { createBackground } from "@/config/Functions";
@@ -53,9 +53,12 @@ export default function CourseSection() {
                   </h1>
                 </div>
 
-                <div className="bg-white border-black border w-[39.948vw] h-[2.917vw] mx-[1.3vw] rounded-[1.3vw] mt-[1vw] text-[1.563vw] text-center">
+                <a
+                  href="academy/module1"
+                  className="bg-white border-black border w-[39.948vw] h-[2.917vw] mx-[1.3vw] rounded-[1.3vw] mt-[1vw] text-[1.563vw] text-center flex items-center justify-center hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
+                >
                   See Details
-                </div>
+                </a>
               </div>
 
               <div className="w-[42.969vw] h-[25.313vw] rounded-[1.6vw] bg-white">

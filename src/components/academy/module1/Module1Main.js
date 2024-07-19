@@ -20,7 +20,19 @@ export default function Module1Main() {
       {createBackground("dark")}
 
       {/* Content */}
-      <div className="flex w-full h-fit max-lg:py-[8vh] lg:h-screen items-center justify-center">
+      <div className="flex w-full h-fit max-lg:py-[8vh] lg:h-screen items-center justify-center relative">
+        <a
+          href="/academy"
+          className="absolute left-[5vw] top-[9.5vw] w-[0.625vw] h-[1.042vw]"
+        >
+          <Image
+            src="/img/academy/arrow.png"
+            alt="arrow"
+            width={2000}
+            height={2000}
+            className="mx-auto absolute  object-cover max-lg:hidden"
+          />
+        </a>
         {/* Desktop */}
         <div className="flex justify-center items-center relative max-lg:hidden gap-x-[5vw] mt-[5vw]">
           {/* Kiri */}
@@ -37,23 +49,28 @@ export default function Module1Main() {
               <h1 className="text-[1.823vw] text-lightWhite font-avenirHeavy">
                 Download E-Module!
               </h1>
-              <div className="bg-white w-[21.354vw] h-[21.667vw] rounded-[1.302vw]">
+              <div className="bg-white w-[21.354vw] h-[21.667vw] rounded-[1.302vw] flex flex-col p-[1.302vw]">
                 <Image
                   src="/img/academy/module1.png"
-                  alt="background"
+                  alt="module image"
                   width={2000}
                   height={2000}
                   className="mx-auto w-[20.427vw] h-[10.938vw] object-cover max-lg:hidden"
                 />
-                <h1 className="text-[1.302vw] text-black font-avenirBlack">
-                  Module 1
-                </h1>
-                <h1 className=" bg-clip-text text-transparent bg-gradient-to-r from-[#6FAA26] to-[#58B9D1]  font-avenirBlack text-[1.823vw]">
-                  {"Consulting 101"}
-                </h1>
-                <div className="bg-white border-black border w-[19.427vw]  mx-auto mb-[0.2vw] rounded-[1.3vw] text-[1.563vw] text-center font-latoBold">
-                  Download
+                <div className="text-[1.2vw]/[1.7vw]">
+                  <h1 className="text-[1.302vw] text-black font-avenirBlack">
+                    Module 1
+                  </h1>
+                  <h1 className=" bg-clip-text text-transparent bg-gradient-to-r from-[#6FAA26] to-[#58B9D1]  font-avenirBlack text-[1.823vw]">
+                    {"Consulting 101"}
+                  </h1>
                 </div>
+                <a
+                  href=""
+                  className="bg-white font-latoBold text-[1.042vw] border-black border w-[19.427vw] h-[1.927vw] rounded-[1.3vw] mt-[2vw] text-center flex items-center justify-center hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
+                >
+                  Download
+                </a>
               </div>
             </div>
           </div>
