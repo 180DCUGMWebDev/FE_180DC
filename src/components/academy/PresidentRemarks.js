@@ -33,16 +33,15 @@ export default function PresidentRemarks() {
             </h1>
           </div>
           <div>
-          <div className="w-full ">
-            <h1 className="absolute z-[3] top-[25vw] right-[52.5vw] text-lightWhite font-avenirBlack text-[1.042vw] flex flex-col">
-              Beatrice&nbsp;Sarah
-            </h1>
-            <h1 className="absolute z-[3] top-[26.2vw] right-[52.5vw] text-lightWhite font-avenirRegular text-[1.042vw] flex flex-col">
-             President&nbsp;of&nbsp;180DC&nbsp;UGM&nbsp;23.24
-            </h1>
-          </div>
-          <div></div>
-
+            <div className="w-full ">
+              <h1 className="absolute z-[3] top-[25vw] right-[52.5vw] text-lightWhite font-avenirBlack text-[1.042vw] flex flex-col">
+                Beatrice&nbsp;Sarah
+              </h1>
+              <h1 className="absolute z-[3] top-[26.2vw] right-[52.5vw] text-lightWhite font-avenirRegular text-[1.042vw] flex flex-col">
+                President&nbsp;of&nbsp;180DC&nbsp;UGM&nbsp;23.24
+              </h1>
+            </div>
+            <div></div>
           </div>
           <div className=" rounded-3xl  overflow-clip z-[2]">
             <ReactPlayer
@@ -56,17 +55,31 @@ export default function PresidentRemarks() {
         </div>
 
         {/* Mobile */}
-        <div className="flex flex-col lg:hidden w-full items-center mb-[40vw] z-[2] mt-[24.372vw]">
-          <div className="text-[8.6vw] text-primary font-avenirBlack ">
-            Mobile View{" "}
+        <div className="flex flex-col lg:hidden w-full items-center mb-[40vw] z-[2] ">
+          <div className="w-[85vw] text-end h-[10.556vw] relative pb-[10vw]">
+            <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-[#58B9D1] to-[#6FAA26] font-avenirHeavy text-[9.722vw]">
+              {"Preview"}
+            </h1>
           </div>
-          <ReactPlayer
-            url={"https://www.youtube.com/watch?v=zkgZ5LiRiZA"}
-            controls={true}
-            light={true}
-            height="48vw"
-            width="85vw"
-          />
+          <div className="rounded-3xl overflow-clip ">
+            <ReactPlayer
+              url={"https://www.youtube.com/watch?v=zkgZ5LiRiZA"}
+              controls={true}
+              light={true}
+              height="48vw"
+              width="85vw"
+            />
+          </div>
+          <div className="w-[85vw] text-start h-[10.556vw] relative pb-[10vw]">
+            <h1 className="bg-clip-text pt-[2vw] text-transparent bg-gradient-to-r from-[#58B9D1] to-[#6FAA26] font-avenirRegular text-[3.333vw]/[3vw]">
+              <h1 className=" text-lightWhite font-avenirBlack  flex flex-col">
+                Beatrice&nbsp;Sarah
+              </h1>
+              <h1 className=" text-lightWhite font-avenirRegular flex flex-col">
+                President&nbsp;of&nbsp;180DC&nbsp;UGM&nbsp;23.24
+              </h1>
+            </h1>
+          </div>
         </div>
       </div>
     </section>

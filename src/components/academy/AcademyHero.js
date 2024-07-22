@@ -22,6 +22,13 @@ export default function AcademyHero() {
           height={2000}
           className="absolute z-0 -top-[10vw] inset-0 w-full h-full object-cover max-lg:hidden"
         />
+        <Image
+          src="/img/academy/MobileHeroBg.png"
+          alt="background"
+          width={2000}
+          height={2000}
+          className="absolute z-0 -top-[5vw] w-full object-cover lg:hidden"
+        />
         {/* Desktop */}
         <div className="flex flex-col justify-center items-center max-lg:hidden relative">
           {/* Content */}
@@ -50,9 +57,28 @@ export default function AcademyHero() {
         </div>
 
         {/* Mobile */}
-        <div className="flex flex-col lg:hidden w-full items-center mb-[40vw] z-[2] mt-[24.372vw]">
-          <div className="text-[8.6vw] text-primary font-avenirBlack ">
-            Mobile View{" "}
+        <div className="flex flex-col lg:hidden w-full items-center z-[2] mt-[24.372vw]">
+          <div className="w-full flex flex-col justify-center items-center ">
+            <div>
+              <h1 className="text-center bg-clip-text text-transparent bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] text-[8.333vw] font-avenirBlack ">
+                {"180DC Academy"}
+              </h1>
+              <h1 className="text-center w-[87.222vw] text-lightWhite text-[3.333vw]/[3.67vw] pt-[2.5vw] font-avenirRegular">
+                {
+                  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+                }
+              </h1>
+              <h1 className="pt-[15vw] text-center flex flex-col justify-center items-center text-lightWhite text-[3.056vw] font-avenirRegular">
+                {"SCROLL DOWN"}
+                <Image
+                  src="/img/academy/scrollDownArrow.png"
+                  alt="Arrow"
+                  width={2000}
+                  height={2000}
+                  className="w-[5.833vw] items-center object-cover pt-[0.2vw]"
+                />
+              </h1>
+            </div>
           </div>
         </div>
       </div>
