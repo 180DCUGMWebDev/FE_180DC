@@ -71,14 +71,14 @@ export default function PresidentRemarks() {
             />
           </div>
           <div className="w-[85vw] text-start h-[10.556vw] relative pb-[10vw]">
-            <h1 className="bg-clip-text pt-[2vw] text-transparent bg-gradient-to-r from-[#58B9D1] to-[#6FAA26] font-avenirRegular text-[3.333vw]/[3vw]">
+            <div className="bg-clip-text pt-[2vw] text-transparent bg-gradient-to-r from-[#58B9D1] to-[#6FAA26] font-avenirRegular text-[3.333vw]/[3vw]">
               <h1 className=" text-lightWhite font-avenirBlack  flex flex-col">
                 Beatrice&nbsp;Sarah
               </h1>
               <h1 className=" text-lightWhite font-avenirRegular flex flex-col">
                 President&nbsp;of&nbsp;180DC&nbsp;UGM&nbsp;23.24
               </h1>
-            </h1>
+            </div>
           </div>
         </div>
       </div>
