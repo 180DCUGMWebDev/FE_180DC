@@ -82,6 +82,7 @@ export default function AcademyHero() {
           </div>
         </div>
       </div>
+      
     </section>
   );
 }

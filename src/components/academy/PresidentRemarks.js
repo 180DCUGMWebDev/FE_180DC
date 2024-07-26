@@ -55,7 +55,7 @@ export default function PresidentRemarks() {
         </div>
 
         {/* Mobile */}
-        <div className="flex flex-col lg:hidden w-full items-center mb-[40vw] z-[2] ">
+        <div className="flex flex-col lg:hidden w-full items-center mb-[10vw] z-[2] ">
           <div className="w-[85vw] text-end h-[10.556vw] relative pb-[10vw]">
             <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-[#58B9D1] to-[#6FAA26] font-avenirHeavy text-[9.722vw]">
               {"Preview"}

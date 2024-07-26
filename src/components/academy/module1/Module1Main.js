@@ -94,17 +94,81 @@ export default function Module1Main() {
         </div>
 
         {/* Mobile */}
-        <div className="flex flex-col lg:hidden w-full items-center mb-[40vw] z-[2] mt-[24.372vw]">
-          <div className="text-[8.6vw] text-primary font-avenirBlack ">
-            Mobile View{" "}
+        <div className="flex flex-col lg:hidden w-full items-center  z-[2] mt-[20.372vw] relative">
+          <div className="flex w-[81.944vw] text-[2vw]/[7vw] relative">
+            <a
+              href="/academy"
+              className="w-[1.944vw] h-[3.056vw] absolute -left-[3.7vw] top-[2.5vw]"
+            >
+              <Image
+                src="/img/academy/arrow.png"
+                alt="arrow"
+                width={2000}
+                height={2000}
+                className="object-cover lg:hidden w-[1.944vw] h-[3.056vw] "
+              />
+            </a>
+            <div className="h-[16.111vw]">
+              <h1 className="text-[5.556vw] text-white font-avenirHeavy">
+                Module 1
+              </h1>
+              <h1 className=" bg-clip-text text-transparent bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] h-[8vw]  font-avenirBlack text-[7.222vw]">
+                {"Consulting 101"}
+              </h1>
+            </div>
           </div>
-          <ReactPlayer
-            url={"https://www.youtube.com/watch?v=zkgZ5LiRiZA"}
-            controls={true}
-            light={true}
-            height="48vw"
-            width="85vw"
-          />
+
+          <div className="my-[3vw] rounded-xl overflow-clip">
+            <ReactPlayer
+              url={"https://www.youtube.com/watch?v=zkgZ5LiRiZA"}
+              controls={true}
+              light={true}
+              height="45.556vw"
+              width="81.944vw"
+            />
+          </div>
+
+          <h1 className="text-[3.333vw]/[3.1vw] w-[81.944vw] text-lightWhite font-avenirRegular text-justify">
+            Lorem Ipsum has been the industry standard dummy text ever since the
+            1500s, when an unknown printer took a galley of type and scrambled
+            it to make a type specimen book.
+          </h1>
+
+          <div className="flex w-[81.944vw] text-[2vw]/[7vw] relative justify-end mt-[4vw] mb-[2vw]">
+            <h1 className="font-avenirRegular text-lightWhite text-[4.167vw] ">
+              Download E-Module!
+            </h1>
+          </div>
+
+          <div className="flex w-[81.944vw] h-[21.742vw] relative bg-white rounded-md ">
+            <Image
+              src="/img/academy/module1.png"
+              alt="module image"
+              width={2000}
+              height={2000}
+              className="w-[30.639vw] h-[17.392vw] object-cover lg:hidden my-[auto] ml-[1.5vw]"
+            />
+            <div className="text-[2vw]/[4.3vw] flex flex-col justify-end mb-[2vw]">
+              <h1 className="text-[3.333vw] text-black font-avenirBlack">
+                Module 1
+              </h1>
+              <h1 className=" bg-clip-text text-transparent bg-gradient-to-r from-[#6FAA26] to-[#58B9D1]  font-avenirBlack text-[4.722vw] h-[5vw]">
+                {"Consulting 101"}
+              </h1>
+            </div>
+            <a
+              href=""
+              className="w-[7.347vw] h-[8.572vw] border-black border bg-white my-auto mx-auto rounded-lg hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
+            >
+              <Image
+                src="/img/academy/ArrowDownload.png"
+                alt="Download Arrow"
+                width={200000}
+                height={200000}
+                className="w-[2.939vw] object-cover lg:hidden mx-auto my-[1.5vw] "
+              />
+            </a>
+          </div>
         </div>
       </div>
     </section>
