@@ -39,29 +39,63 @@ export default function Footer() {
   // Registered Light Themes
   const lightThemes = [navLinks["About Us"]];
   const lightThemesMobile = [];
-
+  
   // Registered Dark Themes
   const darkThemes = [
     navLinks.Home,
     intLinks.Apply,
     navLinks["Our Clients"],
     navLinks.Telescope,
+    intLinks.Module
   ];
-  const darkThemesMobile = [intLinks.Apply];
+  const darkThemesMobile = [intLinks.Apply, intLinks.Module];
+
+  const checkTheme = ({theme, device}) => {
+    const themeDevice = device === 'desktop' ? {
+      light: lightThemes,
+      dark: darkThemes
+    } : device === 'mobile' ? {
+      light: lightThemesMobile,
+      dark: darkThemesMobile
+    } : {
+      light: [],
+      dark: []
+    }
+
+    const themeCheck = ({themeToCheck}) => {
+      const val = themeToCheck.includes(pathname) || themeToCheck.some((t) => pathname.toLowerCase().includes(t.toLowerCase()));
+      return val;
+    }
+
+    if (theme === 'light') return themeCheck({themeToCheck: themeDevice.light});
+    else if (theme === 'black') return themeCheck({themeToCheck: themeDevice.dark})
+  }
 
   const bgTheme = pathname.includes("/telescope/")
     ? "bg-[black] "
-    : lightThemes.includes(pathname)
+    : checkTheme({
+      theme: 'light',
+      device: 'desktop'
+    })
     ? "bg-white "
-    : darkThemes.includes(pathname)
+    : checkTheme({
+      theme: 'black',
+      device: 'desktop'
+    })
     ? "bg-black "
     : "bg-transparent ";
 
   const bgThemeMobile = pathname.includes("/telescope/")
     ? "bg-[black]"
-    : lightThemesMobile.includes(pathname)
+    : checkTheme({
+      theme: 'light',
+      device: 'mobile'
+    })
     ? "bg-white "
-    : darkThemesMobile.includes(pathname)
+    : checkTheme({
+      theme: 'black',
+      device: 'mobile'
+    })
     ? "bg-black "
     : "bg-transparent ";
 

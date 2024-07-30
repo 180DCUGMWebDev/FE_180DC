@@ -30,7 +30,7 @@ export default function CourseSection() {
           alt="background"
           width={2000}
           height={2000}
-          className="absolute z-0 top-[0vw] inset-0 w-full h-full object-cover max-lg:hidden"
+          className="absolute z-0 top-[0vw] inset-0 w-full h-full object-cover max-lg:hidden origin-top scale-125"
         />
         {/* Desktop */}
         <div className="flex flex-col justify-center items-center max-lg:hidden relative">
@@ -192,7 +192,7 @@ export default function CourseSection() {
             alt="background"
             width={2000}
             height={2000}
-            className="absolute z-0 top-[0vw] inset-0 w-full h-full object-cover lg:hidden rounded-t-xl"
+            className="absolute z-0 top-[0vw] inset-0 w-full h-full object-cover lg:hidden rounded-t-xl origin-top scale-[1.1]"
           />
           <h1 className="font-avenirBlack z-[3] text-lightWhite text-[5.556vw]">
             Start Your Course !

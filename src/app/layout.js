@@ -20,9 +20,15 @@ export default function RootLayout({ children }) {
 
         <div className="hidden min-[250px]:flex flex-col overflow-clip">
           {/* Content */}
-          <Navbar />
-          {children}
-          <Footer />
+          <div className="relative z-[1]">
+            <Navbar />
+          </div>
+          <div className="relative z-[0]">
+            {children}
+          </div>
+          <div className="relative z-[1]">
+            <Footer />
+          </div>
         </div>
         {/* Toastify */}
         <ToastContainer />

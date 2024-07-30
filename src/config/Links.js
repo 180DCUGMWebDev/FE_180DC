@@ -4,10 +4,12 @@ export const navLinks = {
   "About Us": "/aboutus",
   "Our Clients": "/portofolio",
   "Telescope": "/telescope",
+  "Academy": "/academy"
 }
 // Internal Links
 export const intLinks = {
   "Apply": "/apply",
+  "Module": navLinks.Academy + "/module"
 }
 
 // External Links
