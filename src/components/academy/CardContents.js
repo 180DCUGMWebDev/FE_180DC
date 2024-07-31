@@ -2,7 +2,7 @@
 import { useSwiper } from "swiper/react";
 import Image from "next/image";
 
-const CardContents = ({ image }) => {
+const CardContents = ({ image, module, title, link }) => {
   const swiper = useSwiper();
   return (
     <div className="flex gap-x-[2vw]">
@@ -14,20 +14,20 @@ const CardContents = ({ image }) => {
           height={2000}
           className="mx-[1vw] my-[1vw] inset-0 w-[40.99vw] h-[14.01vw] object-cover max-lg:hidden"
         />
-        <div className="text-[1vw]/[1.7vw]">
+        <div className="text-[1vw]/[1.7vw] mt-[1.5vw]">
           <h1 className="text-[1.302vw] font-avenirHeavy ml-[1vw]">
             {" "}
-            Module 1:{" "}
+            {module}:{" "}
           </h1>
           <h1 className="text-[1.823vw] font-avenirHeavy ml-[1vw] text-[#58B9D1]">
             {" "}
-            Consulting 101{" "}
+            {title}{" "}
           </h1>
         </div>
 
         <a
-          href="academy/module1"
-          className="bg-white border-black border w-[39.948vw] h-[2.917vw] mx-[1.3vw] rounded-[1.3vw] mt-[1vw] text-[1.563vw] text-center flex items-center justify-center hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
+          href={link}
+          className="bg-white border-black border w-[39.948vw] h-[2.917vw] mx-[1.3vw] rounded-[1.3vw] mt-[1.7vw] text-[1.563vw] text-center flex items-center justify-center hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
         >
           See Details
         </a>

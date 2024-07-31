@@ -42,146 +42,6 @@ export default function CourseSection() {
             <div className=" w-[90vw]">
               <Slider />
             </div>
-
-            {/* <Swiper
-              effect={"coverflow"}
-              grabCursor={true}
-              centeredSlides={true}
-              loop={true}
-              slidesPerView={"auto"}
-              coverflowEffect={{
-                rotate: 0,
-                stretch : 0,
-                depth: 100,
-                modifier:2.5,
-              }}
-              pagination={{el:'', clickable:true}}
-             
-              className='swiper_container w-[90vw]'
-            >
-              <SwiperSlide>
-                <div className="flex gap-x-[2vw]">
-                  <div className="w-[42.969vw] h-[25.313vw] rounded-[1.6vw]  bg-white shadow-xl">
-                    <Image
-                      src="/img/academy/dummyCardImage.png"
-                      alt="background"
-                      width={2000}
-                      height={2000}
-                      className="mx-[1vw] my-[1vw] inset-0 w-[40.99vw] h-[14.01vw] object-cover max-lg:hidden"
-                    />
-                    <div className="text-[1vw]/[1.7vw]">
-                      <h1 className="text-[1.302vw] font-avenirHeavy ml-[1vw]">
-                        {" "}
-                        Module 1:{" "}
-                      </h1>
-                      <h1 className="text-[1.823vw] font-avenirHeavy ml-[1vw] text-[#58B9D1]">
-                        {" "}
-                        Consulting 101{" "}
-                      </h1>
-                    </div>
-
-                    <a
-                      href="academy/module1"
-                      className="bg-white border-black border w-[39.948vw] h-[2.917vw] mx-[1.3vw] rounded-[1.3vw] mt-[1vw] text-[1.563vw] text-center flex items-center justify-center hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
-                    >
-                      See Details
-                    </a>
-                  </div>
-                  <div className="w-[42.969vw] h-[25.313vw] rounded-[1.6vw] bg-white">
-                    <Image
-                      src="/img/academy/dummyCardImage.png"
-                      alt="background"
-                      width={2000}
-                      height={2000}
-                      className="mx-[1vw] my-[1vw] inset-0 w-[40.99vw] h-[14.01vw] object-cover max-lg:hidden"
-                    />
-                    <div className="text-[1vw]/[1.7vw]">
-                      <h1 className="text-[1.302vw] font-avenirHeavy ml-[1vw]">
-                        {" "}
-                        Module 2:{" "}
-                      </h1>
-                      <h1 className="text-[1.823vw] font-avenirHeavy ml-[1vw] text-[#58B9D1]">
-                        {" "}
-                        Frameworks{" "}
-                      </h1>
-                    </div>
-
-                    <a
-                      href="academy/module1"
-                      className="bg-white border-black border w-[39.948vw] h-[2.917vw] mx-[1.3vw] rounded-[1.3vw] mt-[1vw] text-[1.563vw] text-center flex items-center justify-center hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
-                    >
-                      See Details
-                    </a>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="flex gap-x-[2vw]">
-                  <div className="w-[42.969vw] h-[25.313vw] rounded-[1.6vw]  bg-white shadow-xl">
-                    <Image
-                      src="/img/academy/dummyCardImage.png"
-                      alt="background"
-                      width={2000}
-                      height={2000}
-                      className="mx-[1vw] my-[1vw] inset-0 w-[40.99vw] h-[14.01vw] object-cover max-lg:hidden"
-                    />
-                    <div className="text-[1vw]/[1.7vw]">
-                      <h1 className="text-[1.302vw] font-avenirHeavy ml-[1vw]">
-                        {" "}
-                        Module 3:{" "}
-                      </h1>
-                      <h1 className="text-[1.823vw] font-avenirHeavy ml-[1vw] text-[#58B9D1]">
-                        {" "}
-                        XXXXXXXXXXXX{" "}
-                      </h1>
-                    </div>
-
-                    <a
-                      href="academy/module1"
-                      className="bg-white border-black border w-[39.948vw] h-[2.917vw] mx-[1.3vw] rounded-[1.3vw] mt-[1vw] text-[1.563vw] text-center flex items-center justify-center hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
-                    >
-                      See Details
-                    </a>
-                  </div>
-                  <div className="w-[42.969vw] h-[25.313vw] rounded-[1.6vw] bg-white">
-                    <Image
-                      src="/img/academy/dummyCardImage.png"
-                      alt="background"
-                      width={2000}
-                      height={2000}
-                      className="mx-[1vw] my-[1vw] inset-0 w-[40.99vw] h-[14.01vw] object-cover max-lg:hidden"
-                    />
-                    <div className="text-[1vw]/[1.7vw]">
-                      <h1 className="text-[1.302vw] font-avenirHeavy ml-[1vw]">
-                        {" "}
-                        Module 4:{" "}
-                      </h1>
-                      <h1 className="text-[1.823vw] font-avenirHeavy ml-[1vw] text-[#58B9D1]">
-                        {" "}
-                        ZZZZZZZZZZZZ{" "}
-                      </h1>
-                    </div>
-
-                    <a
-                      href="academy/module1"
-                      className="bg-white border-black border w-[39.948vw] h-[2.917vw] mx-[1.3vw] rounded-[1.3vw] mt-[1vw] text-[1.563vw] text-center flex items-center justify-center hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
-                    >
-                      See Details
-                    </a>
-                  </div>
-                </div>
-              </SwiperSlide>
-              
-              <div className="slider-controler">
-                <div className="swiper-button-prev slider-arrow">
-
-                </div>
-                <div className="swiper-button-next slider-arrow">
-
-                </div>
-                <div className="swiper-pagination"></div>
-              </div>
-            </Swiper> */}
           </div>
         </div>
 
@@ -223,7 +83,32 @@ export default function CourseSection() {
               See Details
             </a>
           </div>
-          <div className="w-[87.222vw] h-[51.389vw] z-[3] rounded-[1.6vw]  bg-white shadow-xl my-[2vw]"></div>
+          <div className="w-[87.222vw] h-[51.389vw] z-[3] rounded-[1.6vw]  bg-white shadow-xl my-[2vw]">
+          <Image
+              src="/img/academy/dummyCardImage.png"
+              alt="background"
+              width={2000}
+              height={2000}
+              className="mx-auto my-[2vw] inset-0 w-[83.333vw] h-[28.333vw] object-cover lg:hidden"
+            />
+            <div className="text-[1vw]/[4.7vw]">
+              <h1 className="text-[3.333vw] font-avenirHeavy ml-[2vw]">
+                {" "}
+                Module 2:{" "}
+              </h1>
+              <h1 className="text-[4.167vw] font-avenirHeavy ml-[2vw] text-[#58B9D1]">
+                {" "}
+                Business Analysis Framework{" "}
+              </h1>
+            </div>
+
+            <a
+              href="academy/module2"
+              className="bg-white border-black border w-[82.286vw] h-[5.919vw] mx-auto rounded-[1.3vw] mt-[2vw] mb-[1vw] text-[3.611vw] text-center flex items-center justify-center hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
+            >
+              See Details
+            </a>
+          </div>
           <div className="w-[87.222vw] h-[51.389vw] z-[3] rounded-[1.6vw]  bg-white shadow-xl my-[2vw]"></div>
           <div className="w-[87.222vw] h-[51.389vw] z-[3] rounded-[1.6vw]  bg-white shadow-xl my-[2vw]"></div>
         </div>

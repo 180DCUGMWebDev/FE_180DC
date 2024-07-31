@@ -7,8 +7,9 @@ import { Pagination } from "swiper/modules";
 
 import CardContents from "./CardContents";
 import Image from "next/image";
+import { link } from "fs";
 
-export default function Slider(image) {
+export default function Slider(image, module, title, link) {
   const data = {
     image: [
       "/img/academy/dummyCardImage.png",
@@ -16,6 +17,24 @@ export default function Slider(image) {
       "/img/academy/dummyCardImage.png",
       "/img/academy/dummyCardImage.png",
     ],
+    module: [
+      "Module 1",
+      "Module 2",
+      "Module 3",
+      "Module 4",
+    ],
+    title: [
+      "Consulting 101",
+      "Business Analysis Framework",
+      "TBA",
+      "TBA",
+    ],
+    link:[
+      "academy/module1",
+      "academy/module2",
+      "academy/module3",
+      "academy/module4",
+    ]
   };
 
   const [swiper, setSwiper] = useState();
@@ -54,7 +73,7 @@ export default function Slider(image) {
         {data.image.map(function (item, index) {
           return (
             <SwiperSlide key={index}>
-              <CardContents image={data.image[index]} />
+              <CardContents image={data.image[index]} module={data.module[index]} title={data.title[index]} link={data.link[index]} />
             </SwiperSlide>
           );
         })}

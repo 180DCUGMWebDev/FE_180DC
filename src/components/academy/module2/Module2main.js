@@ -10,7 +10,7 @@ import Image from "next/image";
 // Import Configs
 import { createBackground } from "@/config/Functions";
 
-export default function Module1Main() {
+export default function Module2Main() {
   //Ignore Hydration Error
   const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
   // Page
@@ -39,7 +39,7 @@ export default function Module1Main() {
           <div className="">
             <div>
               <h1 className="text-[1.563vw] text-white font-avenirBlack">
-                Module 1
+                Module 2
               </h1>
               <h1 className=" bg-clip-text text-transparent bg-gradient-to-r from-[#6FAA26] to-[#58B9D1]  font-avenirBlack text-[2.865vw]">
                 {"Consulting 101"}
@@ -57,17 +57,17 @@ export default function Module1Main() {
                   height={2000}
                   className="mx-auto w-[20.427vw] h-[10.938vw] object-cover max-lg:hidden"
                 />
-                <div className="text-[1.2vw]/[1.7vw] mt-[1vw]">
+                <div className="text-[1.2vw]/[1.7vw]">
                   <h1 className="text-[1.302vw] text-black font-avenirBlack">
-                    Module 1
+                    Module 2
                   </h1>
-                  <h1 className="h-[1.8vw] bg-clip-text text-transparent bg-gradient-to-r from-[#6FAA26] to-[#58B9D1]  font-avenirBlack text-[1.823vw]">
-                    {"Consulting 101"}
+                  <h1 className=" bg-clip-text text-transparent bg-gradient-to-r from-[#6FAA26] to-[#58B9D1]  font-avenirBlack text-[1.823vw]">
+                    {"Business Analysis Framework"}
                   </h1>
                 </div>
                 <a
-                  href="https://docs.google.com/presentation/d/1Qv1JAEbbzToe7ErGKi9j5mVo-BuR4UWQBoDmpOmiiuQ"
-                  className="bg-white font-latoBold text-[1.042vw] border-black border w-[19.427vw] h-[3.927vw] rounded-[1.3vw] mt-[1vw] text-center flex items-center justify-center hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
+                  href=""
+                  className="bg-white font-latoBold text-[1.042vw] border-black border w-[19.427vw] h-[3.927vw] rounded-[1.3vw] mt-[0.8vw] text-center flex items-center justify-center hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
                 >
                   Download
                 </a>
@@ -108,12 +108,12 @@ export default function Module1Main() {
                 className="object-cover lg:hidden w-[1.944vw] h-[3.056vw] "
               />
             </a>
-            <div className="h-[16.111vw]">
+            <div className="h-[22.111vw]">
               <h1 className="text-[5.556vw] text-white font-avenirHeavy">
-                Module 1
+                Module 2
               </h1>
-              <h1 className=" bg-clip-text text-transparent bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] h-[8vw]  font-avenirBlack text-[7.222vw]">
-                {"Consulting 101"}
+              <h1 className=" bg-clip-text text-transparent bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] h-[18vw]  font-avenirBlack text-[7.222vw]">
+                {"Business Analysis Framework"}
               </h1>
             </div>
           </div>
@@ -146,14 +146,14 @@ export default function Module1Main() {
               alt="module image"
               width={2000}
               height={2000}
-              className="w-[30.639vw] h-[17.392vw] object-cover lg:hidden my-[auto] ml-[1.5vw]"
+              className="w-[30.639vw] h-[17.392vw] object-cover lg:hidden my-[auto] ml-[0.5vw]"
             />
-            <div className="text-[2vw]/[4.3vw] flex flex-col justify-end mb-[2vw]">
+            <div className="text-[2vw]/[4.3vw] w-[40vw] flex flex-col justify-end mb-[1vw]">
               <h1 className="text-[3.333vw] text-black font-avenirBlack">
-                Module 1
+                Module 2
               </h1>
-              <h1 className=" bg-clip-text text-transparent bg-gradient-to-r from-[#6FAA26] to-[#58B9D1]  font-avenirBlack text-[4.722vw] h-[5vw]">
-                {"Consulting 101"}
+              <h1 className=" bg-clip-text text-transparent bg-gradient-to-r from-[#6FAA26] to-[#58B9D1]  font-avenirBlack text-[4.722vw] h-[10vw]">
+                {"Business Analysis Framework"}
               </h1>
             </div>
             <a
