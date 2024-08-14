@@ -39,7 +39,7 @@ export default function AcademyHero() {
               </h1>
               <h1 className="text-center w-[60.219vw] text-lightWhite text-[1.823vw]/[1.67vw] pt-[2.5vw] font-avenirRegular">
                 {
-                  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+                  "180DC Academy is our series of free courses to teach you all necessary materials to equip you with skills in attempt to increase the accessibility of consulting. You will learn everything you need to know to apply it to different fields even if you're not a part of our internal team."
                 }
               </h1>
             </div>
@@ -65,7 +65,7 @@ export default function AcademyHero() {
               </h1>
               <h1 className="text-center w-[87.222vw] text-lightWhite text-[3.333vw]/[3.67vw] pt-[2.5vw] font-avenirRegular">
                 {
-                  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+                  "180DC Academy is our series of free courses to teach you all necessary materials to equip you with skills in attempt to increase the accessibility of consulting. You will learn everything you need to know to apply it to different fields even if you're not a part of our internal team."
                 }
               </h1>
               <h1 className="pt-[15vw] text-center flex flex-col justify-center items-center text-lightWhite text-[3.056vw] font-avenirRegular">
@@ -82,7 +82,6 @@ export default function AcademyHero() {
           </div>
         </div>
       </div>
-      
     </section>
   );
 }
