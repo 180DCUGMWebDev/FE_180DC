@@ -17,7 +17,7 @@ export default function HeroCasebook() {
       <div className="flex w-full h-fit max-lg:py-[8vh] lg:h-screen items-center justify-center ">
         <Image
           src="/img/store/casebook/bgHeroCasebook.png"
-          alt="background"
+          alt="180DC UGM Casebook"
           width={2000}
           height={2000}
           className="absolute z-0  inset-0 w-full h-full object-cover max-lg:hidden"
@@ -32,8 +32,37 @@ export default function HeroCasebook() {
         {/* Desktop */}
         <div className="flex flex-col justify-center items-center max-lg:hidden relative">
           {/* Content */}
-          <div className="w-full flex  justify-center items-center pl-[5vw] ">
-            <div>
+          <div className="w-full flex justify-center items-center pl-[5vw] ">
+            <div className="relative">
+              <Image
+                src="/img/store/casebook/whitestar.png"
+                alt="Star ornament"
+                width={2000}
+                height={2000}
+                className="w-[9.141vw] h-[9.538vw] absolute -top-[5vw] -left-[4vw] object-cover max-lg:hidden"
+              />
+              <Image
+                src="/img/store/casebook/vol2.png"
+                alt="Star ornament"
+                width={2000}
+                height={2000}
+                className="w-[7.255vw] h-[4.419vw] absolute -top-[3vw] -right-[1vw] object-cover max-lg:hidden"
+              />
+              <Image
+                src="/img/store/casebook/curl.png"
+                alt="Star ornament"
+                width={2000}
+                height={2000}
+                className="w-[7.415vw] h-[8.815vw] absolute top-[2vw] -left-[6vw] object-cover max-lg:hidden"
+              />
+              <Image
+                src="/img/store/casebook/sparkOrnament.png"
+                alt="Star ornament"
+                width={2000}
+                height={2000}
+                className="w-[1.531vw] h-[1.776vw] absolute top-[5.5vw] right-[2vw] object-cover max-lg:hidden"
+              />
+
               <div className="w-[22.708vw] h-[5.677vw] bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] rounded-[5.208vw] flex flex-col justify-center items-center font-avenirBlack text-lightWhite text-[3.333vw]">
                 CASEBOOK
               </div>
@@ -52,7 +81,10 @@ export default function HeroCasebook() {
                 <span> Get it in </span>
                 <span className="font-bold underline">bundles!</span>
               </div>
-              <div className="w-[10.677vw] h-[3.75vw] gap-[1vw] bg-black180 rounded-[5.208vw] font-avenirHeavy text-[1.25vw] text-white flex justify-center items-center ml-[1.6vw]">
+              <a
+                href="#"
+                className="w-[10.677vw] h-[3.75vw] gap-[1vw] bg-black rounded-[5.208vw] font-avenirHeavy text-[1.25vw] text-white flex justify-center items-center ml-[1.6vw] hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
+              >
                 <Image
                   src="/img/store/casebook/trolley.png"
                   alt="background"
@@ -61,7 +93,7 @@ export default function HeroCasebook() {
                   className="w-[1.389vw] h-[1.389vw] object-cover max-lg:hidden"
                 />
                 <h1>Buy now</h1>
-              </div>
+              </a>
             </div>
             <div>
               <Image
@@ -72,27 +104,25 @@ export default function HeroCasebook() {
                 className="inset-0 -right-[10vw] w-[63.006vw] h-[1019.8] object-cover max-lg:hidden"
               />
             </div>
+            <div className="absolute bottom-[4vw] w-full flex justify-center items-center flex-col">
+              <span className="text-[1.294vw] font-latoBold  mb-[1vw]">
+                GET TO KNOW MORE
+              </span>
+              <Image
+                src="/img/store/casebook/blackArrowDown.png"
+                alt="background"
+                width={2000}
+                height={2000}
+                className="inset-0  w-[1.615vw] h-[0.938vw] object-cover max-lg:hidden animate-bounce"
+              />
+            </div>
           </div>
         </div>
 
         {/* Mobile */}
         <div className="flex flex-col lg:hidden w-full items-center z-[2] mt-[24.372vw]">
           <div className="w-full flex flex-col justify-center items-center ">
-            <div>
-              <h1 className="text-center bg-clip-text text-transparent bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] text-[8.333vw] font-avenirBlack ">
-                {"180DC Academy"}
-              </h1>
-              <h1 className="pt-[15vw] text-center flex flex-col justify-center items-center text-lightWhite text-[3.056vw] font-avenirRegular">
-                {"SCROLL DOWN"}
-                <Image
-                  src="/img/academy/scrollDownArrow.png"
-                  alt="Arrow"
-                  width={2000}
-                  height={2000}
-                  className="w-[5.833vw] items-center object-cover pt-[0.2vw]"
-                />
-              </h1>
-            </div>
+            
           </div>
         </div>
       </div>
