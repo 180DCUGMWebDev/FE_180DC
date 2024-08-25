@@ -77,13 +77,14 @@ export default function Module1Main() {
           {/* Kanan */}
           <div className="w-[55.469vw]">
             <h1 className="text-[1.823vw]/[2vw] text-lightWhite font-avenirRegular text-justify">
-              Lorem Ipsum has been the industry standard dummy text ever since
-              the 1500s, when an unknown printer took a galley of type and
-              scrambled it to make a type specimen book.
+              In this module, you will learn the basics to consulting through
+              problem identification and formulation of a proper logical
+              approach. You will learn frameworks like MECE, develop analysis,
+              and deliver spot-on solutions.
             </h1>
             <div className=" rounded-3xl  overflow-clip z-[2] mt-[2.4vw]">
               <ReactPlayer
-                url={"https://www.youtube.com/watch?v=zkgZ5LiRiZA"}
+                url={"https://www.youtube.com/watch?v=jETOvv9PzTo"}
                 controls={true}
                 light={true}
                 width="55.469vw"
@@ -120,7 +121,7 @@ export default function Module1Main() {
 
           <div className="my-[3vw] rounded-xl overflow-clip">
             <ReactPlayer
-              url={"https://www.youtube.com/watch?v=zkgZ5LiRiZA"}
+              url={"https://www.youtube.com/watch?v=jETOvv9PzTo"}
               controls={true}
               light={true}
               height="45.556vw"
@@ -129,9 +130,10 @@ export default function Module1Main() {
           </div>
 
           <h1 className="text-[3.333vw]/[3.1vw] w-[81.944vw] text-lightWhite font-avenirRegular text-justify">
-            Lorem Ipsum has been the industry standard dummy text ever since the
-            1500s, when an unknown printer took a galley of type and scrambled
-            it to make a type specimen book.
+            In this module, you will learn the basics to consulting through
+            problem identification and formulation of a proper logical approach.
+            You will learn frameworks like MECE, develop analysis, and deliver
+            spot-on solutions.
           </h1>
 
           <div className="flex w-[81.944vw] text-[2vw]/[7vw] relative justify-end mt-[4vw] mb-[2vw]">
@@ -157,7 +159,7 @@ export default function Module1Main() {
               </h1>
             </div>
             <a
-              href=""
+              href="https://docs.google.com/presentation/d/1Qv1JAEbbzToe7ErGKi9j5mVo-BuR4UWQBoDmpOmiiuQ"
               className="w-[7.347vw] h-[8.572vw] border-black border bg-white my-auto mx-auto rounded-lg hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
             >
               <Image

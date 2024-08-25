@@ -23,7 +23,7 @@ export default function HeroCasebook() {
           className="absolute z-0  inset-0 w-full h-full object-cover max-lg:hidden"
         />
         <Image
-          src="/img/academy/MobileHeroBg.png"
+          src="/img/store/casebook/bgHeroCasebookMobile.png"
           alt="background"
           width={2000}
           height={2000}
@@ -122,7 +122,33 @@ export default function HeroCasebook() {
         {/* Mobile */}
         <div className="flex flex-col lg:hidden w-full items-center z-[2] mt-[24.372vw]">
           <div className="w-full flex flex-col justify-center items-center ">
-            
+            <div>
+              <Image
+                src="/img/store/casebook/HeroImageBook.png"
+                alt="background"
+                width={2000}
+                height={2000}
+                className="inset-0 w-[127.026vw] h-[107.082vw] scale-[0.5] object-cover lg:hidden"
+              />
+              <h1 className="text-center bg-clip-text text-transparent bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] text-[8.333vw] font-avenirBlack ">
+                {"180DC Academy"}
+              </h1>
+              <h1 className="text-center w-[87.222vw] text-lightWhite text-[3.333vw]/[3.67vw] pt-[2.5vw] font-avenirRegular">
+                {
+                  "180DC Academy is our series of free courses to teach you all necessary materials to equip you with skills in attempt to increase the accessibility of consulting. You will learn everything you need to know to apply it to different fields even if you're not a part of our internal team."
+                }
+              </h1>
+              <h1 className="pt-[15vw] text-center flex flex-col justify-center items-center text-lightWhite text-[3.056vw] font-avenirRegular">
+                {"SCROLL DOWN"}
+                <Image
+                  src="/img/academy/scrollDownArrow.png"
+                  alt="Arrow"
+                  width={2000}
+                  height={2000}
+                  className="w-[5.833vw] items-center object-cover pt-[0.2vw]"
+                />
+              </h1>
+            </div>
           </div>
         </div>
       </div>

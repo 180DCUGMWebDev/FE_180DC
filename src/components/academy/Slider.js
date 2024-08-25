@@ -31,9 +31,9 @@ export default function Slider(image, module, title, link) {
     ],
     link:[
       "academy/module1",
-      "academy/module2",
-      "academy/module3",
-      "academy/module4",
+      "academy/",
+      "academy/",
+      "academy/",
     ]
   };
 
