@@ -46,7 +46,7 @@ export default function CourseSection() {
         </div>
 
         {/* Mobile */}
-        <div className="flex flex-col lg:hidden w-full h-[239.722vw] items-center z-[2]">
+        <div className="flex flex-col lg:hidden w-full h-[139.722vw] items-center z-[2]">
           <Image
             src="/img/academy/GRAD_180Mobile.png"
             alt="background"

@@ -120,7 +120,7 @@ export default function HeroCasebook() {
         </div>
 
         {/* Mobile */}
-        <div className="flex flex-col lg:hidden w-full items-center z-[2] mt-[24.372vw]">
+        <div className="flex flex-col lg:hidden w-full items-center z-[2] mt-[24.372vw] mb-[24.372vw]">
           <div className="w-full flex flex-col justify-center items-center ">
             <div>
               <Image
@@ -128,26 +128,82 @@ export default function HeroCasebook() {
                 alt="background"
                 width={2000}
                 height={2000}
-                className="inset-0 w-[127.026vw] h-[107.082vw] scale-[0.5] object-cover lg:hidden"
+                className="inset-0 w-[127.026vw] h-[106.923vw] pr-[10vw] scale-[1.4] object-cover lg:hidden"
               />
-              <h1 className="text-center bg-clip-text text-transparent bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] text-[8.333vw] font-avenirBlack ">
-                {"180DC Academy"}
-              </h1>
-              <h1 className="text-center w-[87.222vw] text-lightWhite text-[3.333vw]/[3.67vw] pt-[2.5vw] font-avenirRegular">
-                {
-                  "180DC Academy is our series of free courses to teach you all necessary materials to equip you with skills in attempt to increase the accessibility of consulting. You will learn everything you need to know to apply it to different fields even if you're not a part of our internal team."
-                }
-              </h1>
-              <h1 className="pt-[15vw] text-center flex flex-col justify-center items-center text-lightWhite text-[3.056vw] font-avenirRegular">
-                {"SCROLL DOWN"}
-                <Image
-                  src="/img/academy/scrollDownArrow.png"
-                  alt="Arrow"
-                  width={2000}
-                  height={2000}
-                  className="w-[5.833vw] items-center object-cover pt-[0.2vw]"
-                />
-              </h1>
+              <div className="w-full flex justify-items-start ml-[47vw] pl-[5vw] scale-[2]">
+                <div className="relative">
+                  <Image
+                    src="/img/store/casebook/whitestar.png"
+                    alt="Star ornament"
+                    width={2000}
+                    height={2000}
+                    className="w-[9.141vw] h-[9.538vw] absolute -top-[3vw] -left-[4vw] object-cover lg:hidden"
+                  />
+                  <Image
+                    src="/img/store/casebook/vol2.png"
+                    alt="Star ornament"
+                    width={2000}
+                    height={2000}
+                    className="w-[7.255vw] h-[4.419vw] absolute -top-[1vw] -right-[1vw] object-cover lg:hidden"
+                  />
+                  <Image
+                    src="/img/store/casebook/curl.png"
+                    alt="Star ornament"
+                    width={2000}
+                    height={2000}
+                    className="w-[7.415vw] h-[8.815vw] absolute top-[4vw] -left-[4vw] object-cover lg:hidden scale-[0.6]"
+                  />
+                  <Image
+                    src="/img/store/casebook/sparkOrnament.png"
+                    alt="Star ornament"
+                    width={2000}
+                    height={2000}
+                    className="w-[1.531vw] h-[1.776vw] absolute top-[7.5vw] right-[2vw] object-cover lg:hidden"
+                  />
+
+                  <div className="w-[22.708vw] h-[5.677vw] bg-gradient-to-r mt-[2vw] from-[#6FAA26] to-[#58B9D1] rounded-[5.208vw] flex flex-col justify-center items-center font-avenirBlack text-lightWhite text-[3.333vw]">
+                    CASEBOOK
+                  </div>
+                  <div className="text-[2.5vw] font-avenirBook ml-[1.6vw]">
+                    <h2>
+                      <span className="font-avenirRegular">by </span>
+                      <span className="font-avenirBlack">180DC UGM</span>
+                    </h2>
+                  </div>
+                  <div className="font-avenirRegular text-[1.25vw]/[1.3vw] my-[2.5vw] ml-[1.6vw]">
+                    <span>The </span>
+                    <span className="font-bold underline">
+                      ultimate e-book you need to learn <br />
+                      about consulting!
+                    </span>
+                    <span> Get it in </span>
+                    <span className="font-bold underline">bundles!</span>
+                  </div>
+                  <a
+                    href="#"
+                    className="w-[10.677vw] h-[3.75vw] gap-[1vw] bg-black rounded-[5.208vw] font-avenirHeavy text-[1.25vw] text-white flex justify-center items-center ml-[1.6vw] hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
+                  >
+                    <Image
+                      src="/img/store/casebook/trolley.png"
+                      alt="background"
+                      width={2000}
+                      height={2000}
+                      className="w-[1.389vw] h-[1.389vw] object-cover max-lg:hidden"
+                    />
+                    <h1>Buy now</h1>
+                  </a>
+                </div>
+                <div>
+                  <Image
+                    src="/img/store/casebook/HeroImageBook.png"
+                    alt="background"
+                    width={2000}
+                    height={2000}
+                    className="inset-0 -right-[10vw] w-[63.006vw] h-[1019.8] object-cover max-lg:hidden"
+                  />
+                </div>
+                
+              </div>
             </div>
           </div>
         </div>
