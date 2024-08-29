@@ -1,6 +1,12 @@
 "use client";
 
-export default function Button({ color, text, action = "", addClass = "", disableForm = false }) {
+export default function Button({
+  color,
+  text,
+  action = "",
+  addClass = "",
+  disableForm = false,
+}) {
   const btnColor =
     color === "green" ? "bg-primary" : color === "black" ? "bg-black" : "";
 

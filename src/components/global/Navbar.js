@@ -59,7 +59,8 @@ export default function Navbar() {
 
   // MOBILE HANDLER
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const navIconMobCls = "text-[14vw] text-primary origin-center scale-[.7] hover:cursor-pointer";
+  const navIconMobCls =
+    "text-[14vw] text-primary origin-center scale-[.7] hover:cursor-pointer";
 
   return (
     <>

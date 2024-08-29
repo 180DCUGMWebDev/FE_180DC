@@ -16,7 +16,7 @@ export default function NavFootItems({
   liClass,
   aClass,
   sidebar = false,
-  callback = ""
+  callback = "",
 }) {
   // Router Hook
   const router = useRouter();
@@ -65,16 +65,15 @@ export default function NavFootItems({
               liClass +
               " " +
               (sidebar // Changing colors of Sidebar Div depending on the page
-                ? (navLinks[val] === pathname
+                ? navLinks[val] === pathname
                   ? "bg-[#E9E9E9]"
-                  : "")
+                  : ""
                 : "")
             }
             key={val}
             onClick={() => {
               directRoute(directs[idx], router, pathname);
-              if (callback !== "")
-                callback();
+              if (callback !== "") callback();
             }}
           >
             {sidebar ? obtainIconFunction(val) : ""}
