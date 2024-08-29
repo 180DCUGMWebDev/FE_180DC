@@ -121,9 +121,7 @@ export default function HeroCasebook() {
 
         {/* Mobile */}
         <div className="flex flex-col lg:hidden w-full items-center z-[2] mt-[24.372vw]">
-          <div className="w-full flex flex-col justify-center items-center ">
-            
-          </div>
+          <div className="w-full flex flex-col justify-center items-center "></div>
         </div>
       </div>
     </section>
