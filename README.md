@@ -16,7 +16,7 @@
 
 ## Design
 
-https://www.figma.com/files/project/264728016
+https://www.figma.com/design/xt7c7TejHyzyCQZinaBwKv/180DC-Website-24%2F25?node-id=370-168&t=fowoo8giWNB7BfEF-0
 
 ## Folder Structure
 
