@@ -26,7 +26,7 @@ export default function CourseSection() {
       {/* Content */}
       <div className="flex w-full h-fit max-lg:py-[8vh] lg:h-screen items-center justify-center ">
         <Image
-          src="/img/academy/GRAD_180.png"
+          src="/img/academy/GRAD_180-c.png"
           alt="background"
           width={2000}
           height={2000}
@@ -84,7 +84,7 @@ export default function CourseSection() {
             </a>
           </div>
           <div className="w-[87.222vw] h-[51.389vw] z-[3] rounded-[1.6vw]  bg-white shadow-xl my-[2vw]">
-          <Image
+            <Image
               src="/img/academy/dummyCardImage.png"
               alt="background"
               width={2000}

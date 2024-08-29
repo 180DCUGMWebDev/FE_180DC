@@ -1,12 +1,30 @@
+"use client";
+
 // Import Packages
 import React from "react";
-import { FaBriefcase } from "react-icons/fa";
 import Image from "next/image";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";
+import { useState, useEffect, useMemo } from "react";
 
 export default function WhatInside() {
+  const [windowSize, setWindowSize] = useState();
+
+  const handleResize = () => {
+    setWindowSize(window.innerWidth);
+  };
+
+  useEffect(() => {
+    setWindowSize(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const memoizedWindowSize = useMemo(() => windowSize < 768, [windowSize]);
   // Page
   return (
     <section className="relative">
@@ -16,7 +34,7 @@ export default function WhatInside() {
       {/* Content */}
       <div className="flex w-full h-fit max-lg:py-[8vh] lg:h-screen items-center justify-center ">
         <Image
-          src="/img/store/casebook/bgBlackPatterned.png"
+          src="/img/store/casebook/bgBlackPatterned-c.png"
           alt="180DC UGM Casebook"
           width={2000}
           height={2000}

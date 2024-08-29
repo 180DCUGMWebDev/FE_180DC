@@ -7,6 +7,7 @@ import Footer from "@/components/global/Footer";
 import { ToastContainer } from "react-toastify";
 import TooSmall from "@/components/misc/TooSmall";
 import Script from "next/script";
+import LocomotiveProvider from "@/contexts/LocomotiveContext";
 
 export const metadata = {
   title: "180DC UGM",
@@ -31,22 +32,23 @@ export default function RootLayout({ children }) {
       </Script>
       <body className="select-none">
         {/* First Option */}
-
-        <div className="hidden min-[250px]:flex flex-col overflow-clip">
-          {/* Content */}
-          <div className="relative z-[1]">
-            <Navbar />
+        <LocomotiveProvider>
+          <div className="hidden min-[250px]:flex flex-col overflow-clip">
+            {/* Content */}
+            <div className="relative z-[1]">
+              <Navbar />
+            </div>
+            <div className="relative z-[0]">{children}</div>
+            <div className="relative z-[1]">
+              <Footer />
+            </div>
           </div>
-          <div className="relative z-[0]">{children}</div>
-          <div className="relative z-[1]">
-            <Footer />
-          </div>
-        </div>
-        {/* Toastify */}
-        <ToastContainer />
+          {/* Toastify */}
+          <ToastContainer />
 
-        {/* Second Option */}
-        <TooSmall />
+          {/* Second Option */}
+          <TooSmall />
+        </LocomotiveProvider>
       </body>
     </html>
   );

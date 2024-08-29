@@ -16,6 +16,8 @@
     "fs": "^0.0.1-security",
     "google-auth-library": "^9.2.0",
     "google-spreadsheet": "^4.1.1",
+    "gsap": "^3.12.5",
+    "locomotive-scroll": "^5.0.0-beta.15",
     "moment": "^2.29.4",
     "net": "^1.0.2",
     "next": "13.4.19",

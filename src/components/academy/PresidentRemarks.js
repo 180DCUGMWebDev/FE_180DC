@@ -2,8 +2,6 @@
 "use client";
 
 import React from "react";
-import { FaBriefcase } from "react-icons/fa";
-import ReactPlayer from "react-player/youtube";
 import dynamic from "next/dynamic";
 
 // Import Configs
@@ -28,7 +26,7 @@ export default function PresidentRemarks() {
             </h1>
           </div>
           <div className="w-full ">
-            <h1 className=" absolute z-1 top-[17vw] left-[17vw] bg-clip-text text-transparent bg-gradient-to-r from-[#58B9D1] to-[#6FAA26]  font-avenirRegular text-[15.625vw]">
+            <h1 className=" absolute z-1 top-[17vw] left-[17vw] bg-clip-text text-transparent bg-gradient-to-r from-[#58B9D1] to-[#6FAA26] font-avenirRegular text-[15.625vw]">
               {"Preview"}
             </h1>
           </div>
@@ -43,7 +41,7 @@ export default function PresidentRemarks() {
             </div>
             <div></div>
           </div>
-          <div className=" rounded-3xl  overflow-clip z-[2]">
+          <div className="rounded-3xl overflow-clip z-[2]">
             <ReactPlayer
               url={"https://www.youtube.com/watch?v=zkgZ5LiRiZA"}
               controls={true}

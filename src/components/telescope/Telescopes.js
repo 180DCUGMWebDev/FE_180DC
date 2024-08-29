@@ -25,7 +25,7 @@ export function Telescopes({ articles, subscribeScrollRef }) {
       <div className="max-lg:pt-[20vh] max-lg:pb-[15vh] px-[5vw] relative bg-black lg:h-screen">
         {/* Hero Background */}
         <Image
-          src="/img/telescope/hero_bg.png"
+          src="/img/telescope/hero_bg-c.png"
           alt="background"
           width={2000}
           height={2000}
