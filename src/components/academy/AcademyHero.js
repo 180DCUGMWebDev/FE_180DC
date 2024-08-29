@@ -16,7 +16,7 @@ export default function AcademyHero() {
       {/* Content */}
       <div className="flex w-full h-fit max-lg:py-[8vh] lg:h-screen items-center justify-center ">
         <Image
-          src="/img/academy/heroAcad.png"
+          src="/img/academy/heroAcad-c.png"
           alt="background"
           width={2000}
           height={2000}

@@ -1,9 +1,7 @@
 "use client";
-import { useSwiper } from "swiper/react";
 import Image from "next/image";
 
 const CardContents = ({ image, module, title, link }) => {
-  const swiper = useSwiper();
   return (
     <div className="flex gap-x-[2vw]">
       <div className="w-[42.969vw] h-[25.313vw] rounded-[1.6vw] mb-[5vw]  bg-white shadow-xl">
