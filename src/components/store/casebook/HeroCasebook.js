@@ -27,10 +27,10 @@ export default function HeroCasebook() {
           alt="background"
           width={2000}
           height={2000}
-          className="absolute z-0 -top-[5vw] w-full object-cover lg:hidden"
+          className="absolute z-0 inset-0 -top-[5vw] w-full object-cover lg:hidden"
         />
         {/* Desktop */}
-        <div className="flex flex-col justify-center items-center max-lg:hidden relative">
+        <div className="flex flex-col justify-center items-center max-lg:hidden relative  mb-[5vw]">
           {/* Content */}
           <div className="w-full flex justify-center items-center pl-[5vw] ">
             <div className="relative">
