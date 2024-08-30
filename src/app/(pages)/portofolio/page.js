@@ -9,5 +9,5 @@ export default function Portofolio() {
       <ProjectStructure />
       <LookForward theme={"dark"} />
     </main>
-  )
+  );
 }

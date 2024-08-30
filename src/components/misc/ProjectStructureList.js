@@ -1,4 +1,4 @@
-export default function ProjectStructureList({ divConfig, lineConfig, componentExtra="" }) {
+export default function ProjectStructureList({ divConfig, lineConfig, componentExtra = "" }) {
   const steps = [
     {
       title: "Pre-Week 1 : Initial Consultation",
@@ -21,8 +21,7 @@ export default function ProjectStructureList({ divConfig, lineConfig, componentE
       desc: "After thorough review by the Director of Consulting and project mentor(s), the team walks you through a comprehensive presentation outlining their findings and recommendations.",
     },
     {
-      title:
-        "Post-Week 10 : 360 Evaluation Meeting with Clients and Client Feedback",
+      title: "Post-Week 10 : 360 Evaluation Meeting with Clients and Client Feedback",
       desc: "We obtain feedback about the team's overall performance, as well as our branch's onboarding process, communication, and quality of deliverables.",
     },
   ];
@@ -33,14 +32,17 @@ export default function ProjectStructureList({ divConfig, lineConfig, componentE
         return (
           <div
             key={idx}
-            className={"relative flex flex-col w-full h-fit " + ((componentExtra === "" ? " gap-[15px]" : componentExtra))}
+            className={
+              "relative flex h-fit w-full flex-col " +
+              (componentExtra === "" ? " gap-[15px]" : componentExtra)
+            }
           >
             {/* Poles */}
             {idx !== steps.length - 1 ? (
-              <div className={"absolute flex justify-center w-[10%] lg:w-[5%] " + lineConfig}>
+              <div className={"absolute flex w-[10%] justify-center lg:w-[5%] " + lineConfig}>
                 <div className="flex w-[40%] justify-center">
-                  <div className={"relative w-[2.5vw] lg:-[0.4vw] h-full 2xl:w-[6.1px]"}>
-                    <div className="absolute -z-[997] w-full h-full max-lg:top-[1vh] bg-secondary" />
+                  <div className={"lg:-[0.4vw] relative h-full w-[2.5vw] 2xl:w-[6.1px]"}>
+                    <div className="absolute -z-[997] h-full w-full bg-secondary max-lg:top-[1vh]" />
                   </div>
                 </div>
               </div>
@@ -48,21 +50,21 @@ export default function ProjectStructureList({ divConfig, lineConfig, componentE
               ""
             )}
             {/* Balls and Title */}
-            <div className={"flex w-full items-center h-fit gap-[5%]"}>
-              <div className="flex w-[10%] lg:w-[5%] justify-center">
-                <div className="w-[6vw] h-[6vw] lg:w-[1.5vw] lg:h-[1.5vw] bg-primary rounded-full mb-[3px] 2xl:w-[23px] 2xl:h-[23px]" />
+            <div className={"flex h-fit w-full items-center gap-[5%]"}>
+              <div className="flex w-[10%] justify-center lg:w-[5%]">
+                <div className="mb-[3px] h-[6vw] w-[6vw] rounded-full bg-primary lg:h-[1.5vw] lg:w-[1.5vw] 2xl:h-[23px] 2xl:w-[23px]" />
               </div>
               <div className="flex w-[90%]">
-                <h1 className="text-primary text-[5vw] lg:text-[1.9vw] leading-[1.1] font-avenirBlack w-full 2xl:text-[29px]">
+                <h1 className="w-full font-avenirBlack text-[5vw] leading-[1.1] text-primary lg:text-[1.9vw] 2xl:text-[29px]">
                   {step.title}
                 </h1>
               </div>
             </div>
             {/* Descriptions */}
-            <div className="flex w-full h-fit">
+            <div className="flex h-fit w-full">
               <div className="relative w-[15%] lg:w-[10%]"></div>
               <div className="flex w-[85%] lg:w-[90%]">
-                <p className="font-latoRegular text-lightWhite text-[3.7vw] lg:text-[1.13vw] leading-[1.25] 2xl:text-[17.3px]">
+                <p className="font-latoRegular text-[3.7vw] leading-[1.25] text-lightWhite lg:text-[1.13vw] 2xl:text-[17.3px]">
                   {step.desc}
                 </p>
               </div>

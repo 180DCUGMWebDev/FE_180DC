@@ -10,49 +10,49 @@ import { useState, useEffect, useMemo } from "react";
 
 const DekstopComponent = React.memo(() => {
   return (
-    <div className="flex flex-col justify-center items-center max-lg:hidden relative  mb-[5vw]">
+    <div className="relative mb-[5vw] flex flex-col items-center justify-center max-lg:hidden">
       {/* Content */}
-      <div className="w-full flex justify-center items-center pl-[5vw] ">
+      <div className="flex w-full items-center justify-center pl-[5vw]">
         <div className="relative">
           <Image
             src="/img/store/casebook/whitestar.png"
             alt="Star ornament"
             width={2000}
             height={2000}
-            className="w-[9.141vw] h-[9.538vw] absolute -top-[5vw] -left-[4vw] object-cover max-lg:hidden"
+            className="absolute -left-[4vw] -top-[5vw] h-[9.538vw] w-[9.141vw] object-cover max-lg:hidden"
           />
           <Image
             src="/img/store/casebook/vol2.png"
             alt="Star ornament"
             width={2000}
             height={2000}
-            className="w-[7.255vw] h-[4.419vw] absolute -top-[3vw] -right-[1vw] object-cover max-lg:hidden"
+            className="absolute -right-[1vw] -top-[3vw] h-[4.419vw] w-[7.255vw] object-cover max-lg:hidden"
           />
           <Image
             src="/img/store/casebook/curl.png"
             alt="Star ornament"
             width={2000}
             height={2000}
-            className="w-[7.415vw] h-[8.815vw] absolute top-[2vw] -left-[6vw] object-cover max-lg:hidden"
+            className="absolute -left-[6vw] top-[2vw] h-[8.815vw] w-[7.415vw] object-cover max-lg:hidden"
           />
           <Image
             src="/img/store/casebook/sparkOrnament.png"
             alt="Star ornament"
             width={2000}
             height={2000}
-            className="w-[1.531vw] h-[1.776vw] absolute top-[5.5vw] right-[2vw] object-cover max-lg:hidden"
+            className="absolute right-[2vw] top-[5.5vw] h-[1.776vw] w-[1.531vw] object-cover max-lg:hidden"
           />
 
-          <div className="w-[22.708vw] h-[5.677vw] bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] rounded-[5.208vw] flex flex-col justify-center items-center font-avenirBlack text-lightWhite text-[3.333vw]">
+          <div className="flex h-[5.677vw] w-[22.708vw] flex-col items-center justify-center rounded-[5.208vw] bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] font-avenirBlack text-[3.333vw] text-lightWhite">
             CASEBOOK
           </div>
-          <div className="text-[2.5vw] font-avenirBook ml-[1.6vw]">
+          <div className="ml-[1.6vw] font-avenirBook text-[2.5vw]">
             <h2>
               <span className="font-avenirRegular">by </span>
               <span className="font-avenirBlack">180DC UGM</span>
             </h2>
           </div>
-          <div className="font-avenirRegular text-[1.25vw]/[1.3vw] my-[2.5vw] ml-[1.6vw]">
+          <div className="my-[2.5vw] ml-[1.6vw] font-avenirRegular text-[1.25vw]/[1.3vw]">
             <span>The </span>
             <span className="font-bold underline">
               ultimate e-book you need to learn <br />
@@ -63,14 +63,14 @@ const DekstopComponent = React.memo(() => {
           </div>
           <a
             href="#"
-            className="w-[10.677vw] h-[3.75vw] gap-[1vw] bg-black rounded-[5.208vw] font-avenirHeavy text-[1.25vw] text-white flex justify-center items-center ml-[1.6vw] hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
+            className="ml-[1.6vw] flex h-[3.75vw] w-[10.677vw] items-center justify-center gap-[1vw] rounded-[5.208vw] bg-black font-avenirHeavy text-[1.25vw] text-white transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#5AB0BB]/20"
           >
             <Image
               src="/img/store/casebook/trolley.png"
               alt="background"
               width={2000}
               height={2000}
-              className="w-[1.389vw] h-[1.389vw] object-cover max-lg:hidden"
+              className="h-[1.389vw] w-[1.389vw] object-cover max-lg:hidden"
             />
             <h1>Buy now</h1>
           </a>
@@ -81,19 +81,17 @@ const DekstopComponent = React.memo(() => {
             alt="background"
             width={2000}
             height={2000}
-            className="inset-0 -right-[10vw] w-[63.006vw] h-[1019.8] object-cover max-lg:hidden"
+            className="inset-0 -right-[10vw] h-[1019.8] w-[63.006vw] object-cover max-lg:hidden"
           />
         </div>
-        <div className="absolute bottom-[2vw] w-full flex justify-center items-center flex-col">
-          <span className="text-[1.294vw] font-latoBold  mb-[1vw]">
-            GET TO KNOW MORE
-          </span>
+        <div className="absolute bottom-[2vw] flex w-full flex-col items-center justify-center">
+          <span className="mb-[1vw] font-latoBold text-[1.294vw]">GET TO KNOW MORE</span>
           <Image
             src="/img/store/casebook/blackArrowDown.png"
             alt="background"
             width={2000}
             height={2000}
-            className="inset-0  w-[1.615vw] h-[0.938vw] object-cover max-lg:hidden animate-bounce"
+            className="inset-0 h-[0.938vw] w-[1.615vw] animate-bounce object-cover max-lg:hidden"
           />
         </div>
       </div>
@@ -103,57 +101,57 @@ const DekstopComponent = React.memo(() => {
 
 const MobileComponent = React.memo(() => {
   return (
-    <div className="flex flex-col lg:hidden w-full items-center z-[2] mt-[12.372vw] mb-[26.372vw]">
-      <div className="w-full flex flex-col justify-center items-center ">
+    <div className="z-[2] mb-[26.372vw] mt-[12.372vw] flex w-full flex-col items-center lg:hidden">
+      <div className="flex w-full flex-col items-center justify-center">
         <div>
           <Image
             src="/img/store/casebook/HeroImageBook.png"
             alt="background"
             width={2000}
             height={2000}
-            className="inset-0 w-[107.026vw] h-[86.923vw] pr-[14vw] scale-[1.4] object-cover lg:hidden"
+            className="inset-0 h-[86.923vw] w-[107.026vw] scale-[1.4] object-cover pr-[14vw] lg:hidden"
           />
-          <div className="w-full flex justify-items-start ml-[47vw] pl-[5vw] scale-[2]">
+          <div className="ml-[47vw] flex w-full scale-[2] justify-items-start pl-[5vw]">
             <div className="relative mt-[6vw]">
               <Image
                 src="/img/store/casebook/whitestar.png"
                 alt="Star ornament"
                 width={2000}
                 height={2000}
-                className="w-[9.141vw] h-[9.538vw] absolute top-[1vw] -left-[4vw] object-cover lg:hidden"
+                className="absolute -left-[4vw] top-[1vw] h-[9.538vw] w-[9.141vw] object-cover lg:hidden"
               />
               <Image
                 src="/img/store/casebook/vol2.png"
                 alt="Star ornament"
                 width={2000}
                 height={2000}
-                className="w-[7.255vw] h-[4.419vw] absolute top-[3vw] right-[3vw] object-cover lg:hidden"
+                className="absolute right-[3vw] top-[3vw] h-[4.419vw] w-[7.255vw] object-cover lg:hidden"
               />
               <Image
                 src="/img/store/casebook/curl.png"
                 alt="Star ornament"
                 width={2000}
                 height={2000}
-                className="w-[7.415vw] h-[8.815vw] absolute top-[9.3vw] -left-[4vw] object-cover lg:hidden scale-[0.6]"
+                className="absolute -left-[4vw] top-[9.3vw] h-[8.815vw] w-[7.415vw] scale-[0.6] object-cover lg:hidden"
               />
               <Image
                 src="/img/store/casebook/sparkOrnament.png"
                 alt="Star ornament"
                 width={2000}
                 height={2000}
-                className="w-[1.531vw] h-[1.776vw] absolute top-[12.8vw] right-[8vw] object-cover lg:hidden"
+                className="absolute right-[8vw] top-[12.8vw] h-[1.776vw] w-[1.531vw] object-cover lg:hidden"
               />
 
-              <div className="w-[22.708vw] h-[5.677vw] bg-gradient-to-r mt-[6vw] from-[#6FAA26] to-[#58B9D1] rounded-[5.208vw] flex flex-col justify-center items-center font-avenirBlack text-lightWhite text-[3.333vw]">
+              <div className="mt-[6vw] flex h-[5.677vw] w-[22.708vw] flex-col items-center justify-center rounded-[5.208vw] bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] font-avenirBlack text-[3.333vw] text-lightWhite">
                 CASEBOOK
               </div>
-              <div className="text-[2.5vw] font-avenirBook ml-[1.6vw] mt-[1.3vw]">
+              <div className="ml-[1.6vw] mt-[1.3vw] font-avenirBook text-[2.5vw]">
                 <h2>
                   <span className="font-avenirRegular">by </span>
                   <span className="font-avenirBlack">180DC UGM</span>
                 </h2>
               </div>
-              <div className="font-avenirRegular text-[1.65vw]/[1.75vw] my-[2.5vw] ml-[1.6vw]">
+              <div className="my-[2.5vw] ml-[1.6vw] font-avenirRegular text-[1.65vw]/[1.75vw]">
                 <span>The </span>
                 <span className="font-bold underline">
                   ultimate e-book you need to learn <br />
@@ -164,14 +162,14 @@ const MobileComponent = React.memo(() => {
               </div>
               <a
                 href="#"
-                className="w-[12.677vw] h-[3.75vw] gap-[1vw] bg-black rounded-[5.208vw] font-avenirHeavy text-[1.45vw] text-white flex justify-center items-center ml-[1.6vw] mt-[4vw] hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
+                className="ml-[1.6vw] mt-[4vw] flex h-[3.75vw] w-[12.677vw] items-center justify-center gap-[1vw] rounded-[5.208vw] bg-black font-avenirHeavy text-[1.45vw] text-white transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#5AB0BB]/20"
               >
                 <Image
                   src="/img/store/casebook/trolley.png"
                   alt="background"
                   width={2000}
                   height={2000}
-                  className="w-[1.389vw] h-[1.389vw] object-cover lg:hidden"
+                  className="h-[1.389vw] w-[1.389vw] object-cover lg:hidden"
                 />
                 <h1>Buy now</h1>
               </a>
@@ -179,16 +177,14 @@ const MobileComponent = React.memo(() => {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-[4vw] w-full flex justify-center items-center flex-col">
-        <span className="text-[3.077vw] font-latoBold  mb-[1vw]">
-          GET TO KNOW MORE
-        </span>
+      <div className="absolute bottom-[4vw] flex w-full flex-col items-center justify-center">
+        <span className="mb-[1vw] font-latoBold text-[3.077vw]">GET TO KNOW MORE</span>
         <Image
           src="/img/store/casebook/blackArrowDown.png"
           alt="background"
           width={2000}
           height={2000}
-          className="inset-0  w-[3.533vw] h-[2.051vw] object-cover lg:hidden animate-bounce"
+          className="inset-0 h-[2.051vw] w-[3.533vw] animate-bounce object-cover lg:hidden"
         />
       </div>
     </div>
@@ -220,20 +216,20 @@ export default function HeroCasebook() {
       {createBackground("dark")}
 
       {/* Content */}
-      <div className="flex w-full h-fit max-lg:py-[8vh] lg:h-screen items-center justify-center ">
+      <div className="flex h-fit w-full items-center justify-center max-lg:py-[8vh] lg:h-screen">
         <Image
           src="/img/store/casebook/bgHeroCasebook.png"
           alt="180DC UGM Casebook"
           width={2000}
           height={2000}
-          className="absolute z-0  inset-0 w-full h-full object-cover max-lg:hidden"
+          className="absolute inset-0 z-0 h-full w-full object-cover max-lg:hidden"
         />
         <Image
           src="/img/store/casebook/bgHeroCasebookMobile.png"
           alt="background"
           width={2000}
           height={2000}
-          className="absolute z-0 inset-0 -top-[5vw] w-full object-cover lg:hidden"
+          className="absolute inset-0 -top-[5vw] z-0 w-full object-cover lg:hidden"
         />
         {memoizedWindowSize ? <DekstopComponent /> : <MobileComponent />}
       </div>

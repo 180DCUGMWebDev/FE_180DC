@@ -30,8 +30,7 @@ export default function Navbar() {
 
     useEffect(() => {
       const handleScroll = () => {
-        const currentScrollTop =
-          window.scrollY || document.documentElement.scrollTop;
+        const currentScrollTop = window.scrollY || document.documentElement.scrollTop;
         if (currentScrollTop > lastScrollTop) {
           setScrollDirection("down");
         } else if (currentScrollTop < lastScrollTop) {
@@ -59,24 +58,23 @@ export default function Navbar() {
 
   // MOBILE HANDLER
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const navIconMobCls =
-    "text-[14vw] text-primary origin-center scale-[.7] hover:cursor-pointer";
+  const navIconMobCls = "text-[14vw] text-primary origin-center scale-[.7] hover:cursor-pointer";
 
   return (
     <>
       {/* DESKTOP */}
       <div
         className={
-          "fixed top-0 left-0 z-[100] hidden lg:flex w-full py-[20px] px-[50px] transition-transform duration-[300ms] " +
+          "fixed left-0 top-0 z-[100] hidden w-full px-[50px] py-[20px] transition-transform duration-[300ms] lg:flex " +
           (scroll !== "down" ? "" : "translate-y-[-200%]") +
           (mobileMenuOpen ? "overflow-y-clip" : "")
         }
       >
         <nav className="flex w-full">
           {/* Logo */}
-          <div className="w-[15%] h-full">
-            <div className="flex w-[33%] h-full">
-              <div className="w-full 2xl:w-[77px] h-full">
+          <div className="h-full w-[15%]">
+            <div className="flex h-full w-[33%]">
+              <div className="h-full w-full 2xl:w-[77px]">
                 <ImgF
                   src="/img/global/logo180dctrns.png"
                   alt="logo 180dc"
@@ -96,7 +94,7 @@ export default function Navbar() {
             />
           </div>
           {/* Consult */}
-          <div className="flex justify-end items-center w-[15%]">
+          <div className="flex w-[15%] items-center justify-end">
             <Button
               color={"green"}
               text={"Consult Now!"}
@@ -115,15 +113,15 @@ export default function Navbar() {
       {/* MOBILE */}
       <div
         className={
-          "fixed top-0 left-0 z-[100] lg:hidden flex w-full py-[20px] px-[30px] transition-transform duration-[300ms] " +
+          "fixed left-0 top-0 z-[100] flex w-full px-[30px] py-[20px] transition-transform duration-[300ms] lg:hidden " +
           (scroll === "down" || mobileMenuOpen ? "translate-y-[-200%]" : "")
         }
       >
         <nav className="flex w-full">
           {/* Logo */}
-          <div className="w-[15%] h-full">
-            <div className="flex w-full h-full">
-              <div className="w-full h-full">
+          <div className="h-full w-[15%]">
+            <div className="flex h-full w-full">
+              <div className="h-full w-full">
                 <ImgF
                   src="/img/global/logo180dctrns.png"
                   alt="logo 180dc"
@@ -134,7 +132,7 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-          <div className="grow h-full flex items-center justify-end">
+          <div className="flex h-full grow items-center justify-end">
             <div className="flex">
               <MdComment
                 className={navIconMobCls}
@@ -142,10 +140,7 @@ export default function Navbar() {
                   directRoute(intLinks.Apply, router, pathname);
                 }}
               />
-              <FaBars
-                className={navIconMobCls}
-                onClick={() => setMobileMenuOpen(true)}
-              />
+              <FaBars className={navIconMobCls} onClick={() => setMobileMenuOpen(true)} />
             </div>
           </div>
         </nav>
@@ -155,8 +150,7 @@ export default function Navbar() {
       {/* Black Bg */}
       <div
         className={
-          "fixed z-[100] top-0 w-full h-[200vh] bg-black/[80%] " +
-          (mobileMenuOpen ? "" : "hidden")
+          "fixed top-0 z-[100] h-[200vh] w-full bg-black/[80%] " + (mobileMenuOpen ? "" : "hidden")
         }
         onClick={() => {
           setMobileMenuOpen(false);
@@ -166,11 +160,11 @@ export default function Navbar() {
       {/* The Sidebar */}
       <div
         className={
-          "lg:hidden fixed z-[101] h-full w-[45vw] py-[5vh] flex flex-col duration-[300ms] " +
-          (mobileMenuOpen ? "right-0 " : "-right-[100%] ")
+          "fixed z-[101] flex h-full w-[45vw] flex-col py-[5vh] duration-[300ms] lg:hidden " +
+          (mobileMenuOpen ? "right-0" : "-right-[100%]")
         }
       >
-        <div className="flex flex-col items-center bg-[#F4F4F4] w-full h-full px-[4vw] pt-[4vh] pb-[1vh] gap-[3vh] rounded-l-[5vw]">
+        <div className="flex h-full w-full flex-col items-center gap-[3vh] rounded-l-[5vw] bg-[#F4F4F4] px-[4vw] pb-[1vh] pt-[4vh]">
           {/* Logo */}
           <div className="w-8/12">
             <ImgF
@@ -182,7 +176,7 @@ export default function Navbar() {
             />
           </div>
           {/* Menu List */}
-          <div className="flex flex-col w-full grow">
+          <div className="flex w-full grow flex-col">
             <NavFootItems
               ulClass="flex flex-col w-full gap-[1vh]"
               liClass="flex items-center w-full gap-[1.8vw] rounded-[1vw] py-[1vh] px-[3vw]"
@@ -192,10 +186,8 @@ export default function Navbar() {
             />
           </div>
           {/* Copyright */}
-          <div className="flex w-full justify-center items-center">
-            <h3 className="text-black font-avenirBook text-[2vw]">
-              {copyright}
-            </h3>
+          <div className="flex w-full items-center justify-center">
+            <h3 className="font-avenirBook text-[2vw] text-black">{copyright}</h3>
           </div>
         </div>
       </div>

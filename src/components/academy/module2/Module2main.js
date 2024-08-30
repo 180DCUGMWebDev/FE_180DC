@@ -20,54 +20,47 @@ export default function Module2Main() {
       {createBackground("dark")}
 
       {/* Content */}
-      <div className="flex w-full h-fit max-lg:py-[8vh] lg:h-screen items-center justify-center relative">
-        <a
-          href="/academy"
-          className="absolute left-[5vw] top-[9.5vw] w-[0.625vw] h-[1.042vw]"
-        >
+      <div className="relative flex h-fit w-full items-center justify-center max-lg:py-[8vh] lg:h-screen">
+        <a href="/academy" className="absolute left-[5vw] top-[9.5vw] h-[1.042vw] w-[0.625vw]">
           <Image
             src="/img/academy/arrow.png"
             alt="arrow"
             width={2000}
             height={2000}
-            className="mx-auto absolute  object-cover max-lg:hidden"
+            className="absolute mx-auto object-cover max-lg:hidden"
           />
         </a>
         {/* Desktop */}
-        <div className="flex justify-center items-center relative max-lg:hidden gap-x-[5vw] mt-[5vw]">
+        <div className="relative mt-[5vw] flex items-center justify-center gap-x-[5vw] max-lg:hidden">
           {/* Kiri */}
           <div className="">
             <div>
-              <h1 className="text-[1.563vw] text-white font-avenirBlack">
-                Module 2
-              </h1>
-              <h1 className=" bg-clip-text text-transparent bg-gradient-to-r from-[#6FAA26] to-[#58B9D1]  font-avenirBlack text-[2.865vw]">
+              <h1 className="font-avenirBlack text-[1.563vw] text-white">Module 2</h1>
+              <h1 className="bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] bg-clip-text font-avenirBlack text-[2.865vw] text-transparent">
                 {"Consulting 101"}
               </h1>
             </div>
             <div className="mt-[8vw]">
-              <h1 className="text-[1.823vw] text-lightWhite font-avenirHeavy">
+              <h1 className="font-avenirHeavy text-[1.823vw] text-lightWhite">
                 Download E-Module!
               </h1>
-              <div className="bg-white w-[21.354vw] h-[21.667vw] rounded-[1.302vw] flex flex-col p-[1.302vw]">
+              <div className="flex h-[21.667vw] w-[21.354vw] flex-col rounded-[1.302vw] bg-white p-[1.302vw]">
                 <Image
                   src="/img/academy/module1.png"
                   alt="module image"
                   width={2000}
                   height={2000}
-                  className="mx-auto w-[20.427vw] h-[10.938vw] object-cover max-lg:hidden"
+                  className="mx-auto h-[10.938vw] w-[20.427vw] object-cover max-lg:hidden"
                 />
                 <div className="text-[1.2vw]/[1.7vw]">
-                  <h1 className="text-[1.302vw] text-black font-avenirBlack">
-                    Module 2
-                  </h1>
-                  <h1 className=" bg-clip-text text-transparent bg-gradient-to-r from-[#6FAA26] to-[#58B9D1]  font-avenirBlack text-[1.823vw]">
+                  <h1 className="font-avenirBlack text-[1.302vw] text-black">Module 2</h1>
+                  <h1 className="bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] bg-clip-text font-avenirBlack text-[1.823vw] text-transparent">
                     {"Business Analysis Framework"}
                   </h1>
                 </div>
                 <a
                   href=""
-                  className="bg-white font-latoBold text-[1.042vw] border-black border w-[19.427vw] h-[3.927vw] rounded-[1.3vw] mt-[0.8vw] text-center flex items-center justify-center hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
+                  className="mt-[0.8vw] flex h-[3.927vw] w-[19.427vw] items-center justify-center rounded-[1.3vw] border border-black bg-white text-center font-latoBold text-[1.042vw] transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#5AB0BB]/20"
                 >
                   Download
                 </a>
@@ -76,12 +69,11 @@ export default function Module2Main() {
           </div>
           {/* Kanan */}
           <div className="w-[55.469vw]">
-            <h1 className="text-[1.823vw]/[2vw] text-lightWhite font-avenirRegular text-justify">
-              Lorem Ipsum has been the industry standard dummy text ever since
-              the 1500s, when an unknown printer took a galley of type and
-              scrambled it to make a type specimen book.
+            <h1 className="text-justify font-avenirRegular text-[1.823vw]/[2vw] text-lightWhite">
+              Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an
+              unknown printer took a galley of type and scrambled it to make a type specimen book.
             </h1>
-            <div className=" rounded-3xl  overflow-clip z-[2] mt-[2.4vw]">
+            <div className="z-[2] mt-[2.4vw] overflow-clip rounded-3xl">
               <ReactPlayer
                 url={"https://www.youtube.com/watch?v=zkgZ5LiRiZA"}
                 controls={true}
@@ -94,31 +86,29 @@ export default function Module2Main() {
         </div>
 
         {/* Mobile */}
-        <div className="flex flex-col lg:hidden w-full items-center  z-[2] mt-[20.372vw] relative">
-          <div className="flex w-[81.944vw] text-[2vw]/[7vw] relative">
+        <div className="relative z-[2] mt-[20.372vw] flex w-full flex-col items-center lg:hidden">
+          <div className="relative flex w-[81.944vw] text-[2vw]/[7vw]">
             <a
               href="/academy"
-              className="w-[1.944vw] h-[3.056vw] absolute -left-[3.7vw] top-[2.5vw]"
+              className="absolute -left-[3.7vw] top-[2.5vw] h-[3.056vw] w-[1.944vw]"
             >
               <Image
                 src="/img/academy/arrow.png"
                 alt="arrow"
                 width={2000}
                 height={2000}
-                className="object-cover lg:hidden w-[1.944vw] h-[3.056vw] "
+                className="h-[3.056vw] w-[1.944vw] object-cover lg:hidden"
               />
             </a>
             <div className="h-[22.111vw]">
-              <h1 className="text-[5.556vw] text-white font-avenirHeavy">
-                Module 2
-              </h1>
-              <h1 className=" bg-clip-text text-transparent bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] h-[18vw]  font-avenirBlack text-[7.222vw]">
+              <h1 className="font-avenirHeavy text-[5.556vw] text-white">Module 2</h1>
+              <h1 className="h-[18vw] bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] bg-clip-text font-avenirBlack text-[7.222vw] text-transparent">
                 {"Business Analysis Framework"}
               </h1>
             </div>
           </div>
 
-          <div className="my-[3vw] rounded-xl overflow-clip">
+          <div className="my-[3vw] overflow-clip rounded-xl">
             <ReactPlayer
               url={"https://www.youtube.com/watch?v=zkgZ5LiRiZA"}
               controls={true}
@@ -128,44 +118,41 @@ export default function Module2Main() {
             />
           </div>
 
-          <h1 className="text-[3.333vw]/[3.1vw] w-[81.944vw] text-lightWhite font-avenirRegular text-justify">
-            Lorem Ipsum has been the industry standard dummy text ever since the
-            1500s, when an unknown printer took a galley of type and scrambled
-            it to make a type specimen book.
+          <h1 className="w-[81.944vw] text-justify font-avenirRegular text-[3.333vw]/[3.1vw] text-lightWhite">
+            Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an
+            unknown printer took a galley of type and scrambled it to make a type specimen book.
           </h1>
 
-          <div className="flex w-[81.944vw] text-[2vw]/[7vw] relative justify-end mt-[4vw] mb-[2vw]">
-            <h1 className="font-avenirRegular text-lightWhite text-[4.167vw] ">
+          <div className="relative mb-[2vw] mt-[4vw] flex w-[81.944vw] justify-end text-[2vw]/[7vw]">
+            <h1 className="font-avenirRegular text-[4.167vw] text-lightWhite">
               Download E-Module!
             </h1>
           </div>
 
-          <div className="flex w-[81.944vw] h-[21.742vw] relative bg-white rounded-md ">
+          <div className="relative flex h-[21.742vw] w-[81.944vw] rounded-md bg-white">
             <Image
               src="/img/academy/module1.png"
               alt="module image"
               width={2000}
               height={2000}
-              className="w-[30.639vw] h-[17.392vw] object-cover lg:hidden my-[auto] ml-[0.5vw]"
+              className="my-[auto] ml-[0.5vw] h-[17.392vw] w-[30.639vw] object-cover lg:hidden"
             />
-            <div className="text-[2vw]/[4.3vw] w-[40vw] flex flex-col justify-end mb-[1vw]">
-              <h1 className="text-[3.333vw] text-black font-avenirBlack">
-                Module 2
-              </h1>
-              <h1 className=" bg-clip-text text-transparent bg-gradient-to-r from-[#6FAA26] to-[#58B9D1]  font-avenirBlack text-[4.722vw] h-[10vw]">
+            <div className="mb-[1vw] flex w-[40vw] flex-col justify-end text-[2vw]/[4.3vw]">
+              <h1 className="font-avenirBlack text-[3.333vw] text-black">Module 2</h1>
+              <h1 className="h-[10vw] bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] bg-clip-text font-avenirBlack text-[4.722vw] text-transparent">
                 {"Business Analysis Framework"}
               </h1>
             </div>
             <a
               href=""
-              className="w-[7.347vw] h-[8.572vw] border-black border bg-white my-auto mx-auto rounded-lg hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
+              className="mx-auto my-auto h-[8.572vw] w-[7.347vw] rounded-lg border border-black bg-white transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#5AB0BB]/20"
             >
               <Image
                 src="/img/academy/ArrowDownload.png"
                 alt="Download Arrow"
                 width={200000}
                 height={200000}
-                className="w-[2.939vw] object-cover lg:hidden mx-auto my-[1.5vw] "
+                className="mx-auto my-[1.5vw] w-[2.939vw] object-cover lg:hidden"
               />
             </a>
           </div>

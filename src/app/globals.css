@@ -89,6 +89,40 @@
   }
 }
 
+@media (min-width: 768px) {
+  /* Your CSS code for minimum width 768px goes here */
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  ::-webkit-scrollbar:hover {
+    width: 9px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1a1a1a;
+    border-radius: 10px;
+  }
+
+  /* background */
+  ::-webkit-scrollbar-track {
+    background: linear-gradient(#58b9d1, #73b743);
+    border-radius: 15px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1a1a1a;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Your CSS code for minimum width 768px goes here */
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

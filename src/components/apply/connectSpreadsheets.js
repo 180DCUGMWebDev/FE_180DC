@@ -18,17 +18,15 @@ export const connectSS = async (data, target, flush) => {
 
   const doc = new GoogleSpreadsheet(
     "1UK9a5EZorcsRf3-PXgAPFUjBMdLRAsdQe9zy6GltIbg",
-    serviceAccountAuth
+    serviceAccountAuth,
   );
 
   await doc.loadInfo();
 
   const sheet = doc.sheetsByTitle[target];
 
-  if (target === "Applicants")
-    uploadData(data, sheet);
-  else if (target === "Newsletter")
-    uploadSubscribe(data, sheet);
+  if (target === "Applicants") uploadData(data, sheet);
+  else if (target === "Newsletter") uploadSubscribe(data, sheet);
   flush();
 };
 

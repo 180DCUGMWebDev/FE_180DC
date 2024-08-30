@@ -8,7 +8,7 @@ async function getData() {
     "https://goldfish-app-38lif.ondigitalocean.app/api/articles?populate=*&sort=publishedAt:desc",
     {
       next: { revalidate: 60 },
-    }
+    },
   );
   if (!res.ok) {
     console.log("Failed to fetch data");

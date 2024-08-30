@@ -66,8 +66,7 @@ export default function Apply() {
     },
     {
       question: "Entity's Social Media",
-      placeholder:
-        "Write down the social media. For instance, @180dcugm (instagram)",
+      placeholder: "Write down the social media. For instance, @180dcugm (instagram)",
       type: "text",
       required: true,
       className: "",
@@ -186,85 +185,80 @@ export default function Apply() {
       "Client Vendor Management",
       "Project and Strategy Implementation",
     ],
-    [
-      "Marketing Analysis",
-      "Human Resource Management",
-      "Developing Optimal Process",
-      "Others",
-    ],
+    ["Marketing Analysis", "Human Resource Management", "Developing Optimal Process", "Others"],
   ];
 
   return (
     <main>
-      <section className="relative flex min-h-screen h-fit overflow-clip justify-center items-center">
+      <section className="relative flex h-fit min-h-screen items-center justify-center overflow-clip">
         {/* Background */}
         {createBackground("dark")}
 
         {/* Background Assets */}
-        <div className="flex absolute -z-[997] w-[100vw] h-full lg:h-[112.5vw]">
+        <div className="absolute -z-[997] flex h-full w-[100vw] lg:h-[112.5vw]">
           {/* Green Flowers */}
           {/* Bottom-Most Right-Most */}
-          <div className="max-lg:hidden absolute bottom-[5%] right-0 opacity-[.06]">
+          <div className="absolute bottom-[5%] right-0 opacity-[.06] max-lg:hidden">
             <ImgF src="/img/apply/type1green.png" alt="deco img" />
           </div>
 
           {/* Bottom-Most Left-Most */}
-          <div className="max-lg:hidden absolute top-0 left-0 lg:bottom-[15%] lg:left-[30%] opacity-[.06] rotate-[12deg] scale-[.5]">
+          <div className="absolute left-0 top-0 rotate-[12deg] scale-[.5] opacity-[.06] max-lg:hidden lg:bottom-[15%] lg:left-[30%]">
             <ImgF src="/img/apply/type1green.png" alt="deco img" />
           </div>
 
           {/* Left-Most Second */}
-          <div className="max-lg:hidden absolute top-[35%] left-[30%] opacity-[.06] rotate-[40deg] scale-[.3]">
+          <div className="absolute left-[30%] top-[35%] rotate-[40deg] scale-[.3] opacity-[.06] max-lg:hidden">
             <ImgF src="/img/apply/type1green.png" alt="deco img" />
           </div>
 
           {/* Left-Most Top-Most */}
-          <div className="max-lg:hidden absolute -top-[1.5%] left-[14%] opacity-[.06] -rotate-[15deg] scale-[.3]">
+          <div className="absolute -top-[1.5%] left-[14%] -rotate-[15deg] scale-[.3] opacity-[.06] max-lg:hidden">
             <ImgF src="/img/apply/type1green.png" alt="deco img" />
           </div>
 
           {/* Light Blue Flowers */}
-          <div className="max-lg:hidden absolute top-[4%] left-[5%] opacity-[.06] ">
+          <div className="absolute left-[5%] top-[4%] opacity-[.06] max-lg:hidden">
             <ImgF src="/img/apply/type3lgblue.png" alt="deco img" />
           </div>
 
           {/* Blue Flowers */}
           {/* Right-Most Top-Most */}
-          <div className="absolute top-[155px] right-[2%] max-lg:scale-[0.9] -max-lg:rotate-[90deg] lg:top-[6%] lg:right-[5%] opacity-[.08] ">
+          <div className="-max-lg:rotate-[90deg] absolute right-[2%] top-[155px] opacity-[.08] max-lg:scale-[0.9] lg:right-[5%] lg:top-[6%]">
             <ImgF src="/img/apply/type2blue.png" alt="deco img" />
           </div>
 
           {/* Left-Most Second */}
-          <div className="max-lg:hidden absolute bottom-[26%] left-[4%] opacity-[.08] ">
+          <div className="absolute bottom-[26%] left-[4%] opacity-[.08] max-lg:hidden">
             <ImgF src="/img/apply/type2blue.png" alt="deco img" />
           </div>
 
           {/* Left-Most Bottom-Most */}
-          <div className="absolute top-[90px] max-lg:scale-[1.5] left-[2%] lg:-bottom-[9%] lg:left-[1%] opacity-[.08] rotate-[45deg] scale-[2]">
+          <div className="absolute left-[2%] top-[90px] rotate-[45deg] scale-[2] opacity-[.08] max-lg:scale-[1.5] lg:-bottom-[9%] lg:left-[1%]">
             <ImgF src="/img/apply/type2blue.png" alt="deco img" />
           </div>
         </div>
 
         {/* Content */}
-        <div className="flex flex-col w-full h-fit pt-[120px] pb-[60px] px-[50px] lg:gap-[2.2vw] overflow-clip 2xl:gap-[33.8px] 2xl:w-[1536px]">
+        <div className="flex h-fit w-full flex-col overflow-clip px-[50px] pb-[60px] pt-[120px] lg:gap-[2.2vw] 2xl:w-[1536px] 2xl:gap-[33.8px]">
           {/* Title */}
           <div className="flex w-full justify-center">
-            <h1 className="text-center text-primary text-[10vw]/[10vw] lg:text-[5vw] font-avenirBlack 2xl:text-[76.8px]">
+            <h1 className="text-center font-avenirBlack text-[10vw]/[10vw] text-primary lg:text-[5vw] 2xl:text-[76.8px]">
               {"Client Application Form"}
             </h1>
           </div>
           {/* Steps n Forms */}
           <div
             className={
-              "flex flex-col lg:flex-row w-full h-fit lg:gap-[40px] duration-300 " +
-              (openPS ? " gap-[40px] " : " gap-0 ")
+              "flex h-fit w-full flex-col duration-300 lg:flex-row lg:gap-[40px] " +
+              (openPS ? " gap-[40px]" : " gap-0")
             }
           >
             {/* Project Structure */}
             <div className="w-full lg:w-[40%]">
-              <div className="lg:hidden relative my-[2vh] w-full flex items-center justify-center text-primary font-avenirBook text-[5vw] bg-lightWhite/[2%]">
+              <div className="relative my-[2vh] flex w-full items-center justify-center bg-lightWhite/[2%] font-avenirBook text-[5vw] text-primary lg:hidden">
                 <FaPlay
-                  className="scale-y-[1.4] scale-x-[1.05]"
+                  className="scale-x-[1.05] scale-y-[1.4]"
                   onClick={() => setOpenPS(!openPS)}
                 />
                 <p className="w-full text-center">{"Project Structure"}</p>
@@ -282,11 +276,11 @@ export default function Apply() {
               </div>
             </div>
             {/* Right Forms */}
-            <form className="flex flex-col w-full lg:w-[60%] gap-[1.6vw] 2xl:gap-[24.5px]">
+            <form className="flex w-full flex-col gap-[1.6vw] lg:w-[60%] 2xl:gap-[24.5px]">
               {forms.map((form, idx) => {
                 return (
                   <>
-                    <div className="flex flex-col w-full">
+                    <div className="flex w-full flex-col">
                       {/* Question */}
                       <label className="font-latoRegular text-lightWhite max-lg:text-[3.7vw]/[4vw] lg:text-[1.13vw] 2xl:text-[17.3px]">
                         {form.question}
@@ -295,7 +289,7 @@ export default function Apply() {
                       {form.type === "textarea" ? (
                         <textarea
                           className={
-                            "text-start outline-none rounded-[1vw] lg:rounded-[4px] px-[1vw] py-[0.5vw] lg:px-[9px] lg:py-[4px] h-[90px] max-lg:text-[3.7vw]/[4vw] lg:text-[1.13vw] 2xl:text-[17.3px]" +
+                            "h-[90px] rounded-[1vw] px-[1vw] py-[0.5vw] text-start outline-none max-lg:text-[3.7vw]/[4vw] lg:rounded-[4px] lg:px-[9px] lg:py-[4px] lg:text-[1.13vw] 2xl:text-[17.3px]" +
                             form.className
                           }
                           id={idx + "_applyform"}
@@ -311,7 +305,7 @@ export default function Apply() {
                       ) : (
                         <input
                           className={
-                            "text-start outline-none rounded-[1vw] lg:rounded-[4px] px-[9px] py-[4px] max-lg:text-[3vw] lg:text-[1.13vw] 2xl:text-[17.3px]" +
+                            "rounded-[1vw] px-[9px] py-[4px] text-start outline-none max-lg:text-[3vw] lg:rounded-[4px] lg:text-[1.13vw] 2xl:text-[17.3px]" +
                             form.className
                           }
                           id={idx + "_applyform"}
@@ -330,7 +324,7 @@ export default function Apply() {
                     {idx === 9 ? (
                       <>
                         {/* Project Scope */}
-                        <div className="flex flex-col my-[10px]">
+                        <div className="my-[10px] flex flex-col">
                           {/* Title */}
                           <h1 className="font-latoRegular text-lightWhite max-lg:text-[3.7vw]/[4vw] lg:text-[1.13vw] 2xl:text-[17.3px]">
                             {"Project Scope"}
@@ -339,17 +333,14 @@ export default function Apply() {
                           <div className="flex w-full">
                             {projectScope.map((project, idx) => {
                               return (
-                                <ul
-                                  key={idx}
-                                  className="flex flex-col w-full max-lg:gap-[0.45vh]"
-                                >
+                                <ul key={idx} className="flex w-full flex-col max-lg:gap-[0.45vh]">
                                   {project.map((item) => {
                                     return (
                                       <li
-                                        className="font-latoRegular text-lightWhite max-lg:text-[3vw]/[3.2vw] lg:text-[1.13vw] flex items-center gap-[5px] 2xl:text-[17.3px]"
+                                        className="flex items-center gap-[5px] font-latoRegular text-lightWhite max-lg:text-[3vw]/[3.2vw] lg:text-[1.13vw] 2xl:text-[17.3px]"
                                         key={item}
                                       >
-                                        <div className="w-[6px] h-[6px] lg:w-[12px] lg:h-[12px] bg-primary rounded-full mb-[3px]" />
+                                        <div className="mb-[3px] h-[6px] w-[6px] rounded-full bg-primary lg:h-[12px] lg:w-[12px]" />
                                         <p className="w-full">{item}</p>
                                       </li>
                                     );
@@ -366,7 +357,7 @@ export default function Apply() {
                   </>
                 );
               })}
-              <div className="w-full flex max-lg:justify-center max-lg:mt-[1.5vh]">
+              <div className="flex w-full max-lg:mt-[1.5vh] max-lg:justify-center">
                 <Button
                   color={"green"}
                   text={"Submit"}

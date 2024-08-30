@@ -43,12 +43,12 @@ export default function WhoWeAre() {
   const contentTag = (
     <>
       {/* Who Are We? Title */}
-      <div className="w-full lg:w-[27%] flex items-center text-lightWhite font-avenirBlack text-[5.5vw] lg:text-[3vw] 2xl:text-[46px]">
+      <div className="flex w-full items-center font-avenirBlack text-[5.5vw] text-lightWhite lg:w-[27%] lg:text-[3vw] 2xl:text-[46px]">
         <h1>{content.title}</h1>
       </div>
       {/* Who Are We? Content */}
-      <div className="w-full h-full lg:w-[73%] flex items-center">
-        <p className="text-lightWhite font-latoRegular text-justify text-[3vw]/[2.7vw] lg:text-[1.5vw]/[2vw] 2xl:text-[23.1px]/[30.8px]">
+      <div className="flex h-full w-full items-center lg:w-[73%]">
+        <p className="text-justify font-latoRegular text-[3vw]/[2.7vw] text-lightWhite lg:text-[1.5vw]/[2vw] 2xl:text-[23.1px]/[30.8px]">
           {content.weDesc}
         </p>
       </div>
@@ -58,26 +58,27 @@ export default function WhoWeAre() {
   const videoButton = (
     <>
       {/* Button Desktop */}
-      <div className="max-lg:hidden absolute p-[0.6vw] -right-[10px] -bottom-[20px] rounded-full rounded-br-none w-[6.5vw] h-[6.5vw] bg-black 2xl:w-[100px] 2xl:h-[100px] 2xl:p-[9.2px]">
+      <div className="absolute -bottom-[20px] -right-[10px] h-[6.5vw] w-[6.5vw] rounded-full rounded-br-none bg-black p-[0.6vw] max-lg:hidden 2xl:h-[100px] 2xl:w-[100px] 2xl:p-[9.2px]">
         <div className="hover:cursor-pointer" onClick={() => handlePlayVideo()}>
-          <div className="rounded-full bg-lightWhite w-full h-full p-[1vw] pl-[1.5vw] 2xl:p-[15.36px] 2xl:pl-[23px]">
-            <FaPlay className="w-full h-full text-primary" />
+          <div className="h-full w-full rounded-full bg-lightWhite p-[1vw] pl-[1.5vw] 2xl:p-[15.36px] 2xl:pl-[23px]">
+            <FaPlay className="h-full w-full text-primary" />
           </div>
         </div>
       </div>
       {/* Button Mobile */}
-      <div className="relative lg:hidden w-full h-full ">
+      <div className="relative h-full w-full lg:hidden">
         <div
           className={
-            "absolute w-full h-full z-[15] flex items-center justify-center hover:cursor-pointer transition ease-in-out duration-[600ms] " +
+            "absolute z-[15] flex h-full w-full items-center justify-center transition duration-[600ms] ease-in-out hover:cursor-pointer " +
             (!isPlaying ? "bg-transparent" : "bg-black/[50%]")
           }
           onClick={() => handlePlayVideo()}
         >
-          <div className="w-[4vmax] h-[4vmax] flex items-center justify-center">
+          <div className="flex h-[4vmax] w-[4vmax] items-center justify-center">
             <FaPlay
               className={
-                "text-lightWhite transition-all duration-[400ms] " + (!isPlaying ? "w-0 h-0" : "w-full h-full")
+                "text-lightWhite transition-all duration-[400ms] " +
+                (!isPlaying ? "h-0 w-0" : "h-full w-full")
               }
               onClick={() => handlePlayVideo()}
             />
@@ -91,7 +92,7 @@ export default function WhoWeAre() {
     <>
       {/* Background Content */}
 
-      <div className="absolute -z-[1] top-0 left-0 w-full h-full rounded-[7vw] lg:rounded-[1vw] 2xl:rounded-[15.36px] overflow-clip flex items-center justify-center">
+      <div className="absolute left-0 top-0 -z-[1] flex h-full w-full items-center justify-center overflow-clip rounded-[7vw] lg:rounded-[1vw] 2xl:rounded-[15.36px]">
         <video id="vidRef" playsInline loop>
           <source
             src="https://utfs.io/f/7156b8ed-3306-4165-9cd7-c167defff825-brzyqj.mp4"
@@ -111,43 +112,41 @@ export default function WhoWeAre() {
       {createBackground("dark")}
 
       {/* Content */}
-      <div className="flex justify-center items-center w-full min-h-screen h-fit">
-        <div className="flex flex-col justify-center items-center w-full h-fit lg:h-full px-[6vw] lg:px-[50px] lg:pt-[12%] lg:pb-[5%] 2xl:w-[1536px]">
-          <div className="flex flex-col justify-center w-full h-fit py-[6vh] lg:py-0 lg:h-full gap-[2vmax] 2xl:gap-[16px] 2xl:h-fit">
-            <div className="hidden w-full h-fit lg:flex gap-[3.5vw] 2xl:gap-[72px]">
+      <div className="flex h-fit min-h-screen w-full items-center justify-center">
+        <div className="flex h-fit w-full flex-col items-center justify-center px-[6vw] lg:h-full lg:px-[50px] lg:pb-[5%] lg:pt-[12%] 2xl:w-[1536px]">
+          <div className="flex h-fit w-full flex-col justify-center gap-[2vmax] py-[6vh] lg:h-full lg:py-0 2xl:h-fit 2xl:gap-[16px]">
+            <div className="hidden h-fit w-full gap-[3.5vw] lg:flex 2xl:gap-[72px]">
               {contentTag}
             </div>
             {/* Images / All for Mobile */}
-            <div className="w-full h-fit lg:h-[38vh] lg:max-h-[26vw] flex flex-wrap lg:flex-row lg:flex-nowrap gap-[4vw] lg:gap-[3.5vw] 2xl:gap-[72px] 2xl:h-[350px]">
-              <div className="relative max-lg:grow w-[35vw] lg:w-[27%] h-[35vw] lg:h-full flex flex-col items-start rounded-[10px] text-lightWhite p-[2vw] pb-[15px] 2xl:pb-[25px] 2xl:p-[30px] 2xl:gap-[40px]">
+            <div className="flex h-fit w-full flex-wrap gap-[4vw] lg:h-[38vh] lg:max-h-[26vw] lg:flex-row lg:flex-nowrap lg:gap-[3.5vw] 2xl:h-[350px] 2xl:gap-[72px]">
+              <div className="relative flex h-[35vw] w-[35vw] flex-col items-start rounded-[10px] p-[2vw] pb-[15px] text-lightWhite max-lg:grow lg:h-full lg:w-[27%] 2xl:gap-[40px] 2xl:p-[30px] 2xl:pb-[25px]">
                 {/* Background */}
-                <div className="absolute -z-[1] top-0 left-0 w-full h-full rounded-[10px] overflow-clip">
+                <div className="absolute left-0 top-0 -z-[1] h-full w-full overflow-clip rounded-[10px]">
                   <ImgF
                     src="/img/aboutus/WhatWeAre/left_content.png"
                     alt="180dc who we are leftcontent"
                   />
                 </div>
                 {/* Content */}
-                <div className="w-full flex flex-col font-avenirBlack">
+                <div className="flex w-full flex-col font-avenirBlack">
                   <h1 className="text-[10vw]/[10vw] lg:text-[8vw]/[6vw] 2xl:text-[152px]/[124px]">
                     {content.clients}
                   </h1>
-                  <h1 className="text-[3vw]/[1.5vw] lg:text-[2vw]/[1.6vw] ml-[4px] 2xl:text-[42px]/[24px]">
+                  <h1 className="ml-[4px] text-[3vw]/[1.5vw] lg:text-[2vw]/[1.6vw] 2xl:text-[42px]/[24px]">
                     {content.clientsTitle}
                   </h1>
                 </div>
-                <div className="w-full h-full flex items-end font-latoRegular">
-                  <p className="text-[3vw]/[2.8vw] lg:text-[1.3vw]/[1.3vw] ml-[4px] 2xl:text-[23.1px]/[23.1px]">
+                <div className="flex h-full w-full items-end font-latoRegular">
+                  <p className="ml-[4px] text-[3vw]/[2.8vw] lg:text-[1.3vw]/[1.3vw] 2xl:text-[23.1px]/[23.1px]">
                     {content.clientsDesc}
                   </p>
                 </div>
               </div>
               {/* Mobile Content Position */}
-              <div className="lg:hidden grow w-[40vw] h-[26vw] flex flex-wrap">
-                {contentTag}
-              </div>
+              <div className="flex h-[26vw] w-[40vw] grow flex-wrap lg:hidden">{contentTag}</div>
               {/* Video */}
-              <div className="relative w-full h-[12vh] lg:w-[73%] min-[300px]:h-[25vmax] md:h-[30vmax] lg:h-full lg:flex lg:items-start lg:rounded-[10px] max-lg:hover:cursor-pointer">
+              <div className="relative h-[12vh] w-full max-lg:hover:cursor-pointer min-[300px]:h-[25vmax] md:h-[30vmax] lg:flex lg:h-full lg:w-[73%] lg:items-start lg:rounded-[10px]">
                 {videoTag}
               </div>
             </div>

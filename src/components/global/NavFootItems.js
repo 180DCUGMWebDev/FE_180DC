@@ -11,13 +11,7 @@ import { IoTelescope } from "react-icons/io5";
 import { navLinks } from "@/config/Links";
 import { directRoute } from "@/config/Functions";
 
-export default function NavFootItems({
-  ulClass,
-  liClass,
-  aClass,
-  sidebar = false,
-  callback = "",
-}) {
+export default function NavFootItems({ ulClass, liClass, aClass, sidebar = false, callback = "" }) {
   // Router Hook
   const router = useRouter();
   const pathname = usePathname();
@@ -34,8 +28,7 @@ export default function NavFootItems({
 
   // Mobile Navbar Icons
   const obtainIconFunction = (val) => {
-    const navbarIconClass =
-      pathname === navLinks[val] ? "text-black" : "text-[#73757E]";
+    const navbarIconClass = pathname === navLinks[val] ? "text-black" : "text-[#73757E]";
 
     switch (val) {
       case "Home":
@@ -80,7 +73,7 @@ export default function NavFootItems({
             <p
               className={
                 aClass +
-                " hover:cursor-pointer " +
+                " hover:cursor-pointer" +
                 (sidebar // Changing colors of Sidebar Text depending on the page
                   ? navLinks[val] === pathname
                     ? "text-black"

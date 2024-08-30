@@ -4,8 +4,8 @@ import WhatInside from "@/components/store/casebook/WhatInside";
 export default async function Casebook() {
   return (
     <main>
-        <HeroCasebook />
-        <WhatInside />
+      <HeroCasebook />
+      <WhatInside />
     </main>
   );
 }

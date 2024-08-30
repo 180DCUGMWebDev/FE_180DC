@@ -6,194 +6,7 @@ import Image from "next/image";
 // Import Configs
 import React from "react";
 import { createBackground } from "@/config/Functions";
-import { useState, useEffect, useMemo } from "react";
-
-const DekstopComponent = React.memo(() => {
-  return (
-    <div className="flex flex-col justify-center items-center max-lg:hidden relative  mb-[5vw]">
-      {/* Content */}
-      <div className="w-full flex justify-center items-center pl-[5vw] ">
-        <div className="relative">
-          <Image
-            src="/img/store/casebook/whitestar.png"
-            alt="Star ornament"
-            width={2000}
-            height={2000}
-            className="w-[9.141vw] h-[9.538vw] absolute -top-[5vw] -left-[4vw] object-cover max-lg:hidden"
-          />
-          <Image
-            src="/img/store/casebook/vol2.png"
-            alt="Star ornament"
-            width={2000}
-            height={2000}
-            className="w-[7.255vw] h-[4.419vw] absolute -top-[3vw] -right-[1vw] object-cover max-lg:hidden"
-          />
-          <Image
-            src="/img/store/casebook/curl.png"
-            alt="Star ornament"
-            width={2000}
-            height={2000}
-            className="w-[7.415vw] h-[8.815vw] absolute top-[2vw] -left-[6vw] object-cover max-lg:hidden"
-          />
-          <Image
-            src="/img/store/casebook/sparkOrnament.png"
-            alt="Star ornament"
-            width={2000}
-            height={2000}
-            className="w-[1.531vw] h-[1.776vw] absolute top-[5.5vw] right-[2vw] object-cover max-lg:hidden"
-          />
-
-          <div className="w-[22.708vw] h-[5.677vw] bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] rounded-[5.208vw] flex flex-col justify-center items-center font-avenirBlack text-lightWhite text-[3.333vw]">
-            CASEBOOK
-          </div>
-          <div className="text-[2.5vw] font-avenirBook ml-[1.6vw]">
-            <h2>
-              <span className="font-avenirRegular">by </span>
-              <span className="font-avenirBlack">180DC UGM</span>
-            </h2>
-          </div>
-          <div className="font-avenirRegular text-[1.25vw]/[1.3vw] my-[2.5vw] ml-[1.6vw]">
-            <span>The </span>
-            <span className="font-bold underline">
-              ultimate e-book you need to learn <br />
-              about consulting!
-            </span>
-            <span> Get it in </span>
-            <span className="font-bold underline">bundles!</span>
-          </div>
-          <a
-            href="#"
-            className="w-[10.677vw] h-[3.75vw] gap-[1vw] bg-black rounded-[5.208vw] font-avenirHeavy text-[1.25vw] text-white flex justify-center items-center ml-[1.6vw] hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
-          >
-            <Image
-              src="/img/store/casebook/trolley.png"
-              alt="background"
-              width={2000}
-              height={2000}
-              className="w-[1.389vw] h-[1.389vw] object-cover max-lg:hidden"
-            />
-            <h1>Buy now</h1>
-          </a>
-        </div>
-        <div>
-          <Image
-            src="/img/store/casebook/HeroImageBook.png"
-            alt="background"
-            width={2000}
-            height={2000}
-            className="inset-0 -right-[10vw] w-[63.006vw] h-[1019.8] object-cover max-lg:hidden"
-          />
-        </div>
-        <div className="absolute bottom-[2vw] w-full flex justify-center items-center flex-col">
-          <span className="text-[1.294vw] font-latoBold  mb-[1vw]">
-            GET TO KNOW MORE
-          </span>
-          <Image
-            src="/img/store/casebook/blackArrowDown.png"
-            alt="background"
-            width={2000}
-            height={2000}
-            className="inset-0  w-[1.615vw] h-[0.938vw] object-cover max-lg:hidden animate-bounce"
-          />
-        </div>
-      </div>
-    </div>
-  );
-});
-
-const MobileComponent = React.memo(() => {
-  return (
-    <div className="flex flex-col lg:hidden w-full items-center z-[2] mt-[12.372vw] mb-[26.372vw]">
-      <div className="w-full flex flex-col justify-center items-center ">
-        <div>
-          <Image
-            src="/img/store/casebook/HeroImageBook.png"
-            alt="background"
-            width={2000}
-            height={2000}
-            className="inset-0 w-[107.026vw] h-[86.923vw] pr-[14vw] scale-[1.4] object-cover lg:hidden"
-          />
-          <div className="w-full flex justify-items-start ml-[47vw] pl-[5vw] scale-[2]">
-            <div className="relative mt-[6vw]">
-              <Image
-                src="/img/store/casebook/whitestar.png"
-                alt="Star ornament"
-                width={2000}
-                height={2000}
-                className="w-[9.141vw] h-[9.538vw] absolute top-[1vw] -left-[4vw] object-cover lg:hidden"
-              />
-              <Image
-                src="/img/store/casebook/vol2.png"
-                alt="Star ornament"
-                width={2000}
-                height={2000}
-                className="w-[7.255vw] h-[4.419vw] absolute top-[3vw] right-[3vw] object-cover lg:hidden"
-              />
-              <Image
-                src="/img/store/casebook/curl.png"
-                alt="Star ornament"
-                width={2000}
-                height={2000}
-                className="w-[7.415vw] h-[8.815vw] absolute top-[9.3vw] -left-[4vw] object-cover lg:hidden scale-[0.6]"
-              />
-              <Image
-                src="/img/store/casebook/sparkOrnament.png"
-                alt="Star ornament"
-                width={2000}
-                height={2000}
-                className="w-[1.531vw] h-[1.776vw] absolute top-[12.8vw] right-[8vw] object-cover lg:hidden"
-              />
-
-              <div className="w-[22.708vw] h-[5.677vw] bg-gradient-to-r mt-[6vw] from-[#6FAA26] to-[#58B9D1] rounded-[5.208vw] flex flex-col justify-center items-center font-avenirBlack text-lightWhite text-[3.333vw]">
-                CASEBOOK
-              </div>
-              <div className="text-[2.5vw] font-avenirBook ml-[1.6vw] mt-[1.3vw]">
-                <h2>
-                  <span className="font-avenirRegular">by </span>
-                  <span className="font-avenirBlack">180DC UGM</span>
-                </h2>
-              </div>
-              <div className="font-avenirRegular text-[1.65vw]/[1.75vw] my-[2.5vw] ml-[1.6vw]">
-                <span>The </span>
-                <span className="font-bold underline">
-                  ultimate e-book you need to learn <br />
-                  about consulting!
-                </span>
-                <span> Get it in </span>
-                <span className="font-bold underline">bundles!</span>
-              </div>
-              <a
-                href="#"
-                className="w-[12.677vw] h-[3.75vw] gap-[1vw] bg-black rounded-[5.208vw] font-avenirHeavy text-[1.45vw] text-white flex justify-center items-center ml-[1.6vw] mt-[4vw] hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
-              >
-                <Image
-                  src="/img/store/casebook/trolley.png"
-                  alt="background"
-                  width={2000}
-                  height={2000}
-                  className="w-[1.389vw] h-[1.389vw] object-cover lg:hidden"
-                />
-                <h1>Buy now</h1>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="absolute bottom-[4vw] w-full flex justify-center items-center flex-col">
-        <span className="text-[3.077vw] font-latoBold  mb-[1vw]">
-          GET TO KNOW MORE
-        </span>
-        <Image
-          src="/img/store/casebook/blackArrowDown.png"
-          alt="background"
-          width={2000}
-          height={2000}
-          className="inset-0  w-[3.533vw] h-[2.051vw] object-cover lg:hidden animate-bounce"
-        />
-      </div>
-    </div>
-  );
-});
+import Link from "next/link";
 
 export default function HeroMerch() {
   // Page
@@ -203,108 +16,105 @@ export default function HeroMerch() {
       {createBackground("dark")}
 
       {/* Content */}
-      <div className="flex w-full h-fit max-lg:py-[8vh] lg:h-screen items-center justify-center ">
+      <div className="flex min-h-screen w-full items-center justify-center max-lg:py-[8vh] lg:h-screen">
         <Image
-          src="/img/store/casebook/bgHeroCasebook.png"
+          src="/img/store/merch/merch-bg-1.png"
           alt="180DC UGM Casebook"
           width={2000}
           height={2000}
-          className="absolute z-0  inset-0 w-full h-full object-cover max-lg:hidden"
+          className="absolute inset-0 z-0 h-full w-full object-cover max-lg:hidden"
         />
         <Image
-          src="/img/store/casebook/bgHeroCasebookMobile.png"
+          src="/img/store/merch/merch-bg-mobile.png"
           alt="background"
           width={2000}
           height={2000}
-          className="absolute z-0 inset-0 -top-[5vw] w-full object-cover lg:hidden"
+          className="absolute inset-0 -top-[5vw] z-0 w-full object-cover lg:hidden"
         />
-        <div className="flex flex-col justify-center items-center max-lg:hidden relative  mb-[5vw]">
+        {/* <MobileComponent /> */}
+        <div className="relative mb-[5vw] flex flex-col items-center justify-center max-lg:w-full lg:mt-[4vw]">
           {/* Content */}
-          <div className="w-full flex justify-center items-center pl-[5vw]">
-            <div className="relative ml-[6.5vw]">
+          <div className="flex w-full flex-col-reverse items-center justify-center lg:flex-row lg:pl-[5vw]">
+            <div className="relative mt-[14vw] max-lg:scale-[2.3] lg:ml-[6.5vw] lg:mt-0">
               <Image
                 src="/img/store/casebook/whitestar.png"
                 alt="Star ornament"
                 width={2000}
                 height={2000}
-                className="w-[9.141vw] h-[9.538vw] absolute -top-[5vw] -left-[4vw] object-cover max-lg:hidden"
+                className="absolute -top-[5.7vw] left-[-2.7vw] h-[9.538vw] w-[9.141vw] object-cover lg:-top-[5vw] lg:h-[9.538vw] lg:w-[9.141vw]"
               />
               <Image
                 src="/img/store/merch/official.png"
                 alt="Star ornament"
                 width={3000}
                 height={2000}
-                className="w-[9vw] h-[4.419vw] absolute -top-[2.2vw] left-[9vw] object-cover max-lg:hidden"
+                className="absolute left-[11vw] top-[-2.7vw] h-[4vw] w-[6.7vw] object-cover lg:-top-[2.2vw] lg:left-[9vw] lg:h-[4.419vw] lg:w-[9vw]"
               />
               <Image
                 src="/img/store/casebook/curl.png"
                 alt="Star ornament"
                 width={2000}
                 height={2000}
-                className="w-[7.415vw] h-[8.815vw] absolute top-[2vw] -left-[6vw] object-cover max-lg:hidden"
+                className="absolute -left-[4vw] top-[2.4vw] h-[8vw] w-[7vw] object-cover max-lg:scale-[0.6] lg:-left-[6vw] lg:top-[2vw] lg:h-[8.815vw] lg:w-[7.415vw]"
               />
               <Image
                 src="/img/store/casebook/sparkOrnament.png"
                 alt="Star ornament"
                 width={2000}
                 height={2000}
-                className="w-[1.531vw] h-[1.776vw] absolute top-[5.5vw] right-[2vw] object-cover max-lg:hidden"
+                className="absolute left-[14.5vw] top-[6vw] h-[1.776vw] w-[1.531vw] object-cover lg:right-[2vw] lg:top-[5.5vw] lg:h-[1.776vw] lg:w-[1.531vw]"
               />
 
-              <div className="w-fit px-[2vw] h-[5.677vw] bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] rounded-[5.208vw] flex flex-col justify-center items-center font-avenirBlack text-lightWhite text-[3.333vw]">
+              <div className="flex h-[5.677vw] w-fit flex-col items-center justify-center rounded-[5.208vw] bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] px-[2vw] pt-[1vw] font-avenirBlack text-[3.333vw] text-lightWhite lg:mt-[0.5vw] lg:pt-[0.5vw]">
                 MERCH
               </div>
-              <div className="text-[2.5vw] font-avenirBook ml-[1.6vw]">
+              <div className="ml-[1.6vw] font-avenirBook text-[1.7vw] max-lg:mt-[0.8vw]">
                 <h2>
                   <span className="font-avenirRegular">by </span>
                   <span className="font-avenirBlack">180DC UGM</span>
                 </h2>
               </div>
-              <div className="font-avenirRegular max-w-[28vw] text-[1.25vw]/[1.3vw] my-[2.5vw] ml-[1.6vw] leading-[1.4vw]">
-                <span className="font-bold underline">#PLSFIX</span>{" "}
-                <span>
-                  is an initiative by 180DC UGM to offer merchandise. Wear
-                </span>
-                <span className="font-bold underline">
-                  {" "}
-                  #PLXFIX and contributing to society{" "}
-                </span>
-                while becoming{" "}
-                <span className="font-bold">#TheBestofYOUth</span>
+              <div className="my-[2.5vw] ml-[1.6vw] max-w-[28vw] font-avenirRegular text-[1.25vw]/[1.3vw] leading-[1.7vw] lg:leading-[1.4vw]">
+                <u>
+                  <b>#PLSFIX</b>
+                </u>{" "}
+                is an initiative by 180DC UGM to offer merchandise. Wear
+                <b>
+                  <u> #PLXFIX and contributing to society</u>{" "}
+                </b>
+                while becoming <b>#TheBestofYOUth</b>
               </div>
-              <a
+              <Link
                 href="#"
-                className="w-[10.677vw] h-[3.75vw] gap-[1vw] bg-black rounded-[5.208vw] font-avenirHeavy text-[1.25vw] text-white flex justify-center items-center ml-[1.6vw] hover:bg-[#5AB0BB]/20 hover:scale-[102%] transition-all duration-700 ease-in-out"
+                className="ml-[1.6vw] flex h-[3.75vw] w-[12.677vw] items-center justify-center gap-[1vw] rounded-[5.208vw] bg-black font-avenirHeavy text-[1.25vw] text-white transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#5AB0BB]/20 lg:h-[3.75vw] lg:w-[10.677vw]"
               >
                 <Image
                   src="/img/store/casebook/trolley.png"
                   alt="background"
                   width={2000}
                   height={2000}
-                  className="w-[1.389vw] h-[1.389vw] object-cover max-lg:hidden"
+                  className="h-[1.389vw] w-[1.389vw] object-cover"
                 />
                 <h1>Buy now</h1>
-              </a>
+              </Link>
             </div>
             <div>
               <Image
-                src="/img/store/casebook/HeroImageBook.png"
+                src="/img/store/casebook/HeroImageBook-c.png"
                 alt="background"
                 width={2000}
                 height={2000}
-                className="inset-0 -right-[10vw] w-[63.006vw] h-[1019.8] object-cover max-lg:hidden"
+                className="inset-0 object-cover max-lg:h-[86.923vw] max-lg:w-[107.026vw] max-lg:scale-[1.4] max-lg:pr-[14vw] lg:-right-[10vw] lg:h-[1019.8] lg:w-[63.006vw]"
               />
             </div>
-            <div className="absolute bottom-[2vw] w-full flex justify-center items-center flex-col">
-              <span className="text-[1.294vw] font-latoBold  mb-[1vw]">
-                GET TO KNOW MORE
-              </span>
+            <div className="absolute bottom-[5vw] flex w-full flex-col items-center justify-center max-lg:hidden">
+              <span className="mb-[1vw] font-latoBold text-[1.294vw]">GET TO KNOW MORE</span>
               <Image
                 src="/img/store/casebook/blackArrowDown.png"
                 alt="background"
                 width={2000}
                 height={2000}
-                className="inset-0  w-[1.615vw] h-[0.938vw] object-cover max-lg:hidden animate-bounce"
+                className="inset-0 h-[0.938vw] w-[1.615vw] animate-bounce object-cover"
               />
             </div>
           </div>

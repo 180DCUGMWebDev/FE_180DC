@@ -80,12 +80,11 @@ export default function PreviousClients() {
           "We had been able to secure several companies to make partnership with PPP and recommended strategy to approach the government. The insights that we had got, helped PPP to penetrate Indonesian market.",
       },
     ],
-    []
+    [],
   );
 
   // Scroll Down Button
-  const handleClick = () =>
-    scrollRef.current.scrollIntoView({ behavior: "smooth" });
+  const handleClick = () => scrollRef.current.scrollIntoView({ behavior: "smooth" });
 
   // Slide Position
   const [slide, setSlide] = useState(0);
@@ -102,7 +101,7 @@ export default function PreviousClients() {
             return (
               <div
                 className={
-                  "w-[0.8vw] h-[0.8vw] rounded-full 2xl:w-[12.3px] 2xl:h-[12.3px] hover:cursor-pointer " +
+                  "h-[0.8vw] w-[0.8vw] rounded-full hover:cursor-pointer 2xl:h-[12.3px] 2xl:w-[12.3px] " +
                   (slide === idx ? "bg-primary" : "bg-lightWhite")
                 }
                 onClick={() => {
@@ -129,35 +128,29 @@ export default function PreviousClients() {
       {createBackground("dark")}
 
       {/* Section 1: Title */}
-      <div className="relative flex flex-col justify-center items-center w-full h-[100vmax] lg:h-[100vh] px-[10vw] overflow-clip max-lg:gap-[2vh]">
+      <div className="relative flex h-[100vmax] w-full flex-col items-center justify-center overflow-clip px-[10vw] max-lg:gap-[2vh] lg:h-[100vh]">
         {/* Background */}
-        <div className="absolute w-[240vh] lg:w-full h-full -z-[998] overflow-clip">
-          <ImgF
-            alt="portofolio hero background"
-            src="/img/portofolio/hero_bg-c.png"
-          />
+        <div className="absolute -z-[998] h-full w-[240vh] overflow-clip lg:w-full">
+          <ImgF alt="portofolio hero background" src="/img/portofolio/hero_bg-c.png" />
         </div>
-        <div className="absolute w-full h-full -z-[997] bg-gradient-to-b from-transparent from-[70%] to-lightWhite to-[90%]" />
-        <div className="absolute w-full h-full -z-[996] bg-black opacity-[85.45%]" />
+        <div className="absolute -z-[997] h-full w-full bg-gradient-to-b from-transparent from-[70%] to-lightWhite to-[90%]" />
+        <div className="absolute -z-[996] h-full w-full bg-black opacity-[85.45%]" />
 
         {/* Hero */}
-        <h1 className="text-lightWhite text-center text-[12vw]/[11vw] lg:text-[4.9vw]/[4.8vw] font-avenirBlack 2xl:text-[75px]/[64.5px]">
+        <h1 className="text-center font-avenirBlack text-[12vw]/[11vw] text-lightWhite lg:text-[4.9vw]/[4.8vw] 2xl:text-[75px]/[64.5px]">
           {"Our Previous Clients"}
         </h1>
 
         {/* Scroll Down [DESKTOP] */}
-        <button
-          className="flex flex-col items-center outline-0"
-          onClick={handleClick}
-        >
-          <h2 className="max-lg:hidden font-latoBold text-lightWhite text-[1vw] mt-[1.4vw] 2xl:text-[15.36px] 2xl:mt-[21.5px]">
+        <button className="flex flex-col items-center outline-0" onClick={handleClick}>
+          <h2 className="mt-[1.4vw] font-latoBold text-[1vw] text-lightWhite max-lg:hidden 2xl:mt-[21.5px] 2xl:text-[15.36px]">
             {"SCROLL DOWN"}
           </h2>
-          <FaChevronDown className="text-lightWhite text-[1.4vw] animate-movingPointer hover:cursor-pointer 2xl:text-[21.5px]" />
+          <FaChevronDown className="animate-movingPointer text-[1.4vw] text-lightWhite hover:cursor-pointer 2xl:text-[21.5px]" />
         </button>
 
         {/* Swiper [MOBILE] */}
-        <div className="lg:hidden w-full h-fit rounded-[5vw] rounded-bl-none overflow-clip">
+        <div className="h-fit w-full overflow-clip rounded-[5vw] rounded-bl-none lg:hidden">
           <Swiper
             modules={[Autoplay]}
             onSwiper={(swiper) => {
@@ -177,11 +170,11 @@ export default function PreviousClients() {
             {clientsPorto.map((client, idx) => {
               return (
                 <SwiperSlide key={idx}>
-                  <div className="relative w-full h-[55vmax] rounded-[5vw] rounded-bl-none overflow-clip">
+                  <div className="relative h-[55vmax] w-full overflow-clip rounded-[5vw] rounded-bl-none">
                     {/* Background */}
-                    <div className="absolute w-full h-full -z-[990]">
-                      <div className="relative w-full h-full bg-[#2C6970]/[47%]">
-                        <div className="absolute left-0 w-[70vh] h-full -z-[990]">
+                    <div className="absolute -z-[990] h-full w-full">
+                      <div className="relative h-full w-full bg-[#2C6970]/[47%]">
+                        <div className="absolute left-0 -z-[990] h-full w-[70vh]">
                           <ImgF
                             alt={client.name + "_bg" + "_" + { idx }}
                             src={client.backgr}
@@ -192,59 +185,53 @@ export default function PreviousClients() {
                     </div>
 
                     {/* Cards */}
-                    <div className="flex w-full h-full items-center justify-center px-[1vmin] py-[1.5vh]">
+                    <div className="flex h-full w-full items-center justify-center px-[1vmin] py-[1.5vh]">
                       {/* Side Arrow Left */}
                       <div
-                        className="w-fit mr-[1vw]"
+                        className="mr-[1vw] w-fit"
                         onClick={() => {
                           setSlide(
-                            (slide - 1 + clientsPorto.length - 1) %
-                              (clientsPorto.length - 1)
+                            (slide - 1 + clientsPorto.length - 1) % (clientsPorto.length - 1),
                           );
                         }}
                       >
-                        <FaChevronLeft className="text-lightWhite/[35%] text-[6vw]" />
+                        <FaChevronLeft className="text-[6vw] text-lightWhite/[35%]" />
                       </div>
 
-                      <div className="flex flex-col items-center justify-center w-full h-full gap-[5vw] overflow-clip">
+                      <div className="flex h-full w-full flex-col items-center justify-center gap-[5vw] overflow-clip">
                         {/* Identity */}
-                        <div className="relative flex w-full h-[30%] gap-[4vw] mt-[1.1vw]">
+                        <div className="relative mt-[1.1vw] flex h-[30%] w-full gap-[4vw]">
                           {/* Company Logo */}
-                          <div className="flex justify-end items-center w-[35%] h-full">
-                            <div className="flex w-[100%] rounded-[3vw] overflow-clip">
-                              <ImgF
-                                alt={client.name + "_logo"}
-                                src={client.logo}
-                              />
+                          <div className="flex h-full w-[35%] items-center justify-end">
+                            <div className="flex w-[100%] overflow-clip rounded-[3vw]">
+                              <ImgF alt={client.name + "_logo"} src={client.logo} />
                             </div>
                           </div>
 
                           {/* Title & NPS */}
-                          <div className="flex flex-col w-[65%] h-full justify-center items-start gap-[.8vh]">
-                            <p className="text-primary font-avenirBlack text-[5vw] leading-none">
+                          <div className="flex h-full w-[65%] flex-col items-start justify-center gap-[.8vh]">
+                            <p className="font-avenirBlack text-[5vw] leading-none text-primary">
                               {client.name}
                             </p>
-                            <p className="text-secondary font-avenirLight text-[4.5vw] leading-none">
+                            <p className="font-avenirLight text-[4.5vw] leading-none text-secondary">
                               {"NPS of "}
-                              <strong className="font-avenirHeavy">
-                                {client.nps}
-                              </strong>
+                              <strong className="font-avenirHeavy">{client.nps}</strong>
                             </p>
                           </div>
                         </div>
 
                         {/* Lower Body: Description */}
-                        <div className="flex flex-col w-full h-[60%] gap-[2vh] overflow-y-scroll swiper-no-swiping">
-                          <p className="font-latoRegular text-lightWhite text-[3.5vw] leading-[1.2]">
+                        <div className="swiper-no-swiping flex h-[60%] w-full flex-col gap-[2vh] overflow-y-scroll">
+                          <p className="font-latoRegular text-[3.5vw] leading-[1.2] text-lightWhite">
                             {client.pright}
                           </p>
-                          <p className="font-latoRegular text-lightWhite text-[3.5vw] leading-[1.2]">
+                          <p className="font-latoRegular text-[3.5vw] leading-[1.2] text-lightWhite">
                             {client.pleft}
                           </p>
                         </div>
 
                         <div className="h-[10%]">
-                          <p className="text-lightWhite font-latoLightItalic text-[3.5vmin]">
+                          <p className="font-latoLightItalic text-[3.5vmin] text-lightWhite">
                             {"Slide For More"}
                           </p>
                         </div>
@@ -252,12 +239,12 @@ export default function PreviousClients() {
 
                       {/* Side Arrow Right */}
                       <div
-                        className="w-fit ml-[1vw]"
+                        className="ml-[1vw] w-fit"
                         onClick={() => {
                           setSlide((slide + 1) % (clientsPorto.length + 1));
                         }}
                       >
-                        <FaChevronRight className="text-lightWhite/[35%] text-[6vw] w-fit" />
+                        <FaChevronRight className="w-fit text-[6vw] text-lightWhite/[35%]" />
                       </div>
                     </div>
                   </div>
@@ -271,21 +258,18 @@ export default function PreviousClients() {
       {/* Section 2: Portos [DESKTOP] */}
       <div
         ref={scrollRef}
-        className="relative hidden lg:flex flex-col justify-center items-center w-full lg:h-[100vh] px-[50px]"
+        className="relative hidden w-full flex-col items-center justify-center px-[50px] lg:flex lg:h-[100vh]"
       >
         {/* Background */}
-        <div className="absolute w-full h-full top-0 -z-[998] overflow-clip">
-          <ImgF
-            alt="portofolio hero background"
-            src="/img/portofolio/hero_bg.png"
-          />
+        <div className="absolute top-0 -z-[998] h-full w-full overflow-clip">
+          <ImgF alt="portofolio hero background" src="/img/portofolio/hero_bg.png" />
         </div>
-        <div className="absolute w-full h-full -z-[997] bg-gradient-to-b from-lightWhite from-[20%] via-transparent via-[45%] to-black to-[75%]" />
-        <div className="absolute w-full h-full top-0 -z-[997] bg-black opacity-[85%]" />
+        <div className="absolute -z-[997] h-full w-full bg-gradient-to-b from-lightWhite from-[20%] via-transparent via-[45%] to-black to-[75%]" />
+        <div className="absolute top-0 -z-[997] h-full w-full bg-black opacity-[85%]" />
 
-        <div className="w-full h-full 2xl:w-[1536px]">
+        <div className="h-full w-full 2xl:w-[1536px]">
           {/* Card Frame */}
-          <div className="flex w-full justify-center items-end h-[85%] pb-[50px] overflow-clip">
+          <div className="flex h-[85%] w-full items-end justify-center overflow-clip pb-[50px]">
             <Swiper
               modules={[Autoplay]}
               onSwiper={(swiper) => {
@@ -305,50 +289,42 @@ export default function PreviousClients() {
               {clientsPorto.map((client, idx) => {
                 return (
                   <SwiperSlide key={idx}>
-                    <div className="relative min-w-[45%] h-[26vw] 2xl:w-[690px] 2xl:h-[400px]">
+                    <div className="relative h-[26vw] min-w-[45%] 2xl:h-[400px] 2xl:w-[690px]">
                       {/* Background */}
-                      <div className="absolute w-full h-[60%] rounded-[1.25vw] rounded-bl-none overflow-clip 2xl:rounded-[19.2px]">
-                        <div className="relative w-full h-full bg-[#0A1E22]/[47%]">
-                          <div className="absolute left-0 w-full h-full -z-[990]">
-                            <ImgF
-                              alt={client.name + "_bg" + "_" + { idx }}
-                              src={client.backgr}
-                            />
+                      <div className="absolute h-[60%] w-full overflow-clip rounded-[1.25vw] rounded-bl-none 2xl:rounded-[19.2px]">
+                        <div className="relative h-full w-full bg-[#0A1E22]/[47%]">
+                          <div className="absolute left-0 -z-[990] h-full w-full">
+                            <ImgF alt={client.name + "_bg" + "_" + { idx }} src={client.backgr} />
                           </div>
                         </div>
                       </div>
 
                       {/* Upper Body: Identity */}
-                      <div className="relative flex w-full h-[60%] gap-[30px] p-[20px] mt-[1.1vw] 2xl:mt-[16.8px] 2xl:p-[23px]">
+                      <div className="relative mt-[1.1vw] flex h-[60%] w-full gap-[30px] p-[20px] 2xl:mt-[16.8px] 2xl:p-[23px]">
                         {/* Title & NPS */}
-                        <div className="flex flex-col w-6/12 h-full justify-end items-start">
-                          <p className="text-primary font-avenirBlack text-[2vw] leading-none 2xl:text-[30.7px]">
+                        <div className="flex h-full w-6/12 flex-col items-start justify-end">
+                          <p className="font-avenirBlack text-[2vw] leading-none text-primary 2xl:text-[30.7px]">
                             {client.name}
                           </p>
-                          <p className="text-secondary font-avenirLight text-[1.2vw] leading-none 2xl:text-[18.4px]">
+                          <p className="font-avenirLight text-[1.2vw] leading-none text-secondary 2xl:text-[18.4px]">
                             {"NPS of "}
-                            <strong className="font-avenirHeavy">
-                              {client.nps}
-                            </strong>
+                            <strong className="font-avenirHeavy">{client.nps}</strong>
                           </p>
                         </div>
 
                         {/* Company Logo */}
-                        <div className="flex justify-end items-center w-6/12 h-full">
-                          <div className="flex w-[67%] 2xl:w-[60%] rounded-[1.5vw] overflow-clip 2x:rounded-[23px]">
-                            <ImgF
-                              alt={client.name + "_logo"}
-                              src={client.logo}
-                            />
+                        <div className="flex h-full w-6/12 items-center justify-end">
+                          <div className="2x:rounded-[23px] flex w-[67%] overflow-clip rounded-[1.5vw] 2xl:w-[60%]">
+                            <ImgF alt={client.name + "_logo"} src={client.logo} />
                           </div>
                         </div>
                       </div>
                       {/* Lower Body: Description */}
-                      <div className="flex w-full h-[40%] gap-[30px] px-[20px] mt-[1.2vw] 2xl:mt-[18px] 2xl:px-[23px]">
-                        <p className="w-6/12 font-latoRegular text-lightWhite text-[1vw] leading-[1.2] 2xl:text-[15.36px]">
+                      <div className="mt-[1.2vw] flex h-[40%] w-full gap-[30px] px-[20px] 2xl:mt-[18px] 2xl:px-[23px]">
+                        <p className="w-6/12 font-latoRegular text-[1vw] leading-[1.2] text-lightWhite 2xl:text-[15.36px]">
                           {client.pleft}
                         </p>
-                        <p className="w-6/12 font-latoRegular text-lightWhite text-[1vw] leading-[1.2] 2xl:text-[15.36px]">
+                        <p className="w-6/12 font-latoRegular text-[1vw] leading-[1.2] text-lightWhite 2xl:text-[15.36px]">
                           {client.pright}
                         </p>
                       </div>
@@ -359,18 +335,15 @@ export default function PreviousClients() {
             </Swiper>
           </div>
           {/* Dot Frame */}
-          <div className="flex justify-center items-start h-[15%]">
-            <div className="h-fit flex items-center gap-[10px]">
+          <div className="flex h-[15%] items-start justify-center">
+            <div className="flex h-fit items-center gap-[10px]">
               <div
                 className="w-fit"
                 onClick={() => {
-                  setSlide(
-                    (slide - 1 + clientsPorto.length - 1) %
-                      (clientsPorto.length - 1)
-                  );
+                  setSlide((slide - 1 + clientsPorto.length - 1) % (clientsPorto.length - 1));
                 }}
               >
-                <FaChevronLeft className="text-lightWhite text-[1.4vw] 2xl:text-[21.5px] hover:cursor-pointer" />
+                <FaChevronLeft className="text-[1.4vw] text-lightWhite hover:cursor-pointer 2xl:text-[21.5px]" />
               </div>
               <div className="flex items-center gap-[8px]">{slideBullets}</div>
               <div
@@ -379,7 +352,7 @@ export default function PreviousClients() {
                   setSlide((slide + 1) % (clientsPorto.length - 1));
                 }}
               >
-                <FaChevronRight className="text-lightWhite text-[1.4vw] 2xl:text-[21.5px] hover:cursor-pointer" />
+                <FaChevronRight className="text-[1.4vw] text-lightWhite hover:cursor-pointer 2xl:text-[21.5px]" />
               </div>
             </div>
           </div>
