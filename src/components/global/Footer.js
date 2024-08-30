@@ -21,7 +21,7 @@ export default function Footer() {
     link: "ugm@180dc.org",
   };
 
-  const copyright = "©2023 by 180 Degrees Consulting UGM";
+  const copyright = "©2024 by 180 Degrees Consulting UGM";
 
   // Router Hooks
   const router = useRouter();
@@ -40,6 +40,7 @@ export default function Footer() {
     navLinks.Home,
     intLinks.Apply,
     navLinks["Our Clients"],
+    navLinks.Store,
     navLinks.Telescope,
     intLinks.Module,
   ];
@@ -102,8 +103,8 @@ export default function Footer() {
         : "bg-transparent ";
 
   // Classes
-  const classHead = "font-latoBold text-[2vw] 2xl:text-[30.7px]";
-  const classFavIcon = "text-[2.4vw] 2xl:text-[28px] hover:cursor-pointer"; // Let's Stay Connected
+  const classHead = "max-lg:mb-[2vw] font-latoBold text-[5vw] lg:text-[2vw] 2xl:text-[30.7px]";
+  const classFavIcon = "text-[6vw] lg:text-[2.4vw] 2xl:text-[28px] hover:cursor-pointer"; // Let's Stay Connected
 
   const getAddress = (inClass) => {
     return (
@@ -121,7 +122,7 @@ export default function Footer() {
   const getEmail = (inClass) => {
     return (
       <p
-        className={"w-fit hover:cursor-pointer " + inClass}
+        className={"w-full hover:cursor-pointer lg:w-fit " + inClass}
         onClick={() => {
           copyContent(office.link, "Email");
         }}
@@ -137,7 +138,7 @@ export default function Footer() {
   // Page
   return (
     <div className="h-full w-full max-lg:bg-transparent">
-      <div className="relative flex w-full rounded-tl-[20px] rounded-tr-[20px] bg-gradient-to-br from-black to-primary p-[3px]">
+      <div className="relative flex w-full bg-gradient-to-r from-black to-primary pt-[3px] lg:rounded-tl-[20px] lg:rounded-tr-[20px]">
         {/* Background */}
         <div
           className={
@@ -145,15 +146,15 @@ export default function Footer() {
             "lg:" +
             bgTheme + // desktop
             bgThemeMobile + // mobile
-            (disableRoute.includes(pathname) ? " hidden" : "") // no footer page
+            (disableRoute.includes(pathname) ? "" : "") // no footer page
           }
         />
 
-        <div className="flex w-full select-none flex-col gap-[16px] rounded-tl-[20px] rounded-tr-[20px] bg-black px-[3vw] py-[2.2vw] pb-[2px] 2xl:px-[46px] 2xl:py-[33.8px]">
+        <div className="flex w-full select-none flex-col gap-[16px] bg-black px-[3vw] py-[2.2vw] pb-[2px] lg:rounded-tl-[20px] lg:rounded-tr-[20px] 2xl:px-[46px] 2xl:py-[33.8px]">
           {/* Contents */}
-          <div className="flex w-full gap-[12vw] text-lightWhite lg:gap-[60px] 2xl:justify-between">
+          <div className="flex w-full gap-[8vw] text-lightWhite max-lg:flex-col max-lg:items-center lg:gap-[60px] 2xl:justify-between">
             {/* Logo */}
-            <div className="w-3/12 lg:w-2/12 2xl:w-[560px]">
+            <div className="w-[38%] max-lg:mb-[4vw] lg:w-2/12 2xl:w-[560px]">
               <div className="flex w-full flex-col items-center justify-center gap-[8px] 2xl:w-[160px]">
                 <ImgF
                   src="/img/global/footerlogo180dc.png"
@@ -162,53 +163,45 @@ export default function Footer() {
                     directRoute(navLinks.Home, router, pathname);
                   }}
                 />
-                {/* Address [MOBILE] */}
-                {getAddress("lg:hidden text-center text-[1.5vw]")}
-                {/* Email [MOBILE] */}
-                {getEmail("lg:hidden text-[1.5vw]")}
               </div>
             </div>
             {/* Office n Navigation [DESKTOP] */}
-            <div className="hidden w-[41.66%] gap-[60px] lg:flex 2xl:w-fit">
+            <div className="flex w-[90%] gap-[60px] max-lg:mb-[3vw] max-lg:justify-center lg:flex lg:w-[41.66%] 2xl:w-fit">
               {/* Office [DESKTOP] */}
-              <div className="flex w-[60%] flex-col items-end 2xl:w-fit">
-                <div className="2xl:w-[320px]">
-                  <h1 className={classHead}>{"Office"}</h1>
+              <div className="flex w-full flex-col items-center lg:w-[60%] lg:items-end 2xl:w-fit">
+                <div className="max-lg:w-full 2xl:w-[320px]">
+                  <h1 className={classHead + " max-lg:text-center"}>{"Office"}</h1>
                   {/* Address */}
-                  {getAddress("text-[0.9vw] 2xl:text-[13.8px]")}
+                  {getAddress(
+                    "max-lg:leading-[3.8vw] text-[3.5vw] lg:text-[0.9vw] 2xl:text-[13.8px] max-lg:text-center",
+                  )}
                   {/* Email */}
-                  {getEmail("text-[0.9vw] 2xl:text-[13.8px] mt-[8px]")}
+                  {getEmail(
+                    "text-[3.5vw] lg:text-[0.9vw] 2xl:text-[13.8px] mt-[8px] max-lg:text-center",
+                  )}
                 </div>
               </div>
-              {/* Navigations [DESKTOP] */}
-              <div className="flex w-[40%] flex-col 2xl:w-fit">
-                <h1 className={classHead}>{"Navigation"}</h1>
-                <NavFootItems
-                  ulClass="flex flex-col w-full gap-[2.5px] text-[12px] 2xl:w-[150px]"
-                  liClass="flex w-full"
-                  aClass="text-lightWhite font-latoRegular hover:font-latoBold"
-                />
-              </div>
+            </div>
+            {/* Navigations [DESKTOP] */}
+            <div className="flex w-[40%] flex-col max-lg:-mb-[3vw] 2xl:w-fit">
+              <h1 className={classHead + " max-lg:text-center"}>{"Navigation"}</h1>
+              <NavFootItems
+                ulClass="flex !flex-col w-full max-lg:text-center gap-[2.5vw] lg:gap-[2.5px] text-[3.5vw] lg:text-[0.9vw] 2xl:text-[13.8px] max-lg:text-center"
+                liClass="flex w-full text-center"
+                aClass="text-lightWhite font-latoRegular hover:font-latoBold"
+              />
             </div>
             {/* Stay Connected */}
-            <div className="flex w-9/12 flex-col items-end justify-center gap-[8px] lg:w-[41.67%] 2xl:w-[560px]">
-              {/* Navigations [MOBILE] */}
-              <div className="h-[75%] w-full lg:hidden">
-                <NavFootItems
-                  ulClass="flex flex-col w-full gap-[2vw] text-[2vw]"
-                  liClass="w-full border-b-[0.25vw] border-b-primary"
-                  aClass="text-lightWhite font-latoLight hover:font-latoRegular"
-                />
-              </div>
+            <div className="flex w-[90%] flex-col items-end justify-center gap-[8px] lg:w-[41.67%] 2xl:w-[560px]">
               {/* Form */}
-              <form className="w-full max-lg:h-[25%]">
+              <form className="w-full max-lg:flex max-lg:h-[25%] max-lg:flex-col max-lg:gap-[2vw]">
                 <div className="flex w-full items-start">
                   <div className="w-full">
-                    <h1 className="font-avenirRegular text-[2vw] 2xl:text-[23px]">
+                    <h1 className="font-avenirRegular text-[3.7vw] lg:text-[2vw] 2xl:text-[23px]">
                       {"Let's Stay Connected"}
                     </h1>
                   </div>
-                  <div className="flex w-fit justify-end gap-[1.6vw] 2xl:gap-[24.3px]">
+                  <div className="flex w-fit justify-end gap-[3.6vw] lg:gap-[1.6vw] 2xl:gap-[24.3px]">
                     <FaInstagram
                       className={classFavIcon}
                       onClick={() => {
@@ -229,10 +222,10 @@ export default function Footer() {
                     />
                   </div>
                 </div>
-                <div className="flex h-[4vw] w-full items-center lg:h-[3vw] 2xl:h-[46px]">
+                <div className="flex h-[8vw] w-full items-center max-lg:mb-[4vw] lg:h-[3vw] 2xl:h-[46px]">
                   <input
                     type="text"
-                    className="h-full w-full rounded-bl-[.7vw] rounded-tl-[.7vw] bg-white180 px-[1.5vw] py-[1vw] text-[1.3vw] text-black outline-none lg:text-[0.9vw] 2xl:rounded-bl-[10.8px] 2xl:rounded-tl-[10.8px] 2xl:px-[23.1px] 2xl:py-[15.4px] 2xl:text-[13.8px]"
+                    className="h-full w-full rounded-bl-[.7vw] rounded-tl-[.7vw] bg-white180 px-[1.5vw] py-[1vw] text-[3.1vw] text-black outline-none lg:text-[0.9vw] 2xl:rounded-bl-[10.8px] 2xl:rounded-tl-[10.8px] 2xl:px-[23.1px] 2xl:py-[15.4px] 2xl:text-[13.8px]"
                     placeholder="Enter Your Email to Subscribe to Our Newsletter"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -255,7 +248,7 @@ export default function Footer() {
           </div>
           {/* Copyright */}
           <div className="flex w-full justify-center">
-            <h3 className="font-avenirBook text-[1.5vw] text-primary lg:text-[0.9vw] 2xl:text-[13.8px]">
+            <h3 className="font-avenirBook text-[2.8vw] text-primary lg:text-[0.9vw] 2xl:text-[13.8px]">
               {copyright}
             </h3>
           </div>
