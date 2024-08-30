@@ -134,7 +134,7 @@ export default function PreviousClients() {
         <div className="absolute w-[240vh] lg:w-full h-full -z-[998] overflow-clip">
           <ImgF
             alt="portofolio hero background"
-            src="/img/portofolio/hero_bg.png"
+            src="/img/portofolio/hero_bg-c.png"
           />
         </div>
         <div className="absolute w-full h-full -z-[997] bg-gradient-to-b from-transparent from-[70%] to-lightWhite to-[90%]" />
