@@ -79,7 +79,7 @@ export default function Team() {
       name: "Divanti A. W.",
       role: "Director of Finance and Legal",
     },
-  ]
+  ];
 
   const values = [boas, staffs];
 
@@ -101,61 +101,60 @@ export default function Team() {
       {createBackground("dark")}
 
       {/* Content */}
-      <div className="flex items-center justify-center w-full min-h-screen h-fit">
-        <div className="flex w-full min-h-full h-fit flex-col items-center 2xl:w-[1536px]">
+      <div className="flex h-fit min-h-screen w-full items-center justify-center">
+        <div className="flex h-fit min-h-full w-full flex-col items-center 2xl:w-[1536px]">
           {/* Title */}
-          <div className="flex flex-col w-full min-h-[15vh] lg:min-h-[25vh] justify-end bg-black px-[50px]">
-            <div className="w-full justify-center text-center mb-[24px]">
-              <h1 className="text-primary text-[8vw]/[7.8vw] lg:text-[4vw]/[3.9vw] font-avenirBlack 2xl:text-[61px]/[60px]">
+          <div className="flex min-h-[15vh] w-full flex-col justify-end bg-black px-[50px] lg:min-h-[25vh]">
+            <div className="mb-[24px] w-full justify-center text-center">
+              <h1 className="font-avenirBlack text-[8vw]/[7.8vw] text-primary lg:text-[4vw]/[3.9vw] 2xl:text-[61px]/[60px]">
                 {content.welcoming}
               </h1>
-              <h2 className="font-avenirBook text-secondary text-[2.7vw]/[3vw] lg:text-[1.8vw]/[2vw] mt-[4px] 2xl:text-[27.6px]/[30.7px]">
+              <h2 className="mt-[4px] font-avenirBook text-[2.7vw]/[3vw] text-secondary lg:text-[1.8vw]/[2vw] 2xl:text-[27.6px]/[30.7px]">
                 {content.term}
               </h2>
             </div>
           </div>
           {/* BoDs */}
-          <div className="flex flex-col w-full min-h-[75vh] h-fit items-center lg:px-[130px] pb-[60px]  2xl:mx-[50px]">
+          <div
+            data-gsap="up-stagger"
+            className="flex h-fit min-h-[75vh] w-full flex-col items-center pb-[60px] lg:px-[130px] 2xl:mx-[50px]"
+          >
             {/* White Background */}
-            <div className="absolute -z-[998] w-full h-full bg-white" />
-            <h2 className="font-latoBoldItalic text-primary text-[4vw] lg:text-[1.8vw]/[2vw] mt-[24px] 2xl:text-[27.6px]/[30.7px]">
+            <div className="absolute -z-[998] h-full w-full bg-white" />
+            <h2 className="mt-[24px] font-latoBoldItalic text-[4vw] text-primary lg:text-[1.8vw]/[2vw] 2xl:text-[27.6px]/[30.7px]">
               {"Board of Directors"}
             </h2>
             {/* Cards Row */}
             {values.map((value, idx) => {
               return (
-                <div key={idx} className="flex flex-wrap w-full h-fit justify-center items-end pt-[24px] gap-[5vw] 2xl:gap-[76.8px] ">
+                <div
+                  key={idx}
+                  className="flex h-fit w-full flex-wrap items-end justify-center gap-[5vw] pt-[24px] 2xl:gap-[76.8px]"
+                >
                   {value.map((valuePerRow) => {
                     return (
                       <>
                         {/* Cards */}
                         <div
                           className={
-                            "relative flex justify-center items-end bg-gradient-to-b from-transparent from-[65%] 2xl:from-[60%] to-white to-[80%] lg:to-[73%] overflow-x-clip  " +
+                            "relative flex items-end justify-center overflow-x-clip bg-gradient-to-b from-transparent from-[65%] to-white to-[80%] lg:to-[73%] 2xl:from-[60%] " +
                             (valuePerRow.role === "President of 180DC UGM"
                               ? classes.presClass
-                              : valuePerRow.role ===
-                                  "Vice President of Internal" ||
-                                valuePerRow.role ===
-                                  "Vice President of External"
-                              ? classes.vPresClass
-                              : classes.nonPresClass)
+                              : valuePerRow.role === "Vice President of Internal" ||
+                                  valuePerRow.role === "Vice President of External"
+                                ? classes.vPresClass
+                                : classes.nonPresClass)
                           }
                         >
                           {/* Background */}
-                          <div
-                            className={
-                              "absolute -z-[1] w-full h-full " +
-                              valuePerRow.position
-                            }
-                          >
+                          <div className={"absolute -z-[1] h-full w-full " + valuePerRow.position}>
                             <ImgF src={valuePerRow.src} alt={valuePerRow.alt} prioritize={true} />
                           </div>
                           {/* Content */}
-                          <div className="flex flex-col items-center justify-end w-full mb-0 lg:mb-[1vh] h-full">
+                          <div className="mb-0 flex h-full w-full flex-col items-center justify-end lg:mb-[1vh]">
                             <h3
                               className={
-                                "font-avenirBlack text-primary mt-[24px] text-center h-fit " +
+                                "mt-[24px] h-fit text-center font-avenirBlack text-primary " +
                                 (highRoles.includes(valuePerRow.role)
                                   ? "text-[2.88vw]/[2.88vw] lg:text-[2.3vw]/[2.34vw] 2xl:text-[29px]/[36px]"
                                   : "text-[3vw]/[3vw] lg:text-[2vw]/[2.3vw] 2xl:text-[28px]/[35px]")
@@ -165,7 +164,7 @@ export default function Team() {
                             </h3>
                             <h4
                               className={
-                                "font-avenirBook text-secondary text-center h-[14%] " +
+                                "h-[14%] text-center font-avenirBook text-secondary " +
                                 (highRoles.includes(valuePerRow.role)
                                   ? "text-[2.1vw]/[2.1vw] lg:text-[1.5vw]/[1.55vw] 2xl:text-[23px]/[23.8px]"
                                   : "text-[1.8vw]/[1.8vw] lg:text-[1.35vw]/[1.45vw] 2xl:text-[20.7px]/[22.2px]")

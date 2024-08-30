@@ -9,8 +9,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
         mulishLight: ["mulish-light"],
@@ -58,7 +57,7 @@ module.exports = {
       },
       animation: {
         movingPointer: "downPointer 2s ease-in-out infinite",
-      }
+      },
     },
   },
 
@@ -66,7 +65,5 @@ module.exports = {
     aspectRatio: false,
   },
 
-  plugins: [
-    require("@tailwindcss/aspect-ratio"),
-  ],
+  plugins: [require("@tailwindcss/aspect-ratio")],
 };

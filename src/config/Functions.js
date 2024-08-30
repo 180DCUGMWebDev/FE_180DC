@@ -3,16 +3,12 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // Background Function
-export const createBackground = ( theme, className="" ) => {
+export const createBackground = (theme, className = "") => {
   const bgTheme =
-    theme === "light"
-      ? " bg-white "
-      : theme === "dark"
-      ? " bg-black "
-      : " bg-primary ";
+    theme === "light" ? " bg-white " : theme === "dark" ? " bg-black " : " bg-primary ";
 
   return (
-    <div className={"absolute -z-[999] top-0 left-0 w-full h-full " + bgTheme + " " + className} />
+    <div className={"absolute left-0 top-0 -z-[999] h-full w-full " + bgTheme + " " + className} />
   );
 };
 
@@ -24,7 +20,7 @@ export const copyContent = (content, context) => {
 };
 
 // Toast
-export const toastNotify = (content, status="info") => {
+export const toastNotify = (content, status = "info") => {
   const toastOptions = () => {
     return {
       position: "top-center",
@@ -35,11 +31,9 @@ export const toastNotify = (content, status="info") => {
     };
   };
 
-  if (status === "info")
-    toast.info(content, toastOptions());
-  else if (status === "success")
-    toast.success(content, toastOptions());
-}
+  if (status === "info") toast.info(content, toastOptions());
+  else if (status === "success") toast.success(content, toastOptions());
+};
 
 // Routing Function
 export const directRoute = (link, router, pathname) => {

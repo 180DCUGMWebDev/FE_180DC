@@ -12,7 +12,7 @@ async function getData() {
     "https://goldfish-app-38lif.ondigitalocean.app/api/articles?populate=*&sort=publishedAt:desc",
     {
       next: { revalidate: 60 },
-    }
+    },
   );
   if (!res.ok) {
     console.log("Failed to fetch data");
@@ -33,32 +33,30 @@ export default function Article({ params }) {
   if (articles && !article) notFound();
   return (
     <main className="min-h-screen bg-[black]">
-      <div className="flex flex-col gap-[min(2vw,20px)] px-[5%] lg:px-[26%] text-lightWhite font-latoRegular py-[max(20vw,100px)] lg:py-[max(15vh,100px)]">
+      <div className="flex flex-col gap-[min(2vw,20px)] px-[5%] py-[max(20vw,100px)] font-latoRegular text-lightWhite lg:px-[26%] lg:py-[max(15vh,100px)]">
         {/* Title */}
-        <h1 className="font-avenirBlack text-center text-[8vw] lg:text-[3.3vw]">
-          {article.title}
-        </h1>
+        <h1 className="text-center font-avenirBlack text-[8vw] lg:text-[3.3vw]">{article.title}</h1>
         <h2 className="text-center text-[3vw] lg:text-[1vw]">
           Author: {article.author ?? "-"} • Publish Date:{" "}
           {new Date(article.publishedAt).toLocaleDateString("id-ID")}
         </h2>
         {/* Image */}
-        <div className="aspect-w-[994] aspect-h-[522] relative rounded-[20px] overflow-hidden">
+        <div className="aspect-h-[522] aspect-w-[994] relative overflow-hidden rounded-[20px]">
           <Image
             src={`https://goldfish-app-38lif.ondigitalocean.app${article.thumbnail.data.attributes.url}`}
             alt="article image"
             width={2000}
             height={2000}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
         {/* Article */}
-        <div className="mt-[20px] text-[3.3vw] lg:text-[1.2vw] text-justify">
+        <div className="mt-[20px] text-justify text-[3.3vw] lg:text-[1.2vw]">
           <ReactMarkdown components={MdxComponents} rehypePlugins={rehypeRaw}>
             {article.body}
           </ReactMarkdown>
         </div>
-        <div className="mt-[20px] font-avenirBlack text-[5vw] lg:text-[2.5vw] flex flex-col">
+        <div className="mt-[20px] flex flex-col font-avenirBlack text-[5vw] lg:text-[2.5vw]">
           Our Recommendation
           <TelescopeBox
             article={articles.find((article) => article.slug != params.article)}

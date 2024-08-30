@@ -7,6 +7,8 @@ import Footer from "@/components/global/Footer";
 import { ToastContainer } from "react-toastify";
 import TooSmall from "@/components/misc/TooSmall";
 import Script from "next/script";
+import LocomotiveProvider from "@/contexts/LocomotiveContext";
+import GSAPProvider from "@/contexts/GSAPContext";
 
 export const metadata = {
   title: "180DC UGM",
@@ -16,10 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-3J45MR3ZCW"
-      ></Script>
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-3J45MR3ZCW"></Script>
       <Script id="google-analytics">
         {`
         window.dataLayer = window.dataLayer || [];
@@ -31,22 +30,21 @@ export default function RootLayout({ children }) {
       </Script>
       <body className="select-none">
         {/* First Option */}
+        <LocomotiveProvider>
+          <GSAPProvider>
+            <div className="hidden flex-col overflow-clip min-[250px]:flex">
+              {/* Content */}
+              <Navbar />
+              {children}
+              <Footer />
+            </div>
+            {/* Toastify */}
+            <ToastContainer />
 
-        <div className="hidden min-[250px]:flex flex-col overflow-clip">
-          {/* Content */}
-          <div className="relative z-[1]">
-            <Navbar />
-          </div>
-          <div className="relative z-[0]">{children}</div>
-          <div className="relative z-[1]">
-            <Footer />
-          </div>
-        </div>
-        {/* Toastify */}
-        <ToastContainer />
-
-        {/* Second Option */}
-        <TooSmall />
+            {/* Second Option */}
+            <TooSmall />
+          </GSAPProvider>
+        </LocomotiveProvider>
       </body>
     </html>
   );

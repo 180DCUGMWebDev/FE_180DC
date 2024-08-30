@@ -10,21 +10,21 @@ export function TelescopeBox({ article, type, className }) {
         className={`w-full ${
           type !== "article"
             ? type === "lg"
-              ? "aspect-w-[326] aspect-h-[154]"
-              : "aspect-w-[154] aspect-h-[106]"
-            : "aspect-w-[1068] aspect-h-[400]"
+              ? "aspect-h-[154] aspect-w-[326]"
+              : "aspect-h-[106] aspect-w-[154]"
+            : "aspect-h-[400] aspect-w-[1068]"
         } ${className}`}
       >
         <div
           className={`pl-[5%] ${
             type === "lg" ? "pr-[27%]" : "pr-[12%]"
-          } py-[5%] rounded-[10px] lg:rounded-[20px]`}
+          } rounded-[10px] py-[5%] lg:rounded-[20px]`}
         >
           {/* Background */}
-          <div className="z-10 absolute inset-0 rounded-[10px] overflow-hidden">
+          <div className="absolute inset-0 z-10 overflow-hidden rounded-[10px]">
             {type === "article" || (
               <>
-                <div className="absolute inset-0 [background-image:linear-gradient(120deg,var(--tw-gradient-stops))] from-primary from-20% to-secondary to-80%" />
+                <div className="absolute inset-0 from-primary from-20% to-secondary to-80% [background-image:linear-gradient(120deg,var(--tw-gradient-stops))]" />
                 <div className="absolute inset-0 bg-black opacity-[0.35]" />
               </>
             )}
@@ -33,16 +33,14 @@ export function TelescopeBox({ article, type, className }) {
               alt="article image"
               width={2000}
               height={2000}
-              className={`absolute inset-0 w-full h-full object-cover ${
-                type === "article"
-                  ? "opacity-50"
-                  : "grayscale blur-[2px] opacity-20"
+              className={`absolute inset-0 h-full w-full object-cover ${
+                type === "article" ? "opacity-50" : "opacity-20 blur-[2px] grayscale"
               }`}
             />
           </div>
           {/* Text */}
           <div
-            className={`z-20 relative h-full flex flex-col text-lightWhite ${
+            className={`relative z-20 flex h-full flex-col text-lightWhite ${
               type === "lg" ? "justify-between lg:justify-end" : "justify-end"
             }`}
           >
@@ -50,7 +48,7 @@ export function TelescopeBox({ article, type, className }) {
               <div
                 className={`font-avenirBlack ${
                   type === "lg" ? "text-[5vw]" : "text-[3.5vw]"
-                } leading-[1.2] line-clamp-2`}
+                } line-clamp-2 leading-[1.2]`}
               >
                 {article.title}
               </div>
@@ -60,7 +58,7 @@ export function TelescopeBox({ article, type, className }) {
                 </div>
               )}
             </div>
-            <div className="lg:hidden italic underline text-[2.7vw] leading-[1.2]">
+            <div className="text-[2.7vw] italic leading-[1.2] underline lg:hidden">
               Read Article
             </div>
           </div>

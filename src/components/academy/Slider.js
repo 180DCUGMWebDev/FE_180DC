@@ -7,7 +7,6 @@ import { Pagination } from "swiper/modules";
 
 import CardContents from "./CardContents";
 import Image from "next/image";
-import { link } from "fs";
 
 export default function Slider(image, module, title, link) {
   const data = {
@@ -17,24 +16,9 @@ export default function Slider(image, module, title, link) {
       "/img/academy/dummyCardImage.png",
       "/img/academy/dummyCardImage.png",
     ],
-    module: [
-      "Module 1",
-      "Module 2",
-      "Module 3",
-      "Module 4",
-    ],
-    title: [
-      "Consulting 101",
-      "Business Analysis Framework",
-      "TBA",
-      "TBA",
-    ],
-    link:[
-      "academy/module1",
-      "academy/",
-      "academy/",
-      "academy/",
-    ]
+    module: ["Module 1", "Module 2", "Module 3", "Module 4"],
+    title: ["Consulting 101", "Business Analysis Framework", "TBA", "TBA"],
+    link: ["academy/module1", "academy/", "academy/", "academy/"],
   };
 
   const [swiper, setSwiper] = useState();
@@ -44,7 +28,7 @@ export default function Slider(image, module, title, link) {
         <Image
           src="/img/academy/arrow_back.png"
           alt="Previous Arrow"
-          className="absolute left-[41vw] bottom-[0vh] z-[20] h-[2.6vw] w-[1.45vw]"
+          className="absolute bottom-[0vh] left-[41vw] z-[20] h-[2.6vw] w-[1.45vw]"
           width={2000}
           height={2000}
           draggable="false"
@@ -54,7 +38,7 @@ export default function Slider(image, module, title, link) {
         <Image
           src="/img/academy/arrow_forward.png"
           alt="Previous Arrow"
-          className="absolute right-[41vw] bottom-[0vh] z-[20] h-[2.6vw] w-[1.45vw]"
+          className="absolute bottom-[0vh] right-[41vw] z-[20] h-[2.6vw] w-[1.45vw]"
           width={2000}
           height={2000}
           draggable="false"
@@ -73,7 +57,12 @@ export default function Slider(image, module, title, link) {
         {data.image.map(function (item, index) {
           return (
             <SwiperSlide key={index}>
-              <CardContents image={data.image[index]} module={data.module[index]} title={data.title[index]} link={data.link[index]} />
+              <CardContents
+                image={data.image[index]}
+                module={data.module[index]}
+                title={data.title[index]}
+                link={data.link[index]}
+              />
             </SwiperSlide>
           );
         })}

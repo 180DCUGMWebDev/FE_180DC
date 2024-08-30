@@ -8,16 +8,16 @@ export function OurClients() {
   return (
     <section className="flex flex-col justify-between">
       {/* Our Previous Clients */}
-      <div className="h-fit max-lg:py-7 lg:h-[30vh] w-[96%] relative">
+      <div className="relative h-fit w-[96%] max-lg:py-7 lg:h-[30vh]">
         <Image
           src="/img/homepage/clients.png"
           alt="Clients"
           width={1000}
           height={1000}
-          className="absolute z-10 inset-0 w-full h-full object-cover rounded-r-[18px]"
+          className="absolute inset-0 z-10 h-full w-full rounded-r-[18px] object-cover"
         />
-        <div className="relative z-20 px-[4%] lg:pr-[2%] flex items-center justify-between h-full">
-          <div className="text-2xl sm:text-4xl lg:text-[80px] 2xl:text-[112px] lg:leading-none text-white font-avenirBlack">
+        <div className="relative z-20 flex h-full items-center justify-between px-[4%] lg:pr-[2%]">
+          <div className="font-avenirBlack text-2xl text-white sm:text-4xl lg:text-[80px] lg:leading-none 2xl:text-[112px]">
             Our Previous Clients
           </div>
           <Link href="/portofolio" className="w-[15%] max-lg:hidden">
@@ -42,27 +42,33 @@ export function OurClients() {
         </div>
       </div>
       {/* Newsletter & Press Releases */}
-      <div className="max-lg:pt-[10vw] py-[9vh] px-[4%] flex flex-col gap-[10px] lg:gap-[30px]">
-        <div className="text-2xl sm:text-4xl lg:text-[80px] 2xl:text-[112px] lg:leading-none font-avenirBlack">
+      <div className="flex flex-col gap-[10px] px-[4%] py-[9vh] max-lg:pt-[10vw] lg:gap-[30px]">
+        <div
+          data-gsap="right"
+          className="font-avenirBlack text-2xl sm:text-4xl lg:text-[80px] lg:leading-none 2xl:text-[112px]"
+        >
           Newsletter & Press Releases
         </div>
-        <div className="lg:h-[38vh] flex max-lg:flex-col gap-[20px] lg:gap-[56px] items-center">
-          <div className="max-lg:max-h-[38vh] w-full flex items-center h-full flex-1 rounded-lg overflow-hidden">
+        <div
+          data-gsap="up-stagger"
+          className="flex items-center gap-[20px] max-lg:flex-col lg:h-[38vh] lg:gap-[56px]"
+        >
+          <div className="flex h-full w-full flex-1 items-center overflow-hidden rounded-lg max-lg:max-h-[38vh]">
             <Image
               src="/img/homepage/telescope.png"
               alt="Telescope"
               width={1000}
               height={1000}
-              className="w-full h-full object-cover"
+              className="h-full w-full object-cover"
             />
           </div>
-          <div className="max-lg:max-h-[38vh] w-full flex items-center h-full flex-1 rounded-lg overflow-hidden">
+          <div className="flex h-full w-full flex-1 items-center overflow-hidden rounded-lg max-lg:max-h-[38vh]">
             <Image
               src="/img/homepage/newsletter.png"
               alt="Newsletter"
               width={1000}
               height={1000}
-              className="w-full h-full object-cover"
+              className="h-full w-full object-cover"
             />
           </div>
           <Link href="/telescope">

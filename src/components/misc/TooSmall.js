@@ -6,24 +6,24 @@ import { createBackground } from "@/config/Functions";
 
 export default function TooSmall() {
   return (
-    <main className="min-[250px]:hidden flex">
-      <div className="relative flex w-full h-[100vmax] items-center justify-center p-[15vw]">
+    <main className="flex min-[250px]:hidden">
+      <div className="relative flex h-[100vmax] w-full items-center justify-center p-[15vw]">
         {/* Background */}
         {createBackground("dark")}
 
         {/* Logo */}
-        <div className="absolute -z-[998] w-full h-screen flex items-center justify-center">
+        <div className="absolute -z-[998] flex h-screen w-full items-center justify-center">
           <div className="w-[75vw]">
             <ImgF
               src="/img/global/logo180dctrns.png"
               alt="logo 180dc"
-              className="grayscale opacity-40"
+              className="opacity-40 grayscale"
             />
           </div>
         </div>
 
         {/* Text */}
-        <p className="font-latoRegular text-lightWhite text-[8vw] text-center">
+        <p className="text-center font-latoRegular text-[8vw] text-lightWhite">
           {
             "Your current screen is too small to read the content of the page. Please use a better device with bigger resolution / try to increase your current resolution!"
           }
