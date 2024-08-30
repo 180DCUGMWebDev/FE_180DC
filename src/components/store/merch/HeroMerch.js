@@ -16,10 +16,10 @@ export default function HeroMerch() {
       {createBackground("dark")}
 
       {/* Content */}
-      <div className="flex min-h-screen w-full items-center justify-center max-lg:py-[8vh] lg:h-screen">
+      <div className="relative flex min-h-screen w-full items-center justify-center max-lg:mb-[4dvh] max-lg:py-[8vh] md:mb-[8dvh] lg:mb-0 lg:h-screen">
         <Image
-          src="/img/store/merch/merch-bg-1.png"
-          alt="180DC UGM Casebook"
+          src="/img/store/merch/merch-bg-c.png"
+          alt="180DC UGM merch"
           width={2000}
           height={2000}
           className="absolute inset-0 z-0 h-full w-full object-cover max-lg:hidden"
@@ -31,7 +31,6 @@ export default function HeroMerch() {
           height={2000}
           className="absolute inset-0 -top-[5vw] z-0 w-full object-cover lg:hidden"
         />
-        {/* <MobileComponent /> */}
         <div className="relative mb-[5vw] flex flex-col items-center justify-center max-lg:w-full lg:mt-[4vw]">
           {/* Content */}
           <div className="flex w-full flex-col-reverse items-center justify-center lg:flex-row lg:pl-[5vw]">
@@ -48,7 +47,7 @@ export default function HeroMerch() {
                 alt="Star ornament"
                 width={3000}
                 height={2000}
-                className="absolute left-[11vw] top-[-2.7vw] h-[4vw] w-[6.7vw] object-cover lg:-top-[2.2vw] lg:left-[9vw] lg:h-[4.419vw] lg:w-[9vw]"
+                className="absolute left-[11.5vw] top-[-2.7vw] h-[4vw] w-[6.7vw] object-cover lg:-top-[2.5vw] lg:left-[10vw] lg:h-[4.419vw] lg:w-[9vw]"
               />
               <Image
                 src="/img/store/casebook/curl.png"
@@ -86,8 +85,15 @@ export default function HeroMerch() {
               </div>
               <Link
                 href="#"
-                className="ml-[1.6vw] flex h-[3.75vw] w-[12.677vw] items-center justify-center gap-[1vw] rounded-[5.208vw] bg-black font-avenirHeavy text-[1.25vw] text-white transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#5AB0BB]/20 lg:h-[3.75vw] lg:w-[10.677vw]"
+                className="relative ml-[1.6vw] flex h-[3.75vw] w-[12.677vw] items-center justify-center gap-[1vw] rounded-[5.208vw] bg-black font-avenirHeavy text-[1.25vw] text-white transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#5AB0BB]/20 lg:h-[3.75vw] lg:w-[10.677vw]"
               >
+                <Image
+                  src="/img/store/casebook/greenstar.png"
+                  alt=""
+                  width={2000}
+                  height={2000}
+                  className="absolute -left-[3.2vw] -top-[4vw] w-[8vw]"
+                />
                 <Image
                   src="/img/store/casebook/trolley.png"
                   alt="background"
@@ -104,21 +110,23 @@ export default function HeroMerch() {
                 alt="background"
                 width={2000}
                 height={2000}
-                className="inset-0 object-cover max-lg:h-[86.923vw] max-lg:w-[107.026vw] max-lg:scale-[1.4] max-lg:pr-[14vw] lg:-right-[10vw] lg:h-[1019.8] lg:w-[63.006vw]"
-              />
-            </div>
-            <div className="absolute bottom-[5vw] flex w-full flex-col items-center justify-center max-lg:hidden">
-              <span className="mb-[1vw] font-latoBold text-[1.294vw]">GET TO KNOW MORE</span>
-              <Image
-                src="/img/store/casebook/blackArrowDown.png"
-                alt="background"
-                width={2000}
-                height={2000}
-                className="inset-0 h-[0.938vw] w-[1.615vw] animate-bounce object-cover"
+                className="inset-0 h-auto object-cover max-lg:w-[107.026vw] max-lg:scale-[1.4] max-lg:pr-[14vw] lg:-right-[10vw] lg:h-[1019.8] lg:w-[63.006vw]"
               />
             </div>
           </div>
         </div>
+      </div>
+      <div className="absolute bottom-[0vw] flex w-full flex-col items-center justify-center md:-bottom-[7.8vw] lg:bottom-[1vw]">
+        <span className="mb-[1vw] font-latoBold text-[3.2vw] md:text-[2.6vw] lg:text-[1.294vw]">
+          GET TO KNOW MORE
+        </span>
+        <Image
+          src="/img/store/casebook/blackArrowDown.png"
+          alt="background"
+          width={2000}
+          height={2000}
+          className="h-auto w-[3.3vw] animate-bounce object-cover md:w-[2.7vw] lg:w-[1.615vw]"
+        />
       </div>
     </section>
   );

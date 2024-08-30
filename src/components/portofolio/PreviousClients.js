@@ -262,7 +262,7 @@ export default function PreviousClients() {
       >
         {/* Background */}
         <div className="absolute top-0 -z-[998] h-full w-full overflow-clip">
-          <ImgF alt="portofolio hero background" src="/img/portofolio/hero_bg.png" />
+          <ImgF alt="portofolio hero background" src="/img/portofolio/hero_bg-c.png" />
         </div>
         <div className="absolute -z-[997] h-full w-full bg-gradient-to-b from-lightWhite from-[20%] via-transparent via-[45%] to-black to-[75%]" />
         <div className="absolute top-0 -z-[997] h-full w-full bg-black opacity-[85%]" />
