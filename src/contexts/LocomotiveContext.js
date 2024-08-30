@@ -2,16 +2,11 @@
 
 import { useEffect } from "react";
 import PropTypes from "prop-types";
+import LocomotiveScroll from "locomotive-scroll";
 
 const LocomotiveProvider = ({ children }) => {
   useEffect(() => {
-    const init = async () => {
-      // eslint-disable-next-line import/no-unresolved
-      const { default: LocomotiveScroll } = await import("locomotive-scroll");
-      // eslint-disable-next-line no-new
-      new LocomotiveScroll();
-    };
-    init();
+    new LocomotiveScroll();
   }, []);
   return <div>{children}</div>;
 };

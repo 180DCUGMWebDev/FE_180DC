@@ -34,13 +34,9 @@ export default function RootLayout({ children }) {
           <GSAPProvider>
             <div className="hidden flex-col overflow-clip min-[250px]:flex">
               {/* Content */}
-              <div className="relative z-[1]">
-                <Navbar />
-              </div>
-              <div className="relative z-[0]">{children}</div>
-              <div className="relative z-[1]">
-                <Footer />
-              </div>
+              <Navbar />
+              {children}
+              <Footer />
             </div>
             {/* Toastify */}
             <ToastContainer />
