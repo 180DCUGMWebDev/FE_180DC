@@ -1,3 +1,4 @@
+"use client";
 // Import
 import "./globals.css";
 
@@ -7,6 +8,7 @@ import Footer from "@/components/global/Footer";
 import { ToastContainer } from "react-toastify";
 import TooSmall from "@/components/misc/TooSmall";
 import Script from "next/script";
+import { usePathname } from "next/navigation";
 
 export const metadata = {
   title: "180DC UGM",
@@ -14,6 +16,12 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const pathname = usePathname();
+
+  const showNavbar = !(
+    pathname.startsWith("/admin") || pathname.startsWith("/auth")
+  );
+
   return (
     <html lang="en">
       <Script
@@ -34,13 +42,9 @@ export default function RootLayout({ children }) {
 
         <div className="hidden min-[250px]:flex flex-col overflow-clip">
           {/* Content */}
-          <div className="relative z-[1]">
-            <Navbar />
-          </div>
+          <div className="relative z-[1]">{showNavbar && <Navbar />}</div>
           <div className="relative z-[0]">{children}</div>
-          <div className="relative z-[1]">
-            <Footer />
-          </div>
+          <div className="relative z-[1]">{showNavbar && <Footer />}</div>
         </div>
         {/* Toastify */}
         <ToastContainer />

@@ -1,7 +1,12 @@
-import Button from "@/components/global/Button";
-import Image from "next/image";
+import Content from "@/components/admin/Content/Content";
+import NavbarAdmin from "@/components/admin/NavbarAdmin";
 import React from "react";
 
-export default function Admin() {
-  return <div className="h-screen w-full bg-red-600">HAHAHAH</div>;
+export default function page() {
+  return (
+    <div className="relative">
+      <NavbarAdmin />
+      <Content />
+    </div>
+  );
 }
