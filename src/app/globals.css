@@ -100,13 +100,15 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #1a1a1a;
+    /* background: linear-gradient(transparent, 30%, #58b9d1, #73b743, 70%, transparent); */
+    background: linear-gradient(transparent, 10%, #1a1a1a, 90%, transparent);
     border-radius: 10px;
   }
 
   /* background */
   ::-webkit-scrollbar-track {
     background: linear-gradient(#58b9d1, #73b743);
+    /* background: transparent; */
     border-radius: 15px;
   }
 

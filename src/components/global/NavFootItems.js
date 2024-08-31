@@ -56,7 +56,7 @@ export default function NavFootItems({ ulClass, liClass, aClass, sidebar = false
           <li
             className={
               liClass +
-              " " +
+              " max-lg:flex max-lg:flex-col max-lg:items-center" +
               (sidebar // Changing colors of Sidebar Div depending on the page
                 ? navLinks[val] === pathname
                   ? "bg-[#E9E9E9]"
@@ -70,10 +70,10 @@ export default function NavFootItems({ ulClass, liClass, aClass, sidebar = false
             }}
           >
             {sidebar ? obtainIconFunction(val) : ""}
-            <p
+            <span
               className={
                 aClass +
-                " hover:cursor-pointer" +
+                "text-[3.5vw] hover:cursor-pointer" +
                 (sidebar // Changing colors of Sidebar Text depending on the page
                   ? navLinks[val] === pathname
                     ? "text-black"
@@ -82,7 +82,7 @@ export default function NavFootItems({ ulClass, liClass, aClass, sidebar = false
               }
             >
               {val}
-            </p>
+            </span>
           </li>
         );
       })}
