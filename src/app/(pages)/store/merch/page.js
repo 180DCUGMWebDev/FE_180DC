@@ -5,7 +5,7 @@ export default async function Casebook() {
   return (
     <>
       <HeroMerch />
-      <WhatTheySay />
+      {/* <WhatTheySay /> */}
     </>
   );
 }
