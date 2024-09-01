@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
-    "@tailwindcss/aspect-ratio": "^0.4.2",
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
     "fs": "^0.0.1-security",
@@ -38,6 +37,7 @@
     "child_process": false
   },
   "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "autoprefixer": "^10.4.20",
     "concurrently": "^8.2.2",
     "encoding": "^0.1.13",
