@@ -3,10 +3,17 @@ export const navLinks = {
   Home: "/",
   "About Us": "/aboutus",
   "Our Clients": "/portofolio",
-  Store: "/store",
+  Store: "/store/casebook",
   Academy: "/academy",
   Telescope: "/telescope",
 };
+
+// store
+export const storeLink = {
+  Casebook: "/store/casebook",
+  Merch: "/store/merch",
+};
+
 // Internal Links
 export const intLinks = {
   Apply: "/apply",

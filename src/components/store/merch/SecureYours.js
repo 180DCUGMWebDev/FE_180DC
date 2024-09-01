@@ -24,7 +24,7 @@ export default function SecureYours({ theme }) {
         {/* Content */}
         <div data-gsap="up" className="relative mx-[50px] h-full w-full 2xl:w-[1536px]">
           <div className="flex h-full w-full flex-col items-center justify-center py-[15vh] lg:gap-[16px] lg:p-[100px] 2xl:py-[110px]">
-            <h1 className="bg-gradient-to-br from-primary from-[35%] to-secondary to-[65%] bg-clip-text py-[4px] text-center font-avenirBlack text-[12vw] leading-[1] text-transparent lg:text-[6vw]/[6vw] 2xl:text-[98px]/[92px]">
+            <h1 className="bg-gradient-to-br from-primary from-[35%] to-secondary to-[65%] bg-clip-text py-[4px] text-center font-avenirBlack text-[12vw] leading-[1] text-transparent lg:text-[6vw]/[6vw] 2xl:text-[90px]/[92px]">
               {"Secure yours"}
               <br />
               {"right now!"}

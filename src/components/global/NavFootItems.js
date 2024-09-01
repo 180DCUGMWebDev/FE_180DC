@@ -4,12 +4,43 @@
 import { useRouter, usePathname } from "next/navigation";
 
 // Import Components
-import { FaHandshake, FaHome, FaUserFriends } from "react-icons/fa";
+import { FaHandshake, FaHome, FaUserFriends, FaStore, FaBookOpen } from "react-icons/fa";
 import { IoTelescope } from "react-icons/io5";
 
 // Import Configs
-import { navLinks } from "@/config/Links";
+import { navLinks, storeLink } from "@/config/Links";
 import { directRoute } from "@/config/Functions";
+import Link from "next/link";
+
+const DropDown = ({ link, route, path }) => {
+  // Extractor
+  let options = new Array();
+  let directs = new Array();
+
+  Object.entries(link).forEach((link) => {
+    const [key, value] = link;
+    options.push(key);
+    directs.push(value);
+  });
+
+  return (
+    <div className="absolute top-[75px] flex w-[90px] flex-col gap-[5px] rounded-[5px] bg-[white] py-[5px] text-center font-avenirRegular text-[18px]">
+      {options.map((item, idx) => {
+        return (
+          <button
+            key={idx}
+            onClick={() => {
+              directRoute(directs[idx], route, path);
+            }}
+            className="text-black"
+          >
+            {item}
+          </button>
+        );
+      })}
+    </div>
+  );
+};
 
 export default function NavFootItems({ ulClass, liClass, aClass, sidebar = false, callback = "" }) {
   // Router Hook
@@ -36,6 +67,12 @@ export default function NavFootItems({ ulClass, liClass, aClass, sidebar = false
 
       case "About Us":
         return <FaUserFriends className={navbarIconClass} />;
+
+      case "Store":
+        return <FaStore className={navbarIconClass} />;
+
+      case "Academy":
+        return <FaBookOpen className={navbarIconClass} />;
 
       case "Our Clients":
         return <FaHandshake className={navbarIconClass} />;
@@ -83,6 +120,7 @@ export default function NavFootItems({ ulClass, liClass, aClass, sidebar = false
             >
               {val}
             </span>
+            {/* {val === "Store" && <DropDown link={storeLink} route={router} path={pathname} />} */}
           </li>
         );
       })}

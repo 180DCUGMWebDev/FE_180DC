@@ -17,7 +17,7 @@ import { directRoute } from "@/config/Functions";
 
 export default function Navbar() {
   // CONTENTS
-  const copyright = "©2023 by 180 Degrees Consulting UGM";
+  const copyright = "©2024 by 180 Degrees Consulting UGM";
 
   // Router Hook
   const router = useRouter();
