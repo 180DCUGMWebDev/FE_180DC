@@ -5,137 +5,77 @@ import React from "react";
 import Image from "next/image";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "./merch.css";
 import "swiper/css";
 import "swiper/css/pagination";
+import "./merch.css";
+import testimonies from "./testimonies";
 
 const WhatTheySay = () => {
-  const testimonies = [
-    {
-      name: "John Doe 1",
-      role: "Chief Marketing of MyCompany",
-      text: "180 DC UGM Mini Casebook is our initial version of delivering Consulting 101 materials, as well as case interview practices and a step-by-step guide on how to solve a typical business case, which was loved by thousands of yous",
-      profile: "",
-    },
-    {
-      name: "John Doe 2",
-      role: "Chief Marketing of MyCompany",
-      text: "180 DC UGM Mini Casebook is our initial version of delivering Consulting 101 materials, as well as case interview practices and a step-by-step guide on how to solve a typical business case, which was loved by thousands of yous",
-      profile: "",
-    },
-    {
-      name: "John Doe 3",
-      role: "Chief Marketing of MyCompany",
-      text: "180 DC UGM Mini Casebook is our initial version of delivering Consulting 101 materials, as well as case interview practices and a step-by-step guide on how to solve a typical business case, which was loved by thousands of yous",
-      profile: "",
-    },
-    {
-      name: "John Doe 4",
-      role: "Chief Marketing of MyCompany",
-      text: "180 DC UGM Mini Casebook is our initial version of delivering Consulting 101 materials, as well as case interview practices and a step-by-step guide on how to solve a typical business case, which was loved by thousands of yous",
-      profile: "",
-    },
-    {
-      name: "John Doe 5",
-      role: "Chief Marketing of MyCompany",
-      text: "180 DC UGM Mini Casebook is our initial version of delivering Consulting 101 materials, as well as case interview practices and a step-by-step guide on how to solve a typical business case, which was loved by thousands of yous",
-      profile: "",
-    },
-    {
-      name: "John Doe 6",
-      role: "Chief Marketing of MyCompany",
-      text: "180 DC UGM Mini Casebook is our initial version of delivering Consulting 101 materials, as well as case interview practices and a step-by-step guide on how to solve a typical business case, which was loved by thousands of yous",
-      profile: "",
-    },
-    {
-      name: "John Doe 7",
-      role: "Chief Marketing of MyCompany",
-      text: "180 DC UGM Mini Casebook is our initial version of delivering Consulting 101 materials, as well as case interview practices and a step-by-step guide on how to solve a typical business case, which was loved by thousands of yous",
-      profile: "",
-    },
-    {
-      name: "John Doe 8",
-      role: "Chief Marketing of MyCompany",
-      text: "180 DC UGM Mini Casebook is our initial version of delivering Consulting 101 materials, as well as case interview practices and a step-by-step guide on how to solve a typical business case, which was loved by thousands of yous",
-      profile: "",
-    },
-    {
-      name: "John Doe 9",
-      role: "Chief Marketing of MyCompany",
-      text: "180 DC UGM Mini Casebook is our initial version of delivering Consulting 101 materials, as well as case interview practices and a step-by-step guide on how to solve a typical business case, which was loved by thousands of yous",
-      profile: "",
-    },
-    {
-      name: "John Doe 10",
-      role: "Chief Marketing of MyCompany",
-      text: "180 DC UGM Mini Casebook is our initial version of delivering Consulting 101 materials, as well as case interview practices and a step-by-step guide on how to solve a typical business case, which was loved by thousands of yous",
-      profile: "",
-    },
-  ];
-  const P = [1, 2, 3, 4, 5, 6, 7];
   return (
-    <section className="relative">
-      {createBackground("dark")}
-      <div className="relative w-full bg-[url('/img/store/merch/bg-wts.png')] object-cover py-[6vw] text-white">
-        {/* Testimoni */}
-        <div className="w-full justify-center max-lg:flex lg:px-[10vw]">
-          <span className="bg-[linear-gradient(90deg,_#6FAA26_7%,_#58B9D1_85%)] bg-clip-text font-avenirBlack text-[6.7vw] text-transparent lg:text-[3vw]">
-            What did they say?
-          </span>
-        </div>
-        {/* Testimoni */}
-        <div className="mt-[5vw] w-full lg:mt-[2vw]">
-          <Swiper
-            effect="slide"
-            slidesPerView={1.6}
-            freeMode
-            spaceBetween={"2vw"}
-            centeredSlides
-            pagination={{
-              dynamicBullets: true,
-              clickable: true,
-            }}
-            loop
-            speed={4000}
-            autoplay={{
-              delay: 1000,
-              pauseOnMouseEnter: true,
-              disableOnInteraction: false,
-              waitForTransition: true,
-              stopOnLastSlide: false,
-            }}
-            modules={[Pagination, Navigation, Autoplay]}
-            className="swipper-wrapper relative flex w-full items-center justify-center gap-[2vw] overflow-visible bg-transparent"
-          >
-            {testimonies.map((item) => {
-              return (
-                <SwiperSlide className="relative bg-transparent">
-                  <div className="relative flex h-full w-full items-center justify-center">
-                    <div className="flex h-[75vw] w-[92%] max-w-[1200px] flex-col items-center justify-center rounded-2xl bg-primary lg:h-[15vw] lg:w-[98%]">
-                      <div className="w-[90%]">
-                        <i>"{item.text}"</i>
-                      </div>
-                      <div className="flex h-auto w-[90%] flex-row gap-[2%] bg-[blue]">
-                        <div className="relative h-fit w-[8%] rounded-[50%] bg-[white]">
-                          <div className="aspect-[1/1] w-[20px] bg-[red]">
-                            <Image alt="" src={item.profile} width={2000} height={2000} fill />
-                          </div>
-                        </div>
-
-                        <div className="w-[85%]">
-                          <div>
-                            <b>{item.name}</b>
-                          </div>
-                          <div>{item.role}</div>
-                        </div>
+    <section className="relative w-full bg-[url('/img/store/merch/bg-wts.png')] object-cover py-[6vw] text-white">
+      <Image
+        alt=""
+        src="/img/store/merch/vignet-l.png"
+        width={2000}
+        height={2000}
+        className="absolute left-0 top-0 z-[99] h-full w-auto max-lg:hidden"
+      />
+      <Image
+        alt=""
+        src="/img/store/merch/vignet-r.png"
+        width={2000}
+        height={2000}
+        className="absolute right-0 top-0 z-[99] h-full w-auto max-lg:hidden"
+      />
+      <div className="w-full justify-center max-lg:flex lg:px-[10vw]">
+        <span className="bg-[linear-gradient(90deg,_#6FAA26_7%,_#58B9D1_85%)] bg-clip-text font-avenirBlack text-[6.7vw] text-transparent lg:text-[3vw]">
+          What did they say?
+        </span>
+      </div>
+      <div className="mt-[5vw] w-full flex-col items-center justify-center lg:mt-[2vw]">
+        <Swiper
+          effect="slide"
+          slidesPerView={1.6}
+          freeMode
+          loop
+          spaceBetween={"2vw"}
+          centeredSlides
+          pagination={{
+            clickable: true,
+          }}
+          speed={4000}
+          modules={[Navigation, Pagination, Autoplay]}
+          autoplay={{
+            delay: 1000,
+            pauseOnMouseEnter: true,
+            disableOnInteraction: false,
+            waitForTransition: true,
+            stopOnLastSlide: false,
+          }}
+          className="swipper-wrapper relative flex w-full items-center justify-center gap-[2vw] overflow-visible"
+        >
+          {testimonies.map((item, index) => (
+            <SwiperSlide key={index} className="relative">
+              <div className="relative flex h-full w-full items-center justify-center">
+                <div className="flex h-[75vw] w-[92%] max-w-[1200px] flex-col items-center justify-center gap-[1vw] rounded-2xl bg-primary max-lg:justify-between max-lg:py-[5vw] max-md:text-[10px] md:h-[58vw] md:text-base lg:h-fit lg:w-[98%] lg:gap-[1.5vw] lg:pb-[0] lg:pt-[5vw]">
+                  <i className="w-[80%] text-center max-lg:mt-[10vw]">"{item.text}"</i>
+                  <div className="relative flex h-auto w-[75%] flex-row gap-[2%] lg:mb-[5%] lg:mt-[5%] lg:w-[90%]">
+                    <div className="aspect-square relative flex w-[12%] items-center justify-center lg:w-[35px] xl:w-[40px]">
+                      <div className="aspect-h-1 aspect-w-1 w-full rounded-[50%]">
+                        {item.profile && <Image alt="" src={item.profile} fill />}
                       </div>
                     </div>
+
+                    <div className="relative flex w-[85%] flex-col justify-center text-left max-md:text-[8px] md:text-[13px] md:leading-snug lg:text-[13px]">
+                      <b>{item.name}</b>
+                      {item.role}
+                    </div>
                   </div>
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
-        </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </section>
   );
