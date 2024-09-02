@@ -1,0 +1,42 @@
+.swipper-wrapper {
+  overflow: visible;
+  padding-left: 30px;
+  padding-right: 30px;
+  transition-timing-function: linear !important;
+}
+
+@media (min-width: 768px) {
+  .swiper-pagination-bullet {
+    background-color: #ffffff;
+    width: 10px;
+    height: 10px;
+  }
+
+  /* Style for active pagination bullet */
+  .swiper-pagination-bullet-active {
+    width: 24px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #ffffff;
+  }
+}
+
+@media (max-width: 767px) {
+  .swiper-pagination-bullet {
+    background-color: #ffffff;
+    width: 10px;
+    height: 10px;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  /* Style for active pagination bullet */
+  .swiper-pagination-bullet-active {
+    width: 24px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
