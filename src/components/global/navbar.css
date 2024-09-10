@@ -1,0 +1,19 @@
+.storeChild {
+    opacity: 0;
+    transition-duration: 1000;
+    animation-timing-function: ease-in-out;
+}
+
+.storeParent:hover > .storeChild {
+    opacity: 100;
+}
+
+.storeChildMobile {
+    opacity: 1;
+}
+
+.storeParentMobile:hover > .storeChildMobile {
+    opacity: 1;
+    transition-duration: 1000;
+    animation-timing-function: ease-in-out;
+}

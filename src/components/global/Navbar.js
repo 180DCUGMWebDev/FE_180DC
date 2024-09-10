@@ -91,6 +91,7 @@ export default function Navbar() {
               ulClass="flex w-full items-center justify-center gap-[4vw]"
               liClass="flex justify-center w-fit"
               aClass="text-lightWhite text-[1.3vw] font-latoRegular hover:font-latoBold 2xl:text-[20px]"
+              dropDown
             />
           </div>
           {/* Consult */}
@@ -182,6 +183,7 @@ export default function Navbar() {
               liClass="flex items-center w-full gap-[1.8vw] rounded-[1vw] py-[1vh] px-[3vw]"
               aClass="text-[4vw]/[2.9vw] font-latoBold"
               sidebar={true}
+              dropDownMobile
               callback={() => setMobileMenuOpen(false)}
             />
           </div>
