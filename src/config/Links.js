@@ -7,6 +7,13 @@ export const navLinks = {
   Academy: "/academy",
   Telescope: "/telescope",
 };
+
+// store
+export const storeLink = {
+  Casebook: "/store/casebook",
+  Merch: "/store/merch",
+};
+
 // Internal Links
 export const intLinks = {
   Apply: "/apply",
