@@ -34,7 +34,7 @@ export default function WhatInside() {
       {/* Content */}
       <div className="flex h-fit w-full items-center justify-center max-lg:py-[8vh] lg:h-screen">
         <Image
-          src="/img/store/casebook/bgBlackPatterned-c.png"
+          src="/img/store/casebook/bgBlackPatterned1.png"
           alt="180DC UGM Casebook"
           width={2000}
           height={2000}
@@ -47,12 +47,20 @@ export default function WhatInside() {
           height={2000}
           className="absolute inset-0 z-0 w-full object-cover lg:hidden"
         />
+        
+
         {/* Desktop */}
         <div className="relative flex flex-col items-center justify-center max-lg:hidden">
+          <Image
+          src="/img/store/casebook/BlueSpark.png"
+          alt="180DC UGM Casebook"
+          width={2000}
+          height={2000}
+          className="absolute  z-0 -top-[2vw] -right-[10vw]  w-[14.008vw] object-cover max-lg:hidden"
+        />
           {/* Content */}
           <div className="flex w-full flex-col items-center justify-center">
             <h1 className="font-avenirHeavy text-[3.333vw] text-white"> What's Inside?</h1>
-
             <div className="mt-[2vw] flex gap-[2vw]">
               <div className="relative flex h-[30.573vw] w-[24.167vw] flex-col items-center rounded-[1.25vw] bg-white">
                 <Image
