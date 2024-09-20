@@ -45,7 +45,8 @@ export default function SecureYours({ theme }) {
                 "max-lg:mt-[7vw] lg:!mt-[0.5vw] w-[22vw] lg:w-[11vw] text-[3.3vw] lg:text-[1.1vw] py-[2vw] lg:py-[9px] 2xl:w-[170px] 2xl:text-[17px]"
               }
               action={() => {
-                directRoute(intLinks.Apply, router, pathname);
+                window.location.href =
+                  "https://docs.google.com/forms/d/e/1FAIpQLSf9lMS6EHYZPyo6IL80EcYrdxVglOv1PnpZnTS29Ew0jBHEMw/viewform";
               }}
             />
           </div>
