@@ -73,7 +73,7 @@ export default function HeroCasebook() {
               height={2000}
               className="h-[1.389vw] w-[1.389vw] object-cover"
             />
-            <h1>Buy now</h1>
+            <h1>Purchase</h1>
           </Link>
         </div>
         <div>
