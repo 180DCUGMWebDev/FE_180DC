@@ -8,76 +8,76 @@ export default function Team() {
   // Content
   const content = {
     welcoming: "Meet Our Team",
-    term: "2023/2024",
+    term: "2024/2025",
   };
 
   // Values
   const boas = [
     {
-      position: "-bottom-[20%] max-lg:-left-[5%] lg:-bottom-[7%] origin-center max-lg:scale-[1.4]",
-      src: "https://utfs.io/f/2297509e-a2f6-450c-934a-9a14fee3daec-4uuzu3.png",
+      position: "origin-center",
+      src: "https://utfs.io/f/5RHVvFIjFRXpzJbqIEL0BM4EUV5wnfv7p8JYANdZm6IKSCWO",
       alt: "180dc bod profile picture",
-      name: "Martinus K. Y. P.",
-      role: "Vice President of External",
-    },
-    {
-      position: "left-[5%] -bottom-[30%] lg:-bottom-[25%] origin-center scale-[1.7] lg:scale-[1.5]",
-      src: "https://utfs.io/f/18e06f42-87b3-4143-9980-61bbba216e62-o58nz6.png",
-      alt: "180dc bod profile picture",
-      name: "Beatrice S. T. S.",
+      name: "Clea Amabelle",
       role: "President of 180DC UGM",
     },
     {
-      position: "max-lg:-bottom-[0%] max-2xl:-bottom-0 2xl:-top-[5%] origin-center lg:scale-[0.8]",
-      src: "https://utfs.io/f/61b6d197-4eff-4609-a069-daa6cd0eb9ba-6nj4o9.png",
+      position: "origin-center bottom-[3vw]",
+      src: "https://utfs.io/f/5RHVvFIjFRXpjdtLH4Ydw9AGmnCbDtR8za6q0vox5WHyeNKF",
       alt: "180dc bod profile picture",
-      name: "Yoanita Dinda P.",
-      role: "Vice President of Internal",
+      name: "Nathaniel C.",
+      role: "Vice President of 180DC UGM",
     },
   ];
 
   const staffs = [
     {
-      position: "bottom-[11%] lg:bottom-[10%] origin-center scale-[1.2]",
-      src: "https://utfs.io/f/cac27f85-0a5f-4af9-95fa-c272f16e8974-iw0cgt.png",
+      position: "origin-center bottom-[4vw]",
+      src: "https://utfs.io/f/5RHVvFIjFRXpwJ0vShkIyolUh9gKrmXeVFs4C3WnajZL1kEO",
       alt: "180dc bod profile picture",
-      name: "Zahid Arkaan",
+      name: "M. D. Dewanata",
       role: "Director of Consulting",
     },
     {
-      position: "bottom-[5%] lg:bottom-[5%] origin-center scale-[1.2]",
-      src: "https://utfs.io/f/a0f542ac-89f8-45b1-948a-5735b4e342f5-17rd4.png",
+      position: " origin-center bottom-[4vw]",
+      src: "https://utfs.io/f/5RHVvFIjFRXpRwjSlds6h9vaYDTItf70J8U4pAg1rxNRcqdK",
       alt: "180dc bod profile picture",
-      name: "Jasmine Iliyya",
+      name: "Rianti Eka W.",
       role: "Director of Marketing",
     },
     {
-      position: "bottom-[11%] lg:bottom-[10%] origin-center scale-[1.2]",
-      src: "https://utfs.io/f/9d693fe5-952e-44a3-bd6a-36cfa1a7aacc-mddipe.png",
+      position: "origin-center bottom-[4vw] ",
+      src: "https://utfs.io/f/5RHVvFIjFRXp5MId1xjFRXpVEwKSolut37TPvJMngbNmIrB0",
       alt: "180dc bod profile picture",
-      name: "Rio Agustino H.",
+      name: "Rashid Abi A.",
       role: "Director of Client Engagement",
     },
     {
-      position: "bottom-[11%] lg:bottom-[10%] origin-center scale-[1.2]",
-      src: "https://utfs.io/f/b0d34327-7077-407b-ac47-0655a42661e0-152j3i.png",
+      position: "origin-center bottom-[4vw]",
+      src: "https://utfs.io/f/5RHVvFIjFRXp9q2sryCQnbTIUA72xLgFRBK6O1EqG0MWPZif",
       alt: "180dc bod profile picture",
-      name: "Thara Zahira M.",
+      name: "Reina Amerya",
       role: "Director of Human Resources",
     },
     {
-      position: "-bottom-[18%] lg:-bottom-[20%] origin-center scale-[1.6] -left-[5%]",
-      src: "https://utfs.io/f/9a098273-54fc-4e31-8d9e-750c9a435e01-1ax8qt.png",
+      position: "origin-center bottom-[4vw] ",
+      src: "https://utfs.io/f/5RHVvFIjFRXpzEWXimL0BM4EUV5wnfv7p8JYANdZm6IKSCWO",
       alt: "180dc bod profile picture",
-      name: "Shahnaz N. A.",
+      name: "Keona Huang",
       role: "Director of Strategy and Growth",
     },
     {
-      position: "-bottom-[8%] lg:-bottom-[10%] origin-center scale-[1.4]",
-      src: "https://utfs.io/f/da42c4de-8448-4bbc-af9a-d0f91c07e0da-13v3l0.png",
+      position: "origin-center bottom-[4vw] ",
+      src: "https://utfs.io/f/5RHVvFIjFRXpGkRWCyXUvZM9aJPh1ncyqIpTkx4gNKAbR35W",
       alt: "180dc bod profile picture",
-      name: "Divanti A. W.",
-      role: "Director of Finance and Legal",
+      name: "Audrey Pamula",
+      role: "Director of Finance",
+    },
+    {
+      position: "origin-center bottom-[4vw] ",
+      src: "https://utfs.io/f/5RHVvFIjFRXpXvqZAUDClvw5B8d3fT42VaGQizZ9SpOh6goL",
+      alt: "180dc bod profile picture",
+      name: "Anisa Puspita",
+      role: "Director of Legal",
     },
   ];
 
@@ -90,8 +90,8 @@ export default function Team() {
   ];
 
   const classes = {
-    presClass: "h-[430px] rounded-t-[10vw] 2xl:rounded-t-[154px] w-3/12 max-lg:h-[25vh] ",
-    vPresClass: "h-[400px] rounded-t-[11vw] 2xl:rounded-t-[169px] w-3/12 max-lg:h-[23vh] ",
+    presClass: "h-[430px] rounded-t-[10vw] 2xl:rounded-t-[154px] w-3/12 max-lg:h-[21vh]  ",
+    vPresClass: "h-[400px] rounded-t-[11vw] 2xl:rounded-t-[169px] w-3/12 max-lg:h-[20vh]  ",
     nonPresClass: "h-[350px] rounded-t-full w-3/12 max-lg:h-[20vh] min-[1500px]:w-2/12 ",
   };
 
@@ -151,7 +151,7 @@ export default function Team() {
                             <ImgF src={valuePerRow.src} alt={valuePerRow.alt} prioritize={true} />
                           </div>
                           {/* Content */}
-                          <div className="mb-0 flex h-full w-full flex-col items-center justify-end lg:mb-[1vh]">
+                          <div className="flex h-full w-full flex-col items-center justify-end lg:mb-[1vh] m-[2vw]">
                             <h3
                               className={
                                 "mt-[24px] h-fit text-center font-avenirBlack text-primary " +
