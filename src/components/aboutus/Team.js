@@ -95,16 +95,26 @@ export default function Team() {
     nonPresClass: "h-[350px] rounded-t-full w-3/12 max-lg:h-[20vh] min-[1500px]:w-2/12 ",
   };
 
+  const chunkArray = (arr, chunkSize) => {
+    const result = [];
+    for (let i = 0; i < arr.length; i += chunkSize) {
+      result.push(arr.slice(i, i + chunkSize));
+    }
+    return result;
+  };
+
+  const staffRows = chunkArray(staffs.slice(0, staffs.length - 2), 3).concat(chunkArray(staffs.slice(-2), 2));
+
   return (
     <section className="relative">
       {/* Background */}
-      {createBackground("dark")}
+      {createBackground("light")}
 
       {/* Content */}
       <div className="flex h-fit min-h-screen w-full items-center justify-center">
         <div className="flex h-fit min-h-full w-full flex-col items-center 2xl:w-[1536px]">
           {/* Title */}
-          <div className="flex min-h-[15vh] w-full flex-col justify-end bg-black px-[50px] lg:min-h-[25vh]">
+          <div className="flex min-h-[15vh] w-full flex-col justify-end bg-white px-[50px] lg:min-h-[25vh]">
             <div className="mb-[24px] w-full justify-center text-center">
               <h1 className="font-avenirBlack text-[8vw]/[7.8vw] text-primary lg:text-[4vw]/[3.9vw] 2xl:text-[61px]/[60px]">
                 {content.welcoming}
@@ -126,59 +136,56 @@ export default function Team() {
             </h2>
             {/* Cards Row */}
             {values.map((value, idx) => {
-              return (
+              const rows = idx === 1 ? staffRows : [value]; // handle the staffs separately
+              return rows.map((row, rowIdx) => (
                 <div
-                  key={idx}
+                  key={rowIdx}
                   className="flex h-fit w-full flex-wrap items-end justify-center gap-[5vw] pt-[24px] 2xl:gap-[76.8px]"
                 >
-                  {value.map((valuePerRow) => {
-                    return (
-                      <>
-                        {/* Cards */}
-                        <div
+                  {row.map((valuePerRow, valueIdx) => (
+                    <div
+                      key={valueIdx}
+                      className={
+                        "relative flex items-end justify-center overflow-x-clip bg-gradient-to-b from-transparent from-[65%] to-white to-[80%] lg:to-[73%] 2xl:from-[60%] " +
+                        (valuePerRow.role === "President of 180DC UGM"
+                          ? classes.presClass
+                          : valuePerRow.role === "Vice President of Internal" ||
+                            valuePerRow.role === "Vice President of External"
+                          ? classes.vPresClass
+                          : classes.nonPresClass)
+                      }
+                    >
+                      {/* Background */}
+                      <div className={"absolute -z-[1] h-full w-full " + valuePerRow.position}>
+                        <ImgF src={valuePerRow.src} alt={valuePerRow.alt} prioritize={true} />
+                      </div>
+                      {/* Content */}
+                      <div className="flex h-full w-full flex-col items-center justify-end lg:mb-[1vh] m-[2vw]">
+                        <h3
                           className={
-                            "relative flex items-end justify-center overflow-x-clip bg-gradient-to-b from-transparent from-[65%] to-white to-[80%] lg:to-[73%] 2xl:from-[60%] " +
-                            (valuePerRow.role === "President of 180DC UGM"
-                              ? classes.presClass
-                              : valuePerRow.role === "Vice President of Internal" ||
-                                  valuePerRow.role === "Vice President of External"
-                                ? classes.vPresClass
-                                : classes.nonPresClass)
+                            "mt-[30vw] w-[50vw] h-fit text-center font-avenirBlack text-primary overflow-visible " +
+                            (highRoles.includes(valuePerRow.role)
+                              ? "text-[2.88vw]/[2.88vw] lg:text-[2.3vw]/[2.34vw] 2xl:text-[29px]/[36px]"
+                              : "text-[3vw]/[3vw] lg:text-[2vw]/[2.3vw] 2xl:text-[28px]/[35px]")
                           }
                         >
-                          {/* Background */}
-                          <div className={"absolute -z-[1] h-full w-full " + valuePerRow.position}>
-                            <ImgF src={valuePerRow.src} alt={valuePerRow.alt} prioritize={true} />
-                          </div>
-                          {/* Content */}
-                          <div className="flex h-full w-full flex-col items-center justify-end lg:mb-[1vh] m-[2vw]">
-                            <h3
-                              className={
-                                "mt-[24px] h-fit text-center font-avenirBlack text-primary " +
-                                (highRoles.includes(valuePerRow.role)
-                                  ? "text-[2.88vw]/[2.88vw] lg:text-[2.3vw]/[2.34vw] 2xl:text-[29px]/[36px]"
-                                  : "text-[3vw]/[3vw] lg:text-[2vw]/[2.3vw] 2xl:text-[28px]/[35px]")
-                              }
-                            >
-                              {valuePerRow.name}
-                            </h3>
-                            <h4
-                              className={
-                                "h-[14%] text-center font-avenirBook text-secondary " +
-                                (highRoles.includes(valuePerRow.role)
-                                  ? "text-[2.1vw]/[2.1vw] lg:text-[1.5vw]/[1.55vw] 2xl:text-[23px]/[23.8px]"
-                                  : "text-[1.8vw]/[1.8vw] lg:text-[1.35vw]/[1.45vw] 2xl:text-[20.7px]/[22.2px]")
-                              }
-                            >
-                              {valuePerRow.role}
-                            </h4>
-                          </div>
-                        </div>
-                      </>
-                    );
-                  })}
+                          {valuePerRow.name}
+                        </h3>
+                        <h4
+                          className={
+                            "h-[14%] w-[50vw] text-center font-avenirBook text-secondary " +
+                            (highRoles.includes(valuePerRow.role)
+                              ? "text-[2.1vw]/[2.1vw] lg:text-[1.5vw]/[1.55vw] 2xl:text-[23px]/[23.8px]"
+                              : "text-[1.8vw]/[1.8vw] lg:text-[1.35vw]/[1.45vw] 2xl:text-[20.7px]/[22.2px]")
+                          }
+                        >
+                          {valuePerRow.role}
+                        </h4>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              );
+              ));
             })}
           </div>
         </div>
