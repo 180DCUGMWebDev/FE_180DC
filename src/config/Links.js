@@ -11,7 +11,7 @@ export const navLinks = {
 // store
 export const storeLink = {
   Casebook: "/store/casebook",
-  Merch: "/store/merch",
+  // Merch: "/store/merch",
 };
 
 // Internal Links
