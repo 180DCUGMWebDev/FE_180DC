@@ -16,14 +16,6 @@ import { createBackground } from "@/config/Functions";
 import "swiper/css";
 
 export default function PreviousClients() {
-  // State to check if the component is mounted
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    // Ensure component is only rendered on the client
-    setIsMounted(true);
-  }, []);
-
   // Data
   const clientsPorto = useMemo(
     () => [
@@ -32,7 +24,6 @@ export default function PreviousClients() {
         nps: "100%",
         backgr: "/img/portofolio/company_bgs/kopi_sembilan.png",
         logo: "/img/portofolio/company_logos/kopi_sembilan.png",
-        desc: "Kopi Sembilan is a local coffee shop and one of the SMEs based on Yogyakarta.",
         pleft:
           "Kopi Sembilan faced problems regarding to supply chain, ambiguity of their management structure, and challenges on getting structured budget planning and bookkeeping.",
         pcenter:
@@ -45,7 +36,6 @@ export default function PreviousClients() {
         nps: "100%",
         backgr: "/img/portofolio/company_bgs/planet_protector_packaging.png",
         logo: "/img/portofolio/company_logos/planet_protector_packaging.png",
-        desc: "Planet Protector Packaging is the distributor of isolated sustainable, recyclable, biodegradable, and compost packaging - Woolpack to Australia and New Zealand.",
         pleft:
           "PPP needs advice to penetrate the Indonesian market as the part of their market expansion.",
         pcenter:
@@ -74,7 +64,6 @@ export default function PreviousClients() {
           if (idx !== clientsPorto.length - 1)
             return (
               <div
-                key={idx} // Added unique key
                 className={
                   "h-[0.8vw] w-[0.8vw] rounded-full hover:cursor-pointer 2xl:h-[12.3px] 2xl:w-[12.3px] " +
                   (slide === idx ? "bg-primary" : "bg-lightWhite")
@@ -93,12 +82,9 @@ export default function PreviousClients() {
 
   useEffect(() => {
     setSlideBullets(loopForBullets);
-    if (swiperRef.current) swiperRef.current.slideTo(slide);
-    if (swiperRefMobile.current) swiperRefMobile.current.slideTo(slide);
+    swiperRef.current.slideTo(slide);
+    swiperRefMobile.current.slideTo(slide);
   }, [loopForBullets, slide]);
-
-  // Only render Swiper on the client side
-  if (!isMounted) return null;
 
   return (
     <section className="relative">
@@ -140,102 +126,101 @@ export default function PreviousClients() {
               delay: 5000,
               disableOnInteraction: false,
             }}
+            // loop={true}
             onSlideChange={(swiper) => {
               setSlide(swiper.realIndex);
             }}
           >
-            {clientsPorto.map((client, idx) => (
-              <SwiperSlide key={idx}>
-                <div className="relative h-[55vmax] w-full overflow-clip rounded-[5vw] rounded-bl-none">
-                  {/* Background */}
-                  <div className="absolute -z-[990] h-full w-full">
-                    <div className="relative h-full w-full bg-[#2C6970]/[47%]">
-                      <div className="absolute left-0 -z-[990] h-full w-[70vh]">
-                        <ImgF
-                          alt={client.name + "_bg" + "_" + { idx }}
-                          src={client.backgr}
-                          heightPtg={"100%"}
-                        />
+            {clientsPorto.map((client, idx) => {
+              return (
+                <SwiperSlide key={idx}>
+                  <div className="relative h-[55vmax] w-full overflow-clip rounded-[5vw] rounded-bl-none">
+                    {/* Background */}
+                    <div className="absolute -z-[990] h-full w-full">
+                      <div className="relative h-full w-full bg-[#2C6970]/[47%]">
+                        <div className="absolute left-0 -z-[990] h-full w-[70vh]">
+                          <ImgF
+                            alt={client.name + "_bg" + "_" + { idx }}
+                            src={client.backgr}
+                            heightPtg={"100%"}
+                          />
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Cards */}
-                  <div className="flex h-full w-full items-center justify-center px-[1vmin] py-[1.5vh]">
-                    {/* Side Arrow Left */}
-                    <div
-                      className="mr-[1vw] w-fit"
-                      onClick={() => {
-                        setSlide((slide - 1 + clientsPorto.length - 1) % (clientsPorto.length - 1));
-                      }}
-                    >
-                      <FaChevronLeft className="text-[6vw] text-lightWhite/[35%]" />
-                    </div>
+                    {/* Cards */}
+                    <div className="flex h-full w-full items-center justify-center px-[1vmin] py-[1.5vh]">
+                      {/* Side Arrow Left */}
+                      <div
+                        className="mr-[1vw] w-fit"
+                        onClick={() => {
+                          setSlide(
+                            (slide - 1 + clientsPorto.length - 1) % (clientsPorto.length - 1),
+                          );
+                        }}
+                      >
+                        <FaChevronLeft className="text-[6vw] text-lightWhite/[35%]" />
+                      </div>
 
-                    <div className="flex h-full w-full flex-col items-center justify-center gap-[5vw] overflow-clip">
-                      {/* Identity */}
-                      <div className="relative mt-[1.1vw] flex h-[30%] w-full gap-[4vw]">
-                        {/* Company Logo */}
-                        <div className="flex h-full w-[35%] items-center justify-end">
-                          <div className="flex w-[100%] overflow-clip rounded-[3vw]">
-                            <ImgF alt={client.name + "_logo"} src={client.logo} />
+                      <div className="flex h-full w-full flex-col items-center justify-center gap-[5vw] overflow-clip">
+                        {/* Identity */}
+                        <div className="relative mt-[1.1vw] flex h-[30%] w-full gap-[4vw]">
+                          {/* Company Logo */}
+                          <div className="flex h-full w-[35%] items-center justify-end">
+                            <div className="flex w-[100%] overflow-clip rounded-[3vw]">
+                              <ImgF alt={client.name + "_logo"} src={client.logo} />
+                            </div>
+                          </div>
+
+                          {/* Title & NPS */}
+                          <div className="flex h-full w-[65%] flex-col items-start justify-center gap-[.8vh]">
+                            <p className="font-avenirBlack text-[5vw] leading-none text-primary">
+                              {client.name}
+                            </p>
+                            {/* <p className="font-avenirLight text-[4.5vw] leading-none text-secondary">
+                              {"NPS of "}
+                              <strong className="font-avenirHeavy">{client.nps}</strong>
+                            </p> */}
                           </div>
                         </div>
 
-                        {/* Title & NPS */}
-                        <div className="flex h-full w-[65%] flex-col items-start justify-center gap-[.8vh]">
-                          <p className="font-avenirBlack text-[5vw] leading-none text-primary">
-                            {client.name}
+                        {/* Lower Body: Description */}
+                        <div className="swiper-no-swiping flex h-[60%] w-full flex-col gap-[2vh] overflow-y-scroll">
+                          <p className="font-avenirBlack text-primary">
+                            What challenges does {client.name} face?
                           </p>
-                          {/* <p className="font-avenirLight text-[4.5vw] leading-none text-secondary">
-                            {"NPS of "}
-                            <strong className="font-avenirHeavy">{client.nps}</strong>
-                          </p> */}
+                          <p className="font-latoRegular text-[3.5vw] leading-[1.2] text-lightWhite">
+                            {client.pright}
+                          </p>
+                          <p className="font-latoRegular text-[3.5vw] leading-[1.2] text-lightWhite">
+                            {client.pcenter}
+                          </p>
+                          <p className="font-latoRegular text-[3.5vw] leading-[1.2] text-lightWhite">
+                            {client.pleft}
+                          </p>
+                        </div>
+
+                        <div className="h-[10%]">
+                          <p className="font-latoLightItalic text-[3.5vmin] text-lightWhite">
+                            {"Slide For More"}
+                          </p>
                         </div>
                       </div>
 
-                      {/* Lower Body: Description */}
-                      <div className="swiper-no-swiping flex h-[60%] w-full flex-col gap-[2vh] overflow-y-scroll">
-                        <p className="font-latoRegular text-[3.5vw] leading-[1.2] text-lightWhite">
-                          <p className="mb-[0.6vw] font-avenirBlack text-primary">
-                            What challenges does {client.name} face?
-                          </p>
-                          {client.pright}
-                        </p>
-                        <p className="font-latoRegular text-[3.5vw] leading-[1.2] text-lightWhite">
-                          <p className="mb-[0.6vw] font-avenirBlack text-primary">
-                            What solution does we offer?
-                          </p>
-                          {client.pcenter}
-                        </p>
-                        <p className="font-latoRegular text-[3.5vw] leading-[1.2] text-lightWhite">
-                          <p className="mb-[0.6vw] font-avenirBlack text-primary">
-                            Impact that we deliver
-                          </p>
-                          {client.pleft}
-                        </p>
+                      {/* Side Arrow Right */}
+                      <div
+                        className="ml-[1vw] w-fit"
+                        onClick={() => {
+                          setSlide((slide + 1) % (clientsPorto.length + 1));
+                        }}
+                      >
+                        <FaChevronRight className="w-fit text-[6vw] text-lightWhite/[35%]" />
                       </div>
-
-                      <div className="h-[10%]">
-                        <p className="font-latoLightItalic text-[3.5vmin] text-lightWhite">
-                          {"Slide For More"}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Side Arrow Right */}
-                    <div
-                      className="ml-[1vw] w-fit"
-                      onClick={() => {
-                        setSlide((slide + 1) % (clientsPorto.length + 1));
-                      }}
-                    >
-                      <FaChevronRight className="w-fit text-[6vw] text-lightWhite/[35%]" />
                     </div>
                   </div>
-                </div>
-              </SwiperSlide>
-            ))}
+                </SwiperSlide>
+              );
+            })}
           </Swiper>
         </div>
       </div>
@@ -287,13 +272,14 @@ export default function PreviousClients() {
                       {/* Upper Body: Identity */}
                       <div className="relative mt-[1.1vw] flex h-[50%] w-full gap-[30px] p-[20px] 2xl:mt-[16.8px] 2xl:p-[23px]">
                         {/* Title & NPS */}
-                        <div className="flex h-full w-6/12 flex-col items-start justify-start">
+                        <div className="flex h-full w-6/12 flex-col items-start justify-end">
                           <p className="font-avenirBlack text-[2vw] leading-none text-primary 2xl:text-[30.7px]">
                             {client.name}
                           </p>
-                          <p className="font-avenirLight text-[1.2vw] leading-none text-secondary 2xl:text-[18.4px]">
-                            <strong className="font-avenirHeavy">{client.desc}</strong>
-                          </p>
+                          {/* <p className="font-avenirLight text-[1.2vw] leading-none text-secondary 2xl:text-[18.4px]">
+                            {"NPS of "}
+                            <strong className="font-avenirHeavy">{client.nps}</strong>
+                          </p> */}
                         </div>
 
                         {/* Company Logo */}
