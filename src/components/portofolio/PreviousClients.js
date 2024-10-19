@@ -196,7 +196,7 @@ export default function PreviousClients() {
 
                       {/* Lower Body: Description */}
                       <div className="swiper-no-swiping flex h-[60%] w-full flex-col gap-[2vh] overflow-y-scroll">
-                        <p className="font-latoRegular text-[3.5vw] leading-[1.2] text-lightWhite">
+                        <p className="font-latoRegular text-[3.5vw] leading-[1.2] text-lightWhite text-justify">
                           <p className="mb-[0.6vw] font-avenirBlack text-primary">
                             What challenges does {client.name} face?
                           </p>
@@ -287,12 +287,13 @@ export default function PreviousClients() {
                       {/* Upper Body: Identity */}
                       <div className="relative mt-[1.1vw] flex h-[50%] w-full gap-[30px] p-[20px] 2xl:mt-[16.8px] 2xl:p-[23px]">
                         {/* Title & NPS */}
-                        <div className="flex h-full w-6/12 flex-col items-start justify-start">
+                        <div className="flex h-full w-6/12 flex-col items-start justify-start relative">
                           <p className="font-avenirBlack text-[2vw] leading-none text-primary 2xl:text-[30.7px]">
                             {client.name}
                           </p>
-                          <p className="font-avenirLight text-[1.2vw] leading-none text-secondary 2xl:text-[18.4px]">
-                            <strong className="font-avenirHeavy">{client.desc}</strong>
+                          <p className="font-avenirLight text-[1.2vw] leading-none text-secondary 2xl:text-[18.4px] mt-[1vw]">
+                            <h2 className="font-avenirBlack text-lightWhite"> {client.desc} </h2>
+                            <strong className="absolute font-avenirHeavy text-[1.9vw] bottom-[0] "> NPS of {client.nps}</strong>
                           </p>
                         </div>
 
@@ -304,20 +305,20 @@ export default function PreviousClients() {
                         </div>
                       </div>
                       {/* Lower Body: Description */}
-                      <div className="mt-[1.2vw] flex h-full w-full gap-[1vw] px-[20px] pb-[20vw] 2xl:mt-[18px] 2xl:px-[23px]">
-                        <p className="w-4/12 font-latoRegular text-[1vw] leading-[1.2] text-lightWhite 2xl:text-[15.36px]">
+                      <div className="mt-[1.2vw] flex h-full w-full gap-[2.4vw] px-[20px] pb-[20vw] 2xl:mt-[18px] 2xl:px-[23px]">
+                        <p className="w-4/12 font-latoRegular text-[1vw] leading-[1.2] text-lightWhite 2xl:text-[15.36px] text-justify">
                           <p className="mb-[0.6vw] font-avenirBlack text-primary">
                             What challenges does {client.name} face?
                           </p>
                           {client.pleft}
                         </p>
-                        <p className="w-4/12 font-latoRegular text-[1vw] leading-[1.2] text-lightWhite 2xl:text-[15.36px]">
+                        <p className="w-4/12 font-latoRegular text-[1vw] leading-[1.2] text-lightWhite 2xl:text-[15.36px] text-justify">
                           <p className="mb-[0.6vw] font-avenirBlack text-primary">
                             What solution does we offer?
                           </p>
                           {client.pcenter}
                         </p>
-                        <p className="w-4/12 font-latoRegular text-[1vw] leading-[1.2] text-lightWhite 2xl:text-[15.36px]">
+                        <p className="w-4/12 font-latoRegular text-[1vw] leading-[1.2] text-lightWhite 2xl:text-[15.36px] text-justify">
                           <p className="mb-[0.6vw] font-avenirBlack text-primary">
                             Impact that we deliver
                           </p>
