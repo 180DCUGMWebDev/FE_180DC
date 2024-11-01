@@ -391,9 +391,9 @@ export default function PreviousClients() {
                       </div>
 
                       {/* Upper Body: Identity */}
-                      <div className="relative mt-[1.1vw] flex h-[50%] w-full gap-[30px] p-[20px]">
+                      <div className="relative mt-[1.1vw] flex h-[50%] w-full p-[20px]">
                         {/* Title & NPS */}
-                        <div className="relative flex h-full w-6/12 flex-col items-start justify-start">
+                        <div className="relative flex h-full w-7/12 flex-col items-start justify-start">
                           <p className="font-avenirBlack text-[2vw] leading-none text-primary ">
                             {client.name}
                           </p>
@@ -407,8 +407,8 @@ export default function PreviousClients() {
                         </div>
 
                         {/* Company Logo */}
-                        <div className="flex h-full w-6/12 items-center justify-end">
-                          <div className="2x:rounded-[23px] flex w-[67%] overflow-clip rounded-[1.5vw]">
+                        <div className="flex h-full w-5/12 items-center justify-center">
+                          <div className="2x:rounded-[23px] flex w-[80%] overflow-clip rounded-[1.5vw]">
                             <ImgF alt={client.name + "_logo"} src={client.logo} />
                           </div>
                         </div>
