@@ -180,7 +180,7 @@ export default function PreviousClients() {
               <div
                 key={idx} // Added unique key
                 className={
-                  "h-[0.8vw] w-[0.8vw] rounded-full hover:cursor-pointer 2xl:h-[12.3px] 2xl:w-[12.3px] " +
+                  "h-[0.8vw] w-[0.8vw] rounded-full hover:cursor-pointer  " +
                   (slide === idx ? "bg-primary" : "bg-lightWhite")
                 }
                 onClick={() => {
@@ -219,16 +219,16 @@ export default function PreviousClients() {
         <div className="absolute -z-[996] h-full w-full bg-black opacity-[85.45%]" />
 
         {/* Hero */}
-        <h1 className="text-center font-avenirBlack text-[12vw]/[11vw] text-lightWhite lg:text-[4.9vw]/[4.8vw] 2xl:text-[75px]/[64.5px]">
+        <h1 className="text-center font-avenirBlack text-[12vw]/[11vw] text-lightWhite lg:text-[4.9vw]/[4.8vw] ">
           {"Our Previous Clients"}
         </h1>
 
         {/* Scroll Down [DESKTOP] */}
         <button className="flex flex-col items-center outline-0" onClick={handleClick}>
-          <h2 className="mt-[1.4vw] font-latoBold text-[1vw] text-lightWhite max-lg:hidden 2xl:mt-[21.5px] 2xl:text-[15.36px]">
+          <h2 className="mt-[1.4vw] font-latoBold text-[1vw] text-lightWhite max-lg:hidden ">
             {"SCROLL DOWN"}
           </h2>
-          <FaChevronDown className="animate-movingPointer text-[1.4vw] text-lightWhite hover:cursor-pointer 2xl:text-[21.5px]" />
+          <FaChevronDown className="animate-movingPointer text-[1.4vw] text-lightWhite hover:cursor-pointer " />
         </button>
 
         {/* Swiper [MOBILE] */}
@@ -380,9 +380,9 @@ export default function PreviousClients() {
               {clientsPorto.map((client, idx) => {
                 return (
                   <SwiperSlide key={idx}>
-                    <div className="relative h-[40vw] min-w-[45%] 2xl:h-[400px] 2xl:w-[690px]">
+                    <div className="relative h-[40vw] min-w-[45%] ">
                       {/* Background */}
-                      <div className="absolute h-[50%] w-full overflow-clip rounded-[1.25vw] rounded-bl-none 2xl:rounded-[19.2px]">
+                      <div className="absolute h-[50%] w-full overflow-clip rounded-[1.25vw] rounded-bl-none">
                         <div className="relative h-full w-full bg-[#0A1E22]/[47%]">
                           {/* <div className="absolute left-0 -z-[990] h-full w-full">
                             <ImgF alt={client.name + "_bg" + "_" + { idx }} src={client.backgr} />
@@ -391,13 +391,13 @@ export default function PreviousClients() {
                       </div>
 
                       {/* Upper Body: Identity */}
-                      <div className="relative mt-[1.1vw] flex h-[50%] w-full gap-[30px] p-[20px] 2xl:mt-[16.8px] 2xl:p-[23px]">
+                      <div className="relative mt-[1.1vw] flex h-[50%] w-full gap-[30px] p-[20px]">
                         {/* Title & NPS */}
                         <div className="relative flex h-full w-6/12 flex-col items-start justify-start">
-                          <p className="font-avenirBlack text-[2vw] leading-none text-primary 2xl:text-[30.7px]">
+                          <p className="font-avenirBlack text-[2vw] leading-none text-primary ">
                             {client.name}
                           </p>
-                          <p className="mt-[1vw] font-avenirLight text-[1.2vw] leading-none text-secondary 2xl:text-[18.4px]">
+                          <p className="mt-[1vw] font-avenirLight text-[1.2vw] leading-none text-secondary ">
                             <h2 className="font-avenirBlack text-lightWhite"> {client.desc} </h2>
                             <strong className="absolute bottom-[0] font-avenirHeavy text-[1.9vw]">
                               {" "}
@@ -408,26 +408,26 @@ export default function PreviousClients() {
 
                         {/* Company Logo */}
                         <div className="flex h-full w-6/12 items-center justify-end">
-                          <div className="2x:rounded-[23px] flex w-[67%] overflow-clip rounded-[1.5vw] 2xl:w-[60%]">
+                          <div className="2x:rounded-[23px] flex w-[67%] overflow-clip rounded-[1.5vw]">
                             <ImgF alt={client.name + "_logo"} src={client.logo} />
                           </div>
                         </div>
                       </div>
                       {/* Lower Body: Description */}
-                      <div className="mt-[1.2vw] flex h-full w-full gap-[2.4vw] px-[20px] pb-[20vw] 2xl:mt-[18px] 2xl:px-[23px]">
-                        <p className="w-4/12 text-justify font-latoRegular text-[1vw] leading-[1.2] text-lightWhite 2xl:text-[15.36px]">
+                      <div className="mt-[1.2vw] flex h-full w-full gap-[2.4vw] px-[20px] pb-[20vw] ">
+                        <p className="w-4/12 text-justify font-latoRegular text-[1vw] leading-[1.2] text-lightWhite ">
                           <p className="mb-[0.6vw] font-avenirBlack text-primary">
                             What challenges does {client.name} face?
                           </p>
                           {client.pleft}
                         </p>
-                        <p className="w-4/12 text-justify font-latoRegular text-[1vw] leading-[1.2] text-lightWhite 2xl:text-[15.36px]">
+                        <p className="w-4/12 text-justify font-latoRegular text-[1vw] leading-[1.2] text-lightWhite ">
                           <p className="mb-[0.6vw] font-avenirBlack text-primary">
                             What solution does we offer?
                           </p>
                           {client.pcenter}
                         </p>
-                        <p className="w-4/12 text-justify font-latoRegular text-[1vw] leading-[1.2] text-lightWhite 2xl:text-[15.36px]">
+                        <p className="w-4/12 text-justify font-latoRegular text-[1vw] leading-[1.2] text-lightWhite ">
                           <p className="mb-[0.6vw] font-avenirBlack text-primary">
                             {client.prightcondition === "impact"
                               ? "Impact that we deliver"
@@ -452,7 +452,7 @@ export default function PreviousClients() {
                   setSlide((slide - 1 + clientsPorto.length - 1) % (clientsPorto.length - 1));
                 }}
               >
-                <FaChevronLeft className="text-[1.4vw] text-lightWhite hover:cursor-pointer 2xl:text-[21.5px]" />
+                <FaChevronLeft className="text-[1.4vw] text-lightWhite hover:cursor-pointer " />
               </div>
               <div className="flex items-center gap-[8px]">{slideBullets}</div>
               <div
@@ -461,7 +461,7 @@ export default function PreviousClients() {
                   setSlide((slide + 1) % (clientsPorto.length - 1));
                 }}
               >
-                <FaChevronRight className="text-[1.4vw] text-lightWhite hover:cursor-pointer 2xl:text-[21.5px]" />
+                <FaChevronRight className="text-[1.4vw] text-lightWhite hover:cursor-pointer " />
               </div>
             </div>
           </div>
