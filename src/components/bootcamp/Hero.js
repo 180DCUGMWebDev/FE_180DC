@@ -28,7 +28,7 @@ export function Hero() {
             alt="background"
             width={2000}
             height={2000}
-            className="absolute  w-[256px] h-[184px] top-[200px] right-15 lg:top-0 lg:right-[300px] z-20 lg:w-[716px] lg:h-[515px]"
+            className="absolute lg:top-0 lg:right-[300px] z-20 w-[716px] h-[515px]"
         />
 
         <Image
@@ -36,7 +36,7 @@ export function Hero() {
             alt="background"
             width={2000}
             height={2000}
-            className="absolute w-[256px] h-[184px] -right-[120px] top-[200px] lg:top-0 lg:-right-[300px] z-20 lg:w-[716px] lg:h-[515px]"
+            className="absolute w-[256px] h-[184px] -right-[120px] top-[150px] lg:top-0 lg:-right-[300px] z-20 lg:w-[716px] lg:h-[515px]"
         />
 
         <Image
