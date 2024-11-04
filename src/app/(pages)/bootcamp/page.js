@@ -1,11 +1,11 @@
-
 "use client";
-import { Hero } from "@/components/bootcamp";
+import { Hero, WhatWouldYouGet } from "@/components/bootcamp";
 
 export default function Bootcamp() {
   return (
     <main>
-        <Hero/>
+      <Hero />
+      <WhatWouldYouGet />
     </main>
-  )
+  );
 }
