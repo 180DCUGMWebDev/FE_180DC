@@ -120,7 +120,7 @@ export function Hero() {
                 <div className="flex flex-col justify-start w-full px-[8.667vw] lg:px-0">
                     <h3 className="text-white mt-2  text-[2.5vw] lg:text-[2.083vw]">Discover Yourself Through...</h3>
 
-                    <div className="flex flex-wrap gap-[2.133vw] lg:gap-[0.833vw] mt-[3.2vw] lg:mt-[1.25vw">
+                    <div className="flex flex-wrap gap-[2.133vw] lg:gap-[0.833vw] mt-[3.2vw] lg:mt-[1vw]">
                     {items.map((item, index) => (
                         <div key={index} className="px-[2.564vw] lg:px-[1.458vw] py-[0.513vw] lg:py-[0.365vw] bg-white rounded-bl-xl rounded-r-xl lg:rounded-bl-3xl lg:rounded-r-3xl">
                             <h2 className="text-[#73B743] font-avenirBlack text-[2.9vw] lg:text-[1.823vw]">{item}</h2>
