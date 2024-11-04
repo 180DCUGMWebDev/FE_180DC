@@ -26,7 +26,7 @@ export function Hero() {
             alt="background"
             width={2000}
             height={2000}
-            className="absolute w-[68.27vw] h-[49.07vw] top-[70vw] lg:top-0 lg:right-[20.3vw] z-20 lg:w-[37.29vw] lg:h-[26.82vw]"
+            className="absolute w-[68.27vw] h-[49.07vw] top-[30%] right-[20%] lg:top-0 lg:right-[20.3vw] z-20 lg:w-[37.29vw] lg:h-[26.82vw]"
         />
 
         <Image
@@ -34,7 +34,7 @@ export function Hero() {
             alt="background"
             width={2000}
             height={2000}
-            className="absolute w-[68.27vw] h-[49.07vw] -right-[32vw] top-[40vw] lg:top-0 lg:-right-[10.3vw] z-20 lg:w-[37.29vw] lg:h-[26.82vw]"
+            className="absolute w-[68.27vw] h-[49.07vw] -right-[32vw] top-[30%] lg:top-0 lg:-right-[15%] z-20 lg:w-[37.29vw] lg:h-[26.82vw]"
         />
 
         <Image
@@ -42,7 +42,7 @@ export function Hero() {
             alt="background"
             width={2000}
             height={2000}
-            className="absolute w-[68.27vw] h-[49.07vw] bottom-[74.67vw] lg:bottom-[4.88vw] lg:right-[29.3vw] z-20 lg:w-[37.29vw] lg:h-[26.82vw]"
+            className="absolute w-[68.27vw] h-[49.07vw] bottom-[30%] lg:bottom-[10%] lg:right-[10%] z-20 lg:w-[37.29vw] lg:h-[26.82vw]"
         />
        
         
