@@ -118,7 +118,7 @@ export function Hero() {
                 </div> 
 
                 <div className="flex flex-col justify-start w-full px-[8.667vw] lg:px-0">
-                    <h3 className="text-white mt-2  text-[2.5vw] lg:text-[2.083vw]">Discover Yourself Through...</h3>
+                    <h3 className="text-white mt-2  text-sm lg:text-[2.083vw]">Discover Yourself Through...</h3>
 
                     <div className="flex flex-wrap gap-[2.133vw] lg:gap-[0.833vw] mt-[3.2vw] lg:mt-[1vw]">
                     {items.map((item, index) => (
@@ -130,11 +130,11 @@ export function Hero() {
                 </div>    
 
                 <div className="flex flex-col mt-[10.938vw] w-full px-[8.667vw] lg:hidden">
-                        <p className="text-[2.188vw] text-white180">Our free courses to equip you <br />  all necessary materials of Consulting</p>
+                        <p className="text-sm lg:text-[2.188vw] text-white180">Our free courses to equip you <br />  all necessary materials of Consulting</p>
                         <Button
                         color="white"
                         text="Enroll me Now"
-                       addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[1.25vw] font-bold"
+                       addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[6.154vw] lg:mt-[1.25vw] font-bold"
                         action={() => contactRef.current.scrollIntoView({ behavior: "smooth" })}
                     />
                 </div> 
