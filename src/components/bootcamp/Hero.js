@@ -66,7 +66,7 @@ export function Hero() {
                         <Button
                         color="white"
                         text="Enroll me Now"
-                        addClass="w-[40%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[0.729vw] mt-[1.25vw] font-bold"
+                        addClass="w-[40%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[0.729vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743]"
                         action={() => contactRef.current.scrollIntoView({ behavior: "smooth" })}
                     />
                     </div>
