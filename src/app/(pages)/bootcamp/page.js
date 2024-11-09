@@ -1,10 +1,11 @@
 "use client";
-import { Hero, WhatWouldYouGet } from "@/components/bootcamp";
+import { Hero, Speaker, WhatWouldYouGet} from "@/components/bootcamp";
 
 export default function Bootcamp() {
   return (
     <main>
       <Hero />
+      <Speaker />
       <WhatWouldYouGet />
     </main>
   );
