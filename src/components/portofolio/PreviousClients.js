@@ -210,9 +210,9 @@ export default function PreviousClients() {
       {createBackground("dark")}
 
       {/* Section 1: Title */}
-      <div className="relative flex h-[100vmax] w-full flex-col items-center justify-center overflow-clip px-[10vw] max-lg:gap-[2vh] lg:h-[100vh]">
+      <div className="relative flex h-full w-full flex-col items-center justify-center  px-[10vw] max-lg:gap-[2vh] lg:h-[100vh]">
         {/* Background */}
-        <div className="absolute -z-[998] h-full w-[240vh] overflow-clip lg:w-full">
+        <div className="absolute -z-[998] h-full w-[240vh] lg:w-full">
           <ImgF alt="portofolio hero background" src="/img/portofolio/hero_bg-c.png" />
         </div>
         <div className="absolute -z-[997] h-full w-full bg-gradient-to-b from-transparent from-[70%] to-lightWhite to-[90%]" />
@@ -349,10 +349,10 @@ export default function PreviousClients() {
       {/* Section 2: Portos [DESKTOP] */}
       <div
         ref={scrollRef}
-        className="relative hidden w-full flex-col items-center justify-center px-[50px] lg:flex lg:h-[100vh]"
+        className="relative hidden w-full  flex-col items-center justify-center px-[50px] lg:flex lg:h-[100vh]"
       >
         {/* Background */}
-        <div className="absolute top-0 -z-[998] h-full w-full overflow-clip">
+        <div className="absolute top-0 -z-[998] h-full w-full overflow-clip"> 
           <ImgF alt="portofolio hero background" src="/img/portofolio/hero_bg-c.png" />
         </div>
         <div className="absolute -z-[997] h-full w-full bg-gradient-to-b from-lightWhite from-[20%] via-transparent via-[45%] to-black to-[75%]" />
@@ -360,7 +360,8 @@ export default function PreviousClients() {
 
         <div className="h-full w-full 2xl:w-[1536px]">
           {/* Card Frame */}
-          <div className="flex h-[85%] w-full items-end justify-center overflow-clip pb-[50px]">
+          {/* yang ini */}
+          <div className="flex h-[85%] w-full items-end justify-center pb-[50px]"> 
             <Swiper
               modules={[Autoplay]}
               onSwiper={(swiper) => {
@@ -382,7 +383,7 @@ export default function PreviousClients() {
                   <SwiperSlide key={idx}>
                     <div className="relative h-[40vw] min-w-[45%] ">
                       {/* Background */}
-                      <div className="absolute h-[50%] w-full overflow-clip rounded-[1.25vw] rounded-bl-none">
+                      <div className="absolute h-[50%] w-full  rounded-[1.25vw] rounded-bl-none">
                         <div className="relative h-full w-full bg-[#0A1E22]/[47%]">
                           {/* <div className="absolute left-0 -z-[990] h-full w-full">
                             <ImgF alt={client.name + "_bg" + "_" + { idx }} src={client.backgr} />
@@ -391,7 +392,7 @@ export default function PreviousClients() {
                       </div>
 
                       {/* Upper Body: Identity */}
-                      <div className="relative mt-[1.1vw] flex h-[50%] w-full gap-[30px] p-[20px]">
+                      <div className="relative mt-[20vw] flex h-[50%] w-full gap-[30px] p-[20px]">
                         {/* Title & NPS */}
                         <div className="relative flex h-full w-6/12 flex-col items-start justify-start">
                           <p className="font-avenirBlack text-[2vw] leading-none text-primary ">
