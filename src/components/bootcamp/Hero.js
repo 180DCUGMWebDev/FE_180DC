@@ -60,13 +60,13 @@ export function Hero() {
                     <h2 className="font-avenirBlack mt-3 text-[4vw]  lg:text-[2.5vw] text-white"> <span className=" font-avenirLight">by</span> 180DC UGM</h2>
                 </div>
                 {/* bagian enroll */}
-                <div className=" flex-col mt-[3.646vw] w-full px-4 hidden lg:flex items-center">
+                <div className=" flex-col mt-[3.646vw] lg:mt-[1.8vw] w-full px-4 hidden lg:flex items-center">
                     <div>
                         <p className="text-[4vw] lg:text-[1.25vw] text-white180">Our free courses to equip you <br />  all necessary materials of Consulting</p>
                         <Button
                         color="white"
                         text="Enroll me Now"
-                        addClass="w-[40%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[0.729vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743]"
+                        addClass="w-[60%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[0.729vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743] lg:text-xl"
                         action={() => contactRef.current.scrollIntoView({ behavior: "smooth" })}
                     />
                     </div>
@@ -95,7 +95,7 @@ export function Hero() {
                         height={2000}
                         className="w-[16.923vw] h-[24.103vw] lg:w-[8.646vw] lg:h-[12.292vw] ml-4 lg:ml-[1.667vw] hidden lg:flex object-contain"
                         />
-                            <div className="w-full ml-4 mt-4 md:mt-1 lg:ml-[1.2vw] lg:mt-[1.883vw]">
+                            <div className="w-full ml-4 mt-4 md:mt-1 lg:ml-[1vw] lg:mt-[1.2vw]">
                                 <p className=" font-avenirRegular text-[3vw] lg:text-[1.875vw] text-white180">
                                 learn now! become consulting tomorrow.
                                 </p>
@@ -113,12 +113,12 @@ export function Hero() {
                         src="/img/bootcamp/plsfixBootcamp.png"
                         width={2000}
                         height={2000}
-                        className="w-[25.641vw] h-[14.359vw] md:w-[26.042vw] md:h-[14.583vw] md:-bottom-[6.3vw] md:right-[18.205vw] lg:w-[10.417vw] lg:h-[5.833vw] absolute right-8 -bottom-[30px] lg:right-[3.333vw] lg:-bottom-[2.604vw]"
+                        className="w-[25.641vw] h-[14.359vw] md:w-[26.042vw] md:h-[14.583vw] md:-bottom-[6.3vw] md:right-[18.205vw] lg:w-[15.417vw] lg:h-[7.833vw] absolute right-8 -bottom-[30px] lg:right-[3.333vw] lg:-bottom-[4.04vw]"
                     />
                 </div> 
 
                 <div className="flex flex-col justify-start w-full px-[8.667vw] lg:px-0">
-                    <h3 className="text-white mt-2  text-sm lg:text-[2.083vw]">Discover Yourself Through...</h3>
+                    <h3 className="text-white mt-2  text-sm lg:text-[2.083vw] lg:mt-[1vw] lg:mb-[1vw]">Discover Yourself Through...</h3>
 
                     <div className="flex flex-wrap gap-[2.133vw] lg:gap-[0.833vw] mt-[3.2vw] lg:mt-[1vw]">
                     {items.map((item, index) => (
