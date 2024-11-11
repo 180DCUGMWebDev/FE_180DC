@@ -2,21 +2,24 @@ import Image from "next/image";
 
 const CardWhat = ({ header, headerMobile, children }) => {
   return (
-    <div className="relative flex w-[90%] flex-col items-center justify-center rounded-xl bg-white p-[6%] shadow-inner md:w-[45%] md:p-[2%] lg:w-[40%] xl:w-[30%]">
+    <div className="relative flex w-[90%] flex-col items-center justify-start rounded-xl bg-white p-[6%] shadow-inner md:w-[45%] md:p-[2%] lg:w-[40%] xl:w-[30%]">
       <div className="aspect-h-1 aspect-w-3 flex w-full lg:aspect-w-3">
         <Image alt="header" fill objectFit="contain" className="max-lg:hidden" src={header} />
         <Image alt="header" fill objectFit="contain" className="lg:hidden" src={headerMobile} />
       </div>
-      {children}
+      <div className="relative w-full">{children}</div>
     </div>
   );
 };
 
 export const WhatWouldYouGet = () => {
   const whatYouGet = [
-    "Faucibus tempor in condimentum. Rhoncus diam a felis nunc.",
-    "Faucibus tempor in condimentum  suscipit diam. Rhoncus diam a felis nunc.",
-    "Faucibus tempor in condimentum eget suscipit diam. Rhoncus.",
+    "Provided with essential skills and and knowledge in consulting given by Experienced Consultants",
+    "After-class materials implementation through workshop sessions",
+    "Networking with like-minded individuals",
+    "Special mentoring session with 180DC UGM team and Experts in Consulting field",
+    "Opportunity to solve real business problem and chance to win prizes in final pitching",
+    "Receive E-certificate upon completion",
   ];
 
   const speakerSessions = [
@@ -65,7 +68,7 @@ export const WhatWouldYouGet = () => {
                       className="relative left-0 right-0 mx-auto w-[30%]"
                     />
                   </td>
-                  <td className="w-[70%] p-[1.5%] text-left font-avenirRegular text-[3.6vw] md:text-[2vw] lg:p-[2.5%] lg:text-[1.3vw] xl:p-[2.6%] 2xl:text-[1.2vw]">
+                  <td className="w-[70%] p-[1.5%] text-left font-avenirRegular text-[3.6vw] md:text-[2vw] lg:p-[1.2%] lg:text-[1.3vw] xl:p-[1.1%] 2xl:text-[1.2vw]">
                     {item}
                   </td>
                 </tr>
@@ -75,7 +78,7 @@ export const WhatWouldYouGet = () => {
         </table>
       </CardWhat>
       <CardWhat headerMobile={"/img/bootcamp/horn-mobile.png"} header={"/img/bootcamp/horn.png"}>
-        <table className="col-span-2 w-full table-fixed">
+        <table className="col-span-2 w-full table-fixed md:mb-[61%] lg:mb-[22%] xl:mb-[50%] 2xl:mb-[39%]">
           <tbody>
             {speakerSessions.map((item, index) => {
               return (
