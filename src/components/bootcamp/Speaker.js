@@ -33,7 +33,7 @@ export function Speaker() {
             />
             <div className="relative">
               <ImageWithFallback
-                src="/img/bootcamp/rectangle.png"
+                src="/img/bootcamp/Rectangle.png"
                 alt=""
                 width={700}
                 height={90}
@@ -146,7 +146,7 @@ export function Speaker() {
         <div className="relative flex items-center justify-center mb-[3vw]">
           <div className="relative flex items-center justify-center w-[90vw]">
             <ImageWithFallback
-              src="/img/bootcamp/rectangle.png"
+              src="/img/bootcamp/Rectangle.png"
               alt=""
               width={700}
               height={90}
@@ -161,7 +161,7 @@ export function Speaker() {
         {/* Silhouette Image */}
         <div className="relative flex justify-center mb-[0vw]"> 
           <ImageWithFallback
-            src="/img/bootcamp/siluet.png"
+            src="/img/bootcamp/Siluet.png"
             alt="Three silhouettes representing future consultants"
             width={300}
             height={150}
