@@ -8,7 +8,7 @@ export function OurClients() {
   return (
     <section className="flex flex-col justify-between">
       {/* Our Previous Clients */}
-      <div className="relative h-fit w-[96%] max-lg:py-7 lg:h-[30vh]">
+      <div className="relative h-fit w-[96%] max-lg:py-7 lg:h-[30vh] mt-[3vw]">
         <Image
           src="/img/homepage/clients.png"
           alt="Clients"

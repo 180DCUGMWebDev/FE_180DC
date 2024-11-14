@@ -21,7 +21,7 @@ export default function CountinueCourse() {
           {/* Kiri */}
           <div className="">
             <h1 className="w-[80.26vw] text-start font-avenirHeavy text-[3.385vw] text-lightWhite">
-              Continue Learning.......
+              Next Module.......
             </h1>
             <div className="flex gap-x-[2vw]">
               <div className="h-[22.813vw] w-[38.75vw] rounded-[1.6vw] bg-white shadow-xl">
@@ -86,7 +86,7 @@ export default function CountinueCourse() {
           /> */}
           <div className="mt-[5vw] w-[81.944vw]">
             <h1 className="bg-gradient-to-r from-[#58B9D1] to-[#6FAA26] bg-clip-text font-avenirRegular text-[4.167vw] text-transparent">
-              Continue Learning...
+              Next Module...
             </h1>
           </div>
           <div className="my-[2vw] h-[48.306vw] w-[81.167vw] rounded-[1.389vw] bg-white">

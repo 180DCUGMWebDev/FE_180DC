@@ -130,6 +130,12 @@
   -webkit-text-stroke-width: 0.4px;
   -webkit-text-stroke-color: black; /* Outline color */
 }
+@media (min-width: 1024px) { 
+  .text-outline-decoration {
+    -webkit-text-stroke-width: 1.2px;
+    -webkit-text-stroke-color: black;
+  }
+}
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

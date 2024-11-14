@@ -2,8 +2,12 @@
 
 import { createBackground } from "@/config/Functions";
 import Image from "next/image";
+import {useRef} from "react";
+import { FaChevronDown } from "react-icons/fa";
 
 const HeroTemplate = ({ children }) => {
+  const scrollRef = useRef();
+  const handleClick = () => scrollRef.current.scrollIntoView({ behavior: "smooth" });
   return (
     <section className="relative bg-[url(/img/store/casebook/bgHeroCasebookMobile.png)] bg-cover lg:bg-[url(/img/store/casebook/bgHeroCasebook-c.png)]">
       {/* Background */}
@@ -15,8 +19,8 @@ const HeroTemplate = ({ children }) => {
           {children}
         </div>
       </div>
-      <div className="absolute bottom-[2vw] flex w-full flex-col items-center justify-center md:bottom-[3vw] lg:bottom-[1vw]">
-        <span className="mb-[1vw] font-latoBold text-[3.2vw] md:text-[2.6vw] lg:text-[1.294vw]">
+      <div className="absolute bottom-[5vw] flex w-full flex-col items-center justify-center md:bottom-[3vw] lg:bottom-[2vw]">
+        {/* <span className="mb-[1vw] font-latoBold text-[3.2vw] md:text-[2.6vw] lg:text-[1.294vw]">
           GET TO KNOW MORE
         </span>
         <Image
@@ -25,8 +29,16 @@ const HeroTemplate = ({ children }) => {
           width={2000}
           height={2000}
           className="h-auto w-[3.3vw] animate-bounce object-cover md:w-[2.7vw] lg:w-[1.615vw]"
-        />
+        /> */}
+        <button className="flex flex-col items-center outline-0" onClick={handleClick}>
+              <h2 className="mt-[1.4vw] font-latoBold text-[1vw] text-black180 max-lg:hidden">
+                {"GET TO KNOW MORE"}
+              </h2>
+              <FaChevronDown className="animate-movingPointer text-[1.4vw] text-black180 hover:cursor-pointer" />
+            </button>
       </div>
+      <div className="absolute bottom-[1000] " ref={scrollRef}>
+          </div>
     </section>
   );
 };
