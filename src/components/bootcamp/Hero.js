@@ -4,10 +4,10 @@ import Button from "../global/Button";
 export function Hero() {
 
     const items = [
-        "Introduction to ADL",
-        "Life as an ADL Consultant",
-        "ADL Project Highlights",
-        "Interactive Session"
+        "Final Pitching",
+        "Exclusive Speaker Sessions",
+        "Mentoring Sessions",
+        "Crack the Case"
     ];
 
   return (
@@ -63,12 +63,21 @@ export function Hero() {
                 <div className=" flex-col mt-[3.646vw] lg:mt-[1.8vw] w-full px-4 hidden lg:flex items-center">
                     <div>
                         <p className="text-[4vw] lg:text-[1.25vw] text-white180">Our free courses to equip you <br />  all necessary materials of Consulting</p>
+                        <div className="flex gap-2">
                         <Button
                         color="white"
                         text="Enroll me Now"
-                        addClass="w-[60%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[0.729vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743] lg:text-xl"
-                        action={() => contactRef.current.scrollIntoView({ behavior: "smooth" })}
-                    />
+                        addClass="w-[60%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[0.729vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743] lg:text-xl hover:text-white"
+                        href="bit.ly/RegistrationCB180DC"
+                        />
+
+                        <Button
+                        color="green"
+                        text="Guidebook"
+                        addClass="w-[60%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[0.729vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-white lg:text-xl hover:text-primary"
+                        href="bit.ly/GuidebookCB180DC"
+                        />
+                        </div>
                     </div>
                 </div>  
             </div>
@@ -131,12 +140,20 @@ export function Hero() {
 
                 <div className="flex flex-col mt-[10.938vw] w-full px-[8.667vw] lg:hidden">
                         <p className="text-sm lg:text-[2.188vw] text-white180">Our free courses to equip you <br />  all necessary materials of Consulting</p>
-                        <Button
-                        color="white"
-                        text="Enroll me Now"
-                       addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[6.154vw] lg:mt-[1.25vw] font-bold"
-                        action={() => contactRef.current.scrollIntoView({ behavior: "smooth" })}
-                    />
+                        <div className="flex gap-2">
+                            <Button
+                            color="white"
+                            text="Enroll me Now"
+                            addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[6.154vw] lg:mt-[1.25vw] font-bold"
+                            href="bit.ly/RegistrationCB180DC"
+                            />
+                            <Button
+                            color="green"
+                            text="Guidebook"
+                            addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[6.154vw] lg:mt-[1.25vw] font-bold"
+                            href="bit.ly/GuidebookCB180DC"
+                            />
+                        </div>
                 </div> 
             
             </div> 
