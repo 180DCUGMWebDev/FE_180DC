@@ -25,7 +25,7 @@ export const WhatWouldYouGet = () => {
   const speakerSessions = [
     "Consulting 101",
     "Problem Identification & Frameworks",
-    "Business Research Methodology Speaker Session Deck Making & Pitching Techniques",
+    "Business Research Methodology",
     "Deck Making & Pitching Techniques",
   ];
 
