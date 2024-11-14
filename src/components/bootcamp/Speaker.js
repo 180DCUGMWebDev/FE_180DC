@@ -62,7 +62,7 @@ export function Speaker() {
           </div>
 
           {/* TBA Boxes */}
-          <div className="absolute top-[35vw] lg:top-[15vw] flex justify-around w-[75vw] lg:w-[40vw] z-30 hidden lg:flex gap-[2.133vw]">
+          <div className="absolute top-[35vw] lg:top-[15vw] flex justify-around w-[75vw] lg:w-[40vw] z-30  lg:flex gap-[2.133vw]">
             {[...Array(3)].map((_, i) => (
               <TBABox key={i} />
             ))}
