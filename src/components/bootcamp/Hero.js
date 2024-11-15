@@ -67,14 +67,14 @@ export function Hero() {
                         <Button
                         color="white"
                         text="Enroll me Now"
-                        addClass="w-[60%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[0.729vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743] lg:text-xl hover:text-white"
+                        addClass="w-[80%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743]  hover:text-white"
                         href="bit.ly/RegistrationCB180DC"
                         />
 
                         <Button
                         color="green"
                         text="Guidebook"
-                        addClass="w-[60%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[0.729vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-white lg:text-xl hover:text-primary"
+                        addClass="w-[60%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-white hover:text-primary"
                         href="bit.ly/GuidebookCB180DC"
                         />
                         </div>
