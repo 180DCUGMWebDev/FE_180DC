@@ -168,7 +168,14 @@ export function Speaker() {
             height={150}
             className="w-[80vw]"
           />
+          <div className="absolute top-[35vw] z-30 flex w-[75vw] justify-around gap-[2.133vw] lg:top-[15vw] lg:flex lg:w-[40vw]">
+            {[...Array(3)].map((_, i) => (
+              <TBABox key={i} />
+            ))}
+          </div>
         </div>
+
+        
 
         {/* Event Details Card */}
         {/* <div className="mx-auto w-[90vw] max-w-[500px] rounded-lg bg-white p-[5vw] shadow-lg">
