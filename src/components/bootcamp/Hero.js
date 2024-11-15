@@ -92,7 +92,7 @@ export function Hero() {
                     
                     <div className="flex flex-row absolute -top-10 lg:-top-[4.167vw]">
                         <Image
-                        src="/img/bootcamp/bootcampBook.png"
+                        src="/img/bootcamp/bootcampBookHijau.png"
                         width={2000}
                         height={2000}
                         className="w-[15.128vw] h-[21.282vw] ml-8 lg:hidden"
