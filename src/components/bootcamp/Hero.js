@@ -106,7 +106,7 @@ export function Hero() {
                         />
                             <div className="w-full ml-4 mt-4 md:mt-1 lg:ml-[1vw] lg:mt-[1.2vw]">
                                 <p className=" font-avenirRegular text-[3vw] lg:text-[1.875vw] text-white180">
-                                learn now! become consulting tomorrow.
+                                learn now! become consultants tomorrow.
                                 </p>
                             </div>
                     </div>
@@ -139,7 +139,7 @@ export function Hero() {
                 </div>    
 
                 <div className="flex flex-col mt-[10.938vw] w-full px-[8.667vw] lg:hidden">
-                        <p className="text-sm lg:text-[2.188vw] text-white180">Our free courses to equip you <br />  all necessary materials of Consulting</p>
+                        <p className="text-sm lg:text-[2.188vw] text-white180">in-depth sessions to equip you <br />  all necessary materials of Consulting</p>
                         <div className="flex gap-2">
                             <Button
                             color="white"
