@@ -62,7 +62,7 @@ export function Hero() {
                 {/* bagian enroll */}
                 <div className=" flex-col mt-[3.646vw] lg:mt-[1.8vw] w-full px-4 hidden lg:flex items-center">
                     <div>
-                        <p className="text-[4vw] lg:text-[1.25vw] text-white180">Our free courses to equip you <br />  all necessary materials of Consulting</p>
+                        <p className="text-[4vw] lg:text-[1.25vw] text-white180">in-depth sessions to equip you <br />  all necessary materials of Consulting</p>
                         <div className="flex gap-2">
                         <Button
                         color="white"
