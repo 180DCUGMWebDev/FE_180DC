@@ -52,7 +52,13 @@ export function HeroOprec() {
                 src="/img/opreccycle/OrnamentTitle.png"
                 width={2000}
                 height={2000}
-                className="h-[30.162vw] w-[77.949vw] object-contain lg:h-[15.052vw] lg:w-[38.958vw]"
+                className="h-[30.162vw] w-[77.949vw] object-contain lg:h-[15.052vw] lg:w-[38.958vw] max-lg:hidden"
+              />
+              <Image
+                src="/img/opreccycle/OrnamentTitleMobile.png"
+                width={2000}
+                height={2000}
+                className="h-[30.162vw] w-[77.949vw] object-contain lg:h-[15.052vw] lg:w-[38.958vw] lg:hidden"
               />
             </div>
             {/* bagian enroll */}
@@ -83,11 +89,11 @@ export function HeroOprec() {
           {/* bagian kanan */}
           <div className="flex flex-col items-center justify-center max-lg:my-[14vw] max-lg:scale-[1.5] lg:w-1/2">
             <Image
-              src="/img/opreccycle/RightLetterImage.png"
+              src="/img/opreccycle/postcard.png"
               alt="background"
               width={2000}
               height={2000}
-              className="aspect-[681/715] z-10 ml-[2vw] w-[30vw] max-lg:w-[40vw]"
+              className="aspect-[681/715] z-10 ml-[2vw] mr-[5vw] w-[35vw] max-lg:w-[40vw]"
             />
           </div>
 
