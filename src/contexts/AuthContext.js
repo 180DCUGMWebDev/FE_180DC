@@ -9,7 +9,7 @@ const AuthProvider = ({ children }) => {
   const [_password, setPassword] = useState("admin123");
 
   const account = {
-    username: "admin",
+    username: "admi",
     password: "admin123",
   };
 
