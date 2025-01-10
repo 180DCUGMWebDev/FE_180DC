@@ -29,7 +29,7 @@ export function OurClients() {
                   <AiOutlineArrowRight />
                 </>
               }
-              addClass="w-full h-fit py-3 text-xl flex justify-between items-center px-10"
+              addClass="w-full h-fit py-3 text-xl flex justify-between items-center px-10 transition-transform duration-300 hover:scale-110 hover:bg-gray-800 hover:text-white"
             />
           </Link>
           <Link href="/portofolio" className="w-fit lg:hidden">
