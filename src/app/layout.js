@@ -9,6 +9,7 @@ import TooSmall from "@/components/misc/TooSmall";
 import Script from "next/script";
 import LocomotiveProvider from "@/contexts/LocomotiveContext";
 import GSAPProvider from "@/contexts/GSAPContext";
+import AuthProvider from "@/contexts/AuthContext";
 
 export const metadata = {
   title: "180DC UGM",
@@ -32,17 +33,19 @@ export default function RootLayout({ children }) {
         {/* First Option */}
         <LocomotiveProvider>
           <GSAPProvider>
-            <div className="hidden flex-col overflow-clip min-[250px]:flex">
-              {/* Content */}
-              <Navbar />
-              {children}
-              <Footer />
-            </div>
-            {/* Toastify */}
-            <ToastContainer />
+            <AuthProvider>
+              <div className="hidden flex-col overflow-clip min-[250px]:flex">
+                {/* Content */}
+                <Navbar />
+                {children}
+                <Footer />
+              </div>
+              {/* Toastify */}
+              <ToastContainer />
 
-            {/* Second Option */}
-            <TooSmall />
+              {/* Second Option */}
+              <TooSmall />
+            </AuthProvider>
           </GSAPProvider>
         </LocomotiveProvider>
       </body>

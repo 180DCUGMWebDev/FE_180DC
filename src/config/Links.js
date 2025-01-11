@@ -4,14 +4,21 @@ export const navLinks = {
   "About Us": "/aboutus",
   "Our Clients": "/portofolio",
   Store: "/store/casebook",
+  Event: "/event/bootcamp",
   Academy: "/academy",
   Telescope: "/telescope",
 };
 
 // store
-export const storeLink = {
-  Casebook: "/store/casebook",
-  // Merch: "/store/merch",
+export const childLink = {
+  Store: {
+    Casebook: "/store/casebook",
+    // Merch: "/store/merch",
+  },
+  Event: {
+    Bootcamp: "/event/bootcamp",
+    "Cycle 2": "/event/cycle2oprec",
+  },
 };
 
 // Internal Links

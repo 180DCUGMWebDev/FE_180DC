@@ -181,7 +181,7 @@ export default function Navbar() {
             <NavFootItems
               ulClass="flex flex-col w-full gap-[1vh]"
               liClass="flex items-center w-full gap-[1.8vw] rounded-[1vw] py-[1vh] px-[3vw]"
-              aClass="text-[4vw]/[2.9vw] font-latoBold"
+              aClass="text-[4vw]/[2.9vw] md:text-[2.5vw]/[1.5vw] font-latoBold"
               sidebar={true}
               dropDownMobile
               callback={() => setMobileMenuOpen(false)}
