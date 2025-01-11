@@ -3,7 +3,7 @@
 // Import Components
 import { useState } from "react";
 import Image from "next/image";
-import { GoArrowUp, GoArrowUpRight } from "react-icons/go";
+import { GoArrowUpRight } from "react-icons/go";
 import Link from "next/link";
 
 // Import Configs
