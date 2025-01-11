@@ -6,13 +6,14 @@ import { useRouter, usePathname } from "next/navigation";
 // Import Components
 import { FaHandshake, FaHome, FaUserFriends, FaStore, FaBookOpen } from "react-icons/fa";
 import { IoTelescope } from "react-icons/io5";
-import {useRef} from "react";
+import { useRef } from "react";
 
 // Import Configs
-import { navLinks, storeLink } from "@/config/Links";
+import { childLink, navLinks, storeLink } from "@/config/Links";
 import { directRoute } from "@/config/Functions";
 import Link from "next/link";
-import "./navbar.css"
+import "./navbar.css";
+import Store from "@/app/(pages)/store/page";
 
 const DropDown = ({ childClass, aClass, link, route, path }) => {
   // Extractor
@@ -27,7 +28,9 @@ const DropDown = ({ childClass, aClass, link, route, path }) => {
   });
 
   return (
-    <div className={`${childClass} transition-opacity duration-200 absolute top-[4.5vw] flex w-[90px] flex-col gap-[5px] rounded-[5px] py-[5px] text-center font-avenirRegular`}>
+    <div
+      className={`${childClass} absolute top-[4.5vw] flex w-[90px] flex-col gap-[5px] rounded-[5px] py-[5px] text-center font-avenirRegular transition-opacity duration-200`}
+    >
       {options.map((item, idx) => {
         return (
           <Link
@@ -56,14 +59,16 @@ const DropDownMobile = ({ childClass, aClass, link, route, path, callback }) => 
   });
 
   return (
-    <div className={`${childClass} relative w-[140%] !text-[3.3vw]/[2.3vw] !font-latoRegular mt-[1vw] gap-[4vw] flex flex-col rounded-[5px] py-[5px] text-center`}>
+    <div
+      className={`${childClass} relative mt-[1vw] flex w-[140%] flex-col gap-[4vw] rounded-[5px] py-[5px] text-center !font-latoRegular !text-[3.3vw]/[2.3vw] transition-opacity duration-200 md:!text-[1.1vw]/[0.8vw] lg:!text-[1.8vw]/[1.3vw] xl:!text-[1.3vw]/[1vw]`}
+    >
       {options.map((item, idx) => {
         return (
           <button
             key={idx}
             onClick={() => {
               directRoute(directs[idx], route, path);
-              if(callback !== "") callback();
+              if (callback !== "") callback();
             }}
             className={`${aClass} hover:cursor-pointer`}
           >
@@ -75,7 +80,15 @@ const DropDownMobile = ({ childClass, aClass, link, route, path, callback }) => 
   );
 };
 
-export default function NavFootItems({ ulClass, liClass, aClass, sidebar = false, callback = "", dropDown = false, dropDownMobile = false }) {
+export default function NavFootItems({
+  ulClass,
+  liClass,
+  aClass,
+  sidebar = false,
+  callback = "",
+  dropDown = false,
+  dropDownMobile = false,
+}) {
   // Router Hook
   const router = useRouter();
   const pathname = usePathname();
@@ -101,6 +114,9 @@ export default function NavFootItems({ ulClass, liClass, aClass, sidebar = false
       case "About Us":
         return <FaUserFriends className={navbarIconClass} />;
 
+      case "Event":
+        return <FaHandshake className={navbarIconClass} />;
+
       case "Store":
         return <FaStore className={navbarIconClass} />;
 
@@ -118,6 +134,12 @@ export default function NavFootItems({ ulClass, liClass, aClass, sidebar = false
     }
   };
 
+  const containDropdown = ["Store", "Event"];
+  const classDropdown = {
+    Store: ["storeChild", "storeChildMobile", "storeParent"],
+    Event: ["eventChild", "eventChildMobile", "eventParent"],
+  };
+
   // Component
   return (
     <ul className={ulClass + " select-none"}>
@@ -125,7 +147,7 @@ export default function NavFootItems({ ulClass, liClass, aClass, sidebar = false
         return (
           <li
             className={
-              `${liClass} ${val === 'Store' ? "storeParent" : ""}  max-lg:flex max-lg:flex-col max-lg:items-center` +
+              `${liClass} ${containDropdown.includes(val) && classDropdown[val][2]} max-lg:flex max-lg:flex-col max-lg:items-center` +
               (sidebar // Changing colors of Sidebar Div depending on the page
                 ? navLinks[val] === pathname
                   ? "bg-[#E9E9E9]"
@@ -134,7 +156,7 @@ export default function NavFootItems({ ulClass, liClass, aClass, sidebar = false
             }
             key={val}
             onClick={() => {
-              if(!(dropDownMobile && val === "Store")){
+              if (!(dropDownMobile && val === "Store")) {
                 directRoute(directs[idx], router, pathname);
                 if (callback !== "") callback();
               }
@@ -143,7 +165,7 @@ export default function NavFootItems({ ulClass, liClass, aClass, sidebar = false
             {sidebar ? obtainIconFunction(val) : ""}
             <span
               className={
-                 `${aClass} hover:cursor-pointer` +
+                `${aClass} hover:cursor-pointer` +
                 (sidebar // Changing colors of Sidebar Text depending on the page
                   ? navLinks[val] === pathname
                     ? "text-black"
@@ -153,8 +175,32 @@ export default function NavFootItems({ ulClass, liClass, aClass, sidebar = false
             >
               {val}
             </span>
-            {dropDown && !dropDownMobile && val === "Store" && <DropDown childClass={"storeChild"} aClass={aClass} link={storeLink} route={router} path={pathname} />}
-            {dropDownMobile && !dropDown && val === "Store" && <DropDownMobile childClass={"storeChildMobile"} aClass={aClass} link={storeLink} route={router} path={pathname} callback={callback} />}
+            {containDropdown.map((item) => {
+              if (val !== item) return <></>;
+              return (
+                <>
+                  {dropDown && !dropDownMobile && (
+                    <DropDown
+                      childClass={classDropdown[val][0]}
+                      aClass={aClass}
+                      link={childLink[val]}
+                      route={router}
+                      path={pathname}
+                    />
+                  )}
+                  {dropDownMobile && !dropDown && (
+                    <DropDownMobile
+                      childClass={classDropdown[val][1]}
+                      aClass={aClass}
+                      link={childLink[val]}
+                      route={router}
+                      path={pathname}
+                      callback={callback}
+                    />
+                  )}
+                </>
+              );
+            })}
           </li>
         );
       })}
