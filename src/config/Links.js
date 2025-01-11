@@ -4,7 +4,7 @@ export const navLinks = {
   "About Us": "/aboutus",
   "Our Clients": "/portofolio",
   Store: "/store/casebook",
-  Event: "/event/bootcamp",
+  Event: "/bootcamp",
   Academy: "/academy",
   Telescope: "/telescope",
 };
@@ -16,8 +16,8 @@ export const childLink = {
     // Merch: "/store/merch",
   },
   Event: {
-    Bootcamp: "/event/bootcamp",
-    "Cycle 2": "/event/cycle2oprec",
+    Bootcamp: "/bootcamp",
+    "Cycle 2": "/cycle2oprec",
   },
 };
 
