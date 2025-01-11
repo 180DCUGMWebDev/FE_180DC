@@ -13,7 +13,7 @@ export default function Blur({ className, children, isBlur }) {
   };
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      {(isBlur || isLogin) && (
+      {/* {(isBlur || isLogin) && (
         <>
           <div className="absolute left-[-7.5%] top-[-7.5%] z-[100] h-[115%] w-[115%] bg-[url('/img/academy/GRAD_180Mobile.png')] bg-cover opacity-[0.99] blur-xl md:left-[-2.5%] md:top-[-2.5%] md:h-[105%] md:w-[105%] md:opacity-[0.99] md:blur-xl" />
           <div className="absolute bottom-0 left-0 right-0 top-0 z-[101] m-auto flex h-[80%] w-[85%] flex-col items-center justify-center rounded-[2%/3.5%] bg-[#D9D9D9] blur-none">
@@ -33,7 +33,7 @@ export default function Blur({ className, children, isBlur }) {
             {currentEmail}
           </div>
         </>
-      )}
+      )} */}
 
       {children}
     </div>
