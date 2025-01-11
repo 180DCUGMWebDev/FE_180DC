@@ -1,192 +1,129 @@
+"use client";
+
 // Import Components
-import ImgF from "../global/ImgF";
+import { useState } from "react";
+import Image from "next/image";
+import { GoArrowUp, GoArrowUpRight } from "react-icons/go";
+import Link from "next/link";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";
+import BoD from "./BoD";
+import { IoTriangle } from "react-icons/io5";
 
 export default function Team() {
   // Content
-  const content = {
-    welcoming: "Meet Our Team",
-    term: "2024/2025",
-  };
 
-  // Values
-  const boas = [
-    {
-      position: "origin-center",
-      src: "https://utfs.io/f/5RHVvFIjFRXpzJbqIEL0BM4EUV5wnfv7p8JYANdZm6IKSCWO",
-      alt: "180dc bod profile picture",
-      name: "Clea Amabelle",
-      role: "President of 180DC UGM",
-    },
-    {
-      position: "origin-center bottom-[3vw]",
-      src: "https://utfs.io/f/5RHVvFIjFRXpjdtLH4Ydw9AGmnCbDtR8za6q0vox5WHyeNKF",
-      alt: "180dc bod profile picture",
-      name: "Nathaniel C.",
-      role: "Vice President of 180DC UGM",
-    },
-  ];
-
-  const staffs = [
-    {
-      position: "origin-center bottom-[4vw]",
-      src: "https://utfs.io/f/5RHVvFIjFRXpwJ0vShkIyolUh9gKrmXeVFs4C3WnajZL1kEO",
-      alt: "180dc bod profile picture",
-      name: "M. D. Dewanata",
-      role: "Director of Consulting",
-    },
-    {
-      position: " origin-center bottom-[4vw]",
-      src: "https://utfs.io/f/5RHVvFIjFRXpRwjSlds6h9vaYDTItf70J8U4pAg1rxNRcqdK",
-      alt: "180dc bod profile picture",
-      name: "Rianti Eka W.",
-      role: "Director of Marketing",
-    },
-    {
-      position: "origin-center bottom-[4vw] ",
-      src: "https://utfs.io/f/5RHVvFIjFRXp5MId1xjFRXpVEwKSolut37TPvJMngbNmIrB0",
-      alt: "180dc bod profile picture",
-      name: "Rashid Abi A.",
-      role: "Director of Client Engagement",
-    },
-    {
-      position: "origin-center bottom-[4vw]",
-      src: "https://utfs.io/f/5RHVvFIjFRXp9q2sryCQnbTIUA72xLgFRBK6O1EqG0MWPZif",
-      alt: "180dc bod profile picture",
-      name: "Reina Amerya",
-      role: "Director of Human Resources",
-    },
-    {
-      position: "origin-center bottom-[4vw] ",
-      src: "https://utfs.io/f/5RHVvFIjFRXpzEWXimL0BM4EUV5wnfv7p8JYANdZm6IKSCWO",
-      alt: "180dc bod profile picture",
-      name: "Keona Huang",
-      role: "Director of Strategy and Growth",
-    },
-    {
-      position: "origin-center bottom-[4vw] ",
-      src: "https://utfs.io/f/5RHVvFIjFRXpGkRWCyXUvZM9aJPh1ncyqIpTkx4gNKAbR35W",
-      alt: "180dc bod profile picture",
-      name: "Audrey Pamula",
-      role: "Director of Finance",
-    },
-    {
-      position: "origin-center bottom-[4vw] ",
-      src: "https://utfs.io/f/5RHVvFIjFRXpXvqZAUDClvw5B8d3fT42VaGQizZ9SpOh6goL",
-      alt: "180dc bod profile picture",
-      name: "Anisa Puspita",
-      role: "Director of Legal",
-    },
-  ];
-
-  const values = [boas, staffs];
-
-  const highRoles = [
-    "President of 180DC UGM",
-    "Vice President of External",
-    "Vice President of Internal",
-  ];
-
-  const classes = {
-    presClass: "h-[430px] rounded-t-[10vw] 2xl:rounded-t-[154px] w-3/12 max-lg:h-[21vh]  ",
-    vPresClass: "h-[400px] rounded-t-[11vw] 2xl:rounded-t-[169px] w-3/12 max-lg:h-[20vh]  ",
-    nonPresClass: "h-[350px] rounded-t-full w-3/12 max-lg:h-[20vh] min-[1500px]:w-2/12 ",
-  };
-
-  const chunkArray = (arr, chunkSize) => {
-    const result = [];
-    for (let i = 0; i < arr.length; i += chunkSize) {
-      result.push(arr.slice(i, i + chunkSize));
-    }
-    return result;
-  };
-
-  const staffRows = chunkArray(staffs.slice(0, staffs.length - 2), 3).concat(chunkArray(staffs.slice(-2), 2));
+  const terms = ["2024/2025", "2023/2024"];
+  const [term, setTerm] = useState(terms[0]);
+  const [open, setOpen] = useState(false);
 
   return (
-    <section className="relative">
+    <section id="team" className="relative">
       {/* Background */}
       {createBackground("light")}
 
       {/* Content */}
-      <div className="flex h-fit min-h-screen w-full items-center justify-center">
+      <div className="flex h-fit min-h-screen w-full flex-col items-center justify-center">
         <div className="flex h-fit min-h-full w-full flex-col items-center 2xl:w-[1536px]">
           {/* Title */}
           <div className="flex min-h-[15vh] w-full flex-col justify-end bg-white px-[50px] lg:min-h-[25vh]">
-            <div className="mb-[24px] w-full justify-center text-center">
-              <h1 className="font-avenirBlack text-[8vw]/[7.8vw] text-primary lg:text-[4vw]/[3.9vw] 2xl:text-[61px]/[60px]">
-                {content.welcoming}
+            <div className="mb-[24px] flex w-full flex-col items-center justify-center text-center">
+              <h1 className="mt-[8%] font-avenirBlack text-[5vw] text-primary lg:text-[4vw]/[3.9vw] 2xl:text-[61px]/[60px]">
+                Meet Our Team
               </h1>
-              <h2 className="mt-[4px] font-avenirBook text-[2.7vw]/[3vw] text-secondary lg:text-[1.8vw]/[2vw] 2xl:text-[27.6px]/[30.7px]">
-                {content.term}
-              </h2>
+              <button
+                type="button"
+                value={term}
+                onClick={() => setOpen(!open)}
+                className="aspect-[383/74] relative mt-[4%] flex w-[40%] flex-row items-center justify-center rounded-[5%/20%] border-[2px] border-[#58B9D1] px-[2%] py-[0.5%] text-center font-avenirBook text-[2.6vw] font-[700] text-secondary outline-0 md:w-[36%] md:border-[3px] lg:mt-[2%] lg:w-[16%] lg:text-[1.4vw] 2xl:text-[20px]"
+              >
+                <p className="flex w-full flex-row items-center justify-evenly gap-[5%] text-right">
+                  {term}
+                </p>
+                <IoTriangle className={`w-[8%] duration-500 ${open ? "rotate-0" : "rotate-180"}`} />
+                <div
+                  className={`${open ? "opacity-100" : "-translate-y-[50%] opacity-0"} absolute left-0 top-[101%] z-[12] h-fit w-full gap-0 rounded-b-lg border-[2px] border-[#58B9D1] py-[1%] transition-all duration-500 md:border-[3px]`}
+                >
+                  {terms.map((item) => (
+                    <button
+                      key={item}
+                      value={item}
+                      type="button"
+                      onClick={() => {
+                        setTerm(item);
+                        setOpen(false);
+                      }}
+                      className="aspect-[383/74] flex w-full flex-row items-center justify-center bg-[white] px-[2%] py-[0.5%] text-center font-avenirBook text-[2.6vw] font-[700] text-secondary outline-0 lg:text-[1.4vw] 2xl:text-[20px]"
+                    >
+                      {item}
+                    </button>
+                  ))}
+                </div>
+              </button>
             </div>
           </div>
           {/* BoDs */}
           <div
             data-gsap="up-stagger"
-            className="flex h-fit min-h-[75vh] w-full flex-col items-center pb-[60px] lg:px-[130px] 2xl:mx-[50px]"
+            className="relative flex h-fit min-h-[75vh] w-full flex-col items-center pb-[60px] lg:px-[130px] 2xl:mx-[50px]"
           >
             {/* White Background */}
             <div className="absolute -z-[998] h-full w-full bg-white" />
-            <h2 className="mt-[24px] font-latoBoldItalic text-[4vw] text-primary lg:text-[1.8vw]/[2vw] 2xl:text-[27.6px]/[30.7px]">
+            <h2 className="mt-[6px] font-latoBoldItalic text-[4vw] text-primary lg:text-[1.8vw]/[2vw] 2xl:text-[27.6px]/[30.7px]">
               {"Board of Directors"}
             </h2>
             {/* Cards Row */}
-            {values.map((value, idx) => {
-              const rows = idx === 1 ? staffRows : [value]; // handle the staffs separately
-              return rows.map((row, rowIdx) => (
-                <div
-                  key={rowIdx}
-                  className="flex h-fit w-full flex-wrap items-end justify-center gap-[5vw] pt-[24px] 2xl:gap-[76.8px]"
-                >
-                  {row.map((valuePerRow, valueIdx) => (
+            <div data-gsap="up" className="relative mt-[3.6%] flex w-[60%] flex-col gap-[2%]">
+              {BoD[term].map((row) => {
+                return (
+                  <>
                     <div
-                      key={valueIdx}
-                      className={
-                        "relative flex items-end justify-center overflow-x-clip bg-gradient-to-b from-transparent from-[65%] to-white to-[80%] lg:to-[73%] 2xl:from-[60%] " +
-                        (valuePerRow.role === "President of 180DC UGM"
-                          ? classes.presClass
-                          : valuePerRow.role === "Vice President of Internal" ||
-                            valuePerRow.role === "Vice President of External"
-                          ? classes.vPresClass
-                          : classes.nonPresClass)
-                      }
+                      key={row}
+                      className="relative flex w-full flex-row justify-center gap-[10%]"
                     >
-                      {/* Background */}
-                      <div className={"absolute -z-[1] h-full w-full " + valuePerRow.position}>
-                        <ImgF src={valuePerRow.src} alt={valuePerRow.alt} prioritize={true} />
-                      </div>
-                      {/* Content */}
-                      <div className="flex h-full w-full flex-col items-center justify-end lg:mb-[1vh] m-[2vw]">
-                        <h3
-                          className={
-                            "mt-[30vw] w-[50vw] h-fit text-center font-avenirBlack text-primary overflow-visible " +
-                            (highRoles.includes(valuePerRow.role)
-                              ? "text-[2.88vw]/[2.88vw] lg:text-[2.3vw]/[2.34vw] 2xl:text-[29px]/[36px]"
-                              : "text-[3vw]/[3vw] lg:text-[2vw]/[2.3vw] 2xl:text-[28px]/[35px]")
-                          }
-                        >
-                          {valuePerRow.name}
-                        </h3>
-                        <h4
-                          className={
-                            "h-[14%] w-[50vw] text-center font-avenirBook text-secondary " +
-                            (highRoles.includes(valuePerRow.role)
-                              ? "text-[2.1vw]/[2.1vw] lg:text-[1.5vw]/[1.55vw] 2xl:text-[23px]/[23.8px]"
-                              : "text-[1.8vw]/[1.8vw] lg:text-[1.35vw]/[1.45vw] 2xl:text-[20.7px]/[22.2px]")
-                          }
-                        >
-                          {valuePerRow.role}
-                        </h4>
-                      </div>
+                      {row.map((item) => {
+                        const [level, pos] = item.role.split("of");
+                        return (
+                          <div
+                            key={item.role}
+                            className="aspect-[320/507] relative flex w-[27%] flex-col"
+                          >
+                            <div className="aspect-square relative w-full">
+                              <div className="aspect-square absolute left-0 top-0 flex w-full">
+                                <Image
+                                  alt={item.role}
+                                  src={item.src}
+                                  className="h-full w-full"
+                                  fill
+                                />
+                                <div className="absolute bottom-0 z-[10] h-[16%] w-full bg-gradient-to-t from-white/100 via-white/100 via-60% to-white/5" />
+                              </div>
+                            </div>
+                            <div className="group relative flex w-full flex-col text-center">
+                              <Link
+                                href={item.linkedin ?? "#team"}
+                                target={item.linkedin ? "_blank" : "_self"}
+                                className="relative flex flex-row flex-wrap justify-center gap-[3%] font-avenirBlack text-[30%] text-[#73B743] transition-all duration-500 hover:text-[#5DA236] sm:text-[60%] md:text-[85%] lg:text-[80%] xl:text-[110%] 2xl:text-[118%]"
+                              >
+                                {item.name}
+                                <GoArrowUpRight className="w-[8.5%]" />
+                                <div className="absolute bottom-[-0.1em] left-0 right-0 mx-auto h-[2px] w-0 bg-[#5DA236] transition-all duration-500 group-hover:w-[80%]" />
+                              </Link>
+                              <p className="relative w-full text-center text-[35%] text-[#58B9D1] sm:text-[55%] md:text-[80%] lg:text-[75%] xl:text-[110%]">
+                                {level} of
+                                <br />
+                                {pos}
+                              </p>
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
-                  ))}
-                </div>
-              ));
-            })}
+                  </>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

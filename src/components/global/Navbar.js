@@ -78,6 +78,7 @@ export default function Navbar() {
                 <ImgF
                   src="/img/global/logo180dctrns.png"
                   alt="logo 180dc"
+                  className="transition-transform duration-500 hover:scale-[1.05]"
                   action={() => {
                     directRoute(navLinks.Home, router, pathname);
                   }}
@@ -101,7 +102,7 @@ export default function Navbar() {
               text={"Consult Now!"}
               disableForm={intLinks.Apply == pathname}
               addClass={
-                "w-[11vw] text-[1.1vw] py-[9px] 2xl:w-[170px] 2xl:text-[17px] " +
+                "w-[11vw] text-[1.1vw] py-[9px] 2xl:w-[170px] 2xl:text-[17px] hover:bg-[green] duration-500 transition-all" +
                 (intLinks.Apply == pathname ? " opacity-[70%]" : "")
               }
               action={() => {

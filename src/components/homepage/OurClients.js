@@ -29,7 +29,7 @@ export function OurClients() {
                   <AiOutlineArrowRight />
                 </>
               }
-              addClass="w-full h-fit py-3 text-xl flex justify-between items-center px-10 transition-transform duration-300 hover:scale-110 hover:bg-gray-800 hover:text-white"
+              addClass="w-full h-fit py-3 text-xl flex justify-between items-center px-10 transition-all duration-500 hover:scale-110 hover:bg-gray-800 hover:text-white"
             />
           </Link>
           <Link href="/portofolio" className="w-fit lg:hidden">
@@ -53,7 +53,7 @@ export function OurClients() {
           data-gsap="up-stagger"
           className="flex items-center gap-[20px] max-lg:flex-col lg:h-[38vh] lg:gap-[56px]"
         >
-          <a
+          <Link
             className="group relative flex h-full w-full flex-1 items-center overflow-hidden rounded-lg max-lg:max-h-[38vh]"
             href="/telescope/oersonalization-why-brand-knows-you-better-than-your-bestie"
           >
@@ -65,8 +65,8 @@ export function OurClients() {
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-          </a>
-          <a
+          </Link>
+          <Link
             className="group relative flex h-full w-full flex-1 items-center overflow-hidden rounded-lg max-lg:max-h-[38vh]"
             href="/telescope/Fintech-Supporting-The-Economic-of-Indonesia"
           >
@@ -78,7 +78,7 @@ export function OurClients() {
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-          </a>
+          </Link>
           <Link href="/telescope">
             <Button
               color="black"

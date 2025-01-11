@@ -6,7 +6,6 @@ import { useRouter, usePathname } from "next/navigation";
 // Import Components
 import { FaHandshake, FaHome, FaUserFriends, FaStore, FaBookOpen } from "react-icons/fa";
 import { IoTelescope } from "react-icons/io5";
-import { useRef } from "react";
 
 // Import Configs
 import { childLink, navLinks, storeLink } from "@/config/Links";
@@ -165,7 +164,7 @@ export default function NavFootItems({
             {sidebar ? obtainIconFunction(val) : ""}
             <span
               className={
-                `${aClass} hover:cursor-pointer` +
+                `${aClass} transition-all duration-500 hover:font-bold` +
                 (sidebar // Changing colors of Sidebar Text depending on the page
                   ? navLinks[val] === pathname
                     ? "text-black"

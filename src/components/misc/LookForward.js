@@ -85,7 +85,7 @@ export default function LookForward({ theme }) {
               color={"green"}
               text={"Consult Now!"}
               addClass={
-                "w-[18vw] lg:w-[11vw] text-[2vw] lg:text-[1.1vw] py-[2px] lg:py-[9px] 2xl:w-[170px] 2xl:text-[17px] max-lg:mt-[10px]"
+                "w-[18vw] lg:w-[11vw] text-[2vw] lg:text-[1.1vw] py-[2px] lg:py-[9px] hover:bg-[green] duration-500 transition-all 2xl:w-[170px] 2xl:text-[17px] max-lg:mt-[10px]"
               }
               action={() => {
                 directRoute(intLinks.Apply, router, pathname);
