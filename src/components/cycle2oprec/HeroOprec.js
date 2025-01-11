@@ -79,7 +79,7 @@ export function HeroOprec() {
                     color="green"
                     text="Guidebook"
                     addClass="w-[60%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-white hover:text-primary"
-                    href="/"
+                    href="bit.ly/ConsultingCycle2-BookletOprec2025"
                   />
                 </div>
               </div>
@@ -112,7 +112,7 @@ export function HeroOprec() {
                 color="green"
                 text="Guidebook"
                 addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[2.154vw] lg:mt-[1.25vw] font-bold"
-                href="bit.ly/GuidebookCB180DC"
+                href="bit.ly/ConsultingCycle2-BookletOprec2025"
               />
             </div>
           </div>
