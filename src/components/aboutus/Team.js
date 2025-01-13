@@ -44,28 +44,29 @@ export default function Team() {
                 <h1 className="mt-[8%] font-avenirBlack text-[5vw] text-primary lg:text-[4vw]/[3.9vw] 2xl:text-[61px]/[60px]">
                   Meet Our Team
                 </h1>
-                <button
-                  type="button"
-                  value={term}
-                  onClick={() => {
-                    setOpen(!open);
-                  }}
-                  className="relative z-[1] mt-[4%] flex aspect-[383/74] w-[40%] flex-row items-center justify-center rounded-[5%/20%] border-[2px] border-[#58B9D1] px-[2%] py-[0.5%] text-center font-avenirBook text-[2.6vw] font-[700] text-secondary outline-0 md:w-[36%] md:border-[3px] lg:mt-[2%] lg:w-[16%] lg:text-[1.4vw] 2xl:text-[20px]"
-                >
-                  <p className="flex w-full flex-row items-center justify-evenly gap-[5%] text-right">
-                    {term}
-                  </p>
-                  <IoTriangle
-                    className={`w-[8%] duration-500 ${open ? "rotate-0" : "rotate-180"}`}
-                  />
+                <div className="relative z-[1] mt-[4%] flex aspect-[383/74] w-[40%] flex-row items-center justify-center rounded-[5%/20%] border-[2px] border-[#58B9D1] px-[2%] py-[0.5%] text-center font-avenirBook text-[2.6vw] font-[700] text-secondary outline-0 md:w-[36%] md:border-[3px] lg:mt-[2%] lg:w-[16%] lg:text-[1.4vw] 2xl:text-[20px]">
+                  <button
+                    type="button"
+                    value={term}
+                    onClick={() => handleChangeTerm(term)}
+                    className="z-[10] flex h-full w-full flex-row items-center justify-evenly gap-[5%] text-right"
+                  >
+                    <p className="flex w-full flex-row items-center justify-evenly gap-[5%] text-right">
+                      {term}
+                    </p>
+                    <IoTriangle
+                      className={`w-[8%] duration-500 ${open ? "rotate-0" : "rotate-180"}`}
+                    />
+                  </button>
                   <div
-                    className={`${open ? "flex -translate-y-0 flex-col opacity-100" : "z-[-1] -translate-y-[100%] bg-[red] opacity-0"} absolute left-0 top-[101%] z-[12] h-fit w-full gap-0 rounded-b-lg border-[2px] border-[#58B9D1] py-[1%] transition-all duration-500 md:border-[3px]`}
+                    className={`${open ? "flex -translate-y-0 flex-col opacity-100" : "-translate-y-[100%] opacity-0"} absolute left-0 top-[101%] z-[9] h-fit w-full gap-0 rounded-b-lg border-[2px] border-[#58B9D1] py-[1%] transition-all duration-500 md:border-[3px]`}
                   >
                     {terms.map((item) => (
                       <button
                         key={item}
                         value={item}
                         type="button"
+                        disabled={!open}
                         onClick={() => handleChangeTerm(item)}
                         className="flex aspect-[383/74] w-full flex-row items-center justify-center bg-[white] px-[2%] py-[0.5%] text-center font-avenirBook text-[2.6vw] font-[700] text-secondary outline-0 transition-all duration-500 hover:bg-[#58B9D1] hover:text-white lg:text-[1.4vw] 2xl:text-[20px]"
                       >
@@ -73,7 +74,7 @@ export default function Team() {
                       </button>
                     ))}
                   </div>
-                </button>
+                </div>
               </div>
             )}
           </div>
