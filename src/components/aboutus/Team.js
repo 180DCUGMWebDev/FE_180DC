@@ -45,7 +45,7 @@ export default function Team() {
                 <h1 className="mt-[8%] font-avenirBlack text-[5vw] text-primary lg:text-[4vw]/[3.9vw] 2xl:text-[61px]/[60px]">
                   Meet Our Team
                 </h1>
-                <div className="relative z-[1] mt-[4%] flex aspect-[383/74] w-[40%] flex-row items-center justify-center rounded-[5%/20%] border-[2px] border-[#58B9D1] px-[2%] py-[0.5%] text-center font-avenirBook text-[2.6vw] font-[700] text-secondary outline-0 md:w-[36%] md:border-[3px] lg:mt-[2%] lg:w-[16%] lg:text-[1.4vw] 2xl:text-[20px]">
+                <div className="relative z-[1] mt-[4%] flex aspect-[383/90] w-[40%] flex-row items-center justify-center rounded-[5%/20%] border-[2px] border-[#58B9D1] px-[2%] py-[0.5%] text-center font-avenirBook text-[2.6vw] font-[700] text-secondary outline-0 md:aspect-[383/74] md:w-[36%] md:border-[3px] lg:mt-[2%] lg:w-[16%] lg:text-[1.4vw] 2xl:text-[20px]">
                   <button
                     type="button"
                     value={term}
@@ -69,7 +69,7 @@ export default function Team() {
                         type="button"
                         disabled={!open}
                         onClick={() => handleChangeTerm(item)}
-                        className="flex aspect-[383/74] w-full flex-row items-center justify-center bg-[white] px-[2%] py-[0.5%] text-center font-avenirBook text-[2.6vw] font-[700] text-secondary outline-0 transition-all duration-500 hover:bg-[#58B9D1] hover:text-white lg:text-[1.4vw] 2xl:text-[20px]"
+                        className="flex aspect-[383/90] w-full flex-row items-center justify-center bg-[white] px-[2%] py-[0.5%] text-center font-avenirBook text-[2.6vw] font-[700] text-secondary outline-0 transition-all duration-500 hover:bg-[#58B9D1] hover:text-white md:aspect-[383/74] lg:text-[1.4vw] 2xl:text-[20px]"
                       >
                         {item}
                       </button>
