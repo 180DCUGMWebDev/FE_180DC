@@ -1,15 +1,15 @@
 "use client";
 
 // Import Components
-import { use, useEffect, useMemo, useState } from "react";
-import Image from "next/image";
-import { GoArrowUpRight } from "react-icons/go";
-import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";
 import BoD from "./BoD";
+import "./aboutus.css";
 import { IoTriangle } from "react-icons/io5";
+import BoDCard from "./BoDCard";
 
 export default function Team() {
   // Content
@@ -17,6 +17,7 @@ export default function Team() {
   const [term, setTerm] = useState(terms[0]);
   const [open, setOpen] = useState(false);
   const [hydrate, setHydrate] = useState(false);
+  const isBig = useMediaQuery({ query: "(min-width: 768px)" });
 
   const handleChangeTerm = async (item) => {
     if (hydrate) {
@@ -89,56 +90,30 @@ export default function Team() {
               {"Board of Directors"}
             </h2>
             {/* Cards Row */}
-            <div data-gsap="up" className="relative mt-[3.6%] flex w-[60%] flex-col gap-[2%]">
+            <div
+              data-gsap="up"
+              className="relative mt-[3.6%] flex w-[90%] flex-col gap-[2%] md:w-[90%]"
+            >
               {hydrate &&
                 BoD[term].map((row) => {
-                  return (
-                    <>
-                      <div
-                        key={row}
-                        className="relative flex w-full flex-row justify-center gap-[10%]"
-                      >
-                        {row.map((item) => {
-                          const [level, pos] = item.role.split("of");
-                          return (
-                            <div
-                              key={item.role}
-                              className="relative flex aspect-[320/507] w-[27%] flex-col"
-                            >
-                              <div className="relative aspect-square w-full">
-                                <div className="absolute left-0 top-0 flex aspect-square w-full">
-                                  <Image
-                                    alt={item.role}
-                                    src={item.src}
-                                    className="h-full w-full"
-                                    sizes="50vw"
-                                    fill
-                                  />
-                                  <div className="absolute bottom-0 z-[10] h-[16%] w-full bg-gradient-to-t from-white/100 via-white/100 via-60% to-white/5" />
-                                </div>
-                              </div>
-                              <div className="group relative flex w-full flex-col text-center">
-                                <Link
-                                  href={item.linkedin ?? "#team"}
-                                  target={item.linkedin ? "_blank" : "_self"}
-                                  className="relative flex flex-row flex-wrap justify-center gap-[3%] font-avenirBlack text-[30%] text-[#73B743] transition-all duration-500 hover:text-[#5DA236] sm:text-[60%] md:text-[85%] lg:text-[80%] xl:text-[110%] 2xl:text-[118%]"
-                                >
-                                  {item.name}
-                                  <GoArrowUpRight className="w-[8.5%]" />
-                                  <div className="absolute bottom-[-0.1em] left-0 right-0 mx-auto h-[2px] w-0 bg-[#5DA236] transition-all duration-500 group-hover:w-[80%]" />
-                                </Link>
-                                <p className="relative w-full text-center text-[35%] text-[#58B9D1] sm:text-[55%] md:text-[80%] lg:text-[75%] xl:text-[110%]">
-                                  {level} of
-                                  <br />
-                                  {pos}
-                                </p>
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </>
-                  );
+                  let rowMobile = [[...row]];
+                  if (!isBig && rowMobile[0].length > 3) {
+                    rowMobile = [row.slice(0, 2), row.slice(2)];
+                  }
+                  return rowMobile.map((rowItem) => {
+                    return (
+                      <>
+                        <div
+                          key={rowItem}
+                          className="relative flex w-full flex-row justify-center gap-[7%]"
+                        >
+                          {rowItem.map((item) => {
+                            return <BoDCard item={item} />;
+                          })}
+                        </div>
+                      </>
+                    );
+                  });
                 })}
               {!hydrate && (
                 <h2 className="text-avenirBlack text-center text-[green]">Loading...</h2>
