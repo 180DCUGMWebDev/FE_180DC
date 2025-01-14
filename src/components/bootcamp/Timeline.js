@@ -10,7 +10,7 @@ export function Timeline() {
   return (
     <section className="relative">
       {/* Content */}
-      <div className="mt-[7vw] flex w-full items-center justify-center bg-[#E8E8E8]">
+      <div className="flex w-full items-center justify-center bg-[#E8E8E8] max-md:mt-[7vw]">
         {/* Container for the centered Timeline image */}
         <div className="relative flex items-center justify-center">
           {/* Green Star positioned absolutely relative to the container */}
@@ -27,7 +27,7 @@ export function Timeline() {
             alt="180DC UGM Casebook"
             width={2000}
             height={2000}
-            className="z-5 absolute -top-[10vw] -right-[18vw] w-[24.008vw] object-cover max-lg:hidden"
+            className="z-5 absolute -right-[18vw] -top-[10vw] w-[24.008vw] object-cover max-lg:hidden"
           />
           {/* Centered Timeline image */}
           <Image

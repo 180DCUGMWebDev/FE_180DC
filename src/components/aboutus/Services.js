@@ -104,14 +104,18 @@ export default function Services() {
               return (
                 <div
                   key={idx}
-                  className="relative hidden h-[360px] max-h-full w-6/12 items-end overflow-clip rounded-t-[20px] bg-gradient-to-b from-transparent from-20% to-black to-[58%] p-[1.5vw] pb-0 lg:flex 2xl:h-[440px] 2xl:p-[30px]"
+                  className="group relative hidden h-[360px] max-h-full w-6/12 items-end overflow-clip rounded-t-[20px] bg-gradient-to-b from-transparent from-20% to-black to-[58%] p-[1.5vw] pb-0 lg:flex 2xl:h-[440px] 2xl:p-[30px]"
                 >
                   {/* Background */}
                   <div className={"absolute -z-[1] w-[150%] " + values[idx].position}>
-                    <ImgF src={values[idx].src} alt={values[idx].alt} />
+                    <ImgF
+                      src={values[idx].src}
+                      alt={values[idx].alt}
+                      className="duration-500 group-hover:scale-[1.2]"
+                    />
                   </div>
                   {/* Content */}
-                  <div className="flex h-[52%] w-full flex-col justify-start text-start 2xl:h-[187px]">
+                  <div className="flex h-[52%] w-full flex-col justify-start text-start duration-500 group-hover:translate-y-[-10%] 2xl:h-[187px]">
                     <h2 className="font-avenirBlack text-[1.9vw] text-secondary 2xl:text-[29px]">
                       {val}
                     </h2>
@@ -140,10 +144,14 @@ export default function Services() {
                 {titles.map((val, idx) => {
                   return (
                     <SwiperSlide key={idx}>
-                      <div className="relative flex h-[30vh] max-h-full w-full items-end overflow-clip rounded-t-[20px] bg-gradient-to-b from-primary/[50%] from-20% to-black to-[85%] p-[1.5vw] pb-0 lg:hidden">
+                      <div className="group relative flex h-[30vh] max-h-full w-full items-end overflow-clip rounded-t-[20px] bg-gradient-to-b from-primary/[50%] from-20% to-black to-[85%] p-[1.5vw] pb-0 lg:hidden">
                         {/* Background */}
                         <div className={"absolute -z-[1] h-full w-[250%] " + values[idx].position}>
-                          <ImgF src={values[idx].src} alt={values[idx].alt} />
+                          <ImgF
+                            src={values[idx].src}
+                            alt={values[idx].alt}
+                            className="duration-500 group-hover:scale-[1.2]"
+                          />
                         </div>
                         {/* Content */}
                         <div className="flex h-full w-full flex-col items-center justify-center text-start">
