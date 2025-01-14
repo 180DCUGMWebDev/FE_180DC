@@ -112,7 +112,7 @@ const BoD = {
     ],
     [
       {
-        name: "M. D. Dewanata",
+        name: "M. P. Dewanata",
         role: "Director of Consulting",
         linkedin: "https://www.linkedin.com/in/made-pandu-dewanata-deriputra-1b2667248/",
         src: "/img/aboutus/BoD/2425/Dewanata.png",
