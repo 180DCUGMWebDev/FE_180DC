@@ -52,20 +52,6 @@ const BoD = {
     ],
     [
       {
-        name: "Keona Huang",
-        role: "Director of Strategy and Growth",
-        linkedin: "https://www.linkedin.com/in/keona-huang-38190b176/",
-        src: "/img/aboutus/BoD/2425/Keona_Huang.png",
-      },
-      {
-        name: "Naia Bashour",
-        role: "Co-Director of Strategy and Growth",
-        linkedin: "https://www.linkedin.com/in/naiabashour/",
-        src: "/img/aboutus/BoD/2425/Naia.png",
-      },
-    ],
-    [
-      {
         name: "Reina Amerya",
         role: "Director of Human Resources",
         linkedin: "https://www.linkedin.com/in/reinaboer/",
@@ -82,6 +68,20 @@ const BoD = {
         role: "Manager of Human Resource",
         linkedin: "https://www.linkedin.com/in/indira-sabhira-pusparini-598a87236/",
         src: "/img/aboutus/BoD/2425/Indira.png",
+      },
+    ],
+    [
+      {
+        name: "Keona Huang",
+        role: "Director of Strategy and Growth",
+        linkedin: "https://www.linkedin.com/in/keona-huang-38190b176/",
+        src: "/img/aboutus/BoD/2425/Keona_Huang.png",
+      },
+      {
+        name: "Naia Bashour",
+        role: "Co-Director of Strategy and Growth",
+        linkedin: "https://www.linkedin.com/in/naiabashour/",
+        src: "/img/aboutus/BoD/2425/Naia.png",
       },
     ],
     [
