@@ -13,11 +13,11 @@ export default function Blur({ className, children, isBlur }) {
     currentEmail = value;
     setIsLogin(true);
   };
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [hydrate, setHydrate] = useState(false);
   useEffect(() => {
     setHydrate(true);
-    setIsLogin(true);
+    // setIsLogin(true);
   }, []);
   const handleOpen = () => {
     hydrate && !open && setOpen(true);
