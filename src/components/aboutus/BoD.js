@@ -32,39 +32,11 @@ const BoD = {
     ],
     [
       {
-        name: "M. D. Dewanata",
-        role: "Director of Consulting",
-        linkedin: "https://www.linkedin.com/in/made-pandu-dewanata-deriputra-1b2667248/",
-        src: "/img/aboutus/BoD/2425/Dewanata.png",
-      },
-      {
-        name: "Rianti Eka W.",
-        role: "Director of Marketing",
-        linkedin: "https://id.linkedin.com/in/riantiekawulanjani",
-        src: "/img/aboutus/BoD/2425/Rianti_Eka.png",
-      },
-      {
         name: "Rashid Abi A.",
         role: "Director of Client Engagement",
         linkedin: "https://linkedin.com/in/rashidabi",
         src: "/img/aboutus/BoD/2425/Rashid_Abi.png",
       },
-    ],
-    [
-      {
-        name: "Reina Amerya",
-        role: "Director of Human Resources",
-        linkedin: "https://www.linkedin.com/in/reinaboer/",
-        src: "/img/aboutus/BoD/2425/Reina_Amerya.png",
-      },
-      {
-        name: "Keona Huang",
-        role: "Director of Strategy and Growth",
-        linkedin: "https://www.linkedin.com/in/keona-huang-38190b176/",
-        src: "/img/aboutus/BoD/2425/Keona_Huang.png",
-      },
-    ],
-    [
       {
         name: "Audrey Pamula",
         role: "Director of Finance",
@@ -76,6 +48,92 @@ const BoD = {
         role: "Director of Legal",
         linkedin: "https://www.linkedin.com/in/anisa-puspita-camelia/",
         src: "/img/aboutus/BoD/2425/Anisa_Puspita.png",
+      },
+    ],
+    [
+      {
+        name: "Reina Amerya",
+        role: "Director of Human Resources",
+        linkedin: "https://www.linkedin.com/in/reinaboer/",
+        src: "/img/aboutus/BoD/2425/Reina_Amerya.png",
+      },
+      {
+        name: "Alyma Ulfi",
+        role: "Co-Director of Human Resource",
+        linkedin: "https://www.linkedin.com/in/alymaulfiah/",
+        src: "/img/aboutus/BoD/2425/Ulfi.png",
+      },
+      {
+        name: "Indira Sabhira",
+        role: "Manager of Human Resource",
+        linkedin: "https://www.linkedin.com/in/indira-sabhira-pusparini-598a87236/",
+        src: "/img/aboutus/BoD/2425/Indira.png",
+      },
+    ],
+    [
+      {
+        name: "Keona Huang",
+        role: "Director of Strategy and Growth",
+        linkedin: "https://www.linkedin.com/in/keona-huang-38190b176/",
+        src: "/img/aboutus/BoD/2425/Keona_Huang.png",
+      },
+      {
+        name: "Naia Bashour",
+        role: "Co-Director of Strategy and Growth",
+        linkedin: "https://www.linkedin.com/in/naiabashour/",
+        src: "/img/aboutus/BoD/2425/Naia.png",
+      },
+    ],
+    [
+      {
+        name: "Rianti Eka W.",
+        role: "Director of Marketing",
+        linkedin: "https://id.linkedin.com/in/riantiekawulanjani",
+        src: "/img/aboutus/BoD/2425/Rianti_Eka.png",
+      },
+      {
+        name: "Ranessa N",
+        role: "Co-Director of Marketing",
+        linkedin: "https://www.linkedin.com/in/ranessanurfadillah/",
+        src: "/img/aboutus/BoD/2425/Nessa.png",
+      },
+      {
+        name: "Teresa Sijabat",
+        role: "Branding Manager",
+        linkedin: "https://www.linkedin.com/in/teresaruth/",
+        src: "/img/aboutus/BoD/2425/Tessa.png",
+      },
+      {
+        name: "Dzaki Wismadi",
+        role: "IT Manager",
+        linkedin: "https://www.linkedin.com/in/hilmi-wismadi/",
+        src: "/img/aboutus/BoD/2425/Hilmi.png",
+      },
+    ],
+    [
+      {
+        name: "M. P. Dewanata",
+        role: "Director of Consulting",
+        linkedin: "https://www.linkedin.com/in/made-pandu-dewanata-deriputra-1b2667248/",
+        src: "/img/aboutus/BoD/2425/Dewanata.png",
+      },
+      {
+        name: "Cynthia Aretha",
+        role: "Co-Director of Consulting",
+        linkedin: "https://www.linkedin.com/in/cynthiaaretha/",
+        src: "/img/aboutus/BoD/2425/Cynthia.png",
+      },
+      {
+        name: "Gustav Susanto",
+        role: "Project Manager",
+        linkedin: "https://www.linkedin.com/in/gustav-susanto/",
+        src: "/img/aboutus/BoD/2425/Gustav.png",
+      },
+      {
+        name: "Bintang S. Maxi",
+        role: "Knowledge Manager",
+        linkedin: "https://www.linkedin.com/in/bintangsebastianmaxi/",
+        src: "/img/aboutus/BoD/2425/Bintang.png",
       },
     ],
   ],

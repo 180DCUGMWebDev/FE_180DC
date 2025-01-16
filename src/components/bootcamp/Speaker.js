@@ -12,9 +12,9 @@ const TBABox = () => (
 
 export function Speaker() {
   return (
-    <div className="aspect-[1920/2280] flex h-fit w-full flex-col items-center bg-[#E8E8E8] p-[2.564vw] lg:p-[1.458vw]">
+    <div className="flex aspect-[1920/1080] h-fit w-full flex-col items-center bg-[#E8E8E8] p-[2.564vw] lg:p-[1.458vw]">
       {/* Desktop Version */}
-      <div className="aspect-[1920/1080] mb-[5vw] h-fit w-full max-lg:hidden">
+      <div className="aspect-[1920/1080] h-fit w-full max-lg:hidden">
         {/* Header */}
         <div className="mt-[6.154vw] text-center lg:mt-[6vw]">
           {/* Ribbon Title */}
@@ -137,8 +137,6 @@ export function Speaker() {
             </div>
           </div> */}
         </div>
-
-        
       </div>
 
       {/* Mobile Version */}
@@ -174,8 +172,6 @@ export function Speaker() {
             ))}
           </div>
         </div>
-
-        
 
         {/* Event Details Card */}
         {/* <div className="mx-auto w-[90vw] max-w-[500px] rounded-lg bg-white p-[5vw] shadow-lg">

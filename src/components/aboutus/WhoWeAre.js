@@ -120,12 +120,13 @@ export default function WhoWeAre() {
             </div>
             {/* Images / All for Mobile */}
             <div className="flex h-fit w-full flex-wrap gap-[4vw] lg:h-[38vh] lg:max-h-[26vw] lg:flex-row lg:flex-nowrap lg:gap-[3.5vw] 2xl:h-[350px] 2xl:gap-[72px]">
-              <div className="relative flex h-[35vw] w-[35vw] flex-col items-start rounded-[10px] p-[2vw] pb-[15px] text-lightWhite max-lg:grow lg:h-full lg:w-[27%] 2xl:gap-[40px] 2xl:p-[30px] 2xl:pb-[25px]">
+              <div className="group relative flex h-[35vw] w-[35vw] flex-col items-start rounded-[10px] p-[2vw] pb-[15px] text-lightWhite max-lg:grow lg:h-full lg:w-[27%] 2xl:gap-[40px] 2xl:p-[30px] 2xl:pb-[25px]">
                 {/* Background */}
                 <div className="absolute left-0 top-0 -z-[1] h-full w-full overflow-clip rounded-[10px]">
                   <ImgF
                     src="/img/aboutus/WhatWeAre/left_content.png"
                     alt="180dc who we are leftcontent"
+                    className="duration-500 group-hover:scale-[1.2]"
                   />
                 </div>
                 {/* Content */}

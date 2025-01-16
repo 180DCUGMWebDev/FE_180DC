@@ -3,9 +3,11 @@ import Image from "next/image";
 const CardWhat = ({ header, headerMobile, children }) => {
   return (
     <div className="relative flex w-[90%] flex-col items-center justify-start rounded-xl bg-white p-[6%] shadow-inner md:w-[48.7%] md:p-[2%]">
-      <div className="aspect-h-1 aspect-w-3 flex w-[95%]">
-        <Image alt="header" fill objectFit="contain" className="max-lg:hidden" src={header} />
-        <Image alt="header" fill objectFit="contain" className="lg:hidden" src={headerMobile} />
+      <div className="relative flex aspect-[9/3] w-[95%]">
+        <div className="absolute bottom-0 left-0 right-0 top-0 m-auto h-full w-full">
+          <Image alt="header" fill objectFit="contain" className="max-lg:hidden" src={header} />
+          <Image alt="header" fill objectFit="contain" className="lg:hidden" src={headerMobile} />
+        </div>
       </div>
       <div className="relative h-full w-full">{children}</div>
     </div>

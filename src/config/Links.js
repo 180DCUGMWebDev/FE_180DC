@@ -4,7 +4,7 @@ export const navLinks = {
   "About Us": "/aboutus",
   "Our Clients": "/portofolio",
   Store: "/store/casebook",
-  Event: "/bootcamp",
+  Event: "/cycle2oprec",
   Academy: "/academy",
   Telescope: "/telescope",
 };
