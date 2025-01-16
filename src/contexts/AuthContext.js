@@ -25,8 +25,14 @@ const AuthProvider = ({ children }) => {
     setPassword(null);
   };
 
-  const isLogin = account.username == _username && account.password == _password;
-  return <AuthContext.Provider value={{ isLogin, login, logout }}>{children}</AuthContext.Provider>;
+  const [isLogin, setIsLogin] = useState(
+    account.username == _username && account.password == _password,
+  );
+  return (
+    <AuthContext.Provider value={{ isLogin, setIsLogin, login, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 export default AuthProvider;
