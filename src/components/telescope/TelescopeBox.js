@@ -29,7 +29,9 @@ export function TelescopeBox({ article, type, className }) {
               </>
             )}
             <Image
-              src={`https://strapi.180dcugm.org${article.thumbnail.data.attributes.url}`}
+              src={article.thumbnail.data.attributes.url.startsWith('http') 
+                ? article.thumbnail.data.attributes.url 
+                : `https://strapi.180dcugm.org${article.thumbnail.data.attributes.url}`}
               alt="article image"
               width={2000}
               height={2000}

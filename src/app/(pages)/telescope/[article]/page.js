@@ -43,11 +43,13 @@ export default function Article({ params }) {
         {/* Image */}
         <div className="aspect-h-[522] aspect-w-[994] relative overflow-hidden rounded-[20px]">
           <Image
-            src={`https://strapi.180dcugm.org${article.thumbnail.data.attributes.url}`}
+            src={article.thumbnail.data.attributes.url.startsWith('http') 
+              ? article.thumbnail.data.attributes.url 
+              : `https://strapi.180dcugm.org${article.thumbnail.data.attributes.url}`}
             alt="article image"
             width={2000}
             height={2000}
-            className="absolute inset-0 h-full w-full object-cover"
+            className=" inset-0 h-full w-full object-cover"
           />
         </div>
         {/* Article */}
