@@ -29,7 +29,12 @@ export default function Blur({ className, children, isBlur }) {
           <div
             onMouseEnter={handleOpen}
             onClick={handleOpen}
-            className="absolute left-[-7.5%] top-[-7.5%] z-[100] h-[115%] w-[115%] bg-[#58B9D1] bg-cover opacity-[0.99] blur-md md:left-[-2.5%] md:top-[-2.5%] md:h-[105%] md:w-[105%] md:opacity-[0.99] md:blur-xl"
+            className="absolute left-[-7.5%] top-[-7.5%] z-[100] h-[115%] w-[115%] bg-[#58B9D1] opacity-[0.5] md:left-[-2.5%] md:top-[-2.5%] md:h-[105%] md:w-[105%]"
+          />
+          <div
+            onMouseEnter={handleOpen}
+            onClick={handleOpen}
+            className="absolute left-[-7.5%] top-[-7.5%] z-[101] h-[115%] w-[115%] backdrop-blur-md md:left-[-2.5%] md:top-[-2.5%] md:h-[105%] md:w-[105%]"
           />
           {hydrate && (
             <div
