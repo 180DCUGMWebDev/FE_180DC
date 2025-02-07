@@ -1,23 +1,34 @@
 "use client";
 
+import Cookies from "js-cookie";
 import { AuthContext } from "@/contexts/AuthContext";
 import { useContext, useEffect, useRef, useState } from "react";
 import { BiSolidSend } from "react-icons/bi";
 import "./Blur.css";
+import { connectSS } from "../apply/connectSpreadsheets";
+import { checkEmail, toastNotify } from "@/config/Functions";
 
 export default function Blur({ className, children, isBlur }) {
   const { isLogin, setIsLogin } = useContext(AuthContext);
   const inputRef = useRef();
-  let currentEmail = "";
   const submitEmail = (value) => {
-    currentEmail = value;
+    if (!checkEmail(value)) {
+      toastNotify("Invalid email format!");
+      return;
+    }
+    connectSS(value, "Newsletter", () => {});
+    toastNotify("Email has been submitted!", "success");
+    Cookies.set("user_email", value, { expires: 3 });
     setIsLogin(true);
   };
   const [open, setOpen] = useState(false);
   const [hydrate, setHydrate] = useState(false);
   useEffect(() => {
     setHydrate(true);
-    // setIsLogin(true);
+    const userEmail = Cookies.get("user_email");
+    if (userEmail) {
+      setIsLogin(true);
+    }
   }, []);
   const handleOpen = () => {
     hydrate && !open && setOpen(true);
