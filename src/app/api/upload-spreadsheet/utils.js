@@ -50,8 +50,8 @@ const sendEmail = async (body) => {
     port: 465,
     secure: true,
     auth: {
-      user: process.env.APP_EMAIL,
-      pass: process.env.APP_PASSWORD,
+      user: process.env.APP_EMAIL ?? "",
+      pass: process.env.APP_PASSWORD ?? "",
     },
     tls: {
       rejectUnauthorized: false,
@@ -60,7 +60,7 @@ const sendEmail = async (body) => {
 
   transporter
     .sendMail({
-      to: process.env.APP_EMAIL,
+      to: process.env.APP_EMAIL ?? "",
       subject: "Subsciber baru!",
       text: `Email baru: ${body.email}`,
       html: `<p><b>${body.email}</b> telah melakukan subscibe</p> `,

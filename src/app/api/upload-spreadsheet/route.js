@@ -8,8 +8,8 @@ export async function POST(request) {
 
   //   Connect to Spreadsheets
   const serviceAccountAuth = new JWT({
-    email: process.env.APP_CLIENT_EMAIL,
-    key: process.env.APP_PRIVATE_KEY,
+    email: process.env.APP_CLIENT_EMAIL ?? "",
+    key: process.env.APP_PRIVATE_KEY ?? "",
     scopes: [
       "https://www.googleapis.com/auth/spreadsheets",
       "https://www.googleapis.com/auth/drive.file",
