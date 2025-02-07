@@ -18,10 +18,10 @@ export function TelescopeBox({ article, type, className }) {
         <div
           className={`pl-[5%] ${
             type === "lg" ? "pr-[27%]" : "pr-[12%]"
-          } rounded-[10px] py-[5%] lg:rounded-[20px]`}
+          } rounded-[10px] py-[5%] lg:rounded-[20px] relative`}
         >
           {/* Background */}
-          <div className="absolute inset-0 z-10 overflow-hidden rounded-[10px]">
+          <div className="absolute inset-0 z-10 overflow-hidden rounded-[10px] ">
             {type === "article" || (
               <>
                 <div className="absolute inset-0 from-primary from-20% to-secondary to-80% [background-image:linear-gradient(120deg,var(--tw-gradient-stops))]" />
@@ -29,7 +29,9 @@ export function TelescopeBox({ article, type, className }) {
               </>
             )}
             <Image
-              src={`https://strapi.180dcugm.org${article.thumbnail.data.attributes.url}`}
+              src={article.thumbnail.data.attributes.url.startsWith('http') 
+                ? article.thumbnail.data.attributes.url 
+                : `https://strapi.180dcugm.org${article.thumbnail.data.attributes.url}`}
               alt="article image"
               width={2000}
               height={2000}
