@@ -25,7 +25,7 @@
     "locomotive-scroll": "^5.0.0-beta.15",
     "moment": "^2.29.4",
     "net": "^1.0.2",
-    "next": "13.4.19",
+    "next": "^13.5.8",
     "pdfjs-dist": "^3.10.111",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -37,8 +37,8 @@
     "rehype-raw": "^7.0.0",
     "swiper": "^11.1.11",
     "tls": "^0.0.1",
-    "unist-util-visit": "^2.0.3",
-    "unist-util-visit-parents": "^3.1.1"
+    "unist-util-visit": "^5.0.0",
+    "unist-util-visit-parents": "^6.0.1"
   },
   "browser": {
     "fs": false,
