@@ -9,14 +9,14 @@ module.exports = {
       "utfs.io",
       "strapi.180dcugm.org",
     ],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "strapi.180dcugm.org",
+        port: "",
+        pathname: "/uploads/**",
+      },
+    ],
   },
   // crossOrigin: "anonymous",
-  remotePatterns: [
-    {
-      protocol: "https",
-      hostname: "strapi.180dcugm.org",
-      port: "",
-      pathname: "/uploads/**",
-    },
-  ],
 };
