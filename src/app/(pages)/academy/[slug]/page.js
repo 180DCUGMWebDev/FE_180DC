@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic";
 import ModuleMain from "@/components/academy/module/ModuleMain";
 import CountinueCourse from "@/components/academy/module1/ContinueCourse";
-import PdfViewer from "@/components/academy/module/PdfViewer";
 import MiniQuiz from "@/components/academy/module/MiniQuiz";
 
 
