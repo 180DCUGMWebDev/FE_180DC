@@ -17,33 +17,49 @@ import { createBackground } from "@/config/Functions";
 import Blur from "../global/Blur";
 
 export default function CourseSection() {
-  // Page
-  const mobileData = [
+  const modules = [
     {
-      image: "/img/academy/dummyCardImage.png",
+      id: 1,
       title: "Consulting 101",
-      href: "academy/module1",
+      module: "Module 1:",
+      link: "academy/module1",
     },
     {
-      image: "/img/academy/dummyCardImage.png",
-      title: "Business Analysis Framework",
-      href: "academy/",
+      id: 2,
+      title: "Internal Mentoring 2",
+      module: "Mini Quiz:",
+      link: "academy/im2",
     },
   ];
-  // Data
-  const data = {
-    image: [
-      "/img/academy/dummyCardImage.png",
-      "/img/academy/dummyCardImage.png",
-      "/img/academy/dummyCardImage.png",
-      "/img/academy/dummyCardImage.png",
-    ],
-    module: ["Module 1", "Module 2", "Module 3", "Module 4"],
-    title: ["Consulting 101", "Business Analysis Framework", "TBA", "TBA"],
-    link: ["academy/module1", "academy/", "academy/", "academy/"],
-  };
 
-  const [swiper, setSwiper] = useState();
+  const renderModuleCard = ({ id, module, title, link }) => (
+    <div
+      key={id}
+      className="z-[3] my-[2vw] h-[51.389vw] w-[87.222vw] rounded-[1.6vw] bg-white shadow-xl"
+    >
+      <Image
+        src="/img/academy/dummyCardImage.png"
+        alt="module background"
+        width={2000}
+        height={2000}
+        className="inset-0 mx-auto my-[2vw] h-[28.333vw] w-[83.333vw] object-cover lg:hidden"
+      />
+      <div className="text-[1vw]/[4.7vw]">
+        <h1 className="ml-[2vw] font-avenirHeavy text-[3.333vw]">{module}</h1>
+        <h1 className="ml-[2vw] font-avenirHeavy text-[4.167vw] text-[#58B9D1]">
+          {title}
+        </h1>
+      </div>
+
+      <a
+        href={link}
+        className="mx-auto mb-[1vw] mt-[2vw] flex h-[5.919vw] w-[82.286vw] items-center justify-center rounded-[1.3vw] border border-black bg-white text-center text-[3.611vw] transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#5AB0BB]/20"
+      >
+        See Details
+      </a>
+    </div>
+  );
+
   return (
     <section className="relative">
       {/* Background */}
@@ -58,9 +74,9 @@ export default function CourseSection() {
           height={2000}
           className="absolute inset-0 top-[0vw] z-0 h-full w-full origin-top scale-125 object-cover max-lg:hidden"
         />
+
         {/* Desktop */}
         <div className="relative flex flex-col items-center justify-center max-lg:hidden">
-          {/* Content */}
           <div className="flex w-full flex-col items-center justify-center">
             <h1 className="stroke- font-avenirBlack text-[3.385vw] text-lightWhite">
               Start Your Course !
@@ -150,41 +166,7 @@ export default function CourseSection() {
           <h1 className="z-[3] font-avenirBlack text-[5.556vw] text-lightWhite">
             Start Your Course !
           </h1>
-          {mobileData.map((item, index) => {
-            return (
-              <>
-                <Blur
-                  key={`${item + index}`}
-                  isBlur={index !== 0}
-                  className="z-[3] my-[2vw] h-[51.389vw] w-[87.222vw] rounded-[1.6vw] bg-white shadow-xl"
-                >
-                  <Image
-                    src={item.image}
-                    alt="background"
-                    width={2000}
-                    height={2000}
-                    className="inset-0 mx-auto my-[2vw] h-[28.333vw] w-[83.333vw] object-cover lg:hidden"
-                  />
-                  <div className="text-[1vw]/[4.7vw]">
-                    <h1 className="ml-[2vw] font-avenirHeavy text-[3.333vw]">
-                      {" "}
-                      Module {index + 1}:{" "}
-                    </h1>
-                    <h1 className="ml-[2vw] font-avenirHeavy text-[4.167vw] text-[#58B9D1]">
-                      {item.title}
-                    </h1>
-                  </div>
-
-                  <Link
-                    href={item.href}
-                    className="mx-auto mb-[1vw] mt-[2vw] flex h-[5.919vw] w-[82.286vw] items-center justify-center rounded-[1.3vw] border border-black bg-white text-center text-[3.611vw] transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#5AB0BB]/20"
-                  >
-                    See Details
-                  </Link>
-                </Blur>
-              </>
-            );
-          })}
+          {modules.map(renderModuleCard)}
         </div>
       </div>
     </section>
