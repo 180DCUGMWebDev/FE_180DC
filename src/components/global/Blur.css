@@ -1,0 +1,19 @@
+.closeZ {
+  animation: toggleBlurCard ease-out;
+}
+
+.openZ {
+  animation: toggleBlurCard ease-out reverse;
+}
+
+@keyframes toggleBlurCard {
+  0% {
+    z-index: 100;
+  }
+  99% {
+    z-index: 100;
+  }
+  100% {
+    z-index: -1;
+  }
+}

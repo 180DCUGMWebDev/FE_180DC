@@ -41,3 +41,9 @@ export const directRoute = (link, router, pathname) => {
 
   if (pathname !== link) router.push(link);
 };
+
+// Check Email
+export function checkEmail(email) {
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  return emailRegex.test(email);
+}
