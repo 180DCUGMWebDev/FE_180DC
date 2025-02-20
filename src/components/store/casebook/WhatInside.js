@@ -59,7 +59,7 @@ export default function WhatInside() {
           />
           {/* Content */}
           <div className="flex w-full flex-col items-center justify-center">
-            <h1 className="font-avenirHeavy text-[3.333vw] text-white"> What's Inside?</h1>
+            <h1 className="font-avenirHeavy text-[3.333vw] text-white">{"What's Inside?"}</h1>
             <div className="mt-[2vw] flex gap-[2vw]">
               <div className="relative flex h-[30.573vw] w-[24.167vw] flex-col items-center rounded-[1.25vw] bg-white">
                 <Image
@@ -116,7 +116,7 @@ export default function WhatInside() {
         {/* Mobile */}
         <div className="z-[2] mb-[26.372vw] mt-[12.372vw] flex w-full flex-col items-center lg:hidden">
           <div className="flex w-full flex-col items-center justify-center">
-            <h1 className="font-avenirHeavy text-[6.154vw] text-white"> What's Inside?</h1>
+            <h1 className="font-avenirHeavy text-[6.154vw] text-white">{"What's Inside?"}</h1>
 
             <div className="mt-[10vw]">
               <div className="relative flex h-[82.051vw] w-[81.538vw] flex-col items-center justify-center rounded-[4.103vw] bg-white">

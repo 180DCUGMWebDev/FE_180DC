@@ -64,6 +64,7 @@ export default function PreviousClients() {
           if (idx !== clientsPorto.length - 1)
             return (
               <div
+                key={JSON.stringify(client) + idx}
                 className={
                   "h-[0.8vw] w-[0.8vw] rounded-full hover:cursor-pointer 2xl:h-[12.3px] 2xl:w-[12.3px] " +
                   (slide === idx ? "bg-primary" : "bg-lightWhite")

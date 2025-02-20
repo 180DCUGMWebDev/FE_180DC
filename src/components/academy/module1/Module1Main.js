@@ -9,6 +9,7 @@ import Image from "next/image";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";
+import Link from "next/link";
 
 export default function Module1Main() {
   //Ignore Hydration Error
@@ -21,7 +22,7 @@ export default function Module1Main() {
 
       {/* Content */}
       <div className="relative flex h-fit w-full items-center justify-center max-lg:py-[8vh] lg:h-screen">
-        <a href="/academy" className="absolute left-[5vw] top-[9.5vw] h-[1.042vw] w-[0.625vw]">
+        <Link href="/academy" className="absolute left-[5vw] top-[9.5vw] h-[1.042vw] w-[0.625vw]">
           <Image
             src="/img/academy/arrow.png"
             alt="arrow"
@@ -29,7 +30,7 @@ export default function Module1Main() {
             height={2000}
             className="absolute mx-auto object-cover max-lg:hidden"
           />
-        </a>
+        </Link>
         {/* Desktop */}
         <div className="relative mt-[5vw] flex items-center justify-center gap-x-[5vw] max-lg:hidden">
           {/* Kiri */}
@@ -58,12 +59,12 @@ export default function Module1Main() {
                     {"Consulting 101"}
                   </h1>
                 </div>
-                <a
+                <Link
                   href="https://docs.google.com/presentation/d/1Qv1JAEbbzToe7ErGKi9j5mVo-BuR4UWQBoDmpOmiiuQ"
                   className="mt-[1vw] flex h-[3.927vw] w-[19.427vw] items-center justify-center rounded-[1.3vw] border border-black bg-white text-center font-latoBold text-[1.042vw] transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#5AB0BB]/20"
                 >
                   Download
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -89,7 +90,7 @@ export default function Module1Main() {
         {/* Mobile */}
         <div className="relative z-[2] mt-[20.372vw] flex w-full flex-col items-center lg:hidden">
           <div className="relative flex w-[81.944vw] text-[2vw]/[7vw]">
-            <a
+            <Link
               href="/academy"
               className="absolute -left-[3.7vw] top-[2.5vw] h-[3.056vw] w-[1.944vw]"
             >
@@ -100,7 +101,7 @@ export default function Module1Main() {
                 height={2000}
                 className="h-[3.056vw] w-[1.944vw] object-cover lg:hidden"
               />
-            </a>
+            </Link>
             <div className="h-[16.111vw]">
               <h1 className="font-avenirHeavy text-[5.556vw] text-white">Module 1</h1>
               <h1 className="h-[8vw] bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] bg-clip-text font-avenirBlack text-[7.222vw] text-transparent">

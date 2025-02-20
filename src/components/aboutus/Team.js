@@ -64,7 +64,7 @@ export default function Team() {
                   >
                     {terms.map((item) => (
                       <button
-                        key={item}
+                        key={JSON.stringify(item)}
                         value={item}
                         type="button"
                         disabled={!open}
@@ -108,7 +108,7 @@ export default function Team() {
                           className="relative flex w-full flex-row justify-center gap-[7%]"
                         >
                           {rowItem.map((item) => {
-                            return <BoDCard item={item} />;
+                            return <BoDCard key={JSON.stringify(item)} item={item} />;
                           })}
                         </div>
                       </>

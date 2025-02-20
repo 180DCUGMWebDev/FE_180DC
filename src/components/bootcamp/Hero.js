@@ -49,6 +49,7 @@ export function Hero() {
           <div className="flex flex-col lg:w-1/2">
             <div className="flex w-full flex-col items-center px-8">
               <Image
+                alt="consulting bootcamp logo"
                 src="/img/bootcamp/consultingBootcampLogo.png"
                 width={2000}
                 height={2000}
@@ -95,6 +96,7 @@ export function Hero() {
 
               <div className="absolute -top-10 flex flex-row lg:-top-[4.167vw]">
                 <Image
+                  alt="consulting bootcamp book"
                   src="/img/bootcamp/bootcampBookHijau.png"
                   width={2000}
                   height={2000}
@@ -102,6 +104,7 @@ export function Hero() {
                 />
 
                 <Image
+                  alt="consulting bootcamp book"
                   src="/img/bootcamp/bootcampBookHijau.png"
                   width={2000}
                   height={2000}
@@ -115,6 +118,7 @@ export function Hero() {
               </div>
 
               <Image
+                alt="consulting bootcamp sticky notes"
                 src="/img/bootcamp/bootcampStickyNotes.png"
                 width={2000}
                 height={2000}
@@ -122,6 +126,7 @@ export function Hero() {
               />
 
               <Image
+                alt="consulting bootcamp pencil"
                 src="/img/bootcamp/plsfixBootcamp.png"
                 width={2000}
                 height={2000}

@@ -1,74 +1,75 @@
 "use client";
-import React, { useState, useEffect } from "react";
-
+import React, { useState, useEffect, useMemo } from "react";
 
 export default function MiniQuiz() {
-  const questionAnswer = [
-    {
-      number: 1,
-      question: "Below is the example of business process, except:",
-      answers: ["Manufacturing", "Sales and marketing", "Production", "None of the above"],
-      answerKey: 3,
-      explanation:
-        "D. None of the above. Manufacturing, Sales and Marketing, and Production are all business processes because they accomplish certain organizational goals.",
-    },
-    {
-      number: 2,
-      question:
-        "Impinj, an American manufacturer, creates a breathtaking product of RFID Tags. RFID Tags is a salt particle-size technology that could indicate and track tags in a warehouse. Impinj innovation on RFID Tags can help ____ business process:",
-      answers: [
-        "Inventory Management Process",
-        "Manufacturing Process",
-        "Sales and Marketing Process",
-        "Recruitment and Hiring Process",
-      ],
-      answerKey: 0,
-      explanation:
-        "A. Inventory Management Process. The RFID Tags can help businesses to indicate and track tags in a warehouse that is mainly being used to manage inventory.",
-    },
-    {
-      number: 3,
-      question:
-        "Marketing and Sales is both business process and a value chain:",
-      answers: [
-        "True, because marketing and sales accomplish a certain goal and creates value in the process",
-        "True, because business can't operate without marketing and sales",
-        "False, because marketing and sales is only a part of value chain",
-        "False, because marketing and sales is not a business process but a value chain",
-      ],
-      answerKey: 2,
-      explanation:
-        "C. False, because marketing and sales is only a part of the value chain. Marketing and Sales is not a standalone value chain or set of activities; it is only part of the value chain.",
-    },
-    {
-      number: 4,
-      question:
-        "In the Porter Value Chain model, why processes such as human resource management, technology development, and procurement use a dotted line instead of a full straight line?",
-      answers: [
-        "They are not essential to business operations and have a minimal impact on the value chain.",
-        "The activities on the value chain may and may not operate with and without those activities, but firm infrastructure is a must.",
-        "They are less important compared to primary activities such as inbound logistics and marketing.",
-        "They only influence firm infrastructure and do not interact with other parts of the value chain.",
-      ],
-      answerKey: 1,
-      explanation:
-        "B. The activities on the value chain may and may not operate with and without those activities, but firm infrastructure is a must. Dotted lines indicate that supporting activities are not mandatory for each part of the value chain except for firm infrastructure.",
-    },
-    {
-      number: 5,
-      question:
-        "Which of these two industries have a very similar value chain and business process:",
-      answers: [
-        "Watch and perfume industry",
-        "Car and handphone industry",
-        "Furniture and gaming industry",
-        "None of the above",
-      ],
-      answerKey: 0,
-      explanation:
-        "A. Watch and perfume industry. Both have similar characteristics such as conventional and luxury brand marketing, artisanal design, and similar distribution strategies.",
-    },
-  ];
+  const questionAnswer = useMemo(
+    () => [
+      {
+        number: 1,
+        question: "Below is the example of business process, except:",
+        answers: ["Manufacturing", "Sales and marketing", "Production", "None of the above"],
+        answerKey: 3,
+        explanation:
+          "D. None of the above. Manufacturing, Sales and Marketing, and Production are all business processes because they accomplish certain organizational goals.",
+      },
+      {
+        number: 2,
+        question:
+          "Impinj, an American manufacturer, creates a breathtaking product of RFID Tags. RFID Tags is a salt particle-size technology that could indicate and track tags in a warehouse. Impinj innovation on RFID Tags can help ____ business process:",
+        answers: [
+          "Inventory Management Process",
+          "Manufacturing Process",
+          "Sales and Marketing Process",
+          "Recruitment and Hiring Process",
+        ],
+        answerKey: 0,
+        explanation:
+          "A. Inventory Management Process. The RFID Tags can help businesses to indicate and track tags in a warehouse that is mainly being used to manage inventory.",
+      },
+      {
+        number: 3,
+        question: "Marketing and Sales is both business process and a value chain:",
+        answers: [
+          "True, because marketing and sales accomplish a certain goal and creates value in the process",
+          "True, because business can't operate without marketing and sales",
+          "False, because marketing and sales is only a part of value chain",
+          "False, because marketing and sales is not a business process but a value chain",
+        ],
+        answerKey: 2,
+        explanation:
+          "C. False, because marketing and sales is only a part of the value chain. Marketing and Sales is not a standalone value chain or set of activities; it is only part of the value chain.",
+      },
+      {
+        number: 4,
+        question:
+          "In the Porter Value Chain model, why processes such as human resource management, technology development, and procurement use a dotted line instead of a full straight line?",
+        answers: [
+          "They are not essential to business operations and have a minimal impact on the value chain.",
+          "The activities on the value chain may and may not operate with and without those activities, but firm infrastructure is a must.",
+          "They are less important compared to primary activities such as inbound logistics and marketing.",
+          "They only influence firm infrastructure and do not interact with other parts of the value chain.",
+        ],
+        answerKey: 1,
+        explanation:
+          "B. The activities on the value chain may and may not operate with and without those activities, but firm infrastructure is a must. Dotted lines indicate that supporting activities are not mandatory for each part of the value chain except for firm infrastructure.",
+      },
+      {
+        number: 5,
+        question:
+          "Which of these two industries have a very similar value chain and business process:",
+        answers: [
+          "Watch and perfume industry",
+          "Car and handphone industry",
+          "Furniture and gaming industry",
+          "None of the above",
+        ],
+        answerKey: 0,
+        explanation:
+          "A. Watch and perfume industry. Both have similar characteristics such as conventional and luxury brand marketing, artisanal design, and similar distribution strategies.",
+      },
+    ],
+    [],
+  );
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState(Array(questionAnswer.length).fill(null));
@@ -132,10 +133,12 @@ export default function MiniQuiz() {
   };
 
   return (
-    <section className="bg-black px-[9%] mt-[3vw]">
+    <section className="mt-[3vw] bg-black px-[9%]">
       <div className="relative mt-[9.92vw] flex flex-col rounded-[16px] bg-white px-[6%] py-[6%] lg:p-[3.333vw]">
         <div className="flex flex-col">
-        <h2 className="font-latoBold text-[7vw] text-primary lg:text-[2.083vw]">Internal Mentoring 2</h2>
+          <h2 className="font-latoBold text-[7vw] text-primary lg:text-[2.083vw]">
+            Internal Mentoring 2
+          </h2>
           <h2 className="font-latoBold text-[7vw] text-primary lg:text-[2.083vw]">Mini Quiz</h2>
           {!isQuizCompleted && (
             <h2 className="font-latoBold text-[4vw] text-black lg:text-[1.25vw]">
@@ -180,7 +183,9 @@ export default function MiniQuiz() {
                   <div
                     key={idx}
                     className={`cursor-pointer rounded-[2vw] px-4 py-2 text-[4vw] font-semibold lg:rounded-[0.417vw] lg:text-[1.25vw] ${
-                      userAnswers[currentQuestionIndex] === idx ? "bg-[#58B9D1] text-white" : "bg-white"
+                      userAnswers[currentQuestionIndex] === idx
+                        ? "bg-[#58B9D1] text-white"
+                        : "bg-white"
                     }`}
                     onClick={() => handleAnswerSelection(idx)}
                   >

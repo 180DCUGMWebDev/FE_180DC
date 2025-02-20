@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { GoArrowUpRight } from "react-icons/go";
 
-export default function BoDCard({ item }) {
+export default function BoDCard({ item, key }) {
   const pos_role = item.role.split(" of ");
   return (
     <Link
-      key={item.role}
+      key={key}
       href={item.linkedin ?? "#team"}
       target={item.linkedin ? "_blank" : "_self"}
       className="group relative flex aspect-[320/507] w-[27%] flex-col transition-all duration-500 md:w-[20%]"

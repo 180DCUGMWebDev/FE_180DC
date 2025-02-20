@@ -1,46 +1,49 @@
 "use client";
 import Button from "@/components/global/Button";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 
 export default function MiniQuiz() {
-  const questionAnswer = [
-    {
-      number: 1,
-      question: "quest1xxxxx ini adalah pertanyaan dummy hheeh hehehhehee  hehhe",
-      answers: [
-        "a",
-        "dummy dummy dummy dummy dummy dummy dummy dummy dummy dummy dummy",
-        "c",
-        "d",
-        "e",
-      ],
-      answerKey: 0,
-    },
-    {
-      number: 2,
-      question: "quest2",
-      answers: ["a", "b", "c", "d", "e"],
-      answerKey: 0,
-    },
-    {
-      number: 3,
-      question: "quest3",
-      answers: ["a", "b", "c", "d", "e"],
-      answerKey: 0,
-    },
-    {
-      number: 4,
-      question: "quest4",
-      answers: ["a", "b", "c", "d", "e"],
-      answerKey: 0,
-    },
-    {
-      number: 5,
-      question: "quest5",
-      answers: ["a", "b", "c", "d", "e"],
-      answerKey: 0,
-    },
-  ];
+  const questionAnswer = useMemo(
+    () => [
+      {
+        number: 1,
+        question: "quest1xxxxx ini adalah pertanyaan dummy hheeh hehehhehee  hehhe",
+        answers: [
+          "a",
+          "dummy dummy dummy dummy dummy dummy dummy dummy dummy dummy dummy",
+          "c",
+          "d",
+          "e",
+        ],
+        answerKey: 0,
+      },
+      {
+        number: 2,
+        question: "quest2",
+        answers: ["a", "b", "c", "d", "e"],
+        answerKey: 0,
+      },
+      {
+        number: 3,
+        question: "quest3",
+        answers: ["a", "b", "c", "d", "e"],
+        answerKey: 0,
+      },
+      {
+        number: 4,
+        question: "quest4",
+        answers: ["a", "b", "c", "d", "e"],
+        answerKey: 0,
+      },
+      {
+        number: 5,
+        question: "quest5",
+        answers: ["a", "b", "c", "d", "e"],
+        answerKey: 0,
+      },
+    ],
+    [],
+  );
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [correctCount, setCorrectCount] = useState(1);
@@ -63,7 +66,7 @@ export default function MiniQuiz() {
 
       return () => clearTimeout(timer);
     }
-  }, [selectedAnswer, currentQuestionIndex]);
+  }, [selectedAnswer, currentQuestionIndex, questionAnswer, correctCount]);
 
   const currentQuestion = questionAnswer[currentQuestionIndex];
 

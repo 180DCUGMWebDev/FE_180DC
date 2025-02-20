@@ -29,7 +29,7 @@ export default function Blur({ className, children, isBlur = false }) {
     if (userEmail) {
       setIsLogin(true);
     }
-  }, []);
+  }, [setIsLogin]);
   const handleOpen = () => {
     hydrate && !open && setOpen(true);
   };
@@ -52,7 +52,7 @@ export default function Blur({ className, children, isBlur = false }) {
               className={`${open ? "openZ translate-y-0 opacity-100" : "closeZ translate-y-[50%] opacity-0"} absolute bottom-0 left-0 right-0 top-0 z-[101] m-auto flex h-[40%] w-[75%] flex-col items-center justify-center rounded-[2.6%/8%] bg-white blur-none transition-all duration-1000`}
             >
               <h3 className="mb-[2%] font-avenirBook text-[3.2vw] font-[700] text-[#7BBA74] md:text-[3.2vw] lg:text-[1.6vw]">
-                Let's stay connected
+                {"Let's stay connected"}
               </h3>
               <p className="flex h-[27%] w-[85%] items-center justify-evenly rounded-[2%/17%] bg-[#EEEEEE] px-[3%] text-[2.2vw] md:text-[2.4vw] lg:text-[1vw]">
                 <input
