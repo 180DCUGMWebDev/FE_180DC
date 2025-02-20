@@ -14,7 +14,7 @@ export default function Slider(image, module, title, link) {
       "/img/academy/dummyCardImage.png",
       "/img/academy/dummyCardImage.png",
       "/img/academy/dummyCardImage.png",
-          ],
+    ],
     module: ["Module 1", "Internal Mentoring 2 ", "TBA"],
     title: ["Consulting 101", "Mini Quiz", "TBA"],
     link: ["academy/module1", "academy/im2"],
@@ -61,6 +61,7 @@ export default function Slider(image, module, title, link) {
                 module={data.module[index]}
                 title={data.title[index]}
                 link={data.link[index]}
+                isBlur={index !== 0}
               />
             </SwiperSlide>
           );
