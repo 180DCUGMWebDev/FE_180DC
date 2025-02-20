@@ -2,19 +2,17 @@
 "use client";
 
 import React from "react";
-import { FaBriefcase } from "react-icons/fa";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
-import { EffectCoverflow, Pagination, Navigation } from "swiper";
+import Link from "next/link";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";
 import Slider from "./Slider";
+import Blur from "../global/Blur";
 
 export default function CourseSection() {
   const modules = [
@@ -23,6 +21,7 @@ export default function CourseSection() {
       title: "Consulting 101",
       module: "Module 1:",
       link: "academy/module1",
+      isBlur: false,
     },
     {
       id: 2,
@@ -32,10 +31,11 @@ export default function CourseSection() {
     },
   ];
 
-  const renderModuleCard = ({ id, module, title, link }) => (
-    <div
+  const renderModuleCard = ({ id, module, title, link, isBlur = true }) => (
+    <Blur
+      isBlur={isBlur}
       key={id}
-      className="z-[3] my-[2vw] h-[51.389vw] w-[87.222vw] rounded-[1.6vw] bg-white shadow-xl"
+      className="z-[3] my-[2vw] h-[51.389vw] w-[87.222vw] rounded-[1.6vw] bg-[white] shadow-xl"
     >
       <Image
         src="/img/academy/dummyCardImage.png"
@@ -46,18 +46,16 @@ export default function CourseSection() {
       />
       <div className="text-[1vw]/[4.7vw]">
         <h1 className="ml-[2vw] font-avenirHeavy text-[3.333vw]">{module}</h1>
-        <h1 className="ml-[2vw] font-avenirHeavy text-[4.167vw] text-[#58B9D1]">
-          {title}
-        </h1>
+        <h1 className="ml-[2vw] font-avenirHeavy text-[4.167vw] text-[#58B9D1]">{title}</h1>
       </div>
 
-      <a
+      <Link
         href={link}
         className="mx-auto mb-[1vw] mt-[2vw] flex h-[5.919vw] w-[82.286vw] items-center justify-center rounded-[1.3vw] border border-black bg-white text-center text-[3.611vw] transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#5AB0BB]/20"
       >
         See Details
-      </a>
-    </div>
+      </Link>
+    </Blur>
   );
 
   return (

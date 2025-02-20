@@ -8,7 +8,7 @@ import "./Blur.css";
 import { connectSS } from "../apply/connectSpreadsheets";
 import { checkEmail, toastNotify } from "@/config/Functions";
 
-export default function Blur({ className, children, isBlur }) {
+export default function Blur({ className, children, isBlur = false }) {
   const { isLogin, setIsLogin } = useContext(AuthContext);
   const inputRef = useRef();
   const submitEmail = (value) => {
@@ -34,7 +34,7 @@ export default function Blur({ className, children, isBlur }) {
     hydrate && !open && setOpen(true);
   };
   return (
-    <div className={`relative overflow-hidden ${className}`}>
+    <div className={`relative overflow-clip ${className}`}>
       {isBlur && !isLogin && (
         <>
           <div
