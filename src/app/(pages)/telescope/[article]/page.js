@@ -47,7 +47,7 @@ export default function Article({ params }) {
             alt="article image"
             width={2000}
             height={2000}
-            className="absolute inset-0 h-full w-full object-cover"
+            className=" inset-0 h-full w-full object-cover"
           />
         </div>
         {/* Article */}

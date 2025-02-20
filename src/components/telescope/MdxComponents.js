@@ -6,8 +6,8 @@ function P({ children }) {
 
 function Img({ src, alt = "" }) {
   return (
-    <div className="flex justify-center">
-      <div className="aspect-h-[1080] aspect-w-[1920] relative w-[70%]">
+    <div className="flex justify-center h-[20vw] ">
+      <div className="h-full aspect-w-[1920] relative w-[70%]">
         <Image alt={alt} src={src} fill className="object-contain" />
       </div>
     </div>
