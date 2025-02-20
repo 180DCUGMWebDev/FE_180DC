@@ -28,6 +28,7 @@ export default function CourseSection() {
       title: "Internal Mentoring 2",
       module: "Mini Quiz:",
       link: "academy/im2",
+      isBlur: false,
     },
   ];
 
@@ -103,4 +104,3 @@ export default function CourseSection() {
     </section>
   );
 }
-
