@@ -19,6 +19,10 @@ export const childLink = {
     Bootcamp: "/bootcamp",
     "Cycle 2": "/cycle2oprec",
   },
+  Telescope: {
+    Article: "/telecope",
+    "Industrial Report": "/industrialreport",
+  },
 };
 
 // Internal Links
