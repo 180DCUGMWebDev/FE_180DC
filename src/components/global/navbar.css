@@ -37,3 +37,24 @@
   transition-duration: 1000;
   animation-timing-function: ease-in-out;
 }
+
+
+.telescopeChild {
+  opacity: 0;
+  transition-duration: 1000;
+  animation-timing-function: ease-in-out;
+}
+
+.telescopeParent:hover > .telescopeChild {
+  opacity: 100;
+}
+
+.telescopeChildMobile {
+  opacity: 1;
+}
+
+.telescopeParentMobile:hover > .telescopeChildMobile {
+  opacity: 1;
+  transition-duration: 1000;
+  animation-timing-function: ease-in-out;
+}

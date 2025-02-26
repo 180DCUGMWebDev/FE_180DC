@@ -13,6 +13,7 @@ import { directRoute } from "@/config/Functions";
 import Link from "next/link";
 import "./navbar.css";
 import Store from "@/app/(pages)/store/page";
+import Telescope from "@/app/(pages)/telescope/page";
 
 const DropDown = ({ childClass, aClass, link, route, path }) => {
   // Extractor
@@ -133,10 +134,11 @@ export default function NavFootItems({
     }
   };
 
-  const containDropdown = ["Store", "Event"];
+  const containDropdown = ["Store", "Event", "Telescope"];
   const classDropdown = {
     Store: ["storeChild", "storeChildMobile", "storeParent"],
     Event: ["eventChild", "eventChildMobile", "eventParent"],
+    Telescope: ["telescopeChild", "telescopeChildMobile", "telescopeParent"],
   };
 
   // Component
