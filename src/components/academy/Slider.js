@@ -14,10 +14,11 @@ export default function Slider(image, module, title, link) {
       "/img/academy/dummyCardImage.png",
       "/img/academy/dummyCardImage.png",
       "/img/academy/dummyCardImage.png",
+      "/img/academy/dummyCardImage.png",
     ],
-    module: ["Module 1", "Internal Mentoring 2 ", "TBA"],
-    title: ["Consulting 101", "Mini Quiz", "TBA"],
-    link: ["academy/module1", "academy/im2"],
+    module: ["Module 1", "Internal Mentoring 2 ", "Internal Mentoring 3","TBA"],
+    title: ["Consulting 101", "Mini Quiz", "Storytelling & Deck Making", "TBA"],
+    link: ["academy/module1", "academy/im2","academy/im3", "TBA" ],
   };
 
   const [swiper, setSwiper] = useState();

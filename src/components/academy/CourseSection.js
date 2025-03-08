@@ -30,6 +30,13 @@ export default function CourseSection() {
       link: "academy/im2",
       isBlur: false,
     },
+    {
+      id: 3,
+      title: "Internal Mentoring 3 Quiz",
+      module: "Storytelling & Deck Making",
+      link: "academy/im3",
+      isBlur: false,
+    },
   ];
 
   const renderModuleCard = ({ id, module, title, link, isBlur = true }) => (
