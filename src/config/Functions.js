@@ -1,7 +1,3 @@
-// Import Packages
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
 // Background Function
 export const createBackground = (theme, className = "") => {
   const bgTheme =
@@ -17,22 +13,6 @@ export const copyContent = (content, context) => {
   // Toasters
   navigator.clipboard.writeText(content, context);
   toastNotify(context + " sucessfully copied!");
-};
-
-// Toast
-export const toastNotify = (content, status = "info") => {
-  const toastOptions = () => {
-    return {
-      position: "top-center",
-      autoClose: 1000,
-      pauseOnHover: false,
-      draggable: false,
-      theme: "light",
-    };
-  };
-
-  if (status === "info") toast.info(content, toastOptions());
-  else if (status === "success") toast.success(content, toastOptions());
 };
 
 // Routing Function

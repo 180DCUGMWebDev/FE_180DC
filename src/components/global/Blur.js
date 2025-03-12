@@ -1,15 +1,16 @@
 "use client";
 
 import Cookies from "js-cookie";
-import { AuthContext } from "@/contexts/AuthContext";
+import { UtilsContext } from "@/contexts/UtilsContext";
 import { useContext, useEffect, useRef, useState } from "react";
 import { BiSolidSend } from "react-icons/bi";
 import "./Blur.css";
 import { connectSS } from "../apply/connectSpreadsheets";
-import { checkEmail, toastNotify } from "@/config/Functions";
+import { checkEmail } from "@/config/Functions";
 
 export default function Blur({ className, children, isBlur = false }) {
-  const { isLogin, setIsLogin } = useContext(AuthContext);
+  const { isLogin, setIsLogin, toastNotify } = useContext(UtilsContext);
+
   const inputRef = useRef();
   const submitEmail = (value) => {
     if (!checkEmail(value)) {
@@ -54,7 +55,7 @@ export default function Blur({ className, children, isBlur = false }) {
               <h3 className="mb-[2%] font-avenirBook text-[3.2vw] font-[700] text-[#7BBA74] md:text-[3.2vw] lg:text-[1.6vw]">
                 {"Let's stay connected"}
               </h3>
-              <p className="flex h-[27%] w-[85%] items-center justify-evenly rounded-[2%/17%] bg-[#EEEEEE] px-[3%] text-[2.2vw] md:text-[2.4vw] lg:text-[1vw]">
+              <div className="flex h-[27%] w-[85%] items-center justify-evenly rounded-[2%/17%] bg-[#EEEEEE] px-[3%] text-[2.2vw] md:text-[2.4vw] lg:text-[1vw]">
                 <input
                   ref={inputRef}
                   onKeyDown={(e) => {
@@ -72,7 +73,7 @@ export default function Blur({ className, children, isBlur = false }) {
                     className="aspect-[1/1] h-full w-full"
                   />
                 </div>
-              </p>
+              </div>
             </div>
           )}
         </>

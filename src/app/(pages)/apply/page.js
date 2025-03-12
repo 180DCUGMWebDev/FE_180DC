@@ -10,11 +10,13 @@ import ProjectStructureList from "@/components/misc/ProjectStructureList";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { connectSS } from "@/components/apply/connectSpreadsheets";
-import { toastNotify } from "@/config/Functions";
+import { UtilsContext } from "@/contexts/UtilsContext";
 
 export default function Apply() {
+  const { toastNotify } = useContext(UtilsContext);
+
   const [forms, setForm] = useState([
     {
       question: "Applicant Name",

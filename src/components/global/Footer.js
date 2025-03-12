@@ -10,11 +10,19 @@ import ImgF from "./ImgF";
 
 // Import Configs
 import { navLinks, socLinks, intLinks } from "@/config/Links";
-import { copyContent, directRoute, toastNotify } from "@/config/Functions";
+import { copyContent, directRoute } from "@/config/Functions";
 import { connectSS } from "../apply/connectSpreadsheets";
-import { useState } from "react";
+import { useCallback, useEffect, useState, useRef, useContext } from "react";
+import { UtilsContext } from "@/contexts/UtilsContext";
 
 export default function Footer() {
+  const { toastNotify } = useContext(UtilsContext);
+
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   // Contents
   const office = {
     addr: "180 Degrees Consulting UGM Universitas Gadjah Mada Bulaksumur, Caturtunggal, Depok, Sleman, Yogyakarta 55281",
@@ -132,8 +140,15 @@ export default function Footer() {
     );
   };
 
-  // Email State
   const [email, setEmail] = useState("");
+
+  const handleSubmitButton = useCallback(() => {
+    if (!email) return;
+    connectSS(email, "Newsletter", () => setEmail(""));
+    toastNotify("Email has been submitted!", "success");
+  }, [email]);
+
+  if (!isClient) return <>Loading ...</>;
 
   // Page
   return (
@@ -189,12 +204,13 @@ export default function Footer() {
                 ulClass="flex !flex-col w-full max-lg:text-center gap-[2.5vw] lg:gap-[2.5px] text-[3.5vw] lg:text-[0.9vw] 2xl:text-[13.8px] max-lg:text-center"
                 liClass="flex w-full text-center"
                 aClass="text-lightWhite font-latoRegular hover:font-latoBold"
+                identifier="Footer"
               />
             </div>
             {/* Stay Connected */}
             <div className="flex w-[90%] flex-col items-end justify-center gap-[8px] lg:w-[41.67%] 2xl:w-[560px]">
               {/* Form */}
-              <form className="w-full max-lg:flex max-lg:h-[25%] max-lg:flex-col max-lg:gap-[2vw]">
+              <div className="w-full max-lg:flex max-lg:h-[25%] max-lg:flex-col max-lg:gap-[2vw]">
                 <div className="flex w-full items-start">
                   <div className="w-full">
                     <h1 className="font-avenirRegular text-[3.7vw] lg:text-[2vw] 2xl:text-[23px]">
@@ -205,19 +221,25 @@ export default function Footer() {
                     <FaInstagram
                       className={classFavIcon}
                       onClick={() => {
-                        window.open(socLinks.Instagram, "_blank");
+                        if (isClient) {
+                          window.open(socLinks.Instagram, "_blank");
+                        }
                       }}
                     />
                     <FaLinkedin
                       className={classFavIcon}
                       onClick={() => {
-                        window.open(socLinks.LinkedIn, "_blank");
+                        if (isClient) {
+                          window.open(socLinks.LinkedIn, "_blank");
+                        }
                       }}
                     />
                     <FaSpotify
                       className={classFavIcon}
                       onClick={() => {
-                        window.open(socLinks.Spotify, "_blank");
+                        if (isClient) {
+                          window.open(socLinks.Spotify, "_blank");
+                        }
                       }}
                     />
                   </div>
@@ -225,25 +247,21 @@ export default function Footer() {
                 <div className="flex h-[8vw] w-full items-center max-lg:mb-[4vw] lg:h-[3vw] 2xl:h-[46px]">
                   <input
                     type="text"
+                    value={email}
                     className="h-full w-full rounded-bl-[.7vw] rounded-tl-[.7vw] bg-white180 px-[1.5vw] py-[1vw] text-[3.1vw] text-black outline-none lg:text-[0.9vw] 2xl:rounded-bl-[10.8px] 2xl:rounded-tl-[10.8px] 2xl:px-[23.1px] 2xl:py-[15.4px] 2xl:text-[13.8px]"
                     placeholder="Enter Your Email to Subscribe to Our Newsletter"
-                    value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   <button
+                    type="button"
                     className="h-full rounded-br-[.7vw] rounded-tr-[.7vw] bg-white180 pr-[12px] 2xl:rounded-br-[10.8px] 2xl:rounded-tr-[10.8px]"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      connectSS(email, "Newsletter", () => {
-                        setEmail("");
-                      });
-                      toastNotify("Email has been submitted!", "success");
-                    }}
+                    onClick={handleSubmitButton}
+                    disabled={!email} // Disables button when input is empty
                   >
                     <FaArrowRight className="text-[2.5vw] text-black opacity-[57%] lg:text-[2vw] 2xl:text-[30.7px]" />
                   </button>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
           {/* Copyright */}

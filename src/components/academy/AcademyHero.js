@@ -1,22 +1,22 @@
 "use client";
 
 // Import Packages
-import React from "react";
+import React, { useCallback } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import Image from "next/image";
-import {useRef} from "react";
+import { useRef } from "react";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";
 
-
-
 export default function AcademyHero() {
   const scrollRef = useRef();
-const handleClick = () => scrollRef.current.scrollIntoView({ behavior: "smooth" });
+  const handleClick = useCallback(
+    () => scrollRef.current.scrollIntoView({ behavior: "smooth" }),
+    [scrollRef],
+  );
   // Page
   return (
-    
     <section className="relative">
       {/* Background */}
       {createBackground("dark")}
@@ -51,7 +51,11 @@ const handleClick = () => scrollRef.current.scrollIntoView({ behavior: "smooth" 
                 }
               </h1>
             </div>
-            <button className="flex flex-col items-center outline-0" onClick={handleClick}>
+            <button
+              type="button"
+              className="flex flex-col items-center outline-0"
+              onClick={handleClick}
+            >
               <h2 className="mt-[1.4vw] font-latoBold text-[1vw] text-lightWhite max-lg:hidden">
                 {"SCROLL DOWN"}
               </h2>
@@ -59,8 +63,7 @@ const handleClick = () => scrollRef.current.scrollIntoView({ behavior: "smooth" 
             </button>
           </div>
           {/* Scroll Down Target */}
-          <div className="absolute bottom-[1000] " ref={scrollRef}>
-          </div>
+          <div className="absolute bottom-[1000]" ref={scrollRef} />
         </div>
 
         {/* Mobile */}

@@ -2,6 +2,7 @@
 // const webpack = require("webpack");
 
 module.exports = {
+  reactStrictMode: false,
   images: {
     domains: [
       "www.shutterstock.com",

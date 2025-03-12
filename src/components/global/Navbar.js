@@ -93,6 +93,7 @@ export default function Navbar() {
               liClass="flex justify-center w-fit"
               aClass="text-lightWhite text-[1.3vw] font-latoRegular hover:font-latoBold 2xl:text-[20px]"
               dropDown
+              identifier="Desktop Navbar"
             />
           </div>
           {/* Consult */}
@@ -186,6 +187,7 @@ export default function Navbar() {
               sidebar={true}
               dropDownMobile
               callback={() => setMobileMenuOpen(false)}
+              identifier="Mobile Navbar"
             />
           </div>
           {/* Copyright */}

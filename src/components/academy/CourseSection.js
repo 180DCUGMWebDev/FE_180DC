@@ -28,14 +28,14 @@ export default function CourseSection() {
       title: "Internal Mentoring 2",
       module: "Mini Quiz:",
       link: "academy/im2",
-      isBlur: false,
+      isBlur: true,
     },
     {
       id: 3,
       title: "Internal Mentoring 3 Quiz",
       module: "Storytelling & Deck Making",
       link: "academy/im3",
-      isBlur: false,
+      isBlur: true,
     },
   ];
 
