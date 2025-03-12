@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import { JWT } from "google-auth-library";
-import { uploadData, uploadSubscribe } from "./utils";
+import { getAuth, uploadData, uploadSubscribe } from "./utils";
 
 export async function POST(request) {
   try {
@@ -10,12 +10,14 @@ export async function POST(request) {
     // Connect to Spreadsheets
     const serviceAccountAuth = new JWT({
       email: process.env.APP_CLIENT_EMAIL ?? "",
-      key: process.env.APP_PRIVATE_KEY ?? "",
+      key: (process.env.APP_PRIVATE_KEY ?? "").replace(/\\n/g, "\n"),
       scopes: [
         "https://www.googleapis.com/auth/spreadsheets",
         "https://www.googleapis.com/auth/drive.file",
       ],
     });
+
+    // const serviceAccountAuth = await getAuth();
 
     const doc = new GoogleSpreadsheet(
       "18Gq2AKH2qXwBMdlhrTGyJ10HAS304FgiQgWpRTTYP2o",
