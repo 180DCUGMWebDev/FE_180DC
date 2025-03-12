@@ -7,7 +7,7 @@ export async function POST(request) {
   try {
     const { data, target } = await request.json();
 
-    //   Connect to Spreadsheets
+    // Connect to Spreadsheets
     const serviceAccountAuth = new JWT({
       email: process.env.APP_CLIENT_EMAIL ?? "",
       key: process.env.APP_PRIVATE_KEY ?? "",
@@ -26,12 +26,29 @@ export async function POST(request) {
 
     const sheet = doc.sheetsByTitle[target];
 
-    if (target === "Applicants") uploadData(data, sheet);
-    else if (target === "Newsletter") uploadSubscribe(data, sheet);
+    if (!sheet) {
+      throw new Error(`Sheet with title "${target}" not found`);
+    }
+
+    if (target === "Applicants") {
+      await uploadData(data, sheet);
+    } else if (target === "Newsletter") {
+      await uploadSubscribe(data, sheet);
+    } else {
+      throw new Error(`Invalid target: "${target}"`);
+    }
 
     return NextResponse.json({ message: "Success sent!" }, { status: 200 });
   } catch (error) {
     console.error("Error:", error);
-    return NextResponse.json({ message: "An error occurred" }, { status: 500 });
+
+    let errorMessage = "An error occurred";
+    if (error.response) {
+      errorMessage = `Google API error: ${error.response.data.error.message}`;
+    } else if (error.message) {
+      errorMessage = error.message;
+    }
+
+    return NextResponse.json({ message: errorMessage }, { status: 500 });
   }
 }
