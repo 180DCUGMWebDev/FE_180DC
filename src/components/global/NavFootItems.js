@@ -34,7 +34,7 @@ const DropDown = ({ childClass, aClass, link, route, path }) => {
       {options.map((item, idx) => {
         return (
           <Link
-            key={idx}
+            key={JSON.stringify({ item: item, idx: idx })}
             // onClick={() => router.push(directs[idx])}
             href={directs[idx]}
             className={`${aClass} hover:cursor-pointer`}
@@ -65,7 +65,7 @@ const DropDownMobile = ({ childClass, aClass, link, route, path, callback }) => 
       {options.map((item, idx) => {
         return (
           <button
-            key={idx}
+            key={JSON.stringify({ item: item, idx: idx })}
             onClick={() => {
               directRoute(directs[idx], route, path);
               if (callback !== "") callback();
@@ -88,6 +88,7 @@ export default function NavFootItems({
   callback = "",
   dropDown = false,
   dropDownMobile = false,
+  identifier = "",
 }) {
   // Router Hook
   const router = useRouter();
@@ -143,10 +144,11 @@ export default function NavFootItems({
 
   // Component
   return (
-    <ul className={ulClass + " select-none"}>
+    <div className={ulClass + " select-none"}>
       {options.map((val, idx) => {
         return (
-          <li
+          <div
+            key={JSON.stringify({ val: val, idx: idx, indentifier: identifier })}
             className={
               `${liClass} ${containDropdown.includes(val) && classDropdown[val][2]} max-lg:flex max-lg:flex-col max-lg:items-center` +
               (sidebar // Changing colors of Sidebar Div depending on the page
@@ -155,7 +157,6 @@ export default function NavFootItems({
                   : ""
                 : "")
             }
-            key={val}
             onClick={() => {
               if (!(dropDownMobile && val === "Store")) {
                 directRoute(directs[idx], router, pathname);
@@ -176,35 +177,32 @@ export default function NavFootItems({
             >
               {val}
             </span>
-            {containDropdown.map((item) => {
-              if (val !== item) return <></>;
-              return (
-                <>
-                  {dropDown && !dropDownMobile && (
-                    <DropDown
-                      childClass={classDropdown[val][0]}
-                      aClass={aClass}
-                      link={childLink[val]}
-                      route={router}
-                      path={pathname}
-                    />
-                  )}
-                  {dropDownMobile && !dropDown && (
-                    <DropDownMobile
-                      childClass={classDropdown[val][1]}
-                      aClass={aClass}
-                      link={childLink[val]}
-                      route={router}
-                      path={pathname}
-                      callback={callback}
-                    />
-                  )}
-                </>
-              );
-            })}
-          </li>
+            {containDropdown.includes(val) && (
+              <>
+                {dropDown && !dropDownMobile && (
+                  <DropDown
+                    childClass={classDropdown[val][0]}
+                    aClass={aClass}
+                    link={childLink[val]}
+                    route={router}
+                    path={pathname}
+                  />
+                )}
+                {dropDownMobile && !dropDown && (
+                  <DropDownMobile
+                    childClass={classDropdown[val][1]}
+                    aClass={aClass}
+                    link={childLink[val]}
+                    route={router}
+                    path={pathname}
+                    callback={callback}
+                  />
+                )}
+              </>
+            )}
+          </div>
         );
       })}
-    </ul>
+    </div>
   );
 }
