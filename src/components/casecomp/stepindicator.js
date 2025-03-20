@@ -17,7 +17,7 @@ const StepIndicator = ({ currentStep, totalSteps }) => {
             {index + 1}
           </div>
           {index < totalSteps - 1 && (
-            <div className={`h-0.5 w-16 mx-1 ${index + 1 < currentStep ? "bg-green-500" : "bg-gray-300"}`}></div>
+            <div className={`h-0.5 w-32 mx-1 ${index + 1 < currentStep ? "bg-green-500" : "bg-gray-300"}`}></div>
           )}
         </div>
       ))}

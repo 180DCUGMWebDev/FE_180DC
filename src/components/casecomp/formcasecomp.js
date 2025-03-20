@@ -92,10 +92,10 @@ export function FormCaseComp() {
 
   // Page
   return (
-    <section className="relative bg-black text-white">
+    <section className="relative bg-black text-white ">
       {/* Title Section */}
       <div className="container mx-auto py-12 text-center">
-        <h1 className="mb-4 text-4xl font-bold">
+        <h1 className="mb-4 text-4xl font-bold mt-[10vh]">
           <span className="text-green-500">Team</span>{" "}
           <span className="text-blue-400">Registration</span>
         </h1>
