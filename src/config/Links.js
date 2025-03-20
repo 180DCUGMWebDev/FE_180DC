@@ -20,7 +20,7 @@ export const childLink = {
     "Cycle 2": "/cycle2oprec",
   },
   Telescope: {
-    Article: "/telecope",
+    Article: "/telescope",
     "Industrial Report": "/industrialreport",
   },
 };
