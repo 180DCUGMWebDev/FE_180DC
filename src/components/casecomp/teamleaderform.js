@@ -26,7 +26,7 @@ const TeamLeaderForm = ({ formData, handleInputChange }) => {
         name="nomorHP"
         value={formData.nomorHP}
         onChange={handleInputChange}
-        placeholder="0812345678"
+        placeholder="Ex: +62 ...."
       />
       
       <FormField
@@ -34,7 +34,7 @@ const TeamLeaderForm = ({ formData, handleInputChange }) => {
         name="universitas"
         value={formData.universitas}
         onChange={handleInputChange}
-        placeholder="Inline"
+        placeholder="..."
       />
       
       <FormField
