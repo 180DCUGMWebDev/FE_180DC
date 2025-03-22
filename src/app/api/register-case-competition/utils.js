@@ -1,6 +1,20 @@
 const nodemailer = require("nodemailer");
 const moment = require("moment");
 import { JWT } from "google-auth-library";
+import { google } from "googleapis";
+import { Readable } from "stream";
+
+export const GetJWTAuth = async () => {
+  const auth = new JWT({
+    email: process.env.APP_CLIENT_EMAIL ?? "",
+    key: (process.env.APP_PRIVATE_KEY ?? "").replace(/\\n/g, "\n"),
+    scopes: [
+      "https://www.googleapis.com/auth/spreadsheets",
+      "https://www.googleapis.com/auth/drive.file",
+    ],
+  });
+  return auth;
+};
 
 export const uploadData = async (data, sheet) => {
   try {
@@ -23,6 +37,67 @@ export const uploadData = async (data, sheet) => {
   } catch (error) {
     console.error("Failed to upload data:", error);
     throw new Error("Failed to upload data");
+  }
+};
+
+export const saveFileToDrive = async (fileName, request) => {
+  const form = await request.formData();
+  const file = form.get("proofData");
+
+  if (!file) {
+    throw new Error("File not found");
+  }
+
+  const arrayBuffer = await file.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
+
+  const stream = new Readable();
+  stream.push(buffer);
+  stream.push(null); // Akhiri stream
+
+  //   Initilize Google Drive API
+  const auth = await GetJWTAuth();
+  const drive = google.drive({ version: "v3", auth });
+
+  //   Prepare file metadata
+  const fileMetadata = {
+    name: fileName,
+    parents: ["12njAYopcsE6-fhsHdz6jVjEyVd1oY2pj"], // Diisi sama folder ID yang diinginkan
+  };
+
+  //   Jenis file yang dikirim
+  const media = {
+    mimeType: file.type, // bisa juga application/jpeg / application/png
+    body: stream, // Gunakan stream agar bisa diproses oleh Google Drive API
+  };
+
+  let uploadedFile = null;
+  try {
+    // upload file
+    uploadedFile = await drive.files.create({
+      resource: fileMetadata,
+      media: media,
+      fields: "id",
+    });
+  } catch (error) {
+    console.error("Failed to upload file:", error);
+    throw new Error("Failed to upload file");
+  }
+
+  //   Share file
+  const permission = {
+    type: "anyone",
+    role: "reader",
+  };
+
+  try {
+    await drive.permissions.create({
+      fileId: uploadedFile.data.id,
+      resource: permission,
+    });
+  } catch (error) {
+    console.error("Failed to share file:", error);
+    throw new Error("Failed to share file");
   }
 };
 
@@ -81,16 +156,4 @@ const sendEmail = async (body) => {
     console.error("Failed to send email:", error);
     throw new Error("Failed to send email");
   }
-};
-
-export const GetJWTAuth = async () => {
-  const auth = new JWT({
-    email: process.env.APP_CLIENT_EMAIL ?? "",
-    key: (process.env.APP_PRIVATE_KEY ?? "").replace(/\\n/g, "\n"),
-    scopes: [
-      "https://www.googleapis.com/auth/spreadsheets",
-      "https://www.googleapis.com/auth/drive.file",
-    ],
-  });
-  return auth;
 };

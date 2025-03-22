@@ -7,7 +7,6 @@ const Form = ({ className = "", ...props }) => {
 };
 
 const FormField = ({ label = "Label", isTextarea = false, register, error, ...props }) => {
-  console.log("PROPS", props);
   return (
     <div className="mb-4">
       <label className="mb-2 block text-sm font-medium text-gray-700">{label}</label>

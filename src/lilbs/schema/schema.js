@@ -24,3 +24,7 @@ export const TeamMemberSchema = z.object({
   asalProvinsi: AsalProvinsiSchema,
   alamatLengkap: AlamatLengkapSchema,
 });
+
+export const proofSchema = z.object({
+  proofLink: z.string().url(),
+});

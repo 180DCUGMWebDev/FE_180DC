@@ -1,7 +1,7 @@
 // src/components/FormCaseComp.jsx
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import StepIndicator from "./stepindicator";
 import StepLabels from "./steplabel";
 import { FormField, FormButton, Form } from "./FormCase";
@@ -12,15 +12,16 @@ import OtherStepsForm from "./otherstep";
 // Form
 import { z } from "zod";
 import { useForm } from "react-hook-form";
-import { TeamLeaderSchema, TeamMemberSchema } from "@/lilbs/schema/schema";
+import { proofSchema, TeamLeaderSchema, TeamMemberSchema } from "@/lilbs/schema/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import RenderIf from "../global/RenderIf";
 import TeamMemberForm from "./FormTeamMember";
 
 export function FormCaseComp() {
   // Form steps state
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(5);
   const totalSteps = 5;
+  const form = new FormData();
   // For Team Leader
   type TeamLeaderValues = z.infer<typeof TeamLeaderSchema>;
   const {
@@ -43,7 +44,6 @@ export function FormCaseComp() {
   type TeamMemberValues = z.infer<typeof TeamMemberSchema>;
   const {
     register: registerMember1,
-    handleSubmit: handleSubmitMember1,
     formState: { errors: errorsMember1 },
     watch: watchMember1,
   } = useForm<TeamMemberValues>({
@@ -60,7 +60,6 @@ export function FormCaseComp() {
 
   const {
     register: registerMember2,
-    handleSubmit: handleSubmitMember2,
     formState: { errors: errorsMember2 },
     watch: watchMember2,
   } = useForm<TeamMemberValues>({
@@ -77,7 +76,6 @@ export function FormCaseComp() {
 
   const {
     register: registerMember3,
-    handleSubmit: handleSubmitMember3,
     formState: { errors: errorsMember3 },
     watch: watchMember3,
   } = useForm<TeamMemberValues>({
@@ -92,83 +90,53 @@ export function FormCaseComp() {
     },
   });
 
-  // Form data state
-  const [formData, setFormData] = useState({
-    // Team Leader
-    namaLengkap: "",
-    tanggalLahir: "",
-    nomorHP: "",
-    universitas: "",
-    asalProvinsi: "",
-    alamatLengkap: "",
-
-    // Team Members
-    members: [
-      {
-        namaLengkap: "",
-        tanggalLahir: "",
-        nomorHP: "",
-        universitas: "",
-        asalProvinsi: "",
-        alamatLengkap: "",
-      },
-      {
-        namaLengkap: "",
-        tanggalLahir: "",
-        nomorHP: "",
-        universitas: "",
-        asalProvinsi: "",
-        alamatLengkap: "",
-      },
-      {
-        namaLengkap: "",
-        tanggalLahir: "",
-        nomorHP: "",
-        universitas: "",
-        asalProvinsi: "",
-        alamatLengkap: "",
-      },
-    ],
+  type ProofValues = z.infer<typeof proofSchema>;
+  const {
+    register: registerProof,
+    handleSubmit: handleSubmitProof,
+    formState: { errors: errorsProof },
+    watch: watchProof,
+  } = useForm<ProofValues>({
+    resolver: zodResolver(proofSchema),
+    defaultValues: {
+      proofLink: "",
+    },
   });
 
-  // Handle input changes for team leader
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  // Handle input changes for team members
-  const handleMemberInputChange = (e, index) => {
-    const { name, value } = e.target;
-    const updatedMembers = [...formData.members];
-    updatedMembers[index] = {
-      ...updatedMembers[index],
-      [name]: value,
-    };
-
-    setFormData({
-      ...formData,
-      members: updatedMembers,
-    });
-  };
-
-  // Handle form submission
-  const onSubmitLeader = async (data: TeamLeaderValues) => {
-    // Move to next step if not on last step
+  const goToNextStep = () => {
     if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
-    } else {
-      // Submit form data
-      console.log("Form submitted:", formData);
     }
-    console.log("Form submitted:", data);
+  };
+  // Handle form submission
+  const onSubmitLeader = async (data: TeamLeaderValues) => {
+    goToNextStep();
+    form.append("teamLeader", JSON.stringify(data));
   };
 
-  console.log("Tanggal", watchTeamLeader("tanggalLahir"));
+  const handleSubmitTeamMember = async () => {
+    goToNextStep();
+    const data = { member1: watchMember1(), member2: watchMember2(), member3: watchMember3() };
+    form.append("teamMembers", JSON.stringify(data));
+  };
+  const onSubmitProof = async (data: ProofValues) => {
+    goToNextStep();
+    form.append("proofLink", data.proofLink);
+  };
 
+  const fileRef = useRef(null);
+  const handleSubmitFile = async (e) => {
+    e.preventDefault();
+    form.append("proofData", fileRef.current.files[0]);
+    try {
+      await fetch("/api/register-case-competition", {
+        method: "POST",
+        body: form,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
   // Page
   return (
     <section className="relative min-h-screen bg-black text-white">
@@ -188,10 +156,8 @@ export function FormCaseComp() {
         <div className="mx-auto max-w-3xl rounded-lg bg-white p-8">
           {/* Steps Indicator */}
           <StepIndicator currentStep={currentStep} totalSteps={totalSteps} />
-
           {/* Step Labels */}
           <StepLabels currentStep={currentStep} />
-
           {/* Form */}
           <RenderIf when={currentStep === 1}>
             <Form onSubmit={handleSubmitTeamLeader(onSubmitLeader)}>
@@ -200,7 +166,7 @@ export function FormCaseComp() {
             </Form>
           </RenderIf>
           <RenderIf when={currentStep === 2}>
-            <Form onSubmit={handleSubmitTeamLeader(onSubmitLeader)}>
+            <Form onSubmit={handleSubmitTeamMember}>
               <TeamMemberForm register={registerMember1} index={1} error={errorsMember1} />
               <TeamMemberForm register={registerMember2} index={2} error={errorsMember2} />
               <TeamMemberForm register={registerMember3} index={3} error={errorsMember3} />
@@ -213,7 +179,46 @@ export function FormCaseComp() {
               />
             </Form>
           </RenderIf>
-          <RenderIf when={currentStep > 2}>Arya</RenderIf>
+          <RenderIf when={currentStep === 3}>
+            <Form onSubmit={handleSubmitProof(onSubmitProof)}>
+              <div className="space-y-6">
+                <FormField
+                  label="Submission Proof"
+                  type="text"
+                  register={registerProof("proofLink")}
+                  error={errorsProof?.proofLink}
+                  placeholder="https://drive.google.com/your-proof"
+                />
+              </div>
+              <NavigationButtons
+                currentStep={currentStep}
+                totalSteps={totalSteps}
+                setCurrentStep={setCurrentStep}
+                showPrevious
+                buttonText={"Next"}
+              />
+            </Form>
+          </RenderIf>
+          <RenderIf when={currentStep === 4}>
+            <Form>
+              <div className="space-y-6">
+                {/* <FormField label="Submission Proof" /> */}
+                <FormButton text="Submit" />
+              </div>
+            </Form>
+          </RenderIf>
+          <RenderIf when={currentStep === 5}>
+            <Form
+              onSubmit={handleSubmitFile}
+              className="flex min-h-screen items-center justify-center bg-[red]"
+            >
+              <div className="space-y-6">
+                {/* <FormField label="Submission Proof" /> */}
+                <input ref={fileRef} type="file" accept="image/png, image/jpeg" />
+              </div>
+              <FormButton text="Submit" />
+            </Form>
+          </RenderIf>
           {/* <Form onSubmit={handleSubmitTeamLeader(onSubmit)}>
             {currentStep === 1 && (
               <TeamLeaderForm formData={formData} handleInputChange={handleInputChange} />

@@ -5,7 +5,7 @@ import { FormField } from "./FormCase";
 const TeamMemberForm = ({ register, index, error }) => {
   return (
     <div className="mb-8 rounded-lg border border-gray-200 p-6">
-      <h4 className="mb-4 text-lg font-medium text-gray-700">Member {index + 1}</h4>
+      <h4 className="mb-4 text-lg font-medium text-gray-700">Member {index}</h4>
       <div className="space-y-6">
         <FormField
           register={register("namaLengkap")}
