@@ -1,14 +1,13 @@
 // src/components/FormCaseComp.jsx
 "use client";
 
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { StepIndicator } from "./stepindicator";
 import StepLabels from "./steplabel";
 import { FormField, FormButton, Form } from "./FormCase";
 import TeamLeaderForm from "./FormTeamLeader";
 // import TeamMembersForm from "./teammemberform";
 import NavigationButtons from "./navbutton";
-import OtherStepsForm from "./otherstep";
 // Form
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -21,7 +20,11 @@ import { UtilsContext } from "@/contexts/UtilsContext";
 export function FormCaseComp() {
   // Form steps state
   const { toastNotify } = useContext(UtilsContext);
-  const [currentStep, setCurrentStep] = useState(4);
+  const [currentStep, setCurrentStep] = useState(1);
+  const [hidrate, setHidrate] = useState(false);
+  useEffect(() => {
+    setHidrate(true);
+  }, []);
   const totalSteps = 5;
   const headRef = useRef(null);
   const form = new FormData();
@@ -159,82 +162,91 @@ export function FormCaseComp() {
       <div className="container mx-auto pb-16">
         <div className="mx-auto max-w-3xl rounded-lg bg-white p-8">
           {/* Steps Indicator */}
-          <StepIndicator currentStep={currentStep} totalSteps={totalSteps} />
           {/* Step Labels */}
           {/* Form */}
-          <RenderIf when={currentStep === 1}>
-            <Form onSubmit={handleSubmitTeamLeader(onSubmitLeader)}>
-              <TeamLeaderForm register={registerTeamLeader} error={errorsTeamLeader} />
-              <FormButton />
-            </Form>
-          </RenderIf>
-          <RenderIf when={currentStep === 2}>
-            <Form onSubmit={handleSubmitTeamMember}>
-              <TeamMemberForm register={registerMember1} index={1} error={errorsMember1} />
-              <TeamMemberForm register={registerMember2} index={2} error={errorsMember2} />
-              <TeamMemberForm register={registerMember3} index={3} error={errorsMember3} />
-              <NavigationButtons
-                currentStep={currentStep}
-                totalSteps={totalSteps}
-                setCurrentStep={setCurrentStep}
-                showPrevious
-                buttonText={"Next"}
-              />
-            </Form>
-          </RenderIf>
-          <RenderIf when={currentStep === 3}>
-            <Form onSubmit={handleSubmitProof(onSubmitProof)}>
-              <div className="space-y-6">
-                <FormField
-                  label="Submission Proof"
-                  type="text"
-                  register={registerProof("proofLink")}
-                  error={errorsProof?.proofLink}
-                  placeholder="https://drive.google.com/your-proof"
-                />
-              </div>
-              <NavigationButtons
-                currentStep={currentStep}
-                totalSteps={totalSteps}
-                setCurrentStep={setCurrentStep}
-                showPrevious
-                buttonText={"Next"}
-              />
-            </Form>
-          </RenderIf>
-          <RenderIf when={currentStep === 4}>
-            <Form onSubmit={handleSubmitProof(onSubmitProof)}>
-              <div className="space-y-6">
-                <FormField
-                  label="Submission Proof"
-                  placeholder="Submit Proof Here!"
-                  register={registerProof("proofLink")}
-                  error={errorsProof?.proofLink}
-                />
-                <NavigationButtons
-                  currentStep={currentStep}
-                  totalSteps={totalSteps}
-                  setCurrentStep={setCurrentStep}
-                  showPrevious
-                  buttonText={"Next"}
-                />
-              </div>
-            </Form>
-          </RenderIf>
-          <RenderIf when={currentStep === 5}>
-            <Form onSubmit={handleSubmitFile}>
-              <div className="space-y-6">
-                <input ref={fileRef} type="file" accept="image/png, image/jpeg" />
-              </div>
-              <NavigationButtons
-                currentStep={currentStep}
-                totalSteps={totalSteps}
-                setCurrentStep={setCurrentStep}
-                showPrevious
-                buttonText={"Submit"}
-              />
-            </Form>
-          </RenderIf>
+          {!hidrate && (
+            <h4 className="flex w-full items-center justify-center text-center font-bold text-gray-600">
+              Loading...
+            </h4>
+          )}
+          {hidrate && (
+            <>
+              <StepIndicator currentStep={currentStep} totalSteps={totalSteps} />
+              <RenderIf when={currentStep === 1}>
+                <Form onSubmit={handleSubmitTeamLeader(onSubmitLeader)}>
+                  <TeamLeaderForm register={registerTeamLeader} error={errorsTeamLeader} />
+                  <FormButton />
+                </Form>
+              </RenderIf>
+              <RenderIf when={currentStep === 2}>
+                <Form onSubmit={handleSubmitTeamMember}>
+                  <TeamMemberForm register={registerMember1} index={1} error={errorsMember1} />
+                  <TeamMemberForm register={registerMember2} index={2} error={errorsMember2} />
+                  <TeamMemberForm register={registerMember3} index={3} error={errorsMember3} />
+                  <NavigationButtons
+                    currentStep={currentStep}
+                    totalSteps={totalSteps}
+                    setCurrentStep={setCurrentStep}
+                    showPrevious
+                    buttonText={"Next"}
+                  />
+                </Form>
+              </RenderIf>
+              <RenderIf when={currentStep === 3}>
+                <Form onSubmit={handleSubmitProof(onSubmitProof)}>
+                  <div className="space-y-6">
+                    <FormField
+                      label="Submission Proof"
+                      type="text"
+                      register={registerProof("proofLink")}
+                      error={errorsProof?.proofLink}
+                      placeholder="https://drive.google.com/your-proof"
+                    />
+                  </div>
+                  <NavigationButtons
+                    currentStep={currentStep}
+                    totalSteps={totalSteps}
+                    setCurrentStep={setCurrentStep}
+                    showPrevious
+                    buttonText={"Next"}
+                  />
+                </Form>
+              </RenderIf>
+              <RenderIf when={currentStep === 4}>
+                <Form onSubmit={handleSubmitProof(onSubmitProof)}>
+                  <div className="space-y-6">
+                    <FormField
+                      label="Submission Proof"
+                      placeholder="Submit Proof Here!"
+                      register={registerProof("proofLink")}
+                      error={errorsProof?.proofLink}
+                    />
+                    <NavigationButtons
+                      currentStep={currentStep}
+                      totalSteps={totalSteps}
+                      setCurrentStep={setCurrentStep}
+                      showPrevious
+                      buttonText={"Next"}
+                    />
+                  </div>
+                </Form>
+              </RenderIf>
+              <RenderIf when={currentStep === 5}>
+                <Form onSubmit={handleSubmitFile}>
+                  <div className="space-y-6">
+                    <input ref={fileRef} type="file" accept="image/png, image/jpeg" />
+                  </div>
+                  <NavigationButtons
+                    currentStep={currentStep}
+                    totalSteps={totalSteps}
+                    setCurrentStep={setCurrentStep}
+                    showPrevious
+                    buttonText={"Submit"}
+                  />
+                </Form>
+              </RenderIf>
+            </>
+          )}
         </div>
       </div>
     </section>

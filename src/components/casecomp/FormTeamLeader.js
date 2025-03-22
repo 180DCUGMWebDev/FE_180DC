@@ -27,7 +27,7 @@ const TeamLeaderForm = ({ register, error }) => {
       <FormField
         register={register("universitas")}
         label="University"
-        placeholder="..."
+        placeholder="Name of the University"
         error={error?.universitas}
       />
       <FormField

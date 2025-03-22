@@ -10,7 +10,7 @@ export const StepIndicator = ({ currentStep, totalSteps }) => {
         <div className="absolute z-[8] flex w-full justify-between md:px-6">
           {[...Array(totalSteps)].map((_, index) => (
             <div
-              key={JSON.stringify(_)}
+              key={JSON.stringify({ identifier: "step", index: index })}
               className={cn(
                 "flex aspect-square w-7 items-center justify-center rounded-full text-sm md:w-9",
                 index + 1 <= currentStep
@@ -40,7 +40,7 @@ export const StepIndicator = ({ currentStep, totalSteps }) => {
         <div className="absolute z-[7] flex w-full justify-between md:px-6">
           {[...Array(totalSteps - 1)].map((_, index) => (
             <div
-              key={JSON.stringify(_)}
+              key={JSON.stringify({ identifier: "label", index: index })}
               className={`h-0.5 w-[25%] ${index + 1 < currentStep ? "bg-green-500" : "bg-gray-300"}`}
             />
           ))}
