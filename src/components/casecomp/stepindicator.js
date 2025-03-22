@@ -1,9 +1,58 @@
 // src/components/StepIndicator.jsx
+import { cn } from "@/lilbs/utils";
 import React from "react";
 
-const StepIndicator = ({ currentStep, totalSteps }) => {
+export const StepIndicator = ({ currentStep, totalSteps }) => {
+  const steps = ["Leader", "Member", "Submission", "Proof", "Finish"];
   return (
-    <div className="mb-12 flex items-center justify-between px-4">
+    <>
+      <div className="relative mb-[5rem] mt-[1rem] flex items-center justify-between">
+        <div className="absolute z-[8] flex w-full justify-between md:px-6">
+          {[...Array(totalSteps)].map((_, index) => (
+            <div
+              key={JSON.stringify(_)}
+              className={cn(
+                "flex aspect-square w-7 items-center justify-center rounded-full text-sm md:w-9",
+                index + 1 <= currentStep
+                  ? "bg-green-500 text-white"
+                  : index + 1 < currentStep
+                    ? "bg-gray-300 text-gray-600"
+                    : "bg-gray-300 text-gray-600",
+              )}
+            >
+              <span>{index + 1}</span>
+              <div
+                className={cn(
+                  "absolute top-[130%]",
+                  index + 1 <= currentStep
+                    ? "text-green-500"
+                    : index + 1 < currentStep
+                      ? "text-gray-600"
+                      : "text-gray-600",
+                  index + 1 === currentStep && "font-bold",
+                )}
+              >
+                {steps[index]}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="absolute z-[7] flex w-full justify-between md:px-6">
+          {[...Array(totalSteps - 1)].map((_, index) => (
+            <div
+              key={JSON.stringify(_)}
+              className={`h-0.5 w-[25%] ${index + 1 < currentStep ? "bg-green-500" : "bg-gray-300"}`}
+            />
+          ))}
+        </div>
+      </div>
+    </>
+  );
+};
+
+/*
+
+  <div className="mb-12 flex items-center justify-between">
       {[...Array(totalSteps)].map((_, index) => (
         <div key={index} className="flex items-center">
           <div
@@ -19,13 +68,11 @@ const StepIndicator = ({ currentStep, totalSteps }) => {
           </div>
           {index < totalSteps - 1 && (
             <div
-              className={`mx-1 h-0.5 w-32 ${index + 1 < currentStep ? "bg-green-500" : "bg-gray-300"}`}
+              className={`h-0.5 w-[2.4rem] lg:w-[8.5rem] ${index + 1 < currentStep ? "bg-green-500" : "bg-gray-300"}`}
             />
           )}
         </div>
       ))}
     </div>
   );
-};
-
-export default StepIndicator;
+*/

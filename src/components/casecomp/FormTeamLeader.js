@@ -7,39 +7,39 @@ const TeamLeaderForm = ({ register, error }) => {
     <div className="space-y-6">
       <FormField
         register={register("namaLengkap")}
-        label="Nama Lengkap"
+        label="Full Name"
         placeholder="John Doe"
         error={error?.namaLengkap}
       />
       <FormField
         register={register("tanggalLahir")}
-        label="Tanggal Lahir"
+        label="Date of Birth"
         error={error?.tanggalLahir}
         placeholder="YYYY/MM/DD"
         type="date"
       />
       <FormField
         register={register("nomorHP")}
-        label="Nomor HP"
+        label="Phone Number"
         placeholder="Ex: +62 ...."
         error={error?.nomorHP}
       />
       <FormField
         register={register("universitas")}
-        label="Universitas"
+        label="University"
         placeholder="..."
         error={error?.universitas}
       />
       <FormField
         register={register("asalProvinsi")}
-        label="Asal Provinsi"
-        placeholder="Semua Provinsi"
+        label="Province of Origin"
+        placeholder="All Provinces"
         error={error?.asalProvinsi}
       />
       <FormField
         register={register("alamatLengkap")}
-        label="Alamat Lengkap"
-        placeholder="Alamat"
+        label="Full Address"
+        placeholder="Address"
         isTextarea={true}
         error={error?.alamatLengkap}
       />

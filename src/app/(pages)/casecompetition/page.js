@@ -1,6 +1,6 @@
 "use client";
 
-import { FormCaseComp } from "@/components/casecomp/formcasecomp";
+import { FormCaseComp } from "@/components/casecomp/FormCaseCompetition";
 
 export default function CaseComp() {
   return (

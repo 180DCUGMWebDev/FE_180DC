@@ -1,8 +1,8 @@
 // src/components/FormCaseComp.jsx
 "use client";
 
-import React, { useRef, useState } from "react";
-import StepIndicator from "./stepindicator";
+import React, { useContext, useRef, useState } from "react";
+import { StepIndicator } from "./stepindicator";
 import StepLabels from "./steplabel";
 import { FormField, FormButton, Form } from "./FormCase";
 import TeamLeaderForm from "./FormTeamLeader";
@@ -16,11 +16,14 @@ import { proofSchema, TeamLeaderSchema, TeamMemberSchema } from "@/lilbs/schema/
 import { zodResolver } from "@hookform/resolvers/zod";
 import RenderIf from "../global/RenderIf";
 import TeamMemberForm from "./FormTeamMember";
+import { UtilsContext } from "@/contexts/UtilsContext";
 
 export function FormCaseComp() {
   // Form steps state
-  const [currentStep, setCurrentStep] = useState(5);
+  const { toastNotify } = useContext(UtilsContext);
+  const [currentStep, setCurrentStep] = useState(4);
   const totalSteps = 5;
+  const headRef = useRef(null);
   const form = new FormData();
   // For Team Leader
   type TeamLeaderValues = z.infer<typeof TeamLeaderSchema>;
@@ -95,7 +98,6 @@ export function FormCaseComp() {
     register: registerProof,
     handleSubmit: handleSubmitProof,
     formState: { errors: errorsProof },
-    watch: watchProof,
   } = useForm<ProofValues>({
     resolver: zodResolver(proofSchema),
     defaultValues: {
@@ -107,6 +109,7 @@ export function FormCaseComp() {
     if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
     }
+    headRef?.current?.scrollIntoView({ behavior: "smooth" });
   };
   // Handle form submission
   const onSubmitLeader = async (data: TeamLeaderValues) => {
@@ -132,19 +135,20 @@ export function FormCaseComp() {
       await fetch("/api/register-case-competition", {
         method: "POST",
         body: form,
-      });
+      }).then(() => toastNotify("success", "Registration Successful!"));
     } catch (err) {
-      console.log(err);
+      toastNotify("error", "Registration Failed!");
     }
   };
   // Page
   return (
-    <section className="relative min-h-screen bg-black text-white">
+    <section ref={headRef} className="relative min-h-screen bg-black text-white">
       {/* Title Section */}
       <div className="container mx-auto py-12 text-center">
         <h1 className="mb-4 mt-[10vh] text-4xl font-bold">
-          <span className="text-green-500">Team</span>{" "}
-          <span className="text-blue-400">Registration</span>
+          <span className="bg-gradient-to-r from-green-500 to-blue-400 bg-clip-text text-transparent">
+            Team Registration
+          </span>
         </h1>
         <p className="mx-auto max-w-md text-gray-300">
           Faucibus tempor in condimentum suscipit diam. Rhoncus diam a felis nunc.
@@ -157,7 +161,6 @@ export function FormCaseComp() {
           {/* Steps Indicator */}
           <StepIndicator currentStep={currentStep} totalSteps={totalSteps} />
           {/* Step Labels */}
-          <StepLabels currentStep={currentStep} />
           {/* Form */}
           <RenderIf when={currentStep === 1}>
             <Form onSubmit={handleSubmitTeamLeader(onSubmitLeader)}>
@@ -200,40 +203,14 @@ export function FormCaseComp() {
             </Form>
           </RenderIf>
           <RenderIf when={currentStep === 4}>
-            <Form>
+            <Form onSubmit={handleSubmitProof(onSubmitProof)}>
               <div className="space-y-6">
-                {/* <FormField label="Submission Proof" /> */}
-                <FormButton text="Submit" />
-              </div>
-            </Form>
-          </RenderIf>
-          <RenderIf when={currentStep === 5}>
-            <Form
-              onSubmit={handleSubmitFile}
-              className="flex min-h-screen items-center justify-center bg-[red]"
-            >
-              <div className="space-y-6">
-                {/* <FormField label="Submission Proof" /> */}
-                <input ref={fileRef} type="file" accept="image/png, image/jpeg" />
-              </div>
-              <FormButton text="Submit" />
-            </Form>
-          </RenderIf>
-          {/* <Form onSubmit={handleSubmitTeamLeader(onSubmit)}>
-            {currentStep === 1 && (
-              <TeamLeaderForm formData={formData} handleInputChange={handleInputChange} />
-            )}
-
-            {currentStep === 2 && (
-              <div>
-                {formData.members.map((member, index) => (
-                  <TeamMembersForm
-                    key={index}
-                    member={member}
-                    index={index}
-                    handleMemberInputChange={handleMemberInputChange}
-                  />
-                ))}
+                <FormField
+                  label="Submission Proof"
+                  placeholder="Submit Proof Here!"
+                  register={registerProof("proofLink")}
+                  error={errorsProof?.proofLink}
+                />
                 <NavigationButtons
                   currentStep={currentStep}
                   totalSteps={totalSteps}
@@ -242,15 +219,22 @@ export function FormCaseComp() {
                   buttonText={"Next"}
                 />
               </div>
-            )}
-            {currentStep > 2 && (
-              <OtherStepsForm
+            </Form>
+          </RenderIf>
+          <RenderIf when={currentStep === 5}>
+            <Form onSubmit={handleSubmitFile}>
+              <div className="space-y-6">
+                <input ref={fileRef} type="file" accept="image/png, image/jpeg" />
+              </div>
+              <NavigationButtons
                 currentStep={currentStep}
                 totalSteps={totalSteps}
                 setCurrentStep={setCurrentStep}
+                showPrevious
+                buttonText={"Submit"}
               />
-            )}
-          </Form> */}
+            </Form>
+          </RenderIf>
         </div>
       </div>
     </section>

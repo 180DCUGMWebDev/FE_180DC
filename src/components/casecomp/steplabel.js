@@ -1,14 +1,19 @@
 // src/components/StepLabels.jsx
+import { cn } from "@/lilbs/utils";
 import React from "react";
 
 const StepLabels = ({ currentStep }) => {
+  const steps = ["Team leader", "Member", "Submission", "Proof", "Finish"];
   return (
-    <div className="flex justify-between mb-10 px-4 text-sm text-gray-600">
-      <div className={`text-center ${currentStep === 1 ? "text-green-500 font-medium" : ""}`}>Team leader</div>
-      <div className={`text-center ${currentStep === 2 ? "text-green-500 font-medium" : ""}`}>Member</div>
-      <div className={`text-center ${currentStep === 3 ? "text-green-500 font-medium" : ""}`}>Submission</div>
-      <div className={`text-center ${currentStep === 4 ? "text-green-500 font-medium" : ""}`}>Proof</div>
-      <div className={`text-center ${currentStep === 5 ? "text-green-500 font-medium" : ""}`}>Selesai</div>
+    <div className="mb-10 flex justify-between px-4 text-sm text-gray-600">
+      {steps.map((step, index) => (
+        <h4
+          key={JSON.stringify(step)}
+          className={cn("text-center", currentStep === index + 1 && "font-medium text-green-500")}
+        >
+          {step}
+        </h4>
+      ))}
     </div>
   );
 };
