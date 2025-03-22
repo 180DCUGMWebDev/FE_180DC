@@ -1,5 +1,8 @@
 import { z } from "zod";
 
+export const ACCEPTED_IMAGE_FORMATS = ["image/jpeg", "image/png", "image/jpg"];
+export const getFileSizeMb = (size) => size * 1024 * 1024; // 1 MB = 1024 KB = 1024 * 1024 bytes
+
 export const NamaSchema = z
   .string()
   .min(3, { message: "Full name must be at least 3 characters long!" })
@@ -46,6 +49,6 @@ export const TeamMemberSchema = z.object({
   alamatLengkap: AlamatLengkapSchema,
 });
 
-export const proofSchema = z.object({
+export const SubmissionSchema = z.object({
   proofLink: z.string().min(3).max(255),
 });

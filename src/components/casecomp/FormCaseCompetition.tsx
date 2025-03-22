@@ -3,38 +3,48 @@
 
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { StepIndicator } from "./stepindicator";
-import StepLabels from "./steplabel";
-import { FormField, FormButton, Form } from "./FormCase";
+import { FormField, FormButton, Form, FormFile } from "./FormCase";
 import TeamLeaderForm from "./FormTeamLeader";
 // import TeamMembersForm from "./teammemberform";
 import NavigationButtons from "./navbutton";
 // Form
-import { z } from "zod";
+import { set, z } from "zod";
 import { useForm } from "react-hook-form";
-import { proofSchema, TeamLeaderSchema, TeamMemberSchema } from "@/lilbs/schema/schema";
+import { getFileSizeMb, TeamLeaderSchema, TeamMemberSchema } from "@/lilbs/schema/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import RenderIf from "../global/RenderIf";
 import TeamMemberForm from "./FormTeamMember";
 import { UtilsContext } from "@/contexts/UtilsContext";
+import "./Form.css";
 
 export function FormCaseComp() {
   // Form steps state
   const { toastNotify } = useContext(UtilsContext);
   const [currentStep, setCurrentStep] = useState(1);
   const [hidrate, setHidrate] = useState(false);
+  const [currentSubmissionName, setCurrentSubmissionName] = useState("");
+  const [submissionError, setSubmissionError] = useState("");
+  const [currentProofName, setCurrentProofName] = useState("");
+  const [proofError, setProofError] = useState("");
+  const [currentData, setCurrentData] = useState({
+    teamLeader: null,
+    teamMembers: null,
+    submissionData: null,
+    proofData: null,
+  });
   useEffect(() => {
     setHidrate(true);
   }, []);
   const totalSteps = 5;
   const headRef = useRef(null);
-  const form = new FormData();
+  const proofRef = useRef(null);
+  const submissionRef = useRef(null);
   // For Team Leader
   type TeamLeaderValues = z.infer<typeof TeamLeaderSchema>;
   const {
     register: registerTeamLeader,
     handleSubmit: handleSubmitTeamLeader,
     formState: { errors: errorsTeamLeader },
-    watch: watchTeamLeader,
   } = useForm<TeamLeaderValues>({
     resolver: zodResolver(TeamLeaderSchema),
     defaultValues: {
@@ -96,18 +106,6 @@ export function FormCaseComp() {
     },
   });
 
-  type ProofValues = z.infer<typeof proofSchema>;
-  const {
-    register: registerProof,
-    handleSubmit: handleSubmitProof,
-    formState: { errors: errorsProof },
-  } = useForm<ProofValues>({
-    resolver: zodResolver(proofSchema),
-    defaultValues: {
-      proofLink: "",
-    },
-  });
-
   const goToNextStep = () => {
     if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
@@ -117,23 +115,76 @@ export function FormCaseComp() {
   // Handle form submission
   const onSubmitLeader = async (data: TeamLeaderValues) => {
     goToNextStep();
-    form.append("teamLeader", JSON.stringify(data));
+    setCurrentData((prev) => ({ ...prev, teamLeader: JSON.stringify(data) }));
+    // form.append("teamLeader", JSON.stringify(data));
   };
 
   const handleSubmitTeamMember = async () => {
     goToNextStep();
     const data = { member1: watchMember1(), member2: watchMember2(), member3: watchMember3() };
-    form.append("teamMembers", JSON.stringify(data));
+    // form.append("teamMembers", JSON.stringify(data));
+    setCurrentData((prev) => ({ ...prev, teamMembers: JSON.stringify(data) }));
   };
-  const onSubmitProof = async (data: ProofValues) => {
+  const onSubmitSubmission = (e) => {
+    e.preventDefault();
+    if (!submissionRef.current.files[0]) {
+      setSubmissionError("Submission File is Required!");
+      return;
+    }
+    const currentFile = submissionRef.current.files[0];
+    if (currentFile.size > getFileSizeMb(10)) {
+      setSubmissionError("Max file size is 10mb!");
+      return;
+    }
+    if (currentFile.type !== "application/pdf") {
+      setSubmissionError("File must be in PDF format!");
+      return;
+    }
     goToNextStep();
-    form.append("proofLink", data.proofLink);
+    setSubmissionError("");
+    setCurrentData((prev) => ({ ...prev, submissionData: submissionRef.current.files[0] }));
+    // form.append("submissionData", submissionRef.current.files[0]);
   };
 
-  const fileRef = useRef(null);
-  const handleSubmitFile = async (e) => {
+  const handleSubmissionChange = (e) => {
+    if (!e.target?.files[0]) setCurrentSubmissionName(null);
+    else setCurrentSubmissionName(e.target.files[0].name);
+  };
+
+  const onSubmitProof = (e) => {
     e.preventDefault();
-    form.append("proofData", fileRef.current.files[0]);
+    if (!proofRef.current.files[0]) {
+      setProofError("Proof File is Required!");
+      return;
+    }
+    const currentFile = proofRef.current.files[0];
+    if (currentFile.size > getFileSizeMb(10)) {
+      setProofError("Max file size is 10mb!");
+      return;
+    }
+    if (!["application/pdf", "image/png", "image/jpeg"].includes(currentFile.type)) {
+      setProofError("File must be in PDF, PNG, or JPEG format!");
+      return;
+    }
+    goToNextStep();
+    setProofError("");
+    setCurrentData((prev) => ({ ...prev, proofData: proofRef.current.files[0] }));
+    // form.append("proofData", proofRef.current.files[0]);
+  };
+
+  const handleProofChange = (e) => {
+    if (!e.target?.files[0]) setCurrentProofName(null);
+    else setCurrentProofName(e.target.files[0].name);
+  };
+
+  const handleSubmitFile = async (e) => {
+    const { teamLeader, teamMembers, submissionData, proofData } = currentData;
+    const form = new FormData();
+    form.append("teamLeader", teamLeader);
+    form.append("teamMembers", teamMembers);
+    form.append("submissionData", submissionData);
+    form.append("proofData", proofData);
+    e.preventDefault();
     try {
       await fetch("/api/register-case-competition", {
         method: "POST",
@@ -193,16 +244,16 @@ export function FormCaseComp() {
                 </Form>
               </RenderIf>
               <RenderIf when={currentStep === 3}>
-                <Form onSubmit={handleSubmitProof(onSubmitProof)}>
-                  <div className="space-y-6">
-                    <FormField
-                      label="Submission Proof"
-                      type="text"
-                      register={registerProof("proofLink")}
-                      error={errorsProof?.proofLink}
-                      placeholder="https://drive.google.com/your-proof"
-                    />
-                  </div>
+                <Form onSubmit={onSubmitSubmission}>
+                  <FormFile
+                    ref={submissionRef}
+                    currentState={currentSubmissionName}
+                    error={submissionError}
+                    label="Submission PDF"
+                    tag="submission"
+                    accept="application/pdf"
+                    onChange={handleSubmissionChange}
+                  />
                   <NavigationButtons
                     currentStep={currentStep}
                     totalSteps={totalSteps}
@@ -213,35 +264,33 @@ export function FormCaseComp() {
                 </Form>
               </RenderIf>
               <RenderIf when={currentStep === 4}>
-                <Form onSubmit={handleSubmitProof(onSubmitProof)}>
-                  <div className="space-y-6">
-                    <FormField
-                      label="Submission Proof"
-                      placeholder="Submit Proof Here!"
-                      register={registerProof("proofLink")}
-                      error={errorsProof?.proofLink}
-                    />
-                    <NavigationButtons
-                      currentStep={currentStep}
-                      totalSteps={totalSteps}
-                      setCurrentStep={setCurrentStep}
-                      showPrevious
-                      buttonText={"Next"}
-                    />
-                  </div>
-                </Form>
-              </RenderIf>
-              <RenderIf when={currentStep === 5}>
-                <Form onSubmit={handleSubmitFile}>
-                  <div className="space-y-6">
-                    <input ref={fileRef} type="file" accept="image/png, image/jpeg" />
-                  </div>
+                <Form onSubmit={onSubmitProof}>
+                  <FormFile
+                    ref={proofRef}
+                    currentState={currentProofName}
+                    error={proofError}
+                    label="Payment Proof"
+                    tag="proof"
+                    accept="application/pdf, image/png, image/jpeg"
+                    onChange={handleProofChange}
+                  />
                   <NavigationButtons
                     currentStep={currentStep}
                     totalSteps={totalSteps}
                     setCurrentStep={setCurrentStep}
                     showPrevious
-                    buttonText={"Submit"}
+                    buttonText={"Next"}
+                  />
+                </Form>
+              </RenderIf>
+              <RenderIf when={currentStep === 5}>
+                <Form onSubmit={handleSubmitFile}>
+                  <NavigationButtons
+                    currentStep={currentStep}
+                    totalSteps={totalSteps}
+                    setCurrentStep={setCurrentStep}
+                    showPrevious
+                    buttonText={"Register"}
                   />
                 </Form>
               </RenderIf>

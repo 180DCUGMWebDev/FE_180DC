@@ -4,7 +4,18 @@ import { GetJWTAuth, saveFileToDrive, uploadData } from "./utils";
 
 export async function POST(request) {
   try {
-    saveFileToDrive("test.pdf", request);
+    // Dapatkan nama file
+    // Dapatkan nama tim leader
+    // Generate Date
+    const currentTime = new Date().toLocaleString("id-ID", {
+      timeZone: "Asia/Jakarta",
+    });
+
+    const form = await request.formData();
+    const teamLeader = JSON.parse(form.get("teamLeader"));
+    console.log(teamLeader.namaLengkap);
+    const fileBaseName = `${teamLeader.namaLengkap} - ${currentTime}`;
+    // saveFileToDrive("test.pdf", request);
     // const { data, target } = await request.json();
     // const serviceAccountAuth = GetJWTAuth();
     // const doc = new GoogleSpreadsheet(
