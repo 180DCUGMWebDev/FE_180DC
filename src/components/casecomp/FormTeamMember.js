@@ -14,36 +14,35 @@ const TeamMemberForm = ({ register, index, error }) => {
           error={error?.namaLengkap}
         />
         <FormField
-          register={register("tanggalLahir")}
-          label="Date of Birth"
-          error={error?.tanggalLahir}
-          placeholder="YYYY/MM/DD"
-          type="date"
-        />
-        <FormField
-          register={register("nomorHP")}
-          label="Phone Number"
-          placeholder="Ex: +62 ...."
-          error={error?.nomorHP}
-        />
-        <FormField
           register={register("universitas")}
           label="University"
           placeholder="Name of the University"
           error={error?.universitas}
         />
         <FormField
-          register={register("asalProvinsi")}
-          label="Province of Origin"
-          placeholder="All Provinces"
-          error={error?.asalProvinsi}
+          register={register("prodi")}
+          label="Major"
+          error={error?.prodi}
+          placeholder="Name of the Major"
         />
         <FormField
-          register={register("alamatLengkap")}
-          label="Full Address"
-          placeholder="Address"
-          isTextarea={true}
-          error={error?.alamatLengkap}
+          register={register("batch")}
+          label="Batch"
+          placeholder="Insert Batch Year"
+          error={error?.batch}
+        />
+
+        <FormField
+          register={register("email")}
+          label="Email Address"
+          placeholder="Insert Email Address"
+          error={error?.email}
+        />
+        <FormField
+          register={register("nomorHP")}
+          label="Phone Number"
+          placeholder="Ex: +62..."
+          error={error?.nomorHP}
         />
       </div>
     </div>

@@ -3,7 +3,7 @@ import { cn } from "@/lilbs/utils";
 import React from "react";
 
 export const StepIndicator = ({ currentStep, totalSteps }) => {
-  const steps = ["Leader", "Member", "Submission", "Proof", "Finish"];
+  const steps = ["Leader", "Member", "Proof", "Finish"];
   return (
     <>
       <div className="relative mb-[5rem] mt-[1rem] flex items-center justify-between">
@@ -41,7 +41,7 @@ export const StepIndicator = ({ currentStep, totalSteps }) => {
           {[...Array(totalSteps - 1)].map((_, index) => (
             <div
               key={JSON.stringify({ identifier: "label", index: index })}
-              className={`h-0.5 w-[25%] ${index + 1 < currentStep ? "bg-green-500" : "bg-gray-300"}`}
+              className={`h-0.5 w-[33%] ${index + 1 < currentStep ? "bg-green-500" : "bg-gray-300"}`}
             />
           ))}
         </div>

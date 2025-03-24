@@ -1,8 +1,16 @@
 const nodemailer = require("nodemailer");
 const moment = require("moment");
 import { JWT } from "google-auth-library";
-import { google } from "googleapis";
 import { Readable } from "stream";
+
+export const driveFolderId = {
+  follow: "1bAO4V4XZbjPwu8ia3U_cFZPnzCgjAye7",
+  idCard: "12pGo8aZw2xTNCzzQvtd433O4-xBs0Dn5",
+  mention: "1_2XlWentZZgZbbMDfa8AWtCrWzgfF8gN",
+  repost: "1Cm4y6_x010wiDtls4aTkNz1wq-06eY8f",
+  twibbon: "1MKnaE7NmKj-97G-1xIsBWt04JtuCKbWL",
+  spreadsheet: "148GTn7i0hOgopzOPpHwyIV69MxZXE7f2-4tgaUV0_4E",
+};
 
 export const GetJWTAuth = async () => {
   const auth = new JWT({
@@ -11,28 +19,39 @@ export const GetJWTAuth = async () => {
     scopes: [
       "https://www.googleapis.com/auth/spreadsheets",
       "https://www.googleapis.com/auth/drive.file",
+      "https://www.googleapis.com/auth/drive",
     ],
   });
   return auth;
 };
 
-export const uploadData = async (data, sheet) => {
+export const uploadData = async (sheet, teamLeader, teamMember, link) => {
   try {
     await sheet.addRow({
       timestamp: moment().startOf("second").format("YYYY-MM-DD HH:mm:ss").toString(),
-      name: data[0].answer,
-      position: data[1].answer,
-      email: data[2].answer,
-      phone: data[3].answer,
-      entity_name: data[4].answer,
-      entity_loc: data[5].answer,
-      entity_social: data[6].answer,
-      entity_background: data[7].answer,
-      entity_length: data[8].answer,
-      entity_size: data[9].answer,
-      scope: data[10].answer,
-      outcome: data[11].answer,
-      info_source: data[12].answer,
+      "Leader's Name": teamLeader.namaLengkap,
+      "Leader's University": teamLeader.universitas,
+      "Leader's Major": teamLeader.prodi,
+      "Leader's Batch": teamLeader.batch,
+      "Leader's Email": teamLeader.email,
+      "Leader's Phone": teamLeader.nomorHP,
+      "1st Member's Name": teamMember[0].namaLengkap,
+      "1st Member's University": teamMember[0].universitas,
+      "1st Member's Major": teamMember[0].prodi,
+      "1st Member's Batch": teamMember[0].batch,
+      "1st Member's Email": teamMember[0].email,
+      "1st Member's Phone": teamMember[0].nomorHP,
+      "2nd Member's Name": teamMember[1].namaLengkap,
+      "2nd Member's University": teamMember[1].universitas,
+      "2nd Member's Major": teamMember[1].prodi,
+      "2nd Member's Batch": teamMember[1].batch,
+      "2nd Member's Email": teamMember[1].email,
+      "2nd Member's Phone": teamMember[1].nomorHP,
+      "ID Card": link.idCard,
+      Follow: link.follow,
+      Mention: link.mention,
+      Repost: link.repost,
+      Twibbon: link.twibbon,
     });
   } catch (error) {
     console.error("Failed to upload data:", error);
@@ -40,9 +59,9 @@ export const uploadData = async (data, sheet) => {
   }
 };
 
-export const saveFileToDrive = async (fileName, request) => {
-  const form = await request.formData();
-  const file = form.get("proofData");
+export const saveFileToDrive = async (fileName, column, drive, form) => {
+  const file = form.get(column);
+  console.log("FILE", file);
 
   if (!file) {
     throw new Error("File not found");
@@ -50,19 +69,46 @@ export const saveFileToDrive = async (fileName, request) => {
 
   const arrayBuffer = await file.arrayBuffer();
   const buffer = Buffer.from(arrayBuffer);
+  console.log("BUFFER LENGTH:", buffer.length);
 
   const stream = new Readable();
   stream.push(buffer);
   stream.push(null); // Akhiri stream
-
-  //   Initilize Google Drive API
-  const auth = await GetJWTAuth();
-  const drive = google.drive({ version: "v3", auth });
+  console.log("STREAM READABLE:", stream.readable);
 
   //   Prepare file metadata
+  const extension = file.name.split(".").pop();
+
+  console.log("DRIVE: ", driveFolderId[column]);
+  console.log("name: ", `${fileName}.${extension}`);
+
+  const folderId = driveFolderId[column];
+  if (!folderId) {
+    throw new Error("Google Drive folder ID is missing or invalid");
+  }
+  console.log("DRIVE FOLDER ID:", folderId);
+
+  // check wheter folder exist or not
+  try {
+    const response = await drive.files.get({
+      fileId: folderId,
+      fields: "id, name", // Only fetch the ID and name to reduce response size
+    });
+
+    console.log("Folder exists:", response.data);
+    return true; // Folder exists
+  } catch (error) {
+    if (error.code === 404) {
+      console.log("Folder does not exist.");
+      return false; // Folder does not exist
+    }
+    console.error("Error checking folder:", error);
+    throw error; // Handle other errors
+  }
+
   const fileMetadata = {
-    name: fileName,
-    parents: ["12njAYopcsE6-fhsHdz6jVjEyVd1oY2pj"], // Diisi sama folder ID yang diinginkan
+    name: `${fileName}.${extension}`,
+    parents: [folderId], // Diisi sama folder ID yang diinginkan
   };
 
   //   Jenis file yang dikirim
@@ -79,6 +125,7 @@ export const saveFileToDrive = async (fileName, request) => {
       media: media,
       fields: "id",
     });
+    console.log("FILE UPLOADED SUCCESSFULLY. FILE ID:", uploadedFile.data.id);
   } catch (error) {
     console.error("Failed to upload file:", error);
     throw new Error("Failed to upload file");
@@ -99,6 +146,9 @@ export const saveFileToDrive = async (fileName, request) => {
     console.error("Failed to share file:", error);
     throw new Error("Failed to share file");
   }
+
+  //  Return link file
+  return `https://drive.google.com/uc?id=${uploadedFile.data.id}`;
 };
 
 export const uploadSubscribe = async (data, sheet) => {

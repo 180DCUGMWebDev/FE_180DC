@@ -31,24 +31,35 @@ export const AlamatLengkapSchema = z
   .min(3, { message: "Full address must be at least 3 characters long!" })
   .max(255, { message: "Full address must be at most 255 characters long!" });
 
-export const TeamLeaderSchema = z.object({
-  namaLengkap: NamaSchema,
-  tanggalLahir: TanggalLahirSchema,
-  nomorHP: NomorHPSchema,
-  universitas: UniversitasSchema,
-  asalProvinsi: AsalProvinsiSchema,
-  alamatLengkap: AlamatLengkapSchema,
-});
+export const ProdiSchema = z
+  .string()
+  .min(3, { message: "Major must be at least 3 characters long!" })
+  .max(255, { message: "Major must be at most 255 characters long!" });
 
-export const TeamMemberSchema = z.object({
-  namaLengkap: NamaSchema,
-  tanggalLahir: TanggalLahirSchema,
-  nomorHP: NomorHPSchema,
-  universitas: UniversitasSchema,
-  asalProvinsi: AsalProvinsiSchema,
-  alamatLengkap: AlamatLengkapSchema,
+export const BatchSchema = z.string().regex(/^\d{4}$/, {
+  message: "Batch must be a 4-digit number!",
 });
 
 export const SubmissionSchema = z.object({
   proofLink: z.string().min(3).max(255),
+});
+
+export const EmailSchema = z.string().email({ message: "Email address is not valid!" });
+
+export const TeamLeaderSchema = z.object({
+  namaLengkap: NamaSchema,
+  universitas: UniversitasSchema,
+  prodi: ProdiSchema,
+  batch: BatchSchema,
+  email: EmailSchema,
+  nomorHP: NomorHPSchema,
+});
+
+export const TeamMemberSchema = z.object({
+  namaLengkap: NamaSchema,
+  universitas: UniversitasSchema,
+  prodi: ProdiSchema,
+  batch: BatchSchema,
+  email: EmailSchema,
+  nomorHP: NomorHPSchema,
 });
