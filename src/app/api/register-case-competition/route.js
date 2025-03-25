@@ -9,30 +9,9 @@ export async function POST(request) {
     const drive = google.drive({ version: "v3", auth });
     const form = await request.formData();
 
-    // check wheter folder exist or not
-    try {
-      const response = await drive.files.get({
-        fileId: driveFolderId.idCard,
-        fields: "id, name", // Only fetch the ID and name to reduce response size
-      });
-
-      console.log(response.data);
-
-      console.log("Folder exists:", response.data);
-      return true; // Folder exists
-    } catch (error) {
-      if (error.code === 404) {
-        console.log("Folder does not exist.");
-        return false; // Folder does not exist
-      }
-      console.error("Error checking folder:", error);
-      throw error; // Handle other errors
-    }
-
     const teamLeader = JSON.parse(form.get("teamLeader"));
     const teamMember = JSON.parse(form.get("teamMembers"));
 
-    console.log(teamMember);
     const formattedDate = new Date()
       .toISOString()
       .replace(/:/g, "-") // Menghindari karakter tidak valid
@@ -47,7 +26,8 @@ export async function POST(request) {
 
     const doc = new GoogleSpreadsheet(driveFolderId.spreadsheet, auth);
     await doc.loadInfo();
-    const sheet = doc.sheetsByTitle["Data"];
+    const target = "Data";
+    const sheet = doc.sheetsByTitle[target];
     if (!sheet) {
       throw new Error(`Sheet with title "${target}" not found`);
     }

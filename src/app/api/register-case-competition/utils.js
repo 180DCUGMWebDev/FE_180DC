@@ -4,12 +4,12 @@ import { JWT } from "google-auth-library";
 import { Readable } from "stream";
 
 export const driveFolderId = {
-  follow: "1bAO4V4XZbjPwu8ia3U_cFZPnzCgjAye7",
-  idCard: "12pGo8aZw2xTNCzzQvtd433O4-xBs0Dn5",
-  mention: "1_2XlWentZZgZbbMDfa8AWtCrWzgfF8gN",
-  repost: "1Cm4y6_x010wiDtls4aTkNz1wq-06eY8f",
-  twibbon: "1MKnaE7NmKj-97G-1xIsBWt04JtuCKbWL",
-  spreadsheet: "148GTn7i0hOgopzOPpHwyIV69MxZXE7f2-4tgaUV0_4E",
+  follow: "1miiYf9kIuXems8nb4NvSxhJwpDycclm1",
+  idCard: "1N8WL6PlYekVJoZkEt1FIMPKGLki1xkC7",
+  mention: "1qIpYsukeS2QUpSP22_SLdV2T4gNRkGf4",
+  repost: "1kfpWnBI5kef6-9lXPgNK9xGHXUqM5WmF",
+  twibbon: "1rsf6jzYrO-bc-CQZSEZZZ231rn4Tp0o5",
+  spreadsheet: "1e2CSou81IKNyoi4UZ11UVpBWVwMB1gsqN4yiVnPQ2qM",
 };
 
 export const GetJWTAuth = async () => {
@@ -54,14 +54,12 @@ export const uploadData = async (sheet, teamLeader, teamMember, link) => {
       Twibbon: link.twibbon,
     });
   } catch (error) {
-    console.error("Failed to upload data:", error);
     throw new Error("Failed to upload data");
   }
 };
 
 export const saveFileToDrive = async (fileName, column, drive, form) => {
   const file = form.get(column);
-  console.log("FILE", file);
 
   if (!file) {
     throw new Error("File not found");
@@ -69,41 +67,17 @@ export const saveFileToDrive = async (fileName, column, drive, form) => {
 
   const arrayBuffer = await file.arrayBuffer();
   const buffer = Buffer.from(arrayBuffer);
-  console.log("BUFFER LENGTH:", buffer.length);
 
   const stream = new Readable();
   stream.push(buffer);
   stream.push(null); // Akhiri stream
-  console.log("STREAM READABLE:", stream.readable);
 
   //   Prepare file metadata
   const extension = file.name.split(".").pop();
 
-  console.log("DRIVE: ", driveFolderId[column]);
-  console.log("name: ", `${fileName}.${extension}`);
-
   const folderId = driveFolderId[column];
   if (!folderId) {
     throw new Error("Google Drive folder ID is missing or invalid");
-  }
-  console.log("DRIVE FOLDER ID:", folderId);
-
-  // check wheter folder exist or not
-  try {
-    const response = await drive.files.get({
-      fileId: folderId,
-      fields: "id, name", // Only fetch the ID and name to reduce response size
-    });
-
-    console.log("Folder exists:", response.data);
-    return true; // Folder exists
-  } catch (error) {
-    if (error.code === 404) {
-      console.log("Folder does not exist.");
-      return false; // Folder does not exist
-    }
-    console.error("Error checking folder:", error);
-    throw error; // Handle other errors
   }
 
   const fileMetadata = {
@@ -125,9 +99,7 @@ export const saveFileToDrive = async (fileName, column, drive, form) => {
       media: media,
       fields: "id",
     });
-    console.log("FILE UPLOADED SUCCESSFULLY. FILE ID:", uploadedFile.data.id);
   } catch (error) {
-    console.error("Failed to upload file:", error);
     throw new Error("Failed to upload file");
   }
 
@@ -143,12 +115,11 @@ export const saveFileToDrive = async (fileName, column, drive, form) => {
       resource: permission,
     });
   } catch (error) {
-    console.error("Failed to share file:", error);
     throw new Error("Failed to share file");
   }
 
   //  Return link file
-  return `https://drive.google.com/uc?id=${uploadedFile.data.id}`;
+  return `https://drive.google.com/file/d/${uploadedFile.data.id}/preview`;
 };
 
 export const uploadSubscribe = async (data, sheet) => {
@@ -176,7 +147,6 @@ export const uploadSubscribe = async (data, sheet) => {
 
     await sendEmail({ email: data });
   } catch (error) {
-    console.error("Failed to upload subscription:", error);
     throw new Error("Failed to upload subscription");
   }
 };

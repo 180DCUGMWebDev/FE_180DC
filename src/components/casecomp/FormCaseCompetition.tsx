@@ -234,6 +234,8 @@ export function FormCaseComp() {
     else setCurrentTwibbon(e.target.files[0].name);
   };
 
+  const [done, setDone] = useState(false);
+
   const handleSubmitFile = async (e) => {
     const { teamLeader, teamMembers, idCard, follow, mention, repost, twibbon } = currentData;
     const form = new FormData();
@@ -249,7 +251,9 @@ export function FormCaseComp() {
       await fetch("/api/register-case-competition", {
         method: "POST",
         body: form,
-      }).then(() => toastNotify("success", "Registration Successful!"));
+      })
+        .then(() => toastNotify("success", "Registration Successful!"))
+        .then(() => setDone(true));
     } catch (err) {
       toastNotify("error", "Registration Failed!");
     }
@@ -362,8 +366,15 @@ export function FormCaseComp() {
                 <Form onSubmit={handleSubmitFile}>
                   <div className="text-center">
                     <p className="mb-4 text-gray-700">
-                      Please review all the information you have entered. <br />
-                      Press <strong>Register</strong> to confirm your registration.
+                      {done ? (
+                        <>Registration Succesfull!</>
+                      ) : (
+                        <>
+                          {" "}
+                          Please review all the information you have entered. <br />
+                          Press <strong>Register</strong> to confirm your registration.
+                        </>
+                      )}
                     </p>
                   </div>
                   <NavigationButtons
