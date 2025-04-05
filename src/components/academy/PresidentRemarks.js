@@ -31,19 +31,19 @@ export default function PresidentRemarks() {
             </h1>
           </div>
           <div>
-            <div className="w-full">
+            {/* <div className="w-full">
               <h1 className="absolute right-[52.5vw] top-[25vw] z-[3] flex flex-col font-avenirBlack text-[1.042vw] text-lightWhite">
                 Beatrice&nbsp;Sarah
               </h1>
               <h1 className="absolute right-[52.5vw] top-[26.2vw] z-[3] flex flex-col font-avenirRegular text-[1.042vw] text-lightWhite">
                 President&nbsp;of&nbsp;180DC&nbsp;UGM&nbsp;23.24
               </h1>
-            </div>
+            </div> */}
             <div></div>
           </div>
           <div className="z-[2] overflow-clip rounded-3xl">
             <ReactPlayer
-              url={"https://www.youtube.com/watch?v=zkgZ5LiRiZA"}
+              url={"https://youtu.be/ZKh_RqXU81U"}
               controls={true}
               light={true}
               width="50.833vw"
@@ -61,7 +61,7 @@ export default function PresidentRemarks() {
           </div>
           <div className="overflow-clip rounded-3xl">
             <ReactPlayer
-              url={"https://www.youtube.com/watch?v=zkgZ5LiRiZA"}
+              url={"https://youtu.be/ZKh_RqXU81U"}
               controls={true}
               light={true}
               height="48vw"
@@ -70,12 +70,12 @@ export default function PresidentRemarks() {
           </div>
           <div className="relative h-[10.556vw] w-[85vw] pb-[10vw] text-start">
             <div className="bg-gradient-to-r from-[#58B9D1] to-[#6FAA26] bg-clip-text pt-[2vw] font-avenirRegular text-[3.333vw]/[3vw] text-transparent">
-              <h1 className="flex flex-col font-avenirBlack text-lightWhite">
+              {/* <h1 className="flex flex-col font-avenirBlack text-lightWhite">
                 Beatrice&nbsp;Sarah
               </h1>
               <h1 className="flex flex-col font-avenirRegular text-lightWhite">
                 President&nbsp;of&nbsp;180DC&nbsp;UGM&nbsp;23.24
-              </h1>
+              </h1> */}
             </div>
           </div>
         </div>

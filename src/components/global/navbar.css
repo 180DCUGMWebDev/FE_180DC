@@ -1,0 +1,60 @@
+.storeChild {
+  opacity: 0;
+  transition-duration: 1000;
+  animation-timing-function: ease-in-out;
+}
+
+.storeParent:hover > .storeChild {
+  opacity: 100;
+}
+
+.storeChildMobile {
+  opacity: 1;
+}
+
+.storeParentMobile:hover > .storeChildMobile {
+  opacity: 1;
+  transition-duration: 1000;
+  animation-timing-function: ease-in-out;
+}
+
+.eventChild {
+  opacity: 0;
+  transition-duration: 1000;
+  animation-timing-function: ease-in-out;
+}
+
+.eventParent:hover > .eventChild {
+  opacity: 100;
+}
+
+.eventChildMobile {
+  opacity: 1;
+}
+
+.eventParentMobile:hover > .eventChildMobile {
+  opacity: 1;
+  transition-duration: 1000;
+  animation-timing-function: ease-in-out;
+}
+
+
+.telescopeChild {
+  opacity: 0;
+  transition-duration: 1000;
+  animation-timing-function: ease-in-out;
+}
+
+.telescopeParent:hover > .telescopeChild {
+  opacity: 100;
+}
+
+.telescopeChildMobile {
+  opacity: 1;
+}
+
+.telescopeParentMobile:hover > .telescopeChildMobile {
+  opacity: 1;
+  transition-duration: 1000;
+  animation-timing-function: ease-in-out;
+}

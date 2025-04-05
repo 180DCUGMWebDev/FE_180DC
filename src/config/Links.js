@@ -4,9 +4,27 @@ export const navLinks = {
   "About Us": "/aboutus",
   "Our Clients": "/portofolio",
   Store: "/store/casebook",
+  Event: "/cycle2oprec",
   Academy: "/academy",
   Telescope: "/telescope",
 };
+
+// store
+export const childLink = {
+  Store: {
+    Casebook: "/store/casebook",
+    // Merch: "/store/merch",
+  },
+  Event: {
+    Bootcamp: "/bootcamp",
+    "Cycle 2": "/cycle2oprec",
+  },
+  Telescope: {
+    Article: "/telescope",
+    "Industrial Report": "/industrialreport",
+  },
+};
+
 // Internal Links
 export const intLinks = {
   Apply: "/apply",

@@ -43,13 +43,13 @@ export function Hero({ contactRef }) {
                 <Button
                   color="green"
                   text="Consult Now!"
-                  addClass="w-full h-fit py-2 lg:py-3 text-sm sm:text-base lg:text-lg"
+                  addClass="w-full h-fit py-2 lg:py-3 text-sm sm:text-base lg:text-lg transition-all duration-500 hover:scale-110 hover:bg-gray-800 hover:text-white"
                 />
               </Link>
               <Button
                 color="green"
                 text="Contact Us"
-                addClass="w-[30%] h-fit py-3 text-lg max-lg:hidden"
+                addClass="w-[30%] h-fit py-3 text-lg max-lg:hidden transition-all duration-500 hover:scale-110 hover:bg-gray-800 hover:text-white"
                 action={() => contactRef.current.scrollIntoView({ behavior: "smooth" })}
               />
             </div>
@@ -123,13 +123,17 @@ export function Hero({ contactRef }) {
               </div>
             </div>
             <Link href="/aboutus" className="w-[15%] max-lg:hidden">
-              <Button color="black" text="Read More" addClass="w-full h-fit py-3 text-lg" />
+              <Button
+                color="black"
+                text="Read More"
+                addClass="w-full h-fit py-3 text-lg transition-all duration-500 hover:scale-110 hover:bg-gray-800 hover:text-white"
+              />
             </Link>
             <Link href="/aboutus" className="w-[40%] lg:hidden">
               <Button
                 color="green"
                 text="Read More"
-                addClass="w-full h-fit py-2 text-sm sm:text-base"
+                addClass="w-full h-fit py-2 text-sm sm:text-base transition-all duration-500 hover:scale-110 hover:bg-gray-800 hover:text-white"
               />
             </Link>
           </div>

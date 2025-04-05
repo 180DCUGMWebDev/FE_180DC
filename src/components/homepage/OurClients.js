@@ -8,7 +8,7 @@ export function OurClients() {
   return (
     <section className="flex flex-col justify-between">
       {/* Our Previous Clients */}
-      <div className="relative h-fit w-[96%] max-lg:py-7 lg:h-[30vh]">
+      <div className="relative mt-[3vw] h-fit w-[96%] max-lg:py-7 lg:h-[30vh]">
         <Image
           src="/img/homepage/clients.png"
           alt="Clients"
@@ -29,7 +29,7 @@ export function OurClients() {
                   <AiOutlineArrowRight />
                 </>
               }
-              addClass="w-full h-fit py-3 text-xl flex justify-between items-center px-10"
+              addClass="w-full h-fit py-3 text-xl flex justify-between items-center px-10 transition-all duration-500 hover:scale-110 hover:bg-gray-800 hover:text-white"
             />
           </Link>
           <Link href="/portofolio" className="w-fit lg:hidden">
@@ -53,31 +53,40 @@ export function OurClients() {
           data-gsap="up-stagger"
           className="flex items-center gap-[20px] max-lg:flex-col lg:h-[38vh] lg:gap-[56px]"
         >
-          <div className="flex h-full w-full flex-1 items-center overflow-hidden rounded-lg max-lg:max-h-[38vh]">
+          <Link
+            className="group relative flex h-full w-full flex-1 items-center overflow-hidden rounded-lg max-lg:max-h-[38vh]"
+            href="/telescope/oersonalization-why-brand-knows-you-better-than-your-bestie"
+          >
             <Image
-              src="/img/homepage/telescope.png"
+              src="/img/homepage/Website_Cover.png"
               alt="Telescope"
               width={1000}
               height={1000}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
-          </div>
-          <div className="flex h-full w-full flex-1 items-center overflow-hidden rounded-lg max-lg:max-h-[38vh]">
+            <div className="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+          </Link>
+          <Link
+            className="group relative flex h-full w-full flex-1 items-center overflow-hidden rounded-lg max-lg:max-h-[38vh]"
+            href="/telescope/Fintech-Supporting-The-Economic-of-Indonesia"
+          >
             <Image
-              src="/img/homepage/newsletter.png"
+              src="/img/homepage/Cover_article.png"
               alt="Newsletter"
               width={1000}
               height={1000}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
-          </div>
+            <div className="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+          </Link>
           <Link href="/telescope">
             <Button
               color="black"
               text={<HiOutlineArrowUpRight />}
-              addClass="w-fit h-fit rounded-full p-[6px] text-2xl max-lg:hidden"
+              addClass="w-fit h-fit rounded-full p-[6px] text-2xl max-lg:hidden transition-transform duration-300 hover:scale-110 hover:bg-gray-800 hover:text-white"
             />
           </Link>
+
           <Link href="/telescope">
             <Button
               color="green"

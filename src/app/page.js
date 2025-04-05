@@ -10,7 +10,6 @@ export default function Home() {
       <Hero contactRef={contactRef} />
       <OurClients />
       <LookForward theme="dark" />
-      <div ref={contactRef} />
     </main>
   );
 }

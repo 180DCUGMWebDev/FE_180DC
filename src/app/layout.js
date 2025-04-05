@@ -4,15 +4,16 @@ import "./globals.css";
 // Import Components
 import Navbar from "@/components/global/Navbar";
 import Footer from "@/components/global/Footer";
-import { ToastContainer } from "react-toastify";
+
 import TooSmall from "@/components/misc/TooSmall";
 import Script from "next/script";
 import LocomotiveProvider from "@/contexts/LocomotiveContext";
 import GSAPProvider from "@/contexts/GSAPContext";
+import UtilsProvider from "@/contexts/UtilsContext";
 
 export const metadata = {
   title: "180DC UGM",
-  description: "Coded by TETIzens",
+  description: "Code by IT 180dcugm",
 };
 
 export default function RootLayout({ children }) {
@@ -30,19 +31,22 @@ export default function RootLayout({ children }) {
       </Script>
       <body className="select-none">
         {/* First Option */}
+
         <LocomotiveProvider>
           <GSAPProvider>
-            <div className="hidden flex-col overflow-clip min-[250px]:flex">
-              {/* Content */}
-              <Navbar />
-              {children}
-              <Footer />
-            </div>
-            {/* Toastify */}
-            <ToastContainer />
+            <UtilsProvider>
+              <div className="hidden flex-col overflow-clip min-[250px]:flex">
+                {/* Content */}
+                <Navbar />
+                {children}
 
-            {/* Second Option */}
-            <TooSmall />
+                <Footer />
+              </div>
+              {/* Toastify */}
+
+              {/* Second Option */}
+              <TooSmall />
+            </UtilsProvider>
           </GSAPProvider>
         </LocomotiveProvider>
       </body>

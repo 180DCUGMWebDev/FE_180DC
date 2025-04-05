@@ -1,10 +1,14 @@
 "use client";
 import Image from "next/image";
+import Blur from "../global/Blur";
 
-const CardContents = ({ image, module, title, link }) => {
+const CardContents = ({ image, module, title, link, isBlur }) => {
   return (
     <div className="flex gap-x-[2vw]">
-      <div className="mb-[5vw] h-[25.313vw] w-[42.969vw] rounded-[1.6vw] bg-white shadow-xl">
+      <Blur
+        isBlur={isBlur}
+        className="mb-[5vw] h-[25.313vw] w-[42.969vw] rounded-[1.6vw] bg-white shadow-xl"
+      >
         <Image
           src={image}
           alt="background"
@@ -23,7 +27,7 @@ const CardContents = ({ image, module, title, link }) => {
         >
           See Details
         </a>
-      </div>
+      </Blur>
     </div>
   );
 };

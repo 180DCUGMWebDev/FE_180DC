@@ -24,7 +24,7 @@ export default function SecureYours({ theme }) {
         {/* Content */}
         <div data-gsap="up" className="relative mx-[50px] h-full w-full 2xl:w-[1536px]">
           <div className="flex h-full w-full flex-col items-center justify-center py-[15vh] lg:gap-[16px] lg:p-[100px] 2xl:py-[110px]">
-            <h1 className="bg-gradient-to-br from-primary from-[35%] to-secondary to-[65%] bg-clip-text py-[4px] text-center font-avenirBlack text-[12vw] leading-[1] text-transparent lg:text-[6vw]/[6vw] 2xl:text-[98px]/[92px]">
+            <h1 className="bg-gradient-to-br from-primary from-[35%] to-secondary to-[65%] bg-clip-text py-[4px] text-center font-avenirBlack text-[12vw] leading-[1] text-transparent lg:text-[6vw]/[6vw] 2xl:text-[90px]/[92px]">
               {"Secure yours"}
               <br />
               {"right now!"}
@@ -42,10 +42,11 @@ export default function SecureYours({ theme }) {
               color={"green"}
               text={"Buy Now"}
               addClass={
-                "max-lg:mt-[7vw] lg:!mt-[0.5vw] w-[22vw] lg:w-[11vw] text-[3.3vw] lg:text-[1.1vw] py-[2vw] lg:py-[9px] 2xl:w-[170px] 2xl:text-[17px]"
+                "max-lg:mt-[7vw] lg:!mt-[0.5vw] hover:bg-[green] transition-all duration-500 w-[22vw] lg:w-[11vw] text-[3.3vw] lg:text-[1.1vw] py-[2vw] lg:py-[9px] 2xl:w-[170px] 2xl:text-[17px]"
               }
               action={() => {
-                directRoute(intLinks.Apply, router, pathname);
+                window.location.href =
+                  "https://docs.google.com/forms/d/e/1FAIpQLSf9lMS6EHYZPyo6IL80EcYrdxVglOv1PnpZnTS29Ew0jBHEMw/viewform";
               }}
             />
           </div>

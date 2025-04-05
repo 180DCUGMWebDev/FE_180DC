@@ -1,7 +1,3 @@
-// Import Packages
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
 // Background Function
 export const createBackground = (theme, className = "") => {
   const bgTheme =
@@ -19,25 +15,15 @@ export const copyContent = (content, context) => {
   toastNotify(context + " sucessfully copied!");
 };
 
-// Toast
-export const toastNotify = (content, status = "info") => {
-  const toastOptions = () => {
-    return {
-      position: "top-center",
-      autoClose: 1000,
-      pauseOnHover: false,
-      draggable: false,
-      theme: "light",
-    };
-  };
-
-  if (status === "info") toast.info(content, toastOptions());
-  else if (status === "success") toast.success(content, toastOptions());
-};
-
 // Routing Function
 export const directRoute = (link, router, pathname) => {
   // console.log("Comparing to " + link + " with current " + pathname);
 
   if (pathname !== link) router.push(link);
 };
+
+// Check Email
+export function checkEmail(email) {
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  return emailRegex.test(email);
+}

@@ -1,12 +1,20 @@
+"use client";
+
 // Import Packages
-import React from "react";
-import { FaBriefcase } from "react-icons/fa";
+import React, { useCallback } from "react";
+import { FaChevronDown } from "react-icons/fa";
 import Image from "next/image";
+import { useRef } from "react";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";
 
 export default function AcademyHero() {
+  const scrollRef = useRef();
+  const handleClick = useCallback(
+    () => scrollRef.current.scrollIntoView({ behavior: "smooth" }),
+    [scrollRef],
+  );
   // Page
   return (
     <section className="relative">
@@ -43,17 +51,19 @@ export default function AcademyHero() {
                 }
               </h1>
             </div>
-            <h1 className="w-[60.219vw] pt-[4vw] text-center font-avenirRegular text-[1.302vw]/[2vw] text-lightWhite">
-              {"SCROLL DOWN"}
-              <Image
-                src="/img/academy/scrollDownArrow.png"
-                alt="Arrow"
-                width={2000}
-                height={2000}
-                className="absolute right-[29vw] w-[1.7vw] items-center object-cover pt-[0.2vw]"
-              />
-            </h1>
+            <button
+              type="button"
+              className="flex flex-col items-center outline-0"
+              onClick={handleClick}
+            >
+              <h2 className="mt-[1.4vw] font-latoBold text-[1vw] text-lightWhite max-lg:hidden">
+                {"SCROLL DOWN"}
+              </h2>
+              <FaChevronDown className="animate-movingPointer text-[1.4vw] text-lightWhite hover:cursor-pointer" />
+            </button>
           </div>
+          {/* Scroll Down Target */}
+          <div className="absolute bottom-[1000]" ref={scrollRef} />
         </div>
 
         {/* Mobile */}

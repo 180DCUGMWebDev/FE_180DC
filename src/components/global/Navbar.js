@@ -17,7 +17,7 @@ import { directRoute } from "@/config/Functions";
 
 export default function Navbar() {
   // CONTENTS
-  const copyright = "©2023 by 180 Degrees Consulting UGM";
+  const copyright = "©2024 by 180 Degrees Consulting UGM";
 
   // Router Hook
   const router = useRouter();
@@ -78,6 +78,7 @@ export default function Navbar() {
                 <ImgF
                   src="/img/global/logo180dctrns.png"
                   alt="logo 180dc"
+                  className="transition-transform duration-500 hover:scale-[1.05]"
                   action={() => {
                     directRoute(navLinks.Home, router, pathname);
                   }}
@@ -91,6 +92,8 @@ export default function Navbar() {
               ulClass="flex w-full items-center justify-center gap-[4vw]"
               liClass="flex justify-center w-fit"
               aClass="text-lightWhite text-[1.3vw] font-latoRegular hover:font-latoBold 2xl:text-[20px]"
+              dropDown
+              identifier="Desktop Navbar"
             />
           </div>
           {/* Consult */}
@@ -100,7 +103,7 @@ export default function Navbar() {
               text={"Consult Now!"}
               disableForm={intLinks.Apply == pathname}
               addClass={
-                "w-[11vw] text-[1.1vw] py-[9px] 2xl:w-[170px] 2xl:text-[17px] " +
+                "w-[11vw] text-[1.1vw] py-[9px] 2xl:w-[170px] 2xl:text-[17px] hover:bg-[green] duration-500 transition-all" +
                 (intLinks.Apply == pathname ? " opacity-[70%]" : "")
               }
               action={() => {
@@ -180,9 +183,11 @@ export default function Navbar() {
             <NavFootItems
               ulClass="flex flex-col w-full gap-[1vh]"
               liClass="flex items-center w-full gap-[1.8vw] rounded-[1vw] py-[1vh] px-[3vw]"
-              aClass="text-[4vw]/[2.9vw] font-latoBold"
+              aClass="text-[4vw]/[2.9vw] md:text-[2.5vw]/[1.5vw] font-latoBold"
               sidebar={true}
+              dropDownMobile
               callback={() => setMobileMenuOpen(false)}
+              identifier="Mobile Navbar"
             />
           </div>
           {/* Copyright */}

@@ -9,7 +9,7 @@ import rehypeRaw from "rehype-raw";
 
 async function getData() {
   const res = await fetch(
-    "https://goldfish-app-38lif.ondigitalocean.app/api/articles?populate=*&sort=publishedAt:desc",
+    "https://strapi.180dcugm.org/api/articles?populate=*&sort=publishedAt:desc",
     {
       next: { revalidate: 60 },
     },
@@ -43,11 +43,11 @@ export default function Article({ params }) {
         {/* Image */}
         <div className="aspect-h-[522] aspect-w-[994] relative overflow-hidden rounded-[20px]">
           <Image
-            src={`https://goldfish-app-38lif.ondigitalocean.app${article.thumbnail.data.attributes.url}`}
+            src={`https://strapi.180dcugm.org${article.thumbnail.data.attributes.url}`}
             alt="article image"
             width={2000}
             height={2000}
-            className="absolute inset-0 h-full w-full object-cover"
+            className=" inset-0 h-full w-full object-cover"
           />
         </div>
         {/* Article */}

@@ -4,13 +4,13 @@ import { Telescopes } from "@/components/telescope";
 import { useEffect, useRef, useState } from "react";
 
 async function getData() {
-  // const res = await fetch(
-  //   "https://goldfish-app-38lif.ondigitalocean.app/api/articles?populate=*&sort=publishedAt:desc",
-  //   {
-  //     next: { revalidate: 60 },
-  //   },
-  // );
-  res = {};
+  const res = await fetch(
+    "https://strapi.180dcugm.org/api/articles?populate=*&sort=publishedAt:desc",
+    {
+      next: { revalidate: 60 },
+    },
+  );
+  
   if (!res.ok) {
     console.log("Failed to fetch data");
   }
