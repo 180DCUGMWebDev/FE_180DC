@@ -14,7 +14,7 @@ export default function HeroMerch() {
     <HeroTemplate>
       {/* Content */}
       <div className="flex w-full flex-col-reverse items-center justify-center lg:flex-row lg:pl-[5vw]">
-        <div className="relative mt-[14vw] max-lg:scale-[2.3] lg:ml-[6.5vw] lg:mt-0">
+        <div className="relative mt-[14vw] max-lg:scale-[2.3] lg:ml-[6.5vw] lg:mt-0 mr-[10vw]">
           <Image
             src="/img/store/casebook/whitestar.png"
             alt="Star ornament"
@@ -86,13 +86,15 @@ export default function HeroMerch() {
             <h1>Buy now</h1>
           </a>
         </div>
-        <div>
+
+        {/* Hero Image  */}
+        <div className="flex w-full justify-center lg:w-auto lg:justify-start">
           <Image
             src="/img/store/merch/Wear-it-bundle.png"
-            alt="background"
+            alt="Wear-it bundle"
             width={2000}
             height={2000}
-            className="inset-0 h-auto scale-[0.6] object-cover max-lg:w-[107.026vw] max-lg:scale-[1.4] max-lg:pr-[14vw] lg:-right-[10vw] lg:h-[1019.8] lg:w-[63.006vw]"
+            className="h-auto w-[75vw] ml-[5vw] mr-[5vw] max-w-[300px] object-contain lg:w-[33vw] lg:max-w-none max-lg:mb-[15vw] max-lg:mt-[15vw]"
           />
         </div>
       </div>
