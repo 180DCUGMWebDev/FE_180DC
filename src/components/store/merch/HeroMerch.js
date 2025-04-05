@@ -64,7 +64,7 @@ export default function HeroMerch() {
             while becoming <b>#TheBestofYOUth</b>
           </div>
           <a
-            href="https://bit.ly/180DCUGMMerchOrder"
+            href="https://docs.google.com/forms/d/e/1FAIpQLScOuHT1hdVMUeLNjxFaLC8zAcgERZnL5b2qZgjcWBdaRSi4NQ/viewform"
             target="_blank"
             rel="noopener noreferrer"
             className="relative ml-[1.6vw] flex h-[3.75vw] w-[12.677vw] items-center justify-center gap-[1vw] rounded-[5.208vw] bg-black font-avenirHeavy text-[1.25vw] text-white transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#5AB0BB]/20 lg:h-[3.75vw] lg:w-[10.677vw]"
@@ -88,11 +88,11 @@ export default function HeroMerch() {
         </div>
         <div>
           <Image
-            src="/img/store/casebook/HeroImageBook-c.png"
+            src="/img/store/merch/Wear-it-bundle.png"
             alt="background"
             width={2000}
             height={2000}
-            className="inset-0 h-auto object-cover max-lg:w-[107.026vw] max-lg:scale-[1.4] max-lg:pr-[14vw] lg:-right-[10vw] lg:h-[1019.8] lg:w-[63.006vw]"
+            className="inset-0 h-auto scale-[0.6] object-cover max-lg:w-[107.026vw] max-lg:scale-[1.4] max-lg:pr-[14vw] lg:-right-[10vw] lg:h-[1019.8] lg:w-[63.006vw]"
           />
         </div>
       </div>

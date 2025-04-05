@@ -7,81 +7,93 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import "./merch.css"; 
-import products from "./products"; 
+import "./merch.css";
+import products from "./products";
 import Button from "@/components/global/Button";
 
 const LayoutMerch = () => {
-    return (
-        <section className="relative w-full bg-[url('/img/store/casebook/bgBlackPatterned1.png')] object-cover py-[6vw]">
-            <div className="flex w-full flex-col items-center justify-center lg:px-[10vw]">
-                <span className="font-bold text-[3.333vw] text-white">
-                    Shop Now!
-                </span>
-                <Image
-                    src="/img/store/casebook/BlueSpark.png"
-                    alt="180DC UGM Casebook"
-                    width={2000}
-                    height={2000}
-                    className="absolute z-0 -top-[2vw] -right-[1vw]  w-[14.008vw] object-cover max-lg:hidden"
-                />
-            </div>
-            <div className="mt-[5vw] w-full flex items-center justify-center lg:mt-[2vw]">
-                <Swiper
-                    effect="slide"
-                    slidesPerView={3.6}
-                    freeMode
-                    loop
-                    spaceBetween={"2vw"} 
-                    centeredSlides
-                    pagination={{
-                        clickable: false, 
-                    }}
-                    speed={10000} 
-                    modules={[Autoplay]}
-                    autoplay={{
-                        delay: 50, 
-                        pauseOnMouseEnter: false,
-                        disableOnInteraction: false,
-                        waitForTransition: false,
-                        stopOnLastSlide: false,
-                    }}
-                    className="relative w-full flex items-center justify-center gap-[2vw] overflow-visible"
-                >
-                    {products.map((item, index) => (
-                        <SwiperSlide key={index} className="relative">
-                            <div className="flex h-[30vw] w-[92%] max-w-[1200px] flex-col gap-[1vw] rounded-2xl bg-white shadow-lg p-[2vw]">
-                                {/* Gambar Produk */}
-                                <div className="flex h-full w-full items-center justify-center">
-                                    <Image src={item.image} alt={item.name} width={800} height={800} className="object-cover rounded-md" />
-                                </div>
-                                {/* Nama Produk */}
-                                <b className="w-[80%] max-lg:mt-[10vw] text-lg text-left text-black">
-                                    {item.name}
-                                </b>
-                                {/* Harga Produk */}
-                                <p className="w-[80%] max-lg:mt-[10vw] text-green-600 font-semibold text-left text-lg">
-                                    {item.price}
-                                </p>
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </div>
-            <div className="flex h-full w-full flex-col items-center justify-center py-[15vh] lg:gap-[16px] lg:p-[100px] 2xl:py-[110px]">
-                <Button
-                    color={"green"}
-                    text={"Buy Now"}
-                    addClass={
-                        "max-lg:mt-[7vw] lg:!mt-[0.5vw] w-[22vw] lg:w-[11vw] text-[3.3vw] lg:text-[1.1vw] py-[2vw] lg:py-[9px] 2xl:w-[170px] 2xl:text-[17px]"
-                    }
-                    action={() => {
-                        directRoute(intLinks.Apply, router, pathname);
-                    }}
-                />
-            </div>
-        </section>
-    );
+  return (
+    <section className="relative w-full bg-[url('/img/store/casebook/bgBlackPatterned1.png')] object-cover py-[6vw] max-lg:py-[12vw]">
+      {/* Title */}
+      <div className="flex w-full flex-col items-center justify-center px-[6vw] lg:px-[10vw]">
+        <span className="text-[3.333vw] font-bold text-white max-lg:text-[6vw]">Shop Now!</span>
+        <Image
+          src="/img/store/casebook/BlueSpark.png"
+          alt="180DC UGM Casebook"
+          width={2000}
+          height={2000}
+          className="absolute -right-[1vw] -top-[2vw] z-0 w-[14.008vw] object-cover max-lg:hidden"
+        />
+      </div>
+
+      {/* Product Carousel */}
+      <div className="mt-[5vw] flex w-full items-center justify-center max-lg:mt-[8vw] lg:mt-[2vw]">
+        <Swiper
+          effect="slide"
+          loop
+          freeMode
+          centeredSlides
+          spaceBetween={"2vw"}
+          speed={3000}
+          pagination={{ clickable: false }}
+          modules={[Autoplay]}
+          autoplay={{
+            delay: 50,
+            pauseOnMouseEnter: false,
+            disableOnInteraction: false,
+            waitForTransition: false,
+            stopOnLastSlide: false,
+          }}
+          breakpoints={{
+            0: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3.6, // default for desktop
+            },
+          }}
+          className="relative flex w-full items-center justify-center gap-[2vw] overflow-visible px-[4vw]"
+        >
+          {products.map((item, index) => (
+            <SwiperSlide key={index} className="relative">
+              <div className="flex h-[30vw] w-[92%] max-w-[1200px] flex-col gap-[1vw] rounded-2xl bg-white p-[2vw] shadow-lg max-lg:h-auto max-lg:p-[4vw]">
+                {/* Product Image */}
+                <div className="flex h-full w-full items-center justify-center">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    width={800}
+                    height={800}
+                    className="rounded-md object-cover max-lg:h-auto max-lg:w-full"
+                  />
+                </div>
+                {/* Product Name */}
+                <b className="w-[80%] text-left text-lg text-black max-lg:mt-[4vw] max-lg:text-[3.2vw]">
+                  {item.name}
+                </b>
+                {/* Product Price */}
+                <p className="w-[80%] text-left text-lg font-semibold text-green-600  max-lg:text-[4vw]">
+                  {item.price}
+                </p>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+
+      {/* Buy Button */}
+      <div className="flex h-full w-full flex-col items-center justify-center py-[15vh] max-lg:px-[4vw] max-lg:py-[12vw] lg:gap-[16px] lg:p-[100px] 2xl:py-[110px]">
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLScOuHT1hdVMUeLNjxFaLC8zAcgERZnL5b2qZgjcWBdaRSi4NQ/viewform"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex w-[22vw] items-center justify-center rounded-full bg-green-600 py-[2vw] text-[3.3vw] text-white transition-all duration-300 hover:bg-green-700 max-lg:mt-[7vw] max-lg:w-[60vw] max-lg:py-[3.5vw] max-lg:text-[4.2vw] lg:!mt-[0.5vw] lg:w-[11vw] lg:py-[9px] lg:text-[1.1vw] 2xl:w-[170px] 2xl:text-[17px]"
+        >
+          Buy Now
+        </a>
+      </div>
+    </section>
+  );
 };
 
 export default LayoutMerch;

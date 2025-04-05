@@ -10,7 +10,7 @@ export default function Casebook() {
       <HeroCasebook />
       <WhatInside />
       <CasebookJourney />
-      <WhatTheySay />
+      {/* <WhatTheySay /> */}
       <SecureYours />
     </main>
   );

@@ -1,28 +1,38 @@
 const products = [
     {
-        name: "Bundle 1 (Hoodie + Sticker)",
-        price: "IDR 200.000",
-        image: "/img/store/merch/rectangle.png",
+        name: "Sticker ",
+        price: "IDR 17.000",
+        image: "/img/store/merch/Sticker.png",
     },
     {
-        name: "Bundle 2 (T-shirt + Sticker)",
-        price: "IDR 200.000",
-        image: "/img/store/merch/rectangle.png",
+        name: "Lanyard",
+        price: "IDR 20.000",
+        image: "/img/store/merch/Lanyard.png",
     },
     {
-        name: "Hoodie Only",
-        price: "IDR 200.000",
-        image: "/img/store/merch/rectangle.png",
+        name: "Casebook",
+        price: "IDR 99.000",
+        image: "/img/store/merch/casebook.png",
     },
     {
-        name: "Sticker Only",
-        price: "IDR 200.000",
-        image: "/img/store/merch/rectangle.png",
+        name: "Framework Bank",
+        price: "IDR 59.000",
+        image: "/img/store/merch/framework-bank.png",
     },
     {
-        name: "T-Shirt Only",
-        price: "IDR 200.000",
-        image: "/img/store/merch/rectangle.png",
+        name: "Consultant Bundle",
+        price: "IDR 170.000",
+        image: "/img/store/merch/Consultant-bundle.png",
+    },
+    {
+        name: "Corporate Bundle",
+        price: "IDR 175.000",
+        image: "/img/store/merch/Corporate-Bundle.png",
+    },
+    {
+        name: "Wear-it Bundle",
+        price: "IDR 225.000",
+        image: "/img/store/merch/Wear-it-bundle.png",
     },
 ];
 

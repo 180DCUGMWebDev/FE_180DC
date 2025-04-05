@@ -8,7 +8,7 @@ export default async function Casebook() {
     <main>
       <HeroMerch />
       <LayoutMerch />
-      <WhatTheySay />
+      {/* <WhatTheySay /> */}
       <SecureYours />
     </main>
   );
