@@ -1,5 +1,25 @@
 const products = [
     {
+        name: "Lanyard and Sticker ",
+        price: "IDR 30.000",
+        image: "/img/store/merch/Lanyard-sticker.png",
+    },
+    {
+        name: "Sweater ",
+        price: "IDR 155.000",
+        image: "/img/store/merch/Sweater.png",
+    },
+    {
+        name: "Shirt ",
+        price: "IDR 80.000",
+        image: "/img/store/merch/Shirt.png",
+    },
+    {
+        name: "Keychain ",
+        price: "IDR 15.000",
+        image: "/img/store/merch/Keychain.png",
+    },
+    {
         name: "Sticker ",
         price: "IDR 17.000",
         image: "/img/store/merch/Sticker.png",
