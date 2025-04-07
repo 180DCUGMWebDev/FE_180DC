@@ -3,7 +3,7 @@ import React from "react";
 import { createBackground } from "@/config/Functions";
 import Image from "next/image";
 
-export default function PDFRead() {
+export default function TemplateIR() {
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href = "/file/ADLReport.pdf";

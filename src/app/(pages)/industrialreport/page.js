@@ -1,9 +1,10 @@
-import PDFRead from "@/components/industrialreports/PDFread";
+import HeroIR from "@/components/industrialreports/HeroIR";
+
 
 export default function IndustrialReport() {
   return (
     <main className="bg-black">
-      <PDFRead />
+    <HeroIR />
     </main>
   );
 }
