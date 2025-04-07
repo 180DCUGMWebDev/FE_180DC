@@ -15,9 +15,16 @@ import { createBackground } from "@/config/Functions";
 const images = [
   "/img/store/fbank/PREVIEW_A.png",
   "/img/store/fbank/PREVIEW_A2.png",
-  "/img/store/fbank/PREVIEW_A.png",
-  "/img/store/fbank/PREVIEW_A.png",
-  "/img/store/fbank/PREVIEW_A.png",
+  "/img/store/fbank/PREVIEW_A3.png",
+  "/img/store/fbank/PREVIEW_A4.png",
+  "/img/store/fbank/PREVIEW_A5.png",
+  "/img/store/fbank/PREVIEW_A6.png",
+  "/img/store/fbank/PREVIEW_A7.png",
+  "/img/store/fbank/PREVIEW_A8.png",
+  "/img/store/fbank/PREVIEW_A9.png",
+  "/img/store/fbank/PREVIEWCTA1.png",
+  "/img/store/fbank/PREVIEWCTA2.png",
+  
 ];
 
 export default function PreviewFbanks() {
