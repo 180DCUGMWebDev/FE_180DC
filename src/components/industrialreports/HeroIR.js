@@ -10,7 +10,7 @@ const products = [
     alt: "Thumbnail of the Cafe Industry Report",
   },
   {
-    href: "/industrialreport/cafe-industry",
+    href: "/industrialreport/tenun-lurik",
     image: "/img/industrialreport/tenunlurikthumb.png",
     alt: "Thumbnail of the Cafe Industry Report",
   },

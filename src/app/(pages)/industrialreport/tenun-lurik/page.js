@@ -3,11 +3,11 @@ import React from "react";
 import { createBackground } from "@/config/Functions";
 import Image from "next/image";
 
-export default function CafeIndustries() {
+export default function TenunLurik() {
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/file/ADLReport.pdf";
-    link.download = "CafeIndustries-Report.pdf";
+    link.href = "/file/ReapraReport.pdf";
+    link.download = "TenunLurik-Report.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -15,7 +15,7 @@ export default function CafeIndustries() {
 
   const redirectToDrive = () => {
     window.open(
-      "https://drive.google.com/file/d/1-b-srMHzofqIB-TW4IKtaBNzvWlFisqW/view?usp=sharing",
+      "https://drive.google.com/file/d/1wguQID175Y3Wgn0uRJSNqKdiE6Nn51h3/view?usp=sharing",
       "_blank",
     );
   };
@@ -29,7 +29,7 @@ export default function CafeIndustries() {
       <div className="relative mt-[5vh] flex w-full flex-col items-center justify-center px-4 py-8">
         <div className="mb-6 text-center">
           <h2 className="text-2xl font-bold text-white md:text-3xl">
-           <span className="text-teal-400">Café Industries</span>
+            <span className="text-teal-400">Tenun Lurik Research</span>
           </h2>
         </div>
 
@@ -37,7 +37,7 @@ export default function CafeIndustries() {
         <div className="relative hidden w-full max-w-xs rounded-2xl sm:max-w-md md:block md:max-w-2xl lg:max-w-3xl">
           <div className="relative aspect-[3/5] w-full scale-[0.9] md:aspect-[4/3] lg:aspect-[12/9]">
             <iframe
-              src="/file/ADLReport.pdf"
+              src="/file/ReapraReport.pdf"
               className="absolute inset-0 h-full w-full border-2 border-gray-700 bg-gray-800"
               title="PDF Viewer"
             ></iframe>
