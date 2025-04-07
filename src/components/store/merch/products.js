@@ -31,12 +31,12 @@ const products = [
     },
     {
         name: "Casebook",
-        price: "IDR 99.000",
+        price: "IDR 59.000",
         image: "/img/store/merch/casebook.png",
     },
     {
         name: "Framework Bank",
-        price: "IDR 59.000",
+        price: "IDR 99.000",
         image: "/img/store/merch/framework-bank.png",
     },
     {
