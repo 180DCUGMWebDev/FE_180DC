@@ -79,11 +79,11 @@ export default function HeroFbanks() {
         </div>
         <div>
           <Image
-            src="/img/store/fbank/FbankHero.png"
+            src="/img/store/fbank/Book_Mockup_1.png"
             alt="background"
             width={2000}
             height={2000}
-            className="inset-0 h-auto scale-[0.9] object-cover max-lg:w-[107.026vw] max-lg:scale-[1.4] max-lg:pr-[14vw] lg:-right-[10vw] lg:h-[1019.8] lg:w-[63.006vw]"
+            className="rotate-[30deg] inset-0 h-auto scale-[0.8] object-cover max-lg:w-[107.026vw] max-lg:scale-[1] max-lg:pr-[14vw] lg:-right-[10vw] lg:h-[1019.8] lg:w-[63.006vw]"
           />
         </div>
       </div>
