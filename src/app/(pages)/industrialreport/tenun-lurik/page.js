@@ -88,8 +88,8 @@ export default function TenunLurik() {
           {/* Cover Image (9:16 aspect ratio) */}
           <div className="relative mb-6 aspect-[11/16] w-full overflow-hidden rounded-lg border-2 border-gray-700">
             <Image
-              src="/img/industrialreport/IR1.png"
-              alt="Café Industries Report Cover"
+              src="/img/industrialreport/tenunlurikthumb.png"
+              alt="Tenun Lurik Report Cover"
               layout="fill"
               objectFit="cover"
               className="bg-gray-800"
