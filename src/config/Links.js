@@ -13,7 +13,7 @@ export const navLinks = {
 export const childLink = {
   Store: {
     Casebook: "/store/casebook",
-    // Merch: "/store/merch",
+    Merch: "/store/merch",
   },
   Event: {
     Bootcamp: "/bootcamp",
