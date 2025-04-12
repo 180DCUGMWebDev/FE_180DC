@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 const moment = require("moment");
-const { google } = require("googleapis");
+import { JWT } from "google-auth-library";
 
 export const uploadData = async (data, sheet) => {
   try {
@@ -83,16 +83,14 @@ const sendEmail = async (body) => {
   }
 };
 
-export const getAuth = async () => {
-  return new google.auth.GoogleAuth({
-    credentials: {
-      type: "service_account",
-      client_email: process.env.APP_CLIENT_EMAIL ?? "",
-      private_key: (process.env.APP_PRIVATE_KEY ?? "").replace(/\\n/g, "\n"),
-    },
+export const GetJWTAuth = async () => {
+  const auth = new JWT({
+    email: process.env.APP_CLIENT_EMAIL ?? "",
+    key: (process.env.APP_PRIVATE_KEY ?? "").replace(/\\n/g, "\n"),
     scopes: [
       "https://www.googleapis.com/auth/spreadsheets",
       "https://www.googleapis.com/auth/drive.file",
     ],
   });
+  return auth;
 };
