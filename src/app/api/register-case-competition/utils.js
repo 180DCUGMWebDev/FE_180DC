@@ -25,10 +25,11 @@ export const GetJWTAuth = async () => {
   return auth;
 };
 
-export const uploadData = async (sheet, teamLeader, teamMember, link) => {
+export const uploadData = async (sheet, payment, teamLeader, teamMember, link) => {
   try {
     await sheet.addRow({
       timestamp: moment().startOf("second").format("YYYY-MM-DD HH:mm:ss").toString(),
+      Payment: payment,
       "Leader's Name": teamLeader.namaLengkap,
       "Leader's University": teamLeader.universitas,
       "Leader's Major": teamLeader.prodi,

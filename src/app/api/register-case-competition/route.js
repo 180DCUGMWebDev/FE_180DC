@@ -11,6 +11,7 @@ export async function POST(request) {
 
     const teamLeader = JSON.parse(form.get("teamLeader"));
     const teamMember = JSON.parse(form.get("teamMembers"));
+    const payment = form.get("payment");
 
     const formattedDate = new Date()
       .toISOString()
@@ -31,7 +32,7 @@ export async function POST(request) {
     if (!sheet) {
       throw new Error(`Sheet with title "${target}" not found`);
     }
-    await uploadData(sheet, teamLeader, teamMember, {
+    await uploadData(sheet, payment, teamLeader, teamMember, {
       idCard: idCardLink,
       follow: followLink,
       mention: mentionLink,

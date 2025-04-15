@@ -24,6 +24,7 @@ export function FormCaseComp() {
   const [hidrate, setHidrate] = useState(false);
 
   const [currentData, setCurrentData] = useState({
+    payment: null,
     teamLeader: null,
     teamMembers: null,
     idCard: null,
@@ -235,12 +236,15 @@ export function FormCaseComp() {
   };
 
   const [done, setDone] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmitFile = async (e) => {
-    const { teamLeader, teamMembers, idCard, follow, mention, repost, twibbon } = currentData;
+    const { teamLeader, payment, teamMembers, idCard, follow, mention, repost, twibbon } =
+      currentData;
     const form = new FormData();
     form.append("teamLeader", teamLeader);
     form.append("teamMembers", teamMembers);
+    form.append("payment", payment);
     form.append("idCard", idCard);
     form.append("follow", follow);
     form.append("mention", mention);
@@ -248,16 +252,49 @@ export function FormCaseComp() {
     form.append("twibbon", twibbon);
     e.preventDefault();
     try {
+      setLoading(true);
       await fetch("/api/register-case-competition", {
         method: "POST",
         body: form,
       })
         .then(() => toastNotify("success", "Registration Successful!"))
-        .then(() => setDone(true));
+        .then(() => setDone(true))
+        .then(() => setLoading(false));
     } catch (err) {
       toastNotify("error", "Registration Failed!");
     }
   };
+
+  if (currentData.payment === null) {
+    return (
+      <section className="relative flex min-h-screen items-center justify-center bg-black text-white">
+        {/* Title Section */}
+        <div className="container mx-auto flex flex-col items-center py-12 text-center">
+          <h1 className="mb-4 mt-[10vh] text-3xl font-bold lg:text-5xl">
+            <span className="bg-gradient-to-r from-green-500 to-blue-400 bg-clip-text text-transparent">
+              Select Payment Method
+            </span>
+          </h1>
+          <div className="mt-3 flex items-center gap-4 text-lg lg:text-3xl">
+            <button
+              type="button"
+              className="rounded-2xl bg-green-500 px-4 py-2 font-bold duration-500 hover:bg-green-600"
+              onClick={() => setCurrentData((prev) => ({ ...prev, payment: "national" }))}
+            >
+              National
+            </button>
+            <button
+              type="button"
+              className="rounded-2xl bg-green-500 px-4 py-2 font-bold duration-500 hover:bg-green-600"
+              onClick={() => setCurrentData((prev) => ({ ...prev, payment: "international" }))}
+            >
+              International
+            </button>
+          </div>
+        </div>
+      </section>
+    );
+  }
   // Page
   return (
     <section ref={headRef} className="relative min-h-screen bg-black text-white">
@@ -314,7 +351,7 @@ export function FormCaseComp() {
                     error={idCardError}
                     label="ID Card"
                     tag="idCard"
-                    accept="application/pdf, image/png, image/jpeg"
+                    accept="application/pdf"
                     onChange={handleIDCardChange}
                   />
                   <FormFile
@@ -323,7 +360,7 @@ export function FormCaseComp() {
                     error={followError}
                     label="Follow"
                     tag="follow"
-                    accept="application/pdf, image/png, image/jpeg"
+                    accept="image/png, image/jpeg"
                     onChange={handleFollowChange}
                   />
                   <FormFile
@@ -332,7 +369,7 @@ export function FormCaseComp() {
                     error={mentionError}
                     label="Mention"
                     tag="mention"
-                    accept="application/pdf, image/png, image/jpeg"
+                    accept="image/png, image/jpeg"
                     onChange={handleMentionChange}
                   />
                   <FormFile
@@ -341,7 +378,7 @@ export function FormCaseComp() {
                     error={repostError}
                     label="Repost"
                     tag="repost"
-                    accept="application/pdf, image/png, image/jpeg"
+                    accept="image/png, image/jpeg"
                     onChange={handleRepostChange}
                   />
                   <FormFile
@@ -350,7 +387,7 @@ export function FormCaseComp() {
                     error={twibbonError}
                     label="Twibbon"
                     tag="twibbon"
-                    accept="application/pdf, image/png, image/jpeg"
+                    accept="image/png, image/jpeg"
                     onChange={handleTwibbonChange}
                   />
                   <NavigationButtons
@@ -368,6 +405,8 @@ export function FormCaseComp() {
                     <p className="mb-4 text-gray-700">
                       {done ? (
                         <>Registration Succesfull!</>
+                      ) : loading ? (
+                        <>Loading...</>
                       ) : (
                         <>
                           {" "}
@@ -382,7 +421,7 @@ export function FormCaseComp() {
                     totalSteps={totalSteps}
                     setCurrentStep={setCurrentStep}
                     showPrevious
-                    buttonText={"Register"}
+                    buttonText={loading ? "Loading" : done ? "Success" : "Register"}
                   />
                 </Form>
               </RenderIf>

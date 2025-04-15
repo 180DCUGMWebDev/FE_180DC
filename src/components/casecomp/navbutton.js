@@ -1,29 +1,29 @@
 // src/components/NavigationButtons.jsx
 import React from "react";
 
-const NavigationButtons = ({ 
-  currentStep, 
-  totalSteps, 
-  setCurrentStep, 
+const NavigationButtons = ({
+  currentStep,
+  totalSteps,
+  setCurrentStep,
   showPrevious = true,
-  buttonText = "Next"
+  buttonText = "Next",
 }) => {
   return (
-    <div className="flex justify-between mt-6">
+    <div className="mt-6 flex justify-between">
       {showPrevious && (
-        <button 
-          type="button" 
+        <button
+          type="button"
           onClick={() => setCurrentStep(currentStep - 1)}
-          className="bg-gray-300 text-gray-700 py-2 px-6 rounded-full hover:bg-gray-400 transition"
+          className="rounded-full bg-gray-300 px-6 py-2 text-gray-700 transition hover:bg-gray-400"
         >
           Previous
         </button>
       )}
-      <button 
-        type="submit" 
-        className="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600 transition"
+      <button
+        type="submit"
+        className="rounded-full bg-green-500 px-6 py-2 text-white transition hover:bg-green-600"
       >
-        {currentStep === totalSteps ? "Submit" : buttonText}
+        {buttonText}
       </button>
     </div>
   );
