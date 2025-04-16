@@ -238,6 +238,25 @@ export function FormCaseComp() {
   const [done, setDone] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const createCallbacks = ({ showSuccess, showError }) => ({
+    onSuccess: () => {
+      // window.location.reload();
+    },
+    onPending: () => {
+      showSuccess("Payment initiated. Please complete it to finalize your registration.");
+      // window.location.reload();
+    },
+    onError: () => {
+      showError("Payment failed or was cancelled. Please try again.");
+    },
+    onClose: () => {
+      showError("Payment popup closed. No transaction was made.");
+      // window.location.reload();
+    },
+  });
+
+  const [snapInitialized, setSnapInitialized] = useState(false);
+
   const handleSubmitFile = async (e) => {
     const { teamLeader, payment, teamMembers, idCard, follow, mention, repost, twibbon } =
       currentData;
@@ -250,19 +269,120 @@ export function FormCaseComp() {
     form.append("mention", mention);
     form.append("repost", repost);
     form.append("twibbon", twibbon);
+    form.append("competition", "180DC BCC");
     e.preventDefault();
+
+    // Register
     try {
       setLoading(true);
-      await fetch("/api/register-case-competition", {
+      const res = await fetch("/api/register-case-competition", {
         method: "POST",
         body: form,
-      })
-        .then(() => toastNotify("success", "Registration Successful!"))
-        .then(() => setDone(true))
-        .then(() => setLoading(false));
-    } catch (err) {
+      });
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        console.error("Error from server:", errorData);
+        return;
+      }
+
+      const result = await res.json(); // parsed result
+      if (res.status !== 200) {
+        toastNotify("error", result?.message || "Server Error");
+        return;
+      }
+
+      const snapToken = result.body.snap_token;
+
+      if (!snapToken) {
+        toastNotify("success", "Registration successful!");
+      } else {
+        callbacks.dismissLoading();
+        if (!window.snap || !snapInitialized) {
+          callbacks.showError("Snap not ready");
+          setLoading(false);
+          return;
+        }
+        window.snap.pay(snapToken, createCallbacks(callbacks));
+        toastNotify(
+          "success",
+          "Payment initiated. Please complete it to finalize your registration.",
+        );
+      }
+
+      setDone(true);
+      setLoading(false);
+    } catch (error) {
+      console.log("error: ", error);
       toastNotify("error", "Registration Failed!");
     }
+  };
+
+  // Initializer
+  useEffect(() => {
+    let isError = false;
+    const runAll = async () => {
+      toastNotify("info", "Preparing your form...");
+
+      const paymentPromise = (async () => {
+        try {
+          const res = await fetch("/api/midtrans/get-client", {
+            method: "GET",
+          });
+
+          const json = await res.json();
+          const clientKey = json.client_key;
+          const isProduction = json.is_production;
+
+          if (!clientKey) {
+            toastNotify("error", "Payment not activated");
+            return;
+          }
+          if (!window.snap) {
+            const script = document.createElement("script");
+            script.src = isProduction
+              ? "https://app.midtrans.com/snap/snap.js"
+              : "https://app.sandbox.midtrans.com/snap/snap.js";
+            script.setAttribute("data-client-key", clientKey);
+            script.onload = () => setSnapInitialized(true);
+            script.onerror = () => toastNotify("error", "Snap load failed");
+            document.head.appendChild(script);
+          } else {
+            setSnapInitialized(true);
+          }
+
+          toastNotify("success", "Payment system loaded successfully");
+        } catch (error) {
+          toastNotify("error", "Payment system error " + error?.message);
+          isError = true;
+        }
+      })();
+
+      await Promise.allSettled([paymentPromise]);
+
+      if (isError) {
+        toastNotify("error", "Failed to load form. Please contact admin!");
+        return;
+      }
+
+      toastNotify("success", "Your form is ready to be filled");
+    };
+
+    runAll();
+  }, []);
+
+  // Helper Functions
+  const callbacks = {
+    showError: (error: string) => {
+      toastNotify("error", error);
+    },
+    showSuccess: (result: string) => {
+      toastNotify("success", result);
+    },
+    showLoading: (text: string) => {
+      toastNotify("info", text);
+    },
+    dismissLoading: () => {},
   };
 
   if (currentData.payment === null) {
