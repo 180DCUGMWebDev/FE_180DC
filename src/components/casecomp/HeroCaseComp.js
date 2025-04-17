@@ -18,14 +18,14 @@ export function HeroCaseComps() {
           <div className="flex flex-col lg:w-1/2">
             <div className="flex w-full flex-col items-center px-8">
               <Image
-                alt="consulting bootcamp logo"
+                alt="APAC Title"
                 src="/img/casecomp/APACTitle.png"
                 width={2000}
                 height={2000}
                 className="h-[30.162vw] w-[77.949vw] object-contain max-lg:hidden lg:h-[15.052vw] lg:w-[38.958vw]"
               />
               <Image
-                alt="ornament title"
+                alt="APAC Title"
                 src="/img/casecomp/APACTitle.png"
                 width={2000}
                 height={2000}
@@ -58,22 +58,29 @@ export function HeroCaseComps() {
               alt="background"
               width={2000}
               height={2000}
-              className="absolute -bottom-[10.6vw] -right-[20vw] z-10 mr-[5vw] w-full scale-[0.7]"
+              className="absolute -bottom-[10.6vw] -right-[20vw] z-10 mr-[5vw] w-full scale-[0.7] max-lg:hidden"
             />
           </div>
 
-          <div className="mt-[5.938vw] flex w-full flex-col items-center justify-center gap-y-[2vw] px-[8.667vw] lg:hidden">
+          <div className="relative -mt-[20vw] flex w-full flex-col items-center justify-center gap-y-[2vw] px-[8.667vw] lg:hidden">
             <p className="flex w-[70vw] justify-center text-center font-latoSemibold text-[3vw] text-white180">
               Calling all aspiring consultants and changemakers! <br /> Join 180DC APAC Case
               Competition UGM and leave your mark.
             </p>
-            <div className="flex w-full items-center justify-center gap-[2vw]">
+            <div className="flex w-full flex-col items-center justify-center gap-[2vw]">
               <Button
                 color="green"
                 text="Registration"
                 addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[2.154vw] lg:mt-[1.25vw] font-bold"
                 href="bit.ly/180DC-ConsultingOpenRecruitmentForm-Cycle2"
               />
+              {/* <Image
+                src="/img/casecomp/HeroMainOrnament.png"
+                alt="background"
+                width={2000}
+                height={2000}
+                className="mt-[20vw] w-full scale-[2] lg:hidden"
+              /> */}
             </div>
           </div>
         </div>
