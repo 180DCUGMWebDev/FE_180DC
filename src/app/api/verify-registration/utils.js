@@ -42,16 +42,13 @@ export const updateVerificationStatus = async (sheet, payment, teamLeader, teamM
     };
 
     let targetRow = null;
-    let id = 1;
     for (const row of rows) {
-      id += 1;
-      const isLeaderMatch =
-        row.get("Payment") === payment && compareMemberData(row, teamLeader, "Leader's");
-
-      const isFirstMemberMatch = compareMemberData(row, teamMember[0], "1st Member's");
-      const isSecondMemberMatch = compareMemberData(row, teamMember[1], "2nd Member's");
-
-      if (isLeaderMatch && isFirstMemberMatch && isSecondMemberMatch) {
+      if (
+        row.get("Payment") === payment &&
+        compareMemberData(row, teamLeader, "Leader's") &&
+        compareMemberData(row, teamMember[0], "1st Member's") &&
+        compareMemberData(row, teamMember[1], "2nd Member's")
+      ) {
         targetRow = row;
         break;
       }

@@ -21,7 +21,7 @@ export async function POST(request) {
 
     // console.log("sheet", teamLeader, teamMember, payment, status);
     // verify
-    updateVerificationStatus(sheet, payment, teamLeader, teamMember, status);
+    await updateVerificationStatus(sheet, payment, teamLeader, teamMember, status);
 
     if (!sheet) {
       throw new Error(`Sheet with title "${target}" not found`);

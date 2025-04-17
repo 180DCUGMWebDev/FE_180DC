@@ -554,6 +554,7 @@ export function FormCaseComp() {
                           alt="Loading..."
                           src="/img/loading/loading.gif"
                           className="w-[20%]"
+                          unoptimized
                         />
                       ) : done ? (
                         <>Registration Successfull</>

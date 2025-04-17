@@ -43,15 +43,17 @@ export async function POST(request) {
       .replace(/:/g, "-") // Menghindari karakter tidak valid
       .split(".")[0]; // Menghapus bagian milidetik
 
-    const fileBaseName = `${teamLeader.namaLengkap} - ${formattedDate}`;
-    const idCardLink = await saveFileToDrive(fileBaseName, "idCard", drive, form);
-    const followLink = await saveFileToDrive(fileBaseName, "follow", drive, form);
-    const mentionLink = await saveFileToDrive(fileBaseName, "mention", drive, form);
-    const repostLink = await saveFileToDrive(fileBaseName, "repost", drive, form);
-    const twibbonLink = await saveFileToDrive(fileBaseName, "twibbon", drive, form);
-
     const doc = new GoogleSpreadsheet(driveFolderId.spreadsheet, auth);
-    await doc.loadInfo();
+    const fileBaseName = `${teamLeader.namaLengkap} - ${formattedDate}`;
+    const [idCardLink, followLink, mentionLink, repostLink, twibbonLink] = await Promise.all([
+      saveFileToDrive(fileBaseName, "idCard", drive, form),
+      saveFileToDrive(fileBaseName, "follow", drive, form),
+      saveFileToDrive(fileBaseName, "mention", drive, form),
+      saveFileToDrive(fileBaseName, "repost", drive, form),
+      saveFileToDrive(fileBaseName, "twibbon", drive, form),
+      doc.loadInfo(),
+    ]);
+
     const target = "Data";
     const sheet = doc.sheetsByTitle[target];
     if (!sheet) {
