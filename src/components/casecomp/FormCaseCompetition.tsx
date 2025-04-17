@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useContext, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { StepIndicator } from "./stepindicator";
 import { FormButton, Form, FormFile } from "./FormCase";
 import TeamLeaderForm from "./FormTeamLeader";
@@ -175,6 +176,27 @@ export function FormCaseComp() {
     }
     return "";
   };
+
+  const verifyRegistration = async ({ status }) => {
+    const { teamLeader, teamMembers, payment } = currentData;
+    const form = new FormData();
+    form.append("teamLeader", teamLeader);
+    form.append("teamMembers", teamMembers);
+    form.append("payment", payment);
+    form.append("status", status);
+
+    try {
+      await fetch("/api/verify-registration", {
+        method: "POST",
+        body: form,
+      });
+      toastNotify("success", "Registration verified successfully!");
+    } catch (error) {
+      console.error("Error verifying registration:", error);
+      toastNotify("error", "Failed to verify registration.");
+    }
+  };
+
   const onSubmitSubmission = (e) => {
     e.preventDefault();
 
@@ -241,6 +263,7 @@ export function FormCaseComp() {
   const createCallbacks = ({ showSuccess, showError }) => ({
     onSuccess: () => {
       // window.location.reload();
+      verifyRegistration({ status: "Verified" });
     },
     onPending: () => {
       showSuccess("Payment initiated. Please complete it to finalize your registration.");
@@ -248,6 +271,7 @@ export function FormCaseComp() {
     },
     onError: () => {
       showError("Payment failed or was cancelled. Please try again.");
+      verifyRegistration({ status: "Rejected" });
     },
     onClose: () => {
       showError("Payment popup closed. No transaction was made.");
@@ -522,19 +546,25 @@ export function FormCaseComp() {
               <RenderIf when={currentStep === 4}>
                 <Form onSubmit={handleSubmitFile}>
                   <div className="text-center">
-                    <p className="mb-4 text-gray-700">
-                      {done ? (
-                        <>Registration Succesfull!</>
-                      ) : loading ? (
-                        <>Loading...</>
+                    <div className="mb-4 flex items-center justify-center text-gray-700">
+                      {loading ? (
+                        <Image
+                          width={2000}
+                          height={2000}
+                          alt="Loading..."
+                          src="/img/loading/loading.gif"
+                          className="w-[20%]"
+                        />
+                      ) : done ? (
+                        <>Registration Successfull</>
                       ) : (
-                        <>
+                        <span>
                           {" "}
                           Please review all the information you have entered. <br />
                           Press <strong>Register</strong> to confirm your registration.
-                        </>
+                        </span>
                       )}
-                    </p>
+                    </div>
                   </div>
                   <NavigationButtons
                     currentStep={currentStep}

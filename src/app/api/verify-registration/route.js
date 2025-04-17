@@ -1,36 +1,32 @@
 import { NextResponse } from "next/server";
 import { GoogleSpreadsheet } from "google-spreadsheet";
-// import { JWT } from "google-auth-library";
-import { GetJWTAuth, uploadData, uploadSubscribe, sendEmail } from "./utils";
+import { GetJWTAuth, updateVerificationStatus } from "./utils";
 
 export async function POST(request) {
   try {
-    const { data, target } = await request.json();
+    const form = await request.formData();
+    const teamLeader = JSON.parse(form.get("teamLeader"));
+    const teamMember = JSON.parse(form.get("teamMembers"));
+    const payment = form.get("payment");
+    const status = form.get("status");
+
     const serviceAccountAuth = await GetJWTAuth();
     const doc = new GoogleSpreadsheet(
-      "18Gq2AKH2qXwBMdlhrTGyJ10HAS304FgiQgWpRTTYP2o",
+      "1e2CSou81IKNyoi4UZ11UVpBWVwMB1gsqN4yiVnPQ2qM",
       serviceAccountAuth,
     );
 
     await doc.loadInfo();
+    const sheet = doc.sheetsByTitle["Data"];
 
-    const sheet = doc.sheetsByTitle[target];
+    // console.log("sheet", teamLeader, teamMember, payment, status);
+    // verify
+    updateVerificationStatus(sheet, payment, teamLeader, teamMember, status);
 
     if (!sheet) {
       throw new Error(`Sheet with title "${target}" not found`);
     }
 
-    if (target === "Applicants") {
-      await uploadData(data, sheet);
-    } else if (target === "Newsletter") {
-      await uploadSubscribe(data, sheet);
-    } else {
-      throw new Error(`Invalid target: "${target}"`);
-    }
-    // await sendEmail({ email: "dzakiwismadi@gmail.com" }).catch(() => {
-    //   throw new Error("Failed to send email");
-    // });
-    // console.log("EMAIL SEND!");
     return NextResponse.json({ message: "Success sent!" }, { status: 200 });
   } catch (error) {
     console.error("Error:", error);
@@ -42,7 +38,6 @@ export async function POST(request) {
       errorMessage = error.message;
     }
 
-    console.log("ERROR!");
     return NextResponse.json({ message: errorMessage }, { status: 500 });
   }
 }
