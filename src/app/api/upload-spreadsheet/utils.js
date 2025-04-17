@@ -56,7 +56,7 @@ export const uploadSubscribe = async (data, sheet) => {
   }
 };
 
-const sendEmail = async (body) => {
+export const sendEmail = async (body) => {
   try {
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
@@ -72,7 +72,8 @@ const sendEmail = async (body) => {
     });
 
     await transporter.sendMail({
-      to: process.env.APP_EMAIL ?? "",
+      // to: process.env.APP_EMAIL ?? "",
+      to: body.email,
       subject: "Subsciber baru!",
       text: `Email baru: ${body.email}`,
       html: `<p><b>${body.email}</b> telah melakukan subscibe</p> `,
