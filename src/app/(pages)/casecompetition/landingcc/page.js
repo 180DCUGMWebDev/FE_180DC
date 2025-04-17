@@ -10,7 +10,6 @@ export default function CaseComp() {
     <main className="bg-[#E8E8E8]">
       <HeroCaseComps />
       <TimelineCaseComp />
-      <ComingSoon />
     </main>
   );
 }
