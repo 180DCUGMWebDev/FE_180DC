@@ -426,17 +426,17 @@ export function FormCaseComp() {
               Select Payment Method
             </span>
           </h1>
-          <div className="mt-3 flex items-center gap-4 text-lg lg:text-3xl">
+          <div className="mt-3 flex items-center gap-4 gap-x-[2vw] text-lg lg:text-3xl">
             <button
               type="button"
-              className="rounded-2xl bg-green-500 px-4 py-2 font-bold duration-500 hover:bg-green-600"
+              className="rounded-xl bg-green-500 px-4 py-2 font-bold transition-all duration-500 hover:scale-110 hover:bg-gray-800 hover:text-white"
               onClick={() => setCurrentData((prev) => ({ ...prev, payment: "national" }))}
             >
               National
             </button>
             <button
               type="button"
-              className="rounded-2xl bg-green-500 px-4 py-2 font-bold duration-500 hover:bg-green-600"
+              className="flex items-center rounded-xl bg-green-500 px-4 py-2 font-bold transition-all duration-500 hover:scale-110 hover:bg-gray-800 hover:text-white"
               onClick={() => setCurrentData((prev) => ({ ...prev, payment: "international" }))}
             >
               International
@@ -454,7 +454,7 @@ export function FormCaseComp() {
         alt="background"
         width={2000}
         height={2000}
-        className="absolute -right-[32vw] top-[30%] z-20 h-[49.07vw] w-[68.27vw] lg:-right-[15%] lg:top-0 lg:h-[26.82vw] lg:w-[37.29vw] max-lg:hidden"
+        className="absolute -right-[32vw] top-[30%] z-20 h-[49.07vw] w-[68.27vw] max-lg:hidden lg:-right-[15%] lg:top-0 lg:h-[26.82vw] lg:w-[37.29vw]"
       />
 
       <Image
@@ -462,7 +462,7 @@ export function FormCaseComp() {
         alt="background"
         width={2000}
         height={2000}
-        className="absolute -left-[10vw] bottom-[30%] z-20 h-[49.07vw] w-[68.27vw] lg:bottom-[10%] lg:h-[26.82vw] lg:w-[37.29vw] max-lg:hidden"
+        className="absolute -left-[20vw] bottom-[30%] z-0 h-[49.07vw] w-[68.27vw] max-lg:hidden lg:bottom-[10%] lg:h-[26.82vw] lg:w-[37.29vw]"
       />
 
       <Image
@@ -470,9 +470,8 @@ export function FormCaseComp() {
         alt="greenstar"
         width={2000}
         height={2000}
-        className="absolute -left-[20vw] -top-[10vw] z-20 h-[49.07vw] w-[68.27vw] lg:bottom-[10%] scale-[0.2] max-lg:hidden"
+        className="absolute -left-[20vw] -top-[10vw] z-20 h-[49.07vw] w-[68.27vw] scale-[0.2] max-lg:hidden lg:bottom-[10%]"
       />
-      
 
       {/* Title Section */}
       <div className="z- container mx-auto py-12 text-center">
@@ -481,9 +480,9 @@ export function FormCaseComp() {
             Team Registration
           </span>
         </h1>
-        <p className="mx-auto max-w-md text-gray-300">
+        {/* <p className="mx-auto max-w-md text-gray-300">
           Faucibus tempor in condimentum suscipit diam. Rhoncus diam a felis nunc.
-        </p>
+        </p> */}
       </div>
 
       {/* Form Section */}
@@ -580,14 +579,19 @@ export function FormCaseComp() {
                   <div className="text-center">
                     <div className="mb-4 flex items-center justify-center text-gray-700">
                       {loading ? (
-                        <Image
-                          width={2000}
-                          height={2000}
-                          alt="Loading..."
-                          src="/img/loading/loading.gif"
-                          className="w-[20%]"
-                          unoptimized
-                        />
+                        <div className="flex flex-col items-center">
+                          <Image
+                            width={2000}
+                            height={2000}
+                            alt="Loading..."
+                            src="/img/loading/loading.gif"
+                            className="w-[50%]"
+                            unoptimized
+                          />
+                          <p className="mt-4 text-sm text-gray-600">
+                            Submitting Your Data, Please wait...
+                          </p>
+                        </div>
                       ) : done ? (
                         <>Registration Successfull</>
                       ) : (
