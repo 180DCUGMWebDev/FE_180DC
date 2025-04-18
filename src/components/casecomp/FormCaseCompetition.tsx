@@ -560,7 +560,7 @@ export function FormCaseComp() {
                     ref={twibbonRef}
                     currentState={currentTwibbon}
                     error={twibbonError}
-                    label="Twibbon"
+                    label="Payment Confirmation"
                     tag="twibbon"
                     accept="image/png, image/jpeg"
                     onChange={handleTwibbonChange}
