@@ -412,8 +412,15 @@ export function FormCaseComp() {
   if (currentData.payment === null) {
     return (
       <section className="relative flex min-h-screen items-center justify-center bg-black text-white">
+        <Image
+          src="/img/casecomp/bg-hero-form-landing.png"
+          alt="background"
+          width={2000}
+          height={2000}
+          className="absolute inset-0 z-0 h-screen w-full object-cover"
+        />
         {/* Title Section */}
-        <div className="container mx-auto flex flex-col items-center py-12 text-center">
+        <div className="container z-10 mx-auto flex flex-col items-center py-12 text-center">
           <h1 className="mb-4 mt-[10vh] text-3xl font-bold lg:text-5xl">
             <span className="bg-gradient-to-r from-green-500 to-blue-400 bg-clip-text text-transparent">
               Select Payment Method
@@ -442,10 +449,35 @@ export function FormCaseComp() {
   // Page
   return (
     <section ref={headRef} className="relative min-h-screen bg-black text-white">
+      <Image
+        src="/img/bootcamp/ellipseBlue.png"
+        alt="background"
+        width={2000}
+        height={2000}
+        className="absolute -right-[32vw] top-[30%] z-20 h-[49.07vw] w-[68.27vw] lg:-right-[15%] lg:top-0 lg:h-[26.82vw] lg:w-[37.29vw] max-lg:hidden"
+      />
+
+      <Image
+        src="/img/bootcamp/ellipseGreen.png"
+        alt="background"
+        width={2000}
+        height={2000}
+        className="absolute -left-[10vw] bottom-[30%] z-20 h-[49.07vw] w-[68.27vw] lg:bottom-[10%] lg:h-[26.82vw] lg:w-[37.29vw] max-lg:hidden"
+      />
+
+      <Image
+        src="/img/store/casebook/greenstar.png"
+        alt="greenstar"
+        width={2000}
+        height={2000}
+        className="absolute -left-[20vw] -top-[10vw] z-20 h-[49.07vw] w-[68.27vw] lg:bottom-[10%] scale-[0.2] max-lg:hidden"
+      />
+      
+
       {/* Title Section */}
-      <div className="container mx-auto py-12 text-center">
+      <div className="z- container mx-auto py-12 text-center">
         <h1 className="mb-4 mt-[10vh] text-4xl font-bold">
-          <span className="bg-gradient-to-r from-green-500 to-blue-400 bg-clip-text text-transparent">
+          <span className="z-10 bg-gradient-to-r from-green-500 to-blue-400 bg-clip-text text-transparent">
             Team Registration
           </span>
         </h1>
@@ -455,7 +487,7 @@ export function FormCaseComp() {
       </div>
 
       {/* Form Section */}
-      <div className="container mx-auto pb-16">
+      <div className="container z-20 mx-auto pb-16">
         <div className="mx-auto max-w-3xl rounded-lg bg-white p-8">
           {/* Steps Indicator */}
           {/* Step Labels */}
