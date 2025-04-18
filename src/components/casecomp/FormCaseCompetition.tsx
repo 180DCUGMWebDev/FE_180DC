@@ -17,6 +17,7 @@ import RenderIf from "../global/RenderIf";
 import TeamMemberForm from "./FormTeamMember";
 import { UtilsContext } from "@/contexts/UtilsContext";
 import "./Form.css";
+import { cn } from "@/lilbs/utils";
 
 export function FormCaseComp() {
   // Form steps state
@@ -33,6 +34,8 @@ export function FormCaseComp() {
     mention: null,
     repost: null,
     twibbon: null,
+    buktiPembayaran: null,
+    rekening: null,
   });
   useEffect(() => {
     setHidrate(true);
@@ -136,6 +139,15 @@ export function FormCaseComp() {
   const [currentTwibbon, setCurrentTwibbon] = useState("");
   const [twibbonError, setTwibbonError] = useState("");
 
+  // Bukti Pembayaran
+  const buktiPembayaranRef = useRef(null);
+  const [currentBuktiPembayaran, setCurrentBuktiPembayaran] = useState("");
+  const [buktiPembayaranError, setBuktiPembayaranError] = useState("");
+
+  // Rekening
+  const rekeningRef = useRef(null);
+  const [rekeningError, setRekeningError] = useState("");
+
   useEffect(() => {
     if (currentStep === 3) {
       if (idCardRef && idCardRef.current && currentData.idCard) {
@@ -163,10 +175,20 @@ export function FormCaseComp() {
         dataTransfer.items.add(currentData.twibbon);
         twibbonRef.current.files = dataTransfer.files;
       }
+      if (buktiPembayaranRef && buktiPembayaranRef.current && currentData.buktiPembayaran) {
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(currentData.buktiPembayaran);
+        buktiPembayaranRef.current.files = dataTransfer.files;
+      }
     }
   }, [currentStep]);
 
-  const checkFile = (fileRef) => {
+  const checkFile = (fileRef, optional = false) => {
+    if (optional) {
+      if (!fileRef.current.files[0]) {
+        return "";
+      }
+    }
     if (!fileRef.current.files[0]) {
       return "File is Required!";
     }
@@ -206,6 +228,16 @@ export function FormCaseComp() {
     const mentionErr = checkFile(mentionRef);
     const repostErr = checkFile(repostRef);
     const twibbonErr = checkFile(twibbonRef);
+    const buktiPembayaranErr = checkFile(
+      buktiPembayaranRef,
+      currentData.payment === "international",
+    );
+
+    if (currentData.payment === "international" && !rekeningRef.current.value) {
+      setRekeningError("AccountNumber is required!");
+    } else {
+      setRekeningError("");
+    }
 
     // Set errors in state for UI display
     setIDCardError(idCardErr);
@@ -213,9 +245,17 @@ export function FormCaseComp() {
     setMentionError(mentionErr);
     setRepostError(repostErr);
     setTwibbonError(twibbonErr);
+    setBuktiPembayaranError(buktiPembayaranErr);
 
     // Stop submission if there are any errors
-    if (idCardErr || followErr || mentionErr || repostErr || twibbonErr) {
+    if (
+      idCardErr ||
+      followErr ||
+      mentionErr ||
+      repostErr ||
+      twibbonErr ||
+      ((buktiPembayaranErr || rekeningError) && currentData.payment === "international")
+    ) {
       return;
     }
 
@@ -227,6 +267,8 @@ export function FormCaseComp() {
       mention: mentionRef.current.files[0],
       repost: repostRef.current.files[0],
       twibbon: twibbonRef.current.files[0],
+      buktiPembayaran: buktiPembayaranRef?.current?.files[0] || null,
+      rekening: rekeningRef.current.value || null,
     }));
 
     goToNextStep();
@@ -257,6 +299,11 @@ export function FormCaseComp() {
     else setCurrentTwibbon(e.target.files[0].name);
   };
 
+  const handleBuktiPembayaranChange = (e) => {
+    if (!e.target?.files[0]) setCurrentBuktiPembayaran(null);
+    else setCurrentBuktiPembayaran(e.target.files[0].name);
+  };
+
   const [done, setDone] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -281,9 +328,33 @@ export function FormCaseComp() {
 
   const [snapInitialized, setSnapInitialized] = useState(false);
 
+  // Helper Functions
+  const callbacks = {
+    showError: (error: string) => {
+      toastNotify("error", error);
+    },
+    showSuccess: (result: string) => {
+      toastNotify("success", result);
+    },
+    showLoading: (text: string) => {
+      toastNotify("info", text);
+    },
+    dismissLoading: () => {},
+  };
+
   const handleSubmitFile = async (e) => {
-    const { teamLeader, payment, teamMembers, idCard, follow, mention, repost, twibbon } =
-      currentData;
+    const {
+      teamLeader,
+      payment,
+      teamMembers,
+      idCard,
+      follow,
+      mention,
+      repost,
+      twibbon,
+      buktiPembayaran,
+      rekening,
+    } = currentData;
     const form = new FormData();
     form.append("teamLeader", teamLeader);
     form.append("teamMembers", teamMembers);
@@ -294,6 +365,8 @@ export function FormCaseComp() {
     form.append("repost", repost);
     form.append("twibbon", twibbon);
     form.append("competition", "180DC BCC");
+    form.append("buktiPembayaran", buktiPembayaran);
+    form.append("rekening", rekening);
     e.preventDefault();
 
     // Register
@@ -316,22 +389,28 @@ export function FormCaseComp() {
         return;
       }
 
-      const snapToken = result.body.snap_token;
+      if (currentData.payment === "national") {
+        const snapToken = result.body.snap_token;
 
-      if (!snapToken) {
-        toastNotify("success", "Registration successful!");
-      } else {
-        callbacks.dismissLoading();
-        if (!window.snap || !snapInitialized) {
-          callbacks.showError("Snap not ready");
-          setLoading(false);
-          return;
+        if (!snapToken) {
+          toastNotify("success", "Registration successful!");
+        } else {
+          callbacks.dismissLoading();
+          if (!window.snap || !snapInitialized) {
+            callbacks.showError("Snap not ready");
+            setLoading(false);
+            return;
+          }
+          window.snap.pay(snapToken, createCallbacks(callbacks));
+          toastNotify(
+            "success",
+            "Payment initiated. Please complete it to finalize your registration.",
+          );
         }
-        window.snap.pay(snapToken, createCallbacks(callbacks));
-        toastNotify(
-          "success",
-          "Payment initiated. Please complete it to finalize your registration.",
-        );
+      }
+
+      if (currentData.payment === "international") {
+        verifyRegistration({ status: "Verified" });
       }
 
       setDone(true);
@@ -394,20 +473,6 @@ export function FormCaseComp() {
 
     runAll();
   }, []);
-
-  // Helper Functions
-  const callbacks = {
-    showError: (error: string) => {
-      toastNotify("error", error);
-    },
-    showSuccess: (result: string) => {
-      toastNotify("success", result);
-    },
-    showLoading: (text: string) => {
-      toastNotify("info", text);
-    },
-    dismissLoading: () => {},
-  };
 
   if (currentData.payment === null) {
     return (
@@ -511,7 +576,6 @@ export function FormCaseComp() {
                   <TeamMemberForm register={registerMember2} index={2} error={errorsMember2} />
                   <NavigationButtons
                     currentStep={currentStep}
-                    totalSteps={totalSteps}
                     setCurrentStep={setCurrentStep}
                     showPrevious
                     buttonText={"Next"}
@@ -565,9 +629,38 @@ export function FormCaseComp() {
                     accept="image/png, image/jpeg"
                     onChange={handleTwibbonChange}
                   />
+
+                  <FormFile
+                    ref={buktiPembayaranRef}
+                    currentState={currentBuktiPembayaran}
+                    error={buktiPembayaranError}
+                    label="Bukti Pembayaran"
+                    tag="buktiPembayaran"
+                    accept="image/png, image/jpeg"
+                    onChange={handleBuktiPembayaranChange}
+                    className={currentData.payment === "international" ? "" : "hidden"}
+                  />
+                  <div
+                    className={cn("mb-4", currentData.payment === "international" ? "" : "hidden")}
+                  >
+                    <label className="mb-2 block text-sm font-medium text-gray-700 lg:text-base">
+                      Bank Account Number
+                    </label>
+
+                    <input
+                      ref={rekeningRef}
+                      placeholder={
+                        currentData.payment === "international"
+                          ? "HSBC 12345678 a.n John Doe"
+                          : "Mandiri 12345678 a.n John Doe"
+                      }
+                      className="w-full rounded bg-gray-100 p-3 outline-0"
+                    />
+                    {rekeningError && <p className="mt-1 text-sm text-red-500">{rekeningError}</p>}
+                  </div>
+
                   <NavigationButtons
                     currentStep={currentStep}
-                    totalSteps={totalSteps}
                     setCurrentStep={setCurrentStep}
                     showPrevious
                     buttonText={"Next"}
@@ -605,7 +698,7 @@ export function FormCaseComp() {
                   </div>
                   <NavigationButtons
                     currentStep={currentStep}
-                    totalSteps={totalSteps}
+                    disableRightButton={loading || done}
                     setCurrentStep={setCurrentStep}
                     showPrevious
                     buttonText={loading ? "Loading" : done ? "Success" : "Register"}
@@ -617,17 +710,14 @@ export function FormCaseComp() {
         </div>
       </div>
 
-      <div className="z- container mx-auto py-12 text-center ">
+      <div className="z- container mx-auto py-12 text-center">
         <p className="mx-auto max-w-md text-gray-300">
-          If there any trouble, kindly chat: <br/>
-          
+          If there any trouble, kindly chat: <br />
         </p>
-        <p className="mx-auto lg:text-[1.7vw] text-green-500 font-semibold">
-        Nayya +62 856-9232-9601  
+        <p className="mx-auto font-semibold text-green-500 lg:text-[1.7vw]">
+          Nayya +62 856-9232-9601
         </p>
-        
       </div>
-
     </section>
   );
 }

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { GoogleSpreadsheet } from "google-spreadsheet";
-import { GetJWTAuth, updateVerificationStatus } from "./utils";
+import { GetJWTAuth, sendEmail, updateVerificationStatus } from "./utils";
 
 export async function POST(request) {
   try {
@@ -26,6 +26,12 @@ export async function POST(request) {
     if (!sheet) {
       throw new Error(`Sheet with title "${target}" not found`);
     }
+
+    await sendEmail({
+      teamLeader,
+    }).catch(() => {
+      throw new Error("Failed to send email");
+    });
 
     return NextResponse.json({ message: "Success sent!" }, { status: 200 });
   } catch (error) {

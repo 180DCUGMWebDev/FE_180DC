@@ -28,6 +28,7 @@
     "gsap": "^3.12.5",
     "js-cookie": "^3.0.5",
     "locomotive-scroll": "^5.0.0-beta.15",
+    "lodash.debounce": "^4.0.8",
     "midtrans-client": "^1.4.2",
     "moment": "^2.29.4",
     "net": "^1.0.2",

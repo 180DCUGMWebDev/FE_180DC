@@ -9,6 +9,7 @@ export const driveFolderId = {
   mention: "1qIpYsukeS2QUpSP22_SLdV2T4gNRkGf4",
   repost: "1kfpWnBI5kef6-9lXPgNK9xGHXUqM5WmF",
   twibbon: "1rsf6jzYrO-bc-CQZSEZZZ231rn4Tp0o5",
+  buktiPembayaran: "1HDKEeyjj1D__9_Ggp5aEQRrmin1QX399",
   spreadsheet: "1e2CSou81IKNyoi4UZ11UVpBWVwMB1gsqN4yiVnPQ2qM",
 };
 
@@ -25,10 +26,11 @@ export const GetJWTAuth = async () => {
   return auth;
 };
 
-export const uploadData = async (sheet, payment, teamLeader, teamMember, link) => {
+export const uploadData = async (sheet, payment, teamLeader, teamMember, link, bukti) => {
   try {
     await sheet.addRow({
       timestamp: moment().startOf("second").format("YYYY-MM-DD HH:mm:ss").toString(),
+      Status: "-",
       Payment: payment,
       "Leader's Name": teamLeader.namaLengkap,
       "Leader's University": teamLeader.universitas,
@@ -53,17 +55,24 @@ export const uploadData = async (sheet, payment, teamLeader, teamMember, link) =
       Mention: link.mention,
       Repost: link.repost,
       Twibbon: link.twibbon,
+      "Bukti Pembayaran": bukti?.buktiPembayaran ? bukti.buktiPembayaran : "-",
+      Rekening: bukti?.rekening ? bukti.rekening : "-",
     });
   } catch (error) {
     throw new Error("Failed to upload data");
   }
 };
 
-export const saveFileToDrive = async (fileName, column, drive, form) => {
+export const saveFileToDrive = async (fileName, column, drive, form, opsional = false) => {
+  if (opsional) return null;
   const file = form.get(column);
 
   if (!file) {
-    throw new Error("File not found");
+    if (opsional) {
+      return null;
+    } else {
+      throw new Error("File not found");
+    }
   }
 
   const arrayBuffer = await file.arrayBuffer();

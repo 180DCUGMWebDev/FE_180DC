@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
-const moment = require("moment");
 import { JWT } from "google-auth-library";
-import { Readable } from "stream";
+
+import { committeHTML, participantHTML } from "./confirmationEmail";
 
 export const driveFolderId = {
   follow: "1miiYf9kIuXems8nb4NvSxhJwpDycclm1",
@@ -9,6 +9,7 @@ export const driveFolderId = {
   mention: "1qIpYsukeS2QUpSP22_SLdV2T4gNRkGf4",
   repost: "1kfpWnBI5kef6-9lXPgNK9xGHXUqM5WmF",
   twibbon: "1rsf6jzYrO-bc-CQZSEZZZ231rn4Tp0o5",
+  buktiPembayaran: "1HDKEeyjj1D__9_Ggp5aEQRrmin1QX399",
   spreadsheet: "1e2CSou81IKNyoi4UZ11UVpBWVwMB1gsqN4yiVnPQ2qM",
 };
 
@@ -42,14 +43,14 @@ export const updateVerificationStatus = async (sheet, payment, teamLeader, teamM
     };
 
     let targetRow = null;
-    for (const row of rows) {
+    for (let i = rows.length - 1; i >= 0; --i) {
       if (
-        row.get("Payment") === payment &&
-        compareMemberData(row, teamLeader, "Leader's") &&
-        compareMemberData(row, teamMember[0], "1st Member's") &&
-        compareMemberData(row, teamMember[1], "2nd Member's")
+        rows[i].get("Payment") === payment &&
+        compareMemberData(rows[i], teamLeader, "Leader's") &&
+        compareMemberData(rows[i], teamMember[0], "1st Member's") &&
+        compareMemberData(rows[i], teamMember[1], "2nd Member's")
       ) {
-        targetRow = row;
+        targetRow = rows[i];
         break;
       }
     }
@@ -65,7 +66,7 @@ export const updateVerificationStatus = async (sheet, payment, teamLeader, teamM
   }
 };
 
-export const sendEmail = async (body) => {
+export const sendEmail = async ({ teamLeader }) => {
   try {
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
@@ -80,12 +81,18 @@ export const sendEmail = async (body) => {
       },
     });
 
-    await transporter.sendMail({
-      to: process.env.APP_EMAIL ?? "",
-      subject: "Subsciber baru!",
-      text: `Email baru: ${body.email}`,
-      html: `<p><b>${body.email}</b> telah melakukan subscibe</p> `,
-    });
+    await Promise.all([
+      transporter.sendMail({
+        to: teamLeader.email,
+        subject: "Verification Status",
+        html: participantHTML(teamLeader),
+      }),
+      transporter.sendMail({
+        to: process.env.APP_EMAIL ?? "",
+        subject: "Verification Status",
+        html: committeHTML(teamLeader),
+      }),
+    ]);
   } catch (error) {
     console.error("Failed to send email:", error);
     throw new Error("Failed to send email");

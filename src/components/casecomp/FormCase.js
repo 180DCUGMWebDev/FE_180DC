@@ -46,9 +46,10 @@ const FormFile = ({
   onChange,
   error = null,
   accept = "image/png, iamge/jpeg, application/pdf",
+  className = "",
 }) => {
   return (
-    <div className="mb-4 flex flex-col space-y-6">
+    <div className={cn("mb-4 flex flex-col space-y-6", className)}>
       <h4 className="block text-sm font-medium text-gray-700 lg:text-base">{label}</h4>
       <label
         htmlFor={tag}

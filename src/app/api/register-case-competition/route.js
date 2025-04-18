@@ -45,14 +45,16 @@ export async function POST(request) {
 
     const doc = new GoogleSpreadsheet(driveFolderId.spreadsheet, auth);
     const fileBaseName = `${teamLeader.namaLengkap} - ${formattedDate}`;
-    const [idCardLink, followLink, mentionLink, repostLink, twibbonLink] = await Promise.all([
-      saveFileToDrive(fileBaseName, "idCard", drive, form),
-      saveFileToDrive(fileBaseName, "follow", drive, form),
-      saveFileToDrive(fileBaseName, "mention", drive, form),
-      saveFileToDrive(fileBaseName, "repost", drive, form),
-      saveFileToDrive(fileBaseName, "twibbon", drive, form),
-      doc.loadInfo(),
-    ]);
+    const [idCardLink, followLink, mentionLink, repostLink, twibbonLink, buktiLink] =
+      await Promise.all([
+        saveFileToDrive(fileBaseName, "idCard", drive, form),
+        saveFileToDrive(fileBaseName, "follow", drive, form),
+        saveFileToDrive(fileBaseName, "mention", drive, form),
+        saveFileToDrive(fileBaseName, "repost", drive, form),
+        saveFileToDrive(fileBaseName, "twibbon", drive, form),
+        saveFileToDrive(fileBaseName, "buktiPembayaran", drive, form, true),
+        doc.loadInfo(),
+      ]);
 
     const target = "Data";
     const sheet = doc.sheetsByTitle[target];
@@ -65,6 +67,10 @@ export async function POST(request) {
       mention: mentionLink,
       repost: repostLink,
       twibbon: twibbonLink,
+      bukti: {
+        buktiPembayaran: buktiLink,
+        rekening: form.get("rekening") ?? null,
+      },
     });
 
     // Return payment
