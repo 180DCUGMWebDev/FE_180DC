@@ -19,7 +19,6 @@ export async function POST(request) {
     await doc.loadInfo();
     const sheet = doc.sheetsByTitle["Data"];
 
-    // console.log("sheet", teamLeader, teamMember, payment, status);
     // verify
     await updateVerificationStatus(sheet, payment, teamLeader, teamMember, status);
 
