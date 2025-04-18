@@ -43,8 +43,14 @@ export function HeroCaseComps() {
                   <Button
                     color="green"
                     text="Enroll Competition"
-                    addClass="w-[80%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743]  hover:text-white"
+                    addClass="w-[80%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[110%] hover:bg-[#73B743]  hover:text-white"
                     // href="www.180dcugm.com/casecompetition/form"
+                  />
+                  <Button
+                    color="white"
+                    text="Guidebook"
+                    addClass="w-[80%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[110%] hover:bg-[#73B743]  hover:text-white"
+                    href="drive.google.com/drive/folders/10IN3FGK5FtsdEBzRAWKQkweIHIiShDy-"
                   />
                 </div>
               </div>
@@ -72,7 +78,13 @@ export function HeroCaseComps() {
                 color="green"
                 text="Registration"
                 addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[2.154vw] lg:mt-[1.25vw] font-bold"
-                href="bit.ly/180DC-ConsultingOpenRecruitmentForm-Cycle2"
+                // href="www.180dcugm.com/casecompetition/form"
+              />
+              <Button
+                color="white"
+                text="Guidebook"
+                addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[2.154vw] lg:mt-[1.25vw] font-bold"
+                href="drive.google.com/drive/folders/10IN3FGK5FtsdEBzRAWKQkweIHIiShDy-"
               />
               {/* <Image
                 src="/img/casecomp/HeroMainOrnament.png"

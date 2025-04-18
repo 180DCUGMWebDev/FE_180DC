@@ -23,7 +23,7 @@ export function TimelineCaseComp() {
       />
 
       {/* Content */}
-      <div className="z-50 mb-[7vw] flex w-full items-center justify-center bg-[#E8E8E8]">
+      <div className="z-50 flex w-full items-center justify-center bg-[#E8E8E8]">
         {/* Container for the centered Timeline image */}
         <div className="relative mt-[3vw] flex flex-col items-center justify-center">
           {/* Green Star positioned absolutely relative to the container */}
@@ -43,7 +43,7 @@ export function TimelineCaseComp() {
             className="z-5 absolute -right-[18vw] -top-[10vw] w-[24.008vw] object-cover max-lg:hidden"
           />
           {/* Centered Timeline image */}
-          <div className="mb-[2vw] mt-[3vw] font-latoBold text-[3.33vw] text-[#73B743]">
+          <div className="mt-[3vw] mb-[5vw] font-latoBold text-[3.33vw] text-[#73B743]">
             <Image
               src="/img/casecomp/apactimelinetitle.png"
               alt=""
@@ -58,7 +58,7 @@ export function TimelineCaseComp() {
             alt="Centered Image"
             width={2000}
             height={2000}
-            className="mb-[10vw] w-[80vw] max-w-full object-cover lg:w-[40vw]"
+            className=" w-[80vw] max-w-full object-cover lg:w-[40vw]"
           />
         </div>
       </div>
