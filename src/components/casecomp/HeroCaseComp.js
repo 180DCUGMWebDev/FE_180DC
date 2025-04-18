@@ -44,7 +44,7 @@ export function HeroCaseComps() {
                     color="green"
                     text="Enroll Competition"
                     addClass="w-[80%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743]  hover:text-white"
-                    href="www.180dcugm.com/casecompetition/form"
+                    // href="www.180dcugm.com/casecompetition/form"
                   />
                 </div>
               </div>
