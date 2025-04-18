@@ -3,13 +3,13 @@ export const navLinks = {
   Home: "/",
   "About Us": "/aboutus",
   "Our Clients": "/portofolio",
-  Store: "/store/casebook",
-  Event: "/cycle2oprec",
+  Store: "/store/merch",
+  Event: "/casecompetition",
   Academy: "/academy",
   Telescope: "/telescope",
 };
 
-// store
+
 export const childLink = {
   Store: {
     Casebook: "/store/casebook",
@@ -18,6 +18,7 @@ export const childLink = {
   Event: {
     Bootcamp: "/bootcamp",
     "Cycle 2": "/cycle2oprec",
+    "Case Competition": "/casecompetition",
   },
   Telescope: {
     Article: "/telescope",

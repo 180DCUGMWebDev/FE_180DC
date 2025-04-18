@@ -616,6 +616,18 @@ export function FormCaseComp() {
           )}
         </div>
       </div>
+
+      <div className="z- container mx-auto py-12 text-center ">
+        <p className="mx-auto max-w-md text-gray-300">
+          If there any trouble, kindly chat: <br/>
+          
+        </p>
+        <p className="mx-auto lg:text-[1.7vw] text-green-500 font-semibold">
+        Nayya +62 856-9232-9601  
+        </p>
+        
+      </div>
+
     </section>
   );
 }

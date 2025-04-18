@@ -49,7 +49,7 @@ export function HeroCaseComps() {
                   <Button
                     color="white"
                     text="Guidebook"
-                    addClass="w-[80%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[110%] hover:bg-[#73B743]  hover:text-white"
+                    addClass="w-[80%] z-50 h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[110%] hover:bg-[#73B743]  hover:text-white"
                     href="drive.google.com/drive/folders/10IN3FGK5FtsdEBzRAWKQkweIHIiShDy-"
                   />
                 </div>
@@ -64,7 +64,7 @@ export function HeroCaseComps() {
               alt="background"
               width={2000}
               height={2000}
-              className="absolute -bottom-[10.6vw] -right-[20vw] z-10 mr-[5vw] w-full scale-[0.7] max-lg:hidden"
+              className="absolute z-0 -bottom-[10.6vw] -right-[20vw]  mr-[5vw] w-full scale-[0.7] max-lg:hidden"
             />
           </div>
 
