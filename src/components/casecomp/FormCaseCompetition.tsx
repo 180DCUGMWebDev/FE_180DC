@@ -254,7 +254,8 @@ export function FormCaseComp() {
       mentionErr ||
       repostErr ||
       twibbonErr ||
-      ((buktiPembayaranErr || rekeningError) && currentData.payment === "international")
+      buktiPembayaranErr ||
+      rekeningError
     ) {
       return;
     }
@@ -389,29 +390,29 @@ export function FormCaseComp() {
         return;
       }
 
-      if (currentData.payment === "national") {
-        const snapToken = result.body.snap_token;
+      // if (currentData.payment === "national") {
+      //   const snapToken = result.body.snap_token;
 
-        if (!snapToken) {
-          toastNotify("success", "Registration successful!");
-        } else {
-          callbacks.dismissLoading();
-          if (!window.snap || !snapInitialized) {
-            callbacks.showError("Snap not ready");
-            setLoading(false);
-            return;
-          }
-          window.snap.pay(snapToken, createCallbacks(callbacks));
-          toastNotify(
-            "success",
-            "Payment initiated. Please complete it to finalize your registration.",
-          );
-        }
-      }
+      //   if (!snapToken) {
+      //     toastNotify("success", "Registration successful!");
+      //   } else {
+      //     callbacks.dismissLoading();
+      //     if (!window.snap || !snapInitialized) {
+      //       callbacks.showError("Snap not ready");
+      //       setLoading(false);
+      //       return;
+      //     }
+      //     window.snap.pay(snapToken, createCallbacks(callbacks));
+      //     toastNotify(
+      //       "success",
+      //       "Payment initiated. Please complete it to finalize your registration.",
+      //     );
+      //   }
+      // }
 
-      if (currentData.payment === "international") {
-        verifyRegistration({ status: "Verified" });
-      }
+      // if (currentData.payment === "international") {
+      verifyRegistration({ status: "Verified" });
+      // }
 
       setDone(true);
       setLoading(false);
@@ -638,11 +639,15 @@ export function FormCaseComp() {
                     tag="buktiPembayaran"
                     accept="image/png, image/jpeg"
                     onChange={handleBuktiPembayaranChange}
-                    className={currentData.payment === "international" || currentData.payment === "national" ? "" : "hidden"}
+                    className={
+                      currentData.payment === "international" || currentData.payment === "national"
+                        ? ""
+                        : "hidden"
+                    }
                   />
 
-                  <div className="container mx-auto text-start mb-[3vw]">
-                    <p className="mx-auto font-semibold text-black lg:text-[1vw]/[1vw] max-lg:text-[3vw]/[3vw]">
+                  <div className="container mx-auto mb-[2vw] text-start">
+                    <p className="mx-auto font-semibold text-black max-lg:text-[3vw]/[3vw] lg:text-[1vw]/[1vw]">
                       BCA Account : 6975323980 <br />
                       Account Number : Jacques Ethan N G<br />
                       Swift Code : CENAIDJA
@@ -650,7 +655,12 @@ export function FormCaseComp() {
                   </div>
 
                   <div
-                    className={cn("mb-4", currentData.payment === "international" || currentData.payment === "national" ? "" : "hidden")}
+                    className={cn(
+                      "mb-4",
+                      currentData.payment === "international" || currentData.payment === "national"
+                        ? ""
+                        : "hidden",
+                    )}
                   >
                     <label className="mb-2 block text-sm font-medium text-gray-700 lg:text-base">
                       Registrant Account Number

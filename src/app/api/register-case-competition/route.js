@@ -52,7 +52,7 @@ export async function POST(request) {
         saveFileToDrive(fileBaseName, "mention", drive, form),
         saveFileToDrive(fileBaseName, "repost", drive, form),
         saveFileToDrive(fileBaseName, "twibbon", drive, form),
-        saveFileToDrive(fileBaseName, "buktiPembayaran", drive, form, true),
+        saveFileToDrive(fileBaseName, "buktiPembayaran", drive, form),
         doc.loadInfo(),
       ]);
 
