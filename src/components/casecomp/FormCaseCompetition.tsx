@@ -624,7 +624,7 @@ export function FormCaseComp() {
                     ref={twibbonRef}
                     currentState={currentTwibbon}
                     error={twibbonError}
-                    label="Payment Confirmation"
+                    label="Twibbon"
                     tag="twibbon"
                     accept="image/png, image/jpeg"
                     onChange={handleTwibbonChange}
@@ -634,17 +634,26 @@ export function FormCaseComp() {
                     ref={buktiPembayaranRef}
                     currentState={currentBuktiPembayaran}
                     error={buktiPembayaranError}
-                    label="Bukti Pembayaran"
+                    label="Payment Proof"
                     tag="buktiPembayaran"
                     accept="image/png, image/jpeg"
                     onChange={handleBuktiPembayaranChange}
-                    className={currentData.payment === "international" ? "" : "hidden"}
+                    className={currentData.payment === "international" || currentData.payment === "national" ? "" : "hidden"}
                   />
+
+                  <div className="container mx-auto text-start mb-[3vw]">
+                    <p className="mx-auto font-semibold text-black lg:text-[1vw]/[1vw] max-lg:text-[3vw]/[3vw]">
+                      BCA Account : 6975323980 <br />
+                      Account Number : Jacques Ethan N G<br />
+                      Swift Code : CENAIDJA
+                    </p>
+                  </div>
+
                   <div
-                    className={cn("mb-4", currentData.payment === "international" ? "" : "hidden")}
+                    className={cn("mb-4", currentData.payment === "international" || currentData.payment === "national" ? "" : "hidden")}
                   >
                     <label className="mb-2 block text-sm font-medium text-gray-700 lg:text-base">
-                      Bank Account Number
+                      Registrant Account Number
                     </label>
 
                     <input
