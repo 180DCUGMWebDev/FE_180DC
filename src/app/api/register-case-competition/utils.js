@@ -9,7 +9,7 @@ export const driveFolderId = {
   mention: "1qIpYsukeS2QUpSP22_SLdV2T4gNRkGf4",
   repost: "1kfpWnBI5kef6-9lXPgNK9xGHXUqM5WmF",
   twibbon: "1rsf6jzYrO-bc-CQZSEZZZ231rn4Tp0o5",
-  buktiPembayaran: "1HDKEeyjj1D__9_Ggp5aEQRrmin1QX399",
+  buktiPembayaran: "1bEYYPH0oBNT3RRTE2nHj4lfKY7M42ezW",
   spreadsheet: "1e2CSou81IKNyoi4UZ11UVpBWVwMB1gsqN4yiVnPQ2qM",
 };
 
