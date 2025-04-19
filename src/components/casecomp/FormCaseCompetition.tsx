@@ -412,7 +412,7 @@ export function FormCaseComp() {
       // }
 
       // if (currentData.payment === "international") {
-      verifyRegistration({ status: "Verified" });
+      // verifyRegistration({ status: "Verified" });
       // }
 
       setDone(true);
