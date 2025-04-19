@@ -6,8 +6,14 @@ const TeamLeaderForm = ({ register, error }) => {
   return (
     <div className="space-y-6">
       <FormField
+        register={register("namaTim")}
+        label="Team's Name"
+        placeholder="Team's Name"
+        error={error?.namaTim}
+      />
+      <FormField
         register={register("namaLengkap")}
-        label="Full Name"
+        label="Leader's Full Name"
         placeholder="John Doe"
         error={error?.namaLengkap}
       />

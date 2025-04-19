@@ -46,6 +46,7 @@ export const updateVerificationStatus = async (sheet, payment, teamLeader, teamM
     for (let i = rows.length - 1; i >= 0; --i) {
       if (
         rows[i].get("Payment") === payment &&
+        rows[i].get("Team Name") === teamLeader.namaTim &&
         compareMemberData(rows[i], teamLeader, "Leader's") &&
         compareMemberData(rows[i], teamMember[0], "1st Member's") &&
         compareMemberData(rows[i], teamMember[1], "2nd Member's")

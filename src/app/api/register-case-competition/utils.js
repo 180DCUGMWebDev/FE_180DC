@@ -32,6 +32,7 @@ export const uploadData = async (sheet, payment, teamLeader, teamMember, link, b
       timestamp: moment().startOf("second").format("YYYY-MM-DD HH:mm:ss").toString(),
       Status: "-",
       Payment: payment,
+      "Team Name": teamLeader.namaTim,
       "Leader's Name": teamLeader.namaLengkap,
       "Leader's University": teamLeader.universitas,
       "Leader's Major": teamLeader.prodi,
@@ -70,7 +71,6 @@ export const saveFileToDrive = async (fileName, column, drive, form, opsional = 
   if (!file) {
     throw new Error("File not found");
   }
-  console.log(column);
 
   const arrayBuffer = await file.arrayBuffer();
   const buffer = Buffer.from(arrayBuffer);

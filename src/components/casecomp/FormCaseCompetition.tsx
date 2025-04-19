@@ -51,6 +51,7 @@ export function FormCaseComp() {
   } = useForm<TeamLeaderValues>({
     resolver: zodResolver(TeamLeaderSchema),
     defaultValues: {
+      namaTim: "",
       namaLengkap: "",
       universitas: "",
       prodi: "",
@@ -717,7 +718,7 @@ export function FormCaseComp() {
                   </div>
                   <NavigationButtons
                     currentStep={currentStep}
-                    // disableRightButton={loading || done}
+                    disableRightButton={loading || done}
                     setCurrentStep={setCurrentStep}
                     showPrevious
                     buttonText={loading ? "Loading" : done ? "Success" : "Register"}

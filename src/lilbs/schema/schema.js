@@ -47,6 +47,7 @@ export const SubmissionSchema = z.object({
 export const EmailSchema = z.string().email({ message: "Email address is not valid!" });
 
 export const TeamLeaderSchema = z.object({
+  namaTim: z.string().min(3, { message: "Team name must be at least 3 characters long!" }),
   namaLengkap: NamaSchema,
   universitas: UniversitasSchema,
   prodi: ProdiSchema,
