@@ -55,8 +55,8 @@ export const uploadData = async (sheet, payment, teamLeader, teamMember, link, b
       Mention: link.mention,
       Repost: link.repost,
       Twibbon: link.twibbon,
-      "Bukti Pembayaran": bukti?.buktiPembayaran ? bukti.buktiPembayaran : "-",
-      Rekening: bukti?.rekening ? bukti.rekening : "-",
+      "Bukti Pembayaran": bukti.buktiPembayaran,
+      Rekening: bukti.rekening,
     });
   } catch (error) {
     throw new Error("Failed to upload data");
@@ -64,16 +64,13 @@ export const uploadData = async (sheet, payment, teamLeader, teamMember, link, b
 };
 
 export const saveFileToDrive = async (fileName, column, drive, form, opsional = false) => {
-  if (opsional) return null;
+  // if (opsional) return null;
   const file = form.get(column);
 
   if (!file) {
-    if (opsional) {
-      return null;
-    } else {
-      throw new Error("File not found");
-    }
+    throw new Error("File not found");
   }
+  console.log(column);
 
   const arrayBuffer = await file.arrayBuffer();
   const buffer = Buffer.from(arrayBuffer);

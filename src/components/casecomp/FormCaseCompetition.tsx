@@ -230,10 +230,10 @@ export function FormCaseComp() {
     const twibbonErr = checkFile(twibbonRef);
     const buktiPembayaranErr = checkFile(
       buktiPembayaranRef,
-      currentData.payment === "international",
+      // currentData.payment === "international",
     );
 
-    if (currentData.payment === "international" && !rekeningRef.current.value) {
+    if (!rekeningRef.current.value) {
       setRekeningError("AccountNumber is required!");
     } else {
       setRekeningError("");
@@ -268,8 +268,8 @@ export function FormCaseComp() {
       mention: mentionRef.current.files[0],
       repost: repostRef.current.files[0],
       twibbon: twibbonRef.current.files[0],
-      buktiPembayaran: buktiPembayaranRef?.current?.files[0] || null,
-      rekening: rekeningRef.current.value || null,
+      buktiPembayaran: buktiPembayaranRef.current.files[0],
+      rekening: rekeningRef.current.value,
     }));
 
     goToNextStep();
@@ -717,7 +717,7 @@ export function FormCaseComp() {
                   </div>
                   <NavigationButtons
                     currentStep={currentStep}
-                    disableRightButton={loading || done}
+                    // disableRightButton={loading || done}
                     setCurrentStep={setCurrentStep}
                     showPrevious
                     buttonText={loading ? "Loading" : done ? "Success" : "Register"}

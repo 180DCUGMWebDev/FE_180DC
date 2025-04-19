@@ -61,17 +61,23 @@ export async function POST(request) {
     if (!sheet) {
       throw new Error(`Sheet with title "${target}" not found`);
     }
-    await uploadData(sheet, payment, teamLeader, teamMember, {
-      idCard: idCardLink,
-      follow: followLink,
-      mention: mentionLink,
-      repost: repostLink,
-      twibbon: twibbonLink,
-      bukti: {
-        buktiPembayaran: buktiLink,
-        rekening: form.get("rekening") ?? null,
+    await uploadData(
+      sheet,
+      payment,
+      teamLeader,
+      teamMember,
+      {
+        idCard: idCardLink,
+        follow: followLink,
+        mention: mentionLink,
+        repost: repostLink,
+        twibbon: twibbonLink,
       },
-    });
+      {
+        buktiPembayaran: buktiLink,
+        rekening: form.get("rekening"),
+      },
+    );
 
     // Return payment
     const { order_id, gross_amount, snap_token } = paymentJson;
