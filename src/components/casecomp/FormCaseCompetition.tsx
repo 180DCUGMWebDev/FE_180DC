@@ -593,6 +593,7 @@ export function FormCaseComp() {
                     label="ID Card"
                     tag="idCard"
                     accept="application/pdf"
+                    placeholder="Choose file! Send the compiled file consisting of all the team members’ documents"
                     onChange={handleIDCardChange}
                   />
                   <FormFile
@@ -602,16 +603,8 @@ export function FormCaseComp() {
                     label="Follow"
                     tag="follow"
                     accept="image/png, image/jpeg"
+                    placeholder="Choose file! Send the compiled file consisting of all the team members’ documents"
                     onChange={handleFollowChange}
-                  />
-                  <FormFile
-                    ref={mentionRef}
-                    currentState={currentMention}
-                    error={mentionError}
-                    label="Mention"
-                    tag="mention"
-                    accept="image/png, image/jpeg"
-                    onChange={handleMentionChange}
                   />
                   <FormFile
                     ref={repostRef}
@@ -620,6 +613,7 @@ export function FormCaseComp() {
                     label="Repost"
                     tag="repost"
                     accept="image/png, image/jpeg"
+                    placeholder="Choose file! Send the compiled file consisting of all the team members’ documents"
                     onChange={handleRepostChange}
                   />
                   <FormFile
@@ -629,9 +623,19 @@ export function FormCaseComp() {
                     label="Twibbon"
                     tag="twibbon"
                     accept="image/png, image/jpeg"
+                    placeholder="Choose file! Send the compiled file consisting of all the team members’ documents"
                     onChange={handleTwibbonChange}
                   />
-
+                  <FormFile
+                    ref={mentionRef}
+                    currentState={currentMention}
+                    error={mentionError}
+                    label="Mention"
+                    tag="mention"
+                    accept="image/png, image/jpeg"
+                    placeholder="Choose file! Mention on your Twibbon’s Caption"
+                    onChange={handleMentionChange}
+                  />
                   <FormFile
                     ref={buktiPembayaranRef}
                     currentState={currentBuktiPembayaran}

@@ -41,6 +41,7 @@ const FormButton = ({ text = "Next" }) => {
 const FormFile = ({
   ref,
   currentState,
+  placeholder = "Choose File!",
   label,
   tag,
   onChange,
@@ -58,7 +59,7 @@ const FormFile = ({
           currentState ? "bg-green-500 text-white" : "bg-gray-200 text-gray-500",
         )}
       >
-        {currentState ? currentState : "Choose File!"}
+        {currentState ? currentState : placeholder}
       </label>
       <input
         ref={ref}
