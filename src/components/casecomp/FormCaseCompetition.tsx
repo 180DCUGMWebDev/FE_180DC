@@ -708,6 +708,12 @@ export function FormCaseComp() {
                           <p className="mt-4 text-sm text-gray-600">
                             Submitting Your Data, Please wait...
                           </p>
+                          <p className="mt-4 text-sm text-gray-600">
+                            If the process takes too long
+                          </p>
+                          <p className="mt-4 text-sm text-gray-600">
+                            please contact Nayya +62 856-9232-9601 for confirmation.
+                          </p>
                         </div>
                       ) : done ? (
                         <>Registration Successfull</>
