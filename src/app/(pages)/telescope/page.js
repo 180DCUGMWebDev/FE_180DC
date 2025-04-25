@@ -2,6 +2,7 @@
 import LookForward from "@/components/misc/LookForward";
 import { Telescopes } from "@/components/telescope";
 import { useEffect, useRef, useState } from "react";
+import IndustrialReport from "../industrialreport/page";
 
 async function getData() {
   const res = await fetch(
@@ -29,7 +30,8 @@ export default function Telescope() {
   return (
     <main>
       <Telescopes articles={articles} subscribeScrollRef={subscribeScrollRef} />
-      <LookForward theme={"dark"} />
+      {/* <LookForward theme={"dark"} /> */}
+      <IndustrialReport theme={"dark"} />
       <div ref={subscribeScrollRef} />
     </main>
   );

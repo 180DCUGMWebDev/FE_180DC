@@ -3,8 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Button from "../global/Button";
-import { HiOutlineArrowUpRight, HiOutlineArrowLeft, HiOutlineArrowRight } from "react-icons/hi2";
+import { HiOutlineArrowLeft, HiOutlineArrowRight } from "react-icons/hi2";
 
 const products = [
   {
@@ -17,22 +16,54 @@ const products = [
     image: "/img/industrialreport/tenunlurikthumb.png",
     alt: "Thumbnail of the Tenun Lurik Report",
   },
-  
+  {
+    href: "/industrialreport/tenun-lurik",
+    image: "/img/industrialreport/tenunlurikthumb.png",
+    alt: "Thumbnail of the Tenun Lurik Report",
+  },
 ];
 
 export default function HeroIR() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  // For desktop: calculate total number of pages (rows) needed
+  const itemsPerRow = 4;
+  const totalRows = Math.ceil(products.length / itemsPerRow);
+  
+  // Mobile carousel state
+  const [currentMobileSlide, setCurrentMobileSlide] = useState(0);
+  // Desktop pagination state
+  const [currentDesktopPage, setCurrentDesktopPage] = useState(0);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === products.length - 1 ? 0 : prev + 1));
+  // Mobile navigation functions
+  const nextMobileSlide = () => {
+    setCurrentMobileSlide((prev) => (prev === products.length - 1 ? 0 : prev + 1));
   };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? products.length - 1 : prev - 1));
+  const prevMobileSlide = () => {
+    setCurrentMobileSlide((prev) => (prev === 0 ? products.length - 1 : prev - 1));
   };
 
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
+  const goToMobileSlide = (index) => {
+    setCurrentMobileSlide(index);
+  };
+
+  // Desktop pagination functions
+  const nextDesktopPage = () => {
+    setCurrentDesktopPage((prev) => (prev === totalRows - 1 ? 0 : prev + 1));
+  };
+
+  const prevDesktopPage = () => {
+    setCurrentDesktopPage((prev) => (prev === 0 ? totalRows - 1 : prev - 1));
+  };
+
+  const goToDesktopPage = (index) => {
+    setCurrentDesktopPage(index);
+  };
+
+  // Get current items to display on desktop
+  const getDesktopPageItems = () => {
+    const startIdx = currentDesktopPage * itemsPerRow;
+    const endIdx = startIdx + itemsPerRow;
+    return products.slice(startIdx, endIdx);
   };
 
   return (
@@ -55,25 +86,14 @@ export default function HeroIR() {
             Industrial Report
           </div>
 
-          <div
-            data-gsap="up-stagger"
-            className="relative mb-[5vw] flex w-full flex-col items-center justify-center lg:h-auto"
-          >
-            {/* Carousel Container */}
-            <div 
-              className="flex w-full snap-x snap-mandatory flex-row gap-[20px] overflow-x-auto px-4 lg:px-0"
-              style={{ 
-                transform: `translateX(-${currentSlide * (100 / products.length)}%)`,
-                transition: 'transform 0.5s ease-in-out',
-                width: '150%',
-                scrollBehavior: 'smooth'
-              }}
-            >
-              {products.map((product, index) => (
+          {/* Desktop View - Grid Layout with Pagination */}
+          <div className="hidden w-full lg:block">
+            <div className="grid grid-cols-4 gap-6">
+              {getDesktopPageItems().map((product, index) => (
                 <Link
                   key={index}
                   href={product.href}
-                  className="group relative aspect-[11/16] w-[70vw] max-w-[300px] flex-shrink-0 snap-center overflow-hidden rounded-lg sm:w-[60vw] md:w-[50vw] lg:w-full"
+                  className="group relative aspect-[11/16] w-full overflow-hidden rounded-lg"
                 >
                   <Image
                     src={product.image}
@@ -87,11 +107,74 @@ export default function HeroIR() {
               ))}
             </div>
 
-            {/* Pagination and Navigation */}
-            <div className="mt-8 flex items-center justify-center gap-6 lg:hidden">
+            {/* Desktop Pagination */}
+            <div className="mt-8 flex items-center justify-center gap-6">
               {/* Previous Arrow */}
               <button 
-                onClick={prevSlide}
+                onClick={prevDesktopPage}
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800/50 text-lightWhite transition-colors hover:bg-gray-700"
+                aria-label="Previous page"
+              >
+                <HiOutlineArrowLeft className="h-5 w-5" />
+              </button>
+              
+              {/* Pagination Dots */}
+              <div className="flex gap-3">
+                {Array.from({ length: totalRows }).map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToDesktopPage(index)}
+                    className={`h-3 w-3 rounded-full transition-all ${
+                      currentDesktopPage === index ? "bg-lightWhite w-6" : "bg-gray-400/50"
+                    }`}
+                    aria-label={`Go to page ${index + 1}`}
+                  />
+                ))}
+              </div>
+              
+              {/* Next Arrow */}
+              <button 
+                onClick={nextDesktopPage}
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800/50 text-lightWhite transition-colors hover:bg-gray-700"
+                aria-label="Next page"
+              >
+                <HiOutlineArrowRight className="h-5 w-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile View - Single Item Carousel */}
+          <div className="relative mb-[5vw] flex w-full flex-col items-center justify-center lg:hidden">
+            <div className="relative w-full overflow-hidden">
+              <div 
+                className="flex transition-transform duration-500"
+                style={{ transform: `translateX(-${currentMobileSlide * 100}%)` }}
+              >
+                {products.map((product, index) => (
+                  <Link
+                    key={index}
+                    href={product.href}
+                    className="group relative aspect-[11/16] w-full flex-shrink-0 overflow-hidden rounded-lg"
+                    style={{ width: '100%' }}
+                  >
+                    <Image
+                      src={product.image}
+                      alt={product.alt}
+                      width={1000}
+                      height={1000}
+                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile Pagination and Navigation */}
+            <div className="mt-8 flex items-center justify-center gap-6">
+              {/* Previous Arrow */}
+              <button 
+                onClick={prevMobileSlide}
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800/50 text-lightWhite transition-colors hover:bg-gray-700"
                 aria-label="Previous slide"
               >
@@ -103,9 +186,9 @@ export default function HeroIR() {
                 {products.map((_, index) => (
                   <button
                     key={index}
-                    onClick={() => goToSlide(index)}
+                    onClick={() => goToMobileSlide(index)}
                     className={`h-3 w-3 rounded-full transition-all ${
-                      currentSlide === index ? "bg-lightWhite w-6" : "bg-gray-400/50"
+                      currentMobileSlide === index ? "bg-lightWhite w-6" : "bg-gray-400/50"
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
@@ -114,7 +197,7 @@ export default function HeroIR() {
               
               {/* Next Arrow */}
               <button 
-                onClick={nextSlide}
+                onClick={nextMobileSlide}
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800/50 text-lightWhite transition-colors hover:bg-gray-700"
                 aria-label="Next slide"
               >
