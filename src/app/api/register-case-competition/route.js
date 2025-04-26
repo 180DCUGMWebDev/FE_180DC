@@ -11,26 +11,26 @@ export async function POST(request) {
     const isInternational = payment === "international";
 
     // Payment
-    let paymentJson = {
-      order_id: null,
-      gross_amount: null,
-      snap_token: null,
-    };
-    if (!isInternational) {
-      const paymentMidtrans = await requestCreatePayment(form);
+    // let paymentJson = {
+    //   order_id: null,
+    //   gross_amount: null,
+    //   snap_token: null,
+    // };
+    // if (!isInternational) {
+    //   const paymentMidtrans = await requestCreatePayment(form);
 
-      if (!paymentMidtrans) {
-        console.error("Failed to create payment");
-        throw new Error("Failed to create payment");
-      }
+    //   if (!paymentMidtrans) {
+    //     console.error("Failed to create payment");
+    //     throw new Error("Failed to create payment");
+    //   }
 
-      paymentJson = await paymentMidtrans.json();
+    //   paymentJson = await paymentMidtrans.json();
 
-      if (paymentJson.error) {
-        console.error("Payment error:", paymentJson.error);
-        throw new Error(`Payment error`);
-      }
-    }
+    //   if (paymentJson.error) {
+    //     console.error("Payment error:", paymentJson.error);
+    //     throw new Error(`Payment error`);
+    //   }
+    // }
 
     const auth = await GetJWTAuth();
     const drive = google.drive({ version: "v3", auth });
@@ -80,12 +80,12 @@ export async function POST(request) {
     );
 
     // Return payment
-    const { order_id, gross_amount, snap_token } = paymentJson;
+    // const { order_id, gross_amount, snap_token } = paymentJson;
 
     return NextResponse.json({
       message: "Success sent!",
       status: 200,
-      body: { order_id, gross_amount, snap_token },
+      // body: { order_id, gross_amount, snap_token },
     });
   } catch (error) {
     console.error("Error:", error);

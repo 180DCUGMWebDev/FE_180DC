@@ -46,7 +46,7 @@ const FormFile = ({
   tag,
   onChange,
   error = null,
-  accept = "image/png, iamge/jpeg, application/pdf",
+  accept = "image/png, image/jpeg, application/pdf",
   className = "",
 }) => {
   return (

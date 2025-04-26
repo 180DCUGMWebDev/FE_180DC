@@ -194,8 +194,8 @@ export function FormCaseComp() {
       return "File is Required!";
     }
     const currentFile = fileRef.current.files[0];
-    if (currentFile.size > getFileSizeMb(5)) {
-      return "Max file size is 5mb!";
+    if (currentFile.size > getFileSizeMb(1)) {
+      return "Max file size is 1mb!";
     }
     return "";
   };
@@ -424,57 +424,57 @@ export function FormCaseComp() {
   };
 
   // Initializer
-  useEffect(() => {
-    let isError = false;
-    const runAll = async () => {
-      toastNotify("info", "Preparing your form...");
+  // useEffect(() => {
+  //   let isError = false;
+  //   const runAll = async () => {
+  //     toastNotify("info", "Preparing your form...");
 
-      const paymentPromise = (async () => {
-        try {
-          const res = await fetch("/api/midtrans/get-client", {
-            method: "GET",
-          });
+  //     const paymentPromise = (async () => {
+  //       try {
+  //         const res = await fetch("/api/midtrans/get-client", {
+  //           method: "GET",
+  //         });
 
-          const json = await res.json();
-          const clientKey = json.client_key;
-          const isProduction = json.is_production;
+  //         const json = await res.json();
+  //         const clientKey = json.client_key;
+  //         const isProduction = json.is_production;
 
-          if (!clientKey) {
-            toastNotify("error", "Payment not activated");
-            return;
-          }
-          if (!window.snap) {
-            const script = document.createElement("script");
-            script.src = isProduction
-              ? "https://app.midtrans.com/snap/snap.js"
-              : "https://app.sandbox.midtrans.com/snap/snap.js";
-            script.setAttribute("data-client-key", clientKey);
-            script.onload = () => setSnapInitialized(true);
-            script.onerror = () => toastNotify("error", "Snap load failed");
-            document.head.appendChild(script);
-          } else {
-            setSnapInitialized(true);
-          }
+  //         if (!clientKey) {
+  //           toastNotify("error", "Payment not activated");
+  //           return;
+  //         }
+  //         if (!window.snap) {
+  //           const script = document.createElement("script");
+  //           script.src = isProduction
+  //             ? "https://app.midtrans.com/snap/snap.js"
+  //             : "https://app.sandbox.midtrans.com/snap/snap.js";
+  //           script.setAttribute("data-client-key", clientKey);
+  //           script.onload = () => setSnapInitialized(true);
+  //           script.onerror = () => toastNotify("error", "Snap load failed");
+  //           document.head.appendChild(script);
+  //         } else {
+  //           setSnapInitialized(true);
+  //         }
 
-          toastNotify("success", "Payment system loaded successfully");
-        } catch (error) {
-          toastNotify("error", "Payment system error " + error?.message);
-          isError = true;
-        }
-      })();
+  //         toastNotify("success", "Payment system loaded successfully");
+  //       } catch (error) {
+  //         toastNotify("error", "Payment system error " + error?.message);
+  //         isError = true;
+  //       }
+  //     })();
 
-      await Promise.allSettled([paymentPromise]);
+  //     await Promise.allSettled([paymentPromise]);
 
-      if (isError) {
-        toastNotify("error", "Failed to load form. Please contact admin!");
-        return;
-      }
+  //     if (isError) {
+  //       toastNotify("error", "Failed to load form. Please contact admin!");
+  //       return;
+  //     }
 
-      toastNotify("success", "Your form is ready to be filled");
-    };
+  //     toastNotify("success", "Your form is ready to be filled");
+  //   };
 
-    runAll();
-  }, []);
+  //   runAll();
+  // }, []);
 
   if (currentData.payment === null) {
     return (
@@ -592,7 +592,7 @@ export function FormCaseComp() {
                     error={idCardError}
                     label="ID Card"
                     tag="idCard"
-                    accept="application/pdf"
+                    // accept="application/pdf"
                     placeholder="Choose file! Send the compiled file consisting of all the team members’ documents"
                     onChange={handleIDCardChange}
                   />
@@ -602,7 +602,7 @@ export function FormCaseComp() {
                     error={followError}
                     label="Follow"
                     tag="follow"
-                    accept="image/png, image/jpeg"
+                    // accept="image/png, image/jpeg"
                     placeholder="Choose file! Send the compiled file consisting of all the team members’ documents"
                     onChange={handleFollowChange}
                   />
@@ -612,7 +612,7 @@ export function FormCaseComp() {
                     error={repostError}
                     label="Repost"
                     tag="repost"
-                    accept="image/png, image/jpeg"
+                    // accept="image/png, image/jpeg"
                     placeholder="Choose file! Send the compiled file consisting of all the team members’ documents"
                     onChange={handleRepostChange}
                   />
@@ -622,7 +622,7 @@ export function FormCaseComp() {
                     error={twibbonError}
                     label="Twibbon"
                     tag="twibbon"
-                    accept="image/png, image/jpeg"
+                    // accept="image/png, image/jpeg"
                     placeholder="Choose file! Send the compiled file consisting of all the team members’ documents"
                     onChange={handleTwibbonChange}
                   />
@@ -632,7 +632,7 @@ export function FormCaseComp() {
                     error={mentionError}
                     label="Mention"
                     tag="mention"
-                    accept="image/png, image/jpeg"
+                    // accept="image/png, image/jpeg"
                     placeholder="Choose file! Mention on your Twibbon’s Caption"
                     onChange={handleMentionChange}
                   />
@@ -642,7 +642,7 @@ export function FormCaseComp() {
                     error={buktiPembayaranError}
                     label="Payment Proof"
                     tag="buktiPembayaran"
-                    accept="image/png, image/jpeg"
+                    // accept="image/png, image/jpeg"
                     onChange={handleBuktiPembayaranChange}
                     className={
                       currentData.payment === "international" || currentData.payment === "national"
