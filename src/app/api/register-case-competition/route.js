@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { GoogleSpreadsheet } from "google-spreadsheet";
-import { driveFolderId, GetJWTAuth, saveFileToDrive, uploadData } from "./utils";
+import { driveFolderId, GetJWTAuth, saveFileToDrive, sendEmail, uploadData } from "./utils";
 import { google } from "googleapis";
 import { requestCreatePayment } from "../midtrans/create-payment/utils";
 
@@ -78,6 +78,12 @@ export async function POST(request) {
         rekening: form.get("rekening"),
       },
     );
+
+    await sendEmail({
+      teamLeader,
+    }).catch(() => {
+      throw new Error("Failed to send email");
+    });
 
     // Return payment
     // const { order_id, gross_amount, snap_token } = paymentJson;

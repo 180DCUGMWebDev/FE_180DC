@@ -2,6 +2,7 @@ const nodemailer = require("nodemailer");
 const moment = require("moment");
 import { JWT } from "google-auth-library";
 import { Readable } from "stream";
+import { committeHTML, participantHTML } from "../verify-registration/confirmationEmail";
 
 export const driveFolderId = {
   follow: "1miiYf9kIuXems8nb4NvSxhJwpDycclm1",
@@ -158,7 +159,7 @@ export const uploadSubscribe = async (data, sheet) => {
   }
 };
 
-const sendEmail = async (body) => {
+export const sendEmail = async ({ teamLeader }) => {
   try {
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
@@ -173,12 +174,18 @@ const sendEmail = async (body) => {
       },
     });
 
-    await transporter.sendMail({
-      to: process.env.APP_EMAIL ?? "",
-      subject: "Subsciber baru!",
-      text: `Email baru: ${body.email}`,
-      html: `<p><b>${body.email}</b> telah melakukan subscibe</p> `,
-    });
+    await Promise.all([
+      transporter.sendMail({
+        to: teamLeader.email,
+        subject: "Verification Status",
+        html: participantHTML(teamLeader),
+      }),
+      transporter.sendMail({
+        to: process.env.APAC_EMAIL ?? "",
+        subject: "Verification Status",
+        html: committeHTML(teamLeader),
+      }),
+    ]);
   } catch (error) {
     console.error("Failed to send email:", error);
     throw new Error("Failed to send email");
