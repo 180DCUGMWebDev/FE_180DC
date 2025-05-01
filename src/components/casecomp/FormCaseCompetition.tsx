@@ -651,18 +651,28 @@ export function FormCaseComp() {
                     }
                   />
 
-                  <div className="container mx-auto mb-[2vw] text-start">
-                    <p className="mx-auto font-semibold text-black max-lg:text-[3vw]/[3vw] lg:text-[1vw]/[1vw]">
-                      BCA Account : 6975323980 <br />
-                      Account Number : Jacques Ethan N G<br />
-                      Swift Code : CENAIDJA
-                    </p>
-                  </div>
+<div className="container mx-auto mb-6 px-4">
+  <div className="flex flex-col lg:flex-row items-center lg:items-center justify-between gap-4 bg-white shadow-md rounded-lg p-4">
+    
+    <div className="text-gray-800 text-sm lg:text-base font-medium leading-relaxed">
+      <p>BCA Account: <span className="font-semibold">6975323980</span></p>
+      <p>Account Name: <span className="font-semibold">Jacques Ethan N G</span></p>
+      <p>SWIFT Code: <span className="font-semibold">CENAIDJA</span></p>
+    </div>
+
+    <div className="text-white text-sm lg:text-base font-semibold bg-green-600 px-4 py-3 rounded-md text-center lg:text-right">
+      <p>National: IDR 199,000</p>
+      <p>International: $15</p>
+    </div>
+
+  </div>
+</div>
+
 
                   <div
                     className={cn(
                       "mb-4",
-                      currentData.payment === "international" || currentData.payment === "national"
+                      currentData.payment === "international"
                         ? ""
                         : "hidden",
                     )}
