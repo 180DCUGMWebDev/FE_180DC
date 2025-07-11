@@ -5,7 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/global/Navbar";
 import Footer from "@/components/global/Footer";
 
-import TooSmall from "@/components/misc/TooSmall";
+import TooSmall from "@/components/modules/misc/TooSmall";
 import Script from "next/script";
 import LocomotiveProvider from "@/contexts/LocomotiveContext";
 import GSAPProvider from "@/contexts/GSAPContext";
@@ -35,16 +35,13 @@ export default function RootLayout({ children }) {
         <LocomotiveProvider>
           <GSAPProvider>
             <UtilsProvider>
+              {/* Content > 250px */}
               <div className="hidden flex-col overflow-clip min-[250px]:flex">
-                {/* Content */}
                 <Navbar />
                 {children}
-
                 <Footer />
               </div>
-              {/* Toastify */}
-
-              {/* Second Option */}
+              {/* Second Option < 250px*/}
               <TooSmall />
             </UtilsProvider>
           </GSAPProvider>

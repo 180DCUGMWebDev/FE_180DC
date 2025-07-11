@@ -1,5 +1,5 @@
 "use client";
-import { Hero, Speaker, WhatWouldYouGet, Timeline} from "@/components/bootcamp";
+import { Hero, Speaker, WhatWouldYouGet, Timeline } from "@/components/modules/bootcamp";
 
 export default function Bootcamp() {
   return (

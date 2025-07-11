@@ -11,7 +11,7 @@ import ImgF from "./ImgF";
 // Import Configs
 import { navLinks, socLinks, intLinks } from "@/config/Links";
 import { copyContent, directRoute } from "@/config/Functions";
-import { connectSS } from "../apply/connectSpreadsheets";
+import { connectSS } from "../modules/apply/connectSpreadsheets";
 import { useCallback, useEffect, useState, useRef, useContext } from "react";
 import { UtilsContext } from "@/contexts/UtilsContext";
 

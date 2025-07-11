@@ -1,4 +1,4 @@
-import IM3Quiz from "@/components/academy/IM3/IM3Quiz";
+import IM3Quiz from "@/components/modules/academy/IM3/IM3Quiz";
 
 export default function InternalMentoring2() {
   return (

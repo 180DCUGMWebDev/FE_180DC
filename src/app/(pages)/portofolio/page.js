@@ -1,6 +1,6 @@
-import LookForward from "@/components/misc/LookForward";
-import PreviousClients from "@/components/portofolio/PreviousClients";
-import ProjectStructure from "@/components/portofolio/ProjectStructure";
+import LookForward from "@/components/modules/misc/LookForward";
+import PreviousClients from "@/components/modules/portofolio/PreviousClients";
+import ProjectStructure from "@/components/modules/portofolio/ProjectStructure";
 
 export default function Portofolio() {
   return (
