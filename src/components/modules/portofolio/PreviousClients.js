@@ -418,12 +418,12 @@ export default function PreviousClients() {
                       </div>
                       {/* Lower Body: Description */}
                       <div className="mt-[1.2vw] flex h-full w-full gap-[2.4vw] px-[20px] pb-[20vw]">
-                        <p className="w-4/12 text-justify font-latoRegular text-[1vw] leading-[1.2] text-lightWhite">
+                        <div className="w-4/12 text-justify font-latoRegular text-[1vw] leading-[1.2] text-lightWhite">
                           <p className="mb-[0.6vw] font-avenirBlack text-primary">
                             What challenges does {client.name} face?
                           </p>
-                          {client.pleft}
-                        </p>
+                          <p>{client.pleft}</p>
+                        </div>
                         <p className="w-4/12 text-justify font-latoRegular text-[1vw] leading-[1.2] text-lightWhite">
                           <p className="mb-[0.6vw] font-avenirBlack text-primary">
                             What solution does we offer?
