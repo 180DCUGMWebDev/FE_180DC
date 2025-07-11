@@ -424,21 +424,20 @@ export default function PreviousClients() {
                           </p>
                           <p>{client.pleft}</p>
                         </div>
-                        <p className="w-4/12 text-justify font-latoRegular text-[1vw] leading-[1.2] text-lightWhite">
+                        <div className="w-4/12 text-justify font-latoRegular text-[1vw] leading-[1.2] text-lightWhite">
                           <p className="mb-[0.6vw] font-avenirBlack text-primary">
                             What solution does we offer?
                           </p>
-                          {client.pcenter}
-                        </p>
-                        <p className="w-4/12 text-justify font-latoRegular text-[1vw] leading-[1.2] text-lightWhite">
+                          <p>{client.pcenter}</p>
+                        </div>
+                        <div className="w-4/12 text-justify font-latoRegular text-[1vw] leading-[1.2] text-lightWhite">
                           <p className="mb-[0.6vw] font-avenirBlack text-primary">
                             {client.prightcondition === "impact"
                               ? "Impact that we deliver"
                               : `${client.name} comments of our work`}
                           </p>
-
-                          {client.pright}
-                        </p>
+                          <p>{client.pright}</p>
+                        </div>
                       </div>
                     </div>
                   </SwiperSlide>
