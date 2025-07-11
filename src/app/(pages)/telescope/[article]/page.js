@@ -1,10 +1,10 @@
 "use client";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { TelescopeBox } from "@/components/telescope/TelescopeBox";
+import { TelescopeBox } from "@/components/modules/telescope/TelescopeBox";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
-import { MdxComponents } from "@/components/telescope";
+import { MdxComponents } from "@/components/modules/telescope";
 import rehypeRaw from "rehype-raw";
 
 async function getData() {
@@ -47,7 +47,7 @@ export default function Article({ params }) {
             alt="article image"
             width={2000}
             height={2000}
-            className=" inset-0 h-full w-full object-cover"
+            className="inset-0 h-full w-full object-cover"
           />
         </div>
         {/* Article */}

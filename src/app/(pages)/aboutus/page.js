@@ -1,8 +1,8 @@
-import VisMis from "@/components/aboutus/VisMis";
-import WhoWeAre from "@/components/aboutus/WhoWeAre";
-import Services from "@/components/aboutus/Services";
-import Team from "@/components/aboutus/Team";
-import LookForward from "@/components/misc/LookForward";
+import VisMis from "@/components/modules/aboutus/VisMis";
+import WhoWeAre from "@/components/modules/aboutus/WhoWeAre";
+import Services from "@/components/modules/aboutus/Services";
+import Team from "@/components/modules/aboutus/Team";
+import LookForward from "@/components/modules/misc/LookForward";
 
 export default async function AboutUs() {
   return (

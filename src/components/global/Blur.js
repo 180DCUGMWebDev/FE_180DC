@@ -5,7 +5,7 @@ import { UtilsContext } from "@/contexts/UtilsContext";
 import { useContext, useEffect, useRef, useState } from "react";
 import { BiSolidSend } from "react-icons/bi";
 import "./Blur.css";
-import { connectSS } from "../apply/connectSpreadsheets";
+import { connectSS } from "../modules/apply/connectSpreadsheets";
 import { checkEmail } from "@/config/Functions";
 
 export default function Blur({ className, children, isBlur = false }) {

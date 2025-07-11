@@ -1,7 +1,7 @@
-import HeroMerch from "@/components/store/merch/HeroMerch";
-import LayoutMerch from "@/components/store/merch/LayoutMerch";
-import SecureYours from "@/components/store/merch/SecureYours";
-import WhatTheySay from "@/components/store/merch/WhatTheySay";
+import HeroMerch from "@/components/modules/store/merch/HeroMerch";
+import LayoutMerch from "@/components/modules/store/merch/LayoutMerch";
+import SecureYours from "@/components/modules/store/merch/SecureYours";
+import WhatTheySay from "@/components/modules/store/merch/WhatTheySay";
 
 export default async function Casebook() {
   return (

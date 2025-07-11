@@ -1,9 +1,9 @@
 "use client";
 
-import { FormCaseComp } from "@/components/casecomp/FormCaseCompetition";
-import ComingSoon from "@/components/casecomp/ComingSoon";
-import { HeroCaseComps } from "@/components/casecomp/HeroCaseComp";
-import { TimelineCaseComp } from "@/components/casecomp/TimelineCaseComp";
+import { FormCaseComp } from "@/components/modules/casecomp/FormCaseCompetition";
+import ComingSoon from "@/components/modules/casecomp/ComingSoon";
+import { HeroCaseComps } from "@/components/modules/casecomp/HeroCaseComp";
+import { TimelineCaseComp } from "@/components/modules/casecomp/TimelineCaseComp";
 
 export default function CaseComp() {
   return (

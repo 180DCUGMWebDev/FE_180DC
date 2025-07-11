@@ -1,6 +1,6 @@
 "use client";
-import LookForward from "@/components/misc/LookForward";
-import { Telescopes } from "@/components/telescope";
+import LookForward from "@/components/modules/misc/LookForward";
+import { Telescopes } from "@/components/modules/telescope";
 import { useEffect, useRef, useState } from "react";
 
 async function getData() {
@@ -10,7 +10,7 @@ async function getData() {
       next: { revalidate: 60 },
     },
   );
-  
+
   if (!res.ok) {
     console.log("Failed to fetch data");
   }

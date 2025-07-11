@@ -1,8 +1,8 @@
 import dynamic from "next/dynamic";
-import ModuleMain from "@/components/academy/module/ModuleMain";
-import CountinueCourse from "@/components/academy/module1/ContinueCourse";
-import PdfViewer from "@/components/academy/module/PdfViewer";
-import MiniQuiz from "@/components/academy/module/MiniQuiz";
+import ModuleMain from "@/components/modules/academy/module/ModuleMain";
+import CountinueCourse from "@/components/modules/academy/module1/ContinueCourse";
+import PdfViewer from "@/components/modules/academy/module/PdfViewer";
+import MiniQuiz from "@/components/modules/academy/module/MiniQuiz";
 
 export default function AcademyModule({ params }) {
   const { slug } = params;
