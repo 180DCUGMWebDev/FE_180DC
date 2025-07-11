@@ -103,7 +103,7 @@ export default function Team() {
                   return rowMobile.map((rowItem) => {
                     return (
                       <div
-                        key={rowItem}
+                        key={rowItem.join("-")}
                         className="relative flex w-full flex-row justify-center gap-[7%]"
                       >
                         {rowItem.map((item) => {
