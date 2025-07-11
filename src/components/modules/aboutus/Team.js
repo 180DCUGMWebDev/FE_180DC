@@ -100,10 +100,11 @@ export default function Team() {
                   if (!isBig && rowMobile[0].length > 3) {
                     rowMobile = [row.slice(0, 2), row.slice(2)];
                   }
-                  return rowMobile.map((rowItem) => {
+                  return rowMobile.map((rowItem, rowIndex) => {
                     return (
                       <div
-                        key={rowItem.join("-")}
+                        // Hasil: "2024/2025-row-0-Clea_Amabelle-Nathaniel_C"
+                        key={`${term}-row-${rowIndex}-${rowItem.map((item) => item.name).join("-")}`}
                         className="relative flex w-full flex-row justify-center gap-[7%]"
                       >
                         {rowItem.map((item) => {
