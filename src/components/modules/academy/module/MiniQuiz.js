@@ -1,5 +1,5 @@
 "use client";
-import Button from "@/components/global/Button";
+import Button from "@/components/element/Button";
 import React, { useState, useEffect, useMemo } from "react";
 
 export default function MiniQuiz() {

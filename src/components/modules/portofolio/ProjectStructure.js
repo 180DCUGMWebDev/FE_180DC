@@ -1,6 +1,6 @@
 // Import Components
-import ImgF from "@/components/global/ImgF";
-import ProjectStructureList from "../misc/ProjectStructureList";
+import ImgF from "@/components/element/ImgF";
+import ProjectStructureList from "../../element/ProjectStructureList";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";

@@ -1,6 +1,6 @@
 "use client";
 import { Hero, OurClients } from "@/components/modules/homepage";
-import LookForward from "@/components/modules/misc/LookForward";
+import LookForward from "@/components/element/LookForward";
 import { useRef } from "react";
 
 export default function Home() {

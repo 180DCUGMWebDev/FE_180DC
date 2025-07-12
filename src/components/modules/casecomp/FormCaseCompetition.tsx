@@ -11,13 +11,13 @@ import NavigationButtons from "./navbutton";
 // Form
 import { z } from "zod";
 import { useForm } from "react-hook-form";
-import { getFileSizeMb, TeamLeaderSchema, TeamMemberSchema } from "@/lilbs/schema/schema";
+import { getFileSizeMb, TeamLeaderSchema, TeamMemberSchema } from "@/lib/schema/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import RenderIf from "@/components/global/RenderIf";
+import RenderIf from "@/components/element/RenderIf";
 import TeamMemberForm from "./FormTeamMember";
 import { UtilsContext } from "@/contexts/UtilsContext";
 import "./Form.css";
-import { cn } from "@/lilbs/utils";
+import { cn } from "@/lib/utils";
 
 export function FormCaseComp() {
   // Form steps state

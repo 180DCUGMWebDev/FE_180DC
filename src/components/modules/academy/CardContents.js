@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import Blur from "@/components/global/Blur";
+import Blur from "@/components/element/Blur";
 
 const CardContents = ({ image, module, title, link, isBlur }) => {
   return (

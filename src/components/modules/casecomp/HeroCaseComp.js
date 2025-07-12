@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button from "@/components/global/Button";
+import Button from "@/components/element/Button";
 
 export function HeroCaseComps() {
   return (

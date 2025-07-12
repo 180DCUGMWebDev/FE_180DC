@@ -1,5 +1,5 @@
 "use client";
-import LookForward from "@/components/modules/misc/LookForward";
+import LookForward from "@/components/element/LookForward";
 import { Telescopes } from "@/components/modules/telescope";
 import { useEffect, useRef, useState } from "react";
 

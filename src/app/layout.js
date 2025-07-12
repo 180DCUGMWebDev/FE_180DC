@@ -2,10 +2,10 @@
 import "./globals.css";
 
 // Import Components
-import Navbar from "@/components/global/Navbar";
-import Footer from "@/components/global/Footer";
+import Navbar from "@/components/element/Navbar";
+import Footer from "@/components/element/Footer";
 
-import TooSmall from "@/components/modules/misc/TooSmall";
+import TooSmall from "@/components/element/TooSmall";
 import Script from "next/script";
 import LocomotiveProvider from "@/contexts/LocomotiveContext";
 import GSAPProvider from "@/contexts/GSAPContext";

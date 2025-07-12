@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
 // Import Components
-import ImgF from "@/components/global/ImgF";
+import ImgF from "@/components/element/ImgF";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";
