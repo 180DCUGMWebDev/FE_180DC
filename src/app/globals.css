@@ -2,93 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  @font-face {
-    font-family: "mulish-light";
-    src: url("/fonts/Mulish/Mulish-Light.ttf") format("truetype");
-  }
-
-  @font-face {
-    font-family: "mulish-regular";
-    src: url("/fonts/Mulish/Mulish-Regular.ttf") format("truetype");
-  }
-
-  @font-face {
-    font-family: "mulish-semibold";
-    src: url("/fonts/Mulish/Mulish-SemiBold.ttf") format("truetype");
-  }
-
-  @font-face {
-    font-family: "mulish-bold";
-    src: url("/fonts/Mulish/Mulish-Bold.ttf") format("truetype");
-  }
-
-  @font-face {
-    font-family: "mulish-extrabold";
-    src: url("/fonts/Mulish/Mulish-ExtraBold.ttf") format("truetype");
-  }
-
-  @font-face {
-    font-family: "avenir-black";
-    src: url("/fonts/Avenir/Avenir Black.ttf") format("truetype");
-  }
-
-  @font-face {
-    font-family: "avenir-book";
-    src: url("/fonts/Avenir/Avenir Book.ttf") format("truetype");
-  }
-
-  @font-face {
-    font-family: "avenir-heavy";
-    src: url("/fonts/Avenir/Avenir Heavy.ttf") format("truetype");
-  }
-
-  @font-face {
-    font-family: "avenir-light";
-    src: url("/fonts/Avenir/Avenir Light.ttf") format("truetype");
-  }
-
-  @font-face {
-    font-family: "avenir-regular";
-    src: url("/fonts/Avenir/Avenir Regular.ttf") format("truetype");
-  }
-
-  @font-face {
-    font-family: "lato-bold";
-    src: url("/fonts/Lato/Lato-Bold.ttf") format("truetype");
-  }
-
-  @font-face {
-    font-family: "lato-bold-italic";
-    src: url("/fonts/Lato/Lato-BoldItalic.ttf") format("truetype");
-  }
-
-  @font-face {
-    font-family: "lato-regular";
-    src: url("/fonts/Lato/Lato-Regular.ttf") format("truetype");
-  }
-
-  @font-face {
-    font-family: "lato-light";
-    src: url("/fonts/Lato/Lato-Light.ttf") format("truetype");
-  }
-
-  @font-face {
-    font-family: "lato-light-italic";
-    src: url("/fonts/Lato/Lato-LightItalic.ttf") format("truetype");
-  }
-
-  @font-face {
-    font-family: "lato-semibold";
-    src: url("/fonts/Lato/Lato-Semibold.ttf") format("truetype");
-  }
-
-  @font-face {
-    font-family: "lato-semibold-italic";
-    src: url("/fonts/Lato/Lato-SemiboldItalic.ttf") format("truetype");
-  }
-}
-
 @media (min-width: 768px) {
   /* Your CSS code for minimum width 768px goes here */
   ::-webkit-scrollbar {
@@ -125,12 +38,11 @@
   }
 }
 
-
 .text-outline-decoration {
   -webkit-text-stroke-width: 0.4px;
   -webkit-text-stroke-color: black; /* Outline color */
 }
-@media (min-width: 1024px) { 
+@media (min-width: 1024px) {
   .text-outline-decoration {
     -webkit-text-stroke-width: 1.2px;
     -webkit-text-stroke-color: black;
