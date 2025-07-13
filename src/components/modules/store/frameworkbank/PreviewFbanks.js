@@ -60,7 +60,8 @@ export default function PreviewFbanks() {
               >
                 {images.map((src, index) => (
                   <SwiperSlide key={index}>
-                    <img
+                    <Image
+                      fill
                       src={src}
                       alt={`Slide ${index + 1}`}
                       className="h-full w-full rounded-2xl object-cover"

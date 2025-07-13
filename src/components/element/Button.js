@@ -1,25 +1,37 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
 
-export default function Button({ color, text, action = "", addClass = "", disableForm = false, href }) {
-
+export default function Button({
+  color,
+  text,
+  action = "",
+  addClass = "",
+  disableForm = false,
+  href,
+  className,
+  ...props
+}) {
   const router = useRouter();
 
-  const btnColor = 
-  color === "green" ? "bg-primary" :
-  color === "black" ? "bg-black" :
-  color === "white" ? "bg-white" : 
-  "";
+  const btnColor =
+    color === "green"
+      ? "bg-primary hover:bg-primary/80"
+      : color === "black"
+        ? "bg-black"
+        : color === "white"
+          ? "bg-white"
+          : "";
 
   const textColor = color === "white" ? "text-primary" : "text-white";
 
   const handleClick = (e) => {
-    if (disableForm) return; 
+    if (disableForm) return;
 
     if (href) {
-      window.open(`https://${href}`, '_blank', 'noopener,noreferrer')
+      window.open(`https://${href}`, "_blank", "noopener,noreferrer");
     } else if (action) {
-      action(e); 
+      action(e);
     } else {
       console.log("Clicked a non-functional button!");
     }
@@ -27,9 +39,13 @@ export default function Button({ color, text, action = "", addClass = "", disabl
 
   return (
     <button
-      className={`${btnColor} ${addClass} px-auto rounded-[40px] font-latoRegular ${textColor}`}
+      className={cn(
+        `${btnColor} ${addClass} px-auto rounded-[40px] font-latoRegular transition-all duration-300 ${textColor}`,
+        className,
+      )}
       disabled={disableForm}
       onClick={handleClick}
+      {...props}
     >
       {text}
     </button>

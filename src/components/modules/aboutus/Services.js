@@ -78,7 +78,7 @@ export default function Services() {
 
   // Page
   return (
-    <section className="relative">
+    <section className="relative" id="services">
       {/* Background */}
       {createBackground("dark")}
       <div className="max-lg:min-h-[100 vmax] flex h-screen w-full items-center justify-center">

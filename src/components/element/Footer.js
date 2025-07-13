@@ -146,7 +146,7 @@ export default function Footer() {
     if (!email) return;
     connectSS(email, "Newsletter", () => setEmail(""));
     toastNotify("Email has been submitted!", "success");
-  }, [email]);
+  }, [email, toastNotify]);
 
   if (!isClient) return <>Loading ...</>;
 

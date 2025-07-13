@@ -23,7 +23,7 @@ import {
 import { cn } from "@/lib/utils";
 
 // Import Components
-import Navbar from "@/components/element/Navbar";
+import Navbar from "@/components/element/Navbar/Navbar";
 import Footer from "@/components/element/Footer";
 
 import TooSmall from "@/components/element/TooSmall";
