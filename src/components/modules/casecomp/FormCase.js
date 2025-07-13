@@ -1,5 +1,5 @@
 // src/components/FormField.jsx
-import { cn } from "@/lilbs/utils";
+import { cn } from "@/lib/utils";
 import React from "react";
 import "./Form.css";
 

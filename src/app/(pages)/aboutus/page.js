@@ -2,7 +2,7 @@ import VisMis from "@/components/modules/aboutus/VisMis";
 import WhoWeAre from "@/components/modules/aboutus/WhoWeAre";
 import Services from "@/components/modules/aboutus/Services";
 import Team from "@/components/modules/aboutus/Team";
-import LookForward from "@/components/modules/misc/LookForward";
+import LookForward from "@/components/element/LookForward";
 
 export default async function AboutUs() {
   return (

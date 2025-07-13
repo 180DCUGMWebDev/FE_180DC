@@ -5,7 +5,7 @@ import { FaPlay } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
 
 // Import Components
-import ImgF from "@/components/global/ImgF";
+import ImgF from "@/components/element/ImgF";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";

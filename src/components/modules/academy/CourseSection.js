@@ -12,7 +12,7 @@ import Link from "next/link";
 // Import Configs
 import { createBackground } from "@/config/Functions";
 import Slider from "./Slider";
-import Blur from "@/components/global/Blur";
+import Blur from "@/components/element/Blur";
 
 export default function CourseSection() {
   const modules = [

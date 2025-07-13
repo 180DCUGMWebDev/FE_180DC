@@ -6,7 +6,7 @@ import { Autoplay } from "swiper/modules";
 import { useMemo, useCallback, useEffect, useRef, useState } from "react";
 
 // Import Components
-import ImgF from "@/components/global/ImgF";
+import ImgF from "@/components/element/ImgF";
 import { FaChevronDown, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 // Import Configs

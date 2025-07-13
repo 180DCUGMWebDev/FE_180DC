@@ -1,11 +1,32 @@
 // Import
 import "./globals.css";
 
-// Import Components
-import Navbar from "@/components/global/Navbar";
-import Footer from "@/components/global/Footer";
+import {
+  mulishLight,
+  mulishRegular,
+  mulishSemibold,
+  mulishBold,
+  mulishExtrabold,
+  avenirBlack,
+  avenirBook,
+  avenirHeavy,
+  avenirLight,
+  avenirRegular,
+  latoBold,
+  latoBoldItalic,
+  latoRegular,
+  latoLight,
+  latoLightItalic,
+  latoSemibold,
+  latoSemiboldItalic,
+} from "@/lib/font";
+import { cn } from "@/lib/utils";
 
-import TooSmall from "@/components/modules/misc/TooSmall";
+// Import Components
+import Navbar from "@/components/element/Navbar/Navbar";
+import Footer from "@/components/element/Footer";
+
+import TooSmall from "@/components/element/TooSmall";
 import Script from "next/script";
 import LocomotiveProvider from "@/contexts/LocomotiveContext";
 import GSAPProvider from "@/contexts/GSAPContext";
@@ -29,7 +50,28 @@ export default function RootLayout({ children }) {
         gtag('config', 'G-3J45MR3ZCW');
         `}
       </Script>
-      <body className="select-none">
+      <body
+        className={cn(
+          "select-none",
+          mulishLight.variable,
+          mulishRegular.variable,
+          mulishSemibold.variable,
+          mulishBold.variable,
+          mulishExtrabold.variable,
+          avenirBlack.variable,
+          avenirBook.variable,
+          avenirHeavy.variable,
+          avenirLight.variable,
+          avenirRegular.variable,
+          latoBold.variable,
+          latoBoldItalic.variable,
+          latoRegular.variable,
+          latoLight.variable,
+          latoLightItalic.variable,
+          latoSemibold.variable,
+          latoSemiboldItalic.variable,
+        )}
+      >
         {/* First Option */}
 
         <LocomotiveProvider>

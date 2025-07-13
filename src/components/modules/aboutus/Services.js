@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
 // Import Components
-import ImgF from "@/components/global/ImgF";
+import ImgF from "@/components/element/ImgF";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";
@@ -78,7 +78,7 @@ export default function Services() {
 
   // Page
   return (
-    <section className="relative">
+    <section className="relative" id="services">
       {/* Background */}
       {createBackground("dark")}
       <div className="max-lg:min-h-[100 vmax] flex h-screen w-full items-center justify-center">

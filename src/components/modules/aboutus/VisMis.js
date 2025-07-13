@@ -31,7 +31,7 @@ export default function VisMis() {
 
   const missionFormat = (title, content) => {
     return (
-      <div className="flex grow flex-col max-lg:w-[94%]">
+      <div id="vismis" className="flex grow flex-col max-lg:w-[94%]">
         {/* Title */}
         <div className="flex items-end max-lg:items-end">
           <FaBriefcase className="text-[5vw] text-primary max-lg:rotate-[8deg] lg:text-[50px]" />

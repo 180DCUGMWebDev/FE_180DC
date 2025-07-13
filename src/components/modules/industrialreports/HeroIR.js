@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Button from "@/components/global/Button";
+import Button from "@/components/element/Button";
 import { HiOutlineArrowUpRight, HiOutlineArrowLeft, HiOutlineArrowRight } from "react-icons/hi2";
 
 const products = [

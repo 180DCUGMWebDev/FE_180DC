@@ -4,8 +4,8 @@
 import { useRouter, usePathname } from "next/navigation";
 
 // Import Components
-import ImgF from "@/components/global/ImgF";
-import Button from "@/components/global/Button";
+import ImgF from "@/components/element/ImgF";
+import Button from "@/components/element/Button";
 
 // Import Configs
 import { intLinks } from "@/config/Links";

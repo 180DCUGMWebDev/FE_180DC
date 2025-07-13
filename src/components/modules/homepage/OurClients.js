@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button from "@/components/global/Button";
+import Button from "@/components/element/Button";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import Link from "next/link";

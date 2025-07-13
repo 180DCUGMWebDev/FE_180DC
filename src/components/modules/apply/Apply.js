@@ -2,9 +2,9 @@
 
 import { useContext, useEffect, useState } from "react";
 import { FaPlay } from "react-icons/fa";
-import Button from "@/components/global/Button";
-import ImgF from "@/components/global/ImgF";
-import ProjectStructureList from "@/components/modules/misc/ProjectStructureList";
+import Button from "@/components/element/Button";
+import ImgF from "@/components/element/ImgF";
+import ProjectStructureList from "@/components/element/ProjectStructureList";
 import { createBackground } from "@/config/Functions";
 import { connectSS } from "@/components/modules/apply/connectSpreadsheets";
 import { UtilsContext } from "@/contexts/UtilsContext";

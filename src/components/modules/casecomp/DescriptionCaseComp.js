@@ -38,7 +38,7 @@ export function DescriptionCaseComp() {
 
       {/* Content Overlay */}
       <div className="absolute inset-0 flex flex-col items-center justify-center p-4 md:p-8">
-        <div className=" font-serif text-2xl text-green-700 md:text-4xl">
+        <div className="font-serif text-2xl text-green-700 md:text-4xl">
           <Image
             src="/img/casecomp/HeaderDescAPAC.png"
             alt=""
@@ -73,7 +73,7 @@ export function DescriptionCaseComp() {
             </p>
 
             <p className="text-sm md:text-base">
-              In today's interconnected world, sustainability has become the cornerstone of
+              In today&apos;s interconnected world, sustainability has become the cornerstone of
               development across industries and communities. To create a future where environmental
               well-being and economic growth go hand in hand, it is essential to empower renewable
               energy as the driving force behind transforming supply chains. To do this, we must
