@@ -11,6 +11,7 @@ import "swiper/css/pagination";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";
+import Image from "next/image";
 
 const images = [
   "/img/store/fbank/PREVIEW_A.png",
@@ -24,7 +25,6 @@ const images = [
   "/img/store/fbank/PREVIEW_A9.png",
   "/img/store/fbank/PREVIEWCTA1.png",
   "/img/store/fbank/PREVIEWCTA2.png",
-  
 ];
 
 export default function PreviewFbanks() {
@@ -91,10 +91,11 @@ export default function PreviewFbanks() {
               >
                 {images.map((src, index) => (
                   <SwiperSlide key={index}>
-                    <img
+                    <Image
                       src={src}
                       alt={`Slide ${index + 1}`}
                       className="h-full w-full rounded-2xl object-cover"
+                      fill
                     />
                   </SwiperSlide>
                 ))}

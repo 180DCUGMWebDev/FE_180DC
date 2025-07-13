@@ -182,7 +182,7 @@ export function FormCaseComp() {
         buktiPembayaranRef.current.files = dataTransfer.files;
       }
     }
-  }, [currentStep]);
+  }, [currentStep, currentData]);
 
   const checkFile = (fileRef, optional = false) => {
     if (optional) {
