@@ -24,7 +24,7 @@ export default function CTA() {
             alt="Checkmark"
             width={100}
             height={100}
-            className="absolute right-[-14%] top-[-10%]"
+            className="absolute right-[-14%] top-[-60%] rotate-[-20deg] sm:top-[-30%]"
           />
           <Link href="/oprec/25-26/register" className="w-full">
             <Button
