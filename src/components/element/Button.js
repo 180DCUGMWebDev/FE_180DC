@@ -30,7 +30,7 @@ export default function Button({
   const handleClick = (e) => {
     if (disableForm) return;
 
-    if (href) {
+    if (href && href !== "#") {
       window.open(`https://${href}`, "_blank", "noopener,noreferrer");
     } else if (action) {
       action(e);

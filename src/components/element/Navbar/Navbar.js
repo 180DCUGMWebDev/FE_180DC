@@ -216,8 +216,8 @@ export default function Navbar() {
                         <ListItem href="/bootcamp" title="Bootcamp">
                           Bootcamp of 180DC UGM.
                         </ListItem>
-                        <ListItem href="/cycle2oprec" title="Cycle 1">
-                          Cycle 1 of 180DC UGM.
+                        <ListItem href="/oprec" title="Open Recruitment">
+                          Open Recruitment 180DC UGM.
                         </ListItem>
                         <ListItem href="/casecompetition" title="Asian Pasific Case Competition">
                           Competition of 180DC UGM.
@@ -377,11 +377,11 @@ export default function Navbar() {
                     Bootcamp
                   </Link>
                   <Link
-                    href="/cycle2oprec"
+                    href="/oprec"
                     onClick={closeMobileMenu}
                     className="text-white/90 transition-colors duration-200 hover:text-white"
                   >
-                    Cycle 1
+                    Open Recruitment
                   </Link>
                   <Link
                     href="/casecompetition"

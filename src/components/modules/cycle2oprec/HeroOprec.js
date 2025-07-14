@@ -114,8 +114,8 @@ export function HeroOprec() {
             </p>
             <div className="flex w-full items-center justify-center gap-[2vw]">
               <Button
-                color="white"
-                text="Registration"
+                color="red"
+                text="Register is Closed"
                 addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[2.154vw] lg:mt-[1.25vw] font-bold"
                 href="bit.ly/180DC-ConsultingOpenRecruitmentForm-Cycle2"
               />
