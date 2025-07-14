@@ -3,8 +3,8 @@ import Button from "@/components/element/Button";
 
 export default function Guidebook() {
   return (
-    <section className="relative min-h-screen w-full bg-gray-900 px-[5%] py-16 sm:px-[10%] lg:px-[4%]">
-      <div className="mx-auto max-w-6xl">
+    <section className="relative w-full bg-gray-900 px-[5%] py-16 sm:px-[10%] lg:px-[4%]">
+      <div className="relative">
         <div className="mb-12 text-center">
           <h2 className="mb-4 font-avenirBlack text-3xl text-white sm:text-4xl lg:text-5xl">
             Recruitment <span className="text-primary">Guidebook</span>
@@ -17,7 +17,7 @@ export default function Guidebook() {
 
         <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm lg:p-8">
           <iframe
-            src="/file/ReapraReport.pdf#toolbar=1&navpanes=1&scrollbar=1&page=1&view=FitH"
+            src="/file/ReapraReport.pdf#toolbar=0&navpanes=0&scrollbar=0"
             width="100%"
             height="600"
             title="180DC Recruitment Guidebook"

@@ -2,13 +2,13 @@ import Image from "next/image";
 
 export default function HeroPage() {
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section className="relative">
       <Image
         src="/img/opreccycle/bgHeroOprec.png"
         alt="Open Recruitment Background"
         width={2000}
         height={2000}
-        className="absolute inset-0 z-10 h-full w-full object-cover"
+        className="absolute inset-0 z-10 h-screen w-full object-cover"
       />
 
       <Image
@@ -35,7 +35,7 @@ export default function HeroPage() {
         className="absolute bottom-[30%] z-20 h-[49.07vw] w-[68.27vw] lg:bottom-[10%] lg:right-[10%] lg:h-[26.82vw] lg:w-[37.29vw]"
       />
 
-      <div className="relative z-30 flex h-full items-center justify-center">
+      <div className="relative z-30 flex h-full min-h-screen items-center justify-center">
         <div className="flex flex-col items-center text-center">
           <Image
             alt="180DC Open Recruitment Title"
