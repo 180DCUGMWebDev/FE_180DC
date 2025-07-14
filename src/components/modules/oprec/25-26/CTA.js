@@ -15,7 +15,7 @@ export default function CTA() {
           </p>
         </div>
         <div>
-          <Link href="/oprec/25-26/apply" className="inline-block">
+          <Link href="/oprec/25-26/register" className="inline-block">
             <Button
               color="green"
               text="Apply Now"
