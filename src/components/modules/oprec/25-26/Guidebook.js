@@ -23,30 +23,18 @@ export default function Guidebook() {
         </div>
 
         <div className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm lg:p-8">
-          {showGuidebook ? (
-            <iframe
-              src="/file/ReapraReport.pdf#toolbar=0&navpanes=0&scrollbar=1"
-              width="100%"
-              height="600"
-              title="180DC Recruitment Guidebook"
-              className="mb-4 h-[70vh] w-full rounded-lg bg-white [pointer-events:none] group-hover:[pointer-events:auto]"
-              style={{ border: "none" }}
-              loading="lazy"
-              tabIndex="-1"
-            />
-          ) : (
-            <div className="mb-4 flex flex-col items-center">
-              <p className="mb-4 text-white/70">Click the button below to view the guidebook.</p>
-              <Button
-                color="green"
-                text="View Guidebook"
-                addClass="w-full sm:w-auto px-6 py-3 text-lg font-medium transition-all duration-200 hover:scale-105"
-                onClick={toggleGuidebook}
-              />
-            </div>
-          )}
+          <iframe
+            src="/file/ReapraReport.pdf#toolbar=0&navpanes=0&scrollbar=1"
+            width="100%"
+            height="600"
+            title="180DC Recruitment Guidebook"
+            className="h-[70vh] w-full rounded-lg bg-white [pointer-events:none] group-hover:[pointer-events:auto]"
+            style={{ border: "none" }}
+            loading="lazy"
+            tabIndex="-1"
+          />
 
-          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/file/ReapraReport.pdf"
               download="180DC_Recruitment_Guidebook.pdf"
