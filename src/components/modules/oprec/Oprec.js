@@ -10,7 +10,7 @@ export default function Oprec() {
           alt="background"
           width={2000}
           height={2000}
-          className="h-full w-full object-cover opacity-60"
+          className="h-full w-full object-cover"
         />
       </div>
 
