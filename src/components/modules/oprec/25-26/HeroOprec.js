@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import Button from "@/components/element/Button";
 
 export default function HeroPage() {
   return (
@@ -66,6 +68,15 @@ export default function HeroPage() {
               <br />
               Join 180DC UGM and leave your mark.
             </p>
+          </div>
+          <div className="w-full">
+            <Link href="#cta" className="block w-full">
+              <Button
+                color="green"
+                text="Apply Now"
+                addClass="mt-6 px-8 py-4 text-lg font-bold w-[90%] lg:w-[50%] transition-all duration-200 hover:scale-105"
+              />
+            </Link>
           </div>
         </div>
 
