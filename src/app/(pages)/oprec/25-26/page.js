@@ -4,10 +4,10 @@ import CTA from "@/components/modules/oprec/25-26/CTA";
 
 export default function OpenRecruitment2526() {
   return (
-    <>
+    <main>
       <HeroOprec />
       <Guidebook />
       <CTA />
-    </>
+    </main>
   );
 }
