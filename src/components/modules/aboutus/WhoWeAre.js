@@ -69,7 +69,7 @@ export default function WhoWeAre() {
       <div className="relative h-full w-full lg:hidden">
         <div
           className={
-            "absolute z-[15] flex h-full w-full items-center justify-center transition duration-[600ms] ease-in-out hover:cursor-pointer " +
+            "duration-600 absolute z-[15] flex h-full w-full items-center justify-center transition ease-in-out hover:cursor-pointer " +
             (!isPlaying ? "bg-transparent" : "bg-black/[50%]")
           }
           onClick={() => handlePlayVideo()}
@@ -77,7 +77,7 @@ export default function WhoWeAre() {
           <div className="flex h-[4vmax] w-[4vmax] items-center justify-center">
             <FaPlay
               className={
-                "text-lightWhite transition-all duration-[400ms] " +
+                "duration-400 text-lightWhite transition-all " +
                 (!isPlaying ? "h-0 w-0" : "h-full w-full")
               }
               onClick={() => handlePlayVideo()}

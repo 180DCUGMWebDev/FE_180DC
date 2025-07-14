@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import ImgF from "@/components/element/ImgF";
@@ -46,6 +47,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState(null);
+  const pathname = usePathname();
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -186,7 +188,9 @@ export default function Navbar() {
                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                       <Link
                         href="/portofolio"
-                        className={`transition-all duration-300 hover:bg-white hover:text-black`}
+                        className={`transition-all duration-300 hover:bg-white hover:text-black ${
+                          pathname === "/portofolio" ? "bg-white text-black" : ""
+                        }`}
                       >
                         <p className="text-lg">Clients</p>
                       </Link>
@@ -225,7 +229,9 @@ export default function Navbar() {
                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                       <Link
                         href="/academy"
-                        className={`transition-all duration-300 hover:bg-white hover:text-black`}
+                        className={`transition-all duration-300 hover:bg-white hover:text-black ${
+                          pathname === "/academy" ? "bg-white text-black" : ""
+                        }`}
                       >
                         <div className="text-lg">Academy</div>
                       </Link>
@@ -273,26 +279,46 @@ export default function Navbar() {
           )}
         >
           <div className="flex w-full flex-col items-start justify-start gap-2 px-[20px] text-left">
-            <div>
-              <Link onClick={closeMobileMenu} href="/aboutus">
-                About
+            <div className="w-full">
+              <Link
+                onClick={closeMobileMenu}
+                href="/aboutus"
+                className={`w-full ${pathname === "/aboutus" ? "font-semibold text-primary" : ""}`}
+              >
+                <div>About</div>
               </Link>
             </div>
-            <div>
-              <Link onClick={closeMobileMenu} href="/aboutus/#services">
-                Services
+            <div className="w-full">
+              <Link
+                onClick={closeMobileMenu}
+                href="/aboutus/#services"
+                className={`w-full ${
+                  pathname === "/aboutus#services" ? "font-semibold text-primary" : ""
+                } `}
+              >
+                <div>Services</div>
               </Link>
             </div>
-            <div>
-              <Link onClick={closeMobileMenu} href="/portofolio">
-                Clients
+            <div className="w-full">
+              <Link
+                onClick={closeMobileMenu}
+                href="/portofolio"
+                className={`w-full ${
+                  pathname === "/portofolio" ? "font-semibold text-primary" : ""
+                }`}
+              >
+                <div>Clients</div>
               </Link>
             </div>
 
             {/* Store Accordion */}
             <div className="w-full">
               <div
-                className="flex cursor-pointer items-center justify-between"
+                className={`flex w-full cursor-pointer items-center justify-between ${
+                  pathname === "/store/casebook" || pathname === "/store/merch"
+                    ? "font-semibold text-primary"
+                    : ""
+                }`}
                 onClick={() => toggleAccordion("store")}
               >
                 <span>Store</span>
@@ -325,7 +351,13 @@ export default function Navbar() {
             {/* Event Accordion */}
             <div className="w-full">
               <div
-                className="flex cursor-pointer items-center justify-between"
+                className={`flex cursor-pointer items-center justify-between ${
+                  pathname === "/bootcamp" ||
+                  pathname === "/cycle2oprec" ||
+                  pathname === "/casecompetition"
+                    ? "font-semibold text-primary"
+                    : ""
+                }`}
                 onClick={() => toggleAccordion("event")}
               >
                 <span>Event</span>
@@ -363,15 +395,23 @@ export default function Navbar() {
             </div>
 
             <div className="w-full">
-              <Link onClick={closeMobileMenu} href="/academy">
-                Academy
+              <Link
+                onClick={closeMobileMenu}
+                href="/academy"
+                className={pathname === "/academy" ? "font-semibold text-primary" : ""}
+              >
+                <div>Academy</div>
               </Link>
             </div>
 
             {/* Telescope Accordion */}
             <div className="w-full">
               <div
-                className="flex cursor-pointer items-center justify-between"
+                className={`flex cursor-pointer items-center justify-between ${
+                  pathname === "/telescope" || pathname === "/industrialreport"
+                    ? "font-semibold text-primary"
+                    : ""
+                }`}
                 onClick={() => toggleAccordion("telescope")}
               >
                 <span>Article</span>

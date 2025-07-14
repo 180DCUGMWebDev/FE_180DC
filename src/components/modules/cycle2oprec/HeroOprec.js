@@ -72,10 +72,11 @@ export function HeroOprec() {
                 </p>
                 <div className="flex gap-2">
                   <Button
-                    color="white"
-                    text="Register Now"
-                    addClass="w-[80%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743]  hover:text-white"
-                    href="bit.ly/180DC-ConsultingOpenRecruitmentForm-Cycle2"
+                    color="red"
+                    text="Register is Closed"
+                    addClass="w-[80%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%]"
+                    // href="bit.ly/180DC-ConsultingOpenRecruitmentForm-Cycle2"
+                    href="#"
                   />
 
                   <Button
