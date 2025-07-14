@@ -10,7 +10,7 @@ export default function Guidebook() {
     setShowGuidebook(!showGuidebook);
   };
   return (
-    <section className="relative w-full bg-gray-900 px-[5%] py-16 sm:px-[10%] lg:px-[4%]">
+    <section className="relative w-full bg-gray-900 px-[5%] pb-10 pt-20 sm:px-[10%] lg:px-[4%]">
       <div className="relative">
         <div className="mb-12 text-center">
           <h2 className="mb-4 font-avenirBlack text-3xl text-white sm:text-4xl lg:text-5xl">
