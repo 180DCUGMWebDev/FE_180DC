@@ -105,6 +105,19 @@
     -webkit-text-stroke-color: black;
   }
 }
+
+/* .lenis.lenis-smooth iframe {
+  pointer-events: none !important;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none !important;
+} */
+
+/* html {
+  scroll-behavior: auto !important;
+} */
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
