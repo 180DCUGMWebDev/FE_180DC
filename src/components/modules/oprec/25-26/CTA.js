@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Button from "@/components/element/Button";
+import Image from "next/image";
 
 export default function CTA() {
   return (
@@ -17,7 +18,14 @@ export default function CTA() {
             UGM consultant.
           </p>
         </div>
-        <div>
+        <div className="relative flex items-center justify-center">
+          <Image
+            src="/img/oprec/check.png"
+            alt="Checkmark"
+            width={100}
+            height={100}
+            className="absolute right-[-14%] top-[-10%]"
+          />
           <Link href="/oprec/25-26/register" className="w-full">
             <Button
               color="green"

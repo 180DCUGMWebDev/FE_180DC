@@ -1,6 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
-import Button from "@/components/element/Button";
+import { FaChevronDown } from "react-icons/fa";
 
 export default function HeroPage() {
   return (
@@ -69,14 +68,12 @@ export default function HeroPage() {
               Join 180DC UGM and leave your mark.
             </p>
           </div>
-          <div className="w-full">
-            <Link href="#cta" className="block w-full">
-              <Button
-                color="green"
-                text="Apply Now"
-                addClass="mt-6 px-8 py-4 text-lg font-bold w-[90%] lg:w-[50%] transition-all duration-200 hover:scale-105"
-              />
-            </Link>
+          {/* Scroll Down [DESKTOP] */}
+          <div className="flex flex-col items-center outline-0">
+            <h2 className="mt-[1.4vw] font-latoBold text-[12px] text-lightWhite">
+              {"SCROLL DOWN TO ACCESS GUIDEBOOK AND REGISTRATION"}
+            </h2>
+            <FaChevronDown className="animate-movingPointer text-[1.4vw] text-lightWhite" />
           </div>
         </div>
 
