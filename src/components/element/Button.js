@@ -18,17 +18,19 @@ export default function Button({
     color === "green"
       ? "bg-primary hover:bg-primary/80"
       : color === "black"
-        ? "bg-black"
+        ? "bg-black hover:bg-black/80"
         : color === "white"
-          ? "bg-white"
-          : "";
+          ? "bg-white hover:bg-white/80"
+          : color === "red"
+            ? "bg-red-500 hover:bg-red-500/80"
+            : "";
 
   const textColor = color === "white" ? "text-primary" : "text-white";
 
   const handleClick = (e) => {
     if (disableForm) return;
 
-    if (href) {
+    if (href && href !== "#") {
       window.open(`https://${href}`, "_blank", "noopener,noreferrer");
     } else if (action) {
       action(e);

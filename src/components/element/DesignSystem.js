@@ -28,7 +28,7 @@ export default function DesignSystem() {
         <div
           className={
             (seeDesign ? "flex flex-col" : "translate-y-[-200%]") +
-            " w-full gap-[20px] transition-transform duration-[300ms]"
+            " w-full gap-[20px] transition-transform duration-300"
           }
         >
           <div className="flex w-full">
