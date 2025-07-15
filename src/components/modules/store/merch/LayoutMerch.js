@@ -9,7 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./merch.css";
 import products from "./products";
-import Button from "@/components/element/Button";
+import Button180 from "@/components/element/Button";
 
 const LayoutMerch = () => {
   return (

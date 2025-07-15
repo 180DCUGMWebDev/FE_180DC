@@ -1,6 +1,8 @@
 // Import
 import "./globals.css";
 
+import { Toaster } from "@/components/ui/sonner";
+
 import {
   mulishLight,
   mulishRegular,
@@ -69,25 +71,26 @@ export default function RootLayout({ children }) {
           latoLight.variable,
           latoLightItalic.variable,
           latoSemibold.variable,
-          latoSemiboldItalic.variable,
+          latoSemiboldItalic.variable
         )}
       >
-        {/* First Option */}
-
         <LocomotiveProvider>
           <GSAPProvider>
             <UtilsProvider>
               {/* Content > 250px */}
-              <div className="hidden flex-col overflow-clip min-[250px]:flex">
+              <main className="hidden flex-col overflow-clip min-[250px]:flex">
                 <Navbar />
                 {children}
                 <Footer />
-              </div>
+              </main>
               {/* Second Option < 250px*/}
               <TooSmall />
             </UtilsProvider>
           </GSAPProvider>
         </LocomotiveProvider>
+
+        {/* Toaster at body level for optimal rendering */}
+        <Toaster />
       </body>
     </html>
   );

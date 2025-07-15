@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import ImgF from "@/components/element/ImgF";
-import Button from "@/components/element/Button";
+import Button180 from "@/components/element/Button";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
@@ -257,7 +257,7 @@ export default function Navbar() {
             {/* Button */}
             <div className="hidden items-center justify-end lg:flex">
               <Link href="/apply">
-                <Button
+                <Button180
                   color={"green"}
                   text={"Consult Now!"}
                   className="whitespace-nowrap px-[20px] py-[9px]"

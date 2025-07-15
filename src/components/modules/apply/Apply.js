@@ -2,7 +2,7 @@
 
 import { useContext, useEffect, useState } from "react";
 import { FaPlay } from "react-icons/fa";
-import Button from "@/components/element/Button";
+import Button180 from "@/components/element/Button";
 import ImgF from "@/components/element/ImgF";
 import ProjectStructureList from "@/components/element/ProjectStructureList";
 import { createBackground } from "@/config/Functions";
@@ -332,7 +332,7 @@ export default function Apply() {
               ))}
 
               <div className="flex w-full max-lg:mt-[1.5vh] max-lg:justify-center">
-                <Button
+                <Button180
                   color="green"
                   text="Submit"
                   disableForm={!formComplete}

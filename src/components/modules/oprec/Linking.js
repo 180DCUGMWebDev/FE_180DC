@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Button from "@/components/element/Button";
+import Button180 from "@/components/element/Button";
 
 const batches = [
   {
@@ -90,7 +90,7 @@ export default function Linking() {
                 {/* CTA Buttons */}
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                   <Link href={currentBatch.href} className="sm:flex-1">
-                    <Button
+                    <Button180
                       color="green"
                       text="Apply Now"
                       addClass="w-full text-sm py-2 lg:text-base font-medium transition-all duration-200 hover:scale-[1.02] hover:shadow-lg"
@@ -178,7 +178,7 @@ export default function Linking() {
 
                           {/* CTA */}
                           <Link href={batch.href}>
-                            <Button
+                            <Button180
                               color="gray"
                               text="View Details"
                               addClass="w-full text-sm py-2 transition-all duration-300 hover:bg-gray-600 hover:text-white"
@@ -204,7 +204,7 @@ export default function Linking() {
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Link href="/aboutus">
-              <Button
+              <Button180
                 color="transparent"
                 text="About Us"
                 addClass="border border-primary text-primary hover:bg-primary hover:text-black transition-all duration-300"
@@ -212,7 +212,7 @@ export default function Linking() {
               />
             </Link>
             <Link href="/aboutus#services">
-              <Button
+              <Button180
                 color="green"
                 text="Services"
                 addClass="hover:bg-gray-800 hover:text-white transition-all duration-300"

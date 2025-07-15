@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import Button from "@/components/element/Button";
+import Button180 from "@/components/element/Button";
 
 export default function Custom404({
   title = "Page Not Found",
@@ -76,14 +76,14 @@ export default function Custom404({
               {/* Buttons */}
               <div className="flex w-full flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
                 <Link href={homeLink} className="block w-full sm:w-auto">
-                  <Button
+                  <Button180
                     color="green"
                     text="Go to Homepage"
                     addClass="w-full px-8 py-3 text-lg font-bold transition-all duration-200 hover:scale-105"
                   />
                 </Link>
                 <Link href="/aboutus" className="block w-full sm:w-auto">
-                  <Button
+                  <Button180
                     color="white"
                     text="About Us"
                     addClass="w-full px-8 py-3 text-lg font-bold transition-all duration-200 hover:scale-105 hover:bg-primary hover:text-white"

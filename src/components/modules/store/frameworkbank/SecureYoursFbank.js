@@ -7,7 +7,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { intLinks } from "@/config/Links";
 import { directRoute } from "@/config/Functions";
 import ImgF from "@/components/element/ImgF";
-import Button from "@/components/element/Button";
+import Button180 from "@/components/element/Button";
 
 export default function SecureYoursFbank({ theme }) {
   // Router Hook
@@ -22,7 +22,7 @@ export default function SecureYoursFbank({ theme }) {
         </div>
 
         {/* Content */}
-        <div data-gsap="up" className="relative mx-[50px] h-full w-full 2xl:w-[1536px]">
+        <div className="relative mx-[50px] h-full w-full 2xl:w-[1536px]">
           <div className="flex h-full w-full flex-col items-center justify-center py-[15vh] lg:gap-[16px] lg:p-[100px] 2xl:py-[110px]">
             <h1 className="bg-gradient-to-br from-primary from-[35%] to-secondary to-[65%] bg-clip-text py-[4px] text-center font-avenirBlack text-[12vw] leading-[1] text-transparent lg:text-[6vw]/[6vw] 2xl:text-[90px]/[92px]">
               {"Secure yours"}
@@ -38,7 +38,7 @@ export default function SecureYoursFbank({ theme }) {
               <br />
               {"consulting excellence"}
             </h2>
-            <Button
+            <Button180
               color={"green"}
               text={"Buy Now"}
               addClass={

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button from "@/components/element/Button";
+import Button180 from "@/components/element/Button";
 
 export function HeroOprec() {
   const items = [
@@ -71,7 +71,7 @@ export function HeroOprec() {
                   your mark.
                 </p>
                 <div className="flex gap-2">
-                  <Button
+                  <Button180
                     color="red"
                     text="Register is Closed"
                     addClass="w-[80%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%]"
@@ -79,14 +79,14 @@ export function HeroOprec() {
                     href="#"
                   />
 
-                  <Button
+                  <Button180
                     color="green"
                     text="Guidebook"
                     addClass="w-[60%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-white hover:text-primary"
                     href="bit.ly/ConsultingCycle2-BookletOprec2025"
                   />
                 </div>
-                <Button
+                <Button180
                   color="white"
                   text="Consulting Day Registration"
                   addClass="w-[100%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743]  hover:text-white"
@@ -113,19 +113,19 @@ export function HeroOprec() {
               your mark.
             </p>
             <div className="flex w-full items-center justify-center gap-[2vw]">
-              <Button
+              <Button180
                 color="red"
                 text="Register is Closed"
                 addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[2.154vw] lg:mt-[1.25vw] font-bold"
                 href="bit.ly/180DC-ConsultingOpenRecruitmentForm-Cycle2"
               />
-              <Button
+              <Button180
                 color="green"
                 text="Guidebook"
                 addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[2.154vw] lg:mt-[1.25vw] font-bold"
                 href="bit.ly/ConsultingCycle2-BookletOprec2025"
               />
-              <Button
+              <Button180
                 color="green"
                 text="Consulting Day"
                 addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[2.154vw] lg:mt-[1.25vw] font-bold"

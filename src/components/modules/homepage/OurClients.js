@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button from "@/components/element/Button";
+import Button180 from "@/components/element/Button";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import Link from "next/link";
@@ -21,7 +21,7 @@ export function OurClients() {
             Our Previous Clients
           </div>
           <Link href="/portofolio" className="w-[15%] max-lg:hidden">
-            <Button
+            <Button180
               color="black"
               text={
                 <>
@@ -33,7 +33,7 @@ export function OurClients() {
             />
           </Link>
           <Link href="/portofolio" className="w-fit lg:hidden">
-            <Button
+            <Button180
               color="green"
               text={<HiOutlineArrowUpRight />}
               addClass="h-fit rounded-full p-[3px] sm:p-[4px] text-lg sm:text-xl"
@@ -43,16 +43,10 @@ export function OurClients() {
       </div>
       {/* Newsletter & Press Releases */}
       <div className="flex flex-col gap-[10px] px-[4%] py-[9vh] max-lg:pt-[10vw] lg:gap-[30px]">
-        <div
-          data-gsap="right"
-          className="font-avenirBlack text-2xl sm:text-4xl lg:text-[80px] lg:leading-none 2xl:text-[112px]"
-        >
+        <div className="font-avenirBlack text-2xl sm:text-4xl lg:text-[80px] lg:leading-none 2xl:text-[112px]">
           Newsletter & Press Releases
         </div>
-        <div
-          data-gsap="up-stagger"
-          className="flex items-center gap-[20px] max-lg:flex-col lg:h-[38vh] lg:gap-[56px]"
-        >
+        <div className="flex items-center gap-[20px] max-lg:flex-col lg:h-[38vh] lg:gap-[56px]">
           <Link
             className="group relative flex h-full w-full flex-1 items-center overflow-hidden rounded-lg max-lg:max-h-[38vh]"
             href="/telescope/oersonalization-why-brand-knows-you-better-than-your-bestie"
@@ -80,7 +74,7 @@ export function OurClients() {
             <div className="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
           </Link>
           <Link href="/telescope">
-            <Button
+            <Button180
               color="black"
               text={<HiOutlineArrowUpRight />}
               addClass="w-fit h-fit rounded-full p-[6px] text-2xl max-lg:hidden transition-transform duration-300 hover:scale-110 hover:bg-gray-800 hover:text-white"
@@ -88,7 +82,7 @@ export function OurClients() {
           </Link>
 
           <Link href="/telescope">
-            <Button
+            <Button180
               color="green"
               text="View more"
               addClass="px-[20px] h-fit py-2 text-sm sm:text-base lg:hidden"

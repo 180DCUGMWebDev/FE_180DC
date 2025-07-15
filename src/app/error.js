@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "@/components/element/Button";
+import Button180 from "@/components/element/Button";
 
 export default function Error({ error, reset }) {
   useEffect(() => {
@@ -73,7 +73,7 @@ export default function Error({ error, reset }) {
               {/* Buttons */}
               <div className="flex w-full flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
                 <div className="block w-full sm:w-auto">
-                  <Button
+                  <Button180
                     color="green"
                     onClick={reset}
                     text="Try Again"
@@ -81,7 +81,7 @@ export default function Error({ error, reset }) {
                   />
                 </div>
                 <Link href="/" className="block w-full sm:w-auto">
-                  <Button
+                  <Button180
                     color="white"
                     text="Go Home"
                     addClass="w-full px-8 py-3 text-lg font-bold transition-all duration-200 hover:scale-105 hover:bg-primary hover:text-white"
