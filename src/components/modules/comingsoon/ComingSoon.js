@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Button from "@/components/element/Button";
+import Button180 from "@/components/element/Button";
 
 export default function ComingSoon() {
   return (
@@ -66,14 +66,14 @@ export default function ComingSoon() {
                 </p>
                 <div className="mt-4 flex w-full justify-center gap-2 whitespace-nowrap">
                   <Link href="/">
-                    <Button
+                    <Button180
                       color="white"
                       text="Back to Home"
                       addClass="h-fit py-[1.563vw] lg:py-[0.9vw] w-full text-[1.2vw] mt-[1.25vw] px-6 font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743] hover:text-white"
                     />
                   </Link>
                   <Link href="/aboutus">
-                    <Button
+                    <Button180
                       color="green"
                       text="About Us"
                       addClass="h-fit py-[1.563vw] lg:py-[0.9vw] w-full text-[1.2vw] mt-[1.25vw] px-6 font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743] hover:text-white"
@@ -149,14 +149,14 @@ export default function ComingSoon() {
               </p>
               <div className="flex justify-center gap-2 whitespace-nowrap">
                 <Link href="/">
-                  <Button
+                  <Button180
                     color="white"
                     text="Back to Home"
                     addClass="w-full h-fit px-6 py-[1.563vw] text-[2.9vw] mt-[6.154vw] lg:mt-[1.25vw] font-bold"
                   />
                 </Link>
                 <Link href="/aboutus">
-                  <Button
+                  <Button180
                     color="green"
                     text="About Us"
                     addClass="w-full px-6 h-fit py-[1.563vw] text-[2.9vw] mt-[6.154vw] lg:mt-[1.25vw] font-bold"

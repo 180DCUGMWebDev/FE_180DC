@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 
-export default function Button({
+export default function Button180({
   color,
   text,
   action = "",

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button from "@/components/element/Button";
+import Button180 from "@/components/element/Button";
 import Link from "next/link";
 
 export function Hero({ contactRef }) {
@@ -40,13 +40,13 @@ export function Hero({ contactRef }) {
             {/* Tombol */}
             <div className="flex gap-8 max-lg:w-full max-lg:justify-center">
               <Link href="/apply" className="w-[50%] max-lg:max-w-[200px] lg:w-[30%]">
-                <Button
+                <Button180
                   color="green"
                   text="Consult Now!"
                   addClass="w-full h-fit py-2 lg:py-3 text-sm sm:text-base lg:text-lg transition-all duration-500 hover:scale-110 hover:bg-gray-800 hover:text-white"
                 />
               </Link>
-              <Button
+              <Button180
                 color="green"
                 text="Contact Us"
                 addClass="w-[30%] h-fit py-3 text-lg max-lg:hidden transition-all duration-500 hover:scale-110 hover:bg-gray-800 hover:text-white"
@@ -123,14 +123,14 @@ export function Hero({ contactRef }) {
               </div>
             </div>
             <Link href="/aboutus" className="w-[15%] max-lg:hidden">
-              <Button
+              <Button180
                 color="black"
                 text="Read More"
                 addClass="w-full h-fit py-3 text-lg transition-all duration-500 hover:scale-110 hover:bg-gray-800 hover:text-white"
               />
             </Link>
             <Link href="/aboutus" className="w-[40%] lg:hidden">
-              <Button
+              <Button180
                 color="green"
                 text="Read More"
                 addClass="w-full h-fit py-2 text-sm sm:text-base transition-all duration-500 hover:scale-110 hover:bg-gray-800 hover:text-white"

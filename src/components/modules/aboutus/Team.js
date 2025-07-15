@@ -80,20 +80,14 @@ export default function Team() {
             )}
           </div>
           {/* BoDs */}
-          <div
-            data-gsap="up-stagger"
-            className="relative flex h-fit min-h-[75vh] w-full flex-col items-center pb-[60px] lg:px-[130px] 2xl:mx-[50px]"
-          >
+          <div className="relative flex h-fit min-h-[75vh] w-full flex-col items-center pb-[60px] lg:px-[130px] 2xl:mx-[50px]">
             {/* White Background */}
             <div className="absolute -z-[998] h-full w-full bg-white" />
             <h2 className="mt-[6px] font-latoBoldItalic text-[4vw] text-primary lg:text-[1.8vw]/[2vw] 2xl:text-[27.6px]/[30.7px]">
               {"Board of Directors"}
             </h2>
             {/* Cards Row */}
-            <div
-              data-gsap="up"
-              className="relative mt-[3.6%] flex w-[90%] flex-col gap-[2%] md:w-[90%]"
-            >
+            <div className="relative mt-[3.6%] flex w-[90%] flex-col gap-[2%] md:w-[90%]">
               {hydrate &&
                 BoD[term].map((row) => {
                   let rowMobile = [[...row]];

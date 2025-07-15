@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Button from "@/components/element/Button";
+import Button180 from "@/components/element/Button";
 import { useState } from "react";
 
 export default function Guidebook() {
@@ -40,7 +40,7 @@ export default function Guidebook() {
               download="180DC_Recruitment_Guidebook.pdf"
               className="inline-block"
             >
-              <Button
+              <Button180
                 color="green"
                 text="Download Guidebook"
                 addClass="w-full sm:w-auto px-8 py-3 text-lg font-medium transition-all duration-200 hover:scale-105"
@@ -52,7 +52,7 @@ export default function Guidebook() {
               rel="noopener noreferrer"
               className="inline-block"
             >
-              <Button
+              <Button180
                 color="transparent"
                 text="Open in New Tab"
                 addClass="w-full sm:w-auto border border-white/20 px-8 py-3 text-lg text-white hover:bg-white/10 transition-all duration-200"

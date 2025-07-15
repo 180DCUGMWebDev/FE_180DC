@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button from "@/components/element/Button";
+import Button180 from "@/components/element/Button";
 
 export function Hero() {
   const items = [
@@ -67,14 +67,14 @@ export function Hero() {
                   in-depth sessions to equip you <br /> all necessary materials of Consulting
                 </p>
                 <div className="flex gap-2">
-                  <Button
+                  <Button180
                     color="white"
                     text="Enroll me Now"
                     addClass="w-[80%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743]  hover:text-white"
                     href="bit.ly/RegistrationCB180DC"
                   />
 
-                  <Button
+                  <Button180
                     color="green"
                     text="Guidebook"
                     addClass="w-[60%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-white hover:text-primary"
@@ -158,13 +158,13 @@ export function Hero() {
                 in-depth sessions to equip you <br /> all necessary materials of Consulting
               </p>
               <div className="flex gap-2">
-                <Button
+                <Button180
                   color="white"
                   text="Enroll me Now"
                   addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[6.154vw] lg:mt-[1.25vw] font-bold"
                   href="bit.ly/RegistrationCB180DC"
                 />
-                <Button
+                <Button180
                   color="green"
                   text="Guidebook"
                   addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[6.154vw] lg:mt-[1.25vw] font-bold"

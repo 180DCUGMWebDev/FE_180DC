@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Button from "@/components/element/Button";
+import Button180 from "@/components/element/Button";
 import Image from "next/image";
 
 export default function CTA() {
@@ -27,7 +27,7 @@ export default function CTA() {
             className="absolute right-[-14%] top-[-60%] rotate-[-20deg] sm:top-[-30%]"
           />
           <Link href="/oprec/25-26/register" className="w-full">
-            <Button
+            <Button180
               color="green"
               text="Apply Now"
               addClass="mt-6 w-full px-8 py-4 text-lg font-bold transition-all duration-200 hover:scale-105"

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button from "@/components/element/Button";
+import Button180 from "@/components/element/Button";
 
 export function HeroCaseComps() {
   return (
@@ -40,13 +40,13 @@ export function HeroCaseComps() {
                   your mark.
                 </p>
                 <div className="flex gap-2">
-                  <Button
+                  <Button180
                     color="green"
                     text="Enroll Competition"
                     addClass="w-[80%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[110%] hover:bg-[#73B743]  hover:text-white"
                     href="www.180dcugm.com/casecompetition/form"
                   />
-                  <Button
+                  <Button180
                     color="white"
                     text="Guidebook"
                     addClass="w-[80%] z-50 h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[110%] hover:bg-[#73B743]  hover:text-white"
@@ -74,13 +74,13 @@ export function HeroCaseComps() {
               Competition UGM and leave your mark.
             </p>
             <div className="flex w-full flex-col items-center justify-center gap-[2vw]">
-              <Button
+              <Button180
                 color="green"
                 text="Registration"
                 addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[2.154vw] lg:mt-[1.25vw] font-bold"
                 href="www.180dcugm.com/casecompetition/form"
               />
-              <Button
+              <Button180
                 color="white"
                 text="Guidebook"
                 addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[2.154vw] lg:mt-[1.25vw] font-bold"

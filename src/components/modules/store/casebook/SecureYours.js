@@ -7,7 +7,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { intLinks } from "@/config/Links";
 import { directRoute } from "@/config/Functions";
 import ImgF from "@/components/element/ImgF";
-import Button from "@/components/element/Button";
+import Button180 from "@/components/element/Button";
 
 export default function SecureYours({ theme }) {
   // Router Hook
@@ -38,7 +38,7 @@ export default function SecureYours({ theme }) {
               <br />
               {"consulting excellence"}
             </h2>
-            <Button
+            <Button180
               color={"green"}
               text={"Buy Now"}
               addClass={

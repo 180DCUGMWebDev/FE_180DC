@@ -1,5 +1,4 @@
-import ComingSoon from "@/components/modules/comingsoon/ComingSoon";
-
+import Form from "@/components/modules/oprec/25-26/form/Form";
 export default function Page() {
-  return <ComingSoon />;
+  return <Form />;
 }

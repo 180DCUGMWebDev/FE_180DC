@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import Button from "@/components/element/Button";
+import Button180 from "@/components/element/Button";
 
 export default function DesignSystem() {
   const [seeDesign, setSeeDesign] = useState(true);
@@ -14,7 +14,7 @@ export default function DesignSystem() {
   return (
     <section className="my-[40px] flex h-[100vmax] w-full flex-col gap-[52px] bg-white180 p-[100px]">
       <div className="flex w-full">
-        <Button
+        <Button180
           color={"black"}
           text={"See Design System"}
           action={() => {
