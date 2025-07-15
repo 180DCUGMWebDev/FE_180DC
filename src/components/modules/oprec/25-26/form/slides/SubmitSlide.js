@@ -1,54 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { CheckCircle, Users, Mail, Phone, ExternalLink } from "lucide-react";
+import { CheckCircle, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
-const SubmitSlide = ({ formData, onPrevious }) => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  useEffect(() => {
-    // Auto-submit when component mounts
-    const handleSubmit = async () => {
-      setIsSubmitting(true);
-
-      try {
-        // Simulate API call - replace with actual submission logic
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-
-        // Here you would normally send formData to your backend
-        console.log("Form submitted:", formData);
-
-        setIsSubmitted(true);
-      } catch (error) {
-        console.error("Submission error:", error);
-        alert("There was an error submitting your application. Please try again.");
-      } finally {
-        setIsSubmitting(false);
-      }
-    };
-
-    handleSubmit();
-  }, [formData]);
-
-  if (isSubmitting) {
-    return (
-      <div className="animate-fade-in space-y-6">
-        <div className="text-center">
-          <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-            <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
-          </div>
-          <h2 className="mb-2 font-avenirBlack text-2xl leading-snug text-primary lg:text-3xl">
-            Submitting Your Application...
-          </h2>
-          <p className="font-latoRegular text-gray-600">
-            Please wait while we process your application
-          </p>
-        </div>
-      </div>
-    );
-  }
-
+const SubmitSlide = ({ formData }) => {
   return (
     <div className="animate-fade-in space-y-6">
       <div className="text-center">

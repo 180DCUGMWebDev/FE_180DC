@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import Button180 from "@/components/element/Button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ChevronRight } from "lucide-react";
@@ -14,13 +13,12 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
   const [phone, setPhone] = useState(formData.phone || "");
   const [faculty, setFaculty] = useState(formData.faculty || "");
   const [major, setMajor] = useState(formData.major || "");
-  const [GPA, setGPA] = useState(formData.GPA || "");
+  const [gpa, setgpa] = useState(formData.gpa || "");
   const [activeStudent, setActiveStudent] = useState(formData.activeStudent || false);
 
   const handleNext = () => {
     // Check if user is not an active student
     if (!activeStudent) {
-      // Skip to Slide 5 with error message
       updateFormData({
         name,
         email,
@@ -28,7 +26,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
         phone,
         faculty,
         major,
-        GPA,
+        gpa,
         activeStudent: false,
       });
       return;
@@ -42,7 +40,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
       phone,
       faculty,
       major,
-      GPA,
+      gpa,
       activeStudent,
     });
     onNext();
@@ -56,9 +54,9 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
     phone.trim() &&
     faculty.trim() &&
     major.trim() &&
-    GPA.trim() &&
-    parseFloat(GPA) >= 0 &&
-    parseFloat(GPA) <= 4.0 &&
+    gpa.trim() &&
+    parseFloat(gpa) >= 0 &&
+    parseFloat(gpa) <= 4.0 &&
     activeStudent;
 
   return (
@@ -220,10 +218,10 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
               Current GPA *
             </Label>
             <Input
-              id="GPA"
+              id="gpa"
               type="text"
-              value={GPA}
-              onChange={(e) => setGPA(e.target.value)}
+              value={gpa}
+              onChange={(e) => setgpa(e.target.value)}
               placeholder="e.g., 3.75"
               className="border-gray-300 font-latoRegular transition-all duration-200 focus:ring-2 focus:ring-primary/50"
             />

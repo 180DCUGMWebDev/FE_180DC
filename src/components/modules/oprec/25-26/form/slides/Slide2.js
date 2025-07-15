@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   Select,
@@ -12,12 +11,14 @@ import {
 import { ChevronRight } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 
-const Slide2 = ({ formData, updateFormData, onNext, onPrevious }) => {
+const Slide2 = ({ formData, updateFormData, onNext }) => {
   const [is180DCAlumni, setIs180DCAlumni] = useState(formData.is180DCAlumni || null);
+  const [notIs180DCAlumni, setNotIs180DCAlumni] = useState(
+    formData.is180DCAlumni === false || false
+  );
   const [pastPosition, setPastPosition] = useState(formData.pastPosition || "");
   const [pastBatch, setPastBatch] = useState(formData.pastBatch || "");
   const [applyingPosition, setApplyingPosition] = useState(formData.applyingPosition || "");
-  const [secondChoice, setSecondChoice] = useState(formData.secondChoice || "");
 
   const handleNext = () => {
     updateFormData({
@@ -25,17 +26,16 @@ const Slide2 = ({ formData, updateFormData, onNext, onPrevious }) => {
       pastPosition: is180DCAlumni ? pastPosition : "",
       pastBatch: is180DCAlumni ? pastBatch : "",
       applyingPosition: is180DCAlumni ? applyingPosition : "",
-      secondChoice: is180DCAlumni ? (secondChoice === "unassigned" ? "" : secondChoice) : "",
     });
     onNext();
   };
 
   const isValid =
-    is180DCAlumni === null
+    is180DCAlumni === null && notIs180DCAlumni === false
       ? false
-      : is180DCAlumni
+      : is180DCAlumni === true
         ? pastPosition.trim() && pastBatch.trim() && applyingPosition.trim()
-        : true; // If not alumni, no additional validation needed
+        : true;
 
   return (
     <div className="animate-fade-in space-y-6">
@@ -63,10 +63,14 @@ const Slide2 = ({ formData, updateFormData, onNext, onPrevious }) => {
             <Checkbox
               id="alumni-yes"
               checked={is180DCAlumni === true}
-              onCheckedChange={(checked) => setIs180DCAlumni(checked ? true : null)}
+              onCheckedChange={() => {
+                setIs180DCAlumni(true);
+                setNotIs180DCAlumni(false);
+                updateFormData({ is180DCAlumni: true, isAlumni: true });
+              }}
               className="text-white"
             />
-            <Label htmlFor="alumni-yes">
+            <Label htmlFor="alumni-yes" className="cursor-pointer">
               <p className="font-latoRegular text-gray-600">
                 Yes, I am a former member of 180DC UGM
               </p>
@@ -75,11 +79,21 @@ const Slide2 = ({ formData, updateFormData, onNext, onPrevious }) => {
           <div className="flex flex-row items-center gap-2">
             <Checkbox
               id="alumni-no"
-              checked={is180DCAlumni === false}
-              onCheckedChange={(checked) => setIs180DCAlumni(checked ? false : null)}
+              checked={notIs180DCAlumni === true}
+              onCheckedChange={() => {
+                setIs180DCAlumni(false);
+                setNotIs180DCAlumni(true);
+                updateFormData({
+                  is180DCAlumni: false,
+                  isAlumni: false,
+                  pastPosition: "",
+                  pastBatch: "",
+                  applyingPosition: "",
+                });
+              }}
               className="text-white"
             />
-            <Label htmlFor="alumni-no">
+            <Label htmlFor="alumni-no" className="cursor-pointer">
               <p className="font-latoRegular text-gray-600">
                 No, I am not a former member of 180DC UGM
               </p>
@@ -100,7 +114,13 @@ const Slide2 = ({ formData, updateFormData, onNext, onPrevious }) => {
                   >
                     Past Position in 180DC UGM *
                   </Label>
-                  <Select value={pastPosition} onValueChange={setPastPosition}>
+                  <Select
+                    value={pastPosition}
+                    onValueChange={(value) => {
+                      setPastPosition(value);
+                      updateFormData({ pastPosition: value });
+                    }}
+                  >
                     <SelectTrigger className="w-full">
                       <SelectValue placeholder="Past Position" />
                     </SelectTrigger>
@@ -121,7 +141,13 @@ const Slide2 = ({ formData, updateFormData, onNext, onPrevious }) => {
                   >
                     Past Batch/Year *
                   </Label>
-                  <Select value={pastBatch} onValueChange={setPastBatch}>
+                  <Select
+                    value={pastBatch}
+                    onValueChange={(value) => {
+                      setPastBatch(value);
+                      updateFormData({ pastBatch: value });
+                    }}
+                  >
                     <SelectTrigger className="w-full">
                       <SelectValue placeholder="Past Batch/Year" />
                     </SelectTrigger>
@@ -140,31 +166,18 @@ const Slide2 = ({ formData, updateFormData, onNext, onPrevious }) => {
                   >
                     What position are you applying for? *
                   </Label>
-                  <Select value={applyingPosition} onValueChange={setApplyingPosition}>
+                  <Select
+                    value={applyingPosition}
+                    onValueChange={(value) => {
+                      setApplyingPosition(value);
+                      updateFormData({ applyingPosition: value });
+                    }}
+                  >
                     <SelectTrigger className="w-full">
                       <SelectValue placeholder="Position" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="Project Leader">Project Leader</SelectItem>
-                      <SelectItem value="Project Analyst">Project Analyst</SelectItem>
-                      <SelectItem value="Research Leader">Research Leader</SelectItem>
-                      <SelectItem value="Research Analyst">Research Analyst</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <Label
-                    htmlFor="secondChoice"
-                    className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
-                  >
-                    Do you have second options? (optional)
-                  </Label>
-                  <Select value={secondChoice || "unassigned"} onValueChange={setSecondChoice}>
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Position" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="unassigned">No second choice</SelectItem>
                       <SelectItem value="Project Analyst">Project Analyst</SelectItem>
                       <SelectItem value="Research Leader">Research Leader</SelectItem>
                       <SelectItem value="Research Analyst">Research Analyst</SelectItem>

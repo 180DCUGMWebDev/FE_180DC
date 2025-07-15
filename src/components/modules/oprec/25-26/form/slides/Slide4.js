@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { ChevronRight } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 
-const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
+const Slide4 = ({ formData, updateFormData, onNext }) => {
   const [cvLink, setCvLink] = useState(formData.cvLink || "");
   const [instagramProofLink, setInstagramProofLink] = useState(formData.instagramProofLink || "");
   const [hearAboutUs, setHearAboutUs] = useState(formData.hearAboutUs || []);
@@ -65,8 +65,8 @@ const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
             </Label>
             <p className="mb-3 font-latoRegular text-sm text-gray-500">
               Please upload your CV in McKinsey format. Make sure to rename your file as:
-              &quot;CV_[YourFullName]_180DC.pdf&quot; before uploading to Google Drive and share
-              the link here.
+              &quot;CV_[YourFullName]_180DC.pdf&quot; before uploading to Google Drive and share the
+              link here.
             </p>
             <Input
               id="cvLink"
@@ -153,7 +153,7 @@ const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
           disabled={!isValid}
           className="disable:text-black flex items-center gap-2 bg-primary font-avenirRegular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:opacity-50 disabled:hover:scale-100"
         >
-          Submit Form
+          Review Submission
           <ChevronRight className="h-4 w-4" />
         </Button>
       </div>
