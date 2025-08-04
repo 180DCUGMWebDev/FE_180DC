@@ -40,7 +40,7 @@ const SubmitSlide = ({ formData }) => {
           <div className="mb-4">
             <h2 className="font-avenirRegular font-bold">Join Our Groups</h2>
             <p className="mb-3 font-latoRegular text-gray-600">
-              Kindly join our Recruitment Group and 180DC's Community Group
+              Kindly join our Recruitment Group and 180DC&apos;s Community Group
             </p>
             <div className="space-y-2">
               <Link
