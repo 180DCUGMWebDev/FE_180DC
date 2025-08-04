@@ -82,33 +82,27 @@ const SubmitSlide = ({ formData }) => {
             <p className="font-latoRegular text-gray-600">{formData.email || "N/A"}</p>
           </div>
           <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">NIM:</span>
-            <p className="font-latoRegular text-gray-600">{formData.nim || "N/A"}</p>
+            <span className="font-avenirRegular text-sm font-medium text-gray-700">Faculty:</span>
+            <p className="font-latoRegular text-gray-600">{formData.faculty || "N/A"}</p>
+          </div>
+          <div>
+            <span className="font-avenirRegular text-sm font-medium text-gray-700">Major:</span>
+            <p className="font-latoRegular text-gray-600">{formData.major || "N/A"}</p>
           </div>
           <div>
             <span className="font-avenirRegular text-sm font-medium text-gray-700">
               First Choice Position:
             </span>
-            <p className="font-latoRegular text-gray-600">
-              {formData.firstChoicePosition || "N/A"}
-            </p>
+            <p className="font-latoRegular text-gray-600">{formData.firstChoice || "N/A"}</p>
           </div>
-          {formData.secondChoicePosition && (
+          {formData.secondChoice && (
             <div>
               <span className="font-avenirRegular text-sm font-medium text-gray-700">
                 Second Choice Position:
               </span>
-              <p className="font-latoRegular text-gray-600">{formData.secondChoicePosition}</p>
+              <p className="font-latoRegular text-gray-600">{formData.secondChoice}</p>
             </div>
           )}
-          <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              Alumni Status:
-            </span>
-            <p className="font-latoRegular text-gray-600">
-              {formData.is180DCAlumni ? "Yes, 180DC UGM Alumni" : "Not an Alumni"}
-            </p>
-          </div>
         </div>
       </div>
     </div>

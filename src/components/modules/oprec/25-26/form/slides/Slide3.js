@@ -1,164 +1,138 @@
-import React, { useState } from "react";
+"use client";
+
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { ChevronRight, Upload, ExternalLink } from "lucide-react";
+import { ChevronRight } from "lucide-react";
+
+// Import division-specific slides
+import SlideHR from "./divisions/SlideHR";
+import SlideCE from "./divisions/SlideCE";
+import SlideSG from "./divisions/SlideSG";
+import SlideFinance from "./divisions/SlideFinance";
+import SlideLegal from "./divisions/SlideLegal";
+import SlideMKT from "./divisions/SlideMKT";
+import SlideIT from "./divisions/SlideIT";
+import SlideKN from "./divisions/SlideKN";
 
 const Slide3 = ({ formData, updateFormData, onNext, onPrevious }) => {
-  const [firstChoicePosition, setFirstChoicePosition] = useState(
-    formData.firstChoicePosition || ""
-  );
-  const [secondChoicePosition, setSecondChoicePosition] = useState(
-    formData.secondChoicePosition || "unassigned"
-  );
-  const [whyApplyingLink, setWhyApplyingLink] = useState(formData.whyApplyingLink || "");
-  const [howHelpGoalsLink, setHowHelpGoalsLink] = useState(formData.howHelpGoalsLink || "");
+  // Handle document and CV links for first choice
+  // These are managed locally in Slide3 because they are specific to Slide3's inputs
+  const [documentLink, setDocumentLink] = useState(formData.first_documentLink || "");
+  const [cvLink, setCvLink] = useState(formData.first_cvLink || "");
+  const [portfolioLink, setPortfolioLink] = useState(formData.first_portfolioLink || "");
+  const [content, setContent] = useState(formData.content || false);
+  const [graphicDesigner, setGraphicDesigner] = useState(formData.graphicDesigner || false);
+  const [videographer, setVideographer] = useState(formData.videographer || false);
+  const [partnership, setPartnership] = useState(formData.partnership || false);
+  const [frontend, setFrontend] = useState(formData.frontend || false);
+  const [backend, setBackend] = useState(formData.backend || false);
+  const [uiux, setUiux] = useState(formData.uiux || false);
 
   const handleNext = () => {
+    // Update form data with document, CV, and portfolio links
+    // Role preferences are already updated by the sub-components via updateFormData
     updateFormData({
-      firstChoicePosition,
-      secondChoicePosition: secondChoicePosition === "unassigned" ? "" : secondChoicePosition,
-      whyApplyingLink,
-      howHelpGoalsLink,
+      first_documentLink: documentLink,
+      first_cvLink: cvLink,
+      first_portfolioLink: portfolioLink,
+      first_content: content,
+      first_graphicDesigner: graphicDesigner,
+      first_videographer: videographer,
+      first_partnership: partnership,
+      first_frontend: frontend,
+      first_backend: backend,
+      first_uiux: uiux,
     });
     onNext();
   };
 
-  const isValid = firstChoicePosition.trim() && whyApplyingLink.trim() && howHelpGoalsLink.trim();
+  // Get the selected first choice division from formData
+  const firstChoice = formData.firstChoice;
 
-  const positionOptions = [
-    "Project Leader",
-    "Project Analyst",
-    "Research Leader",
-    "Research Analyst",
-  ];
+  // Check if form is valid (both fields filled)
+  const isValid = documentLink.trim() && cvLink.trim();
 
-  return (
-    <div className="animate-fade-in space-y-6">
-      <div className="text-center">
-        <h2 className="mb-1 mt-2 font-avenirBlack text-2xl leading-snug text-primary lg:text-3xl">
-          Position & Motivation
-        </h2>
-        <p className="font-latoRegular text-gray-600">
-          Tell us about your position preferences and motivations
-        </p>
-      </div>
+  // Render division-specific form for first choice
+  const renderDivisionSpecificForm = (division) => {
+    const commonProps = {
+      formData,
+      updateFormData, // Pass the main updateFormData function
+      onNext: handleNext,
+      onPrevious,
+      isSecondChoice: false,
+      divisionType: "first",
+      // Pass document and CV link state (managed locally in Slide3)
+      portfolioLink,
+      setPortfolioLink,
+      documentLink,
+      setDocumentLink,
+      cvLink,
+      setCvLink,
+      isValid,
+      content,
+      setContent,
+      graphicDesigner,
+      setGraphicDesigner,
+      videographer,
+      setVideographer,
+      partnership,
+      setPartnership,
+      frontend,
+      setFrontend,
+      backend,
+      setBackend,
+      uiux,
+      setUiux,
+    };
 
-      {/* Position Selection */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-        <h3 className="mb-6 flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
-          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
-            <span className="text-sm font-bold text-white">4</span>
-          </div>
-          Position Preferences
-        </h3>
+    switch (division) {
+      case "Human Resources":
+        return <SlideHR {...commonProps} />;
+      case "Client Engagement":
+        return <SlideCE {...commonProps} />;
+      case "Strategy and Growth":
+        return <SlideSG {...commonProps} />;
+      case "Finance":
+        return <SlideFinance {...commonProps} />;
+      case "Legal":
+        return <SlideLegal {...commonProps} />;
+      case "Marketing":
+        return <SlideMKT {...commonProps} />;
+      case "IT":
+        return <SlideIT {...commonProps} />;
+      case "Knowledge Team":
+        return <SlideKN {...commonProps} />;
+      default:
+        return null;
+    }
+  };
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          <div>
-            <Label
-              htmlFor="firstChoicePosition"
-              className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
-            >
-              First Choice Position *
-            </Label>
-            <Select value={firstChoicePosition} onValueChange={setFirstChoicePosition}>
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Select your first choice" />
-              </SelectTrigger>
-              <SelectContent>
-                {positionOptions.map((position) => (
-                  <SelectItem key={position} value={position}>
-                    {position}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-
-          <div>
-            <Label
-              htmlFor="secondChoicePosition"
-              className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
-            >
-              Second Choice Position (optional)
-            </Label>
-            <Select value={secondChoicePosition} onValueChange={setSecondChoicePosition}>
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Select your second choice" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="unassigned">No second choice</SelectItem>
-                {positionOptions.map((position) => (
-                  <SelectItem key={position} value={position}>
-                    {position}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+  // If first choice division is selected, show the division-specific form
+  if (firstChoice && firstChoice !== "") {
+    return (
+      <div className="space-y-6">
+        <div className="mb-6 text-center">
+          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2">
+            <span className="text-sm font-medium text-primary">First Choice Division:</span>
+            <span className="font-semibold text-primary">{firstChoice}</span>
           </div>
         </div>
-
-        <div className="mt-6 space-y-6">
-          {/* Why Applying Document */}
-          <div>
-            <Label className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700">
-              Why are you applying for this position? *
-            </Label>
-            <p className="mb-3 font-latoRegular text-sm text-gray-500">
-              Please upload a link with PDF document explaining your motivation for applying to this
-              position.
-            </p>
-            <Input
-              id="whyApplyingLink"
-              type="url"
-              value={whyApplyingLink}
-              onChange={(e) => setWhyApplyingLink(e.target.value)}
-              placeholder="Link to your motivation document"
-              className="border-gray-300 font-latoRegular transition-all duration-200 focus:ring-2 focus:ring-primary/50"
-            />
-          </div>
-
-          {/* How 180DC Helps Goals Document */}
-          <div>
-            <Label className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700">
-              How will 180DC UGM help you achieve your goals? *
-            </Label>
-            <p className="mb-3 font-latoRegular text-sm text-gray-500">
-              Please upload a PDF document explaining how joining 180DC UGM will help you achieve
-              your personal and professional goals.
-            </p>
-            <Input
-              id="howHelpGoalsLink"
-              type="url"
-              value={howHelpGoalsLink}
-              onChange={(e) => setHowHelpGoalsLink(e.target.value)}
-              placeholder="Link to your how joining 180DC UGM will help document"
-              className="border-gray-300 font-latoRegular transition-all duration-200 focus:ring-2 focus:ring-primary/50"
-            />
-          </div>
+        {renderDivisionSpecificForm(firstChoice)}
+        {/* Centralized Next Button */}
+        <div className="flex justify-end pt-4">
+          <Button
+            onClick={handleNext}
+            disabled={!isValid}
+            className="flex items-center gap-2 bg-primary font-avenirRegular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
+          >
+            Continue to Next Step
+            <ChevronRight className="h-4 w-4" />
+          </Button>
         </div>
       </div>
-
-      {/* Navigation */}
-      <div className="flex justify-end pt-4">
-        <Button
-          onClick={handleNext}
-          disabled={!isValid}
-          className="flex items-center gap-2 bg-primary font-avenirRegular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
-        >
-          Continue to Next Step
-          <ChevronRight className="h-4 w-4" />
-        </Button>
-      </div>
-    </div>
-  );
+    );
+  }
+  return null;
 };
 
 export default Slide3;
