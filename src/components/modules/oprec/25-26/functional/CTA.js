@@ -26,7 +26,7 @@ export default function CTA() {
             height={100}
             className="absolute right-[-14%] top-[-60%] rotate-[-20deg] sm:top-[-30%]"
           />
-          <Link href="/oprec/25-26/register" className="w-full">
+          <Link href="/oprec/25-26/functional/register" className="w-full">
             <Button180
               color="green"
               text="Apply Now"

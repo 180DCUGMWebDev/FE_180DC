@@ -5,14 +5,14 @@ import Button180 from "@/components/element/Button";
 const batches = [
   {
     id: "25-26-cycle1",
-    title: "Consulting Analyst",
+    title: "Functional Analyst",
     cycle: "Cycle 1",
-    type: "Consulting Analyst",
-    description: "Open recruitment for Consulting Analyst Cycle 1 Batch 25/26",
+    type: "Functional Analyst",
+    description: "Open recruitment for Functional Analyst Cycle 1 Batch 25/26",
     status: "Open",
-    period: "July 2025 - August 2025",
+    period: "7 August 2025",
     image: "/img/homepage/hero1.png",
-    href: "/oprec/25-26",
+    href: "/oprec/25-26/functional",
   },
   {
     id: "24-25",

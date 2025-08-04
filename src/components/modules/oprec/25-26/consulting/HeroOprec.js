@@ -40,14 +40,14 @@ export default function HeroPage() {
         <div className="flex flex-col items-center text-center">
           <Image
             alt="180DC Open Recruitment Title"
-            src="/img/oprec/oprec.webp"
+            src="/img/oprec/oprec-consulting.webp"
             width={2000}
             height={2000}
             className="h-[30.162vw] w-[77.949vw] object-contain max-lg:hidden lg:h-[25.052vw] lg:w-[58.958vw]"
           />
           <Image
             alt="180DC Open Recruitment Title Mobile"
-            src="/img/oprec/oprec.webp"
+            src="/img/oprec/oprec-consulting.webp"
             width={2000}
             height={2000}
             className="h-[45.162vw] w-[97.949vw] object-contain lg:hidden"
