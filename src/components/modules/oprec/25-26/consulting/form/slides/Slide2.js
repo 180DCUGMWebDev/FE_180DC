@@ -18,14 +18,12 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
   );
   const [pastPosition, setPastPosition] = useState(formData.pastPosition || "");
   const [pastBatch, setPastBatch] = useState(formData.pastBatch || "");
-  const [applyingPosition, setApplyingPosition] = useState(formData.applyingPosition || "");
 
   const handleNext = () => {
     updateFormData({
       is180DCAlumni,
       pastPosition: is180DCAlumni ? pastPosition : "",
       pastBatch: is180DCAlumni ? pastBatch : "",
-      applyingPosition: is180DCAlumni ? applyingPosition : "",
     });
     onNext();
   };
@@ -34,7 +32,7 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
     is180DCAlumni === null && notIs180DCAlumni === false
       ? false
       : is180DCAlumni === true
-        ? pastPosition.trim() && pastBatch.trim() && applyingPosition.trim()
+        ? pastPosition.trim() && pastBatch.trim()
         : true;
 
   return (
@@ -88,7 +86,6 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
                   isAlumni: false,
                   pastPosition: "",
                   pastBatch: "",
-                  applyingPosition: "",
                 });
               }}
               className="text-white"
@@ -156,31 +153,6 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
                       <SelectItem value="2021-2022">2021-2022</SelectItem>
                       <SelectItem value="2022-2023">2022-2023</SelectItem>
                       <SelectItem value="2023-2024">2023-2024</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <Label
-                    htmlFor="applyingPosition"
-                    className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
-                  >
-                    What position are you applying for? *
-                  </Label>
-                  <Select
-                    value={applyingPosition}
-                    onValueChange={(value) => {
-                      setApplyingPosition(value);
-                      updateFormData({ applyingPosition: value });
-                    }}
-                  >
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Position" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="Project Leader">Project Leader</SelectItem>
-                      <SelectItem value="Project Analyst">Project Analyst</SelectItem>
-                      <SelectItem value="Research Leader">Research Leader</SelectItem>
-                      <SelectItem value="Research Analyst">Research Analyst</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>

@@ -1,7 +1,7 @@
 import { createClient } from "@/integrations/supabase/server";
 import { NextResponse } from "next/server";
 
-const TABLE_NAME = "functional-analyst-batch1-25-26-submissions";
+const TABLE_NAME = "functional-batch1-25-26-submissions";
 
 export async function POST(request) {
   try {
@@ -13,25 +13,58 @@ export async function POST(request) {
 
     // Prepare submission data from FormData
     const submissionData = {
+      // Personal Information
       name: formData.get("name"),
       email: formData.get("email"),
-      nim: formData.get("nim"),
       phone: formData.get("phone"),
       faculty: formData.get("faculty"),
       major: formData.get("major"),
+      batch: formData.get("batch"),
       gpa: Number.parseFloat(formData.get("gpa")),
       activeStudent: formData.get("activeStudent") === "true", // Convert to boolean
+
+      // Alumni Information
       is180DCAlumni: formData.get("is180DCAlumni") === "true", // Convert to boolean
       pastPosition: formData.get("pastPosition") || "", // Ensure no null values
       pastBatch: formData.get("pastBatch") || "", // Ensure no null values
-      applyingPosition: formData.get("applyingPosition") || "", // Ensure no null values
-      firstChoicePosition: formData.get("firstChoicePosition"),
-      secondChoicePosition: formData.get("secondChoicePosition"),
-      whyApplyingLink: formData.get("whyApplyingLink"),
-      howHelpGoalsLink: formData.get("howHelpGoalsLink"),
-      cvLink: formData.get("cvLink"),
-      instagramProofLink: formData.get("instagramProofLink"),
-      hearAboutUs: formData.get("hearAboutUs"),
+
+      // Position Choices
+      firstChoice: formData.get("firstChoice"),
+      secondChoice: formData.get("secondChoice"),
+
+      // First Choice Role Preferences
+      first_content: formData.get("first_content") === "true",
+      first_graphicDesigner: formData.get("first_graphicDesigner") === "true",
+      first_videographer: formData.get("first_videographer") === "true",
+      first_partnership: formData.get("first_partnership") === "true",
+      first_frontend: formData.get("first_frontend") === "true",
+      first_backend: formData.get("first_backend") === "true",
+      first_uiux: formData.get("first_uiux") === "true",
+
+      // First Choice Documents
+      first_cvLink: formData.get("first_cvLink"),
+      first_documentLink: formData.get("first_documentLink"),
+      first_portfolioLink: formData.get("first_portfolioLink"),
+
+      // Second Choice Role Preferences
+      second_content: formData.get("second_content") === "true",
+      second_graphicDesigner: formData.get("second_graphicDesigner") === "true",
+      second_videographer: formData.get("second_videographer") === "true",
+      second_partnership: formData.get("second_partnership") === "true",
+      second_frontend: formData.get("second_frontend") === "true",
+      second_backend: formData.get("second_backend") === "true",
+      second_uiux: formData.get("second_uiux") === "true",
+
+      // Second Choice Documents
+      second_cvLink: formData.get("second_cvLink"),
+      second_documentLink: formData.get("second_documentLink"),
+      second_portfolioLink: formData.get("second_portfolioLink"),
+
+      // Social Media Requirements
+      twibbonPostLink: formData.get("twibbonPostLink"),
+      twibbonProofLink: formData.get("twibbonProofLink"),
+
+      // Consent and Meta Information
       consentAgreed: formData.get("consentAgreed") === "true", // Convert to boolean
       user_agent: request.headers.get("user-agent"), // Get user agent from request headers
       ip_address:

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -10,174 +10,169 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { ChevronRight } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const Slide2 = ({ formData, updateFormData, onNext }) => {
-  const [firstChoice, setFirstChoice] = useState(formData.firstChoice || "");
-  const [secondChoice, setSecondChoice] = useState(formData.secondChoice || "");
-  const [onePosition, setOnePosition] = useState(formData.onePosition ?? true);
-  const [twoPositions, setTwoPositions] = useState(formData.twoPositions ?? false);
-
-  const handleOnePositionChange = (checked) => {
-    setOnePosition(checked);
-    if (checked) {
-      setTwoPositions(false);
-      setSecondChoice(""); // Clear second choice if only applying for one position
-      updateFormData({
-        onePosition: true,
-        twoPositions: false,
-        secondChoice: "",
-      });
-    } else {
-      updateFormData({ onePosition: false });
-    }
-  };
-
-  const handleTwoPositionsChange = (checked) => {
-    setTwoPositions(checked);
-    if (checked) {
-      setOnePosition(false);
-      updateFormData({
-        twoPositions: true,
-        onePosition: false,
-      });
-    } else {
-      updateFormData({ twoPositions: false });
-    }
-  };
+  const [is180DCAlumni, setIs180DCAlumni] = useState(formData.is180DCAlumni || null);
+  const [notIs180DCAlumni, setNotIs180DCAlumni] = useState(
+    formData.is180DCAlumni === false || false
+  );
+  const [pastPosition, setPastPosition] = useState(formData.pastPosition || "");
+  const [pastBatch, setPastBatch] = useState(formData.pastBatch || "");
 
   const handleNext = () => {
     updateFormData({
-      firstChoice: firstChoice,
-      secondChoice: secondChoice,
+      is180DCAlumni,
+      pastPosition: is180DCAlumni ? pastPosition : "",
+      pastBatch: is180DCAlumni ? pastBatch : "",
     });
     onNext();
   };
 
-  const isValid = firstChoice !== "" && firstChoice !== secondChoice;
+  const isValid = () => {
+    // User must select either yes or no
+    if (is180DCAlumni === null && !notIs180DCAlumni) {
+      return false;
+    }
+
+    // If they are alumni, they must fill in position and batch
+    if (is180DCAlumni === true) {
+      return pastPosition.trim() !== "" && pastBatch.trim() !== "";
+    }
+
+    // If they are not alumni, validation passes
+    return true;
+  };
 
   return (
     <div className="animate-fade-in space-y-6">
       <div className="text-center">
         <h2 className="mb-1 mt-2 font-avenirBlack text-2xl leading-snug text-primary lg:text-3xl">
-          Position Preference
+          180 DC Alumni Information
         </h2>
         <p className="font-latoRegular text-gray-600">
-          Please select your preferred position within 180DC UGM.
+          Help us understand your connection with 180DC UGM
         </p>
       </div>
 
-      {/* Position Preference Check */}
+      {/* Alumni Status Check */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
         <h3 className="mb-6 flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
           <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
             <span className="text-sm font-bold text-white">3</span>
           </div>
-          Position Preference
+          Alumni Status
         </h3>
 
         <div className="mb-4 flex flex-col gap-2">
-          {/* Preference Selection */}
-          <div className="mb-4 flex flex-col gap-2">
-            <h2 className="font-bold">How many positions do you want to apply for?</h2>
-
-            <div className="flex flex-row items-center gap-2">
-              <Checkbox
-                id="onePosition"
-                checked={onePosition}
-                onCheckedChange={handleOnePositionChange}
-                className="text-white"
-              />
-              <Label htmlFor="onePosition">
-                <p className="font-latoRegular text-gray-600">
-                  I only want to apply for one position in 180DC UGM
-                </p>
-              </Label>
-            </div>
-
-            <div className="flex flex-row items-center gap-2">
-              <Checkbox
-                id="twoPositions"
-                checked={twoPositions}
-                onCheckedChange={handleTwoPositionsChange}
-                className="text-white"
-              />
-              <Label htmlFor="twoPositions">
-                <p className="font-latoRegular text-gray-600">
-                  I want to apply for two positions in 180DC UGM
-                </p>
-              </Label>
-            </div>
+          <h2 className="font-avenirRegular font-bold">Are you a 180DC UGM alumni?</h2>
+          <div className="flex flex-row items-center gap-2">
+            <Checkbox
+              id="alumni-yes"
+              checked={is180DCAlumni === true}
+              onCheckedChange={(checked) => {
+                if (checked) {
+                  setIs180DCAlumni(true);
+                  setNotIs180DCAlumni(false);
+                  updateFormData({ is180DCAlumni: true });
+                }
+              }}
+              className="text-white"
+            />
+            <Label htmlFor="alumni-yes" className="cursor-pointer">
+              <p className="font-latoRegular text-gray-600">
+                Yes, I am a former member of 180DC UGM
+              </p>
+            </Label>
           </div>
-          <div className="grid grid-cols-1 gap-4">
-            <div>
-              <Label
-                htmlFor="firstChoice"
-                className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
-              >
-                First Choice of Division *
-              </Label>
-              <Select
-                value={firstChoice}
-                onValueChange={(value) => {
-                  setFirstChoice(value);
-                  updateFormData({ firstChoice: value });
-                }}
-              >
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select your division" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="Human Resources">Human Resources</SelectItem>
-                  <SelectItem value="Client Engagement">Client Engagement</SelectItem>
-                  <SelectItem value="Strategy and Growth">Strategy and Growth</SelectItem>
-                  <SelectItem value="Finance">Finance</SelectItem>
-                  <SelectItem value="Legal">Legal</SelectItem>
-                  <SelectItem value="Marketing">Marketing</SelectItem>
-                  <SelectItem value="IT">IT</SelectItem>
-                  <SelectItem value="Knowledge Team">Knowledge Team</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+          <div className="flex flex-row items-center gap-2">
+            <Checkbox
+              id="alumni-no"
+              checked={notIs180DCAlumni === true}
+              onCheckedChange={(checked) => {
+                if (checked) {
+                  setIs180DCAlumni(false);
+                  setNotIs180DCAlumni(true);
+                  updateFormData({
+                    is180DCAlumni: false,
+                    pastPosition: "",
+                    pastBatch: "",
+                  });
+                  // Clear the local state as well
+                  setPastPosition("");
+                  setPastBatch("");
+                }
+              }}
+              className="text-white"
+            />
+            <Label htmlFor="alumni-no" className="cursor-pointer">
+              <p className="font-latoRegular text-gray-600">
+                No, I am not a former member of 180DC UGM
+              </p>
+            </Label>
+          </div>
+          {/* Conditional Alumni Information Form */}
+          {is180DCAlumni && (
+            <>
+              <h3 className="mt-6 flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
+                Alumni Details
+              </h3>
 
-            {twoPositions && (
-              <div>
-                <Label
-                  htmlFor="secondChoice"
-                  className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
-                >
-                  Second Choice of Division (optional)
-                </Label>
-                <Select
-                  value={secondChoice}
-                  onValueChange={(value) => {
-                    setSecondChoice(value);
-                    updateFormData({ secondChoice: value });
-                  }}
-                >
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Select your division" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="Human Resources">Human Resources</SelectItem>
-                    <SelectItem value="Client Engagement">Client Engagement</SelectItem>
-                    <SelectItem value="Strategy and Growth">Strategy and Growth</SelectItem>
-                    <SelectItem value="Finance">Finance</SelectItem>
-                    <SelectItem value="Legal">Legal</SelectItem>
-                    <SelectItem value="Marketing">Marketing</SelectItem>
-                    <SelectItem value="IT">IT</SelectItem>
-                    <SelectItem value="Knowledge Team">Knowledge Team</SelectItem>
-                  </SelectContent>
-                </Select>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <div>
+                  <Label
+                    htmlFor="pastPosition"
+                    className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
+                  >
+                    Past Position in 180DC UGM *
+                  </Label>
+                  <Input
+                    id="pastPosition"
+                    value={pastPosition}
+                    onChange={(e) => {
+                      setPastPosition(e.target.value);
+                      updateFormData({ pastPosition: e.target.value });
+                    }}
+                    placeholder="Enter your past position"
+                  />
+                </div>
+
+                <div>
+                  <Label
+                    htmlFor="pastBatch"
+                    className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
+                  >
+                    Past Batch/Year *
+                  </Label>
+                  <Select
+                    value={pastBatch}
+                    onValueChange={(value) => {
+                      setPastBatch(value);
+                      updateFormData({ pastBatch: value });
+                    }}
+                  >
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Past Batch/Year" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="2020-2021">2020-2021</SelectItem>
+                      <SelectItem value="2021-2022">2021-2022</SelectItem>
+                      <SelectItem value="2022-2023">2022-2023</SelectItem>
+                      <SelectItem value="2023-2024">2023-2024</SelectItem>
+                      <SelectItem value="2024-2025">2024-2025</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
               </div>
-            )}
-          </div>
+            </>
+          )}
         </div>
       </div>
 
       <div className="flex justify-end pt-4">
         <Button
           onClick={handleNext}
-          disabled={!isValid}
+          disabled={!isValid()}
           className="flex items-center gap-2 bg-primary font-avenirRegular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
         >
           Continue to Next Step

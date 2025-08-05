@@ -1,138 +1,191 @@
-"use client";
-
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { ChevronRight } from "lucide-react";
 
-// Import division-specific slides
-import SlideHR from "./divisions/SlideHR";
-import SlideCE from "./divisions/SlideCE";
-import SlideSG from "./divisions/SlideSG";
-import SlideFinance from "./divisions/SlideFinance";
-import SlideLegal from "./divisions/SlideLegal";
-import SlideMKT from "./divisions/SlideMKT";
-import SlideIT from "./divisions/SlideIT";
-import SlideKN from "./divisions/SlideKN";
+const Slide3 = ({ formData, updateFormData, onNext }) => {
+  const [firstChoice, setFirstChoice] = useState(formData.firstChoice || "");
+  const [secondChoice, setSecondChoice] = useState(formData.secondChoice || "");
+  const [onePosition, setOnePosition] = useState(formData.onePosition ?? true);
+  const [twoPositions, setTwoPositions] = useState(formData.twoPositions ?? false);
 
-const Slide3 = ({ formData, updateFormData, onNext, onPrevious }) => {
-  // Handle document and CV links for first choice
-  // These are managed locally in Slide3 because they are specific to Slide3's inputs
-  const [documentLink, setDocumentLink] = useState(formData.first_documentLink || "");
-  const [cvLink, setCvLink] = useState(formData.first_cvLink || "");
-  const [portfolioLink, setPortfolioLink] = useState(formData.first_portfolioLink || "");
-  const [content, setContent] = useState(formData.content || false);
-  const [graphicDesigner, setGraphicDesigner] = useState(formData.graphicDesigner || false);
-  const [videographer, setVideographer] = useState(formData.videographer || false);
-  const [partnership, setPartnership] = useState(formData.partnership || false);
-  const [frontend, setFrontend] = useState(formData.frontend || false);
-  const [backend, setBackend] = useState(formData.backend || false);
-  const [uiux, setUiux] = useState(formData.uiux || false);
+  const handleOnePositionChange = (checked) => {
+    setOnePosition(checked);
+    if (checked) {
+      setTwoPositions(false);
+      setSecondChoice(""); // Clear second choice if only applying for one position
+      updateFormData({
+        onePosition: true,
+        twoPositions: false,
+        secondChoice: "",
+      });
+    } else {
+      updateFormData({ onePosition: false });
+    }
+  };
+
+  const handleTwoPositionsChange = (checked) => {
+    setTwoPositions(checked);
+    if (checked) {
+      setOnePosition(false);
+      updateFormData({
+        twoPositions: true,
+        onePosition: false,
+      });
+    } else {
+      updateFormData({ twoPositions: false });
+    }
+  };
 
   const handleNext = () => {
-    // Update form data with document, CV, and portfolio links
-    // Role preferences are already updated by the sub-components via updateFormData
     updateFormData({
-      first_documentLink: documentLink,
-      first_cvLink: cvLink,
-      first_portfolioLink: portfolioLink,
-      first_content: content,
-      first_graphicDesigner: graphicDesigner,
-      first_videographer: videographer,
-      first_partnership: partnership,
-      first_frontend: frontend,
-      first_backend: backend,
-      first_uiux: uiux,
+      firstChoice: firstChoice,
+      secondChoice: secondChoice,
     });
     onNext();
   };
 
-  // Get the selected first choice division from formData
-  const firstChoice = formData.firstChoice;
+  const isValid = firstChoice !== "" && firstChoice !== secondChoice;
 
-  // Check if form is valid (both fields filled)
-  const isValid = documentLink.trim() && cvLink.trim();
+  return (
+    <div className="animate-fade-in space-y-6">
+      <div className="text-center">
+        <h2 className="mb-1 mt-2 font-avenirBlack text-2xl leading-snug text-primary lg:text-3xl">
+          Position Preference
+        </h2>
+        <p className="font-latoRegular text-gray-600">
+          Please select your preferred position within 180DC UGM.
+        </p>
+      </div>
 
-  // Render division-specific form for first choice
-  const renderDivisionSpecificForm = (division) => {
-    const commonProps = {
-      formData,
-      updateFormData, // Pass the main updateFormData function
-      onNext: handleNext,
-      onPrevious,
-      isSecondChoice: false,
-      divisionType: "first",
-      // Pass document and CV link state (managed locally in Slide3)
-      portfolioLink,
-      setPortfolioLink,
-      documentLink,
-      setDocumentLink,
-      cvLink,
-      setCvLink,
-      isValid,
-      content,
-      setContent,
-      graphicDesigner,
-      setGraphicDesigner,
-      videographer,
-      setVideographer,
-      partnership,
-      setPartnership,
-      frontend,
-      setFrontend,
-      backend,
-      setBackend,
-      uiux,
-      setUiux,
-    };
+      {/* Position Preference Check */}
+      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+        <h3 className="mb-6 flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+            <span className="text-sm font-bold text-white">3</span>
+          </div>
+          Position Preference
+        </h3>
 
-    switch (division) {
-      case "Human Resources":
-        return <SlideHR {...commonProps} />;
-      case "Client Engagement":
-        return <SlideCE {...commonProps} />;
-      case "Strategy and Growth":
-        return <SlideSG {...commonProps} />;
-      case "Finance":
-        return <SlideFinance {...commonProps} />;
-      case "Legal":
-        return <SlideLegal {...commonProps} />;
-      case "Marketing":
-        return <SlideMKT {...commonProps} />;
-      case "IT":
-        return <SlideIT {...commonProps} />;
-      case "Knowledge Team":
-        return <SlideKN {...commonProps} />;
-      default:
-        return null;
-    }
-  };
+        <div className="mb-4 flex flex-col gap-2">
+          {/* Preference Selection */}
+          <div className="mb-4 flex flex-col gap-2">
+            <h2 className="font-bold">How many positions do you want to apply for?</h2>
 
-  // If first choice division is selected, show the division-specific form
-  if (firstChoice && firstChoice !== "") {
-    return (
-      <div className="space-y-6">
-        <div className="mb-6 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2">
-            <span className="text-sm font-medium text-primary">First Choice Division:</span>
-            <span className="font-semibold text-primary">{firstChoice}</span>
+            <div className="flex flex-row items-center gap-2">
+              <Checkbox
+                id="onePosition"
+                checked={onePosition}
+                onCheckedChange={handleOnePositionChange}
+                className="text-white"
+              />
+              <Label htmlFor="onePosition">
+                <p className="font-latoRegular text-gray-600">
+                  I only want to apply for one position in 180DC UGM
+                </p>
+              </Label>
+            </div>
+
+            <div className="flex flex-row items-center gap-2">
+              <Checkbox
+                id="twoPositions"
+                checked={twoPositions}
+                onCheckedChange={handleTwoPositionsChange}
+                className="text-white"
+              />
+              <Label htmlFor="twoPositions">
+                <p className="font-latoRegular text-gray-600">
+                  I want to apply for two positions in 180DC UGM
+                </p>
+              </Label>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 gap-4">
+            <div>
+              <Label
+                htmlFor="firstChoice"
+                className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
+              >
+                First Choice of Division *
+              </Label>
+              <Select
+                value={firstChoice}
+                onValueChange={(value) => {
+                  setFirstChoice(value);
+                  updateFormData({ firstChoice: value });
+                }}
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select your division" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Human Resources">Human Resources</SelectItem>
+                  <SelectItem value="Client Engagement">Client Engagement</SelectItem>
+                  <SelectItem value="Strategy and Growth">Strategy and Growth</SelectItem>
+                  <SelectItem value="Finance">Finance</SelectItem>
+                  <SelectItem value="Legal">Legal</SelectItem>
+                  <SelectItem value="Marketing">Marketing</SelectItem>
+                  <SelectItem value="IT">IT</SelectItem>
+                  <SelectItem value="Knowledge Team">Knowledge Team</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            {twoPositions && (
+              <div>
+                <Label
+                  htmlFor="secondChoice"
+                  className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
+                >
+                  Second Choice of Division (optional)
+                </Label>
+                <Select
+                  value={secondChoice}
+                  onValueChange={(value) => {
+                    setSecondChoice(value);
+                    updateFormData({ secondChoice: value });
+                  }}
+                >
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Select your division" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Human Resources">Human Resources</SelectItem>
+                    <SelectItem value="Client Engagement">Client Engagement</SelectItem>
+                    <SelectItem value="Strategy and Growth">Strategy and Growth</SelectItem>
+                    <SelectItem value="Finance">Finance</SelectItem>
+                    <SelectItem value="Legal">Legal</SelectItem>
+                    <SelectItem value="Marketing">Marketing</SelectItem>
+                    <SelectItem value="IT">IT</SelectItem>
+                    <SelectItem value="Knowledge Team">Knowledge Team</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            )}
           </div>
         </div>
-        {renderDivisionSpecificForm(firstChoice)}
-        {/* Centralized Next Button */}
-        <div className="flex justify-end pt-4">
-          <Button
-            onClick={handleNext}
-            disabled={!isValid}
-            className="flex items-center gap-2 bg-primary font-avenirRegular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
-          >
-            Continue to Next Step
-            <ChevronRight className="h-4 w-4" />
-          </Button>
-        </div>
       </div>
-    );
-  }
-  return null;
+
+      <div className="flex justify-end pt-4">
+        <Button
+          onClick={handleNext}
+          disabled={!isValid}
+          className="flex items-center gap-2 bg-primary font-avenirRegular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
+        >
+          Continue to Next Step
+          <ChevronRight className="h-4 w-4" />
+        </Button>
+      </div>
+    </div>
+  );
 };
 
 export default Slide3;

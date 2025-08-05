@@ -20,6 +20,7 @@ export function Admin({ submissions, adminUser }) {
       submission.email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       submission.phone?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       submission.faculty?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      submission.major?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       submission.batch?.toLowerCase().includes(searchTerm.toLowerCase());
 
     const matchesPosition =
@@ -64,6 +65,9 @@ export function Admin({ submissions, adminUser }) {
       "Major",
       "GPA",
       "Active Student",
+      "180DC Alumni",
+      "Past Position",
+      "Past Batch",
       "First Choice",
       "Second Choice",
       "One Position",
@@ -108,6 +112,9 @@ export function Admin({ submissions, adminUser }) {
           `"${submission.major || ""}"`,
           submission.gpa || "",
           submission.activeStudent ? "Yes" : "No",
+          submission.is180DCAlumni ? "Yes" : "No",
+          `"${submission.pastPosition || ""}"`,
+          `"${submission.pastBatch || ""}"`,
           `"${submission.firstChoice || ""}"`,
           `"${submission.secondChoice || ""}"`,
           submission.onePosition ? "Yes" : "No",
@@ -319,11 +326,32 @@ export function Admin({ submissions, adminUser }) {
                           {submission.twoPositions ? "Yes" : "No"}
                         </p>
                         <p>
+                          <span className="font-medium">180DC Alumni:</span>{" "}
+                          {submission.is180DCAlumni ? "Yes" : "No"}
+                        </p>
+                        {submission.is180DCAlumni && (
+                          <>
+                            <p>
+                              <span className="font-medium">Past Position:</span>{" "}
+                              {submission.pastPosition}
+                            </p>
+                            <p>
+                              <span className="font-medium">Past Batch:</span>{" "}
+                              {submission.pastBatch}
+                            </p>
+                          </>
+                        )}
+
+                        <p>
                           <span className="font-medium">1st Choice:</span> {submission.firstChoice}
                         </p>
                         <p>
                           <span className="font-medium">2nd Choice:</span>{" "}
                           {submission.secondChoice || "None"}
+                        </p>
+                        <p>
+                          <span className="font-medium">Consent Agreed:</span>{" "}
+                          {submission.consentAgreed ? "Yes" : "No"}
                         </p>
                       </div>
                     </div>
