@@ -15,7 +15,7 @@ export default function CTA() {
           </h2>
           <p className="mx-auto max-w-2xl font-latoRegular text-lg text-white/70 lg:text-xl">
             After reading the guidebook, submit your application and start your journey as a 180DC
-            UGM consultant.
+            UGM analyst.
           </p>
         </div>
         <div className="relative flex items-center justify-center">

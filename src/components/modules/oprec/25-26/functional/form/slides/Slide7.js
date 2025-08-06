@@ -192,7 +192,9 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                 <span className="font-medium">Division:</span>{" "}
                 {formData.firstChoice || "Not selected"}
               </p>
-              {(formData.firstChoice === "Marketing" || formData.firstChoice === "IT") && (
+              {(formData.firstChoice === "Marketing" ||
+                formData.firstChoice === "IT" ||
+                formData.firstChoice === "Strategy and Growth") && (
                 <div>
                   <span className="font-medium text-gray-700">Role Preferences:</span>
                   <div className="mt-2 flex flex-wrap gap-2">
@@ -239,6 +241,20 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                         )}
                       </>
                     )}
+                    {formData.firstChoice === "Strategy and Growth" && (
+                      <>
+                        {formData.first_sngManager && (
+                          <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
+                            SNG Manager
+                          </span>
+                        )}
+                        {formData.first_sngAnalyst && (
+                          <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
+                            SNG Analyst
+                          </span>
+                        )}
+                      </>
+                    )}
                     {((formData.firstChoice === "Marketing" &&
                       !formData.first_content &&
                       !formData.first_graphicDesigner &&
@@ -247,7 +263,10 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                       (formData.firstChoice === "IT" &&
                         !formData.first_frontend &&
                         !formData.first_backend &&
-                        !formData.first_uiux)) && (
+                        !formData.first_uiux) ||
+                      (formData.firstChoice === "Strategy and Growth" &&
+                        !formData.first_sngManager &&
+                        !formData.first_sngAnalyst)) && (
                       <span className="italic text-gray-400">No specific roles selected</span>
                     )}
                   </div>
@@ -339,7 +358,9 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                   <span className="font-medium">Division:</span>{" "}
                   {formData.secondChoice || "Not selected"}
                 </p>
-                {(formData.secondChoice === "Marketing" || formData.secondChoice === "IT") && (
+                {(formData.secondChoice === "Marketing" ||
+                  formData.secondChoice === "IT" ||
+                  formData.secondChoice === "Strategy and Growth") && (
                   <div>
                     <span className="font-medium text-gray-700">Role Preferences:</span>
                     <div className="mt-2 flex flex-wrap gap-2">
@@ -386,6 +407,20 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                           )}
                         </>
                       )}
+                      {formData.secondChoice === "Strategy and Growth" && (
+                        <>
+                          {formData.second_sngManager && (
+                            <span className="inline-block rounded-full bg-secondary/10 px-3 py-1 text-sm text-secondary">
+                              SNG Manager
+                            </span>
+                          )}
+                          {formData.second_sngAnalyst && (
+                            <span className="inline-block rounded-full bg-secondary/10 px-3 py-1 text-sm text-secondary">
+                              SNG Analyst
+                            </span>
+                          )}
+                        </>
+                      )}
                       {((formData.secondChoice === "Marketing" &&
                         !formData.second_content &&
                         !formData.second_graphicDesigner &&
@@ -394,7 +429,10 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                         (formData.secondChoice === "IT" &&
                           !formData.second_frontend &&
                           !formData.second_backend &&
-                          !formData.second_uiux)) && (
+                          !formData.second_uiux) ||
+                        (formData.secondChoice === "Strategy and Growth" &&
+                          !formData.second_sngManager &&
+                          !formData.second_sngAnalyst)) && (
                         <span className="italic text-gray-400">No specific roles selected</span>
                       )}
                     </div>

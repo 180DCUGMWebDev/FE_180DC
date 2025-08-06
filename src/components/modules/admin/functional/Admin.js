@@ -97,6 +97,9 @@ export function Admin({ submissions, adminUser }) {
       if (submission[`${prefix}_frontend`]) roles.push("Frontend");
       if (submission[`${prefix}_backend`]) roles.push("Backend");
       if (submission[`${prefix}_uiux`]) roles.push("UI/UX");
+      // SNG roles
+      if (submission[`${prefix}_sngManager`]) roles.push("SNG Manager");
+      if (submission[`${prefix}_sngAnalyst`]) roles.push("SNG Analyst");
       return roles.join("; ");
     };
 
@@ -445,6 +448,16 @@ export function Admin({ submissions, adminUser }) {
                               UI/UX
                             </span>
                           )}
+                          {submission.first_sngManager && (
+                            <span className="inline-block rounded-full bg-red-100 px-2 py-1 text-xs text-red-800">
+                              SNG Manager
+                            </span>
+                          )}
+                          {submission.first_sngAnalyst && (
+                            <span className="inline-block rounded-full bg-red-100 px-2 py-1 text-xs text-red-800">
+                              SNG Analyst
+                            </span>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -571,6 +584,16 @@ export function Admin({ submissions, adminUser }) {
                             {submission.second_uiux && (
                               <span className="inline-block rounded-full bg-orange-100 px-2 py-1 text-xs text-orange-800">
                                 UI/UX
+                              </span>
+                            )}
+                            {submission.second_sngManager && (
+                              <span className="inline-block rounded-full bg-yellow-100 px-2 py-1 text-xs text-yellow-800">
+                                SNG Manager
+                              </span>
+                            )}
+                            {submission.second_sngAnalyst && (
+                              <span className="inline-block rounded-full bg-yellow-100 px-2 py-1 text-xs text-yellow-800">
+                                SNG Analyst
                               </span>
                             )}
                           </div>

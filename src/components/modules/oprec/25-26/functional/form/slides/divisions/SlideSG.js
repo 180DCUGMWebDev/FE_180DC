@@ -1,6 +1,7 @@
 "use client";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const SlideSG = ({
   formData,
@@ -14,9 +15,14 @@ const SlideSG = ({
   cvLink,
   setCvLink,
   isValid,
+  sngManager,
+  setSngManager,
+  sngAnalyst,
+  setSngAnalyst,
 }) => {
   const choiceText = isSecondChoice ? "Second Choice" : "First Choice";
   const stepNumber = isSecondChoice ? "4" : "3";
+  const hasSelectedRole = sngManager || sngAnalyst;
 
   return (
     <div className="animate-fade-in space-y-6">
@@ -46,6 +52,45 @@ const SlideSG = ({
         </p>
 
         <div className="space-y-6">
+          <div>
+            <Label className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700">
+              Desired Role in Strategy and Growth *
+            </Label>
+            <p className="mb-3 font-latoRegular text-sm text-gray-500">
+              You can pick more than one role that you are interested in! (Minimum 1 role required)
+            </p>
+            <div
+              className={`flex flex-col gap-2 rounded-lg p-3 ${!hasSelectedRole ? "border-2 border-red-300 bg-red-50" : "border border-gray-200"}`}
+            >
+              <div className="flex flex-row items-center gap-2">
+                <Checkbox
+                  id="sngManager"
+                  checked={sngManager}
+                  onCheckedChange={(checked) => setSngManager(checked)}
+                  className="text-white"
+                />
+                <Label htmlFor="sngManager">
+                  <p className="font-latoRegular text-gray-600">SNG Manager</p>
+                </Label>
+              </div>
+              <div className="flex flex-row items-center gap-2">
+                <Checkbox
+                  id="sngAnalyst"
+                  checked={sngAnalyst}
+                  onCheckedChange={(checked) => setSngAnalyst(checked)}
+                  className="text-white"
+                />
+                <Label htmlFor="sngAnalyst">
+                  <p className="font-latoRegular text-gray-600">SNG Analyst</p>
+                </Label>
+              </div>
+            </div>
+            {!hasSelectedRole && (
+              <p className="mt-2 font-latoRegular text-sm text-red-600">
+                Please select at least one role you are interested in.
+              </p>
+            )}
+          </div>
           <div>
             <Label className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700">
               Motivation Document *

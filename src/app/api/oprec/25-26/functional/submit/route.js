@@ -40,6 +40,8 @@ export async function POST(request) {
       first_frontend: formData.get("first_frontend") === "true",
       first_backend: formData.get("first_backend") === "true",
       first_uiux: formData.get("first_uiux") === "true",
+      first_sngManager: formData.get("first_sngManager") === "true",
+      first_sngAnalyst: formData.get("first_sngAnalyst") === "true",
 
       // First Choice Documents
       first_cvLink: formData.get("first_cvLink"),
@@ -54,6 +56,8 @@ export async function POST(request) {
       second_frontend: formData.get("second_frontend") === "true",
       second_backend: formData.get("second_backend") === "true",
       second_uiux: formData.get("second_uiux") === "true",
+      second_sngManager: formData.get("second_sngManager") === "true",
+      second_sngAnalyst: formData.get("second_sngAnalyst") === "true",
 
       // Second Choice Documents
       second_cvLink: formData.get("second_cvLink"),

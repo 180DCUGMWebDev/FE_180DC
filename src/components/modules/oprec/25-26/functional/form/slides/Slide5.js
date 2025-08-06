@@ -26,6 +26,8 @@ const Slide5 = ({ formData, updateFormData, onNext, onPrevious }) => {
   const [frontend, setFrontend] = useState(formData.second_frontend || false);
   const [backend, setBackend] = useState(formData.second_backend || false);
   const [uiux, setUiux] = useState(formData.second_uiux || false);
+  const [sngManager, setSngManager] = useState(formData.second_sngManager || false);
+  const [sngAnalyst, setSngAnalyst] = useState(formData.second_sngAnalyst || false);
 
   const handleNext = () => {
     // Update form data with document and CV links
@@ -40,6 +42,8 @@ const Slide5 = ({ formData, updateFormData, onNext, onPrevious }) => {
       second_frontend: frontend,
       second_backend: backend,
       second_uiux: uiux,
+      second_sngManager: sngManager,
+      second_sngAnalyst: sngAnalyst,
     });
     onNext();
   };
@@ -85,6 +89,10 @@ const Slide5 = ({ formData, updateFormData, onNext, onPrevious }) => {
       setBackend,
       uiux,
       setUiux,
+      sngManager,
+      setSngManager,
+      sngAnalyst,
+      setSngAnalyst,
     };
 
     switch (division) {

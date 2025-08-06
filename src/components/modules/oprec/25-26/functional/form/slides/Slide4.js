@@ -27,6 +27,8 @@ const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
   const [frontend, setFrontend] = useState(formData.frontend || false);
   const [backend, setBackend] = useState(formData.backend || false);
   const [uiux, setUiux] = useState(formData.uiux || false);
+  const [sngManager, setSngManager] = useState(formData.sngManager || false);
+  const [sngAnalyst, setSngAnalyst] = useState(formData.sngAnalyst || false);
 
   const handleNext = () => {
     // Update form data with document, CV, and portfolio links
@@ -42,6 +44,8 @@ const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
       first_frontend: frontend,
       first_backend: backend,
       first_uiux: uiux,
+      first_sngManager: sngManager,
+      first_sngAnalyst: sngAnalyst,
     });
     onNext();
   };
@@ -83,6 +87,10 @@ const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
       setBackend,
       uiux,
       setUiux,
+      sngManager,
+      setSngManager,
+      sngAnalyst,
+      setSngAnalyst,
     };
 
     switch (division) {

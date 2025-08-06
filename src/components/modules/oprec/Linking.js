@@ -4,11 +4,10 @@ import Button180 from "@/components/element/Button";
 
 const batches = [
   {
-    id: "25-26-cycle1",
+    id: "25-26-functional",
     title: "Functional Analyst",
-    cycle: "Cycle 1",
     type: "Functional Analyst",
-    description: "Open recruitment for Functional Analyst Cycle 1 Batch 25/26",
+    description: "Open recruitment for Functional Analyst Batch 25/26",
     status: "Open",
     period: "7 August 2025",
     image: "/img/homepage/hero1.png",
@@ -69,9 +68,11 @@ export default function Linking() {
                     <span className="inline-flex items-center gap-2 rounded-full border-[1px] border-primary bg-white px-4 py-1 text-sm font-medium text-black">
                       {currentBatch.status}
                     </span>
-                    <span className="inline-flex items-center rounded-full bg-primary px-4 py-1 text-sm font-medium text-white">
-                      {currentBatch.cycle}
-                    </span>
+                    {currentBatch.cycle && (
+                      <span className="inline-flex items-center rounded-full bg-primary px-4 py-1 text-sm font-medium text-white">
+                        {currentBatch.cycle}
+                      </span>
+                    )}
                   </div>
                   <span className="inline-flex items-center py-1 text-sm text-white/80">
                     {currentBatch.type}
