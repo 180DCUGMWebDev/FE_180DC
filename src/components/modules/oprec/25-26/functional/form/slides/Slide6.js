@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ChevronRight } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
+import Link from "next/link";
 
 const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
   // Updated state to match the actual requirements
@@ -62,14 +63,14 @@ const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
               </p>
               <br />
               1. Open the drive:{" "}
-              <a
+              <Link
                 href="https://drive.google.com/drive/folders/1qvKOOsRm_bRliho4et3pulZLyJwrBRyG?usp=sharing"
                 className="text-blue-600 underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Google Drive Link
-              </a>
+              </Link>
               <br />
               2. Download the twibbon
               <br />
@@ -107,24 +108,24 @@ const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
               <br />
               <p>
                 1. Tagging 3 friends on this post →{" "}
-                <a
-                  href="https://drive.google.com/file/d/1RckdgRdWWcyUsiOT6Od-FGWpSfYMiEjm/view?usp=sharing"
+                <Link
+                  href="https://instagram.com"
                   className="text-blue-600 underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Instagram Post Link
-                </a>
+                </Link>
                 <br />
                 2. Uploading this image on your story →{" "}
-                <a
-                  href="https://bit.ly/FA-OprecStory"
+                <Link
+                  href="https://drive.google.com/file/d/1RckdgRdWWcyUsiOT6Od-FGWpSfYMiEjm/view?usp=sharing"
                   className="text-blue-600 underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  bit.ly/FA-OprecStory
-                </a>
+                  Poster Link
+                </Link>
                 <br />
                 <br />
                 Please upload the proof to a Google Drive, ensure the access settings are set to
