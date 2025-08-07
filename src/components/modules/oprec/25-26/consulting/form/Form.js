@@ -108,7 +108,7 @@ export default function Form() {
         }
       });
 
-      const response = await fetch("/api/oprec/25-26/submit", {
+      const response = await fetch("/api/oprec/25-26/consulting/submit", {
         method: "POST",
         body: submitFormData, // Send as FormData, not JSON
       });

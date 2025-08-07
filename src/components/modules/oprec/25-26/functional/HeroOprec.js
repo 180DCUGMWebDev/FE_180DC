@@ -13,23 +13,23 @@ export default function HeroPage() {
       />
 
       <Image
-        src="/img/bootcamp/ellipseBlack.png"
+        src="/img/oprec/sprinkle-blue.webp"
         alt="Decorative Element"
         width={2000}
         height={2000}
-        className="absolute left-[10%] top-[30%] z-20 h-[49.07vw] w-[68.27vw] lg:right-[20.3vw] lg:top-0 lg:h-[26.82vw] lg:w-[37.29vw]"
+        className="absolute -left-[15%] top-[30%] z-20 h-[49.07vw] w-[68.27vw] lg:right-[20.3vw] lg:top-0 lg:h-[26.82vw] lg:w-[37.29vw]"
       />
 
       <Image
-        src="/img/bootcamp/ellipseBlue.png"
+        src="/img/oprec/sprinkle-white.webp"
         alt="Decorative Element"
         width={2000}
         height={2000}
-        className="absolute -right-[32vw] top-[30%] z-20 h-[49.07vw] w-[68.27vw] lg:-right-[15%] lg:top-0 lg:h-[26.82vw] lg:w-[37.29vw]"
+        className="absolute -right-[32vw] top-[30%] z-20 h-[49.07vw] w-[68.27vw] lg:right-[5%] lg:top-3 lg:h-[26.82vw] lg:w-[37.29vw]"
       />
 
       <Image
-        src="/img/bootcamp/ellipseGreen.png"
+        src="/img/oprec/sprinkle-green.webp"
         alt="Decorative Element"
         width={2000}
         height={2000}
@@ -41,9 +41,9 @@ export default function HeroPage() {
           <Image
             alt="180DC Open Recruitment Title"
             src="/img/oprec/oprec-functional.webp"
-            width={2000}
-            height={2000}
-            className="h-[30.162vw] w-[77.949vw] object-contain max-lg:hidden lg:h-[25.052vw] lg:w-[58.958vw]"
+            width={3000}
+            height={3000}
+            className="h-[30.162vw] w-[89.949vw] object-contain max-lg:hidden lg:h-[35.052vw] lg:w-[58.958vw]"
           />
           <Image
             alt="180DC Open Recruitment Title Mobile"
@@ -55,17 +55,17 @@ export default function HeroPage() {
 
           <div className="mt-8 max-lg:hidden">
             <p className="max-w-2xl font-latoSemibold text-xl text-white lg:text-2xl">
-              Calling all aspiring consultants and changemakers!
+              Calling all problem-solvers and impact-driven minds
               <br />
-              Join 180DC UGM and leave your mark.
+              180DC UGM is your next big step!
             </p>
           </div>
 
           <div className="mt-6 lg:hidden">
             <p className="max-w-sm font-latoSemibold text-base text-white">
-              Calling all aspiring consultants and changemakers!
+              Calling all problem-solvers and impact-driven minds
               <br />
-              Join 180DC UGM and leave your mark.
+              180DC UGM is your next big step!
             </p>
           </div>
           {/* Scroll Down [DESKTOP] */}

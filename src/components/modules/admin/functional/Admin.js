@@ -20,6 +20,7 @@ export function Admin({ submissions, adminUser }) {
       submission.email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       submission.phone?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       submission.faculty?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      submission.major?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       submission.batch?.toLowerCase().includes(searchTerm.toLowerCase());
 
     const matchesPosition =
@@ -64,6 +65,9 @@ export function Admin({ submissions, adminUser }) {
       "Major",
       "GPA",
       "Active Student",
+      "180DC Alumni",
+      "Past Position",
+      "Past Batch",
       "First Choice",
       "Second Choice",
       "One Position",
@@ -93,6 +97,9 @@ export function Admin({ submissions, adminUser }) {
       if (submission[`${prefix}_frontend`]) roles.push("Frontend");
       if (submission[`${prefix}_backend`]) roles.push("Backend");
       if (submission[`${prefix}_uiux`]) roles.push("UI/UX");
+      // SNG roles
+      if (submission[`${prefix}_sngManager`]) roles.push("SNG Manager");
+      if (submission[`${prefix}_sngAnalyst`]) roles.push("SNG Analyst");
       return roles.join("; ");
     };
 
@@ -108,6 +115,9 @@ export function Admin({ submissions, adminUser }) {
           `"${submission.major || ""}"`,
           submission.gpa || "",
           submission.activeStudent ? "Yes" : "No",
+          submission.is180DCAlumni ? "Yes" : "No",
+          `"${submission.pastPosition || ""}"`,
+          `"${submission.pastBatch || ""}"`,
           `"${submission.firstChoice || ""}"`,
           `"${submission.secondChoice || ""}"`,
           submission.onePosition ? "Yes" : "No",
@@ -319,11 +329,32 @@ export function Admin({ submissions, adminUser }) {
                           {submission.twoPositions ? "Yes" : "No"}
                         </p>
                         <p>
+                          <span className="font-medium">180DC Alumni:</span>{" "}
+                          {submission.is180DCAlumni ? "Yes" : "No"}
+                        </p>
+                        {submission.is180DCAlumni && (
+                          <>
+                            <p>
+                              <span className="font-medium">Past Position:</span>{" "}
+                              {submission.pastPosition}
+                            </p>
+                            <p>
+                              <span className="font-medium">Past Batch:</span>{" "}
+                              {submission.pastBatch}
+                            </p>
+                          </>
+                        )}
+
+                        <p>
                           <span className="font-medium">1st Choice:</span> {submission.firstChoice}
                         </p>
                         <p>
                           <span className="font-medium">2nd Choice:</span>{" "}
                           {submission.secondChoice || "None"}
+                        </p>
+                        <p>
+                          <span className="font-medium">Consent Agreed:</span>{" "}
+                          {submission.consentAgreed ? "Yes" : "No"}
                         </p>
                       </div>
                     </div>
@@ -415,6 +446,16 @@ export function Admin({ submissions, adminUser }) {
                           {submission.first_uiux && (
                             <span className="inline-block rounded-full bg-green-100 px-2 py-1 text-xs text-green-800">
                               UI/UX
+                            </span>
+                          )}
+                          {submission.first_sngManager && (
+                            <span className="inline-block rounded-full bg-red-100 px-2 py-1 text-xs text-red-800">
+                              SNG Manager
+                            </span>
+                          )}
+                          {submission.first_sngAnalyst && (
+                            <span className="inline-block rounded-full bg-red-100 px-2 py-1 text-xs text-red-800">
+                              SNG Analyst
                             </span>
                           )}
                         </div>
@@ -543,6 +584,16 @@ export function Admin({ submissions, adminUser }) {
                             {submission.second_uiux && (
                               <span className="inline-block rounded-full bg-orange-100 px-2 py-1 text-xs text-orange-800">
                                 UI/UX
+                              </span>
+                            )}
+                            {submission.second_sngManager && (
+                              <span className="inline-block rounded-full bg-yellow-100 px-2 py-1 text-xs text-yellow-800">
+                                SNG Manager
+                              </span>
+                            )}
+                            {submission.second_sngAnalyst && (
+                              <span className="inline-block rounded-full bg-yellow-100 px-2 py-1 text-xs text-yellow-800">
+                                SNG Analyst
                               </span>
                             )}
                           </div>

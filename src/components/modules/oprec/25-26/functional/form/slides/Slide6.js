@@ -1,586 +1,180 @@
-"use client";
-
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, User, GraduationCap, Briefcase, Upload, Loader2 } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { ChevronRight } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
 
-const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
-  // Updated validation to match exact formData structure
-  const isValid =
-    formData.name &&
-    formData.email &&
-    formData.phone &&
-    formData.faculty &&
-    formData.major &&
-    formData.batch &&
-    formData.gpa &&
-    formData.firstChoice &&
-    formData.first_cvLink &&
-    formData.first_documentLink &&
-    formData.twibbonPostLink &&
-    formData.twibbonProofLink &&
-    formData.consentAgreed;
+const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
+  // Updated state to match the actual requirements
+  const [twibbonPostLink, setTwibbonPostLink] = useState(formData.twibbonPostLink || "");
+  const [twibbonProofLink, setTwibbonProofLink] = useState(formData.twibbonProofLink || "");
+  const [consentAgreed, setConsentAgreed] = useState(formData.consentAgreed || false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!isValid) return;
-
-    // Call the parent's submit handler
-    await onSubmit();
+  const handleNext = () => {
+    updateFormData({
+      twibbonPostLink,
+      twibbonProofLink,
+      consentAgreed,
+    });
+    onNext();
   };
 
+  // Updated validation to include all required fields
+  const isValid = twibbonPostLink.trim() && twibbonProofLink.trim() && consentAgreed;
+
   return (
-    <form onSubmit={handleSubmit} className="animate-fade-in space-y-6">
+    <div className="animate-fade-in space-y-6">
       <div className="text-center">
         <h2 className="mb-1 mt-2 font-avenirBlack text-2xl leading-snug text-primary lg:text-3xl">
-          Review Your Application
+          Documents & Social Media Requirements
         </h2>
         <p className="font-latoRegular text-gray-600">
-          Please review all information before submitting your application
+          Upload your documents and complete the Instagram twibbon requirements
         </p>
       </div>
 
-      {/* Personal Information */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-        <div className="mb-4 flex items-center justify-between">
-          <h3 className="flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
-              <User className="h-3 w-3 text-white" />
-            </div>
-            Personal Information
-          </h3>
-        </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">Full Name:</span>
-            <p className="font-latoRegular text-gray-600">{formData.name || "Not provided"}</p>
+        <h3 className="mb-1 flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+            <span className="text-sm font-bold text-white">5</span>
           </div>
-          <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">Email:</span>
-            <p className="font-latoRegular text-gray-600">{formData.email || "Not provided"}</p>
-          </div>
-          <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              Phone Number:
-            </span>
-            <p className="font-latoRegular text-gray-600">{formData.phone || "Not provided"}</p>
-          </div>
-          <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">Faculty:</span>
-            <p className="font-latoRegular text-gray-600">{formData.faculty || "Not provided"}</p>
-          </div>
-          <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">Major:</span>
-            <p className="font-latoRegular text-gray-600">{formData.major || "Not provided"}</p>
-          </div>
-          <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">Batch:</span>
-            <p className="font-latoRegular text-gray-600">{formData.batch || "Not provided"}</p>
-          </div>
-          <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              Current GPA:
-            </span>
-            <p className="font-latoRegular text-gray-600">{formData.gpa || "Not provided"}</p>
-          </div>
-          <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              Active UGM Student:
-            </span>
-            <p className="font-latoRegular text-gray-600">
-              {formData.activeStudent ? "Yes" : "No"}
-            </p>
-          </div>
-        </div>
-      </div>
+          Documents & Social Media Requirements
+        </h3>
+        <p className="mb-4 font-latoRegular text-gray-600">
+          Please complete all requirements below. Upload your documents and follow the Instagram
+          twibbon instructions carefully to ensure a valid application.
+        </p>
 
-      {/* Position Preferences */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-        <div className="mb-4 flex items-center justify-between">
-          <h3 className="flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
-              <GraduationCap className="h-3 w-3 text-white" />
-            </div>
-            Position Preferences
-          </h3>
-        </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="space-y-6">
+          {/* Instagram Twibbon Instructions */}
           <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              First Choice:
-            </span>
-            <p className="font-latoRegular text-gray-600">
-              {formData.firstChoice || "Not provided"}
-            </p>
-          </div>
-
-          <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              Second Choice:
-            </span>
-            <p className="font-latoRegular text-gray-600">
-              {formData.secondChoice || "Not provided"}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* First Choice Documents */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-        <div className="mb-4 flex items-center justify-between">
-          <h3 className="flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
-              <Briefcase className="h-3 w-3 text-white" />
-            </div>
-            First Choice: {formData.firstChoice || "Not selected"}
-          </h3>
-        </div>
-        <div className="space-y-4">
-          {/* Division and Role Information */}
-          <div className="rounded-lg bg-gray-50 p-4">
-            <h4 className="mb-3 font-avenirRegular text-sm font-medium text-gray-700">
-              Selected Division & Roles:
-            </h4>
-            <div className="space-y-2">
-              <p className="font-latoRegular text-gray-800">
-                <span className="font-medium">Division:</span>{" "}
-                {formData.firstChoice || "Not selected"}
+            <Label className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700">
+              📱 Instagram Twibbon Requirements
+              <br />
+              <p>
+                To ensure the validity of your application, please follow the instructions below
+                carefully. Applications that do not comply may be considered invalid.
               </p>
-              {(formData.firstChoice === "Marketing" || formData.firstChoice === "IT") && (
-                <div>
-                  <span className="font-medium text-gray-700">Role Preferences:</span>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {formData.firstChoice === "Marketing" && (
-                      <>
-                        {formData.first_content && (
-                          <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
-                            Content
-                          </span>
-                        )}
-                        {formData.first_graphicDesigner && (
-                          <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
-                            Graphic Designer
-                          </span>
-                        )}
-                        {formData.first_videographer && (
-                          <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
-                            Videographer
-                          </span>
-                        )}
-                        {formData.first_partnership && (
-                          <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
-                            Partnership
-                          </span>
-                        )}
-                      </>
-                    )}
-                    {formData.firstChoice === "IT" && (
-                      <>
-                        {formData.first_frontend && (
-                          <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
-                            Frontend Developer
-                          </span>
-                        )}
-                        {formData.first_backend && (
-                          <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
-                            Backend Developer
-                          </span>
-                        )}
-                        {formData.first_uiux && (
-                          <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
-                            UI/UX Designer
-                          </span>
-                        )}
-                      </>
-                    )}
-                    {((formData.firstChoice === "Marketing" &&
-                      !formData.first_content &&
-                      !formData.first_graphicDesigner &&
-                      !formData.first_videographer &&
-                      !formData.first_partnership) ||
-                      (formData.firstChoice === "IT" &&
-                        !formData.first_frontend &&
-                        !formData.first_backend &&
-                        !formData.first_uiux)) && (
-                      <span className="italic text-gray-400">No specific roles selected</span>
-                    )}
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Documents */}
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            <div className="md:col-span-2">
-              <span className="font-avenirRegular text-sm font-medium text-gray-700">
-                CV/Resume:
-              </span>
-              <p className="font-latoRegular text-gray-600">
-                {formData.first_cvLink ? (
-                  <Link
-                    href={formData.first_cvLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline"
-                  >
-                    View CV ({formData.first_cvLink})
-                  </Link>
-                ) : (
-                  <span className="text-red-500">Not provided (Required)</span>
-                )}
+              <br />
+              <p className="font-avenirBlack text-black">
+                Post our applicant twibbon on your Instagram account!
               </p>
-            </div>
-            <div className="md:col-span-2">
-              <span className="font-avenirRegular text-sm font-medium text-gray-700">
-                Additional Document:
-              </span>
-              <p className="font-latoRegular text-gray-600">
-                {formData.first_documentLink ? (
-                  <Link
-                    href={formData.first_documentLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline"
-                  >
-                    View Document ({formData.first_documentLink})
-                  </Link>
-                ) : (
-                  <span className="text-red-500">Not provided (Required)</span>
-                )}
-              </p>
-            </div>
-            {formData.first_portfolioLink && (
-              <div className="md:col-span-2">
-                <span className="font-avenirRegular text-sm font-medium text-gray-700">
-                  Portfolio:
-                </span>
-                <p className="font-latoRegular text-gray-600">
-                  <Link
-                    href={formData.first_portfolioLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline"
-                  >
-                    View Portfolio ({formData.first_portfolioLink})
-                  </Link>
-                </p>
-              </div>
-            )}
+              <br />
+              1. Open the drive:{" "}
+              <Link
+                href="https://drive.google.com/drive/folders/1qvKOOsRm_bRliho4et3pulZLyJwrBRyG?usp=sharing"
+                className="text-blue-600 underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Google Drive Link
+              </Link>
+              <br />
+              2. Download the twibbon
+              <br />
+              3. Edit and insert your favourite picture of yourself
+              <br />
+              4. Add in the caption that has been provided
+              <br />
+              5. Tag @180dcugm and POST 🏹
+              <br />
+              <br />
+              <strong>
+                Please post it on your <span className="text-red-600">main Instagram account</span>{" "}
+                and ensure that it is public!
+              </strong>
+            </Label>
           </div>
-        </div>
-      </div>
 
-      {/* Second Choice Documents */}
-      {formData.secondChoice && formData.secondChoice !== "No second choice" && (
-        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-          <div className="mb-4 flex items-center justify-between">
-            <h3 className="flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
-              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
-                <Upload className="h-3 w-3 text-white" />
-              </div>
-              Second Choice: {formData.secondChoice || "Not selected"}
-            </h3>
-          </div>
-          <div className="space-y-4">
-            {/* Division and Role Information */}
-            <div className="rounded-lg bg-gray-50 p-4">
-              <h4 className="mb-3 font-avenirRegular text-sm font-medium text-gray-700">
-                Selected Division & Roles:
-              </h4>
-              <div className="space-y-2">
-                <p className="font-latoRegular text-gray-800">
-                  <span className="font-medium">Division:</span>{" "}
-                  {formData.secondChoice || "Not selected"}
-                </p>
-                {(formData.secondChoice === "Marketing" || formData.secondChoice === "IT") && (
-                  <div>
-                    <span className="font-medium text-gray-700">Role Preferences:</span>
-                    <div className="mt-2 flex flex-wrap gap-2">
-                      {formData.secondChoice === "Marketing" && (
-                        <>
-                          {formData.second_content && (
-                            <span className="inline-block rounded-full bg-secondary/10 px-3 py-1 text-sm text-secondary">
-                              Content
-                            </span>
-                          )}
-                          {formData.second_graphicDesigner && (
-                            <span className="inline-block rounded-full bg-secondary/10 px-3 py-1 text-sm text-secondary">
-                              Graphic Designer
-                            </span>
-                          )}
-                          {formData.second_videographer && (
-                            <span className="inline-block rounded-full bg-secondary/10 px-3 py-1 text-sm text-secondary">
-                              Videographer
-                            </span>
-                          )}
-                          {formData.second_partnership && (
-                            <span className="inline-block rounded-full bg-secondary/10 px-3 py-1 text-sm text-secondary">
-                              Partnership
-                            </span>
-                          )}
-                        </>
-                      )}
-                      {formData.secondChoice === "IT" && (
-                        <>
-                          {formData.second_frontend && (
-                            <span className="inline-block rounded-full bg-secondary/10 px-3 py-1 text-sm text-secondary">
-                              Frontend Developer
-                            </span>
-                          )}
-                          {formData.second_backend && (
-                            <span className="inline-block rounded-full bg-secondary/10 px-3 py-1 text-sm text-secondary">
-                              Backend Developer
-                            </span>
-                          )}
-                          {formData.second_uiux && (
-                            <span className="inline-block rounded-full bg-secondary/10 px-3 py-1 text-sm text-secondary">
-                              UI/UX Designer
-                            </span>
-                          )}
-                        </>
-                      )}
-                      {((formData.secondChoice === "Marketing" &&
-                        !formData.second_content &&
-                        !formData.second_graphicDesigner &&
-                        !formData.second_videographer &&
-                        !formData.second_partnership) ||
-                        (formData.secondChoice === "IT" &&
-                          !formData.second_frontend &&
-                          !formData.second_backend &&
-                          !formData.second_uiux)) && (
-                        <span className="italic text-gray-400">No specific roles selected</span>
-                      )}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-
-            {/* Documents */}
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              <div className="md:col-span-2">
-                <span className="font-avenirRegular text-sm font-medium text-gray-700">
-                  CV/Resume:
-                </span>
-                <p className="font-latoRegular text-gray-600">
-                  {formData.second_cvLink ? (
-                    <Link
-                      href={formData.second_cvLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:underline"
-                    >
-                      View CV ({formData.second_cvLink})
-                    </Link>
-                  ) : (
-                    <span className="italic text-gray-400">Not provided</span>
-                  )}
-                </p>
-              </div>
-              <div className="md:col-span-2">
-                <span className="font-avenirRegular text-sm font-medium text-gray-700">
-                  Additional Document:
-                </span>
-                <p className="font-latoRegular text-gray-600">
-                  {formData.second_documentLink ? (
-                    <Link
-                      href={formData.second_documentLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:underline"
-                    >
-                      View Document ({formData.second_documentLink})
-                    </Link>
-                  ) : (
-                    <span className="italic text-gray-400">Not provided</span>
-                  )}
-                </p>
-              </div>
-              {formData.second_portfolioLink && (
-                <div className="md:col-span-2">
-                  <span className="font-avenirRegular text-sm font-medium text-gray-700">
-                    Portfolio:
-                  </span>
-                  <p className="font-latoRegular text-gray-600">
-                    <Link
-                      href={formData.second_portfolioLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:underline"
-                    >
-                      View Portfolio ({formData.second_portfolioLink})
-                    </Link>
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Social Media Requirements */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-        <div className="mb-4 flex items-center justify-between">
-          <h3 className="flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
-              <Upload className="h-3 w-3 text-white" />
-            </div>
-            Social Media Requirements
-          </h3>
-        </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div className="md:col-span-2">
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              Twibbon Post Link:
-            </span>
-            <p className="font-latoRegular text-gray-600">
-              {formData.twibbonPostLink ? (
-                <Link
-                  href={formData.twibbonPostLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline"
-                >
-                  View Post ({formData.twibbonPostLink})
-                </Link>
-              ) : (
-                <span className="text-red-500">Not provided (Required)</span>
-              )}
-            </p>
-          </div>
-          <div className="md:col-span-2">
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              Instagram Story Proof:
-            </span>
-            <p className="font-latoRegular text-gray-600">
-              {formData.twibbonProofLink ? (
-                <Link
-                  href={formData.twibbonProofLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline"
-                >
-                  View Proof ({formData.twibbonProofLink})
-                </Link>
-              ) : (
-                <span className="text-red-500">Not provided (Required)</span>
-              )}
-            </p>
-          </div>
+          {/* Twibbon Post Link */}
           <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              Consent Agreement:
-            </span>
-            <p className="font-latoRegular text-gray-600">
-              {formData.consentAgreed ? (
-                <span className="font-medium text-primary">Agreed</span>
-              ) : (
-                <span className="text-red-500">Not agreed</span>
-              )}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Validation Summary */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-        <div className="mb-4">
-          <h3 className="font-avenirBlack text-xl text-gray-800">Application Status</h3>
-        </div>
-        <div className="space-y-2">
-          <div className="flex items-center gap-2">
-            <div
-              className={`h-2 w-2 rounded-full ${formData.name ? "bg-primary" : "bg-red-500"}`}
-            ></div>
-            <span className="font-avenirRegular text-sm">
-              Personal Information:{" "}
-              {formData.name &&
-              formData.email &&
-              formData.phone &&
-              formData.faculty &&
-              formData.major &&
-              formData.batch &&
-              formData.gpa
-                ? "Complete"
-                : "Incomplete"}
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div
-              className={`h-2 w-2 rounded-full ${formData.firstChoice && formData.first_cvLink && formData.first_documentLink ? "bg-primary" : "bg-red-500"}`}
+            <Label className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700">
+              Insert the link of your twibbon post: *
+            </Label>
+            <Input
+              value={twibbonPostLink}
+              onChange={(e) => setTwibbonPostLink(e.target.value)}
+              placeholder="https://www.instagram.com/p/your-post-link"
+              className="border-gray-300 font-latoRegular transition-all duration-200 focus:ring-2 focus:ring-primary/50"
             />
-            <span className="font-avenirRegular text-sm">
-              First Choice Documents:{" "}
-              {formData.first_cvLink && formData.first_documentLink ? "Complete" : "Incomplete"}
-            </span>
           </div>
-          {formData.secondChoice && (
-            <div className="flex items-center gap-2">
-              <div
-                className={`h-2 w-2 rounded-full ${formData.second_cvLink && formData.second_documentLink ? "bg-primary" : "bg-red-500"}`}
+
+          {/* Upload Proof Section */}
+          <div>
+            <Label className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700">
+              📸 Upload proof of:
+              <br />
+              <p>
+                1. Tagging 3 friends on this post →{" "}
+                <Link
+                  href="https://instagram.com"
+                  className="text-blue-600 underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Instagram Post Link
+                </Link>
+                <br />
+                2. Uploading this image on your story →{" "}
+                <Link
+                  href="https://drive.google.com/file/d/1RckdgRdWWcyUsiOT6Od-FGWpSfYMiEjm/view?usp=sharing"
+                  className="text-blue-600 underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Poster Link
+                </Link>
+                <br />
+                <br />
+                Please upload the proof to a Google Drive, ensure the access settings are set to
+                &quot;Anyone with the link can view,&quot;` and paste the link in the space provided
+                below. Upload screenshots showing: (1) tagging 3 friends on the specified post, and
+                (2) uploading the story image. Combine into one PDF and upload to Google Drive.
+              </p>
+            </Label>
+            <Input
+              value={twibbonProofLink}
+              onChange={(e) => setTwibbonProofLink(e.target.value)}
+              placeholder="https://drive.google.com/file/d/your-proof-screenshots"
+              className="border-gray-300 font-latoRegular transition-all duration-200 focus:ring-2 focus:ring-primary/50"
+            />
+          </div>
+
+          {/* Consent Agreement */}
+          <div>
+            <div className="flex items-start space-x-3">
+              <Checkbox
+                id="consent"
+                checked={consentAgreed}
+                onCheckedChange={setConsentAgreed}
+                className="mt-1 text-white"
               />
-              <span className="font-avenirRegular text-sm">
-                Second Choice Documents:{" "}
-                {formData.second_cvLink && formData.second_documentLink ? "Complete" : "Incomplete"}
-              </span>
+              <Label htmlFor="consent" className="font-latoRegular leading-relaxed text-gray-600">
+                I hereby consent to the collection, processing, and use of my personal data provided
+                in this application for the purpose of the 180DC UGM recruitment process. I
+                understand that my information will be handled in accordance with applicable data
+                protection regulations and will only be used for recruitment-related activities. I
+                also confirm that all information provided in this application is accurate and
+                complete to the best of my knowledge.
+              </Label>
             </div>
-          )}
-          <div className="flex items-center gap-2">
-            <div
-              className={`h-2 w-2 rounded-full ${formData.twibbonPostLink && formData.twibbonProofLink ? "bg-primary" : "bg-red-500"}`}
-            ></div>
-            <span className="font-avenirRegular text-sm">
-              Social Media Requirements:{" "}
-              {formData.twibbonPostLink && formData.twibbonProofLink ? "Complete" : "Incomplete"}
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div
-              className={`h-2 w-2 rounded-full ${formData.consentAgreed ? "bg-primary" : "bg-red-500"}`}
-            ></div>
-            <span className="font-avenirRegular text-sm">
-              Consent Agreement: {formData.consentAgreed ? "Agreed" : "Not Agreed"}
-            </span>
           </div>
         </div>
       </div>
 
-      {/* Validation Warning */}
-      {!isValid && (
-        <div className="rounded-lg border border-red-200 bg-red-50 p-4">
-          <div className="flex items-center gap-2">
-            <div className="flex h-5 w-5 items-center justify-center rounded-full bg-red-600">
-              <span className="text-xs font-bold text-white">!</span>
-            </div>
-            <p className="font-avenirRegular text-sm font-medium text-red-800">
-              Please complete all required fields before submitting your application.
-            </p>
-          </div>
-        </div>
-      )}
-
-      {/* Navigation */}
-      <div className="flex justify-end pt-4">
+      <div className="flex justify-between pt-4">
         <Button
-          type="submit"
-          disabled={!isValid || isSubmitting}
-          className="flex items-center gap-2 bg-primary font-avenirRegular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
+          onClick={handleNext}
+          disabled={!isValid}
+          className="ml-auto flex items-center gap-2 bg-primary font-avenirRegular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
         >
-          {isSubmitting ? (
-            <>
-              <Loader2 className="h-4 w-4 animate-spin" />
-              Submitting...
-            </>
-          ) : (
-            <>
-              Submit Application
-              <ChevronRight className="h-4 w-4" />
-            </>
-          )}
+          Review Submission
+          <ChevronRight className="h-4 w-4" />
         </Button>
       </div>
-    </form>
+    </div>
   );
 };
 

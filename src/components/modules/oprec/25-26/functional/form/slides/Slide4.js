@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, ChevronLeft } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 // Import division-specific slides
 import SlideHR from "./divisions/SlideHR";
@@ -15,54 +15,57 @@ import SlideIT from "./divisions/SlideIT";
 import SlideKN from "./divisions/SlideKN";
 
 const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
-  // Handle document and CV links for second choice
-  const [documentLink, setDocumentLink] = useState(formData.second_documentLink || "");
-  const [cvLink, setCvLink] = useState(formData.second_cvLink || "");
-  const [portfolioLink, setPortfolioLink] = useState(formData.second_portfolioLink || "");
-  const [content, setContent] = useState(formData.second_content || false);
-  const [graphicDesigner, setGraphicDesigner] = useState(formData.second_graphicDesigner || false);
-  const [videographer, setVideographer] = useState(formData.second_videographer || false);
-  const [partnership, setPartnership] = useState(formData.second_partnership || false);
-  const [frontend, setFrontend] = useState(formData.second_frontend || false);
-  const [backend, setBackend] = useState(formData.second_backend || false);
-  const [uiux, setUiux] = useState(formData.second_uiux || false);
+  // Handle document and CV links for first choice
+  // These are managed locally in Slide4 because they are specific to Slide4's inputs
+  const [documentLink, setDocumentLink] = useState(formData.first_documentLink || "");
+  const [cvLink, setCvLink] = useState(formData.first_cvLink || "");
+  const [portfolioLink, setPortfolioLink] = useState(formData.first_portfolioLink || "");
+  const [content, setContent] = useState(formData.content || false);
+  const [graphicDesigner, setGraphicDesigner] = useState(formData.graphicDesigner || false);
+  const [videographer, setVideographer] = useState(formData.videographer || false);
+  const [partnership, setPartnership] = useState(formData.partnership || false);
+  const [frontend, setFrontend] = useState(formData.frontend || false);
+  const [backend, setBackend] = useState(formData.backend || false);
+  const [uiux, setUiux] = useState(formData.uiux || false);
+  const [sngManager, setSngManager] = useState(formData.sngManager || false);
+  const [sngAnalyst, setSngAnalyst] = useState(formData.sngAnalyst || false);
 
   const handleNext = () => {
-    // Update form data with document and CV links
+    // Update form data with document, CV, and portfolio links
+    // Role preferences are already updated by the sub-components via updateFormData
     updateFormData({
-      second_documentLink: documentLink,
-      second_cvLink: cvLink,
-      second_portfolioLink: portfolioLink,
-      second_content: content,
-      second_graphicDesigner: graphicDesigner,
-      second_videographer: videographer,
-      second_partnership: partnership,
-      second_frontend: frontend,
-      second_backend: backend,
-      second_uiux: uiux,
+      first_documentLink: documentLink,
+      first_cvLink: cvLink,
+      first_portfolioLink: portfolioLink,
+      first_content: content,
+      first_graphicDesigner: graphicDesigner,
+      first_videographer: videographer,
+      first_partnership: partnership,
+      first_frontend: frontend,
+      first_backend: backend,
+      first_uiux: uiux,
+      first_sngManager: sngManager,
+      first_sngAnalyst: sngAnalyst,
     });
     onNext();
   };
 
-  // Get the selected second choice division from formData
-  const secondChoice = formData.secondChoice;
-
-  // Check if user has a second choice
-  const hasSecondChoice = secondChoice && secondChoice !== "";
+  // Get the selected first choice division from formData
+  const firstChoice = formData.firstChoice;
 
   // Check if form is valid (both fields filled)
   const isValid = documentLink.trim() && cvLink.trim();
 
-  // Render division-specific form for second choice
+  // Render division-specific form for first choice
   const renderDivisionSpecificForm = (division) => {
     const commonProps = {
       formData,
-      updateFormData,
+      updateFormData, // Pass the main updateFormData function
       onNext: handleNext,
       onPrevious,
-      isSecondChoice: true,
-      divisionType: "second",
-      // Pass document and CV link state
+      isSecondChoice: false,
+      divisionType: "first",
+      // Pass document and CV link state (managed locally in Slide4)
       portfolioLink,
       setPortfolioLink,
       documentLink,
@@ -70,7 +73,6 @@ const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
       cvLink,
       setCvLink,
       isValid,
-      // Pass role preferences
       content,
       setContent,
       graphicDesigner,
@@ -85,6 +87,10 @@ const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
       setBackend,
       uiux,
       setUiux,
+      sngManager,
+      setSngManager,
+      sngAnalyst,
+      setSngAnalyst,
     };
 
     switch (division) {
@@ -109,18 +115,17 @@ const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
     }
   };
 
-  // If second choice division is selected, show the division-specific form
-  if (hasSecondChoice) {
+  // If first choice division is selected, show the division-specific form
+  if (firstChoice && firstChoice !== "") {
     return (
       <div className="space-y-6">
         <div className="mb-6 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-secondary/10 px-4 py-2">
-            <span className="text-sm font-medium text-secondary">Second Choice Division:</span>
-            <span className="font-semibold text-secondary">{secondChoice}</span>
+          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2">
+            <span className="text-sm font-medium text-primary">First Choice Division:</span>
+            <span className="font-semibold text-primary">{firstChoice}</span>
           </div>
         </div>
-        {renderDivisionSpecificForm(secondChoice)}
-
+        {renderDivisionSpecificForm(firstChoice)}
         {/* Centralized Next Button */}
         <div className="flex justify-end pt-4">
           <Button
@@ -135,8 +140,6 @@ const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
       </div>
     );
   }
-
-  // If no second choice, return null or show a skip option
   return null;
 };
 

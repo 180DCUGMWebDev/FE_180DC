@@ -44,20 +44,20 @@ const SubmitSlide = ({ formData }) => {
             </p>
             <div className="space-y-2">
               <Link
-                href="https://bit.ly/Cycle2GroupRecruitment180DC"
+                href="https://bit.ly/180DCUGMCOMMUNITY1"
                 target="_blank"
                 className="mr-2 inline-flex items-center gap-2 rounded-md bg-secondary px-4 py-2 font-avenirRegular text-sm text-white transition-all duration-200 hover:bg-blue-700"
               >
                 <ExternalLink className="h-4 w-4" />
-                Recruitment Group
+                bit.ly/180DCUGMCOMMUNITY1
               </Link>
               <Link
-                href="#"
+                href="https://bit.ly/180DC-FARecruitment2526"
                 target="_blank"
                 className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 font-avenirRegular text-sm text-white transition-all duration-200 hover:bg-blue-800"
               >
                 <ExternalLink className="h-4 w-4" />
-                180DC Community Group
+                bit.ly/180DC-FARecruitment2526
               </Link>
             </div>
           </div>

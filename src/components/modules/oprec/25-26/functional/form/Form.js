@@ -11,6 +11,7 @@ import Slide3 from "./slides/Slide3";
 import Slide4 from "./slides/Slide4";
 import Slide5 from "./slides/Slide5";
 import Slide6 from "./slides/Slide6";
+import Slide7 from "./slides/Slide7";
 import SubmitSlide from "./slides/SubmitSlide";
 
 const STORAGE_KEY = "180DC-functional-analyst-25-26";
@@ -22,7 +23,7 @@ export default function Form() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const totalSlides = 6;
+  const totalSlides = 7;
 
   // Load progress from localStorage on component mount
   useEffect(() => {
@@ -42,7 +43,7 @@ export default function Form() {
         // If user has already submitted, always direct to submit slide
         if (savedIsSubmitted) {
           setIsSubmitted(true);
-          setCurrentSlide(7);
+          setCurrentSlide(8);
         } else {
           setCurrentSlide(savedSlide || 1);
         }
@@ -72,9 +73,9 @@ export default function Form() {
   const handleNext = (nextSlide) => {
     if (
       (formData.secondChoice === "No second choice" || !formData.secondChoice) &&
-      currentSlide === 3
+      currentSlide === 4
     ) {
-      nextSlide = 5; // Skip to Slide 5 if no second choice
+      nextSlide = 6; // Skip to Slide 6 if no second choice
     }
     const targetSlide = nextSlide || currentSlide + 1;
     setSlideHistory((prev) => [...prev, targetSlide]);
@@ -83,7 +84,7 @@ export default function Form() {
 
   const handlePrevious = () => {
     // If user has submitted, don't allow navigation away from success slide
-    if (isSubmitted && currentSlide === 7) {
+    if (isSubmitted && currentSlide === 8) {
       return;
     }
 
@@ -97,7 +98,7 @@ export default function Form() {
   };
 
   const getProgressPercentage = () => {
-    if (currentSlide === 7) return 100;
+    if (currentSlide === 8) return 100;
     return (currentSlide / totalSlides) * 100;
   };
 
@@ -115,7 +116,7 @@ export default function Form() {
         }
       });
 
-      const response = await fetch("/api/oprec/25-26/submit", {
+      const response = await fetch("/api/oprec/25-26/functional/submit", {
         method: "POST",
         body: submitFormData, // Send as FormData, not JSON
       });
@@ -129,7 +130,7 @@ export default function Form() {
       // Success - navigate to success page
       console.log("Form submitted successfully via API:", result.message);
       setIsSubmitted(true);
-      setCurrentSlide(7); // Go to SubmitSlide (case 7) after successful submission
+      setCurrentSlide(8); // Go to SubmitSlide (case 7) after successful submission
       // Keep localStorage data - don't clear it
 
       toast("Success!", {
@@ -167,8 +168,10 @@ export default function Form() {
       case 5:
         return <Slide5 {...slideProps} />;
       case 6:
-        return <Slide6 formData={formData} onSubmit={handleSubmit} isSubmitting={isSubmitting} />;
+        return <Slide6 {...slideProps} />;
       case 7:
+        return <Slide7 {...slideProps} />;
+      case 8:
         return <SubmitSlide formData={formData} onBack={handlePrevious} />;
       default:
         return <Slide1 {...slideProps} />;
@@ -182,9 +185,9 @@ export default function Form() {
           <div className="pb-4">
             <div className="mb-4 flex items-center justify-between">
               <div className="text-sm font-medium text-gray-600">
-                {currentSlide === 6
+                {currentSlide === 7
                   ? "Review"
-                  : currentSlide === 7
+                  : currentSlide === 8
                     ? "Complete"
                     : `Step ${currentSlide} of ${totalSlides}`}
               </div>
@@ -194,7 +197,7 @@ export default function Form() {
           <div className="pb-8">
             <div className="flex min-h-[400px] flex-col">
               <div className="mb-6 flex-1">{renderSlide()}</div>
-              {currentSlide !== 7 && (
+              {currentSlide !== 8 && (
                 <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                   <Button
                     variant="outline"
