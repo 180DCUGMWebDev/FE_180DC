@@ -24,7 +24,7 @@ export default function Guidebook() {
           </div>
           <div className="mt-4 hidden flex-col gap-4 sm:flex-row sm:justify-center md:flex">
             <Link
-              href="/file/ReapraReport.pdf"
+              href="/file/FAOprecGuidebook.pdf"
               download="180DC_Recruitment_Guidebook.pdf"
               className="inline-block"
             >
@@ -35,7 +35,7 @@ export default function Guidebook() {
               />
             </Link>
             <Link
-              href="/file/ReapraReport.pdf"
+              href="https://drive.google.com/file/d/1l5cZZiw5AKvcu7T3MVmk5JLt_5PPkS0X/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block"
@@ -51,7 +51,7 @@ export default function Guidebook() {
 
         <div className="group w-full rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm md:w-[80%] lg:p-8">
           <iframe
-            src="/file/ReapraReport.pdf#toolbar=0&navpanes=0&scrollbar=1"
+            src="/file/FAOprecGuidebook.pdf#toolbar=0&navpanes=0&scrollbar=1"
             width="100%"
             height="600"
             title="180DC Recruitment Guidebook"
@@ -62,7 +62,7 @@ export default function Guidebook() {
           />
           <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:justify-center md:hidden">
             <Link
-              href="/file/ReapraReport.pdf"
+              href="/file/FAOprecGuidebook.pdf"
               download="180DC_Recruitment_Guidebook.pdf"
               className="inline-block"
             >
@@ -73,7 +73,7 @@ export default function Guidebook() {
               />
             </Link>
             <Link
-              href="/file/ReapraReport.pdf"
+              href="/file/FAOprecReport.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block"

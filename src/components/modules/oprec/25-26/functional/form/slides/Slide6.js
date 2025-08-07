@@ -63,7 +63,7 @@ const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
               <br />
               1. Open the drive:{" "}
               <a
-                href="https://drive.google.com/drive/folders/17f6rNRHQFTzqw5QAn-Gz7ZcFTeWbSXT4?usp=sharing"
+                href="https://drive.google.com/drive/folders/1qvKOOsRm_bRliho4et3pulZLyJwrBRyG?usp=sharing"
                 className="text-blue-600 underline"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -108,7 +108,7 @@ const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
               <p>
                 1. Tagging 3 friends on this post →{" "}
                 <a
-                  href="https://www.instagram.com/p/C905KRVSHFp/?igsh=MXNrMWJ0a2RsaTBtZA%3D%3D"
+                  href="https://drive.google.com/file/d/1RckdgRdWWcyUsiOT6Od-FGWpSfYMiEjm/view?usp=sharing"
                   className="text-blue-600 underline"
                   target="_blank"
                   rel="noopener noreferrer"
