@@ -109,7 +109,7 @@ const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
               <p>
                 1. Tagging 3 friends on this post →{" "}
                 <Link
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/p/DNDBGBBTvnv/?utm_source=ig_web_copy_link&igsh=MWVyeTRhdGdhYWtjZQ=="
                   className="text-blue-600 underline"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -119,7 +119,7 @@ const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
                 <br />
                 2. Uploading this image on your story →{" "}
                 <Link
-                  href="https://drive.google.com/file/d/1RckdgRdWWcyUsiOT6Od-FGWpSfYMiEjm/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1nqxR0A5tFf4hfzvCSD6t9dDm6CnLC9_A/view?usp=drive_link"
                   className="text-blue-600 underline"
                   target="_blank"
                   rel="noopener noreferrer"
