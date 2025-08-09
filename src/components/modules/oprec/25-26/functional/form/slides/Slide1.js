@@ -250,8 +250,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
               htmlFor="gpa"
               className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
             >
-              Current GPA (if you are in semester 1 and currently does not have GPA, input your
-              final score at high school) *
+              Current GPA (If you are in semester 1 and currently do not have a GPA, enter your final score in high school) *
             </Label>
             <Input
               id="gpa"
