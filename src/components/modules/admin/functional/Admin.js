@@ -212,7 +212,7 @@ export function Admin({ submissions, adminUser }) {
         </div>
 
         {/* Filters and Search */}
-        <div className="mb-6 rounded-lg border-[1px] border-neutral-200 bg-white/90 p-6 backdrop-blur-sm">
+        <div className="mb-6 flex flex-col gap-3 rounded-lg border-[1px] border-neutral-200 bg-white/90 p-6 backdrop-blur-sm">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div className="flex flex-1 items-center gap-4">
               <div className="flex items-center gap-4">
@@ -243,7 +243,7 @@ export function Admin({ submissions, adminUser }) {
                 </div>
               </div>
 
-              <Button onClick={exportToCSV} className="flex items-center gap-2">
+              <Button onClick={exportToCSV} className="flex items-center gap-2 text-white">
                 <Download className="h-4 w-4" />
                 Export CSV
               </Button>
@@ -251,14 +251,14 @@ export function Admin({ submissions, adminUser }) {
           </div>
 
           {/* Results Header */}
-          <div className="mb-4 rounded-lg border-[1px] border-neutral-200 bg-white/90 p-4 backdrop-blur-sm">
+          <div className="rounded-lg border-[1px] border-neutral-200 bg-white/90 p-4 backdrop-blur-sm">
             <h2 className="text-xl font-semibold text-gray-900">
               Submissions ({filteredSubmissions.length})
             </h2>
           </div>
 
           {/* Submissions List */}
-          <div className="space-y-2 border-[1px] border-neutral-200 p-4">
+          <div className="space-y-2 rounded-lg border-[1px] border-neutral-200 p-4">
             {filteredSubmissions.length === 0 ? (
               <div className="rounded-lg bg-white/90 p-8 text-center backdrop-blur-sm">
                 <p className="text-gray-500">
@@ -413,50 +413,67 @@ export function Admin({ submissions, adminUser }) {
                       <div className="mt-3">
                         <p className="text-xs font-medium text-gray-500">Selected Roles:</p>
                         <div className="mt-1 flex flex-wrap gap-1">
-                          {submission.first_content && (
-                            <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-800">
-                              Content
-                            </span>
+                          {/* Marketing Roles */}
+                          {submission.firstChoice === "Marketing" && (
+                            <>
+                              {submission.first_content && (
+                                <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-800">
+                                  Content
+                                </span>
+                              )}
+                              {submission.first_graphicDesigner && (
+                                <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-800">
+                                  Graphic Designer
+                                </span>
+                              )}
+                              {submission.first_videographer && (
+                                <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-800">
+                                  Videographer
+                                </span>
+                              )}
+                              {submission.first_partnership && (
+                                <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-800">
+                                  Partnership
+                                </span>
+                              )}
+                            </>
                           )}
-                          {submission.first_graphicDesigner && (
-                            <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-800">
-                              Graphic Designer
-                            </span>
+
+                          {/* IT Roles */}
+                          {submission.firstChoice === "IT" && (
+                            <>
+                              {submission.first_frontend && (
+                                <span className="inline-block rounded-full bg-green-100 px-2 py-1 text-xs text-green-800">
+                                  Frontend
+                                </span>
+                              )}
+                              {submission.first_backend && (
+                                <span className="inline-block rounded-full bg-green-100 px-2 py-1 text-xs text-green-800">
+                                  Backend
+                                </span>
+                              )}
+                              {submission.first_uiux && (
+                                <span className="inline-block rounded-full bg-green-100 px-2 py-1 text-xs text-green-800">
+                                  UI/UX
+                                </span>
+                              )}
+                            </>
                           )}
-                          {submission.first_videographer && (
-                            <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-800">
-                              Videographer
-                            </span>
-                          )}
-                          {submission.first_partnership && (
-                            <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-800">
-                              Partnership
-                            </span>
-                          )}
-                          {submission.first_frontend && (
-                            <span className="inline-block rounded-full bg-green-100 px-2 py-1 text-xs text-green-800">
-                              Frontend
-                            </span>
-                          )}
-                          {submission.first_backend && (
-                            <span className="inline-block rounded-full bg-green-100 px-2 py-1 text-xs text-green-800">
-                              Backend
-                            </span>
-                          )}
-                          {submission.first_uiux && (
-                            <span className="inline-block rounded-full bg-green-100 px-2 py-1 text-xs text-green-800">
-                              UI/UX
-                            </span>
-                          )}
-                          {submission.first_sngManager && (
-                            <span className="inline-block rounded-full bg-red-100 px-2 py-1 text-xs text-red-800">
-                              SNG Manager
-                            </span>
-                          )}
-                          {submission.first_sngAnalyst && (
-                            <span className="inline-block rounded-full bg-red-100 px-2 py-1 text-xs text-red-800">
-                              SNG Analyst
-                            </span>
+
+                          {/* SNG Roles */}
+                          {submission.firstChoice === "Strategy and Growth" && (
+                            <>
+                              {submission.first_sngManager && (
+                                <span className="inline-block rounded-full bg-red-100 px-2 py-1 text-xs text-red-800">
+                                  SNG Manager
+                                </span>
+                              )}
+                              {submission.first_sngAnalyst && (
+                                <span className="inline-block rounded-full bg-red-100 px-2 py-1 text-xs text-red-800">
+                                  SNG Analyst
+                                </span>
+                              )}
+                            </>
                           )}
                         </div>
                       </div>
@@ -551,50 +568,67 @@ export function Admin({ submissions, adminUser }) {
                         <div className="mt-3">
                           <p className="text-xs font-medium text-gray-500">2nd Choice Roles:</p>
                           <div className="mt-1 flex flex-wrap gap-1">
-                            {submission.second_content && (
-                              <span className="inline-block rounded-full bg-purple-100 px-2 py-1 text-xs text-purple-800">
-                                Content
-                              </span>
+                            {/* Marketing Roles */}
+                            {submission.secondChoice === "Marketing" && (
+                              <>
+                                {submission.second_content && (
+                                  <span className="inline-block rounded-full bg-purple-100 px-2 py-1 text-xs text-purple-800">
+                                    Content
+                                  </span>
+                                )}
+                                {submission.second_graphicDesigner && (
+                                  <span className="inline-block rounded-full bg-purple-100 px-2 py-1 text-xs text-purple-800">
+                                    Graphic Designer
+                                  </span>
+                                )}
+                                {submission.second_videographer && (
+                                  <span className="inline-block rounded-full bg-purple-100 px-2 py-1 text-xs text-purple-800">
+                                    Videographer
+                                  </span>
+                                )}
+                                {submission.second_partnership && (
+                                  <span className="inline-block rounded-full bg-purple-100 px-2 py-1 text-xs text-purple-800">
+                                    Partnership
+                                  </span>
+                                )}
+                              </>
                             )}
-                            {submission.second_graphicDesigner && (
-                              <span className="inline-block rounded-full bg-purple-100 px-2 py-1 text-xs text-purple-800">
-                                Graphic Designer
-                              </span>
+
+                            {/* IT Roles */}
+                            {submission.secondChoice === "IT" && (
+                              <>
+                                {submission.second_frontend && (
+                                  <span className="inline-block rounded-full bg-orange-100 px-2 py-1 text-xs text-orange-800">
+                                    Frontend
+                                  </span>
+                                )}
+                                {submission.second_backend && (
+                                  <span className="inline-block rounded-full bg-orange-100 px-2 py-1 text-xs text-orange-800">
+                                    Backend
+                                  </span>
+                                )}
+                                {submission.second_uiux && (
+                                  <span className="inline-block rounded-full bg-orange-100 px-2 py-1 text-xs text-orange-800">
+                                    UI/UX
+                                  </span>
+                                )}
+                              </>
                             )}
-                            {submission.second_videographer && (
-                              <span className="inline-block rounded-full bg-purple-100 px-2 py-1 text-xs text-purple-800">
-                                Videographer
-                              </span>
-                            )}
-                            {submission.second_partnership && (
-                              <span className="inline-block rounded-full bg-purple-100 px-2 py-1 text-xs text-purple-800">
-                                Partnership
-                              </span>
-                            )}
-                            {submission.second_frontend && (
-                              <span className="inline-block rounded-full bg-orange-100 px-2 py-1 text-xs text-orange-800">
-                                Frontend
-                              </span>
-                            )}
-                            {submission.second_backend && (
-                              <span className="inline-block rounded-full bg-orange-100 px-2 py-1 text-xs text-orange-800">
-                                Backend
-                              </span>
-                            )}
-                            {submission.second_uiux && (
-                              <span className="inline-block rounded-full bg-orange-100 px-2 py-1 text-xs text-orange-800">
-                                UI/UX
-                              </span>
-                            )}
-                            {submission.second_sngManager && (
-                              <span className="inline-block rounded-full bg-yellow-100 px-2 py-1 text-xs text-yellow-800">
-                                SNG Manager
-                              </span>
-                            )}
-                            {submission.second_sngAnalyst && (
-                              <span className="inline-block rounded-full bg-yellow-100 px-2 py-1 text-xs text-yellow-800">
-                                SNG Analyst
-                              </span>
+
+                            {/* SNG Roles */}
+                            {submission.secondChoice === "Strategy and Growth" && (
+                              <>
+                                {submission.second_sngManager && (
+                                  <span className="inline-block rounded-full bg-yellow-100 px-2 py-1 text-xs text-yellow-800">
+                                    SNG Manager
+                                  </span>
+                                )}
+                                {submission.second_sngAnalyst && (
+                                  <span className="inline-block rounded-full bg-yellow-100 px-2 py-1 text-xs text-yellow-800">
+                                    SNG Analyst
+                                  </span>
+                                )}
+                              </>
                             )}
                           </div>
                         </div>
