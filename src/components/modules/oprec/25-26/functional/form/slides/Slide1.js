@@ -63,7 +63,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
     major.trim() &&
     gpa.trim() &&
     parseFloat(gpa) >= 0 &&
-    parseFloat(gpa) <= 4.0 &&
+    parseFloat(gpa) <= 100 &&
     activeStudent;
 
   return (
@@ -250,14 +250,15 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
               htmlFor="gpa"
               className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
             >
-              Current GPA *
+              Current GPA (if you are in semester 1 and currently does not have GPA, input your
+              final score at high school) *
             </Label>
             <Input
               id="gpa"
               type="text"
               value={gpa}
               onChange={(e) => setgpa(e.target.value)}
-              placeholder="e.g., 3.75"
+              placeholder="e.g., 3.75 or 90"
               className="border-gray-300 font-latoRegular transition-all duration-200 focus:ring-2 focus:ring-primary/50"
             />
           </div>

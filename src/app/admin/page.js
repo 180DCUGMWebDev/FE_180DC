@@ -1,9 +1,31 @@
-"use client";
-
+import { redirect } from "next/navigation";
+import { createClient } from "@/integrations/supabase/admin";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export default function AdminPage() {
+export default async function AdminPage() {
+  const supabase = await createClient();
+
+  // Check if user is authenticated
+  const {
+    data: { user },
+    error: authError,
+  } = await supabase.auth.getUser();
+
+  if (authError || !user) {
+    redirect("/admin/login");
+  }
+
+  // Check if user is admin
+  const { data: adminUser, error: adminError } = await supabase
+    .from("admin_users")
+    .select("*")
+    .eq("id", user.id)
+    .single();
+
+  if (adminError || !adminUser) {
+    redirect("/admin/login?error=unauthorized");
+  }
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50 p-4">
       <div className="w-full max-w-4xl">
