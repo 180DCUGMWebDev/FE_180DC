@@ -70,7 +70,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
     <div className="animate-fade-in space-y-6">
       <div className="text-center">
         <h2 className="mb-1 mt-2 font-avenirBlack text-2xl leading-snug text-primary lg:text-3xl">
-          180DC UGM - Functional Analyst Recruitment Form 2025/2026
+          EXTENDED! 180DC UGM - Functional Analyst Recruitment Form 2025/2026
         </h2>
         <p className="font-latoRegular text-gray-600">
           Start your journey by get knowing more about 180DC UGM
@@ -250,7 +250,8 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
               htmlFor="gpa"
               className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
             >
-              Current GPA (If you are in semester 1 and currently do not have a GPA, enter your final score in high school) *
+              Current GPA (If you are in semester 1 and currently do not have a GPA, enter your
+              final score in high school) *
             </Label>
             <Input
               id="gpa"
