@@ -119,7 +119,7 @@ const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
                 <br />
                 2. Uploading this image on your story →{" "}
                 <Link
-                  href="https://drive.google.com/file/d/1nqxR0A5tFf4hfzvCSD6t9dDm6CnLC9_A/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/10lhYjHuwREvf983wXc1kT4GCdOln3EBp/view?usp=drive_link"
                   className="text-blue-600 underline"
                   target="_blank"
                   rel="noopener noreferrer"
