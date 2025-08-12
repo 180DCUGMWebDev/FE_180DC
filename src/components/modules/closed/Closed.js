@@ -88,7 +88,7 @@ export default function Closed() {
           <div className="flex flex-col lg:w-1/2">
             <div className="relative ml-[8.667vw] mt-[80px] h-[21.282vw] w-full rotate-2 rounded-bl-[40px] bg-white lg:ml-0 lg:h-[12.135vw]">
               <div className="absolute flex h-full w-full items-center justify-end">
-                <h1 className="text-outline-decoration lg:max-w-[100%]: max-w-[75%] pr-10 font-avenirBlack text-[6.154vw] leading-[5.385vw] text-secondary md:text-[4vw] lg:pr-20 lg:text-[3.49vw] lg:leading-[3.125vw]">
+                <h1 className="text-outline-decoration lg:max-w-[100%] max-w-[75%] pr-10 font-avenirBlack text-[6.154vw] leading-[5.385vw] text-secondary md:text-[4vw] lg:pr-20 lg:text-[3.49vw] lg:leading-[3.125vw]">
                   Registration is now closed
                 </h1>
               </div>
