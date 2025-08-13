@@ -79,14 +79,11 @@ const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
                 </Link>
               </span>
               <br />
-              2. Download the twibbon according to your first preference role (e.g., consulting
-              manager, PL, PA)
+              2. Edit and insert your favorite picture of yourself
               <br />
-              3. Edit and insert your favorite picture of yourself
+              3. Add the caption that has been provided
               <br />
-              4. Add the caption that has been provided
-              <br />
-              5. Tag @180dcugm and POST 💘
+              4. Tag @180dcugm and POST 💘
               <br />
               <br />
               <span className="font-latoBold text-black">Important:</span> Please post it on your
