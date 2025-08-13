@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
+import Link from "next/link";
 
 const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
   const [twibbonPost, settwibbonPost] = useState(formData.twibbonPost || "");
@@ -68,7 +69,14 @@ const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
               <br />
               1. Open the drive:{" "}
               <span className="font-latoBold text-black">
-                https://drive.google.com/drive/folders/17f6rNRHQFTzqw5QAn-Gz7ZcFTeWbSXT4?usp=sharing
+                <Link
+                  href="https://drive.google.com/drive/folders/1787LhaAnV-FXgZykk70Gqc50IRClAvUT?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-primary"
+                >
+                  https://drive.google.com/drive/folders/1787LhaAnV-FXgZykk70Gqc50IRClAvUT?usp=sharing{" "}
+                </Link>
               </span>
               <br />
               2. Download the twibbon according to your first preference role (e.g., consulting
@@ -112,14 +120,28 @@ const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
             <p className="mb-3 font-latoRegular text-sm text-gray-500">
               Upload proof of:
               <br />
-              1. Tagging 3 friends on this post {"->"}
+              1. Tagging 3 friends on this post {"->"}{" "}
               <span className="font-latoBold text-black">
-                {" "}
-                https://www.instagram.com/p/C905KRWShFp/?igsh=MXNrMWJ0a2RsaTBtZA%3D%3D
+                <Link
+                  href="https://www.instagram.com/p/DNSx_afTwcP/?igsh=MmZ2c3IzaG5ycWZm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-primary"
+                >
+                  https://www.instagram.com/p/DNSx_afTwcP/?igsh=MmZ2c3IzaG5ycWZm
+                </Link>
               </span>
               <br />
               2. Uploading this image on your story {"->"}{" "}
-              <span className="font-latoBold text-black"> bit.ly/FA-OprecStory </span>
+              <span className="font-latoBold text-black underline hover:text-primary">
+                <Link
+                  href="https://drive.google.com/drive/folders/1zjn0EhE53nGUhKvBr47ZpHb7k1_k9rTu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  https://drive.google.com/drive/folders/1zjn0EhE53nGUhKvBr47ZpHb7k1_k9rTu
+                </Link>
+              </span>
               <br />
               <br />
               Please upload the proof to a Google Drive, ensure the access settings are set to

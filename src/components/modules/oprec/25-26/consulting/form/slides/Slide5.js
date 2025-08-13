@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import Image from "next/image";
+import Link from "next/link";
 
 const Slide5 = ({ formData, updateFormData, onNext }) => {
   const [registrationProofLink, setRegistrationProofLink] = useState(
@@ -98,14 +99,14 @@ const Slide5 = ({ formData, updateFormData, onNext }) => {
 
                 <div className="mt-3">
                   <span className="font-latoBold">📝 Registration:</span>{" "}
-                  <a
+                  <Link
                     href="https://bit.ly/ConsultingDayRegistration"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary underline hover:text-primary/80"
+                    className="text-black underline hover:text-primary"
                   >
                     https://bit.ly/ConsultingDayRegistration
-                  </a>
+                  </Link>
                 </div>
 
                 <div>
