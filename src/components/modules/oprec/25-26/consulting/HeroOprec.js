@@ -76,16 +76,6 @@ export default function HeroPage() {
             <FaChevronDown className="animate-movingPointer text-[1.4vw] text-lightWhite" />
           </div>
         </div>
-
-        <div className="absolute bottom-8 right-8 max-lg:hidden">
-          <Image
-            src="/img/opreccycle/postcard.png"
-            alt="180DC Postcard"
-            width={400}
-            height={420}
-            className="aspect-[681/715] w-[25vw] object-contain"
-          />
-        </div>
       </div>
     </section>
   );

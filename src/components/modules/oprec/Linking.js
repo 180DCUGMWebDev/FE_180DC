@@ -4,11 +4,21 @@ import Button180 from "@/components/element/Button";
 
 const batches = [
   {
+    id: "25-26-consulting-batch-1",
+    title: "Consulting Analyst",
+    type: "Consulting Analyst",
+    description: "Open recruitment for Consulting Analyst Batch 1 25/26",
+    status: "Open",
+    period: "13 August 2025",
+    image: "/img/opreccycle/bgHeroOprec.png",
+    href: "/oprec/25-26/consulting",
+  },
+  {
     id: "25-26-functional",
     title: "Functional Analyst",
     type: "Functional Analyst",
     description: "Open recruitment for Functional Analyst Batch 25/26",
-    status: "Open",
+    status: "Closed",
     period: "7 August 2025",
     image: "/img/homepage/hero1.png",
     href: "/oprec/25-26/functional",

@@ -2,18 +2,19 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, ChevronLeft } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
+import Link from "next/link";
 
-const Slide4 = ({ formData, updateFormData, onNext }) => {
-  const [cvLink, setCvLink] = useState(formData.cvLink || "");
+const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
+  const [twibbonPost, settwibbonPost] = useState(formData.twibbonPost || "");
   const [instagramProofLink, setInstagramProofLink] = useState(formData.instagramProofLink || "");
   const [hearAboutUs, setHearAboutUs] = useState(formData.hearAboutUs || []);
   const [consentAgreed, setConsentAgreed] = useState(formData.consentAgreed || false);
 
   const handleNext = () => {
     updateFormData({
-      cvLink,
+      twibbonPost,
       instagramProofLink,
       hearAboutUs,
       consentAgreed,
@@ -30,7 +31,7 @@ const Slide4 = ({ formData, updateFormData, onNext }) => {
   };
 
   const isValid =
-    cvLink.trim() && instagramProofLink.trim() && hearAboutUs.length > 0 && consentAgreed;
+    twibbonPost.trim() && instagramProofLink.trim() && hearAboutUs.length > 0 && consentAgreed;
 
   const hearAboutUsOptions = ["Instagram", "TikTok", "LinkedIn", "Former Alumni", "Friends"];
 
@@ -38,10 +39,10 @@ const Slide4 = ({ formData, updateFormData, onNext }) => {
     <div className="animate-fade-in space-y-6">
       <div className="text-center">
         <h2 className="mb-1 mt-2 font-avenirBlack text-2xl leading-snug text-primary lg:text-3xl">
-          Documents & Information
+          Social Media & Information
         </h2>
         <p className="font-latoRegular text-gray-600">
-          Upload your documents and tell us how you discovered 180DC UGM
+          Complete your social media requirements and tell us how you discovered 180DC UGM
         </p>
       </div>
 
@@ -51,31 +52,61 @@ const Slide4 = ({ formData, updateFormData, onNext }) => {
           <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
             <span className="text-sm font-bold text-white">5</span>
           </div>
-          Required Documents
+          Applicant Twibbon & Social Media
         </h3>
 
         <div className="space-y-6">
-          {/* CV Upload */}
+          {/* Twibbon Post Upload */}
           <div>
             <Label
-              htmlFor="cvLink"
+              htmlFor="twibbonPost"
               className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
             >
-              Upload CV (McKinsey format) *
+              Post our applicant twibbon on your Instagram account! *
             </Label>
             <p className="mb-3 font-latoRegular text-sm text-gray-500">
-              Please upload your CV in McKinsey format. Make sure to rename your file as:
-              &quot;CV_[YourFullName]_180DC.pdf&quot; before uploading to Google Drive and share the
-              link here.
+              <span className="font-latoBold text-black">Instructions:</span>
+              <br />
+              1. Open the drive:{" "}
+              <span className="font-latoBold text-black">
+                <Link
+                  href="https://drive.google.com/drive/folders/1787LhaAnV-FXgZykk70Gqc50IRClAvUT?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-primary"
+                >
+                  https://drive.google.com/drive/folders/1787LhaAnV-FXgZykk70Gqc50IRClAvUT?usp=sharing{" "}
+                </Link>
+              </span>
+              <br />
+              2. Download the twibbon according to your first preference role (e.g., consulting
+              manager, PL, PA)
+              <br />
+              3. Edit and insert your favorite picture of yourself
+              <br />
+              4. Add the caption that has been provided
+              <br />
+              5. Tag @180dcugm and POST 💘
+              <br />
+              <br />
+              <span className="font-latoBold text-black">Important:</span> Please post it on your
+              main Instagram account and ensure that it is public!
             </p>
             <Input
-              id="cvLink"
+              id="twibbonPost"
               type="url"
-              value={cvLink}
-              onChange={(e) => setCvLink(e.target.value)}
-              placeholder="https://drive.google.com/file/d/your-cv-link"
-              className="border-gray-300 font-latoRegular transition-all duration-200 focus:ring-2 focus:ring-primary/50"
+              value={twibbonPost}
+              onChange={(e) => settwibbonPost(e.target.value)}
+              placeholder="https://www.instagram.com/p/your-post-link"
+              className={`border-gray-300 font-latoRegular transition-all duration-200 focus:ring-2 focus:ring-primary/50 ${
+                twibbonPost && !twibbonPost.includes("instagram.com")
+                  ? "border-red-300 focus:ring-red-200"
+                  : ""
+              }`}
             />
+            {twibbonPost && !twibbonPost.includes("instagram.com") && (
+              <p className="mt-1 text-sm text-red-600">Please use an Instagram post link</p>
+            )}
           </div>
 
           {/* Instagram Proof Upload */}
@@ -87,8 +118,34 @@ const Slide4 = ({ formData, updateFormData, onNext }) => {
               Upload proof of Instagram story *
             </Label>
             <p className="mb-3 font-latoRegular text-sm text-gray-500">
-              Please upload a screenshot of your Instagram story sharing about 180DC UGM
-              recruitment. Save as PDF and upload to Google Drive, then share the link here.
+              Upload proof of:
+              <br />
+              1. Tagging 3 friends on this post {"->"}{" "}
+              <span className="font-latoBold text-black">
+                <Link
+                  href="https://www.instagram.com/p/DNSx_afTwcP/?igsh=MmZ2c3IzaG5ycWZm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-primary"
+                >
+                  https://www.instagram.com/p/DNSx_afTwcP/?igsh=MmZ2c3IzaG5ycWZm
+                </Link>
+              </span>
+              <br />
+              2. Uploading this image on your story {"->"}{" "}
+              <span className="font-latoBold text-black underline hover:text-primary">
+                <Link
+                  href="https://drive.google.com/drive/folders/1zjn0EhE53nGUhKvBr47ZpHb7k1_k9rTu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  https://drive.google.com/drive/folders/1zjn0EhE53nGUhKvBr47ZpHb7k1_k9rTu
+                </Link>
+              </span>
+              <br />
+              <br />
+              Please upload the proof to a Google Drive, ensure the access settings are set to
+              “Anyone with the link can view,” and paste the link in the space provided below.
             </p>
             <Input
               id="instagramProofLink"
@@ -96,8 +153,15 @@ const Slide4 = ({ formData, updateFormData, onNext }) => {
               value={instagramProofLink}
               onChange={(e) => setInstagramProofLink(e.target.value)}
               placeholder="https://drive.google.com/file/d/your-instagram-proof-link"
-              className="border-gray-300 font-latoRegular transition-all duration-200 focus:ring-2 focus:ring-primary/50"
+              className={`border-gray-300 font-latoRegular transition-all duration-200 focus:ring-2 focus:ring-primary/50 ${
+                instagramProofLink && !instagramProofLink.includes("drive.google.com")
+                  ? "border-red-300 focus:ring-red-200"
+                  : ""
+              }`}
             />
+            {instagramProofLink && !instagramProofLink.includes("drive.google.com") && (
+              <p className="mt-1 text-sm text-red-600">Please use a Google Drive link</p>
+            )}
           </div>
         </div>
 
@@ -105,7 +169,7 @@ const Slide4 = ({ formData, updateFormData, onNext }) => {
         <div className="mt-6 space-y-4">
           <h2 className="font-avenirRegular font-bold">How did you hear about us? *</h2>
           <p className="font-latoRegular text-sm text-gray-500">
-            Select all that apply. This helps us understand how to better reach future candidates.
+            Please select all sources that apply to how you learned about 180DC UGM.
           </p>
 
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
@@ -151,9 +215,9 @@ const Slide4 = ({ formData, updateFormData, onNext }) => {
         <Button
           onClick={handleNext}
           disabled={!isValid}
-          className="disable:text-black flex items-center gap-2 bg-primary font-avenirRegular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:opacity-50 disabled:hover:scale-100"
+          className="flex items-center gap-2 bg-primary font-avenirRegular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
         >
-          Review Submission
+          Continue to Next Step
           <ChevronRight className="h-4 w-4" />
         </Button>
       </div>

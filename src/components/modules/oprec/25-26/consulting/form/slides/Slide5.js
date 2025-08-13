@@ -1,335 +1,202 @@
-"use client";
-
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, User, GraduationCap, Briefcase, Upload, Loader2 } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { ChevronRight, ChevronLeft } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
+import Image from "next/image";
 import Link from "next/link";
 
-const Slide5 = ({ formData, onSubmit, isSubmitting }) => {
-  const isValid =
-    formData.name &&
-    formData.email &&
-    formData.nim &&
-    formData.phone &&
-    formData.faculty &&
-    formData.major &&
-    formData.gpa &&
-    formData.activeStudent !== undefined &&
-    formData.firstChoicePosition &&
-    formData.whyApplyingLink &&
-    formData.howHelpGoalsLink &&
-    formData.cvLink &&
-    formData.instagramProofLink &&
-    formData.hearAboutUs?.length > 0 &&
-    formData.consentAgreed;
+const Slide5 = ({ formData, updateFormData, onNext }) => {
+  const [registrationProofLink, setRegistrationProofLink] = useState(
+    formData.registrationProofLink || ""
+  );
+  const [consentConsultingAgreed, setConsentConsultingAgreed] = useState(
+    formData.consentConsultingAgreed || false
+  );
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!isValid) return;
-
-    // Call the parent's submit handler
-    await onSubmit();
+  const handleNext = () => {
+    updateFormData({
+      registrationProofLink,
+      consentConsultingAgreed,
+    });
+    onNext();
   };
 
+  const isValid =
+    registrationProofLink.trim() &&
+    registrationProofLink.includes("drive.google.com") &&
+    consentConsultingAgreed;
+
   return (
-    <form onSubmit={handleSubmit} className="animate-fade-in space-y-6">
+    <div className="animate-fade-in space-y-6">
       <div className="text-center">
         <h2 className="mb-1 mt-2 font-avenirBlack text-2xl leading-snug text-primary lg:text-3xl">
-          Review Your Application
+          Consulting Day
         </h2>
         <p className="font-latoRegular text-gray-600">
-          Please review all information before submitting your application
+          Registering for Consulting Day is a mandatory step in the application process. Only
+          applicants who have completed their registration and successfully participate will be
+          eligible to proceed to the next stages of selection.{" "}
         </p>
       </div>
 
-      {/* Personal Information */}
+      {/* Document Uploads */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-        <div className="mb-4 flex items-center justify-between">
-          <h3 className="flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
-              <User className="h-3 w-3 text-white" />
+        <h3 className="mb-6 flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+            <span className="text-sm font-bold text-white">5</span>
+          </div>
+          Register for Consulting Day
+        </h3>
+
+        <div className="space-y-6">
+          {/* Event Information */}
+          <div>
+            <Label className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700">
+              Consulting Day Information
+            </Label>
+            <div className="mb-4 rounded-lg border border-primary/20 bg-primary/5 p-4">
+              <h4 className="mb-2 font-latoBold text-primary">
+                🧑🏻‍💻 Consulting Day - Unlocking Potential: Your Journey into Consulting
+              </h4>
+              <p className="mb-3 font-latoRegular text-sm text-gray-700">
+                Curious about the consulting world? Don&quot;t miss your chance to step inside the
+                world of consulting at Consulting Day! Learn directly from top consultants at
+                leading firms.
+              </p>
+
+              <div className="space-y-2 text-sm text-gray-700">
+                <div>
+                  <span className="font-latoBold">🎙 Main Room Speaker:</span>
+                  <br />• Achmad Fauzon - Senior Associate at KPMG
+                </div>
+
+                <div>
+                  <span className="font-latoBold">🎙 Breakout Room Speakers:</span>
+                  <br />
+                  • James Pratama - Go-To-Market Strategy Manager at MarkPlus
+                  <br />• Nicholas Wijaya - Consultant at Monitor Deloitte
+                </div>
+
+                <div>
+                  <span className="font-latoBold">📅 Date:</span> Sunday, August 17, 2025
+                  <br />
+                  <span className="font-latoBold">🕖 Time:</span> 10.00 - 12.45 WIB
+                  <br />
+                  <span className="font-latoBold">📍 Platform:</span> ZOOM Meeting
+                </div>
+
+                <div className="mt-3 rounded-md bg-primary/10 p-3">
+                  <span className="font-latoBold text-primary">VIP Packages Available:</span>
+                  <br />
+                  💸 VIP 1: CV Review & Casebook Bundle (IDR 50K)
+                  <br />
+                  💸 VIP 2: Mock Case Interview & Casebook Bundle (IDR 80K)
+                  <br />
+                  💸 VVIP: CV Review, Mock Case Interview & Casebook Bundle (IDR 100K)
+                </div>
+
+                <div className="mt-3">
+                  <span className="font-latoBold">📝 Registration:</span>{" "}
+                  <Link
+                    href="https://bit.ly/ConsultingDayRegistration"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-black underline hover:text-primary"
+                  >
+                    https://bit.ly/ConsultingDayRegistration
+                  </Link>
+                </div>
+
+                <div>
+                  <span className="font-latoBold">📞 Contact:</span>
+                  <br />
+                  • Jovita: +62 813-2778-2367
+                  <br />• Qina: +62 812-3003-4275
+                </div>
+              </div>
             </div>
-            Personal Information
-          </h3>
-        </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">Full Name:</span>
-            <p className="font-latoRegular text-gray-600">{formData.name || "Not provided"}</p>
           </div>
+
           <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">Email:</span>
-            <p className="font-latoRegular text-gray-600">{formData.email || "Not provided"}</p>
+            <Label className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700">
+              Event Details
+            </Label>
+            <Image
+              src="/img/oprec/consulting-day.webp"
+              alt="Consulting Day Event Details"
+              width={600}
+              height={400}
+              className="w-full rounded-lg shadow-md"
+              loading="lazy"
+            />
           </div>
+
+          {/* Registration Proof Upload */}
           <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              Student ID (NIM):
-            </span>
-            <p className="font-latoRegular text-gray-600">{formData.nim || "Not provided"}</p>
-          </div>
-          <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              Phone Number:
-            </span>
-            <p className="font-latoRegular text-gray-600">{formData.phone || "Not provided"}</p>
-          </div>
-          <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">Faculty:</span>
-            <p className="font-latoRegular text-gray-600">{formData.faculty || "Not provided"}</p>
-          </div>
-          <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">Major:</span>
-            <p className="font-latoRegular text-gray-600">{formData.major || "Not provided"}</p>
-          </div>
-          <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              Current GPA:
-            </span>
-            <p className="font-latoRegular text-gray-600">{formData.gpa || "Not provided"}</p>
-          </div>
-          <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              Active UGM Student:
-            </span>
-            <p className="font-latoRegular text-gray-600">
-              {formData.activeStudent ? "Yes" : "No"}
+            <Label
+              htmlFor="registrationProofLink"
+              className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
+            >
+              Upload proof of your registration! *
+            </Label>
+            <p className="mb-3 font-latoRegular text-sm text-gray-500">
+              Please upload a screenshot or proof of your Consulting Day registration to Google
+              Drive, ensure the access settings are set to{" "}
+              <span className="font-latoBold text-black">
+                &quot;Anyone with the link can view,&quot;
+              </span>{" "}
+              and paste the link in the space provided below.
             </p>
+            <Input
+              id="registrationProofLink"
+              type="url"
+              value={registrationProofLink}
+              onChange={(e) => setRegistrationProofLink(e.target.value)}
+              placeholder="https://drive.google.com/your-registration-proof"
+              className={`border-gray-300 font-latoRegular transition-all duration-200 focus:ring-2 focus:ring-primary/50 ${
+                registrationProofLink && !registrationProofLink.includes("drive.google.com")
+                  ? "border-red-300 focus:ring-red-200"
+                  : ""
+              }`}
+            />
+            {registrationProofLink && !registrationProofLink.includes("drive.google.com") && (
+              <p className="mt-1 text-sm text-red-600">Please use a Google Drive link</p>
+            )}
+          </div>
+        </div>
+
+        {/* Consent Agreement */}
+        <div className="mt-6 space-y-4">
+          <div className="flex items-start space-x-3">
+            <Checkbox
+              id="consent"
+              checked={consentConsultingAgreed}
+              onCheckedChange={setConsentConsultingAgreed}
+              className="mt-1 text-white"
+            />
+            <Label htmlFor="consent" className="font-latoRegular leading-relaxed text-gray-600">
+              I acknowledge that attending Consulting Day is one of the prerequisites of my
+              application as Consulting Analyst and that failure to participate in the event may
+              result in my disqualification from the recruitment process.
+            </Label>
           </div>
         </div>
       </div>
-
-      {/* Alumni Information */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-        <div className="mb-4 flex items-center justify-between">
-          <h3 className="flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
-              <GraduationCap className="h-3 w-3 text-white" />
-            </div>
-            Alumni Information
-          </h3>
-        </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              180DC UGM Alumni:
-            </span>
-            <p className="font-latoRegular text-gray-600">
-              {formData.is180DCAlumni === true
-                ? "Yes"
-                : formData.is180DCAlumni === false
-                  ? "No"
-                  : "Not specified"}
-            </p>
-          </div>
-          {formData.is180DCAlumni && (
-            <>
-              <div>
-                <span className="font-avenirRegular text-sm font-medium text-gray-700">
-                  Past Position:
-                </span>
-                <p className="font-latoRegular text-gray-600">
-                  {formData.pastPosition || "Not provided"}
-                </p>
-              </div>
-              <div>
-                <span className="font-avenirRegular text-sm font-medium text-gray-700">
-                  Past Batch:
-                </span>
-                <p className="font-latoRegular text-gray-600">
-                  {formData.pastBatch || "Not provided"}
-                </p>
-              </div>
-              <div>
-                <span className="font-avenirRegular text-sm font-medium text-gray-700">
-                  Applying Position:
-                </span>
-                <p className="font-latoRegular text-gray-600">
-                  {formData.applyingPosition || "Not provided"}
-                </p>
-              </div>
-              <div>
-                <span className="font-avenirRegular text-sm font-medium text-gray-700">
-                  Second Choice:
-                </span>
-                <p className="font-latoRegular text-gray-600">
-                  {formData.secondChoice || "No second choice"}
-                </p>
-              </div>
-            </>
-          )}
-        </div>
-      </div>
-
-      {/* Position & Motivation */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-        <div className="mb-4 flex items-center justify-between">
-          <h3 className="flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
-              <Briefcase className="h-3 w-3 text-white" />
-            </div>
-            Position & Motivation
-          </h3>
-        </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              First Choice Position:
-            </span>
-            <p className="font-latoRegular text-gray-600">
-              {formData.firstChoicePosition || "Not provided"}
-            </p>
-          </div>
-          <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              Second Choice Position:
-            </span>
-            <p className="font-latoRegular text-gray-600">
-              {formData.secondChoicePosition || "No second choice"}
-            </p>
-          </div>
-          <div className="md:col-span-2">
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              Why Applying Document:
-            </span>
-            <p className="font-latoRegular text-gray-600">
-              {formData.whyApplyingLink ? (
-                <Link
-                  href={formData.whyApplyingLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline"
-                >
-                  View Document
-                </Link>
-              ) : (
-                "Not provided"
-              )}
-            </p>
-          </div>
-          <div className="md:col-span-2">
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              How 180DC Helps Goals Document:
-            </span>
-            <p className="font-latoRegular text-gray-600">
-              {formData.howHelpGoalsLink ? (
-                <Link
-                  href={formData.howHelpGoalsLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline"
-                >
-                  View Document
-                </Link>
-              ) : (
-                "Not provided"
-              )}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Documents & Information */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-        <div className="mb-4 flex items-center justify-between">
-          <h3 className="flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
-              <Upload className="h-3 w-3 text-white" />
-            </div>
-            Documents & Information
-          </h3>
-        </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div className="md:col-span-2">
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              CV (McKinsey Format):
-            </span>
-            <p className="font-latoRegular text-gray-600">
-              {formData.cvLink ? (
-                <Link
-                  href={formData.cvLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline"
-                >
-                  View CV
-                </Link>
-              ) : (
-                "Not provided"
-              )}
-            </p>
-          </div>
-          <div className="md:col-span-2">
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              Instagram Story Proof:
-            </span>
-            <p className="font-latoRegular text-gray-600">
-              {formData.instagramProofLink ? (
-                <Link
-                  href={formData.instagramProofLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline"
-                >
-                  View Proof
-                </Link>
-              ) : (
-                "Not provided"
-              )}
-            </p>
-          </div>
-          <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              How did you hear about us:
-            </span>
-            <p className="font-latoRegular text-gray-600">
-              {formData.hearAboutUs?.length > 0 ? formData.hearAboutUs.join(", ") : "Not provided"}
-            </p>
-          </div>
-          <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
-              Consent Agreement:
-            </span>
-            <p className="font-latoRegular text-gray-600">
-              {formData.consentAgreed ? "Agreed" : "Not agreed"}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Validation Warning */}
-      {!isValid && (
-        <div className="rounded-lg border border-red-200 bg-red-50 p-4">
-          <div className="flex items-center gap-2">
-            <div className="flex h-5 w-5 items-center justify-center rounded-full bg-red-600">
-              <span className="text-xs font-bold text-white">!</span>
-            </div>
-            <p className="font-avenirRegular text-sm font-medium text-red-800">
-              Please complete all required fields before submitting your application.
-            </p>
-          </div>
-        </div>
-      )}
 
       {/* Navigation */}
       <div className="flex justify-end pt-4">
         <Button
-          type="submit"
-          disabled={!isValid || isSubmitting}
+          onClick={handleNext}
+          disabled={!isValid}
           className="flex items-center gap-2 bg-primary font-avenirRegular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
         >
-          {isSubmitting ? (
-            <>
-              <Loader2 className="h-4 w-4 animate-spin" />
-              Submitting...
-            </>
-          ) : (
-            <>
-              Submit Application
-              <ChevronRight className="h-4 w-4" />
-            </>
-          )}
+          Review Submission
+          <ChevronRight className="h-4 w-4" />
         </Button>
       </div>
-    </form>
+    </div>
   );
 };
 

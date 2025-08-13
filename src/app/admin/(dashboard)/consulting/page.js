@@ -28,7 +28,7 @@ export default async function AdminPage() {
 
   // Fetch submissions
   const { data: submissions, error: submissionsError } = await supabase
-    .from("functional-analyst-batch1-25-26-submissions")
+    .from("consulting-batch1-25-26-submissions")
     .select("*")
     .order("submitted_at", { ascending: false });
 

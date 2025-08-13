@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ChevronRight, Upload, ExternalLink } from "lucide-react";
+import { ChevronRight, ChevronLeft, Upload, ExternalLink } from "lucide-react";
 
 const Slide3 = ({ formData, updateFormData, onNext, onPrevious }) => {
   const [firstChoicePosition, setFirstChoicePosition] = useState(
@@ -18,27 +18,22 @@ const Slide3 = ({ formData, updateFormData, onNext, onPrevious }) => {
   const [secondChoicePosition, setSecondChoicePosition] = useState(
     formData.secondChoicePosition || "unassigned"
   );
-  const [whyApplyingLink, setWhyApplyingLink] = useState(formData.whyApplyingLink || "");
-  const [howHelpGoalsLink, setHowHelpGoalsLink] = useState(formData.howHelpGoalsLink || "");
+  const [documentLink, setDocumentLink] = useState(formData.documentLink || "");
+  const [cvLink, setCvLink] = useState(formData.cvLink || "");
 
   const handleNext = () => {
     updateFormData({
       firstChoicePosition,
       secondChoicePosition: secondChoicePosition === "unassigned" ? "" : secondChoicePosition,
-      whyApplyingLink,
-      howHelpGoalsLink,
+      documentLink,
+      cvLink,
     });
     onNext();
   };
 
-  const isValid = firstChoicePosition.trim() && whyApplyingLink.trim() && howHelpGoalsLink.trim();
+  const isValid = firstChoicePosition.trim() && documentLink.trim() && cvLink.trim();
 
-  const positionOptions = [
-    "Project Leader",
-    "Project Analyst",
-    "Research Leader",
-    "Research Analyst",
-  ];
+  const positionOptions = ["Project Leader", "Project Analyst"];
 
   return (
     <div className="animate-fade-in space-y-6">
@@ -60,7 +55,7 @@ const Slide3 = ({ formData, updateFormData, onNext, onPrevious }) => {
           Position Preferences
         </h3>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2">
           <div>
             <Label
               htmlFor="firstChoicePosition"
@@ -105,43 +100,76 @@ const Slide3 = ({ formData, updateFormData, onNext, onPrevious }) => {
           </div>
         </div>
 
-        <div className="mt-6 space-y-6">
-          {/* Why Applying Document */}
+        <div className="space-y-6">
           <div>
             <Label className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700">
-              Why are you applying for this position? *
+              Motivation Document *
             </Label>
             <p className="mb-3 font-latoRegular text-sm text-gray-500">
-              Please upload a link with PDF document explaining your motivation for applying to this
-              position.
+              Please prepare a document that answers the following questions (max. 500 words) :
+              <span className="font-latoBold text-black">
+                <br />
+                1. Why do you want to be a part of 180DC UGM?
+                <br />
+                2. Why are you applying for this position?
+              </span>
+              <br />
+              <br />
+              Once completed, upload your document to Google Drive, ensure the access settings are
+              set to{" "}
+              <span className="font-latoBold text-black">
+                &quot;Anyone with the link can view,&quot;
+              </span>{" "}
+              and paste the link in the space provided below.
             </p>
             <Input
-              id="whyApplyingLink"
-              type="url"
-              value={whyApplyingLink}
-              onChange={(e) => setWhyApplyingLink(e.target.value)}
-              placeholder="Link to your motivation document"
-              className="border-gray-300 font-latoRegular transition-all duration-200 focus:ring-2 focus:ring-primary/50"
+              value={documentLink}
+              onChange={(e) => setDocumentLink(e.target.value)}
+              placeholder="https://drive.google.com/your-document-link"
+              className={`border-gray-300 font-latoRegular transition-all duration-200 focus:ring-2 focus:ring-primary/50 ${
+                documentLink && !documentLink.includes("drive.google.com")
+                  ? "border-red-300 focus:ring-red-200"
+                  : ""
+              }`}
             />
+            {documentLink && !documentLink.includes("drive.google.com") && (
+              <p className="mt-1 text-sm text-red-600">Please use a Google Drive link</p>
+            )}
           </div>
 
-          {/* How 180DC Helps Goals Document */}
           <div>
             <Label className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700">
-              How will 180DC UGM help you achieve your goals? *
+              Please Insert your CV! *
             </Label>
             <p className="mb-3 font-latoRegular text-sm text-gray-500">
-              Please upload a PDF document explaining how joining 180DC UGM will help you achieve
-              your personal and professional goals.
+              Please do make sure you use McKinsey ATS Template{" "}
+              <span className="font-latoBold text-black">(bit.ly/McKinseyATS-Example)</span>
+              <br />
+              <br />
+              <span className="font-latoBold text-black">
+                Format: FullName_FirstChoice_SecondChoice
+              </span>
+              <br />
+              <br />
+              Then, upload your document to a Google Drive, ensure the access settings are set to{" "}
+              <span className="font-latoBold text-black">
+                &quot;Anyone with the link can view,&quot;
+              </span>{" "}
+              and paste the link in the space provided below.
             </p>
             <Input
-              id="howHelpGoalsLink"
-              type="url"
-              value={howHelpGoalsLink}
-              onChange={(e) => setHowHelpGoalsLink(e.target.value)}
-              placeholder="Link to your how joining 180DC UGM will help document"
-              className="border-gray-300 font-latoRegular transition-all duration-200 focus:ring-2 focus:ring-primary/50"
+              value={cvLink}
+              onChange={(e) => setCvLink(e.target.value)}
+              placeholder="https://drive.google.com/your-document-link"
+              className={`border-gray-300 font-latoRegular transition-all duration-200 focus:ring-2 focus:ring-primary/50 ${
+                cvLink && !cvLink.includes("drive.google.com")
+                  ? "border-red-300 focus:ring-red-200"
+                  : ""
+              }`}
             />
+            {cvLink && !cvLink.includes("drive.google.com") && (
+              <p className="mt-1 text-sm text-red-600">Please use a Google Drive link</p>
+            )}
           </div>
         </div>
       </div>
