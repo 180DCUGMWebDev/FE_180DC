@@ -5,44 +5,47 @@ import { Label } from "@/components/ui/label";
 import { ChevronRight } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const Slide1 = ({ formData, updateFormData, onNext }) => {
   const [name, setName] = useState(formData.name || "");
   const [email, setEmail] = useState(formData.email || "");
-  const [nim, setNim] = useState(formData.nim || "");
+  const [batch, setBatch] = useState(formData.batch || "");
   const [phone, setPhone] = useState(formData.phone || "");
   const [faculty, setFaculty] = useState(formData.faculty || "");
   const [major, setMajor] = useState(formData.major || "");
-  const [gpa, setgpa] = useState(formData.gpa || "");
+  const [gpa, setGpa] = useState(formData.gpa || "");
   const [activeStudent, setActiveStudent] = useState(formData.activeStudent || false);
 
   const handleNext = () => {
-    // Check if user is not an active student
-    if (!activeStudent) {
-      updateFormData({
-        name,
-        email,
-        nim,
-        phone,
-        faculty,
-        major,
-        gpa,
-        activeStudent: false,
-      });
-      return;
-    }
-
-    // If active student, proceed normally to Slide 2
+    // Update form data with current values
     updateFormData({
       name,
       email,
-      nim,
+      batch,
       phone,
       faculty,
       major,
       gpa,
       activeStudent,
     });
+
+    // Check if user is not an active student
+    if (!activeStudent) {
+      // Show alert or handle non-active student case
+      alert(
+        "This recruitment is only open for active UGM students. Please contact us if you believe this is an error."
+      );
+      return;
+    }
+
+    // If active student and all validations pass, proceed to next slide
     onNext();
   };
 
@@ -50,17 +53,16 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
     name.trim() &&
     email.trim() &&
     email.includes("@") &&
-    nim.trim() &&
+    batch.trim() &&
     phone.trim() &&
     faculty.trim() &&
     major.trim() &&
     gpa.trim() &&
     parseFloat(gpa) >= 0 &&
-    parseFloat(gpa) <= 4.0 &&
-    activeStudent;
+    parseFloat(gpa) <= 100;
 
   return (
-    <div className="animate-fade-in space-y-6">
+    <div className="abatchate-fade-in space-y-6">
       <div className="text-center">
         <h2 className="mb-1 mt-2 font-avenirBlack text-2xl leading-snug text-primary lg:text-3xl">
           180 DC Functional Analyst Recruitment.
@@ -82,19 +84,38 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
         <div className="mb-4">
           <h2 className="font-avenirRegular font-bold">Our Mission and Vision</h2>
           <p className="font-latoRegular text-gray-600">
-            Our mission is to empower students with the skills and knowledge needed to excel in the
-            consulting industry. We envision a future where our members are leaders in their fields,
-            driving positive change in society.
+            180 Degrees Consulting is the world’s largest volunteer-led consultancy for non-profits
+            and social enterprises. With over 150 branches across 35+ countries and over 10.000
+            consultants.
+            <br />
+            <br />
+            ⭐️ We are committed to give back to society and deliver excellent standards in
+            everything we do, as illustrated by our university motto to be “Locally Rooted, Globally
+            Respected”.
+            <br />
+            <br />
+            ⭐️ We are here to help Non-Profit Organizations, Non-Governmental Organizations, and
+            SMEs by providing pro-bono consulting services from a qualified and trained student. We
+            do what we do because we believe in effective charity, and because we believe in
+            developing the next generation of social impact leaders.
+            <br />
+            <br />
+            ⭐️ We highly value our #CloSER value that consist of Collaborative, Socially Driven,
+            Excellent and Responsible within our respective members
+            <br />
+            <br />
+            We are very thrilled to welcome you in this process, and hope you find meaningful
+            lessons throughout the journey 🏆 We wish you the best of luck!
           </p>
         </div>
 
         <div className="mb-4">
-          <h2 className="font-avenirRegular font-bold">Recruitment Guidebook</h2>
+          <h2 className="font-avenirRegular font-bold">Recruitment Booklet</h2>
           <p className="font-latoRegular text-gray-600">
-            Make sure you read the full guidebook before you start applying.
+            We advise you to read through the booklet first before filling out the form!
           </p>
-          <Link href="/oprec/25-26">
-            <p className="font-latoBold underline">Read Guidebook</p>
+          <Link href="https://drive.google.com/file/d/1l5cZZiw5AKvcu7T3MVmk5JLt_5PPkS0X/view?usp=sharing">
+            <p className="font-latoBold underline">Read Booklet</p>
           </Link>
         </div>
       </div>
@@ -138,26 +159,35 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="your.email@ugm.ac.id"
+              placeholder="your.email@mail.ugm.ac.id"
               className="border-gray-300 font-latoRegular transition-all duration-200 focus:ring-2 focus:ring-primary/50"
             />
           </div>
 
           <div>
             <Label
-              htmlFor="nim"
+              htmlFor="batch"
               className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
             >
-              Student ID (NIM) *
+              Student ID (batch) *
             </Label>
-            <Input
-              id="nim"
-              type="text"
-              value={nim}
-              onChange={(e) => setNim(e.target.value)}
-              placeholder="23/xxxxxx/xx/xxxxx"
-              className="border-gray-300 font-latoRegular transition-all duration-200 focus:ring-2 focus:ring-primary/50"
-            />
+            <Select
+              value={batch}
+              onValueChange={(value) => {
+                setBatch(value);
+                updateFormData({ batch: value });
+              }}
+            >
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Batch" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="2022">2022</SelectItem>
+                <SelectItem value="2023">2023</SelectItem>
+                <SelectItem value="2024">2024</SelectItem>
+                <SelectItem value="2025">2025</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
           <div>
@@ -212,17 +242,18 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
           </div>
           <div>
             <Label
-              htmlFor="major"
+              htmlFor="gpa"
               className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
             >
-              Current GPA *
+              Current GPA (For those who are in their first-year applying, you can insert your final
+              average score from high-school.) *
             </Label>
             <Input
               id="gpa"
               type="text"
               value={gpa}
-              onChange={(e) => setgpa(e.target.value)}
-              placeholder="e.g., 3.75"
+              onChange={(e) => setGpa(e.target.value)}
+              placeholder="e.g., 3.75 or 92"
               className="border-gray-300 font-latoRegular transition-all duration-200 focus:ring-2 focus:ring-primary/50"
             />
           </div>
@@ -242,6 +273,14 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
               </p>
             </Label>
           </div>
+          {!activeStudent && (
+            <div className="mt-2 rounded-md border border-yellow-200 bg-yellow-50 p-3">
+              <p className="font-latoRegular text-sm text-yellow-800">
+                ⚠️ This recruitment is only open for active UGM students. You must be an active
+                student to proceed with the application.
+              </p>
+            </div>
+          )}
         </div>
       </div>
       <div className="flex justify-end pt-4">
@@ -250,7 +289,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
           disabled={!isValid}
           className="flex items-center gap-2 bg-primary font-avenirRegular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
         >
-          Continue to Next Step
+          {!activeStudent && isValid ? "Submit (Non-Active Student)" : "Continue to Next Step"}
           <ChevronRight className="h-4 w-4" />
         </Button>
       </div>

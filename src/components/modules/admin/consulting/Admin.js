@@ -18,7 +18,7 @@ export function Admin({ submissions, adminUser }) {
     const matchesSearch =
       submission.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       submission.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      submission.nim?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      submission.batch?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       submission.faculty?.toLowerCase().includes(searchTerm.toLowerCase());
 
     const matchesPosition =
@@ -52,13 +52,25 @@ export function Admin({ submissions, adminUser }) {
     const headers = [
       "Name",
       "Email",
-      "NIM",
+      "Batch",
       "Phone",
       "Faculty",
       "Major",
       "GPA",
+      "Active Student",
+      "180DC Alumni",
+      "Past Position",
+      "Past Batch",
       "First Choice",
       "Second Choice",
+      "Motivation Document",
+      "CV Link",
+      "Twibbon Post",
+      "Instagram Proof",
+      "Registration Proof",
+      "How Hear About Us",
+      "Consent Agreed",
+      "Consulting Consent",
       "Submitted At",
     ];
     const csvContent = [
@@ -67,13 +79,25 @@ export function Admin({ submissions, adminUser }) {
         [
           `"${submission.name}"`,
           `"${submission.email}"`,
-          `"${submission.nim}"`,
+          `"${submission.batch}"`,
           `"${submission.phone}"`,
           `"${submission.faculty}"`,
           `"${submission.major}"`,
           submission.gpa,
+          submission.activeStudent ? "Yes" : "No",
+          submission.is180DCAlumni ? "Yes" : "No",
+          `"${submission.pastPosition || ""}"`,
+          `"${submission.pastBatch || ""}"`,
           `"${submission.firstChoicePosition}"`,
-          `"${submission.secondChoicePosition}"`,
+          `"${submission.secondChoicePosition || ""}"`,
+          `"${submission.documentLink}"`,
+          `"${submission.cvLink}"`,
+          `"${submission.twibbonPost}"`,
+          `"${submission.instagramProofLink}"`,
+          `"${submission.registrationProofLink}"`,
+          `"${Array.isArray(submission.hearAboutUs) ? submission.hearAboutUs.join("; ") : submission.hearAboutUs}"`,
+          submission.consentAgreed ? "Yes" : "No",
+          submission.consentConsultingAgreed ? "Yes" : "No",
           `"${formatDate(submission.submitted_at)}"`,
         ].join(",")
       ),
@@ -83,7 +107,7 @@ export function Admin({ submissions, adminUser }) {
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `oprec-submissions-${new Date().toISOString().split("T")[0]}.csv`;
+    a.download = `consulting-oprec-submissions-${new Date().toISOString().split("T")[0]}.csv`;
     a.click();
     window.URL.revokeObjectURL(url);
   }
@@ -159,7 +183,7 @@ export function Admin({ submissions, adminUser }) {
               <div className="relative max-w-md flex-1">
                 <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
                 <Input
-                  placeholder="Cari nama, email, NIM, fakultas..."
+                  placeholder="Cari nama, email, batch, fakultas..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="pl-10"
@@ -183,7 +207,7 @@ export function Admin({ submissions, adminUser }) {
               </div>
             </div>
 
-            <Button onClick={exportToCSV} className="flex items-center gap-2">
+            <Button onClick={exportToCSV} className="flex items-center gap-2 text-white">
               <Download className="h-4 w-4" />
               Export CSV
             </Button>
@@ -219,7 +243,7 @@ export function Admin({ submissions, adminUser }) {
                         <Mail className="h-4 w-4" />
                         {submission.email}
                       </div>
-                      <div>NIM: {submission.nim}</div>
+                      <div>Batch: {submission.batch}</div>
                     </div>
                   </div>
                   <div className="text-right">
@@ -260,19 +284,31 @@ export function Admin({ submissions, adminUser }) {
                         <span className="font-medium">180DC Alumni:</span>{" "}
                         {submission.is180DCAlumni ? "Yes" : "No"}
                       </p>
+                      {submission.is180DCAlumni && (
+                        <>
+                          <p>
+                            <span className="font-medium">Past Position:</span>{" "}
+                            {submission.pastPosition || "N/A"}
+                          </p>
+                          <p>
+                            <span className="font-medium">Past Batch:</span>{" "}
+                            {submission.pastBatch || "N/A"}
+                          </p>
+                        </>
+                      )}
                       <p>
                         <span className="font-medium">1st Choice:</span>{" "}
                         {submission.firstChoicePosition}
                       </p>
                       <p>
                         <span className="font-medium">2nd Choice:</span>{" "}
-                        {submission.secondChoicePosition}
+                        {submission.secondChoicePosition || "N/A"}
                       </p>
                     </div>
                   </div>
 
                   <div>
-                    <p className="text-sm font-medium text-gray-500">Links & Info</p>
+                    <p className="text-sm font-medium text-gray-500">Documents & Links</p>
                     <div className="mt-1 space-y-1 text-sm">
                       <p>
                         <span className="font-medium">CV:</span>{" "}
@@ -286,9 +322,9 @@ export function Admin({ submissions, adminUser }) {
                         </a>
                       </p>
                       <p>
-                        <span className="font-medium">Why Applying:</span>{" "}
+                        <span className="font-medium">Motivation Document:</span>{" "}
                         <a
-                          href={submission.whyApplyingLink}
+                          href={submission.documentLink}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-primary hover:underline"
@@ -297,9 +333,9 @@ export function Admin({ submissions, adminUser }) {
                         </a>
                       </p>
                       <p>
-                        <span className="font-medium">How Help Goals:</span>{" "}
+                        <span className="font-medium">Twibbon Post:</span>{" "}
                         <a
-                          href={submission.howHelpGoalsLink}
+                          href={submission.twibbonPost}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-primary hover:underline"
@@ -317,6 +353,40 @@ export function Admin({ submissions, adminUser }) {
                         >
                           View
                         </a>
+                      </p>
+                      <p>
+                        <span className="font-medium">Registration Proof:</span>{" "}
+                        <a
+                          href={submission.registrationProofLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:underline"
+                        >
+                          View
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Additional Info */}
+                <div className="mt-4 grid grid-cols-1 gap-4 border-t border-gray-200 pt-4 md:grid-cols-2">
+                  <div>
+                    <p className="text-sm font-medium text-gray-500">Additional Information</p>
+                    <div className="mt-1 space-y-1 text-sm">
+                      <p>
+                        <span className="font-medium">How heard about us:</span>{" "}
+                        {Array.isArray(submission.hearAboutUs)
+                          ? submission.hearAboutUs.join(", ")
+                          : submission.hearAboutUs}
+                      </p>
+                      <p>
+                        <span className="font-medium">Consent:</span>{" "}
+                        {submission.consentAgreed ? "Agreed" : "Not Agreed"}
+                      </p>
+                      <p>
+                        <span className="font-medium">Consulting Consent:</span>{" "}
+                        {submission.consentConsultingAgreed ? "Agreed" : "Not Agreed"}
                       </p>
                     </div>
                   </div>
