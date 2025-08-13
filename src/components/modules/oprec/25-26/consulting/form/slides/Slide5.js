@@ -60,9 +60,9 @@ const Slide5 = ({ formData, updateFormData, onNext }) => {
                 🧑🏻‍💻 Consulting Day - Unlocking Potential: Your Journey into Consulting
               </h4>
               <p className="mb-3 font-latoRegular text-sm text-gray-700">
-                Curious about the consulting world? Don't miss your chance to step inside the world
-                of consulting at Consulting Day! Learn directly from top consultants at leading
-                firms.
+                Curious about the consulting world? Don&quot;t miss your chance to step inside the
+                world of consulting at Consulting Day! Learn directly from top consultants at
+                leading firms.
               </p>
 
               <div className="space-y-2 text-sm text-gray-700">

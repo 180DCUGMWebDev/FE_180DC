@@ -55,7 +55,9 @@ const SubmitSlide = ({ formData }) => {
           {/* Join Community Group */}
           <div className="mb-4">
             <h2 className="font-avenirRegular font-bold">Join 180DC Community Group</h2>
-            <p className="mb-3 font-latoRegular text-gray-600">And 180DC's Community Group here</p>
+            <p className="mb-3 font-latoRegular text-gray-600">
+              And 180DC&quot;s Community Group here
+            </p>
             <Link
               href="https://bit.ly/180DCUGMCOMMUNITY1"
               target="_blank"
