@@ -254,7 +254,7 @@ const SubmitSlide = ({ formData }) => {
               )}
             </p>
           </div>
-          <div className="md:col-span-2">
+          {/* <div className="md:col-span-2">
             <span className="font-avenirRegular text-sm font-medium text-gray-700">
               Consulting Day Registration Proof:
             </span>
@@ -272,7 +272,7 @@ const SubmitSlide = ({ formData }) => {
                 "Not provided"
               )}
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -304,14 +304,14 @@ const SubmitSlide = ({ formData }) => {
               {formData.consentAgreed ? "Agreed" : "Not agreed"}
             </p>
           </div>
-          <div>
+          {/* <div>
             <span className="font-avenirRegular text-sm font-medium text-gray-700">
               Consulting Day Consent:
             </span>
             <p className="font-latoRegular text-gray-600">
               {formData.consentAgreed ? "Agreed" : "Not agreed"}
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

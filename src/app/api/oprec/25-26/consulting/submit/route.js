@@ -38,12 +38,12 @@ export async function POST(request) {
       // Social Media Requirements (matching slide6 field names)
       twibbonPost: formData.get("twibbonPost"),
       instagramProofLink: formData.get("instagramProofLink"),
-      registrationProofLink: formData.get("registrationProofLink"),
+      // registrationProofLink: formData.get("registrationProofLink"),
 
       // Additional fields from slide6
       hearAboutUs: formData.get("hearAboutUs"),
       consentAgreed: formData.get("consentAgreed") === "true",
-      consentConsultingAgreed: formData.get("consentConsultingAgreed") === "true",
+      // consentConsultingAgreed: formData.get("consentConsultingAgreed") === "true",
 
       // Meta Information
       user_agent: request.headers.get("user-agent"),
@@ -73,10 +73,10 @@ export async function POST(request) {
       !submissionData.cvLink ||
       !submissionData.twibbonPost ||
       !submissionData.instagramProofLink ||
-      !submissionData.registrationProofLink ||
+      // !submissionData.registrationProofLink ||
       !submissionData.hearAboutUs?.length ||
-      !submissionData.consentAgreed ||
-      !submissionData.consentConsultingAgreed
+      !submissionData.consentAgreed
+      // !submissionData.consentConsultingAgreed
     ) {
       return NextResponse.json(
         {
