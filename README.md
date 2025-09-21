@@ -1,4 +1,4 @@
-# Repositori IT 180dc
+# Repositori IT 180dc ugm
 
 ## How to Run
 
