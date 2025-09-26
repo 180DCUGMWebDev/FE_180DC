@@ -12,9 +12,9 @@ const TBABox = () => (
 
 export function Speaker() {
   return (
-    <div className="flex aspect-[1920/1080] h-fit w-full flex-col items-center bg-[#E8E8E8] p-[2.564vw] lg:p-[1.458vw]">
+    <div className="flex aspect-1920/1080 h-fit w-full flex-col items-center bg-[#E8E8E8] p-[2.564vw] lg:p-[1.458vw]">
       {/* Desktop Version */}
-      <div className="aspect-[1920/1080] h-fit w-full max-lg:hidden">
+      <div className="aspect-1920/1080 h-fit w-full max-lg:hidden">
         {/* Header */}
         <div className="mt-[6.154vw] text-center lg:mt-[6vw]">
           {/* Ribbon Title */}
@@ -34,7 +34,7 @@ export function Speaker() {
                 height={90}
                 className="h-auto w-[90vw] lg:w-[40vw]"
               />
-              <h1 className="absolute inset-0 flex items-center justify-center text-center font-avenirBlack text-[3.077vw] font-bold leading-relaxed text-[#73B743] lg:text-[2vw] lg:leading-[1.5]">
+              <h1 className="absolute inset-0 flex items-center justify-center text-center font-avenir-black text-[3.077vw] font-bold leading-relaxed text-[#73B743] lg:text-[2vw] lg:leading-normal">
                 Acquire, Apply, Achieve: Building
                 <br />
                 the Consultants of Tomorrow
@@ -77,7 +77,7 @@ export function Speaker() {
                       height={20}
                       className="h-[3.205vw] w-[3.205vw] lg:h-[1.2vw] lg:w-[1.2vw]"
                     />
-                    <span className="font-avenirBlack text-[2.9vw] lg:text-[1vw]">
+                    <span className="font-avenir-black text-[2.9vw] lg:text-[1vw]">
                       XX November 2024
                     </span>
                   </div>
@@ -89,7 +89,7 @@ export function Speaker() {
                       height={20}
                       className="h-[3.205vw] w-[3.205vw] lg:h-[1.2vw] lg:w-[1.2vw]"
                     />
-                    <span className="font-avenirBlack text-[2.9vw] lg:text-[1vw]">
+                    <span className="font-avenir-black text-[2.9vw] lg:text-[1vw]">
                       16.30 - 19.30
                     </span>
                   </div>
@@ -103,7 +103,7 @@ export function Speaker() {
                     height={20}
                     className="h-[3.205vw] w-[3.205vw] lg:h-[1.2vw] lg:w-[1.2vw]"
                   />
-                  <span className="font-avenirBlack text-[2.9vw] lg:text-[1vw]">
+                  <span className="font-avenir-black text-[2.9vw] lg:text-[1vw]">
                     BRI Work FISPOL Universitas Gadjah Mada
                   </span>
                 </div>
@@ -130,7 +130,7 @@ export function Speaker() {
               </div>
 
               Registration Info
-              <div className="mt-[1.923vw] w-full text-left font-avenirBlack text-[2.9vw] lg:mt-[1vw] lg:w-1/3 lg:text-[0.9vw]">
+              <div className="mt-[1.923vw] w-full text-left font-avenir-black text-[2.9vw] lg:mt-[1vw] lg:w-1/3 lg:text-[0.9vw]">
                 Register now for FREE* or miss the seats
               </div>
               
@@ -151,7 +151,7 @@ export function Speaker() {
               height={90}
               className="absolute left-0 top-0 h-auto w-full"
             />
-            <h1 className="z-10 px-[5vw] py-[3vw] text-center font-avenirBlack text-[4vw] font-bold leading-tight text-[#73B743]">
+            <h1 className="z-10 px-[5vw] py-[3vw] text-center font-avenir-black text-[4vw] font-bold leading-tight text-[#73B743]">
               Acquire, Apply, Achieve: Building the Consultants of Tomorrow
             </h1>
           </div>
@@ -215,7 +215,7 @@ export function Speaker() {
 
           Registration Info
           <div className="mt-[3vw] border-t border-gray-300 pt-[3vw]">
-            <p className="font-avenirBlack text-[4vw] font-bold">
+            <p className="font-avenir-black text-[4vw] font-bold">
               Register now for FREE* or miss the seats
             </p>
           </div>

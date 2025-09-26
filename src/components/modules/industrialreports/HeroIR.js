@@ -44,19 +44,19 @@ export default function HeroIR() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800 opacity-60" />
+        <div className="absolute inset-0 bg-linear-to-b from-gray-900 to-gray-800 opacity-60" />
       </div>
 
       {/* Content */}
       <div className="relative z-50 flex h-screen w-full flex-col items-center justify-center">
         <div className="flex flex-col items-center justify-center gap-[10px] px-[4%] py-[9vh] max-lg:pt-[10vw] lg:gap-[30px]">
-          <div className="mt-[7vw] font-avenirBlack text-xl text-lightWhite sm:text-4xl lg:text-[80px] lg:leading-none 2xl:text-[112px]">
+          <div className="mt-[7vw] font-avenir-black text-xl text-light-white sm:text-4xl lg:text-[80px] lg:leading-none 2xl:text-[112px]">
             Industrial Report
           </div>
 
           <div
             data-gsap="up-stagger"
-            className="relative mb-[5vw] flex w-full flex-col items-center justify-center lg:h-auto"
+            className="relative mb-[5vw] flex w-full flex-col items-center justify-center lg:h-auto gsap-initial"
           >
             {/* Carousel Container */}
             <div
@@ -72,7 +72,7 @@ export default function HeroIR() {
                 <Link
                   key={index}
                   href={product.href}
-                  className="group relative aspect-[11/16] w-[70vw] max-w-[300px] flex-shrink-0 snap-center overflow-hidden rounded-lg sm:w-[60vw] md:w-[50vw] lg:w-full"
+                  className="group relative aspect-11/16 w-[70vw] max-w-[300px] shrink-0 snap-center overflow-hidden rounded-lg sm:w-[60vw] md:w-[50vw] lg:w-full"
                 >
                   <Image
                     src={product.image}
@@ -91,7 +91,7 @@ export default function HeroIR() {
               {/* Previous Arrow */}
               <button
                 onClick={prevSlide}
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800/50 text-lightWhite transition-colors hover:bg-gray-700"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800/50 text-light-white transition-colors hover:bg-gray-700"
                 aria-label="Previous slide"
               >
                 <HiOutlineArrowLeft className="h-5 w-5" />
@@ -104,7 +104,7 @@ export default function HeroIR() {
                     key={index}
                     onClick={() => goToSlide(index)}
                     className={`h-3 w-3 rounded-full transition-all ${
-                      currentSlide === index ? "w-6 bg-lightWhite" : "bg-gray-400/50"
+                      currentSlide === index ? "w-6 bg-light-white" : "bg-gray-400/50"
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
@@ -114,7 +114,7 @@ export default function HeroIR() {
               {/* Next Arrow */}
               <button
                 onClick={nextSlide}
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800/50 text-lightWhite transition-colors hover:bg-gray-700"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800/50 text-light-white transition-colors hover:bg-gray-700"
                 aria-label="Next slide"
               >
                 <HiOutlineArrowRight className="h-5 w-5" />

@@ -1,6 +1,215 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin 'tailwindcss-animate';
+
+@plugin 'tailwindcss-animate';
+
+@theme {
+  --aspect-*: initial;
+  --aspect-1: 1;
+  --aspect-2: 2;
+  --aspect-3: 3;
+  --aspect-4: 4;
+  --aspect-5: 5;
+  --aspect-6: 6;
+  --aspect-7: 7;
+  --aspect-8: 8;
+  --aspect-9: 9;
+  --aspect-10: 10;
+  --aspect-11: 11;
+  --aspect-12: 12;
+  --aspect-13: 13;
+  --aspect-14: 14;
+  --aspect-15: 15;
+  --aspect-16: 16;
+  --aspect-auto: auto;
+  --aspect-square: 1 / 1;
+  --aspect-video: 16 / 9;
+
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --background-image-gradient-conic: conic-gradient(
+    from 180deg at 50% 50%,
+    var(--tw-gradient-stops)
+  );
+
+  --font-mulish-light: var(--font-mulish-light);
+  --font-mulish-regular: var(--font-mulish-regular);
+  --font-mulish-semibold: var(--font-mulish-semibold);
+  --font-mulish-bold: var(--font-mulish-bold);
+  --font-mulish-extrabold: var(--font-mulish-extrabold);
+  --font-avenir-black: var(--font-avenir-black);
+  --font-avenir-book: var(--font-avenir-book);
+  --font-avenir-heavy: var(--font-avenir-heavy);
+  --font-avenir-light: var(--font-avenir-light);
+  --font-avenir-regular: var(--font-avenir-regular);
+  --font-lato-bold: var(--font-lato-bold);
+  --font-lato-bold-italic: var(--font-lato-bold-italic);
+  --font-lato-regular: var(--font-lato-regular);
+  --font-lato-light: var(--font-lato-light);
+  --font-lato-light-italic: var(--font-lato-light-italic);
+  --font-lato-semibold: var(--font-lato-semibold);
+  --font-lato-semibold-italic: var(--font-lato-semibold-italic);
+
+  --color-primary: #6faa26;
+  --color-secondary: #58b9d1;
+  --color-black: #1a1a1a;
+  --color-light-blue: #a7cdd1;
+  --color-grey: #e2e2e2;
+  --color-light-white: #fdfdfd;
+  --color-black180: #25313c;
+  --color-grey-black180: #6d7d8b;
+  --color-grey-white180: #bbc8d4;
+  --color-white180: #dae3ea;
+  --color-blue180: #5a4ff3;
+  --color-green180: #00c04d;
+  --color-yellow180: #ffbb00;
+  --color-red180: #ed455d;
+
+  --animate-moving-pointer: downPointer 2s ease-in-out infinite;
+
+  @keyframes downPointer {
+    0% {
+      transform: translateY(0);
+    }
+    10% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(50%);
+    }
+    90% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
+
+@theme {
+  --aspect-*: initial;
+  --aspect-1: 1;
+  --aspect-2: 2;
+  --aspect-3: 3;
+  --aspect-4: 4;
+  --aspect-5: 5;
+  --aspect-6: 6;
+  --aspect-7: 7;
+  --aspect-8: 8;
+  --aspect-9: 9;
+  --aspect-10: 10;
+  --aspect-11: 11;
+  --aspect-12: 12;
+  --aspect-13: 13;
+  --aspect-14: 14;
+  --aspect-15: 15;
+  --aspect-16: 16;
+  --aspect-auto: auto;
+  --aspect-square: 1 / 1;
+  --aspect-video: 16 / 9;
+
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --background-image-gradient-conic: conic-gradient(
+    from 180deg at 50% 50%,
+    var(--tw-gradient-stops)
+  );
+
+  --font-mulish-light: var(--font-mulish-light);
+  --font-mulish-regular: var(--font-mulish-regular);
+  --font-mulish-semibold: var(--font-mulish-semibold);
+  --font-mulish-bold: var(--font-mulish-bold);
+  --font-mulish-extrabold: var(--font-mulish-extrabold);
+  --font-avenir-black: var(--font-avenir-black);
+  --font-avenir-book: var(--font-avenir-book);
+  --font-avenir-heavy: var(--font-avenir-heavy);
+  --font-avenir-light: var(--font-avenir-light);
+  --font-avenir-regular: var(--font-avenir-regular);
+  --font-lato-bold: var(--font-lato-bold);
+  --font-lato-bold-italic: var(--font-lato-bold-italic);
+  --font-lato-regular: var(--font-lato-regular);
+  --font-lato-light: var(--font-lato-light);
+  --font-lato-light-italic: var(--font-lato-light-italic);
+  --font-lato-semibold: var(--font-lato-semibold);
+  --font-lato-semibold-italic: var(--font-lato-semibold-italic);
+
+  --color-primary: #6faa26;
+  --color-secondary: #58b9d1;
+  --color-black: #1a1a1a;
+  --color-light-blue: #a7cdd1;
+  --color-grey: #e2e2e2;
+  --color-light-white: #fdfdfd;
+  --color-black180: #25313c;
+  --color-grey-black180: #6d7d8b;
+  --color-grey-white180: #bbc8d4;
+  --color-white180: #dae3ea;
+  --color-blue180: #5a4ff3;
+  --color-green180: #00c04d;
+  --color-yellow180: #ffbb00;
+  --color-red180: #ed455d;
+
+  --animate-moving-pointer: downPointer 2s ease-in-out infinite;
+
+  @keyframes downPointer {
+    0% {
+      transform: translateY(0);
+    }
+    10% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(50%);
+    }
+    90% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
 
 @layer base {
   :root {
@@ -104,6 +313,26 @@
     -webkit-text-stroke-width: 1.2px;
     -webkit-text-stroke-color: black;
   }
+}
+
+.swiper-pagination-bullet {
+  width: 10px !important;;
+  height: 10px !important;;
+  border-radius: 50%;
+  background: white !important;
+  opacity: 0.2;
+}
+
+.swiper-pagination-bullet-active {
+  width: 24px !important;
+  height: 10px !important;
+  border-radius: 20px !important;
+  background: white !important;
+}
+
+.gsap-initial {
+  opacity: 0.8337;
+  transform: translate3d(0, 0, 0);
 }
 
 /* .lenis.lenis-smooth iframe {

@@ -20,7 +20,7 @@ export default function CountinueCourse() {
         <div className="relative mt-[5vw] flex items-center justify-center gap-x-[5vw] max-lg:hidden">
           {/* Kiri */}
           <div className="">
-            <h1 className="w-[80.26vw] text-start font-avenirHeavy text-[3.385vw] text-lightWhite">
+            <h1 className="w-[80.26vw] text-start font-avenir-heavy text-[3.385vw] text-light-white">
               Next Module.......
             </h1>
             <div className="flex gap-x-[2vw]">
@@ -33,8 +33,8 @@ export default function CountinueCourse() {
                   className="inset-0 mx-[1vw] my-[1vw] h-[12.604vw] w-[36.927vw] object-cover max-lg:hidden"
                 />
                 <div className="text-[1vw]/[1.7vw]">
-                  <h1 className="ml-[1vw] font-avenirHeavy text-[1.302vw]"> Module 1: </h1>
-                  <h1 className="ml-[1vw] font-avenirHeavy text-[1.823vw] text-[#58B9D1]">
+                  <h1 className="ml-[1vw] font-avenir-heavy text-[1.302vw]"> Module 1: </h1>
+                  <h1 className="ml-[1vw] font-avenir-heavy text-[1.823vw] text-[#58B9D1]">
                     {" "}
                     Consulting 101{" "}
                   </h1>
@@ -57,8 +57,8 @@ export default function CountinueCourse() {
                   className="inset-0 mx-[1vw] my-[1vw] h-[12.604vw] w-[36.927vw] object-cover max-lg:hidden"
                 />
                 <div className="text-[1vw]/[1.7vw]">
-                  <h1 className="ml-[1vw] font-avenirHeavy text-[1.302vw]"> Module 1: </h1>
-                  <h1 className="ml-[1vw] font-avenirHeavy text-[1.823vw] text-[#58B9D1]">
+                  <h1 className="ml-[1vw] font-avenir-heavy text-[1.302vw]"> Module 1: </h1>
+                  <h1 className="ml-[1vw] font-avenir-heavy text-[1.823vw] text-[#58B9D1]">
                     {" "}
                     Consulting 101{" "}
                   </h1>
@@ -76,16 +76,16 @@ export default function CountinueCourse() {
         </div>
 
         {/* Mobile */}
-        <div className="relative z-[2] mb-[25vw] flex w-full flex-col items-center lg:hidden">
+        <div className="relative z-2 mb-[25vw] flex w-full flex-col items-center lg:hidden">
           {/* <Image
             src="/img/academy/bgblack.png"
             alt="Black Background"
             width={2000}
             height={2000}
-            className="w-full object-cover lg:hidden absolute -z-[10000000] -bottom-[100vw]"
+            className="w-full object-cover lg:hidden absolute -z-10000000 -bottom-[100vw]"
           /> */}
           <div className="mt-[5vw] w-[81.944vw]">
-            <h1 className="bg-gradient-to-r from-[#58B9D1] to-[#6FAA26] bg-clip-text font-avenirRegular text-[4.167vw] text-transparent">
+            <h1 className="bg-linear-to-r from-[#58B9D1] to-[#6FAA26] bg-clip-text font-avenir-regular text-[4.167vw] text-transparent">
               Next Module...
             </h1>
           </div>
@@ -95,11 +95,11 @@ export default function CountinueCourse() {
               alt="background"
               width={2000}
               height={2000}
-              className="inset-0 mx-[auto] my-[2vw] h-[26.736vw] w-[78.222vw] object-cover lg:hidden"
+              className="inset-0 mx-auto my-[2vw] h-[26.736vw] w-[78.222vw] object-cover lg:hidden"
             />
             <div className="text-[1vw]/[4.3vw]">
-              <h1 className="ml-[1vw] font-avenirHeavy text-[3.333vw]"> Module 1: </h1>
-              <h1 className="ml-[1vw] font-avenirHeavy text-[4.167vw] text-[#58B9D1]">
+              <h1 className="ml-[1vw] font-avenir-heavy text-[3.333vw]"> Module 1: </h1>
+              <h1 className="ml-[1vw] font-avenir-heavy text-[4.167vw] text-[#58B9D1]">
                 {" "}
                 Consulting 101{" "}
               </h1>
@@ -118,11 +118,11 @@ export default function CountinueCourse() {
               alt="background"
               width={2000}
               height={2000}
-              className="inset-0 mx-[auto] my-[2vw] h-[26.736vw] w-[78.222vw] object-cover lg:hidden"
+              className="inset-0 mx-auto my-[2vw] h-[26.736vw] w-[78.222vw] object-cover lg:hidden"
             />
             <div className="text-[1vw]/[4.3vw]">
-              <h1 className="ml-[1vw] font-avenirHeavy text-[3.333vw]"> Module 1: </h1>
-              <h1 className="ml-[1vw] font-avenirHeavy text-[4.167vw] text-[#58B9D1]">
+              <h1 className="ml-[1vw] font-avenir-heavy text-[3.333vw]"> Module 1: </h1>
+              <h1 className="ml-[1vw] font-avenir-heavy text-[4.167vw] text-[#58B9D1]">
                 {" "}
                 Consulting 101{" "}
               </h1>

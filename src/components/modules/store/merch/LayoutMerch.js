@@ -87,7 +87,7 @@ const LayoutMerch = () => {
           href="https://docs.google.com/forms/d/e/1FAIpQLScOuHT1hdVMUeLNjxFaLC8zAcgERZnL5b2qZgjcWBdaRSi4NQ/viewform"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex w-[22vw] items-center justify-center rounded-full bg-green-600 py-[2vw] text-[3.3vw] text-white transition-all duration-300 hover:bg-green-700 max-lg:mt-[7vw] max-lg:w-[60vw] max-lg:py-[3.5vw] max-lg:text-[4.2vw] lg:!mt-[0.5vw] lg:w-[11vw] lg:py-[9px] lg:text-[1.1vw] 2xl:w-[170px] 2xl:text-[17px]"
+          className="flex w-[22vw] items-center justify-center rounded-full bg-green-600 py-[2vw] text-[3.3vw] text-white transition-all duration-300 hover:bg-green-700 max-lg:mt-[7vw] max-lg:w-[60vw] max-lg:py-[3.5vw] max-lg:text-[4.2vw] lg:mt-[0.5vw]! lg:w-[11vw] lg:py-[9px] lg:text-[1.1vw] 2xl:w-[170px] 2xl:text-[17px]"
         >
           Buy Now
         </a>

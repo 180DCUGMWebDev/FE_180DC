@@ -21,12 +21,12 @@ export default function PresidentRemarks() {
         {/* Desktop */}
         <div className="relative flex flex-col items-center justify-center max-lg:hidden">
           <div className="w-full">
-            <h1 className="z-1 absolute bottom-[19vw] right-[17vw] bg-gradient-to-r from-[#58B9D1] to-[#6FAA26] bg-clip-text font-avenirRegular text-[15.625vw] text-transparent">
+            <h1 className="z-1 absolute bottom-[19vw] right-[17vw] bg-linear-to-r from-[#58B9D1] to-[#6FAA26] bg-clip-text font-avenir-regular text-[15.625vw] text-transparent">
               {"Preview"}
             </h1>
           </div>
           <div className="w-full">
-            <h1 className="z-1 absolute left-[17vw] top-[17vw] bg-gradient-to-r from-[#58B9D1] to-[#6FAA26] bg-clip-text font-avenirRegular text-[15.625vw] text-transparent">
+            <h1 className="z-1 absolute left-[17vw] top-[17vw] bg-linear-to-r from-[#58B9D1] to-[#6FAA26] bg-clip-text font-avenir-regular text-[15.625vw] text-transparent">
               {"Preview"}
             </h1>
           </div>
@@ -34,7 +34,7 @@ export default function PresidentRemarks() {
 
             <div></div>
           </div>
-          <div className="z-[2] overflow-clip rounded-3xl">
+          <div className="z-2 overflow-clip rounded-3xl">
             <ReactPlayer
               url={"https://youtu.be/ZKh_RqXU81U"}
               controls={true}
@@ -46,9 +46,9 @@ export default function PresidentRemarks() {
         </div>
 
         {/* Mobile */}
-        <div className="z-[2] mb-[10vw] flex w-full flex-col items-center lg:hidden">
+        <div className="z-2 mb-[10vw] flex w-full flex-col items-center lg:hidden">
           <div className="relative h-[10.556vw] w-[85vw] pb-[10vw] text-end">
-            <h1 className="bg-gradient-to-r from-[#58B9D1] to-[#6FAA26] bg-clip-text font-avenirHeavy text-[9.722vw] text-transparent">
+            <h1 className="bg-linear-to-r from-[#58B9D1] to-[#6FAA26] bg-clip-text font-avenir-heavy text-[9.722vw] text-transparent">
               {"Preview"}
             </h1>
           </div>
@@ -62,7 +62,7 @@ export default function PresidentRemarks() {
             />
           </div>
           <div className="relative h-[10.556vw] w-[85vw] pb-[10vw] text-start">
-            <div className="bg-gradient-to-r from-[#58B9D1] to-[#6FAA26] bg-clip-text pt-[2vw] font-avenirRegular text-[3.333vw]/[3vw] text-transparent">
+            <div className="bg-linear-to-r from-[#58B9D1] to-[#6FAA26] bg-clip-text pt-[2vw] font-avenir-regular text-[3.333vw]/[3vw] text-transparent">
 
             </div>
           </div>

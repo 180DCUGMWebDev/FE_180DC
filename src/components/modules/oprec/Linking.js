@@ -42,21 +42,21 @@ export default function Linking() {
   const previousBatches = batches.slice(1);
 
   return (
-    <section className="relative bg-gradient-to-b from-black to-gray-900 px-[5%] py-20 sm:px-[10%] lg:px-[4%]">
+    <section className="relative bg-linear-to-b from-black to-gray-900 px-[5%] py-20 sm:px-[10%] lg:px-[4%]">
       <div className="mx-auto">
         {/* Section Header */}
         <div className="mb-16 text-center">
-          <h2 className="mb-4 font-avenirBlack text-3xl text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mb-4 font-avenir-black text-3xl text-white sm:text-4xl lg:text-5xl">
             Take your <span className="text-primary">Impact</span> now!
           </h2>
-          <p className="mx-auto font-latoRegular text-lg text-white/70">
+          <p className="mx-auto font-lato-regular text-lg text-white/70">
             Join the latest recruitment cycle and become part of our community of changemakers.
           </p>
         </div>
 
         {/* Current Batch - Main Card */}
         <div className="relative mb-16 flex flex-col justify-center gap-4 lg:flex-row lg:items-center">
-          <div className="hover:bg-white/8 group relative h-fit w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-300">
+          <div className="hover:bg-white/8 group relative h-fit w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xs transition-all duration-300">
             {/* Card Background */}
             <div className="absolute inset-0 h-full w-full">
               <Image
@@ -65,7 +65,7 @@ export default function Linking() {
                 fill
                 className="object-cover opacity-15 transition-opacity duration-300 group-hover:opacity-25"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-black/20"></div>
             </div>
 
             {/* Card Content */}
@@ -75,7 +75,7 @@ export default function Linking() {
                 {/* Status Badge */}
                 <div className="mb-5 flex flex-row flex-wrap items-center justify-between gap-3">
                   <div className="flex flex-wrap items-center gap-3">
-                    <span className="inline-flex items-center gap-2 rounded-full border-[1px] border-primary bg-white px-4 py-1 text-sm font-medium text-black">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-primary bg-white px-4 py-1 text-sm font-medium text-black">
                       {currentBatch.status}
                     </span>
                     {currentBatch.cycle && (
@@ -89,11 +89,11 @@ export default function Linking() {
                   </span>
                 </div>
                 {/* Title */}
-                <h3 className="font-avenirBlack text-2xl leading-snug text-white lg:text-3xl">
+                <h3 className="font-avenir-black text-2xl leading-snug text-white lg:text-3xl">
                   {currentBatch.title}
                 </h3>
                 {/* Description */}
-                <p className="mb-2 max-w-4xl font-latoRegular text-base leading-relaxed text-white/80 lg:text-lg">
+                <p className="mb-2 max-w-4xl font-lato-regular text-base leading-relaxed text-white/80 lg:text-lg">
                   {currentBatch.description}
                 </p>
                 {/* Period */}
@@ -119,13 +119,13 @@ export default function Linking() {
         {/* Previous Batches Timeline */}
         {previousBatches.length > 0 && (
           <div className="mb-16">
-            <h3 className="mb-8 text-center font-avenirBlack text-2xl text-white lg:text-3xl">
+            <h3 className="mb-8 text-center font-avenir-black text-2xl text-white lg:text-3xl">
               Previous <span className="text-primary">Recruitment</span> Cycles
             </h3>
 
             <div className="relative">
               {/* Timeline Line */}
-              <div className="absolute bottom-0 left-4 top-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-transparent lg:left-1/2 lg:-translate-x-px"></div>
+              <div className="absolute bottom-0 left-4 top-0 w-0.5 bg-linear-to-b from-primary via-primary/50 to-transparent lg:left-1/2 lg:-translate-x-px"></div>
 
               {/* Timeline Items */}
               <div className="space-y-8">
@@ -143,7 +143,7 @@ export default function Linking() {
                     <div
                       className={`ml-12 w-full lg:ml-0 lg:w-5/12 ${index % 2 === 0 ? "lg:mr-auto lg:pr-8" : "lg:ml-auto lg:pl-8"}`}
                     >
-                      <div className="group relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-white/10">
+                      <div className="group relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xs transition-all duration-300 hover:scale-105 hover:bg-white/10">
                         {/* Card Background */}
                         <div className="absolute inset-0">
                           <Image
@@ -152,7 +152,7 @@ export default function Linking() {
                             fill
                             className="h-full w-full object-cover opacity-10 transition-opacity duration-300 group-hover:opacity-20"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                          <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
                         </div>
 
                         {/* Card Content */}
@@ -160,7 +160,7 @@ export default function Linking() {
                           {/* Header */}
                           <div className="mb-4 flex flex-wrap items-center justify-between">
                             <div className="flex gap-2">
-                              <span className="rounded-full border-[1px] border-primary bg-transparent px-3 py-1 text-sm font-semibold text-white">
+                              <span className="rounded-full border border-primary bg-transparent px-3 py-1 text-sm font-semibold text-white">
                                 {batch.status}
                               </span>
                               <span className="rounded-full bg-primary px-3 py-1 text-sm font-semibold text-white">
@@ -173,12 +173,12 @@ export default function Linking() {
                           </div>
 
                           {/* Title */}
-                          <h4 className="font-avenirBlack text-xl leading-snug text-white">
+                          <h4 className="font-avenir-black text-xl leading-snug text-white">
                             {batch.title}
                           </h4>
 
                           {/* Description */}
-                          <p className="mb-2 font-latoRegular text-sm leading-none text-white/80">
+                          <p className="mb-2 font-lato-regular text-sm leading-none text-white/80">
                             {batch.description}
                           </p>
 
@@ -206,11 +206,11 @@ export default function Linking() {
         )}
 
         {/* Additional Info */}
-        <div className="rounded-3xl bg-gradient-to-r from-primary/10 to-blue-500/10 p-8 text-center">
-          <h3 className="mb-4 font-avenirBlack text-xl text-white lg:text-2xl">
+        <div className="rounded-3xl bg-linear-to-r from-primary/10 to-blue-500/10 p-8 text-center">
+          <h3 className="mb-4 font-avenir-black text-xl text-white lg:text-2xl">
             Ready to join <span className="text-primary">180DC UGM</span>?
           </h3>
-          <p className="mb-6 font-latoRegular text-white/80">
+          <p className="mb-6 font-lato-regular text-white/80">
             Learn more about our program structure, requirements, and what makes 180DC UGM special.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">

@@ -6,20 +6,20 @@ import Image from "next/image";
 export function TimelineCaseComp() {
   // Page
   return (
-    <section className="relative aspect-[1920/1200] w-full">
+    <section className="relative aspect-1920/1200 w-full">
       <Image
         src="/img/casecomp/bg-timeline-apac.png"
         alt="background"
         width={2000}
         height={2000}
-        className="absolute inset-0 z-0 aspect-[1920/1200] w-full object-cover max-lg:hidden"
+        className="absolute inset-0 z-0 aspect-1920/1200 w-full object-cover max-lg:hidden"
       />
       <Image
         src="/img/casecomp/bg-timeline-event-mobile.png"
         alt="background"
         width={2000}
         height={2000}
-        className="absolute inset-0 z-0 aspect-[9/16] w-full object-cover lg:hidden"
+        className="absolute inset-0 z-0 aspect-9/16 w-full object-cover lg:hidden"
       />
 
       {/* Content */}
@@ -43,7 +43,7 @@ export function TimelineCaseComp() {
             className="z-5 absolute -right-[18vw] -top-[10vw] w-[24.008vw] object-cover max-lg:hidden"
           />
           {/* Centered Timeline image */}
-          <div className="mt-[3vw] mb-[5vw] font-latoBold text-[3.33vw] text-[#73B743]">
+          <div className="mt-[3vw] mb-[5vw] font-lato-bold text-[3.33vw] text-[#73B743]">
             <Image
               src="/img/casecomp/apactimelinetitle.png"
               alt=""

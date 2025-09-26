@@ -136,12 +136,12 @@ export default function MiniQuiz() {
     <section className="mt-[3vw] bg-black px-[9%]">
       <div className="relative mt-[9.92vw] flex flex-col rounded-[16px] bg-white px-[6%] py-[6%] lg:p-[3.333vw]">
         <div className="flex flex-col">
-          <h2 className="font-latoBold text-[7vw] text-primary lg:text-[2.083vw]">
+          <h2 className="font-lato-bold text-[7vw] text-primary lg:text-[2.083vw]">
             Internal Mentoring 2
           </h2>
-          <h2 className="font-latoBold text-[7vw] text-primary lg:text-[2.083vw]">Mini Quiz</h2>
+          <h2 className="font-lato-bold text-[7vw] text-primary lg:text-[2.083vw]">Mini Quiz</h2>
           {!isQuizCompleted && (
-            <h2 className="font-latoBold text-[4vw] text-black lg:text-[1.25vw]">
+            <h2 className="font-lato-bold text-[4vw] text-black lg:text-[1.25vw]">
               Question {currentQuestion.number}/{questionAnswer.length}
             </h2>
           )}
@@ -149,7 +149,7 @@ export default function MiniQuiz() {
 
         <div className="mx-auto my-[2vw] flex w-full flex-col rounded-[16px] bg-primary px-[6%] py-[6%] lg:my-0 lg:-mt-[2vw] lg:min-h-[40vw] lg:w-[36vw] lg:rounded-[0.625vw] lg:p-[2vw]">
           {isQuizCompleted ? (
-            <div className="flex flex-grow flex-col">
+            <div className="flex grow flex-col">
               <p className="text-[4vw] font-bold text-white lg:text-[1.25vw]">Result</p>
               <p className="my-[4vw] text-[5vw] font-semibold text-white lg:my-[1.667vw] lg:text-[1.667vw]">
                 Overall: {Math.round((correctCount / questionAnswer.length) * 100)}%

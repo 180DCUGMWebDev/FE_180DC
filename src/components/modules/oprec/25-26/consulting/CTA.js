@@ -6,14 +6,14 @@ export default function CTA() {
   return (
     <section
       id="cta"
-      className="relative bg-gradient-to-b from-gray-900 to-black px-[5%] py-10 sm:px-[10%] lg:px-[4%]"
+      className="relative bg-linear-to-b from-gray-900 to-black px-[5%] py-10 sm:px-[10%] lg:px-[4%]"
     >
       <div className="mx-auto max-w-4xl text-center">
         <div className="mb-12">
-          <h2 className="mb-6 font-avenirBlack text-3xl text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mb-6 font-avenir-black text-3xl text-white sm:text-4xl lg:text-5xl">
             Ready to <span className="text-primary">Apply</span>?
           </h2>
-          <p className="mx-auto max-w-2xl font-latoRegular text-lg text-white/70 lg:text-xl">
+          <p className="mx-auto max-w-2xl font-lato-regular text-lg text-white/70 lg:text-xl">
             After reading the guidebook, submit your application and start your journey as a 180DC
             UGM analyst.
           </p>

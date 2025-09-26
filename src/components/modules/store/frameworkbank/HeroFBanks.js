@@ -37,28 +37,28 @@ export default function HeroFbanks() {
             className="absolute left-[14.5vw] top-[6vw] h-[1.776vw] w-[1.531vw] object-cover lg:right-[2vw] lg:top-[5.5vw] lg:h-[1.776vw] lg:w-[1.531vw]"
           />
 
-          <div className="flex h-[5.677vw] w-[30vw] flex-col items-center justify-center rounded-[5.208vw] bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] px-[2vw] pt-[1vw] font-avenirBlack text-[3vw] text-lightWhite lg:mt-[0.5vw] lg:pt-[0.5vw]">
+          <div className="flex h-[5.677vw] w-[30vw] flex-col items-center justify-center rounded-[5.208vw] bg-linear-to-r from-[#6FAA26] to-[#58B9D1] px-[2vw] pt-[1vw] font-avenir-black text-[3vw] text-light-white lg:mt-[0.5vw] lg:pt-[0.5vw]">
             Framework Bank
           </div>
-          <div className="ml-[1.6vw] font-avenirBook text-[1.7vw] max-lg:mt-[0.8vw]">
+          <div className="ml-[1.6vw] font-avenir-book text-[1.7vw] max-lg:mt-[0.8vw]">
             <h2>
-              <span className="font-avenirRegular">by </span>
-              <span className="font-avenirBlack">180DC UGM</span>
+              <span className="font-avenir-regular">by </span>
+              <span className="font-avenir-black">180DC UGM</span>
             </h2>
           </div>
-          <div className="mb-[0.4vw] ml-[1.6vw] mt-[1vw] flex w-[40vw] font-avenirRegular text-[1.5vw]/[1.3vw] leading-[1.7vw] lg:leading-[1.4vw]">
+          <div className="mb-[0.4vw] ml-[1.6vw] mt-[1vw] flex w-[40vw] font-avenir-regular text-[1.5vw]/[1.3vw] leading-[1.7vw] lg:leading-[1.4vw]">
             Your shortcut to{" "}
             <span className="font-semibold text-[#6FAA26]"> &nbsp;21+ effective&nbsp;</span>
             consulting <span className="font-semibold text-[#6FAA26]">&nbsp;frameworks!</span>
           </div>
-          <div className="mb-[2vw] ml-[1.6vw] flex w-[40vw] font-avenirRegular text-[1.5vw]/[1.3vw] leading-[1.7vw] lg:leading-[1.4vw]">
+          <div className="mb-[2vw] ml-[1.6vw] flex w-[40vw] font-avenir-regular text-[1.5vw]/[1.3vw] leading-[1.7vw] lg:leading-[1.4vw]">
             Discover our <span className="font-semibold text-[#58B9D1]">&nbsp;Case Study&nbsp;</span>
             and Many More!
           </div>
 
           <Link
             href="https://lynk.id/180dcugm/wxwNY7V"
-            className="relative ml-[1.6vw] flex h-[3.75vw] w-[12.677vw] items-center justify-center gap-[1vw] rounded-[5.208vw] bg-black font-avenirHeavy text-[1.25vw] text-white transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#5AB0BB]/20 lg:h-[3.75vw] lg:w-[10.677vw]"
+            className="relative ml-[1.6vw] flex h-[3.75vw] w-[12.677vw] items-center justify-center gap-[1vw] rounded-[5.208vw] bg-black font-avenir-heavy text-[1.25vw] text-white transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#5AB0BB]/20 lg:h-[3.75vw] lg:w-[10.677vw]"
           >
             <Image
               src="/img/store/casebook/greenstar.png"
@@ -83,7 +83,7 @@ export default function HeroFbanks() {
             alt="background"
             width={2000}
             height={2000}
-            className="rotate-[30deg] inset-0 h-auto scale-[0.8] object-cover max-lg:w-[107.026vw] max-lg:scale-[1] max-lg:pr-[14vw] lg:-right-[10vw] lg:h-[1019.8] lg:w-[63.006vw]"
+            className="rotate-30 inset-0 h-auto scale-[0.8] object-cover max-lg:w-[107.026vw] max-lg:scale-[1] max-lg:pr-[14vw] lg:-right-[10vw] lg:h-[1019.8] lg:w-[63.006vw]"
           />
         </div>
       </div>

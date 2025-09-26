@@ -14,10 +14,10 @@ export default function Guidebook() {
       <div className="relative flex flex-col md:flex-row md:items-center">
         <div className="mb-12 text-center">
           <div>
-            <h2 className="mb-4 font-avenirBlack text-3xl text-white sm:text-4xl lg:text-5xl">
+            <h2 className="mb-4 font-avenir-black text-3xl text-white sm:text-4xl lg:text-5xl">
               Recruitment <span className="text-primary">Guidebook</span>
             </h2>
-            <p className="mx-auto max-w-2xl font-latoRegular text-lg text-white/70">
+            <p className="mx-auto max-w-2xl font-lato-regular text-lg text-white/70">
               Download and read our comprehensive guidebook to understand the recruitment process
               and requirements.
             </p>
@@ -49,13 +49,13 @@ export default function Guidebook() {
           </div>
         </div>
 
-        <div className="group w-full rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm md:w-[80%] lg:p-8">
+        <div className="group w-full rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xs md:w-[80%] lg:p-8">
           <iframe
             src="/file/FAOprecGuidebook.pdf#toolbar=0&navpanes=0&scrollbar=1"
             width="100%"
             height="600"
             title="180DC Recruitment Guidebook"
-            className="h-[70vh] w-full rounded-lg bg-white [pointer-events:none] group-hover:[pointer-events:auto]"
+            className="h-[70vh] w-full rounded-lg bg-white pointer-events-none group-hover:pointer-events-auto"
             style={{ border: "none" }}
             loading="lazy"
             tabIndex="-1"

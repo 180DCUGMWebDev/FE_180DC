@@ -35,18 +35,18 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
   return (
     <form onSubmit={handleSubmit} className="animate-fade-in space-y-6">
       <div className="text-center">
-        <h2 className="mb-1 mt-2 font-avenirBlack text-2xl leading-snug text-primary lg:text-3xl">
+        <h2 className="mb-1 mt-2 font-avenir-black text-2xl leading-snug text-primary lg:text-3xl">
           Review Your Application
         </h2>
-        <p className="font-latoRegular text-gray-600">
+        <p className="font-lato-regular text-gray-600">
           Please review all information before submitting your application
         </p>
       </div>
 
       {/* Personal Information */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <div className="mb-4 flex items-center justify-between">
-          <h3 className="flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
+          <h3 className="flex items-center gap-2 font-avenir-black text-xl text-gray-800">
             <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
               <User className="h-3 w-3 text-white" />
             </div>
@@ -55,42 +55,42 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">Full Name:</span>
-            <p className="font-latoRegular text-gray-600">{formData.name || "Not provided"}</p>
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">Full Name:</span>
+            <p className="font-lato-regular text-gray-600">{formData.name || "Not provided"}</p>
           </div>
           <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">Email:</span>
-            <p className="font-latoRegular text-gray-600">{formData.email || "Not provided"}</p>
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">Email:</span>
+            <p className="font-lato-regular text-gray-600">{formData.email || "Not provided"}</p>
           </div>
           <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">Batch:</span>
-            <p className="font-latoRegular text-gray-600">{formData.batch || "Not provided"}</p>
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">Batch:</span>
+            <p className="font-lato-regular text-gray-600">{formData.batch || "Not provided"}</p>
           </div>
           <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">
               Phone Number:
             </span>
-            <p className="font-latoRegular text-gray-600">{formData.phone || "Not provided"}</p>
+            <p className="font-lato-regular text-gray-600">{formData.phone || "Not provided"}</p>
           </div>
           <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">Faculty:</span>
-            <p className="font-latoRegular text-gray-600">{formData.faculty || "Not provided"}</p>
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">Faculty:</span>
+            <p className="font-lato-regular text-gray-600">{formData.faculty || "Not provided"}</p>
           </div>
           <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">Major:</span>
-            <p className="font-latoRegular text-gray-600">{formData.major || "Not provided"}</p>
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">Major:</span>
+            <p className="font-lato-regular text-gray-600">{formData.major || "Not provided"}</p>
           </div>
           <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">
               Current GPA:
             </span>
-            <p className="font-latoRegular text-gray-600">{formData.gpa || "Not provided"}</p>
+            <p className="font-lato-regular text-gray-600">{formData.gpa || "Not provided"}</p>
           </div>
           <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">
               Active UGM Student:
             </span>
-            <p className="font-latoRegular text-gray-600">
+            <p className="font-lato-regular text-gray-600">
               {formData.activeStudent ? "Yes" : "No"}
             </p>
           </div>
@@ -98,9 +98,9 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
       </div>
 
       {/* Alumni Information */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <div className="mb-4 flex items-center justify-between">
-          <h3 className="flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
+          <h3 className="flex items-center gap-2 font-avenir-black text-xl text-gray-800">
             <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
               <GraduationCap className="h-3 w-3 text-white" />
             </div>
@@ -109,10 +109,10 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">
               180DC UGM Alumni:
             </span>
-            <p className="font-latoRegular text-gray-600">
+            <p className="font-lato-regular text-gray-600">
               {formData.is180DCAlumni === true
                 ? "Yes"
                 : formData.is180DCAlumni === false
@@ -123,18 +123,18 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
           {formData.is180DCAlumni && (
             <>
               <div>
-                <span className="font-avenirRegular text-sm font-medium text-gray-700">
+                <span className="font-avenir-regular text-sm font-medium text-gray-700">
                   Past Position:
                 </span>
-                <p className="font-latoRegular text-gray-600">
+                <p className="font-lato-regular text-gray-600">
                   {formData.pastPosition || "Not provided"}
                 </p>
               </div>
               <div>
-                <span className="font-avenirRegular text-sm font-medium text-gray-700">
+                <span className="font-avenir-regular text-sm font-medium text-gray-700">
                   Past Batch:
                 </span>
-                <p className="font-latoRegular text-gray-600">
+                <p className="font-lato-regular text-gray-600">
                   {formData.pastBatch || "Not provided"}
                 </p>
               </div>
@@ -144,9 +144,9 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
       </div>
 
       {/* Position & Motivation */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <div className="mb-4 flex items-center justify-between">
-          <h3 className="flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
+          <h3 className="flex items-center gap-2 font-avenir-black text-xl text-gray-800">
             <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
               <Briefcase className="h-3 w-3 text-white" />
             </div>
@@ -155,26 +155,26 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">
               First Choice Position:
             </span>
-            <p className="font-latoRegular text-gray-600">
+            <p className="font-lato-regular text-gray-600">
               {formData.firstChoicePosition || "Not provided"}
             </p>
           </div>
           <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">
               Second Choice Position:
             </span>
-            <p className="font-latoRegular text-gray-600">
+            <p className="font-lato-regular text-gray-600">
               {formData.secondChoicePosition || "No second choice"}
             </p>
           </div>
           <div className="md:col-span-1">
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">
               Motivation Document:
             </span>
-            <p className="font-latoRegular text-gray-600">
+            <p className="font-lato-regular text-gray-600">
               {formData.documentLink ? (
                 <Link
                   href={formData.documentLink}
@@ -190,10 +190,10 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
             </p>
           </div>
           <div className="md:col-span-1">
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">
               CV (McKinsey Format):
             </span>
-            <p className="font-latoRegular text-gray-600">
+            <p className="font-lato-regular text-gray-600">
               {formData.cvLink ? (
                 <Link
                   href={formData.cvLink}
@@ -212,9 +212,9 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
       </div>
 
       {/* Documents & Information */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <div className="mb-4 flex items-center justify-between">
-          <h3 className="flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
+          <h3 className="flex items-center gap-2 font-avenir-black text-xl text-gray-800">
             <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
               <Upload className="h-3 w-3 text-white" />
             </div>
@@ -223,10 +223,10 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div className="md:col-span-2">
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">
               Twibbon Post:
             </span>
-            <p className="font-latoRegular text-gray-600">
+            <p className="font-lato-regular text-gray-600">
               {formData.twibbonPost ? (
                 <Link
                   href={formData.twibbonPost}
@@ -242,10 +242,10 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
             </p>
           </div>
           <div className="md:col-span-2">
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">
               Instagram Story Proof:
             </span>
-            <p className="font-latoRegular text-gray-600">
+            <p className="font-lato-regular text-gray-600">
               {formData.instagramProofLink ? (
                 <Link
                   href={formData.instagramProofLink}
@@ -261,10 +261,10 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
             </p>
           </div>
           {/* <div className="md:col-span-2">
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">
               Consulting Day Registration Proof:
             </span>
-            <p className="font-latoRegular text-gray-600">
+            <p className="font-lato-regular text-gray-600">
               {formData.registrationProofLink ? (
                 <Link
                   href={formData.registrationProofLink}
@@ -280,26 +280,26 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
             </p>
           </div> */}
           <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">
               How did you hear about us:
             </span>
-            <p className="font-latoRegular text-gray-600">
+            <p className="font-lato-regular text-gray-600">
               {formData.hearAboutUs?.length > 0 ? formData.hearAboutUs.join(", ") : "Not provided"}
             </p>
           </div>
           <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">
               Consent Agreement:
             </span>
-            <p className="font-latoRegular text-gray-600">
+            <p className="font-lato-regular text-gray-600">
               {formData.consentAgreed ? "Agreed" : "Not agreed"}
             </p>
           </div>
           {/* <div>
-            <span className="font-avenirRegular text-sm font-medium text-gray-700">
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">
               Consent Consulting Agreement:
             </span>
-            <p className="font-latoRegular text-gray-600">
+            <p className="font-lato-regular text-gray-600">
               {formData.consentConsultingAgreed ? "Agreed" : "Not agreed"}
             </p>
           </div> */}
@@ -313,7 +313,7 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
             <div className="flex h-5 w-5 items-center justify-center rounded-full bg-red-600">
               <span className="text-xs font-bold text-white">!</span>
             </div>
-            <p className="font-avenirRegular text-sm font-medium text-red-800">
+            <p className="font-avenir-regular text-sm font-medium text-red-800">
               Please complete all required fields before submitting your application.
             </p>
           </div>
@@ -325,7 +325,7 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
         <Button
           type="submit"
           disabled={!isValid || isSubmitting}
-          className="flex items-center gap-2 bg-primary font-avenirRegular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
+          className="flex items-center gap-2 bg-primary font-avenir-regular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
         >
           {isSubmitting ? (
             <>

@@ -87,7 +87,7 @@ export function Login() {
   }
 
   return (
-    <section className="flex min-h-screen items-center justify-center bg-gradient-to-b from-black to-primary/90 p-4">
+    <section className="flex min-h-screen items-center justify-center bg-linear-to-b from-black to-primary/90 p-4">
       <div className="w-full max-w-md">
         {/* Header */}
         <div className="mb-8 text-center">
@@ -98,7 +98,7 @@ export function Login() {
         </div>
 
         {/* Login Form */}
-        <div className="rounded-lg bg-white/90 p-8 shadow-2xl backdrop-blur-sm">
+        <div className="rounded-lg bg-white/90 p-8 shadow-2xl backdrop-blur-xs">
           {error && (
             <div className="mb-6 rounded-lg border border-red-200 bg-red-50 p-4">
               <div className="flex items-center">

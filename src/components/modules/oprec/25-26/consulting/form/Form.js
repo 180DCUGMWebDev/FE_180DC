@@ -168,9 +168,9 @@ export default function Form() {
   };
 
   return (
-    <section className="flex min-h-screen items-center justify-center bg-gradient-to-b from-black to-primary/90 p-4">
+    <section className="flex min-h-screen items-center justify-center bg-linear-to-b from-black to-primary/90 p-4">
       <div className="w-full max-w-4xl py-20">
-        <div className="rounded-lg border-0 bg-white/90 p-6 shadow-2xl backdrop-blur-sm">
+        <div className="rounded-lg border-0 bg-white/90 p-6 shadow-2xl backdrop-blur-xs">
           <div className="pb-4">
             <div className="mb-4 flex items-center justify-between">
               <div className="text-sm font-medium text-gray-600">

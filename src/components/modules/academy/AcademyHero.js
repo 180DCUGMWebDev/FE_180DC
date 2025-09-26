@@ -42,10 +42,10 @@ export default function AcademyHero() {
           {/* Content */}
           <div className="flex w-full flex-col items-center justify-center">
             <div className="py-[10vw]">
-              <h1 className="bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] bg-clip-text text-center font-avenirBlack text-[5.833vw]/[7.2vw] text-transparent">
+              <h1 className="bg-linear-to-r from-[#6FAA26] to-[#58B9D1] bg-clip-text text-center font-avenir-black text-[5.833vw]/[7.2vw] text-transparent">
                 {"180DC Academy"}
               </h1>
-              <h1 className="w-[60.219vw] pt-[2.5vw] text-center font-avenirRegular text-[1.823vw]/[1.67vw] text-lightWhite">
+              <h1 className="w-[60.219vw] pt-[2.5vw] text-center font-avenir-regular text-[1.823vw]/[1.67vw] text-light-white">
                 {
                   "180DC Academy is our series of free courses to teach you all necessary materials to equip you with skills in attempt to increase the accessibility of consulting. You will learn everything you need to know to apply it to different fields even if you're not a part of our internal team."
                 }
@@ -56,10 +56,10 @@ export default function AcademyHero() {
               className="flex flex-col items-center outline-0"
               onClick={handleClick}
             >
-              <h2 className="mt-[1.4vw] font-latoBold text-[1vw] text-lightWhite max-lg:hidden">
+              <h2 className="mt-[1.4vw] font-lato-bold text-[1vw] text-light-white max-lg:hidden">
                 {"SCROLL DOWN"}
               </h2>
-              <FaChevronDown className="animate-movingPointer text-[1.4vw] text-lightWhite hover:cursor-pointer" />
+              <FaChevronDown className="animate-moving-pointer text-[1.4vw] text-light-white hover:cursor-pointer" />
             </button>
           </div>
           {/* Scroll Down Target */}
@@ -67,18 +67,18 @@ export default function AcademyHero() {
         </div>
 
         {/* Mobile */}
-        <div className="z-[2] mt-[24.372vw] flex w-full flex-col items-center lg:hidden">
+        <div className="z-2 mt-[24.372vw] flex w-full flex-col items-center lg:hidden">
           <div className="flex w-full flex-col items-center justify-center">
             <div>
-              <h1 className="bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] bg-clip-text text-center font-avenirBlack text-[8.333vw] text-transparent">
+              <h1 className="bg-linear-to-r from-[#6FAA26] to-[#58B9D1] bg-clip-text text-center font-avenir-black text-[8.333vw] text-transparent">
                 {"180DC Academy"}
               </h1>
-              <h1 className="w-[87.222vw] pt-[2.5vw] text-center font-avenirRegular text-[3.333vw]/[3.67vw] text-lightWhite">
+              <h1 className="w-[87.222vw] pt-[2.5vw] text-center font-avenir-regular text-[3.333vw]/[3.67vw] text-light-white">
                 {
                   "180DC Academy is our series of free courses to teach you all necessary materials to equip you with skills in attempt to increase the accessibility of consulting. You will learn everything you need to know to apply it to different fields even if you're not a part of our internal team."
                 }
               </h1>
-              <h1 className="flex flex-col items-center justify-center pt-[15vw] text-center font-avenirRegular text-[3.056vw] text-lightWhite">
+              <h1 className="flex flex-col items-center justify-center pt-[15vw] text-center font-avenir-regular text-[3.056vw] text-light-white">
                 {"SCROLL DOWN"}
                 <Image
                   src="/img/academy/scrollDownArrow.png"

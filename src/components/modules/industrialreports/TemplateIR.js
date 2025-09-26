@@ -35,7 +35,7 @@ export default function CoffeIndustry() {
 
         {/* Desktop Version */}
         <div className="relative hidden w-full max-w-xs rounded-2xl sm:max-w-md md:block md:max-w-2xl lg:max-w-3xl">
-          <div className="relative aspect-[3/5] w-full scale-[0.9] md:aspect-[4/3] lg:aspect-[12/9]">
+          <div className="relative aspect-3/5 w-full scale-[0.9] md:aspect-4/3 lg:aspect-12/9">
             <iframe
               src="/file/ADLReport.pdf"
               className="absolute inset-0 h-full w-full border-2 border-gray-700 bg-gray-800"
@@ -43,7 +43,7 @@ export default function CoffeIndustry() {
             ></iframe>
           </div>
           <div className="my-4 w-full rounded-lg bg-transparent py-2 text-center text-sm font-semibold shadow-md">
-            <span className="bg-gradient-to-r from-lime-400 to-green-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-lime-400 to-green-400 bg-clip-text text-transparent">
               For Better Resolution:
             </span>
           </div>
@@ -86,7 +86,7 @@ export default function CoffeIndustry() {
         {/* Mobile Version */}
         <div className="flex w-full max-w-xs flex-col items-center md:hidden">
           {/* Cover Image (9:16 aspect ratio) */}
-          <div className="relative mb-6 aspect-[11/16] w-full overflow-hidden rounded-lg border-2 border-gray-700">
+          <div className="relative mb-6 aspect-11/16 w-full overflow-hidden rounded-lg border-2 border-gray-700">
             <Image
               src="/img/industrialreport/IR1.png"
               alt="Café Industries Report Cover"
@@ -136,7 +136,7 @@ export default function CoffeIndustry() {
           </button>
 
           {/* Desktop Recommendation Message */}
-          <div className="rounded-lg bg-gray-800 bg-opacity-70 px-4 py-3 text-center text-sm text-white">
+          <div className="rounded-lg bg-gray-800/70 px-4 py-3 text-center text-sm text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="mx-auto mb-2 h-6 w-6"

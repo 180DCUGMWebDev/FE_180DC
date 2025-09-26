@@ -50,7 +50,7 @@ export default function CourseSection() {
     <Blur
       isBlur={isBlur}
       key={id}
-      className="z-[3] my-[2vw] h-[51.389vw] w-[87.222vw] rounded-[1.6vw] bg-[white] shadow-xl"
+      className="z-3 my-[2vw] h-[51.389vw] w-[87.222vw] rounded-[1.6vw] bg-[white] shadow-xl"
     >
       <Image
         src="/img/academy/dummyCardImage.png"
@@ -60,8 +60,8 @@ export default function CourseSection() {
         className="inset-0 mx-auto my-[2vw] h-[28.333vw] w-[83.333vw] object-cover lg:hidden"
       />
       <div className="text-[1vw]/[4.7vw]">
-        <h1 className="ml-[2vw] font-avenirHeavy text-[3.333vw]">{module}</h1>
-        <h1 className="ml-[2vw] font-avenirHeavy text-[4.167vw] text-[#58B9D1]">{title}</h1>
+        <h1 className="ml-[2vw] font-avenir-heavy text-[3.333vw]">{module}</h1>
+        <h1 className="ml-[2vw] font-avenir-heavy text-[4.167vw] text-[#58B9D1]">{title}</h1>
       </div>
 
       <Link
@@ -91,7 +91,7 @@ export default function CourseSection() {
         {/* Desktop */}
         <div className="relative flex flex-col items-center justify-center max-lg:hidden">
           <div className="flex w-full flex-col items-center justify-center">
-            <h1 className="stroke- font-avenirBlack text-[3.385vw] text-lightWhite">
+            <h1 className="stroke- font-avenir-black text-[3.385vw] text-light-white">
               Start Your Course !
             </h1>
             <div className="w-[90vw]">
@@ -101,7 +101,7 @@ export default function CourseSection() {
         </div>
 
         {/* Mobile */}
-        <div className="z-[2] flex h-[139.722vw] w-full flex-col items-center lg:hidden">
+        <div className="z-2 flex h-[139.722vw] w-full flex-col items-center lg:hidden">
           <Image
             src="/img/academy/GRAD_180Mobile.png"
             alt="background"
@@ -109,7 +109,7 @@ export default function CourseSection() {
             height={2000}
             className="absolute inset-0 top-[0vw] z-0 h-full w-full origin-top scale-[1.1] rounded-t-xl object-cover lg:hidden"
           />
-          <h1 className="z-[3] font-avenirBlack text-[5.556vw] text-lightWhite">
+          <h1 className="z-3 font-avenir-black text-[5.556vw] text-light-white">
             Start Your Course !
           </h1>
           {modules.map(renderModuleCard)}

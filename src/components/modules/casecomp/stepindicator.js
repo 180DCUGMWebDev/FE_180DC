@@ -6,8 +6,8 @@ export const StepIndicator = ({ currentStep, totalSteps }) => {
   const steps = ["Leader", "Member", "Proof", "Finish"];
   return (
     <>
-      <div className="relative mb-[5rem] mt-[1rem] flex items-center justify-between">
-        <div className="absolute z-[8] flex w-full justify-between md:px-6">
+      <div className="relative mb-20 mt-4 flex items-center justify-between">
+        <div className="absolute z-8 flex w-full justify-between md:px-6">
           {[...Array(totalSteps)].map((_, index) => (
             <div
               key={JSON.stringify({ identifier: "step", index: index })}
@@ -37,7 +37,7 @@ export const StepIndicator = ({ currentStep, totalSteps }) => {
             </div>
           ))}
         </div>
-        <div className="absolute z-[7] flex w-full justify-between md:px-6">
+        <div className="absolute z-7 flex w-full justify-between md:px-6">
           {[...Array(totalSteps - 1)].map((_, index) => (
             <div
               key={JSON.stringify({ identifier: "label", index: index })}
@@ -68,7 +68,7 @@ export const StepIndicator = ({ currentStep, totalSteps }) => {
           </div>
           {index < totalSteps - 1 && (
             <div
-              className={`h-0.5 w-[2.4rem] lg:w-[8.5rem] ${index + 1 < currentStep ? "bg-green-500" : "bg-gray-300"}`}
+              className={`h-0.5 w-[2.4rem] lg:w-34 ${index + 1 < currentStep ? "bg-green-500" : "bg-gray-300"}`}
             />
           )}
         </div>

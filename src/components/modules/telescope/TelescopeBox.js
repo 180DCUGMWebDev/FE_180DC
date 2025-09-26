@@ -24,7 +24,7 @@ export function TelescopeBox({ article, type, className }) {
           <div className="absolute inset-0 z-10 overflow-hidden rounded-[10px] ">
             {type === "article" || (
               <>
-                <div className="absolute inset-0 from-primary from-20% to-secondary to-80% [background-image:linear-gradient(120deg,var(--tw-gradient-stops))]" />
+                <div className="absolute inset-0 from-primary from-20% to-secondary to-80% bg-[linear-gradient(120deg,var(--tw-gradient-stops))]" />
                 <div className="absolute inset-0 bg-black opacity-[0.35]" />
               </>
             )}
@@ -40,20 +40,20 @@ export function TelescopeBox({ article, type, className }) {
           </div>
           {/* Text */}
           <div
-            className={`relative z-20 flex h-full flex-col text-lightWhite ${
+            className={`relative z-20 flex h-full flex-col text-light-white ${
               type === "lg" ? "justify-between lg:justify-end" : "justify-end"
             }`}
           >
             <div className="flex flex-col gap-[6px]">
               <div
-                className={`font-avenirBlack ${
+                className={`font-avenir-black ${
                   type === "lg" ? "text-[5vw]" : "text-[3.5vw]"
                 } line-clamp-2 leading-[1.2]`}
               >
                 {article.title}
               </div>
               {type === "lg" && (
-                <div className="font-latoRegular text-[2.7vw] leading-[1.2]">
+                <div className="font-lato-regular text-[2.7vw] leading-[1.2]">
                   {article.previewText}
                 </div>
               )}
