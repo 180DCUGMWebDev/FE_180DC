@@ -47,9 +47,9 @@ export function DescriptionCaseComp() {
             className="w-[75vw] object-cover"
           />
         </div>
-        <div className="mx-auto max-w-4xl rounded-xl bg-green-50 bg-opacity-90 p-6 text-center md:p-10">
+        <div className="mx-auto max-w-4xl rounded-xl bg-green-50/90 p-6 text-center md:p-10">
           <div className="mb-8 text-xl font-medium text-green-800 md:text-3xl">
-            <div className="mb-[2vw] mt-[3vw] font-latoBold text-[3.33vw] text-[#73B743]"></div>
+            <div className="mb-[2vw] mt-[3vw] font-lato-bold text-[3.33vw] text-[#73B743]"></div>
           </div>
 
           <div className="space-y-6 text-left text-gray-800">
@@ -63,7 +63,7 @@ export function DescriptionCaseComp() {
               renewable energy catalyzes sustainable growth and community development.
             </p>
 
-            <p className="rounded-lg bg-green-200 bg-opacity-40 p-3 text-sm md:text-base">
+            <p className="rounded-lg bg-green-200/40 p-3 text-sm md:text-base">
               Together,{" "}
               <span className="font-semibold text-green-700">
                 we aspire to create lasting value for all stakeholders and achieve meaningful

@@ -3,7 +3,7 @@ import Image from "next/image";
 const CardWhat = ({ header, headerMobile, children }) => {
   return (
     <div className="relative flex w-[90%] flex-col items-center justify-start rounded-xl bg-white p-[6%] shadow-inner md:w-[48.7%] md:p-[2%]">
-      <div className="relative flex aspect-[9/3] w-[95%]">
+      <div className="relative flex aspect-9/3 w-[95%]">
         <div className="absolute bottom-0 left-0 right-0 top-0 m-auto h-full w-full">
           <Image alt="header" fill objectFit="contain" className="max-lg:hidden" src={header} />
           <Image alt="header" fill objectFit="contain" className="lg:hidden" src={headerMobile} />
@@ -72,7 +72,7 @@ export const WhatWouldYouGet = () => {
                         className="relative left-0 right-0 mx-auto w-[30%]"
                       />
                     </td>
-                    <td className="w-[70%] p-[1.5%] text-left font-avenirRegular text-[3.6vw] md:text-[2vw] lg:p-[1.2%] lg:text-[1.3vw] xl:p-[1.1%] 2xl:text-[1.2vw]">
+                    <td className="w-[70%] p-[1.5%] text-left font-avenir-regular text-[3.6vw] md:text-[2vw] lg:p-[1.2%] lg:text-[1.3vw] xl:p-[1.1%] 2xl:text-[1.2vw]">
                       {item}
                     </td>
                   </tr>
@@ -82,14 +82,14 @@ export const WhatWouldYouGet = () => {
           </table>
         </CardWhat>
         <CardWhat headerMobile={"/img/bootcamp/horn-mobile.png"} header={"/img/bootcamp/horn.png"}>
-          <div className="relative flex h-[100%] min-h-full w-full flex-col justify-evenly px-[2%] max-lg:gap-[2vw]">
+          <div className="relative flex h-full min-h-full w-full flex-col justify-evenly px-[2%] max-lg:gap-[2vw]">
             {speakerSessions.map((item, index) => {
               return (
                 <div
                   key={item}
-                  className="relative flex w-full flex-col rounded-lg bg-[#73B743] p-[3%] text-left font-avenirRegular text-[3.6vw] text-[#FFFFFF] md:rounded-xl md:text-[2vw] lg:p-[2%] lg:text-[1.3vw] xl:p-[2.5%] 2xl:text-[1.2vw]"
+                  className="relative flex w-full flex-col rounded-lg bg-[#73B743] p-[3%] text-left font-avenir-regular text-[3.6vw] text-[#FFFFFF] md:rounded-xl md:text-[2vw] lg:p-[2%] lg:text-[1.3vw] xl:p-[2.5%] 2xl:text-[1.2vw]"
                 >
-                  <h5 className="font-avenirBlack text-[3.6vw] md:text-[2vw] lg:text-[1.3vw] 2xl:text-[1.2vw]">{`Speaker Session #${index + 1}:`}</h5>
+                  <h5 className="font-avenir-black text-[3.6vw] md:text-[2vw] lg:text-[1.3vw] 2xl:text-[1.2vw]">{`Speaker Session #${index + 1}:`}</h5>
                   <p className="text-[3.3vw] md:text-[1.7vw] lg:text-[1.1vw] 2xl:text-[1vw]">
                     {item}
                   </p>

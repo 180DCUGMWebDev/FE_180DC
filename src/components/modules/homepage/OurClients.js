@@ -17,7 +17,7 @@ export function OurClients() {
           className="absolute inset-0 z-10 h-full w-full rounded-r-[18px] object-cover"
         />
         <div className="relative z-20 flex h-full items-center justify-between px-[4%] lg:pr-[2%]">
-          <div className="font-avenirBlack text-2xl text-white sm:text-4xl lg:text-[80px] lg:leading-none 2xl:text-[112px]">
+          <div className="font-avenir-black text-2xl text-white sm:text-4xl lg:text-[80px] lg:leading-none 2xl:text-[112px]">
             Our Previous Clients
           </div>
           <Link href="/portofolio" className="w-[15%] max-lg:hidden">
@@ -43,7 +43,7 @@ export function OurClients() {
       </div>
       {/* Newsletter & Press Releases */}
       <div className="flex flex-col gap-[10px] px-[4%] py-[9vh] max-lg:pt-[10vw] lg:gap-[30px]">
-        <div className="font-avenirBlack text-2xl sm:text-4xl lg:text-[80px] lg:leading-none 2xl:text-[112px]">
+        <div className="font-avenir-black text-2xl sm:text-4xl lg:text-[80px] lg:leading-none 2xl:text-[112px]">
           Newsletter & Press Releases
         </div>
         <div className="flex items-center gap-[20px] max-lg:flex-col lg:h-[38vh] lg:gap-[56px]">

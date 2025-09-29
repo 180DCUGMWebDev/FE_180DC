@@ -35,10 +35,10 @@ export default function Oprec() {
         <div className="mx-auto max-w-6xl">
           {/* Header */}
           <div className="mb-16 text-center">
-            <h1 className="mb-6 font-avenirBlack text-4xl sm:text-5xl lg:text-7xl">
+            <h1 className="mb-6 font-avenir-black text-4xl sm:text-5xl lg:text-7xl">
               Open <span className="text-primary">Recruitment</span>
             </h1>
-            <p className="mx-auto max-w-3xl font-latoRegular text-lg text-white/80 sm:text-xl lg:text-2xl">
+            <p className="mx-auto max-w-3xl font-lato-regular text-lg text-white/80 sm:text-xl lg:text-2xl">
               Join 180DC UGM and become part of the world&apos;s largest student-led consultancy.
               Shape your future, impact organizations, and develop exceptional consulting skills.
             </p>
@@ -46,26 +46,26 @@ export default function Oprec() {
 
           {/* Stats */}
           <div className="mb-16 grid grid-cols-2 gap-4 lg:grid-cols-4">
-            <div className="rounded-2xl bg-white/10 p-6 text-center backdrop-blur-sm">
-              <div className="font-avenirBlack text-2xl lg:text-3xl">
+            <div className="rounded-2xl bg-white/10 p-6 text-center backdrop-blur-xs">
+              <div className="font-avenir-black text-2xl lg:text-3xl">
                 100<span className="text-primary">+</span>
               </div>
               <div className="text-sm text-white/80">Alumni Network</div>
             </div>
-            <div className="rounded-2xl bg-white/10 p-6 text-center backdrop-blur-sm">
-              <div className="font-avenirBlack text-2xl lg:text-3xl">
+            <div className="rounded-2xl bg-white/10 p-6 text-center backdrop-blur-xs">
+              <div className="font-avenir-black text-2xl lg:text-3xl">
                 50<span className="text-primary">+</span>
               </div>
               <div className="text-sm text-white/80">Projects Completed</div>
             </div>
-            <div className="rounded-2xl bg-white/10 p-6 text-center backdrop-blur-sm">
-              <div className="font-avenirBlack text-2xl lg:text-3xl">
+            <div className="rounded-2xl bg-white/10 p-6 text-center backdrop-blur-xs">
+              <div className="font-avenir-black text-2xl lg:text-3xl">
                 20<span className="text-primary">+</span>
               </div>
               <div className="text-sm text-white/80">Partner Organizations</div>
             </div>
-            <div className="rounded-2xl bg-white/10 p-6 text-center backdrop-blur-sm">
-              <div className="font-avenirBlack text-2xl lg:text-3xl">
+            <div className="rounded-2xl bg-white/10 p-6 text-center backdrop-blur-xs">
+              <div className="font-avenir-black text-2xl lg:text-3xl">
                 Global<span className="text-primary">+</span>
               </div>
               <div className="text-sm text-white/80">Network Access</div>

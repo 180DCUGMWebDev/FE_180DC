@@ -20,7 +20,7 @@ const HeroTemplate = ({ children }) => {
         </div>
       </div>
       <div className="absolute bottom-[5vw] flex w-full flex-col items-center justify-center md:bottom-[3vw] lg:bottom-[2vw]">
-        {/* <span className="mb-[1vw] font-latoBold text-[3.2vw] md:text-[2.6vw] lg:text-[1.294vw]">
+        {/* <span className="mb-[1vw] font-lato-bold text-[3.2vw] md:text-[2.6vw] lg:text-[1.294vw]">
           GET TO KNOW MORE
         </span>
         <Image
@@ -31,10 +31,10 @@ const HeroTemplate = ({ children }) => {
           className="h-auto w-[3.3vw] animate-bounce object-cover md:w-[2.7vw] lg:w-[1.615vw]"
         /> */}
         <button className="flex flex-col items-center outline-0" onClick={handleClick}>
-              <h2 className="mt-[1.4vw] font-latoBold text-[1vw] text-black180 max-lg:hidden">
+              <h2 className="mt-[1.4vw] font-lato-bold text-[1vw] text-black180 max-lg:hidden">
                 {"GET TO KNOW MORE"}
               </h2>
-              <FaChevronDown className="animate-movingPointer text-[1.4vw] text-black180 hover:cursor-pointer" />
+              <FaChevronDown className="animate-moving-pointer text-[1.4vw] text-black180 hover:cursor-pointer" />
             </button>
       </div>
       <div className="absolute bottom-[1000] " ref={scrollRef}>

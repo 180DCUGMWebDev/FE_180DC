@@ -132,18 +132,18 @@ const projectScope = [
 // Background Decorations Component
 function BackgroundDecorations() {
   return (
-    <div className="absolute -z-[997] flex h-full w-[100vw] lg:h-[112.5vw]">
+    <div className="absolute -z-997 flex h-full w-screen lg:h-[112.5vw]">
       {/* Green Flowers */}
       <div className="absolute bottom-[5%] right-0 opacity-[.06] max-lg:hidden">
         <ImgF src="/img/apply/type1green.png" alt="deco img" />
       </div>
-      <div className="absolute left-0 top-0 rotate-[12deg] scale-[.5] opacity-[.06] max-lg:hidden lg:bottom-[15%] lg:left-[30%]">
+      <div className="absolute left-0 top-0 rotate-12 scale-[.5] opacity-[.06] max-lg:hidden lg:bottom-[15%] lg:left-[30%]">
         <ImgF src="/img/apply/type1green.png" alt="deco img" />
       </div>
-      <div className="absolute left-[30%] top-[35%] rotate-[40deg] scale-[.3] opacity-[.06] max-lg:hidden">
+      <div className="absolute left-[30%] top-[35%] rotate-40 scale-[.3] opacity-[.06] max-lg:hidden">
         <ImgF src="/img/apply/type1green.png" alt="deco img" />
       </div>
-      <div className="absolute -top-[1.5%] left-[14%] -rotate-[15deg] scale-[.3] opacity-[.06] max-lg:hidden">
+      <div className="absolute -top-[1.5%] left-[14%] -rotate-15 scale-[.3] opacity-[.06] max-lg:hidden">
         <ImgF src="/img/apply/type1green.png" alt="deco img" />
       </div>
 
@@ -159,7 +159,7 @@ function BackgroundDecorations() {
       <div className="absolute bottom-[26%] left-[4%] opacity-[.08] max-lg:hidden">
         <ImgF src="/img/apply/type2blue.png" alt="deco img" />
       </div>
-      <div className="absolute left-[2%] top-[90px] rotate-[45deg] scale-[2] opacity-[.08] max-lg:scale-[1.5] lg:-bottom-[9%] lg:left-[1%]">
+      <div className="absolute left-[2%] top-[90px] rotate-45 scale-[2] opacity-[.08] max-lg:scale-[1.5] lg:-bottom-[9%] lg:left-[1%]">
         <ImgF src="/img/apply/type2blue.png" alt="deco img" />
       </div>
     </div>
@@ -174,14 +174,14 @@ function FormField({ form, idx, onChange }) {
 
   return (
     <div className="flex w-full flex-col">
-      <label className="font-latoRegular text-lightWhite max-lg:text-[3.7vw]/[4vw] lg:text-[1.13vw] 2xl:text-[17.3px]">
+      <label className="font-lato-regular text-light-white max-lg:text-[3.7vw]/[4vw] lg:text-[1.13vw] 2xl:text-[17.3px]">
         {form.question}
       </label>
 
       {form.type === "textarea" ? (
         <textarea
           className={
-            "h-[90px] rounded-[1vw] px-[1vw] py-[0.5vw] text-start outline-none max-lg:text-[3.7vw]/[4vw] lg:rounded-[4px] lg:px-[9px] lg:py-[4px] lg:text-[1.13vw] 2xl:text-[17.3px]" +
+            "rounded-[1vw] min-h-[90px] px-[1vw] py-[0.5vw] text-start outline-hidden bg-white placeholder:text-black/40 max-lg:text-[3.7vw]/[4vw] lg:rounded-[4px] lg:px-[9px] lg:py-[4px] lg:text-[1.13vw] 2xl:text-[17.3px]" +
             form.className
           }
           id={idx + "_applyform"}
@@ -194,7 +194,7 @@ function FormField({ form, idx, onChange }) {
       ) : (
         <input
           className={
-            "rounded-[1vw] px-[9px] py-[4px] text-start outline-none max-lg:text-[3vw] lg:rounded-[4px] lg:text-[1.13vw] 2xl:text-[17.3px]" +
+            " bg-white placeholder:text-black/40 rounded-[1vw] px-[9px] py-[4px] text-start outline-hidden max-lg:text-[3vw] lg:rounded-[4px] lg:text-[1.13vw] 2xl:text-[17.3px]" +
             form.className
           }
           id={idx + "_applyform"}
@@ -214,7 +214,7 @@ function FormField({ form, idx, onChange }) {
 function ProjectScopeSection() {
   return (
     <div className="my-[10px] flex flex-col">
-      <h1 className="font-latoRegular text-lightWhite max-lg:text-[3.7vw]/[4vw] lg:text-[1.13vw] 2xl:text-[17.3px]">
+      <h1 className="font-lato-regular text-light-white max-lg:text-[3.7vw]/[4vw] lg:text-[1.13vw] 2xl:text-[17.3px]">
         Project Scope
       </h1>
       <div className="flex w-full">
@@ -222,7 +222,7 @@ function ProjectScopeSection() {
           <ul key={idx} className="flex w-full flex-col max-lg:gap-[0.45vh]">
             {project.map((item) => (
               <li
-                className="flex items-center gap-[5px] font-latoRegular text-lightWhite max-lg:text-[3vw]/[3.2vw] lg:text-[1.13vw] 2xl:text-[17.3px]"
+                className="flex items-center gap-[5px] font-lato-regular text-light-white max-lg:text-[3vw]/[3.2vw] lg:text-[1.13vw] 2xl:text-[17.3px]"
                 key={item}
               >
                 <div className="mb-[3px] h-[6px] w-[6px] rounded-full bg-primary lg:h-[12px] lg:w-[12px]" />
@@ -286,7 +286,7 @@ export default function Apply() {
         <div className="flex h-fit w-full flex-col overflow-clip px-[50px] pb-[60px] pt-[120px] lg:gap-[2.2vw] 2xl:w-[1536px] 2xl:gap-[33.8px]">
           {/* Title */}
           <div className="flex w-full justify-center">
-            <h1 className="text-center font-avenirBlack text-[10vw]/[10vw] text-primary lg:text-[5vw] 2xl:text-[76.8px]">
+            <h1 className="text-center font-avenir-black text-[10vw]/[10vw] text-primary lg:text-[5vw] 2xl:text-[76.8px]">
               Client Application Form
             </h1>
           </div>
@@ -300,7 +300,7 @@ export default function Apply() {
           >
             {/* Project Structure */}
             <div className="w-full lg:w-[40%]">
-              <div className="relative my-[2vh] flex w-full items-center justify-center bg-lightWhite/[2%] font-avenirBook text-[5vw] text-primary lg:hidden">
+              <div className="relative my-[2vh] flex w-full items-center justify-center bg-light-white/2 font-avenir-book text-[5vw] text-primary lg:hidden">
                 <FaPlay
                   className="scale-x-[1.05] scale-y-[1.4]"
                   onClick={() => setOpenPS(!openPS)}
@@ -339,7 +339,7 @@ export default function Apply() {
                   action={formSubmitBtn}
                   addClass={
                     "w-[18vw] lg:w-[9vw] max-lg:py-[0.5vh] h-fit lg:h-[30px] text-[2.8vw] lg:text-[1.1vw] 2xl:w-[138px] 2xl:text-[16.8px] " +
-                    (!formComplete ? "opacity-[70%]" : "")
+                    (!formComplete ? "opacity-70" : "")
                   }
                 />
               </div>

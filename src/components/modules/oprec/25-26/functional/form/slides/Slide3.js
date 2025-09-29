@@ -58,17 +58,17 @@ const Slide3 = ({ formData, updateFormData, onNext }) => {
   return (
     <div className="animate-fade-in space-y-6">
       <div className="text-center">
-        <h2 className="mb-1 mt-2 font-avenirBlack text-2xl leading-snug text-primary lg:text-3xl">
+        <h2 className="mb-1 mt-2 font-avenir-black text-2xl leading-snug text-primary lg:text-3xl">
           Position Preference
         </h2>
-        <p className="font-latoRegular text-gray-600">
+        <p className="font-lato-regular text-gray-600">
           Please select your preferred position within 180DC UGM.
         </p>
       </div>
 
       {/* Position Preference Check */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-        <h3 className="mb-6 flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
+      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
+        <h3 className="mb-6 flex items-center gap-2 font-avenir-black text-xl text-gray-800">
           <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
             <span className="text-sm font-bold text-white">3</span>
           </div>
@@ -88,7 +88,7 @@ const Slide3 = ({ formData, updateFormData, onNext }) => {
                 className="text-white"
               />
               <Label htmlFor="onePosition">
-                <p className="font-latoRegular text-gray-600">
+                <p className="font-lato-regular text-gray-600">
                   I only want to apply for one position in 180DC UGM
                 </p>
               </Label>
@@ -102,7 +102,7 @@ const Slide3 = ({ formData, updateFormData, onNext }) => {
                 className="text-white"
               />
               <Label htmlFor="twoPositions">
-                <p className="font-latoRegular text-gray-600">
+                <p className="font-lato-regular text-gray-600">
                   I want to apply for two positions in 180DC UGM
                 </p>
               </Label>
@@ -112,7 +112,7 @@ const Slide3 = ({ formData, updateFormData, onNext }) => {
             <div>
               <Label
                 htmlFor="firstChoice"
-                className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
+                className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700"
               >
                 First Choice of Division *
               </Label>
@@ -143,7 +143,7 @@ const Slide3 = ({ formData, updateFormData, onNext }) => {
               <div>
                 <Label
                   htmlFor="secondChoice"
-                  className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
+                  className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700"
                 >
                   Second Choice of Division (optional)
                 </Label>
@@ -178,7 +178,7 @@ const Slide3 = ({ formData, updateFormData, onNext }) => {
         <Button
           onClick={handleNext}
           disabled={!isValid}
-          className="flex items-center gap-2 bg-primary font-avenirRegular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
+          className="flex items-center gap-2 bg-primary font-avenir-regular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
         >
           Continue to Next Step
           <ChevronRight className="h-4 w-4" />

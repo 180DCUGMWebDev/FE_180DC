@@ -35,13 +35,13 @@ export default function VisMis() {
         {/* Title */}
         <div className="flex items-end max-lg:items-end">
           <FaBriefcase className="text-[5vw] text-primary max-lg:rotate-[8deg] lg:text-[50px]" />
-          <p className="ml-[2vw] font-latoBoldItalic text-[3vw]/[2.5vw] text-lightWhite lg:ml-[20px] lg:text-[2vw]/[1.9vw] 2xl:text-[31px]/[29px]">
+          <p className="ml-[2vw] font-lato-bold-italic text-[3vw]/[2.5vw] text-light-white lg:ml-[20px] lg:text-[2vw]/[1.9vw] 2xl:text-[31px]/[29px]">
             {title}
           </p>
         </div>
         {/* Content */}
         <div className="mt-[2vw] lg:mt-[20px]">
-          <p className="text-justify font-latoRegular text-[2.8vw]/[3.3vw] text-lightWhite lg:text-[1.3vw]/[1.7vw] 2xl:text-[20px]/[26px]">
+          <p className="text-justify font-lato-regular text-[2.8vw]/[3.3vw] text-light-white lg:text-[1.3vw]/[1.7vw] 2xl:text-[20px]/[26px]">
             {content}
           </p>
         </div>
@@ -60,7 +60,7 @@ export default function VisMis() {
         <div className="flex flex-col items-center justify-center px-[6vw] 2xl:w-[1536px] 2xl:px-[100px]">
           {/* Title */}
           <div className="w-full">
-            <h1 className="text-center font-avenirBlack text-[8vw]/[7.2vw] text-lightWhite lg:text-[4vw]/[3.8vw] lg:text-primary 2xl:text-[61px]/[58px]">
+            <h1 className="text-center font-avenir-black text-[8vw]/[7.2vw] text-light-white lg:text-[4vw]/[3.8vw] lg:text-primary 2xl:text-[61px]/[58px]">
               {"180DC UGM"}
               <br />
               <span className="max-lg:text-secondary">{"Vision"}</span>
@@ -70,19 +70,19 @@ export default function VisMis() {
           </div>
           {/* Vision */}
           <div className="mt-[40px] flex w-full max-lg:flex max-lg:h-fit max-lg:items-center">
-            <h2 className="w-[14.2%] font-avenirBlack text-[2.3vw]/[1.9vw] text-secondary max-lg:hidden 2xl:text-[35px]/[29px]">
+            <h2 className="w-[14.2%] font-avenir-black text-[2.3vw]/[1.9vw] text-secondary max-lg:hidden 2xl:text-[35px]/[29px]">
               {"Vision"}
             </h2>
             <div className="flex h-[10vw] w-[6%] justify-start lg:hidden">
               <div className="h-full w-[60%] rounded-[4vw] bg-secondary" />
             </div>
-            <p className="w-[94%] text-justify font-latoRegular text-[2.8vw]/[3.3vw] text-lightWhite lg:w-[85.8%] lg:text-[1.5vw]/[2vw] 2xl:text-[23px]/[30px]">
+            <p className="w-[94%] text-justify font-lato-regular text-[2.8vw]/[3.3vw] text-light-white lg:w-[85.8%] lg:text-[1.5vw]/[2vw] 2xl:text-[23px]/[30px]">
               {vision}
             </p>
           </div>
           {/* Mision */}
           <div className="flex w-full lg:mt-[28px]">
-            <h2 className="w-[14.2%] font-avenirBlack text-[2.3vw]/[1.9vw] text-secondary max-lg:hidden 2xl:text-[35px]/[29px]">
+            <h2 className="w-[14.2%] font-avenir-black text-[2.3vw]/[1.9vw] text-secondary max-lg:hidden 2xl:text-[35px]/[29px]">
               {"Mision"}
             </h2>
             <div className="flex w-full flex-col gap-[2.5vw] max-lg:mt-[2.5vw] lg:w-[85.8%] lg:flex-row lg:gap-[120px]">

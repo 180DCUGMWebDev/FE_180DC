@@ -66,7 +66,7 @@ export function HeroOprec() {
             {/* bagian enroll */}
             <div className="mt-[3.646vw] hidden w-full flex-col items-center px-4 lg:mt-[1.8vw] lg:flex">
               <div>
-                <p className="w-[30vw] font-latoSemibold text-[4vw] text-white180 lg:text-[1.25vw]">
+                <p className="w-[30vw] font-lato-semibold text-[4vw] text-white180 lg:text-[1.25vw]">
                   Calling all aspiring consultants and changemakers! <br /> Join 180DC UGM and leave
                   your mark.
                 </p>
@@ -89,7 +89,7 @@ export function HeroOprec() {
                 <Button180
                   color="white"
                   text="Consulting Day Registration"
-                  addClass="w-[100%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743]  hover:text-white"
+                  addClass="w-full  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743]  hover:text-white"
                   href="bit.ly/180DC-ConsultingOpenRecruitmentForm-Cycle2"
                 />
               </div>
@@ -103,12 +103,12 @@ export function HeroOprec() {
               alt="background"
               width={2000}
               height={2000}
-              className="z-10 ml-[2vw] mr-[5vw] aspect-[681/715] w-[35vw] max-lg:w-[40vw]"
+              className="z-10 ml-[2vw] mr-[5vw] aspect-681/715 w-[35vw] max-lg:w-[40vw]"
             />
           </div>
 
           <div className="mt-[5.938vw] flex w-full flex-col items-center justify-center gap-y-[2vw] px-[8.667vw] lg:hidden">
-            <p className="flex w-[70vw] justify-center text-center font-latoSemibold text-[3vw] text-white180">
+            <p className="flex w-[70vw] justify-center text-center font-lato-semibold text-[3vw] text-white180">
               Calling all aspiring consultants and changemakers! <br /> Join 180DC UGM and leave
               your mark.
             </p>

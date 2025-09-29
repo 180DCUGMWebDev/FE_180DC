@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import "swiper/css";
+import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 
@@ -28,7 +29,7 @@ export default function Slider(image, module, title, link) {
         <Image
           src="/img/academy/arrow_back.png"
           alt="Previous Arrow"
-          className="absolute bottom-[0vh] left-[41vw] z-[20] h-[2.6vw] w-[1.45vw]"
+          className="absolute bottom-[0vh] left-[41vw] z-20 h-[2.6vw] w-[1.45vw]"
           width={2000}
           height={2000}
           draggable="false"
@@ -38,7 +39,7 @@ export default function Slider(image, module, title, link) {
         <Image
           src="/img/academy/arrow_forward.png"
           alt="Previous Arrow"
-          className="absolute bottom-[0vh] right-[41vw] z-[20] h-[2.6vw] w-[1.45vw]"
+          className="absolute bottom-[0vh] right-[41vw] z-20 h-[2.6vw] w-[1.45vw]"
           width={2000}
           height={2000}
           draggable="false"

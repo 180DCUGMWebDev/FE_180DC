@@ -134,7 +134,7 @@ const Slide5 = ({ formData, updateFormData, onNext, onPrevious }) => {
           <Button
             onClick={handleNext}
             disabled={!isValid}
-            className="flex items-center gap-2 bg-primary font-avenirRegular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
+            className="flex items-center gap-2 bg-primary font-avenir-regular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
           >
             Continue to Next Step
             <ChevronRight className="h-4 w-4" />

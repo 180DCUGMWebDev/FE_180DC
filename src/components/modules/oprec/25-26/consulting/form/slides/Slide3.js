@@ -38,17 +38,17 @@ const Slide3 = ({ formData, updateFormData, onNext, onPrevious }) => {
   return (
     <div className="animate-fade-in space-y-6">
       <div className="text-center">
-        <h2 className="mb-1 mt-2 font-avenirBlack text-2xl leading-snug text-primary lg:text-3xl">
+        <h2 className="mb-1 mt-2 font-avenir-black text-2xl leading-snug text-primary lg:text-3xl">
           Position & Motivation
         </h2>
-        <p className="font-latoRegular text-gray-600">
+        <p className="font-lato-regular text-gray-600">
           Tell us about your position preferences and motivations
         </p>
       </div>
 
       {/* Position Selection */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-        <h3 className="mb-6 flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
+      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
+        <h3 className="mb-6 flex items-center gap-2 font-avenir-black text-xl text-gray-800">
           <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
             <span className="text-sm font-bold text-white">4</span>
           </div>
@@ -59,7 +59,7 @@ const Slide3 = ({ formData, updateFormData, onNext, onPrevious }) => {
           <div>
             <Label
               htmlFor="firstChoicePosition"
-              className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
+              className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700"
             >
               First Choice Position *
             </Label>
@@ -80,7 +80,7 @@ const Slide3 = ({ formData, updateFormData, onNext, onPrevious }) => {
           <div>
             <Label
               htmlFor="secondChoicePosition"
-              className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
+              className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700"
             >
               Second Choice Position (optional)
             </Label>
@@ -102,12 +102,12 @@ const Slide3 = ({ formData, updateFormData, onNext, onPrevious }) => {
 
         <div className="space-y-6">
           <div>
-            <Label className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700">
+            <Label className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700">
               Motivation Document *
             </Label>
-            <p className="mb-3 font-latoRegular text-sm text-gray-500">
+            <p className="mb-3 font-lato-regular text-sm text-gray-500">
               Please prepare a document that answers the following questions (max. 500 words) :
-              <span className="font-latoBold text-black">
+              <span className="font-lato-bold text-black">
                 <br />
                 1. Why do you want to be a part of 180DC UGM?
                 <br />
@@ -117,7 +117,7 @@ const Slide3 = ({ formData, updateFormData, onNext, onPrevious }) => {
               <br />
               Once completed, upload your document to Google Drive, ensure the access settings are
               set to{" "}
-              <span className="font-latoBold text-black">
+              <span className="font-lato-bold text-black">
                 &quot;Anyone with the link can view,&quot;
               </span>{" "}
               and paste the link in the space provided below.
@@ -126,7 +126,7 @@ const Slide3 = ({ formData, updateFormData, onNext, onPrevious }) => {
               value={documentLink}
               onChange={(e) => setDocumentLink(e.target.value)}
               placeholder="https://drive.google.com/your-document-link"
-              className={`border-gray-300 font-latoRegular transition-all duration-200 focus:ring-2 focus:ring-primary/50 ${
+              className={`border-gray-300 font-lato-regular transition-all duration-200 focus:ring-2 focus:ring-primary/50 ${
                 documentLink && !documentLink.includes("drive.google.com")
                   ? "border-red-300 focus:ring-red-200"
                   : ""
@@ -138,21 +138,21 @@ const Slide3 = ({ formData, updateFormData, onNext, onPrevious }) => {
           </div>
 
           <div>
-            <Label className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700">
+            <Label className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700">
               Please Insert your CV! *
             </Label>
-            <p className="mb-3 font-latoRegular text-sm text-gray-500">
+            <p className="mb-3 font-lato-regular text-sm text-gray-500">
               Please do make sure you use McKinsey ATS Template{" "}
-              <span className="font-latoBold text-black">(bit.ly/McKinseyATS-Example)</span>
+              <span className="font-lato-bold text-black">(bit.ly/McKinseyATS-Example)</span>
               <br />
               <br />
-              <span className="font-latoBold text-black">
+              <span className="font-lato-bold text-black">
                 Format: FullName_FirstChoice_SecondChoice
               </span>
               <br />
               <br />
               Then, upload your document to a Google Drive, ensure the access settings are set to{" "}
-              <span className="font-latoBold text-black">
+              <span className="font-lato-bold text-black">
                 &quot;Anyone with the link can view,&quot;
               </span>{" "}
               and paste the link in the space provided below.
@@ -161,7 +161,7 @@ const Slide3 = ({ formData, updateFormData, onNext, onPrevious }) => {
               value={cvLink}
               onChange={(e) => setCvLink(e.target.value)}
               placeholder="https://drive.google.com/your-document-link"
-              className={`border-gray-300 font-latoRegular transition-all duration-200 focus:ring-2 focus:ring-primary/50 ${
+              className={`border-gray-300 font-lato-regular transition-all duration-200 focus:ring-2 focus:ring-primary/50 ${
                 cvLink && !cvLink.includes("drive.google.com")
                   ? "border-red-300 focus:ring-red-200"
                   : ""
@@ -179,7 +179,7 @@ const Slide3 = ({ formData, updateFormData, onNext, onPrevious }) => {
         <Button
           onClick={handleNext}
           disabled={!isValid}
-          className="flex items-center gap-2 bg-primary font-avenirRegular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
+          className="flex items-center gap-2 bg-primary font-avenir-regular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
         >
           Continue to Next Step
           <ChevronRight className="h-4 w-4" />

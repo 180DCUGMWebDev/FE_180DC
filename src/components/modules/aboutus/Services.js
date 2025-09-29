@@ -86,14 +86,14 @@ export default function Services() {
           <div className="flex h-fit w-full flex-col max-lg:gap-[1vh] lg:h-[28%] lg:flex-row">
             {/* Titles */}
             <div className="flex items-end lg:w-5/12">
-              <h1 className="text-start font-avenirBlack text-[8vw]/[7.6vw] text-primary lg:text-[4vw]/[3.9vw] 2xl:text-[61px]/[60px]">
+              <h1 className="text-start font-avenir-black text-[8vw]/[7.6vw] text-primary lg:text-[4vw]/[3.9vw] 2xl:text-[61px]/[60px]">
                 {"Our Services"}
                 <br />
                 {"Offered for You"}
               </h1>
             </div>
             <div className="flex items-end lg:w-7/12">
-              <p className="text-justify font-latoRegular text-[3.5vw]/[3.7vw] text-lightWhite lg:text-[2vw]/[2.67vw] 2xl:text-[30.7px]/[41px]">
+              <p className="text-justify font-lato-regular text-[3.5vw]/[3.7vw] text-light-white lg:text-[2vw]/[2.67vw] 2xl:text-[30.7px]/[41px]">
                 {content.desc}
               </p>
             </div>
@@ -104,10 +104,10 @@ export default function Services() {
               return (
                 <div
                   key={idx}
-                  className="group relative hidden h-[360px] max-h-full w-6/12 items-end overflow-clip rounded-t-[20px] bg-gradient-to-b from-transparent from-20% to-black to-[58%] p-[1.5vw] pb-0 lg:flex 2xl:h-[440px] 2xl:p-[30px]"
+                  className="group relative hidden h-[360px] max-h-full w-6/12 items-end overflow-clip rounded-t-[20px] bg-linear-to-b from-transparent from-20% to-black to-58% p-[1.5vw] pb-0 lg:flex 2xl:h-[440px] 2xl:p-[30px]"
                 >
                   {/* Background */}
-                  <div className={"absolute -z-[1] w-[150%] " + values[idx].position}>
+                  <div className={"absolute -z-1 w-[150%] " + values[idx].position}>
                     <ImgF
                       src={values[idx].src}
                       alt={values[idx].alt}
@@ -116,10 +116,10 @@ export default function Services() {
                   </div>
                   {/* Content */}
                   <div className="flex h-[52%] w-full flex-col justify-start text-start duration-500 group-hover:translate-y-[-10%] 2xl:h-[187px]">
-                    <h2 className="font-avenirBlack text-[1.9vw] text-secondary 2xl:text-[29px]">
+                    <h2 className="font-avenir-black text-[1.9vw] text-secondary 2xl:text-[29px]">
                       {val}
                     </h2>
-                    <ul className="w-full list-disc pl-[1.9vw] font-latoRegular text-[1.15vw] leading-[1.2] text-lightWhite 2xl:pl-[30px] 2xl:text-[17.6px]">
+                    <ul className="w-full list-disc pl-[1.9vw] font-lato-regular text-[1.15vw] leading-[1.2] text-light-white 2xl:pl-[30px] 2xl:text-[17.6px]">
                       {values[idx].values.map((value) => {
                         return <li key={value + "_" + idx}>{value}</li>;
                       })}
@@ -144,9 +144,9 @@ export default function Services() {
                 {titles.map((val, idx) => {
                   return (
                     <SwiperSlide key={idx}>
-                      <div className="group relative flex h-[30vh] max-h-full w-full items-end overflow-clip rounded-t-[20px] bg-gradient-to-b from-primary/[50%] from-20% to-black to-[85%] p-[1.5vw] pb-0 lg:hidden">
+                      <div className="group relative flex h-[30vh] max-h-full w-full items-end overflow-clip rounded-t-[20px] bg-linear-to-b from-primary/50 from-20% to-black to-85% p-[1.5vw] pb-0 lg:hidden">
                         {/* Background */}
-                        <div className={"absolute -z-[1] h-full w-[250%] " + values[idx].position}>
+                        <div className={"absolute -z-1 h-full w-[250%] " + values[idx].position}>
                           <ImgF
                             src={values[idx].src}
                             alt={values[idx].alt}
@@ -156,11 +156,11 @@ export default function Services() {
                         {/* Content */}
                         <div className="flex h-full w-full flex-col items-center justify-center text-start">
                           <div className="mb-[1vh] flex h-[6vh] w-8/12 items-end justify-center">
-                            <h2 className="text-center font-avenirBlack text-[4vw]/[3.5vw] text-secondary">
+                            <h2 className="text-center font-avenir-black text-[4vw]/[3.5vw] text-secondary">
                               {val}
                             </h2>
                           </div>
-                          <ul className="h-[16vh] w-10/12 list-disc pl-[1.9vw] font-latoRegular text-[3.2vw]/[3.2vw] text-lightWhite">
+                          <ul className="h-[16vh] w-10/12 list-disc pl-[1.9vw] font-lato-regular text-[3.2vw]/[3.2vw] text-light-white">
                             {values[idx].values.map((value) => {
                               return <li key={value + "_" + idx}>{value}</li>;
                             })}
@@ -174,11 +174,11 @@ export default function Services() {
             </div>
           </div>
           <div className="flex w-full items-center justify-center lg:hidden">
-            <p className="grow text-start font-latoBoldItalic text-[3vw] text-lightWhite">{"<<"}</p>
-            <p className="grow text-center font-latoBoldItalic text-[3vw] text-lightWhite">
+            <p className="grow text-start font-lato-bold-italic text-[3vw] text-light-white">{"<<"}</p>
+            <p className="grow text-center font-lato-bold-italic text-[3vw] text-light-white">
               {"Swipe for More Information!"}
             </p>
-            <p className="grow text-end font-latoBoldItalic text-[3vw] text-lightWhite">{">>"}</p>
+            <p className="grow text-end font-lato-bold-italic text-[3vw] text-light-white">{">>"}</p>
           </div>
         </div>
       </div>

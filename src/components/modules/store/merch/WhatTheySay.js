@@ -18,17 +18,17 @@ const WhatTheySay = () => {
         src="/img/store/merch/vignet-l.png"
         width={2000}
         height={2000}
-        className="absolute left-0 top-0 z-[99] h-full w-auto max-lg:hidden"
+        className="absolute left-0 top-0 z-99 h-full w-auto max-lg:hidden"
       />
       <Image
         alt=""
         src="/img/store/merch/vignet-r.png"
         width={2000}
         height={2000}
-        className="absolute right-0 top-0 z-[99] h-full w-auto max-lg:hidden"
+        className="absolute right-0 top-0 z-99 h-full w-auto max-lg:hidden"
       />
       <div className="w-full justify-center max-lg:flex lg:px-[10vw]">
-        <span className="bg-[linear-gradient(90deg,_#6FAA26_7%,_#58B9D1_85%)] bg-clip-text font-avenirBlack text-[6.7vw] text-transparent lg:text-[3vw]">
+        <span className="bg-[linear-gradient(90deg,#6FAA26_7%,#58B9D1_85%)] bg-clip-text font-avenir-black text-[6.7vw] text-transparent lg:text-[3vw]">
           What did they say?
         </span>
       </div>

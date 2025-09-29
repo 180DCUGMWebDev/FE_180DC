@@ -116,7 +116,7 @@ export function Admin({ submissions, adminUser }) {
     <section className="min-h-screen bg-white">
       <div className="container mx-auto px-4 py-20">
         {/* Header */}
-        <div className="mb-8 rounded-lg bg-white/90 p-6 backdrop-blur-sm">
+        <div className="mb-8 rounded-lg bg-white/90 p-6 backdrop-blur-xs">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
@@ -131,7 +131,7 @@ export function Admin({ submissions, adminUser }) {
 
         {/* Stats Grid */}
         <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-          <div className="rounded-lg border-[1px] border-neutral-200 bg-white/90 p-6 backdrop-blur-sm">
+          <div className="rounded-lg border border-neutral-200 bg-white/90 p-6 backdrop-blur-xs">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Total Submissions</p>
@@ -143,7 +143,7 @@ export function Admin({ submissions, adminUser }) {
             </div>
           </div>
 
-          <div className="rounded-lg border-[1px] border-neutral-200 bg-white/90 p-6 backdrop-blur-sm">
+          <div className="rounded-lg border border-neutral-200 bg-white/90 p-6 backdrop-blur-xs">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Today&apos;s Submissions</p>
@@ -161,7 +161,7 @@ export function Admin({ submissions, adminUser }) {
             </div>
           </div>
 
-          <div className="rounded-lg border-[1px] border-neutral-200 bg-white/90 p-6 backdrop-blur-sm">
+          <div className="rounded-lg border border-neutral-200 bg-white/90 p-6 backdrop-blur-xs">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Unique Applicants</p>
@@ -177,7 +177,7 @@ export function Admin({ submissions, adminUser }) {
         </div>
 
         {/* Filters and Search */}
-        <div className="mb-6 rounded-lg border-[1px] border-neutral-200 bg-white/90 p-6 backdrop-blur-sm">
+        <div className="mb-6 rounded-lg border border-neutral-200 bg-white/90 p-6 backdrop-blur-xs">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div className="flex flex-1 items-center gap-4">
               <div className="relative max-w-md flex-1">
@@ -195,7 +195,7 @@ export function Admin({ submissions, adminUser }) {
                 <select
                   value={selectedPosition}
                   onChange={(e) => setSelectedPosition(e.target.value)}
-                  className="rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  className="rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-primary focus:outline-hidden focus:ring-1 focus:ring-primary"
                 >
                   <option value="all">All Positions</option>
                   {uniquePositions.map((position) => (
@@ -215,16 +215,16 @@ export function Admin({ submissions, adminUser }) {
         </div>
 
         {/* Results Header */}
-        <div className="mb-4 rounded-lg border-[1px] border-neutral-200 bg-white/90 p-4 backdrop-blur-sm">
+        <div className="mb-4 rounded-lg border border-neutral-200 bg-white/90 p-4 backdrop-blur-xs">
           <h2 className="text-xl font-semibold text-gray-900">
             Submissions ({filteredSubmissions.length})
           </h2>
         </div>
 
         {/* Submissions List */}
-        <div className="space-y-2 border-[1px] border-neutral-200 p-4">
+        <div className="space-y-2 border border-neutral-200 p-4">
           {filteredSubmissions.length === 0 ? (
-            <div className="rounded-lg bg-white/90 p-8 text-center backdrop-blur-sm">
+            <div className="rounded-lg bg-white/90 p-8 text-center backdrop-blur-xs">
               <p className="text-gray-500">
                 {searchTerm || selectedPosition !== "all"
                   ? "Tidak ada submission yang cocok dengan filter."
@@ -233,7 +233,7 @@ export function Admin({ submissions, adminUser }) {
             </div>
           ) : (
             filteredSubmissions.map((submission) => (
-              <div key={submission.id} className="rounded-lg bg-white/90 p-6 backdrop-blur-sm">
+              <div key={submission.id} className="rounded-lg bg-white/90 p-6 backdrop-blur-xs">
                 {/* Header */}
                 <div className="mb-4 flex items-start justify-between border-b border-gray-200 pb-4">
                   <div>

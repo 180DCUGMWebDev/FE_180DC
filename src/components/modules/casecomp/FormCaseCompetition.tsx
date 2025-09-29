@@ -489,7 +489,7 @@ export function FormCaseComp() {
         {/* Title Section */}
         <div className="container z-10 mx-auto flex flex-col items-center py-12 text-center">
           <h1 className="mb-4 mt-[10vh] text-3xl font-bold lg:text-5xl">
-            <span className="bg-gradient-to-r from-green-500 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-green-500 to-blue-400 bg-clip-text text-transparent">
               Select Payment Method
             </span>
           </h1>
@@ -543,7 +543,7 @@ export function FormCaseComp() {
       {/* Title Section */}
       <div className="z- container mx-auto py-12 text-center">
         <h1 className="mb-4 mt-[10vh] text-4xl font-bold">
-          <span className="z-10 bg-gradient-to-r from-green-500 to-blue-400 bg-clip-text text-transparent">
+          <span className="z-10 bg-linear-to-r from-green-500 to-blue-400 bg-clip-text text-transparent">
             Team Registration
           </span>
         </h1>
@@ -686,7 +686,7 @@ export function FormCaseComp() {
                           ? "HSBC 12345678 a.n John Doe"
                           : "Mandiri 12345678 a.n John Doe"
                       }
-                      className="w-full rounded bg-gray-100 p-3 outline-0"
+                      className="w-full rounded-sm bg-gray-100 p-3 outline-0"
                     />
                     {rekeningError && <p className="mt-1 text-sm text-red-500">{rekeningError}</p>}
                   </div>

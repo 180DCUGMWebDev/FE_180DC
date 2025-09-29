@@ -36,7 +36,7 @@ function Li({ children }) {
 
 function Blockquote({ children }) {
   return (
-    <blockquote className="mb-4 mt-6 border-l-4 border-secondary px-6 py-[0.1px] pt-2 font-latoLightItalic">
+    <blockquote className="mb-4 mt-6 border-l-4 border-secondary px-6 py-[0.1px] pt-2 font-lato-light-italic">
       {children}
     </blockquote>
   );

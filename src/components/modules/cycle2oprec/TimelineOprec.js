@@ -14,7 +14,7 @@ export function TimelineOprec() {
         alt="background"
         width={2000}
         height={2000}
-        className="absolute inset-0 -top-[20] z-[0] h-screen w-full max-lg:w-[200vw] max-lg:pb-[20vw] max-sm:pb-[70vw]"
+        className="absolute inset-0 -top-[20] z-0 h-screen w-full max-lg:w-[200vw] max-lg:pb-[20vw] max-sm:pb-[70vw]"
       />
       {/* Content */}
       <div className="z-30 mb-[7vw] flex w-full items-center justify-center bg-[#E8E8E8]">
@@ -37,7 +37,7 @@ export function TimelineOprec() {
             className="z-5 absolute -right-[18vw] -top-[10vw] w-[24.008vw] object-cover max-lg:hidden"
           />
           {/* Centered Timeline image */}
-          <h1 className="font-latoBold text-[3.33vw] text-[#73B743]">Timeline</h1>
+          <h1 className="font-lato-bold text-[3.33vw] text-[#73B743]">Timeline</h1>
 
           <Image
             src="/img/opreccycle/TimelineOprec.png" // Replace with your image path

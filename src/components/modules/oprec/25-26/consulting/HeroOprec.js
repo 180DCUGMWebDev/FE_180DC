@@ -54,7 +54,7 @@ export default function HeroPage() {
           />
 
           <div className="mt-8 max-lg:hidden">
-            <p className="max-w-2xl font-latoSemibold text-xl text-white lg:text-2xl">
+            <p className="max-w-2xl font-lato-semibold text-xl text-white lg:text-2xl">
               Calling all aspiring consultants and changemakers!
               <br />
               Join 180DC UGM and leave your mark.
@@ -62,7 +62,7 @@ export default function HeroPage() {
           </div>
 
           <div className="mt-6 lg:hidden">
-            <p className="max-w-sm font-latoSemibold text-base text-white">
+            <p className="max-w-sm font-lato-semibold text-base text-white">
               Calling all aspiring consultants and changemakers!
               <br />
               Join 180DC UGM and leave your mark.
@@ -70,10 +70,10 @@ export default function HeroPage() {
           </div>
           {/* Scroll Down [DESKTOP] */}
           <div className="flex flex-col items-center outline-0">
-            <h2 className="mt-[1.4vw] font-latoBold text-[12px] text-lightWhite">
+            <h2 className="mt-[1.4vw] font-lato-bold text-[12px] text-light-white">
               {"SCROLL DOWN TO ACCESS GUIDEBOOK AND REGISTRATION"}
             </h2>
-            <FaChevronDown className="animate-movingPointer text-[1.4vw] text-lightWhite" />
+            <FaChevronDown className="animate-moving-pointer text-[1.4vw] text-light-white" />
           </div>
         </div>
       </div>

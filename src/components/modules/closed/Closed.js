@@ -49,12 +49,12 @@ export default function Closed() {
                 <Image src={"/logowhite180.png"} width={200} height={200} alt="logo-180" />
               </div>
 
-              <h1 className="text-center font-avenirBlack text-4xl text-white sm:text-5xl lg:text-6xl">
+              <h1 className="text-center font-avenir-black text-4xl text-white sm:text-5xl lg:text-6xl">
                 Closed <span className="text-primary">Registration</span>
               </h1>
 
-              <h2 className="mt-3 text-center font-avenirBlack text-[4vw] text-white lg:text-[2.5vw]">
-                <span className="font-avenirLight">by</span> 180DC UGM
+              <h2 className="mt-3 text-center font-avenir-black text-[4vw] text-white lg:text-[2.5vw]">
+                <span className="font-avenir-light">by</span> 180DC UGM
               </h2>
             </div>
 
@@ -88,7 +88,7 @@ export default function Closed() {
           <div className="flex flex-col lg:w-1/2">
             <div className="relative ml-[8.667vw] mt-[80px] h-[21.282vw] w-full rotate-2 rounded-bl-[40px] bg-white lg:ml-0 lg:h-[12.135vw]">
               <div className="absolute flex h-full w-full items-center justify-end">
-                <h1 className="text-outline-decoration lg:max-w-[100%] max-w-[75%] pr-10 font-avenirBlack text-[6.154vw] leading-[5.385vw] text-secondary md:text-[4vw] lg:pr-20 lg:text-[3.49vw] lg:leading-[3.125vw]">
+                <h1 className="text-outline-decoration lg:max-w-full max-w-[75%] pr-10 font-avenir-black text-[6.154vw] leading-[5.385vw] text-secondary md:text-[4vw] lg:pr-20 lg:text-[3.49vw] lg:leading-[3.125vw]">
                   Registration is now closed
                 </h1>
               </div>
@@ -97,20 +97,20 @@ export default function Closed() {
               <div className="absolute -top-10 flex flex-row lg:-top-[4.167vw]">
                 <div className="ml-8 flex h-[21.282vw] w-[15.128vw] flex-col items-center justify-center rounded-lg bg-primary/80 lg:hidden">
                   <div className="px-3 text-center text-white">
-                    <div className="font-avenirBlack text-2xl">100%</div>
-                    <div className="font-latoRegular text-sm">Complete</div>
+                    <div className="font-avenir-black text-2xl">100%</div>
+                    <div className="font-lato-regular text-sm">Complete</div>
                   </div>
                 </div>
 
                 <div className="ml-4 hidden h-[24.103vw] w-[16.923vw] flex-col items-center justify-center rounded-lg bg-primary/80 object-contain lg:ml-[1.667vw] lg:flex lg:h-[12.292vw] lg:w-[8.646vw]">
                   <div className="text-center text-white">
-                    <div className="font-avenirBlack text-xl">100%</div>
-                    <div className="font-latoRegular text-xs">Complete</div>
+                    <div className="font-avenir-black text-xl">100%</div>
+                    <div className="font-lato-regular text-xs">Complete</div>
                   </div>
                 </div>
 
                 <div className="ml-4 mt-4 w-full md:mt-1 lg:ml-[1vw] lg:mt-[1.2vw]">
-                  <p className="font-avenirRegular text-[3vw] text-white180 lg:text-[1.875vw]">
+                  <p className="font-avenir-regular text-[3vw] text-white180 lg:text-[1.875vw]">
                     Thank you for your interest in joining us!
                   </p>
                 </div>
@@ -134,7 +134,7 @@ export default function Closed() {
                     key={index}
                     className="rounded-r-xl rounded-bl-xl bg-white px-[2.564vw] py-[0.513vw] lg:rounded-r-3xl lg:rounded-bl-3xl lg:px-[1.458vw] lg:py-[0.365vw]"
                   >
-                    <h2 className="font-avenirBlack text-[2.9vw] text-[#73B743] lg:text-[1.823vw]">
+                    <h2 className="font-avenir-black text-[2.9vw] text-[#73B743] lg:text-[1.823vw]">
                       {item}
                     </h2>
                   </div>

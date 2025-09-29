@@ -43,21 +43,21 @@ export default function HeroCasebook() {
             className="absolute left-[14.5vw] top-[6vw] h-[1.776vw] w-[1.531vw] object-cover lg:right-[2vw] lg:top-[5.5vw] lg:h-[1.776vw] lg:w-[1.531vw]"
           />
 
-          <div className="flex h-[5.677vw] w-fit flex-col items-center justify-center rounded-[5.208vw] bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] px-[2vw] pt-[1vw] font-avenirBlack text-[3.333vw] text-lightWhite lg:mt-[0.5vw] lg:pt-[0.5vw]">
+          <div className="flex h-[5.677vw] w-fit flex-col items-center justify-center rounded-[5.208vw] bg-linear-to-r from-[#6FAA26] to-[#58B9D1] px-[2vw] pt-[1vw] font-avenir-black text-[3.333vw] text-light-white lg:mt-[0.5vw] lg:pt-[0.5vw]">
             CASEBOOK
           </div>
-          <div className="ml-[1.6vw] font-avenirBook text-[1.7vw] max-lg:mt-[0.8vw]">
+          <div className="ml-[1.6vw] font-avenir-book text-[1.7vw] max-lg:mt-[0.8vw]">
             <h2>
-              <span className="font-avenirRegular">by </span>
-              <span className="font-avenirBlack">180DC UGM</span>
+              <span className="font-avenir-regular">by </span>
+              <span className="font-avenir-black">180DC UGM</span>
             </h2>
           </div>
-          <div className="my-[2.5vw] ml-[1.6vw] max-w-[28vw] font-avenirRegular text-[1.25vw]/[1.3vw] leading-[1.7vw] lg:leading-[1.4vw]">
+          <div className="my-[2.5vw] ml-[1.6vw] max-w-[28vw] font-avenir-regular text-[1.25vw]/[1.3vw] leading-[1.7vw] lg:leading-[1.4vw]">
             The ultimate e-book you need to learn about consulting! Get it in bundles!
           </div>
           <Link
             href="https://docs.google.com/forms/d/e/1FAIpQLSf9lMS6EHYZPyo6IL80EcYrdxVglOv1PnpZnTS29Ew0jBHEMw/viewform"
-            className="relative ml-[1.6vw] flex h-[3.75vw] w-[12.677vw] items-center justify-center gap-[1vw] rounded-[5.208vw] bg-black font-avenirHeavy text-[1.25vw] text-white transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#5AB0BB]/20 lg:h-[3.75vw] lg:w-[10.677vw]"
+            className="relative ml-[1.6vw] flex h-[3.75vw] w-[12.677vw] items-center justify-center gap-[1vw] rounded-[5.208vw] bg-black font-avenir-heavy text-[1.25vw] text-white transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#5AB0BB]/20 lg:h-[3.75vw] lg:w-[10.677vw]"
           >
             <Image
               src="/img/store/casebook/greenstar.png"

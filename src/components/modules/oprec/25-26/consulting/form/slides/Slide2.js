@@ -38,17 +38,17 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
   return (
     <div className="animate-fade-in space-y-6">
       <div className="text-center">
-        <h2 className="mb-1 mt-2 font-avenirBlack text-2xl leading-snug text-primary lg:text-3xl">
+        <h2 className="mb-1 mt-2 font-avenir-black text-2xl leading-snug text-primary lg:text-3xl">
           180 DC Alumni Information
         </h2>
-        <p className="font-latoRegular text-gray-600">
+        <p className="font-lato-regular text-gray-600">
           Help us understand your connection with 180DC UGM
         </p>
       </div>
 
       {/* Alumni Status Check */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-        <h3 className="mb-6 flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
+      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
+        <h3 className="mb-6 flex items-center gap-2 font-avenir-black text-xl text-gray-800">
           <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
             <span className="text-sm font-bold text-white">3</span>
           </div>
@@ -56,7 +56,7 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
         </h3>
 
         <div className="mb-4 flex flex-col gap-2">
-          <h2 className="font-avenirRegular font-bold">Are you a 180DC UGM alumni?</h2>
+          <h2 className="font-avenir-regular font-bold">Are you a 180DC UGM alumni?</h2>
           <div className="flex flex-row items-center gap-2">
             <Checkbox
               id="alumni-yes"
@@ -69,7 +69,7 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
               className="text-white"
             />
             <Label htmlFor="alumni-yes" className="cursor-pointer">
-              <p className="font-latoRegular text-gray-600">
+              <p className="font-lato-regular text-gray-600">
                 Yes, I am a former member of 180DC UGM
               </p>
             </Label>
@@ -91,7 +91,7 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
               className="text-white"
             />
             <Label htmlFor="alumni-no" className="cursor-pointer">
-              <p className="font-latoRegular text-gray-600">
+              <p className="font-lato-regular text-gray-600">
                 No, I am not a former member of 180DC UGM
               </p>
             </Label>
@@ -99,7 +99,7 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
           {/* Conditional Alumni Information Form */}
           {is180DCAlumni && (
             <>
-              <h3 className="mt-6 flex items-center gap-2 font-avenirBlack text-xl text-gray-800">
+              <h3 className="mt-6 flex items-center gap-2 font-avenir-black text-xl text-gray-800">
                 Alumni Details
               </h3>
 
@@ -107,7 +107,7 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
                 <div>
                   <Label
                     htmlFor="pastPosition"
-                    className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
+                    className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700"
                   >
                     Past Position in 180DC UGM *
                   </Label>
@@ -134,7 +134,7 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
                 <div>
                   <Label
                     htmlFor="pastBatch"
-                    className="mb-2 block font-avenirRegular text-sm font-medium text-gray-700"
+                    className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700"
                   >
                     Past Batch/Year *
                   </Label>
@@ -166,7 +166,7 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
         <Button
           onClick={handleNext}
           disabled={!isValid}
-          className="flex items-center gap-2 bg-primary font-avenirRegular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
+          className="flex items-center gap-2 bg-primary font-avenir-regular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
         >
           Continue to Next Step
           <ChevronRight className="h-4 w-4" />
