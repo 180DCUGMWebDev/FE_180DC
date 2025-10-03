@@ -74,6 +74,7 @@
     "child_process": false
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/postcss": "^4.1.13",
     "@types/node": "^24.0.13",
@@ -86,6 +87,6 @@
     "prettier-plugin-tailwindcss": "^0.6.14",
     "raw-loader": "^4.0.2",
     "tailwindcss": "^4.1.13",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.3"
   }
 }

@@ -9,7 +9,7 @@ import { createBackground } from "@/config/Functions";
 import { useState, useEffect, useMemo } from "react";
 
 export default function WhatInside() {
-  const [windowSize, setWindowSize] = useState();
+  const [windowSize, setWindowSize] = useState(null);
 
   const handleResize = () => {
     setWindowSize(window.innerWidth);

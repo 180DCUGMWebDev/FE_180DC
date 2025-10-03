@@ -6,7 +6,7 @@ import {useRef} from "react";
 import { FaChevronDown } from "react-icons/fa";
 
 const HeroTemplate = ({ children }) => {
-  const scrollRef = useRef();
+  const scrollRef = useRef(null);
   const handleClick = () => scrollRef.current.scrollIntoView({ behavior: "smooth" });
   return (
     <section className="relative bg-[url(/img/store/casebook/bgHeroCasebookMobile.png)] bg-cover lg:bg-[url(/img/store/casebook/bgHeroCasebook-c.png)]">

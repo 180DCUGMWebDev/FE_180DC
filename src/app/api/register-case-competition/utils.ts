@@ -153,7 +153,7 @@ export const uploadSubscribe = async (data, sheet) => {
       email: data,
     });
 
-    await sendEmail({ email: data });
+    await sendEmail({ teamLeader: data });
   } catch (error) {
     throw new Error("Failed to upload subscription");
   }

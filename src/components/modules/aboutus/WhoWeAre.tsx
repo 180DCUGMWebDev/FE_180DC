@@ -15,9 +15,11 @@ export default function WhoWeAre() {
   const [isPlaying, setIsPlaying] = useState(true);
   useEffect(() => {
     if (!isPlaying) {
-      document.getElementById("vidRef")?.play();
+      const videoElement = document.getElementById("vidRef") as HTMLVideoElement
+      videoElement.play();
     } else {
-      document.getElementById("vidRef")?.pause();
+      const videoElement = document.getElementById("vidRef") as HTMLVideoElement
+      videoElement.pause();
     }
   }, [isPlaying, setIsPlaying]);
 

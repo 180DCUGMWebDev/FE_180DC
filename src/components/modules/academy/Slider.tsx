@@ -9,7 +9,7 @@ import { Pagination } from "swiper/modules";
 import CardContents from "./CardContents";
 import Image from "next/image";
 
-export default function Slider(image, module, title, link) {
+export default function Slider() {
   const data = {
     image: [
       "/img/academy/dummyCardImage.png",
@@ -22,7 +22,7 @@ export default function Slider(image, module, title, link) {
     link: ["academy/module1", "academy/im2", "academy/im3", "academy/im4"],
   };
 
-  const [swiper, setSwiper] = useState();
+  const [swiper, setSwiper] = useState(null);
   return (
     <div className="relative">
       <div onClick={() => swiper.slidePrev()}>

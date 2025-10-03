@@ -29,7 +29,7 @@ export function Admin({ submissions, adminUser }) {
 
   const uniquePositions = [
     ...new Set(submissions.map((s) => s.firstChoicePosition).filter(Boolean)),
-  ];
+  ] as string[];
 
   async function handleLogout() {
     setIsLoggingOut(true);

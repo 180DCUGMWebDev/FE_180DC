@@ -52,7 +52,7 @@ export default function Article({ params }) {
         </div>
         {/* Article */}
         <div className="mt-[20px] text-justify text-[3.3vw] lg:text-[1.2vw]">
-          <ReactMarkdown components={MdxComponents} rehypePlugins={rehypeRaw}>
+          <ReactMarkdown components={MdxComponents} rehypePlugins={[rehypeRaw]}>
             {article.body}
           </ReactMarkdown>
         </div>
