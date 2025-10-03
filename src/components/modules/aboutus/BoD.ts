@@ -152,9 +152,9 @@ const BoD = {
         src: "/img/aboutus/BoD/2324/beatrice.png",
       },
       {
-        src: "https://utfs.io/f/61b6d197-4eff-4609-a069-daa6cd0eb9ba-6nj4o9.png",
         name: "Yoanita Dinda P.",
         role: "Vice President of Internal",
+        linkedin: "",
         src: "/img/aboutus/BoD/2324/yoanita.png",
       },
     ],

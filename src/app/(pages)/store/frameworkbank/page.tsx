@@ -7,7 +7,7 @@ export default function frameworkbank() {
     <main>
       <HeroFbanks />
       <PreviewFbanks />
-      <SecureYoursFbank />
+      <SecureYoursFbank theme = "dark" />
     </main>
   );
 }

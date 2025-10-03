@@ -52,9 +52,9 @@ export default function PreviousClients() {
 
   // Slide Position
   const [slide, setSlide] = useState(0);
-  const swiperRef = useRef();
-  const swiperRefMobile = useRef();
-  const scrollRef = useRef();
+  const swiperRef = useRef(null);
+  const swiperRefMobile = useRef(null);
+  const scrollRef = useRef(null);
 
   // Bullets
   const loopForBullets = useCallback(() => {

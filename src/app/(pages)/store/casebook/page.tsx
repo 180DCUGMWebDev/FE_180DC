@@ -11,7 +11,7 @@ export default function Casebook() {
       <WhatInside />
       <CasebookJourney />
       {/* <WhatTheySay /> */}
-      <SecureYours />
+      <SecureYours theme = "dark"/>
     </main>
   );
 }

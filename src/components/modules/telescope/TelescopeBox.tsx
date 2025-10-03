@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export function TelescopeBox({ article, type, className }) {
+export function TelescopeBox({ article, type, className = "" }) {
   // type = "lg" or "sm"
   if (!article) return null;
   return (

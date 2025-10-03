@@ -10,7 +10,7 @@ import { useRef } from "react";
 import { createBackground } from "@/config/Functions";
 
 export default function AcademyHero() {
-  const scrollRef = useRef();
+  const scrollRef = useRef(null);
   const handleClick = useCallback(
     () => scrollRef.current.scrollIntoView({ behavior: "smooth" }),
     [scrollRef],

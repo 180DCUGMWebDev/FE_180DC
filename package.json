@@ -74,6 +74,7 @@
     "child_process": false
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/postcss": "^4.1.13",
     "@types/node": "^24.0.13",

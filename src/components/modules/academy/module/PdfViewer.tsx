@@ -4,7 +4,7 @@
 // import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 // import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 const PdfViewer = ({ url }) => {
-  const defaultLayoutPluginInstance = defaultLayoutPlugin();
+  // const defaultLayoutPluginInstance = defaultLayoutPlugin();
   return (
     <section className="relative">
       <div className="mx-auto max-h-[90vh] overflow-y-auto bg-black px-[9%] pt-[9.92vw] lg:mt-[9.92vw] lg:px-[9%]">

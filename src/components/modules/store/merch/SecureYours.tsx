@@ -9,7 +9,7 @@ import { directRoute } from "@/config/Functions";
 import ImgF from "@/components/element/ImgF";
 import Button180 from "@/components/element/Button";
 
-export default function SecureYours({ theme }) {
+export default function SecureYours({ theme = "" }) {
   // Router Hook
   const router = useRouter();
 

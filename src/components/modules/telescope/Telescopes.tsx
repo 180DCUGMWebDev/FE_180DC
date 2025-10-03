@@ -11,8 +11,8 @@ export function Telescopes({ articles, subscribeScrollRef }) {
   const [showArticles, setShowArticles] = useState(false);
   const [slide, setSlide] = useState(0);
   const [search, setSearch] = useState("");
-  const scrollRef = useRef();
-  const swiperRef = useRef();
+  const scrollRef = useRef(null);
+  const swiperRef = useRef(null);
   const swiperArticles = articles.slice(1, 9);
   const slideMod = (slide) => (slide + swiperArticles.length - 1) % (swiperArticles.length - 1);
   useEffect(() => {

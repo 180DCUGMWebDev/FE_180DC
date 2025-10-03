@@ -23,7 +23,7 @@ export async function POST(request) {
     await updateVerificationStatus(sheet, payment, teamLeader, teamMember, status);
 
     if (!sheet) {
-      throw new Error(`Sheet with title "${target}" not found`);
+      throw new Error(`Sheet not found`);
     }
 
     await sendEmail({
