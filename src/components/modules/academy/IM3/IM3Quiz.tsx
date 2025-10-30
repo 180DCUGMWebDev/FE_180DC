@@ -4,73 +4,71 @@ import React, { useState, useEffect, useMemo } from "react";
 export default function MiniQuiz() {
   const questionAnswer = useMemo(
     () => [
-        {
-          number: 1,
-          question: "Why is storytelling important in presentations?",
-          answers: [
-            "It makes presentations more fun.",
-            "It turns data into an engaging and clear story.",
-            "It helps add more text to slides.",
-            "It ensures all presentations look the same.",
-          ],
-          answerKey: 1,
-          explanation:
-            "B – Storytelling makes complex data more engaging and easier to understand.",
-        },
-        {
-          number: 2,
-          question: "What should be done before analyzing data?",
-          answers: [
-            "Collect as much random data as possible.",
-            "Prioritize key issues.",
-            "Start designing slides.",
-            "Add visuals before structuring the problem.",
-          ],
-          answerKey: 1,
-          explanation:
-            "B – Prioritizing issues ensures focus on the most important aspects before analysis.",
-        },
-        {
-          number: 3,
-          question: "When designing slides, what is a good rule for text?",
-          answers: [
-            "Use long paragraphs to explain everything.",
-            "Keep text short and highlight key points.",
-            "Use only pictures without any text.",
-            "Make all text the same size and color.",
-          ],
-          answerKey: 1,
-          explanation:
-            "B – Short, clear text with highlighted key points keeps slides easy to read.",
-        },
-        {
-          number: 4,
-          question: "What does the ‘So What’ test help with in a presentation?",
-          answers: [
-            "Making slides look nice.",
-            "Ensuring every data point leads to a meaningful insight.",
-            "Checking if the slides follow a color scheme.",
-            "Deciding how many slides to include in a deck.",
-          ],
-          answerKey: 1,
-          explanation:
-            "B – The ‘So What’ test ensures that every data point leads to an actionable and relevant insight.",
-        },
-        {
-          number: 5,
-          question: "Why is the MECE principle useful in structuring problems?",
-          answers: [
-            "It helps remove unnecessary slides.",
-            "It ensures that all key points are covered without overlap.",
-            "It makes presentations shorter.",
-            "It focuses only on visuals instead of problem-solving.",
-          ],
-          answerKey: 1,
-          explanation:
-            "B – MECE helps structure problems clearly by making sure no points overlap and that all key aspects are included.",
-        },
-      ],
-    [],
+      {
+        number: 1,
+        question: "Why is storytelling important in presentations?",
+        answers: [
+          "It makes presentations more fun.",
+          "It turns data into an engaging and clear story.",
+          "It helps add more text to slides.",
+          "It ensures all presentations look the same.",
+        ],
+        answerKey: 1,
+        explanation: "B – Storytelling makes complex data more engaging and easier to understand.",
+      },
+      {
+        number: 2,
+        question: "What should be done before analyzing data?",
+        answers: [
+          "Collect as much random data as possible.",
+          "Prioritize key issues.",
+          "Start designing slides.",
+          "Add visuals before structuring the problem.",
+        ],
+        answerKey: 1,
+        explanation:
+          "B – Prioritizing issues ensures focus on the most important aspects before analysis.",
+      },
+      {
+        number: 3,
+        question: "When designing slides, what is a good rule for text?",
+        answers: [
+          "Use long paragraphs to explain everything.",
+          "Keep text short and highlight key points.",
+          "Use only pictures without any text.",
+          "Make all text the same size and color.",
+        ],
+        answerKey: 1,
+        explanation: "B – Short, clear text with highlighted key points keeps slides easy to read.",
+      },
+      {
+        number: 4,
+        question: "What does the ‘So What’ test help with in a presentation?",
+        answers: [
+          "Making slides look nice.",
+          "Ensuring every data point leads to a meaningful insight.",
+          "Checking if the slides follow a color scheme.",
+          "Deciding how many slides to include in a deck.",
+        ],
+        answerKey: 1,
+        explanation:
+          "B – The ‘So What’ test ensures that every data point leads to an actionable and relevant insight.",
+      },
+      {
+        number: 5,
+        question: "Why is the MECE principle useful in structuring problems?",
+        answers: [
+          "It helps remove unnecessary slides.",
+          "It ensures that all key points are covered without overlap.",
+          "It makes presentations shorter.",
+          "It focuses only on visuals instead of problem-solving.",
+        ],
+        answerKey: 1,
+        explanation:
+          "B – MECE helps structure problems clearly by making sure no points overlap and that all key aspects are included.",
+      },
+    ],
+    []
   );
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -135,21 +133,23 @@ export default function MiniQuiz() {
   };
 
   return (
-    <section className="mt-[3vw] bg-black px-[9%]">
+    <section className="bg-brand-black mt-[3vw] px-[9%]">
       <div className="relative mt-[9.92vw] flex flex-col rounded-[16px] bg-white px-[6%] py-[6%] lg:p-[3.333vw]">
         <div className="flex flex-col">
-          <h2 className="font-lato-bold text-[7vw] text-primary lg:text-[2.083vw]">
+          <h2 className="font-lato-bold text-brand-primary text-[7vw] lg:text-[2.083vw]">
             Internal Mentoring 3
           </h2>
-          <h2 className="font-lato-bold text-[7vw] text-primary lg:text-[2.083vw]">Mini Quiz</h2>
+          <h2 className="font-lato-bold text-brand-primary text-[7vw] lg:text-[2.083vw]">
+            Mini Quiz
+          </h2>
           {!isQuizCompleted && (
-            <h2 className="font-lato-bold text-[4vw] text-black lg:text-[1.25vw]">
+            <h2 className="font-lato-bold text-brand-black text-[4vw] lg:text-[1.25vw]">
               Question {currentQuestion.number}/{questionAnswer.length}
             </h2>
           )}
         </div>
 
-        <div className="mx-auto my-[2vw] flex w-full flex-col rounded-[16px] bg-primary px-[6%] py-[6%] lg:my-0 lg:-mt-[2vw] lg:min-h-[40vw] lg:w-[36vw] lg:rounded-[0.625vw] lg:p-[2vw]">
+        <div className="bg-brand-primary mx-auto my-[2vw] flex w-full flex-col rounded-[16px] px-[6%] py-[6%] lg:my-0 lg:-mt-[2vw] lg:min-h-[40vw] lg:w-[36vw] lg:rounded-[0.625vw] lg:p-[2vw]">
           {isQuizCompleted ? (
             <div className="flex grow flex-col">
               <p className="text-[4vw] font-bold text-white lg:text-[1.25vw]">Result</p>
@@ -210,7 +210,7 @@ export default function MiniQuiz() {
           <div className="mt-4 flex justify-between">
             <button
               className={`rounded-lg px-4 py-2 text-[4vw] font-bold lg:text-[1.25vw] ${
-                isFirstQuestion ? "bg-gray-300 text-gray-500" : "bg-black text-white"
+                isFirstQuestion ? "bg-gray-300 text-gray-500" : "bg-brand-black text-white"
               }`}
               onClick={handlePrevious}
               disabled={isFirstQuestion}
@@ -220,7 +220,7 @@ export default function MiniQuiz() {
 
             <button
               className={`rounded-lg px-4 py-2 text-[4vw] font-bold lg:text-[1.25vw] ${
-                isLastQuestion ? "bg-gray-300 text-gray-500" : "bg-black text-white"
+                isLastQuestion ? "bg-gray-300 text-gray-500" : "bg-brand-black text-white"
               }`}
               onClick={handleNext}
               disabled={isLastQuestion}

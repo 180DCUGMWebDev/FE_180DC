@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export default function ImgF({
+export default function ImageAction({
   src,
   alt,
   action = null,

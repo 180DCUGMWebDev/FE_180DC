@@ -1,7 +1,7 @@
 // Import
-import "./globals.css";
+import "../components/styles/globals.css";
 
-import { Toaster } from "@/components/ui/sonner";
+import { Toaster } from "@/components/elements/Toast";
 
 import {
   mulishLight,
@@ -25,18 +25,26 @@ import {
 import { cn } from "@/lib/utils";
 
 // Import Components
-import Navbar from "@/components/element/Navbar/Navbar";
-import Footer from "@/components/element/Footer";
+import Navbar from "@/components/elements/Navbar/Navbar";
+import Footer from "@/components/elements/Footer/Footer";
 
-import TooSmall from "@/components/element/TooSmall";
+import TooSmall from "@/components/layout/TooSmall";
 import Script from "next/script";
 import LocomotiveProvider from "@/contexts/LocomotiveContext";
-import GSAPProvider from "@/contexts/GSAPContext";
 import UtilsProvider from "@/contexts/UtilsContext";
 
 export const metadata = {
-  title: "180DC UGM",
-  description: "Code by IT 180dcugm",
+  title: "180 Degrees Consulting UGM",
+  description:
+    "180 Degrees Consulting Universitas Gadjah Mada is the first Indonesian branch of the world's largest consultancy for non-profit and social enterprises.",
+  icons: {
+    icon: [
+      { url: "/icon.ico", sizes: "any" },
+      { url: "/icon.ico", sizes: "16x16", type: "image/x-icon" },
+      { url: "/icon.ico", sizes: "32x32", type: "image/x-icon" },
+    ],
+    shortcut: "/icon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -75,18 +83,16 @@ export default function RootLayout({ children }) {
         )}
       >
         <LocomotiveProvider>
-          <GSAPProvider>
-            <UtilsProvider>
-              {/* Content > 250px */}
-              <main className="hidden flex-col overflow-clip min-[250px]:flex">
-                <Navbar />
-                {children}
-                <Footer />
-              </main>
-              {/* Second Option < 250px*/}
-              <TooSmall />
-            </UtilsProvider>
-          </GSAPProvider>
+          <UtilsProvider>
+            {/* Content > 250px */}
+            <main className="hidden flex-col overflow-clip min-[250px]:flex">
+              <Navbar />
+              {children}
+              <Footer />
+            </main>
+            {/* Second Option < 250px*/}
+            <TooSmall />
+          </UtilsProvider>
         </LocomotiveProvider>
 
         {/* Toaster at body level for optimal rendering */}

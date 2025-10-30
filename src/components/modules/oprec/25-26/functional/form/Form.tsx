@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Progress } from "@/components/ui/progress";
-import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/elements/Form/progress";
+import { Button } from "@/components/elements/Form/button";
 import { ChevronLeft } from "lucide-react";
 import { toast } from "sonner";
 import Slide1 from "./slides/Slide1";
@@ -71,7 +71,7 @@ export default function Form() {
   };
 
   const handleNext = (nextSlide) => {
-    if ("secondChoice" in formData){
+    if ("secondChoice" in formData) {
       if (
         (formData.secondChoice === "No second choice" || !formData.secondChoice) &&
         currentSlide === 4
@@ -114,7 +114,7 @@ export default function Form() {
       // Add all form fields to FormData
       Object.entries(formData).forEach(([key, value]) => {
         if (value !== null && value !== undefined) {
-          if (typeof value === 'string' || value instanceof Blob) {
+          if (typeof value === "string" || value instanceof Blob) {
             submitFormData.append(key, value);
           } else {
             // Konversi ke string jika bukan string/Blob
@@ -186,7 +186,7 @@ export default function Form() {
   };
 
   return (
-    <section className="flex min-h-screen items-center justify-center bg-linear-to-b from-black to-primary/90 p-4">
+    <section className="to-brand-primary/90 flex min-h-screen items-center justify-center bg-linear-to-b from-black p-4">
       <div className="w-full max-w-4xl py-20">
         <div className="rounded-lg border-0 bg-white/90 p-6 shadow-2xl backdrop-blur-xs">
           <div className="pb-4">
@@ -221,9 +221,9 @@ export default function Form() {
                         key={i + 1}
                         className={`h-2 w-2 rounded-full transition-colors ${
                           i + 1 === currentSlide
-                            ? "bg-primary"
+                            ? "bg-brand-primary"
                             : i + 1 < currentSlide || slideHistory.includes(i + 1)
-                              ? "bg-primary/50"
+                              ? "bg-brand-primary/50"
                               : "bg-gray-300"
                         }`}
                       />

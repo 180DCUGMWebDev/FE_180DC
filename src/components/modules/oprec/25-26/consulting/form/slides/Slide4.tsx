@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Button } from "@/components/elements/Form/button";
+import { Input } from "@/components/elements/Form/input";
+import { Label } from "@/components/elements/Form/label";
 import { ChevronRight, ChevronLeft } from "lucide-react";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "@/components/elements/Form/checkbox";
 import Link from "next/link";
 
 const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
@@ -38,7 +38,7 @@ const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
   return (
     <div className="animate-fade-in space-y-6">
       <div className="text-center">
-        <h2 className="mb-1 mt-2 font-avenir-black text-2xl leading-snug text-primary lg:text-3xl">
+        <h2 className="font-avenir-black text-brand-primary mt-2 mb-1 text-2xl leading-snug lg:text-3xl">
           Social Media & Information
         </h2>
         <p className="font-lato-regular text-gray-600">
@@ -48,8 +48,8 @@ const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
 
       {/* Document Uploads */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
-        <h3 className="mb-6 flex items-center gap-2 font-avenir-black text-xl text-gray-800">
-          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+        <h3 className="font-avenir-black mb-6 flex items-center gap-2 text-xl text-gray-800">
+          <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
             <span className="text-sm font-bold text-white">5</span>
           </div>
           Applicant Twibbon & Social Media
@@ -60,20 +60,20 @@ const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
           <div>
             <Label
               htmlFor="twibbonPost"
-              className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700"
+              className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700"
             >
               Post our applicant twibbon on your Instagram account! *
             </Label>
-            <p className="mb-3 font-lato-regular text-sm text-gray-500">
-              <span className="font-lato-bold text-black">Instructions:</span>
+            <p className="font-lato-regular mb-3 text-sm text-gray-500">
+              <span className="font-lato-bold text-brand-black">Instructions:</span>
               <br />
               1. Open the drive:{" "}
-              <span className="font-lato-bold text-black">
+              <span className="font-lato-bold text-brand-black">
                 <Link
                   href="https://drive.google.com/drive/folders/1787LhaAnV-FXgZykk70Gqc50IRClAvUT?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline hover:text-primary"
+                  className="hover:text-brand-primary underline"
                 >
                   https://drive.google.com/drive/folders/1787LhaAnV-FXgZykk70Gqc50IRClAvUT?usp=sharing{" "}
                 </Link>
@@ -86,8 +86,8 @@ const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
               4. Tag @180dcugm and POST 💘
               <br />
               <br />
-              <span className="font-lato-bold text-black">Important:</span> Please post it on your
-              main Instagram account and ensure that it is public!
+              <span className="font-lato-bold text-brand-black">Important:</span> Please post it on
+              your main Instagram account and ensure that it is public!
             </p>
             <Input
               id="twibbonPost"
@@ -95,7 +95,7 @@ const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
               value={twibbonPost}
               onChange={(e) => settwibbonPost(e.target.value)}
               placeholder="https://www.instagram.com/p/your-post-link"
-              className={`border-gray-300 font-lato-regular transition-all duration-200 focus:ring-2 focus:ring-primary/50 ${
+              className={`font-lato-regular focus:ring-brand-primary/50 border-gray-300 transition-all duration-200 focus:ring-2 ${
                 twibbonPost && !twibbonPost.includes("instagram.com")
                   ? "border-red-300 focus:ring-red-200"
                   : ""
@@ -110,27 +110,27 @@ const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
           <div>
             <Label
               htmlFor="instagramProofLink"
-              className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700"
+              className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700"
             >
               Upload proof of Instagram story *
             </Label>
-            <p className="mb-3 font-lato-regular text-sm text-gray-500">
+            <p className="font-lato-regular mb-3 text-sm text-gray-500">
               Upload proof of:
               <br />
               1. Tagging 3 friends on this post {"->"}{" "}
-              <span className="font-lato-bold text-black">
+              <span className="font-lato-bold text-brand-black">
                 <Link
                   href="https://www.instagram.com/p/DNSx_afTwcP/?igsh=MmZ2c3IzaG5ycWZm"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline hover:text-primary"
+                  className="hover:text-brand-primary underline"
                 >
                   https://www.instagram.com/p/DNSx_afTwcP/?igsh=MmZ2c3IzaG5ycWZm
                 </Link>
               </span>
               <br />
               2. Uploading this image on your story {"->"}{" "}
-              <span className="font-lato-bold text-black underline hover:text-primary">
+              <span className="font-lato-bold hover:text-brand-primary text-brand-black underline">
                 <Link
                   href="https://drive.google.com/drive/folders/1zjn0EhE53nGUhKvBr47ZpHb7k1_k9rTu"
                   target="_blank"
@@ -150,7 +150,7 @@ const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
               value={instagramProofLink}
               onChange={(e) => setInstagramProofLink(e.target.value)}
               placeholder="https://drive.google.com/file/d/your-instagram-proof-link"
-              className={`border-gray-300 font-lato-regular transition-all duration-200 focus:ring-2 focus:ring-primary/50 ${
+              className={`font-lato-regular focus:ring-brand-primary/50 border-gray-300 transition-all duration-200 focus:ring-2 ${
                 instagramProofLink && !instagramProofLink.includes("drive.google.com")
                   ? "border-red-300 focus:ring-red-200"
                   : ""
@@ -212,7 +212,7 @@ const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
         <Button
           onClick={handleNext}
           disabled={!isValid}
-          className="flex items-center gap-2 bg-primary font-avenir-regular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
+          className="bg-brand-primary font-avenir-regular hover:bg-brand-primary/90 disabled:text-brand-black flex items-center gap-2 text-white transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
         >
           Continue to Next Step
           <ChevronRight className="h-4 w-4" />

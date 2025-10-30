@@ -42,7 +42,7 @@ export default function ProjectStructureList({ divConfig, lineConfig, componentE
               <div className={"absolute flex w-[10%] justify-center lg:w-[5%] " + lineConfig}>
                 <div className="flex w-[40%] justify-center">
                   <div className={"lg:-[0.4vw] relative h-full w-[2.5vw] 2xl:w-[6.1px]"}>
-                    <div className="absolute -z-997 h-full w-full bg-secondary max-lg:top-[1vh]" />
+                    <div className="bg-brand-secondary absolute -z-997 h-full w-full max-lg:top-[1vh]" />
                   </div>
                 </div>
               </div>
@@ -52,10 +52,10 @@ export default function ProjectStructureList({ divConfig, lineConfig, componentE
             {/* Balls and Title */}
             <div className={"flex h-fit w-full items-center gap-[5%]"}>
               <div className="flex w-[10%] justify-center lg:w-[5%]">
-                <div className="mb-[3px] h-[6vw] w-[6vw] rounded-full bg-primary lg:h-[1.5vw] lg:w-[1.5vw] 2xl:h-[23px] 2xl:w-[23px]" />
+                <div className="bg-brand-primary mb-[3px] h-[6vw] w-[6vw] rounded-full lg:h-[1.5vw] lg:w-[1.5vw] 2xl:h-[23px] 2xl:w-[23px]" />
               </div>
               <div className="flex w-[90%]">
-                <h1 className="w-full font-avenir-black text-[5vw] leading-[1.1] text-primary lg:text-[1.9vw] 2xl:text-[29px]">
+                <h1 className="font-avenir-black text-brand-primary w-full text-[5vw] leading-[1.1] lg:text-[1.9vw] 2xl:text-[29px]">
                   {step.title}
                 </h1>
               </div>
@@ -64,7 +64,7 @@ export default function ProjectStructureList({ divConfig, lineConfig, componentE
             <div className="flex h-fit w-full">
               <div className="relative w-[15%] lg:w-[10%]"></div>
               <div className="flex w-[85%] lg:w-[90%]">
-                <p className="font-lato-regular text-[3.7vw] leading-tight text-light-white lg:text-[1.13vw] 2xl:text-[17.3px]">
+                <p className="font-lato-regular text-brand-light-white text-[3.7vw] leading-tight lg:text-[1.13vw] 2xl:text-[17.3px]">
                   {step.desc}
                 </p>
               </div>

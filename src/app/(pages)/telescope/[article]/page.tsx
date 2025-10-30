@@ -12,7 +12,7 @@ async function getData() {
     "https://strapi.180dcugm.org/api/articles?populate=*&sort=publishedAt:desc",
     {
       next: { revalidate: 60 },
-    },
+    }
   );
   if (!res.ok) {
     console.log("Failed to fetch data");
@@ -33,9 +33,11 @@ export default function Article({ params }) {
   if (articles && !article) notFound();
   return (
     <main className="min-h-screen bg-[black]">
-      <div className="flex flex-col gap-[min(2vw,20px)] px-[5%] py-[max(20vw,100px)] font-lato-regular text-light-white lg:px-[26%] lg:py-[max(15vh,100px)]">
+      <div className="font-lato-regular text-brand-light-white flex flex-col gap-[min(2vw,20px)] px-[5%] py-[max(20vw,100px)] lg:px-[26%] lg:py-[max(15vh,100px)]">
         {/* Title */}
-        <h1 className="text-center font-avenir-black text-[8vw] lg:text-[3.3vw]">{article.title}</h1>
+        <h1 className="font-avenir-black text-center text-[8vw] lg:text-[3.3vw]">
+          {article.title}
+        </h1>
         <h2 className="text-center text-[3vw] lg:text-[1vw]">
           Author: {article.author ?? "-"} • Publish Date:{" "}
           {new Date(article.publishedAt).toLocaleDateString("id-ID")}
@@ -56,7 +58,7 @@ export default function Article({ params }) {
             {article.body}
           </ReactMarkdown>
         </div>
-        <div className="mt-[20px] flex flex-col font-avenir-black text-[5vw] lg:text-[2.5vw]">
+        <div className="font-avenir-black mt-[20px] flex flex-col text-[5vw] lg:text-[2.5vw]">
           Our Recommendation
           <TelescopeBox
             article={articles.find((article) => article.slug != params.article)}

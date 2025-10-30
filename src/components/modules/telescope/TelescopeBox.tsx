@@ -18,14 +18,14 @@ export function TelescopeBox({ article, type, className = "" }) {
         <div
           className={`pl-[5%] ${
             type === "lg" ? "pr-[27%]" : "pr-[12%]"
-          } rounded-[10px] py-[5%] lg:rounded-[20px] relative`}
+          } relative rounded-[10px] py-[5%] lg:rounded-[20px]`}
         >
           {/* Background */}
-          <div className="absolute inset-0 z-10 overflow-hidden rounded-[10px] ">
+          <div className="absolute inset-0 z-10 overflow-hidden rounded-[10px]">
             {type === "article" || (
               <>
-                <div className="absolute inset-0 from-primary from-20% to-secondary to-80% bg-[linear-gradient(120deg,var(--tw-gradient-stops))]" />
-                <div className="absolute inset-0 bg-black opacity-[0.35]" />
+                <div className="from-brand-primary to-brand-secondary absolute inset-0 bg-[linear-gradient(120deg,var(--tw-gradient-stops))] from-20% to-80%" />
+                <div className="bg-brand-black absolute inset-0 opacity-[0.35]" />
               </>
             )}
             <Image
@@ -40,7 +40,7 @@ export function TelescopeBox({ article, type, className = "" }) {
           </div>
           {/* Text */}
           <div
-            className={`relative z-20 flex h-full flex-col text-light-white ${
+            className={`text-brand-light-white relative z-20 flex h-full flex-col ${
               type === "lg" ? "justify-between lg:justify-end" : "justify-end"
             }`}
           >
@@ -58,7 +58,7 @@ export function TelescopeBox({ article, type, className = "" }) {
                 </div>
               )}
             </div>
-            <div className="text-[2.7vw] italic leading-[1.2] underline lg:hidden">
+            <div className="text-[2.7vw] leading-[1.2] italic underline lg:hidden">
               Read Article
             </div>
           </div>

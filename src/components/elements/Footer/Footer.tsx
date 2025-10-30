@@ -5,13 +5,13 @@ import { useRouter, usePathname } from "next/navigation";
 
 // Import Components
 import { FaArrowRight, FaInstagram, FaLinkedin, FaSpotify } from "react-icons/fa";
-import NavFootItems from "./NavFootItems";
-import ImgF from "./ImgF";
+import NavFootItems from "./FootItems";
+import ImageAction from "@/components/elements/ImageAction";
 
 // Import Configs
 import { navLinks, socLinks, intLinks } from "@/config/Links";
 import { copyContent, directRoute } from "@/config/Functions";
-import { connectSS } from "../modules/apply/connectSpreadsheets";
+import { connectSS } from "@/components/modules/apply/connectSpreadsheets";
 import { useCallback, useEffect, useState, useRef, useContext } from "react";
 import { UtilsContext } from "@/contexts/UtilsContext";
 
@@ -90,7 +90,7 @@ export default function Footer() {
             theme: "black",
             device: "desktop",
           })
-        ? "bg-black "
+        ? "bg-brand-black "
         : "bg-transparent ";
 
   const bgThemeMobile = pathname.includes("/telescope/")
@@ -104,7 +104,7 @@ export default function Footer() {
             theme: "black",
             device: "mobile",
           })
-        ? "bg-black "
+        ? "bg-brand-black "
         : "bg-transparent ";
 
   // Classes
@@ -150,24 +150,24 @@ export default function Footer() {
   // Page
   return (
     <div className="h-full w-full max-lg:bg-transparent">
-      <div className="relative flex w-full bg-linear-to-r from-black to-primary pt-[3px] lg:rounded-tl-[20px] lg:rounded-tr-[20px]">
+      <div className="to-brand-primary relative flex w-full bg-linear-to-r from-black pt-[3px] lg:rounded-tl-[20px] lg:rounded-tr-[20px]">
         {/* Background */}
         <div
           className={
-            "absolute left-0 top-0 -z-999 h-full w-full " +
+            "absolute top-0 left-0 -z-999 h-full w-full " +
             "lg:" +
             bgTheme + // desktop
             bgThemeMobile // mobile
           }
         />
 
-        <div className="flex w-full select-none flex-col gap-[16px] bg-black px-[3vw] py-[2.2vw] pb-[2px] lg:rounded-tl-[20px] lg:rounded-tr-[20px] 2xl:px-[46px] 2xl:py-[33.8px]">
+        <div className="bg-brand-black flex w-full flex-col gap-[16px] px-[3vw] py-[2.2vw] pb-[2px] select-none lg:rounded-tl-[20px] lg:rounded-tr-[20px] 2xl:px-[46px] 2xl:py-[33.8px]">
           {/* Contents */}
-          <div className="flex w-full gap-[8vw] text-light-white max-lg:flex-col max-lg:items-center lg:gap-[60px] 2xl:justify-between">
+          <div className="text-brand-light-white flex w-full gap-[8vw] max-lg:flex-col max-lg:items-center lg:gap-[60px] 2xl:justify-between">
             {/* Logo */}
             <div className="w-[38%] max-lg:mb-[4vw] lg:w-2/12 2xl:w-[560px]">
               <div className="flex w-full flex-col items-center justify-center gap-[8px] 2xl:w-[160px]">
-                <ImgF
+                <ImageAction
                   src="/img/global/footerlogo180dc.png"
                   alt="logo footer 180dc"
                   action={() => {
@@ -184,11 +184,11 @@ export default function Footer() {
                   <h1 className={classHead + " max-lg:text-center"}>{"Office"}</h1>
                   {/* Address */}
                   {getAddress(
-                    "max-lg:leading-[3.8vw] text-[3.5vw] lg:text-[0.9vw] 2xl:text-[13.8px] max-lg:text-center",
+                    "max-lg:leading-[3.8vw] text-[3.5vw] lg:text-[0.9vw] 2xl:text-[13.8px] max-lg:text-center"
                   )}
                   {/* Email */}
                   {getEmail(
-                    "text-[3.5vw] lg:text-[0.9vw] 2xl:text-[13.8px] mt-[8px] max-lg:text-center",
+                    "text-[3.5vw] lg:text-[0.9vw] 2xl:text-[13.8px] mt-[8px] max-lg:text-center"
                   )}
                 </div>
               </div>
@@ -199,7 +199,7 @@ export default function Footer() {
               <NavFootItems
                 ulClass="flex flex-col! w-full max-lg:text-center gap-[2.5vw] lg:gap-[2.5px] text-[3.5vw] lg:text-[0.9vw] 2xl:text-[13.8px] max-lg:text-center"
                 liClass="flex w-full text-center"
-                aClass="text-light-white font-lato-regular hover:font-lato-bold"
+                aClass="text-brand-light-white font-lato-regular hover:font-lato-bold"
                 identifier="Footer"
               />
             </div>
@@ -244,17 +244,17 @@ export default function Footer() {
                   <input
                     type="text"
                     value={email}
-                    className="h-full w-full rounded-bl-[.7vw] rounded-tl-[.7vw] bg-white180 px-[1.5vw] py-[1vw] text-[3.1vw] text-black outline-hidden lg:text-[0.9vw] 2xl:rounded-bl-[10.8px] 2xl:rounded-tl-[10.8px] 2xl:px-[23.1px] 2xl:py-[15.4px] 2xl:text-[13.8px]"
+                    className="bg-brand-white-180 text-brand-black h-full w-full rounded-tl-[.7vw] rounded-bl-[.7vw] px-[1.5vw] py-[1vw] text-[3.1vw] outline-hidden lg:text-[0.9vw] 2xl:rounded-tl-[10.8px] 2xl:rounded-bl-[10.8px] 2xl:px-[23.1px] 2xl:py-[15.4px] 2xl:text-[13.8px]"
                     placeholder="Enter Your Email to Subscribe to Our Newsletter"
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   <button
                     type="button"
-                    className="h-full rounded-br-[.7vw] rounded-tr-[.7vw] bg-white180 pr-[12px] 2xl:rounded-br-[10.8px] 2xl:rounded-tr-[10.8px]"
+                    className="bg-brand-white-180 h-full rounded-tr-[.7vw] rounded-br-[.7vw] pr-[12px] 2xl:rounded-tr-[10.8px] 2xl:rounded-br-[10.8px]"
                     onClick={handleSubmitButton}
                     disabled={!email} // Disables button when input is empty
                   >
-                    <FaArrowRight className="text-[2.5vw] text-black opacity-57 lg:text-[2vw] 2xl:text-[30.7px]" />
+                    <FaArrowRight className="text-brand-black text-[2.5vw] opacity-57 lg:text-[2vw] 2xl:text-[30.7px]" />
                   </button>
                 </div>
               </div>
@@ -262,7 +262,7 @@ export default function Footer() {
           </div>
           {/* Copyright */}
           <div className="flex w-full justify-center">
-            <h3 className="font-avenir-book text-[2.8vw] text-primary lg:text-[0.9vw] 2xl:text-[13.8px]">
+            <h3 className="font-avenir-book text-brand-primary text-[2.8vw] lg:text-[0.9vw] 2xl:text-[13.8px]">
               {copyright}
             </h3>
           </div>

@@ -3,16 +3,12 @@
 
 import React from "react";
 import Image from "next/image";
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
 import Link from "next/link";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";
 import Slider from "./Slider";
-import Blur from "@/components/element/Blur";
+import Blur from "@/components/elements/Blur/Blur";
 
 export default function CourseSection() {
   const modules = [
@@ -60,13 +56,13 @@ export default function CourseSection() {
         className="inset-0 mx-auto my-[2vw] h-[28.333vw] w-[83.333vw] object-cover lg:hidden"
       />
       <div className="text-[1vw]/[4.7vw]">
-        <h1 className="ml-[2vw] font-avenir-heavy text-[3.333vw]">{module}</h1>
-        <h1 className="ml-[2vw] font-avenir-heavy text-[4.167vw] text-[#58B9D1]">{title}</h1>
+        <h1 className="font-avenir-heavy ml-[2vw] text-[3.333vw]">{module}</h1>
+        <h1 className="font-avenir-heavy ml-[2vw] text-[4.167vw] text-[#58B9D1]">{title}</h1>
       </div>
 
       <Link
         href={link}
-        className="mx-auto mb-[1vw] mt-[2vw] flex h-[5.919vw] w-[82.286vw] items-center justify-center rounded-[1.3vw] border border-black bg-white text-center text-[3.611vw] transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#5AB0BB]/20"
+        className="mx-auto mt-[2vw] mb-[1vw] flex h-[5.919vw] w-[82.286vw] items-center justify-center rounded-[1.3vw] border border-black bg-white text-center text-[3.611vw] transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#5AB0BB]/20"
       >
         See Details
       </Link>
@@ -91,7 +87,7 @@ export default function CourseSection() {
         {/* Desktop */}
         <div className="relative flex flex-col items-center justify-center max-lg:hidden">
           <div className="flex w-full flex-col items-center justify-center">
-            <h1 className="stroke- font-avenir-black text-[3.385vw] text-light-white">
+            <h1 className="stroke- font-avenir-black text-brand-light-white text-[3.385vw]">
               Start Your Course !
             </h1>
             <div className="w-[90vw]">
@@ -109,7 +105,7 @@ export default function CourseSection() {
             height={2000}
             className="absolute inset-0 top-[0vw] z-0 h-full w-full origin-top scale-[1.1] rounded-t-xl object-cover lg:hidden"
           />
-          <h1 className="z-3 font-avenir-black text-[5.556vw] text-light-white">
+          <h1 className="font-avenir-black text-brand-light-white z-3 text-[5.556vw]">
             Start Your Course !
           </h1>
           {modules.map(renderModuleCard)}

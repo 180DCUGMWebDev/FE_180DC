@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import Blur from "@/components/element/Blur";
+import Blur from "@/components/elements/Blur/Blur";
 
 const CardContents = ({ image, module, title, link, isBlur }) => {
   return (
@@ -17,8 +17,8 @@ const CardContents = ({ image, module, title, link, isBlur }) => {
           className="inset-0 mx-[1vw] my-[1vw] h-[14.01vw] w-[40.99vw] object-cover max-lg:hidden"
         />
         <div className="mt-[1.5vw] text-[1vw]/[1.7vw]">
-          <h1 className="ml-[1vw] font-avenir-heavy text-[1.302vw]"> {module}: </h1>
-          <h1 className="ml-[1vw] font-avenir-heavy text-[1.823vw] text-[#58B9D1]"> {title} </h1>
+          <h1 className="font-avenir-heavy ml-[1vw] text-[1.302vw]"> {module}: </h1>
+          <h1 className="font-avenir-heavy ml-[1vw] text-[1.823vw] text-[#58B9D1]"> {title} </h1>
         </div>
 
         <a

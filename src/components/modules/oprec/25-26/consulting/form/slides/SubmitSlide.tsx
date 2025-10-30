@@ -5,10 +5,10 @@ const SubmitSlide = ({ formData }) => {
   return (
     <div className="animate-fade-in space-y-6">
       <div className="text-center">
-        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-          <CheckCircle className="h-10 w-10 text-primary" />
+        <div className="bg-brand-primary/10 mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full">
+          <CheckCircle className="text-brand-primary h-10 w-10" />
         </div>
-        <h2 className="mb-2 font-avenir-black text-2xl leading-snug text-primary lg:text-3xl">
+        <h2 className="font-avenir-black text-brand-primary mb-2 text-2xl leading-snug lg:text-3xl">
           Thank You for Submitting!
         </h2>
         <p className="font-lato-regular text-gray-600">
@@ -18,8 +18,8 @@ const SubmitSlide = ({ formData }) => {
 
       {/* Next Steps */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
-        <h3 className="mb-6 flex items-center gap-2 font-avenir-black text-xl text-gray-800">
-          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+        <h3 className="font-avenir-black mb-6 flex items-center gap-2 text-xl text-gray-800">
+          <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
             <span className="text-sm font-bold text-white">6</span>
           </div>
           Next Steps
@@ -29,7 +29,7 @@ const SubmitSlide = ({ formData }) => {
           {/* Contact HR Team */}
           <div className="mb-4">
             <h2 className="font-avenir-regular font-bold">Confirm with HR Team</h2>
-            <p className="mb-3 font-lato-regular text-gray-600">
+            <p className="font-lato-regular mb-3 text-gray-600">
               Please kindly confirm with our HR Team regarding your submission.
             </p>
             <p className="font-lato-bold underline">Faz: +62 813-8001-0227</p>
@@ -39,13 +39,13 @@ const SubmitSlide = ({ formData }) => {
           {/* Join Recruitment Group */}
           <div className="mb-4">
             <h2 className="font-avenir-regular font-bold">Join Recruitment Group</h2>
-            <p className="mb-3 font-lato-regular text-gray-600">
+            <p className="font-lato-regular mb-3 text-gray-600">
               And kindly join our Recruitment Group here
             </p>
             <Link
               href="https://bit.ly/ConsultingRecruitment-Cycle1"
               target="_blank"
-              className="inline-flex items-center gap-2 rounded-md bg-secondary px-4 py-2 font-avenir-regular text-sm text-white transition-all duration-200 hover:bg-secondary/80"
+              className="bg-brand-secondary font-avenir-regular hover:bg-brand-secondary/80 inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm text-white transition-all duration-200"
             >
               <ExternalLink className="h-4 w-4" />
               bit.ly/ConsultingRecruitment-Cycle1
@@ -55,13 +55,13 @@ const SubmitSlide = ({ formData }) => {
           {/* Join Community Group */}
           <div className="mb-4">
             <h2 className="font-avenir-regular font-bold">Join 180DC Community Group</h2>
-            <p className="mb-3 font-lato-regular text-gray-600">
+            <p className="font-lato-regular mb-3 text-gray-600">
               And 180DC&quot;s Community Group here
             </p>
             <Link
               href="https://bit.ly/180DCUGMCOMMUNITY1"
               target="_blank"
-              className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 font-avenir-regular text-sm text-white transition-all duration-200 hover:bg-primary/80"
+              className="bg-brand-primary font-avenir-regular hover:bg-brand-primary/80 inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm text-white transition-all duration-200"
             >
               <ExternalLink className="h-4 w-4" />
               bit.ly/180DCUGMCOMMUNITY1
@@ -71,7 +71,7 @@ const SubmitSlide = ({ formData }) => {
           {/* Email Results */}
           <div className="mb-4">
             <h2 className="font-avenir-regular font-bold">Result Announcement</h2>
-            <p className="mb-3 font-lato-regular text-gray-600">
+            <p className="font-lato-regular mb-3 text-gray-600">
               Please monitor your email regularly, as we will further announce our decision via
               email. We wish you the best of luck!
             </p>
@@ -81,8 +81,8 @@ const SubmitSlide = ({ formData }) => {
 
       {/* Application Summary */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
-        <h3 className="mb-6 flex items-center gap-2 font-avenir-black text-xl text-gray-800">
-          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+        <h3 className="font-avenir-black mb-6 flex items-center gap-2 text-xl text-gray-800">
+          <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
             <span className="text-sm font-bold text-white">7</span>
           </div>
           Application Summary
@@ -170,8 +170,8 @@ const SubmitSlide = ({ formData }) => {
 
       {/* Documents Section */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
-        <h3 className="mb-6 flex items-center gap-2 font-avenir-black text-xl text-gray-800">
-          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+        <h3 className="font-avenir-black mb-6 flex items-center gap-2 text-xl text-gray-800">
+          <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
             <span className="text-sm font-bold text-white">8</span>
           </div>
           Submitted Documents
@@ -188,7 +188,7 @@ const SubmitSlide = ({ formData }) => {
                   href={formData.documentLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-brand-primary hover:underline"
                 >
                   View Document
                 </Link>
@@ -207,7 +207,7 @@ const SubmitSlide = ({ formData }) => {
                   href={formData.cvLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-brand-primary hover:underline"
                 >
                   View CV
                 </Link>
@@ -226,7 +226,7 @@ const SubmitSlide = ({ formData }) => {
                   href={formData.twibbonPost}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-brand-primary hover:underline"
                 >
                   View Post
                 </Link>
@@ -245,7 +245,7 @@ const SubmitSlide = ({ formData }) => {
                   href={formData.instagramProofLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-brand-primary hover:underline"
                 >
                   View Proof
                 </Link>
@@ -264,7 +264,7 @@ const SubmitSlide = ({ formData }) => {
                   href={formData.registrationProofLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-brand-primary hover:underline"
                 >
                   View Registration Proof
                 </Link>
@@ -278,8 +278,8 @@ const SubmitSlide = ({ formData }) => {
 
       {/* Additional Information */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
-        <h3 className="mb-6 flex items-center gap-2 font-avenir-black text-xl text-gray-800">
-          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+        <h3 className="font-avenir-black mb-6 flex items-center gap-2 text-xl text-gray-800">
+          <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
             <span className="text-sm font-bold text-white">9</span>
           </div>
           Additional Information

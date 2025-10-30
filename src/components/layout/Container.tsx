@@ -5,7 +5,7 @@ const Container = ({ children, className }: { children?: React.ReactNode; classN
   return (
     <section
       className={cn(
-        `mx-auto flex w-full max-w-[85rem] flex-col items-center gap-4 px-6 py-10 sm:px-8`,
+        `relative mx-auto flex w-full max-w-[100rem] flex-col items-center gap-4 px-6 py-10 sm:px-8`,
         className
       )}
     >

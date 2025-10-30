@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
+import { Button } from "@/components/elements/Form/button";
+import { Label } from "@/components/elements/Form/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/components/elements/Form/select";
 import { ChevronRight } from "lucide-react";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "@/components/elements/Form/checkbox";
 
 const Slide2 = ({ formData, updateFormData, onNext }) => {
   const [is180DCAlumni, setIs180DCAlumni] = useState(formData.is180DCAlumni || null);
@@ -38,7 +38,7 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
   return (
     <div className="animate-fade-in space-y-6">
       <div className="text-center">
-        <h2 className="mb-1 mt-2 font-avenir-black text-2xl leading-snug text-primary lg:text-3xl">
+        <h2 className="font-avenir-black text-brand-primary mt-2 mb-1 text-2xl leading-snug lg:text-3xl">
           180 DC Alumni Information
         </h2>
         <p className="font-lato-regular text-gray-600">
@@ -48,8 +48,8 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
 
       {/* Alumni Status Check */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
-        <h3 className="mb-6 flex items-center gap-2 font-avenir-black text-xl text-gray-800">
-          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+        <h3 className="font-avenir-black mb-6 flex items-center gap-2 text-xl text-gray-800">
+          <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
             <span className="text-sm font-bold text-white">3</span>
           </div>
           Alumni Status
@@ -99,7 +99,7 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
           {/* Conditional Alumni Information Form */}
           {is180DCAlumni && (
             <>
-              <h3 className="mt-6 flex items-center gap-2 font-avenir-black text-xl text-gray-800">
+              <h3 className="font-avenir-black mt-6 flex items-center gap-2 text-xl text-gray-800">
                 Alumni Details
               </h3>
 
@@ -107,7 +107,7 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
                 <div>
                   <Label
                     htmlFor="pastPosition"
-                    className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700"
+                    className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700"
                   >
                     Past Position in 180DC UGM *
                   </Label>
@@ -134,7 +134,7 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
                 <div>
                   <Label
                     htmlFor="pastBatch"
-                    className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700"
+                    className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700"
                   >
                     Past Batch/Year *
                   </Label>
@@ -166,7 +166,7 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
         <Button
           onClick={handleNext}
           disabled={!isValid}
-          className="flex items-center gap-2 bg-primary font-avenir-regular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
+          className="bg-brand-primary font-avenir-regular hover:bg-brand-primary/90 disabled:text-brand-black flex items-center gap-2 text-white transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
         >
           Continue to Next Step
           <ChevronRight className="h-4 w-4" />

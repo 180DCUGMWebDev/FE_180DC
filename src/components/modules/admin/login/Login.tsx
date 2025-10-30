@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/components/elements/Form/button";
+import { Input } from "@/components/elements/Form/input";
 import { AlertCircle, Shield, Lock, Mail } from "lucide-react";
 import { createClient } from "@/integrations/supabase/client";
 
@@ -87,7 +87,7 @@ export function Login() {
   }
 
   return (
-    <section className="flex min-h-screen items-center justify-center bg-linear-to-b from-black to-primary/90 p-4">
+    <section className="to-brand-primary/90 flex min-h-screen items-center justify-center bg-linear-to-b from-black p-4">
       <div className="w-full max-w-md">
         {/* Header */}
         <div className="mb-8 text-center">

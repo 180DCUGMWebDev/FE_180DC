@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Button180 from "@/components/element/Button";
+import Button180 from "@/components/elements/Button";
 
 const batches = [
   {
@@ -46,17 +46,17 @@ export default function Linking() {
       <div className="mx-auto">
         {/* Section Header */}
         <div className="mb-16 text-center">
-          <h2 className="mb-4 font-avenir-black text-3xl text-white sm:text-4xl lg:text-5xl">
-            Take your <span className="text-primary">Impact</span> now!
+          <h2 className="font-avenir-black mb-4 text-3xl text-white sm:text-4xl lg:text-5xl">
+            Take your <span className="text-brand-primary">Impact</span> now!
           </h2>
-          <p className="mx-auto font-lato-regular text-lg text-white/70">
+          <p className="font-lato-regular mx-auto text-lg text-white/70">
             Join the latest recruitment cycle and become part of our community of changemakers.
           </p>
         </div>
 
         {/* Current Batch - Main Card */}
         <div className="relative mb-16 flex flex-col justify-center gap-4 lg:flex-row lg:items-center">
-          <div className="hover:bg-white/8 group relative h-fit w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xs transition-all duration-300">
+          <div className="group relative h-fit w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xs transition-all duration-300 hover:bg-white/8">
             {/* Card Background */}
             <div className="absolute inset-0 h-full w-full">
               <Image
@@ -75,11 +75,11 @@ export default function Linking() {
                 {/* Status Badge */}
                 <div className="mb-5 flex flex-row flex-wrap items-center justify-between gap-3">
                   <div className="flex flex-wrap items-center gap-3">
-                    <span className="inline-flex items-center gap-2 rounded-full border border-primary bg-white px-4 py-1 text-sm font-medium text-black">
+                    <span className="border-brand-primary text-brand-black inline-flex items-center gap-2 rounded-full border bg-white px-4 py-1 text-sm font-medium">
                       {currentBatch.status}
                     </span>
                     {currentBatch.cycle && (
-                      <span className="inline-flex items-center rounded-full bg-primary px-4 py-1 text-sm font-medium text-white">
+                      <span className="bg-brand-primary inline-flex items-center rounded-full px-4 py-1 text-sm font-medium text-white">
                         {currentBatch.cycle}
                       </span>
                     )}
@@ -93,7 +93,7 @@ export default function Linking() {
                   {currentBatch.title}
                 </h3>
                 {/* Description */}
-                <p className="mb-2 max-w-4xl font-lato-regular text-base leading-relaxed text-white/80 lg:text-lg">
+                <p className="font-lato-regular mb-2 max-w-4xl text-base leading-relaxed text-white/80 lg:text-lg">
                   {currentBatch.description}
                 </p>
                 {/* Period */}
@@ -112,20 +112,20 @@ export default function Linking() {
             </div>
 
             {/* Subtle Hover Effects */}
-            <div className="absolute -bottom-1 -right-1 h-16 w-16 rounded-full bg-primary/10 opacity-0 blur-xl transition-all duration-300 group-hover:opacity-100"></div>
+            <div className="bg-brand-primary/10 absolute -right-1 -bottom-1 h-16 w-16 rounded-full opacity-0 blur-xl transition-all duration-300 group-hover:opacity-100"></div>
           </div>
         </div>
 
         {/* Previous Batches Timeline */}
         {previousBatches.length > 0 && (
           <div className="mb-16">
-            <h3 className="mb-8 text-center font-avenir-black text-2xl text-white lg:text-3xl">
-              Previous <span className="text-primary">Recruitment</span> Cycles
+            <h3 className="font-avenir-black mb-8 text-center text-2xl text-white lg:text-3xl">
+              Previous <span className="text-brand-primary">Recruitment</span> Cycles
             </h3>
 
             <div className="relative">
               {/* Timeline Line */}
-              <div className="absolute bottom-0 left-4 top-0 w-0.5 bg-linear-to-b from-primary via-primary/50 to-transparent lg:left-1/2 lg:-translate-x-px"></div>
+              <div className="from-brand-primary via-brand-primary/50 absolute top-0 bottom-0 left-4 w-0.5 bg-linear-to-b to-transparent lg:left-1/2 lg:-translate-x-px"></div>
 
               {/* Timeline Items */}
               <div className="space-y-8">
@@ -135,8 +135,8 @@ export default function Linking() {
                     className={`relative flex items-center ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}
                   >
                     {/* Timeline Dot */}
-                    <div className="absolute left-2 h-4 w-4 rounded-full bg-primary shadow-lg shadow-primary/50 lg:left-1/2 lg:-translate-x-1/2">
-                      <div className="absolute inset-0 animate-ping rounded-full bg-primary opacity-30"></div>
+                    <div className="bg-brand-primary shadow-brand-primary/50 absolute left-2 h-4 w-4 rounded-full shadow-lg lg:left-1/2 lg:-translate-x-1/2">
+                      <div className="bg-brand-primary absolute inset-0 animate-ping rounded-full opacity-30"></div>
                     </div>
 
                     {/* Timeline Card */}
@@ -160,10 +160,10 @@ export default function Linking() {
                           {/* Header */}
                           <div className="mb-4 flex flex-wrap items-center justify-between">
                             <div className="flex gap-2">
-                              <span className="rounded-full border border-primary bg-transparent px-3 py-1 text-sm font-semibold text-white">
+                              <span className="border-brand-primary rounded-full border bg-transparent px-3 py-1 text-sm font-semibold text-white">
                                 {batch.status}
                               </span>
-                              <span className="rounded-full bg-primary px-3 py-1 text-sm font-semibold text-white">
+                              <span className="bg-brand-primary rounded-full px-3 py-1 text-sm font-semibold text-white">
                                 {batch.cycle}
                               </span>
                             </div>
@@ -178,7 +178,7 @@ export default function Linking() {
                           </h4>
 
                           {/* Description */}
-                          <p className="mb-2 font-lato-regular text-sm leading-none text-white/80">
+                          <p className="font-lato-regular mb-2 text-sm leading-none text-white/80">
                             {batch.description}
                           </p>
 
@@ -206,11 +206,11 @@ export default function Linking() {
         )}
 
         {/* Additional Info */}
-        <div className="rounded-3xl bg-linear-to-r from-primary/10 to-blue-500/10 p-8 text-center">
-          <h3 className="mb-4 font-avenir-black text-xl text-white lg:text-2xl">
-            Ready to join <span className="text-primary">180DC UGM</span>?
+        <div className="from-brand-primary/10 rounded-3xl bg-linear-to-r to-blue-500/10 p-8 text-center">
+          <h3 className="font-avenir-black mb-4 text-xl text-white lg:text-2xl">
+            Ready to join <span className="text-brand-primary">180DC UGM</span>?
           </h3>
-          <p className="mb-6 font-lato-regular text-white/80">
+          <p className="font-lato-regular mb-6 text-white/80">
             Learn more about our program structure, requirements, and what makes 180DC UGM special.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
@@ -218,7 +218,7 @@ export default function Linking() {
               <Button180
                 color="transparent"
                 text="About Us"
-                addClass="border border-primary text-primary hover:bg-primary hover:text-black transition-all duration-300"
+                addClass="border border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-brand-black transition-all duration-300"
                 className="px-4 py-1"
               />
             </Link>

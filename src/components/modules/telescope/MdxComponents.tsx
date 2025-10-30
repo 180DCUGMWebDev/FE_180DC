@@ -1,13 +1,13 @@
 import Image from "next/image";
 
 function P({ children }) {
-  return <p className="mb-6 mt-4 text-justify">{children}</p>;
+  return <p className="mt-4 mb-6 text-justify">{children}</p>;
 }
 
 function Img({ src, alt = "" }) {
   return (
-    <div className="flex justify-center h-[20vw] ">
-      <div className="h-full aspect-w-[1920] relative w-[70%]">
+    <div className="flex h-[20vw] justify-center">
+      <div className="aspect-w-[1920] relative h-full w-[70%]">
         <Image alt={alt} src={src} fill className="object-contain" />
       </div>
     </div>
@@ -31,12 +31,12 @@ function Ol({ children }) {
 }
 
 function Li({ children }) {
-  return <li className="mb-1 mt-1">{children}</li>;
+  return <li className="mt-1 mb-1">{children}</li>;
 }
 
 function Blockquote({ children }) {
   return (
-    <blockquote className="mb-4 mt-6 border-l-4 border-secondary px-6 py-[0.1px] pt-2 font-lato-light-italic">
+    <blockquote className="border-brand-secondary font-lato-light-italic mt-6 mb-4 border-l-4 px-6 py-[0.1px] pt-2">
       {children}
     </blockquote>
   );

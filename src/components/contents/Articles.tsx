@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export const articles = [
+export const Articles = [
   {
     id: "the-upsides-of-having-impostor-syndrome",
     title: "The Upsides of Having Impostor Syndrome",

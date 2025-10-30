@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button180 from "@/components/element/Button";
+import Button180 from "@/components/elements/Button";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import Link from "next/link";
@@ -58,7 +58,7 @@ export function OurClients() {
               height={1000}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+            <div className="bg-brand-black/30 absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
           </Link>
           <Link
             className="group relative flex h-full w-full flex-1 items-center overflow-hidden rounded-lg max-lg:max-h-[38vh]"
@@ -71,7 +71,7 @@ export function OurClients() {
               height={1000}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+            <div className="bg-brand-black/30 absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
           </Link>
           <Link href="/telescope">
             <Button180

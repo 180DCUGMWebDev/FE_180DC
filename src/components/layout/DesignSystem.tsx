@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import Button180 from "@/components/element/Button";
+import Button180 from "@/components/elements/Button";
 
 export default function DesignSystem() {
   const [seeDesign, setSeeDesign] = useState(true);
@@ -12,7 +12,7 @@ export default function DesignSystem() {
   };
 
   return (
-    <section className="my-[40px] flex h-[100vmax] w-full flex-col gap-[52px] bg-white180 p-[100px]">
+    <section className="bg-brand-white-180 my-[40px] flex h-[100vmax] w-full flex-col gap-[52px] p-[100px]">
       <div className="flex w-full">
         <Button180
           color={"black"}
@@ -52,14 +52,24 @@ export default function DesignSystem() {
             </div>
             <div className="w-6/12">
               <h1 className="font-mulish-extrabold text-[24px]">{"Colors:"}</h1>
-              <h1 className="bg-light-white text-primary">{"This is text-primary"}</h1>
-              <h1 className="bg-light-white text-secondary">{"This is text-secondary"}</h1>
-              <h1 className="bg-black180 text-light-blue">{"This is text-light-blue"}</h1>
-              <h1 className="bg-black180 text-grey">{"This is text-grey"}</h1>
-              <h1 className="bg-black180 text-light-white">{"This is text-light-white"}</h1>
-              <h1 className="bg-light-white text-black180">{"This is text-black180"}</h1>
-              <h1 className="bg-light-white text-grey-black180">{"This is text-grey-black180"}</h1>
-              <h1 className="bg-black180 text-grey-white180">{"This is text-grey-white180"}</h1>
+              <h1 className="bg-light-white text-brand-primary">{"This is text-brand-primary"}</h1>
+              <h1 className="bg-light-white text-brand-secondary">
+                {"This is text-brand-secondary"}
+              </h1>
+              <h1 className="bg-brand-black180 text-light-blue">{"This is text-light-blue"}</h1>
+              <h1 className="bg-brand-black180 text-brand-grey">{"This is text-brand-grey"}</h1>
+              <h1 className="bg-brand-black180 text-brand-light-white">
+                {"This is text-brand-light-white"}
+              </h1>
+              <h1 className="bg-light-white text-brand-black180">
+                {"This is text-brand-black180"}
+              </h1>
+              <h1 className="bg-light-white text-brand-grey-black180">
+                {"This is text-brand-grey-black180"}
+              </h1>
+              <h1 className="bg-brand-black180 text-brand-grey-brand-white-180">
+                {"This is text-brand-grey-brand-white-180"}
+              </h1>
               <h1 className="bg-light-white text-blue180">{"This is text-blue180"}</h1>
               <h1 className="bg-light-white text-green180">{"This is text-green180"}</h1>
               <h1 className="bg-light-white text-yellow180">{"This is text-yellow180"}</h1>
@@ -71,19 +81,19 @@ export default function DesignSystem() {
               <h1 className="font-mulish-extrabold text-[24px]">
                 {"Headings: (Based on Mood Board #Unused)"}
               </h1>
-              <h1 className="font-mulish-light text-[20px] text-black180">
+              <h1 className="font-mulish-light text-brand-black180 text-[20px]">
                 {"TYPOGRAPHY - Mulish Light 20px"}
               </h1>
-              <h1 className="font-mulish-extrabold text-[48px] text-black180">
+              <h1 className="font-mulish-extrabold text-brand-black180 text-[48px]">
                 {"Heading 1 - Mulish ExtraBold 48px"}
               </h1>
-              <h1 className="font-mulish-regular text-[32px] text-black180">
+              <h1 className="font-mulish-regular text-brand-black180 text-[32px]">
                 {"Heading 2 - Mulish Regular 32px"}
               </h1>
-              <h1 className="font-mulish-regular text-[24px] text-black180">
+              <h1 className="font-mulish-regular text-brand-black180 text-[24px]">
                 {"Heading 3 - Mulish Regular 24px"}
               </h1>
-              <h1 className="font-mulish-extrabold text-[16px] text-black180">
+              <h1 className="font-mulish-extrabold text-brand-black180 text-[16px]">
                 {"Heading 4 - Mulish Extrabold 16px"}
               </h1>
             </div>
@@ -108,7 +118,7 @@ export default function DesignSystem() {
               <div>
                 <h1 className="text-gray-black180 font-mulish-light text-[14px]">{"Link:"}</h1>
                 <a
-                  className="font-mulish-bold text-[16px] text-blue180 underline"
+                  className="font-mulish-bold text-blue180 text-[16px] underline"
                   href="#"
                   onClick={(e) => {
                     e.preventDefault();

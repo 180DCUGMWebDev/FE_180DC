@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Button } from "@/components/elements/Form/button";
+import { Input } from "@/components/elements/Form/input";
+import { Label } from "@/components/elements/Form/label";
 import { ChevronRight } from "lucide-react";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "@/components/elements/Form/checkbox";
 import Link from "next/link";
 
 const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
@@ -27,7 +27,7 @@ const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
   return (
     <div className="animate-fade-in space-y-6">
       <div className="text-center">
-        <h2 className="mb-1 mt-2 font-avenir-black text-2xl leading-snug text-primary lg:text-3xl">
+        <h2 className="font-avenir-black text-brand-primary mt-2 mb-1 text-2xl leading-snug lg:text-3xl">
           Documents & Social Media Requirements
         </h2>
         <p className="font-lato-regular text-gray-600">
@@ -36,13 +36,13 @@ const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
       </div>
 
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
-        <h3 className="mb-1 flex items-center gap-2 font-avenir-black text-xl text-gray-800">
-          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+        <h3 className="font-avenir-black mb-1 flex items-center gap-2 text-xl text-gray-800">
+          <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
             <span className="text-sm font-bold text-white">5</span>
           </div>
           Documents & Social Media Requirements
         </h3>
-        <p className="mb-4 font-lato-regular text-gray-600">
+        <p className="font-lato-regular mb-4 text-gray-600">
           Please complete all requirements below. Upload your documents and follow the Instagram
           twibbon instructions carefully to ensure a valid application.
         </p>
@@ -50,7 +50,7 @@ const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
         <div className="space-y-6">
           {/* Instagram Twibbon Instructions */}
           <div>
-            <Label className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700">
+            <Label className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700">
               📱 Instagram Twibbon Requirements
               <br />
               <p>
@@ -58,7 +58,7 @@ const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
                 carefully. Applications that do not comply may be considered invalid.
               </p>
               <br />
-              <p className="font-avenir-black text-black">
+              <p className="font-avenir-black text-brand-black">
                 Post our applicant twibbon on your Instagram account!
               </p>
               <br />
@@ -90,20 +90,20 @@ const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
 
           {/* Twibbon Post Link */}
           <div>
-            <Label className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700">
+            <Label className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700">
               Insert the link of your twibbon post: *
             </Label>
             <Input
               value={twibbonPostLink}
               onChange={(e) => setTwibbonPostLink(e.target.value)}
               placeholder="https://www.instagram.com/p/your-post-link"
-              className="border-gray-300 font-lato-regular transition-all duration-200 focus:ring-2 focus:ring-primary/50"
+              className="font-lato-regular focus:ring-brand-primary/50 border-gray-300 transition-all duration-200 focus:ring-2"
             />
           </div>
 
           {/* Upload Proof Section */}
           <div>
-            <Label className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700">
+            <Label className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700">
               📸 Upload proof of:
               <br />
               <p>
@@ -138,7 +138,7 @@ const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
               value={twibbonProofLink}
               onChange={(e) => setTwibbonProofLink(e.target.value)}
               placeholder="https://drive.google.com/file/d/your-proof-screenshots"
-              className="border-gray-300 font-lato-regular transition-all duration-200 focus:ring-2 focus:ring-primary/50"
+              className="font-lato-regular focus:ring-brand-primary/50 border-gray-300 transition-all duration-200 focus:ring-2"
             />
           </div>
 
@@ -168,7 +168,7 @@ const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
         <Button
           onClick={handleNext}
           disabled={!isValid}
-          className="ml-auto flex items-center gap-2 bg-primary font-avenir-regular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
+          className="bg-brand-primary font-avenir-regular hover:bg-brand-primary/90 disabled:text-brand-black ml-auto flex items-center gap-2 text-white transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
         >
           Review Submission
           <ChevronRight className="h-4 w-4" />

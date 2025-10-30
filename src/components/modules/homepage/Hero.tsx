@@ -1,13 +1,14 @@
 import Image from "next/image";
-import Button180 from "@/components/element/Button";
+import Button180 from "@/components/elements/Button";
 import Link from "next/link";
+import Container from "@/components/layout/Container";
 
 export function Hero({ contactRef }) {
   const podcastLink = "https://open.spotify.com/episode/3LRLqk6d9B7XkSA5zekYC8?si=c122ebff6e664062";
   return (
-    <section className="flex flex-col">
+    <Container className="flex flex-col">
       {/* Hero */}
-      <div className="relative z-10 flex h-fit w-full items-center px-[5%] max-lg:pb-[25vh] max-lg:pt-[15vh] sm:px-[10%] lg:h-screen lg:min-h-[50vw] lg:bg-black lg:px-[4%]">
+      <div className="lg:bg-brand-black relative z-10 flex h-fit w-full items-center px-[5%] max-lg:pt-[15vh] max-lg:pb-[25vh] sm:px-[10%] lg:h-screen lg:min-h-[50vw] lg:px-[4%]">
         {/* Hero Background */}
         <Image
           src="/img/homepage/balairung.png"
@@ -29,10 +30,10 @@ export function Hero({ contactRef }) {
           <div className="flex w-full flex-col justify-between max-lg:items-center max-lg:gap-[15px] lg:w-[54%]">
             {/* Teks */}
             <div className="flex flex-col gap-2 max-lg:items-center">
-              <div className="font-avenir-black text-3xl max-lg:text-center max-lg:text-primary sm:text-4xl lg:text-6xl xl:text-7xl 2xl:text-[80px]">
+              <div className="font-avenir-black max-lg:text-brand-primary text-3xl max-lg:text-center sm:text-4xl lg:text-6xl xl:text-7xl 2xl:text-[80px]">
                 Providing Perfect Solutions For Your Own Business.
               </div>
-              <div className="w-[90%] font-lato-regular text-xs max-lg:text-center sm:text-base lg:w-[72%] lg:text-xl xl:text-2xl 2xl:text-[26px]">
+              <div className="font-lato-regular w-[90%] text-xs max-lg:text-center sm:text-base lg:w-[72%] lg:text-xl xl:text-2xl 2xl:text-[26px]">
                 UGM branch of the world&apos;s largest student-led consultancy for non-profits &
                 social enterprises.
               </div>
@@ -58,7 +59,7 @@ export function Hero({ contactRef }) {
           <div className="flex w-[45%] flex-col justify-between max-lg:hidden">
             {/* Bagian atas */}
             <div className="flex h-[60%] justify-between">
-              <div className="relative w-[62%] overflow-hidden rounded-r-[7%] rounded-bl-[7%] rounded-tl-[60%]">
+              <div className="relative w-[62%] overflow-hidden rounded-tl-[60%] rounded-r-[7%] rounded-bl-[7%]">
                 <Image
                   src="/img/homepage/hero1.png"
                   alt="Gambar Homepage Kanan"
@@ -67,14 +68,14 @@ export function Hero({ contactRef }) {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="flex w-[34%] flex-col justify-center rounded-[24px] bg-black px-[20px] pt-[30px] font-avenir-black">
+              <div className="font-avenir-black bg-brand-black flex w-[34%] flex-col justify-center rounded-[24px] px-[20px] pt-[30px]">
                 <div className="text-[40px] leading-[25px] xl:text-[60px] xl:leading-[45px] 2xl:text-[70px] 2xl:leading-[50px]">
-                  8<span className="text-primary">+</span>
+                  8<span className="text-brand-primary">+</span>
                 </div>
                 <div className="lg:text-[12px] xl:text-[15px] 2xl:text-[20px]">
-                  Notable <span className="text-primary">Mentors</span>
+                  Notable <span className="text-brand-primary">Mentors</span>
                 </div>
-                <div className="overflow-hidden font-lato-regular lg:text-[9px] xl:text-[10px] 2xl:text-[12px]">
+                <div className="font-lato-regular overflow-hidden lg:text-[9px] xl:text-[10px] 2xl:text-[12px]">
                   Delivering high quality consultancy to clients, supported by professional mentors
                   from notable entities.
                 </div>
@@ -95,7 +96,7 @@ export function Hero({ contactRef }) {
       <div className="relative z-20 h-fit px-[5%] max-lg:pb-[5vh] lg:h-screen lg:min-h-[54vw] lg:px-[4%]">
         <div className="flex h-fit flex-col items-center justify-center bg-white max-lg:-mt-[10vh] max-lg:rounded-[12px] max-lg:px-[5%] max-lg:py-[20px] max-lg:drop-shadow-[-2px_3px_5px_#1A1A1A40] lg:h-full">
           {/* Judul (Mobile) */}
-          <div className="mb-2 text-center font-avenir-black text-2xl text-primary sm:text-3xl lg:hidden">
+          <div className="font-avenir-black text-brand-primary mb-2 text-center text-2xl sm:text-3xl lg:hidden">
             What is <br />
             180DC UGM?
           </div>
@@ -139,6 +140,6 @@ export function Hero({ contactRef }) {
           </div>
         </div>
       </div>
-    </section>
+    </Container>
   );
 }

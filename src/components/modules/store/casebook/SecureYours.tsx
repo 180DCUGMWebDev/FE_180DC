@@ -6,8 +6,8 @@ import { useRouter, usePathname } from "next/navigation";
 // Import Configs
 import { intLinks } from "@/config/Links";
 import { directRoute } from "@/config/Functions";
-import ImgF from "@/components/element/ImgF";
-import Button180 from "@/components/element/Button";
+import ImageAction from "@/components/elements/ImageAction";
+import Button180 from "@/components/elements/Button";
 
 export default function SecureYours({ theme }) {
   // Router Hook
@@ -17,21 +17,21 @@ export default function SecureYours({ theme }) {
     <section className="h-fit w-full overflow-hidden">
       <div className="relative flex h-screen w-full items-center justify-center bg-[#1A1A1A] max-lg:max-h-[100vmin] lg:h-full">
         {/* Background */}
-        <div className="absolute right-0 top-0 w-[28vw] opacity-10 2xl:w-[330px]">
-          <ImgF alt="" src="/img/store/merch/right-shard.png" />
+        <div className="absolute top-0 right-0 w-[28vw] opacity-10 2xl:w-[330px]">
+          <ImageAction alt="" src="/img/store/merch/right-shard.png" />
         </div>
 
         {/* Content */}
         <div data-gsap="up" className="relative mx-[50px] h-full w-full 2xl:w-[1536px]">
           <div className="flex h-full w-full flex-col items-center justify-center py-[15vh] lg:gap-[16px] lg:p-[100px] 2xl:py-[110px]">
-            <h1 className="bg-linear-to-br from-primary from-35% to-secondary to-65% bg-clip-text py-[4px] text-center font-avenir-black text-[12vw] leading-none text-transparent lg:text-[6vw]/[6vw] 2xl:text-[90px]/[92px]">
+            <h1 className="from-brand-primary to-brand-secondary font-avenir-black bg-linear-to-br from-35% to-65% bg-clip-text py-[4px] text-center text-[12vw] leading-none text-transparent lg:text-[6vw]/[6vw] 2xl:text-[90px]/[92px]">
               {"Secure yours"}
               <br />
               {"right now!"}
             </h1>
             <h2
               className={
-                "mt-[8px] text-center font-lato-regular text-[3.8vw] text-white max-lg:text-light-white lg:text-[1.8vw]/[2.1vw] 2xl:text-[27.6px]/[32.3px]"
+                "font-lato-regular max-lg:text-brand-light-white mt-[8px] text-center text-[3.8vw] text-white lg:text-[1.8vw]/[2.1vw] 2xl:text-[27.6px]/[32.3px]"
               }
             >
               {"discover the blueprint for"}

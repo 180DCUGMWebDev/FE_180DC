@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/components/elements/Form/button";
+import { Input } from "@/components/elements/Form/input";
 import { LogOut, Search, Mail, User, Calendar, Globe, Filter, Download } from "lucide-react";
 import { createClient } from "@/integrations/supabase/client";
 import { useRouter } from "next/navigation";
@@ -170,10 +170,10 @@ export function Admin({ submissions, adminUser }) {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Total Submissions</p>
-                <p className="text-3xl font-bold text-primary">{submissions.length}</p>
+                <p className="text-brand-primary text-3xl font-bold">{submissions.length}</p>
               </div>
-              <div className="rounded-full bg-primary/10 p-3">
-                <Mail className="h-6 w-6 text-primary" />
+              <div className="bg-brand-primary/10 rounded-full p-3">
+                <Mail className="text-brand-primary h-6 w-6" />
               </div>
             </div>
           </div>
@@ -182,7 +182,7 @@ export function Admin({ submissions, adminUser }) {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Today&apos;s Submissions</p>
-                <p className="text-3xl font-bold text-primary">
+                <p className="text-brand-primary text-3xl font-bold">
                   {
                     submissions.filter(
                       (s) => new Date(s.submitted_at).toDateString() === new Date().toDateString()
@@ -190,8 +190,8 @@ export function Admin({ submissions, adminUser }) {
                   }
                 </p>
               </div>
-              <div className="rounded-full bg-primary/10 p-3">
-                <Calendar className="h-6 w-6 text-primary" />
+              <div className="bg-brand-primary/10 rounded-full p-3">
+                <Calendar className="text-brand-primary h-6 w-6" />
               </div>
             </div>
           </div>
@@ -200,12 +200,12 @@ export function Admin({ submissions, adminUser }) {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Unique Applicants</p>
-                <p className="text-3xl font-bold text-primary">
+                <p className="text-brand-primary text-3xl font-bold">
                   {new Set(submissions.map((s) => s.email)).size}
                 </p>
               </div>
-              <div className="rounded-full bg-primary/10 p-3">
-                <User className="h-6 w-6 text-primary" />
+              <div className="bg-brand-primary/10 rounded-full p-3">
+                <User className="text-brand-primary h-6 w-6" />
               </div>
             </div>
           </div>
@@ -217,7 +217,7 @@ export function Admin({ submissions, adminUser }) {
             <div className="flex flex-1 items-center gap-4">
               <div className="flex items-center gap-4">
                 <div className="relative max-w-md flex-1">
-                  <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+                  <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-gray-400" />
                   <Input
                     placeholder="Cari nama, email, phone, fakultas, batch..."
                     value={searchTerm}
@@ -231,7 +231,7 @@ export function Admin({ submissions, adminUser }) {
                   <select
                     value={selectedPosition}
                     onChange={(e) => setSelectedPosition(e.target.value)}
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-primary focus:outline-hidden focus:ring-1 focus:ring-primary"
+                    className="focus:border-brand-primary focus:ring-brand-primary rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-1 focus:outline-hidden"
                   >
                     <option value="all">All Positions</option>
                     {uniquePositions.map((position) => (
@@ -284,7 +284,7 @@ export function Admin({ submissions, adminUser }) {
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+                      <div className="bg-brand-primary/10 text-brand-primary rounded-full px-3 py-1 text-sm font-medium">
                         {formatDate(submission.submitted_at)}
                       </div>
                     </div>
@@ -369,7 +369,7 @@ export function Admin({ submissions, adminUser }) {
                               href={submission.first_cvLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-primary hover:underline"
+                              className="text-brand-primary hover:underline"
                             >
                               View
                             </a>
@@ -384,7 +384,7 @@ export function Admin({ submissions, adminUser }) {
                               href={submission.first_documentLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-primary hover:underline"
+                              className="text-brand-primary hover:underline"
                             >
                               View
                             </a>
@@ -399,7 +399,7 @@ export function Admin({ submissions, adminUser }) {
                               href={submission.first_portfolioLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-primary hover:underline"
+                              className="text-brand-primary hover:underline"
                             >
                               View
                             </a>
@@ -491,7 +491,7 @@ export function Admin({ submissions, adminUser }) {
                                   href={submission.second_cvLink}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-primary hover:underline"
+                                  className="text-brand-primary hover:underline"
                                 >
                                   View
                                 </a>
@@ -506,7 +506,7 @@ export function Admin({ submissions, adminUser }) {
                                   href={submission.second_documentLink}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-primary hover:underline"
+                                  className="text-brand-primary hover:underline"
                                 >
                                   View
                                 </a>
@@ -521,7 +521,7 @@ export function Admin({ submissions, adminUser }) {
                                   href={submission.second_portfolioLink}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-primary hover:underline"
+                                  className="text-brand-primary hover:underline"
                                 >
                                   View
                                 </a>
@@ -538,7 +538,7 @@ export function Admin({ submissions, adminUser }) {
                               href={submission.twibbonPostLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-primary hover:underline"
+                              className="text-brand-primary hover:underline"
                             >
                               View
                             </a>
@@ -553,7 +553,7 @@ export function Admin({ submissions, adminUser }) {
                               href={submission.twibbonProofLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-primary hover:underline"
+                              className="text-brand-primary hover:underline"
                             >
                               View
                             </a>

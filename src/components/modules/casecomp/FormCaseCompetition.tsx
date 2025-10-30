@@ -13,7 +13,7 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { getFileSizeMb, TeamLeaderSchema, TeamMemberSchema } from "@/lib/schema/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import RenderIf from "@/components/element/RenderIf";
+import RenderIf from "@/components/layout/RenderIf";
 import TeamMemberForm from "./FormTeamMember";
 import { UtilsContext } from "@/contexts/UtilsContext";
 import "./Form.css";
@@ -230,7 +230,7 @@ export function FormCaseComp() {
     const repostErr = checkFile(repostRef);
     const twibbonErr = checkFile(twibbonRef);
     const buktiPembayaranErr = checkFile(
-      buktiPembayaranRef,
+      buktiPembayaranRef
       // currentData.payment === "international",
     );
 
@@ -478,7 +478,7 @@ export function FormCaseComp() {
 
   if (currentData.payment === null) {
     return (
-      <section className="relative flex min-h-screen items-center justify-center bg-black text-white">
+      <section className="bg-brand-black relative flex min-h-screen items-center justify-center text-white">
         <Image
           src="/img/casecomp/bg-hero-form-landing.png"
           alt="background"
@@ -487,8 +487,8 @@ export function FormCaseComp() {
           className="absolute inset-0 z-0 h-screen w-full object-cover"
         />
         {/* Title Section */}
-        <div className="container z-10 mx-auto flex flex-col items-center py-12 text-center">
-          <h1 className="mb-4 mt-[10vh] text-3xl font-bold lg:text-5xl">
+        <div className="z-10 container mx-auto flex flex-col items-center py-12 text-center">
+          <h1 className="mt-[10vh] mb-4 text-3xl font-bold lg:text-5xl">
             <span className="bg-linear-to-r from-green-500 to-blue-400 bg-clip-text text-transparent">
               Select Payment Method
             </span>
@@ -515,13 +515,13 @@ export function FormCaseComp() {
   }
   // Page
   return (
-    <section ref={headRef} className="relative min-h-screen bg-black text-white">
+    <section ref={headRef} className="bg-brand-black relative min-h-screen text-white">
       <Image
         src="/img/bootcamp/ellipseBlue.png"
         alt="background"
         width={2000}
         height={2000}
-        className="absolute -right-[32vw] top-[30%] z-20 h-[49.07vw] w-[68.27vw] max-lg:hidden lg:-right-[15%] lg:top-0 lg:h-[26.82vw] lg:w-[37.29vw]"
+        className="absolute top-[30%] -right-[32vw] z-20 h-[49.07vw] w-[68.27vw] max-lg:hidden lg:top-0 lg:-right-[15%] lg:h-[26.82vw] lg:w-[37.29vw]"
       />
 
       <Image
@@ -529,7 +529,7 @@ export function FormCaseComp() {
         alt="background"
         width={2000}
         height={2000}
-        className="absolute -left-[20vw] bottom-[30%] z-0 h-[49.07vw] w-[68.27vw] max-lg:hidden lg:bottom-[10%] lg:h-[26.82vw] lg:w-[37.29vw]"
+        className="absolute bottom-[30%] -left-[20vw] z-0 h-[49.07vw] w-[68.27vw] max-lg:hidden lg:bottom-[10%] lg:h-[26.82vw] lg:w-[37.29vw]"
       />
 
       <Image
@@ -537,12 +537,12 @@ export function FormCaseComp() {
         alt="greenstar"
         width={2000}
         height={2000}
-        className="absolute -left-[20vw] -top-[10vw] z-20 h-[49.07vw] w-[68.27vw] scale-[0.2] max-lg:hidden lg:bottom-[10%]"
+        className="absolute -top-[10vw] -left-[20vw] z-20 h-[49.07vw] w-[68.27vw] scale-[0.2] max-lg:hidden lg:bottom-[10%]"
       />
 
       {/* Title Section */}
       <div className="z- container mx-auto py-12 text-center">
-        <h1 className="mb-4 mt-[10vh] text-4xl font-bold">
+        <h1 className="mt-[10vh] mb-4 text-4xl font-bold">
           <span className="z-10 bg-linear-to-r from-green-500 to-blue-400 bg-clip-text text-transparent">
             Team Registration
           </span>
@@ -553,7 +553,7 @@ export function FormCaseComp() {
       </div>
 
       {/* Form Section */}
-      <div className="container z-20 mx-auto pb-16">
+      <div className="z-20 container mx-auto pb-16">
         <div className="mx-auto max-w-3xl rounded-lg bg-white p-8">
           {/* Steps Indicator */}
           {/* Step Labels */}
@@ -653,7 +653,7 @@ export function FormCaseComp() {
 
                   <div className="container mx-auto mb-6 px-4">
                     <div className="flex flex-col items-center justify-between gap-4 rounded-lg bg-white p-4 shadow-md lg:flex-row lg:items-center">
-                      <div className="text-sm font-medium leading-relaxed text-gray-800 lg:text-base">
+                      <div className="text-sm leading-relaxed font-medium text-gray-800 lg:text-base">
                         <p>
                           BCA Account: <span className="font-semibold">6975323980</span>
                         </p>

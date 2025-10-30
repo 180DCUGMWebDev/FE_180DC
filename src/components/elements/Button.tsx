@@ -18,16 +18,16 @@ export default function Button180({
 
   const btnColor =
     color === "green"
-      ? "bg-primary hover:bg-primary/80"
+      ? "bg-brand-primary hover:bg-brand-primary/80"
       : color === "black"
-        ? "bg-black hover:bg-black/80"
+        ? "bg-brand-black hover:bg-brand-black/80"
         : color === "white"
           ? "bg-white hover:bg-white/80"
           : color === "red"
             ? "bg-red-500 hover:bg-red-500/80"
             : "";
 
-  const textColor = color === "white" ? "text-primary" : "text-white";
+  const textColor = color === "white" ? "text-brand-primary" : "text-white";
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (disableForm) return;
@@ -44,8 +44,8 @@ export default function Button180({
   return (
     <button
       className={cn(
-        `${btnColor} ${addClass} px-auto rounded-[40px] font-lato-regular transition-all duration-300 ${textColor}`,
-        className,
+        `${btnColor} ${addClass} px-auto font-lato-regular rounded-[40px] transition-all duration-300 ${textColor}`,
+        className
       )}
       disabled={disableForm}
       onClick={handleClick}

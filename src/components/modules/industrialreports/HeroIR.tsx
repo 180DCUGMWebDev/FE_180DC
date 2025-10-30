@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Button180 from "@/components/element/Button";
+import Button180 from "@/components/elements/Button";
 import { HiOutlineArrowUpRight, HiOutlineArrowLeft, HiOutlineArrowRight } from "react-icons/hi2";
 
 const products = [
@@ -50,13 +50,13 @@ export default function HeroIR() {
       {/* Content */}
       <div className="relative z-50 flex h-screen w-full flex-col items-center justify-center">
         <div className="flex flex-col items-center justify-center gap-[10px] px-[4%] py-[9vh] max-lg:pt-[10vw] lg:gap-[30px]">
-          <div className="mt-[7vw] font-avenir-black text-xl text-light-white sm:text-4xl lg:text-[80px] lg:leading-none 2xl:text-[112px]">
+          <div className="font-avenir-black text-brand-light-white mt-[7vw] text-xl sm:text-4xl lg:text-[80px] lg:leading-none 2xl:text-[112px]">
             Industrial Report
           </div>
 
           <div
             data-gsap="up-stagger"
-            className="relative mb-[5vw] flex w-full flex-col items-center justify-center lg:h-auto gsap-initial"
+            className="gsap-initial relative mb-[5vw] flex w-full flex-col items-center justify-center lg:h-auto"
           >
             {/* Carousel Container */}
             <div
@@ -81,7 +81,7 @@ export default function HeroIR() {
                     height={1000}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                  <div className="bg-brand-black/30 absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                 </Link>
               ))}
             </div>
@@ -91,7 +91,7 @@ export default function HeroIR() {
               {/* Previous Arrow */}
               <button
                 onClick={prevSlide}
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800/50 text-light-white transition-colors hover:bg-gray-700"
+                className="text-brand-light-white flex h-10 w-10 items-center justify-center rounded-full bg-gray-800/50 transition-colors hover:bg-gray-700"
                 aria-label="Previous slide"
               >
                 <HiOutlineArrowLeft className="h-5 w-5" />
@@ -104,7 +104,7 @@ export default function HeroIR() {
                     key={index}
                     onClick={() => goToSlide(index)}
                     className={`h-3 w-3 rounded-full transition-all ${
-                      currentSlide === index ? "w-6 bg-light-white" : "bg-gray-400/50"
+                      currentSlide === index ? "bg-light-white w-6" : "bg-gray-400/50"
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
@@ -114,7 +114,7 @@ export default function HeroIR() {
               {/* Next Arrow */}
               <button
                 onClick={nextSlide}
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800/50 text-light-white transition-colors hover:bg-gray-700"
+                className="text-brand-light-white flex h-10 w-10 items-center justify-center rounded-full bg-gray-800/50 transition-colors hover:bg-gray-700"
                 aria-label="Next slide"
               >
                 <HiOutlineArrowRight className="h-5 w-5" />

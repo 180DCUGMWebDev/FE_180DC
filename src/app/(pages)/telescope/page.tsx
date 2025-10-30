@@ -1,5 +1,5 @@
 "use client";
-import LookForward from "@/components/element/LookForward";
+import LookForward from "@/components/layout/LookForward";
 import { Telescopes } from "@/components/modules/telescope";
 import { useEffect, useRef, useState } from "react";
 
@@ -8,7 +8,7 @@ async function getData() {
     "https://strapi.180dcugm.org/api/articles?populate=*&sort=publishedAt:desc",
     {
       next: { revalidate: 60 },
-    },
+    }
   );
 
   if (!res.ok) {

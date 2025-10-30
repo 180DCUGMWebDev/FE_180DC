@@ -20,7 +20,7 @@ export default function Oprec() {
         alt="decoration"
         width={600}
         height={600}
-        className="absolute right-[10%] top-[20%] z-20 h-[30vw] w-[30vw] opacity-30 lg:h-[20vw] lg:w-[20vw]"
+        className="absolute top-[20%] right-[10%] z-20 h-[30vw] w-[30vw] opacity-30 lg:h-[20vw] lg:w-[20vw]"
       />
       <Image
         src="/img/bootcamp/ellipseGreen.png"
@@ -35,10 +35,10 @@ export default function Oprec() {
         <div className="mx-auto max-w-6xl">
           {/* Header */}
           <div className="mb-16 text-center">
-            <h1 className="mb-6 font-avenir-black text-4xl sm:text-5xl lg:text-7xl">
-              Open <span className="text-primary">Recruitment</span>
+            <h1 className="font-avenir-black mb-6 text-4xl sm:text-5xl lg:text-7xl">
+              Open <span className="text-brand-primary">Recruitment</span>
             </h1>
-            <p className="mx-auto max-w-3xl font-lato-regular text-lg text-white/80 sm:text-xl lg:text-2xl">
+            <p className="font-lato-regular mx-auto max-w-3xl text-lg text-white/80 sm:text-xl lg:text-2xl">
               Join 180DC UGM and become part of the world&apos;s largest student-led consultancy.
               Shape your future, impact organizations, and develop exceptional consulting skills.
             </p>
@@ -48,25 +48,25 @@ export default function Oprec() {
           <div className="mb-16 grid grid-cols-2 gap-4 lg:grid-cols-4">
             <div className="rounded-2xl bg-white/10 p-6 text-center backdrop-blur-xs">
               <div className="font-avenir-black text-2xl lg:text-3xl">
-                100<span className="text-primary">+</span>
+                100<span className="text-brand-primary">+</span>
               </div>
               <div className="text-sm text-white/80">Alumni Network</div>
             </div>
             <div className="rounded-2xl bg-white/10 p-6 text-center backdrop-blur-xs">
               <div className="font-avenir-black text-2xl lg:text-3xl">
-                50<span className="text-primary">+</span>
+                50<span className="text-brand-primary">+</span>
               </div>
               <div className="text-sm text-white/80">Projects Completed</div>
             </div>
             <div className="rounded-2xl bg-white/10 p-6 text-center backdrop-blur-xs">
               <div className="font-avenir-black text-2xl lg:text-3xl">
-                20<span className="text-primary">+</span>
+                20<span className="text-brand-primary">+</span>
               </div>
               <div className="text-sm text-white/80">Partner Organizations</div>
             </div>
             <div className="rounded-2xl bg-white/10 p-6 text-center backdrop-blur-xs">
               <div className="font-avenir-black text-2xl lg:text-3xl">
-                Global<span className="text-primary">+</span>
+                Global<span className="text-brand-primary">+</span>
               </div>
               <div className="text-sm text-white/80">Network Access</div>
             </div>

@@ -5,8 +5,8 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Link from "next/link";
-import ImgF from "@/components/element/ImgF";
-import Button180 from "@/components/element/Button";
+import ImageAction from "@/components/elements/ImageAction";
+import Button180 from "@/components/elements/Button";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
@@ -18,7 +18,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+} from "@/components/elements/Form/navigation-menu";
 
 const components = [
   {
@@ -117,13 +117,15 @@ export default function Navbar() {
     <nav className="fixed z-101 flex w-full">
       <div className="flex w-full flex-col">
         <div
-          className={`${scroll !== "down" || mobileMenuOpen ? "" : "translate-y-[-200%]"} ${mobileMenuOpen ? "overflow-y-clip bg-black" : ""} flex h-20 w-full flex-row items-center justify-between gap-2 px-[10px] text-white transition-all ${mobileMenuOpen ? "duration-0" : "duration-1000"} ease-in-out lg:px-[30px] xl:px-[50px] ${
-            isScrolled ? "lg:bg-black/70 lg:shadow-lg lg:backdrop-blur-lg" : "lg:bg-transparent"
+          className={`${scroll !== "down" || mobileMenuOpen ? "" : "translate-y-[-200%]"} ${mobileMenuOpen ? "bg-brand-black overflow-y-clip" : ""} flex h-20 w-full flex-row items-center justify-between gap-2 px-[10px] text-white transition-all ${mobileMenuOpen ? "duration-0" : "duration-1000"} ease-in-out lg:px-[30px] xl:px-[50px] ${
+            isScrolled
+              ? "lg:bg-brand-black/70 lg:shadow-lg lg:backdrop-blur-lg"
+              : "lg:bg-transparent"
           },`}
         >
           {/* Logo */}
           <Link className="flex w-[48px] items-center" href="/">
-            <ImgF
+            <ImageAction
               src="/img/global/logo180dctrns.png"
               alt="logo 180dc"
               className="transition-transform duration-500 hover:scale-[1.05]"
@@ -188,8 +190,8 @@ export default function Navbar() {
                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                       <Link
                         href="/portofolio"
-                        className={`transition-all duration-300 hover:bg-white hover:text-black ${
-                          pathname === "/portofolio" ? "bg-white text-black" : ""
+                        className={`hover:text-brand-black transition-all duration-300 hover:bg-white ${
+                          pathname === "/portofolio" ? "text-brand-black bg-white" : ""
                         }`}
                       >
                         <p className="text-lg">Clients</p>
@@ -229,8 +231,8 @@ export default function Navbar() {
                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                       <Link
                         href="/academy"
-                        className={`transition-all duration-300 hover:bg-white hover:text-black ${
-                          pathname === "/academy" ? "bg-white text-black" : ""
+                        className={`hover:text-brand-black transition-all duration-300 hover:bg-white ${
+                          pathname === "/academy" ? "text-brand-black bg-white" : ""
                         }`}
                       >
                         <div className="text-lg">Academy</div>
@@ -260,7 +262,7 @@ export default function Navbar() {
                 <Button180
                   color={"green"}
                   text={"Consult Now!"}
-                  className="whitespace-nowrap px-[20px] py-[9px]"
+                  className="px-[20px] py-[9px] whitespace-nowrap"
                 />
               </Link>
             </div>
@@ -274,8 +276,8 @@ export default function Navbar() {
         {/* Mobile Menu */}
         <div
           className={cn(
-            "relative w-full rounded-b-[10px] bg-black py-4 text-center text-lg font-normal text-white lg:hidden",
-            mobileMenuOpen ? "block" : "hidden",
+            "bg-brand-black relative w-full rounded-b-[10px] py-4 text-center text-lg font-normal text-white lg:hidden",
+            mobileMenuOpen ? "block" : "hidden"
           )}
         >
           <div className="flex w-full flex-col items-start justify-start gap-2 px-[20px] text-left">
@@ -283,7 +285,7 @@ export default function Navbar() {
               <Link
                 onClick={closeMobileMenu}
                 href="/aboutus"
-                className={`w-full ${pathname === "/aboutus" ? "font-semibold text-primary" : ""}`}
+                className={`w-full ${pathname === "/aboutus" ? "text-brand-primary font-semibold" : ""}`}
               >
                 <div>About</div>
               </Link>
@@ -293,7 +295,7 @@ export default function Navbar() {
                 onClick={closeMobileMenu}
                 href="/aboutus/#services"
                 className={`w-full ${
-                  pathname === "/aboutus#services" ? "font-semibold text-primary" : ""
+                  pathname === "/aboutus#services" ? "text-brand-primary font-semibold" : ""
                 } `}
               >
                 <div>Services</div>
@@ -304,7 +306,7 @@ export default function Navbar() {
                 onClick={closeMobileMenu}
                 href="/portofolio"
                 className={`w-full ${
-                  pathname === "/portofolio" ? "font-semibold text-primary" : ""
+                  pathname === "/portofolio" ? "text-brand-primary font-semibold" : ""
                 }`}
               >
                 <div>Clients</div>
@@ -316,7 +318,7 @@ export default function Navbar() {
               <div
                 className={`flex w-full cursor-pointer items-center justify-between ${
                   pathname === "/store/casebook" || pathname === "/store/merch"
-                    ? "font-semibold text-primary"
+                    ? "text-brand-primary font-semibold"
                     : ""
                 }`}
                 onClick={() => toggleAccordion("store")}
@@ -355,7 +357,7 @@ export default function Navbar() {
                   pathname === "/bootcamp" ||
                   pathname === "/cycle2oprec" ||
                   pathname === "/casecompetition"
-                    ? "font-semibold text-primary"
+                    ? "text-brand-primary font-semibold"
                     : ""
                 }`}
                 onClick={() => toggleAccordion("event")}
@@ -398,7 +400,7 @@ export default function Navbar() {
               <Link
                 onClick={closeMobileMenu}
                 href="/academy"
-                className={pathname === "/academy" ? "font-semibold text-primary" : ""}
+                className={pathname === "/academy" ? "text-brand-primary font-semibold" : ""}
               >
                 <div>Academy</div>
               </Link>
@@ -409,7 +411,7 @@ export default function Navbar() {
               <div
                 className={`flex cursor-pointer items-center justify-between ${
                   pathname === "/telescope" || pathname === "/industrialreport"
-                    ? "font-semibold text-primary"
+                    ? "text-brand-primary font-semibold"
                     : ""
                 }`}
                 onClick={() => toggleAccordion("telescope")}
@@ -440,9 +442,9 @@ export default function Navbar() {
                 </div>
               )}
             </div>
-            <div className="mb-4 mt-6 h-px w-full bg-neutral-200" />
+            <div className="mt-6 mb-4 h-px w-full bg-neutral-200" />
             <Link onClick={closeMobileMenu} className="w-full" href="/apply">
-              <div className="w-full rounded-[5px] bg-primary py-[6px] text-center font-mulish-bold text-base text-white">
+              <div className="bg-brand-primary font-mulish-bold w-full rounded-[5px] py-[6px] text-center text-base text-white">
                 Consult Now!
               </div>
             </Link>
@@ -461,7 +463,7 @@ function ListItem({ title, children, href, ...props }) {
     >
       <NavigationMenuLink asChild>
         <Link href={href} className="flex flex-col items-start justify-center">
-          <div className="text-md font-medium leading-snug">{title}</div>
+          <div className="text-md leading-snug font-medium">{title}</div>
           <p className="text-muted-foreground line-clamp-2 text-sm leading-none">{children}</p>
         </Link>
       </NavigationMenuLink>

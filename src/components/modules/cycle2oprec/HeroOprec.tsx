@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button180 from "@/components/element/Button";
+import Button180 from "@/components/elements/Button";
 
 export function HeroOprec() {
   const items = [
@@ -25,7 +25,7 @@ export function HeroOprec() {
           alt="background"
           width={2000}
           height={2000}
-          className="absolute right-[20%] top-[30%] z-20 h-[49.07vw] w-[68.27vw] lg:right-[20.3vw] lg:top-0 lg:h-[26.82vw] lg:w-[37.29vw]"
+          className="absolute top-[30%] right-[20%] z-20 h-[49.07vw] w-[68.27vw] lg:top-0 lg:right-[20.3vw] lg:h-[26.82vw] lg:w-[37.29vw]"
         />
 
         <Image
@@ -33,7 +33,7 @@ export function HeroOprec() {
           alt="background"
           width={2000}
           height={2000}
-          className="absolute -right-[32vw] top-[30%] z-20 h-[49.07vw] w-[68.27vw] lg:-right-[15%] lg:top-0 lg:h-[26.82vw] lg:w-[37.29vw]"
+          className="absolute top-[30%] -right-[32vw] z-20 h-[49.07vw] w-[68.27vw] lg:top-0 lg:-right-[15%] lg:h-[26.82vw] lg:w-[37.29vw]"
         />
 
         <Image
@@ -41,7 +41,7 @@ export function HeroOprec() {
           alt="background"
           width={2000}
           height={2000}
-          className="absolute bottom-[30%] z-20 h-[49.07vw] w-[68.27vw] lg:bottom-[10%] lg:right-[10%] lg:h-[26.82vw] lg:w-[37.29vw]"
+          className="absolute bottom-[30%] z-20 h-[49.07vw] w-[68.27vw] lg:right-[10%] lg:bottom-[10%] lg:h-[26.82vw] lg:w-[37.29vw]"
         />
 
         <div className="relative z-30 flex h-screen flex-col items-center justify-center lg:flex-row">
@@ -66,7 +66,7 @@ export function HeroOprec() {
             {/* bagian enroll */}
             <div className="mt-[3.646vw] hidden w-full flex-col items-center px-4 lg:mt-[1.8vw] lg:flex">
               <div>
-                <p className="w-[30vw] font-lato-semibold text-[4vw] text-white180 lg:text-[1.25vw]">
+                <p className="font-lato-semibold text-brand-white-180 w-[30vw] text-[4vw] lg:text-[1.25vw]">
                   Calling all aspiring consultants and changemakers! <br /> Join 180DC UGM and leave
                   your mark.
                 </p>
@@ -82,7 +82,7 @@ export function HeroOprec() {
                   <Button180
                     color="green"
                     text="Guidebook"
-                    addClass="w-[60%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-white hover:text-primary"
+                    addClass="w-[60%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-white hover:text-brand-primary"
                     href="bit.ly/ConsultingCycle2-BookletOprec2025"
                   />
                 </div>
@@ -103,12 +103,12 @@ export function HeroOprec() {
               alt="background"
               width={2000}
               height={2000}
-              className="z-10 ml-[2vw] mr-[5vw] aspect-681/715 w-[35vw] max-lg:w-[40vw]"
+              className="z-10 mr-[5vw] ml-[2vw] aspect-681/715 w-[35vw] max-lg:w-[40vw]"
             />
           </div>
 
           <div className="mt-[5.938vw] flex w-full flex-col items-center justify-center gap-y-[2vw] px-[8.667vw] lg:hidden">
-            <p className="flex w-[70vw] justify-center text-center font-lato-semibold text-[3vw] text-white180">
+            <p className="font-lato-semibold text-brand-white-180 flex w-[70vw] justify-center text-center text-[3vw]">
               Calling all aspiring consultants and changemakers! <br /> Join 180DC UGM and leave
               your mark.
             </p>

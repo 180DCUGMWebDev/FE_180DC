@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Button } from "@/components/elements/Form/button";
+import { Input } from "@/components/elements/Form/input";
+import { Label } from "@/components/elements/Form/label";
 import { ChevronRight } from "lucide-react";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "@/components/elements/Form/checkbox";
 import Link from "next/link";
 import {
   Select,
@@ -11,7 +11,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/components/elements/Form/select";
 
 const Slide1 = ({ formData, updateFormData, onNext }) => {
   const [name, setName] = useState(formData.name || "");
@@ -64,7 +64,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
   return (
     <div className="abatchate-fade-in space-y-6">
       <div className="text-center">
-        <h2 className="mb-1 mt-2 font-avenir-black text-2xl leading-snug text-primary lg:text-3xl">
+        <h2 className="font-avenir-black text-brand-primary mt-2 mb-1 text-2xl leading-snug lg:text-3xl">
           180 DC Functional Analyst Recruitment.
         </h2>
         <p className="font-lato-regular text-gray-600">
@@ -74,8 +74,8 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
 
       {/* Prerequisites */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
-        <h3 className="mb-6 flex items-center gap-2 font-avenir-black text-xl text-gray-800">
-          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+        <h3 className="font-avenir-black mb-6 flex items-center gap-2 text-xl text-gray-800">
+          <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
             <span className="text-sm font-bold text-white">1</span>
           </div>
           About 180DC UGM
@@ -114,7 +114,11 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
           <p className="font-lato-regular text-gray-600">
             We advise you to read through the booklet first before filling out the form!
           </p>
-          <Link href="/file/CAOprecGuidebook.pdf" target="blank" className="hover:text-primary">
+          <Link
+            href="/file/CAOprecGuidebook.pdf"
+            target="blank"
+            className="hover:text-brand-primary"
+          >
             <p className="font-lato-bold underline">Read Booklet</p>
           </Link>
         </div>
@@ -122,8 +126,8 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
 
       {/* Personal Information Form */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
-        <h3 className="mb-6 flex items-center gap-2 font-avenir-black text-xl text-gray-800">
-          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+        <h3 className="font-avenir-black mb-6 flex items-center gap-2 text-xl text-gray-800">
+          <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
             <span className="text-sm font-bold text-white">2</span>
           </div>
           Personal Information
@@ -133,7 +137,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
           <div className="md:col-span-2">
             <Label
               htmlFor="name"
-              className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700"
+              className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700"
             >
               Full Name *
             </Label>
@@ -143,14 +147,14 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Enter your full name as registered in UGM"
-              className="border-gray-300 font-lato-regular transition-all duration-200 focus:ring-2 focus:ring-primary/50"
+              className="font-lato-regular focus:ring-brand-primary/50 border-gray-300 transition-all duration-200 focus:ring-2"
             />
           </div>
 
           <div>
             <Label
               htmlFor="email"
-              className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700"
+              className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700"
             >
               Email Address *
             </Label>
@@ -160,14 +164,14 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="your.email@mail.ugm.ac.id"
-              className="border-gray-300 font-lato-regular transition-all duration-200 focus:ring-2 focus:ring-primary/50"
+              className="font-lato-regular focus:ring-brand-primary/50 border-gray-300 transition-all duration-200 focus:ring-2"
             />
           </div>
 
           <div>
             <Label
               htmlFor="batch"
-              className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700"
+              className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700"
             >
               Student ID (batch) *
             </Label>
@@ -193,7 +197,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
           <div>
             <Label
               htmlFor="phone"
-              className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700"
+              className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700"
             >
               Phone Number *
             </Label>
@@ -203,14 +207,14 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               placeholder="62 8xx-xxxx-xxxx"
-              className="border-gray-300 font-lato-regular transition-all duration-200 focus:ring-2 focus:ring-primary/50"
+              className="font-lato-regular focus:ring-brand-primary/50 border-gray-300 transition-all duration-200 focus:ring-2"
             />
           </div>
 
           <div>
             <Label
               htmlFor="faculty"
-              className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700"
+              className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700"
             >
               Faculty *
             </Label>
@@ -220,14 +224,14 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
               value={faculty}
               onChange={(e) => setFaculty(e.target.value)}
               placeholder="e.g., Faculty of Economics and Business"
-              className="border-gray-300 font-lato-regular transition-all duration-200 focus:ring-2 focus:ring-primary/50"
+              className="font-lato-regular focus:ring-brand-primary/50 border-gray-300 transition-all duration-200 focus:ring-2"
             />
           </div>
 
           <div>
             <Label
               htmlFor="major"
-              className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700"
+              className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700"
             >
               Major/Study Program *
             </Label>
@@ -237,13 +241,13 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
               value={major}
               onChange={(e) => setMajor(e.target.value)}
               placeholder="e.g., Management"
-              className="border-gray-300 font-lato-regular transition-all duration-200 focus:ring-2 focus:ring-primary/50"
+              className="font-lato-regular focus:ring-brand-primary/50 border-gray-300 transition-all duration-200 focus:ring-2"
             />
           </div>
           <div>
             <Label
               htmlFor="gpa"
-              className="mb-2 block font-avenir-regular text-sm font-medium text-gray-700"
+              className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700"
             >
               Current GPA (For those who are in their first-year applying, you can insert your final
               average score from high-school.) *
@@ -254,7 +258,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
               value={gpa}
               onChange={(e) => setGpa(e.target.value)}
               placeholder="e.g., 3.75 or 92"
-              className="border-gray-300 font-lato-regular transition-all duration-200 focus:ring-2 focus:ring-primary/50"
+              className="font-lato-regular focus:ring-brand-primary/50 border-gray-300 transition-all duration-200 focus:ring-2"
             />
           </div>
         </div>
@@ -287,7 +291,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
         <Button
           onClick={handleNext}
           disabled={!isValid}
-          className="flex items-center gap-2 bg-primary font-avenir-regular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
+          className="bg-brand-primary font-avenir-regular hover:bg-brand-primary/90 disabled:text-brand-black flex items-center gap-2 text-white transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
         >
           {!activeStudent && isValid ? "Submit (Non-Active Student)" : "Continue to Next Step"}
           <ChevronRight className="h-4 w-4" />

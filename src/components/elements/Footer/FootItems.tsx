@@ -8,10 +8,10 @@ import { FaHandshake, FaHome, FaUserFriends, FaStore, FaBookOpen } from "react-i
 import { IoTelescope } from "react-icons/io5";
 
 // Import Configs
-import { childLink, navLinks} from "@/config/Links";
+import { childLink, navLinks } from "@/config/Links";
 import { directRoute } from "@/config/Functions";
 import Link from "next/link";
-import "./navbar.css";
+import "./footer.css";
 
 const DropDown = ({ childClass, aClass, link, route, path }) => {
   // Extractor
@@ -27,7 +27,7 @@ const DropDown = ({ childClass, aClass, link, route, path }) => {
 
   return (
     <div
-      className={`${childClass} absolute top-[4.5vw] flex w-[90px] flex-col gap-[5px] rounded-[5px] py-[5px] text-center font-avenir-regular transition-opacity duration-200`}
+      className={`${childClass} font-avenir-regular absolute top-[4.5vw] flex w-[90px] flex-col gap-[5px] rounded-[5px] py-[5px] text-center transition-opacity duration-200`}
     >
       {options.map((item, idx) => {
         return (
@@ -58,7 +58,7 @@ const DropDownMobile = ({ childClass, aClass, link, route, path, callback }) => 
 
   return (
     <div
-      className={`${childClass} relative mt-[1vw] flex w-[140%] flex-col gap-[4vw] rounded-[5px] py-[5px] text-center font-lato-regular! text-[3.3vw]/[2.3vw]! transition-opacity duration-200 md:text-[1.1vw]/[0.8vw]! lg:text-[1.8vw]/[1.3vw]! xl:text-[1.3vw]/[1vw]!`}
+      className={`${childClass} font-lato-regular! relative mt-[1vw] flex w-[140%] flex-col gap-[4vw] rounded-[5px] py-[5px] text-center text-[3.3vw]/[2.3vw]! transition-opacity duration-200 md:text-[1.1vw]/[0.8vw]! lg:text-[1.8vw]/[1.3vw]! xl:text-[1.3vw]/[1vw]!`}
     >
       {options.map((item, idx) => {
         return (
@@ -104,7 +104,7 @@ export default function NavFootItems({
 
   // Mobile Navbar Icons
   const obtainIconFunction = (val) => {
-    const navbarIconClass = pathname === navLinks[val] ? "text-black" : "text-[#73757E]";
+    const navbarIconClass = pathname === navLinks[val] ? "text-brand-black" : "text-[#73757E]";
 
     switch (val) {
       case "Home":
@@ -168,7 +168,7 @@ export default function NavFootItems({
                 `${aClass} transition-all duration-500 hover:font-bold` +
                 (sidebar // Changing colors of Sidebar Text depending on the page
                   ? navLinks[val] === pathname
-                    ? "text-black"
+                    ? "text-brand-black"
                     : "text-[#73757E]"
                   : "")
               }
