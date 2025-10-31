@@ -2,8 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 
 export function TelescopeBox({ article, type, className = "" }) {
-  // type = "lg" or "sm"
+  // type = "lg" or "sm" or "article"
   if (!article) return null;
+
+  // Handle different possible structures from Payload
+  const thumbnailUrl = article.thumbnail?.url || article.thumbnail;
+  const imageUrl = thumbnailUrl?.startsWith('http') 
+    ? thumbnailUrl 
+    : `${process.env.NEXT_PUBLIC_PAYLOAD_URL || ''}${thumbnailUrl}`;
+
   return (
     <Link href={`/telescope/${article.slug}`}>
       <div
@@ -28,15 +35,17 @@ export function TelescopeBox({ article, type, className = "" }) {
                 <div className="bg-brand-black absolute inset-0 opacity-[0.35]" />
               </>
             )}
-            <Image
-              src={`https://strapi.180dcugm.org${article.thumbnail.data.attributes.url}`}
-              alt="article image"
-              width={2000}
-              height={2000}
-              className={`absolute inset-0 h-full w-full object-cover ${
-                type === "article" ? "opacity-50" : "opacity-20 blur-[2px] grayscale"
-              }`}
-            />
+            {thumbnailUrl && (
+              <Image
+                src={imageUrl}
+                alt={article.title || "article image"}
+                width={2000}
+                height={2000}
+                className={`absolute inset-0 h-full w-full object-cover ${
+                  type === "article" ? "opacity-50" : "opacity-20 blur-[2px] grayscale"
+                }`}
+              />
+            )}
           </div>
           {/* Text */}
           <div
@@ -52,7 +61,7 @@ export function TelescopeBox({ article, type, className = "" }) {
               >
                 {article.title}
               </div>
-              {type === "lg" && (
+              {type === "lg" && article.previewText && (
                 <div className="font-lato-regular text-[2.7vw] leading-[1.2]">
                   {article.previewText}
                 </div>
