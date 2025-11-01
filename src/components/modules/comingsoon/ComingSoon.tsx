@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import Button180 from "@/components/elements/Button";
+import Button180 from "@/components/elements/Button180";
 
 export default function ComingSoon() {
   return (
     <section>
-      <div className="bg-brand-black relative min-h-[120vh] lg:min-h-screen">
+      <div className="bg-black-300 relative min-h-[120vh] lg:min-h-screen">
         {/* Background */}
         <Image
           src="/img/homepage/balairung.png"
@@ -46,11 +46,11 @@ export default function ComingSoon() {
             <div className="flex w-full flex-col items-center px-8">
               {/* Title Section */}
               <div className="mb-6 flex aspect-square items-center justify-center rounded-full">
-                <Image src={"/logobrand-white-180.png"} width={200} height={200} alt="logo-180" />
+                <Image src={"/logogray-100-180.png"} width={200} height={200} alt="logo-180" />
               </div>
 
               <h1 className="font-avenir-black text-center text-4xl text-white sm:text-5xl lg:text-6xl">
-                Coming <span className="text-brand-primary">Soon</span>
+                Coming <span className="text-green-300">Soon</span>
               </h1>
 
               <h2 className="font-avenir-black mt-3 text-center text-[4vw] text-white lg:text-[2.5vw]">
@@ -61,23 +61,15 @@ export default function ComingSoon() {
             {/* Description and Buttons - Desktop */}
             <div className="mt-[3.646vw] hidden w-full flex-col items-center px-4 lg:mt-[1.8vw] lg:flex">
               <div>
-                <p className="text-brand-white-180 text-center text-[4vw] lg:text-[1.25vw]">
+                <p className="text-gray-100-180 text-center text-[4vw] lg:text-[1.25vw]">
                   We&apos;re working hard to bring you <br /> something amazing. Stay tuned!
                 </p>
                 <div className="mt-4 flex w-full justify-center gap-2 whitespace-nowrap">
                   <Link href="/">
-                    <Button180
-                      color="white"
-                      text="Back to Home"
-                      addClass="h-fit py-[1.563vw] lg:py-[0.9vw] w-full text-[1.2vw] mt-[1.25vw] px-6 font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743] hover:text-white"
-                    />
+                    <Button180 color="white" text="Back to Home" />
                   </Link>
                   <Link href="/aboutus">
-                    <Button180
-                      color="green"
-                      text="About Us"
-                      addClass="h-fit py-[1.563vw] lg:py-[0.9vw] w-full text-[1.2vw] mt-[1.25vw] px-6 font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743] hover:text-white"
-                    />
+                    <Button180 color="green" text="About Us" />
                   </Link>
                 </div>
               </div>
@@ -88,21 +80,21 @@ export default function ComingSoon() {
           <div className="flex flex-col lg:w-1/2">
             <div className="relative mt-[80px] ml-[8.667vw] h-[21.282vw] w-full rotate-2 rounded-bl-[40px] bg-white lg:ml-0 lg:h-[12.135vw]">
               <div className="absolute flex h-full w-full items-center justify-end">
-                <h1 className="text-outline-decoration lg:max-w-[100%]: font-avenir-black text-brand-secondary max-w-[75%] pr-10 text-[6.154vw] leading-[5.385vw] md:text-[4vw] lg:pr-20 lg:text-[3.49vw] lg:leading-[3.125vw]">
+                <h1 className="text-outline-decoration lg:max-w-[100%]: font-avenir-black max-w-[75%] pr-10 text-[6.154vw] leading-[5.385vw] text-cyan-300 md:text-[4vw] lg:pr-20 lg:text-[3.49vw] lg:leading-[3.125vw]">
                   Something great is coming your way!
                 </h1>
               </div>
 
               {/* Progress Indicator */}
               <div className="absolute -top-10 flex flex-row lg:-top-[4.167vw]">
-                <div className="bg-brand-primary/80 ml-8 flex h-[21.282vw] w-[15.128vw] flex-col items-center justify-center rounded-lg lg:hidden">
+                <div className="ml-8 flex h-[21.282vw] w-[15.128vw] flex-col items-center justify-center rounded-lg bg-green-300/80 lg:hidden">
                   <div className="px-3 text-center text-white">
                     <div className="font-avenir-black text-2xl">75%</div>
                     <div className="font-lato-regular text-sm">Complete</div>
                   </div>
                 </div>
 
-                <div className="bg-brand-primary/80 ml-4 hidden h-[24.103vw] w-[16.923vw] flex-col items-center justify-center rounded-lg object-contain lg:ml-[1.667vw] lg:flex lg:h-[12.292vw] lg:w-[8.646vw]">
+                <div className="ml-4 hidden h-[24.103vw] w-[16.923vw] flex-col items-center justify-center rounded-lg bg-green-300/80 object-contain lg:ml-[1.667vw] lg:flex lg:h-[12.292vw] lg:w-[8.646vw]">
                   <div className="text-center text-white">
                     <div className="font-avenir-black text-xl">75%</div>
                     <div className="font-lato-regular text-xs">Complete</div>
@@ -110,7 +102,7 @@ export default function ComingSoon() {
                 </div>
 
                 <div className="mt-4 ml-4 w-full md:mt-1 lg:mt-[1.2vw] lg:ml-[1vw]">
-                  <p className="font-avenir-regular text-brand-white-180 text-[3vw] lg:text-[1.875vw]">
+                  <p className="font-avenir-regular text-gray-100-180 text-[3vw] lg:text-[1.875vw]">
                     Development in progress. Coming soon!
                   </p>
                 </div>
@@ -144,23 +136,15 @@ export default function ComingSoon() {
 
             {/* Mobile Buttons */}
             <div className="mt-[10.938vw] flex w-full flex-col px-[8.667vw] pb-6 lg:hidden">
-              <p className="text-brand-white-180 mb-4 text-center text-sm lg:text-[2.188vw]">
+              <p className="text-gray-100-180 mb-4 text-center text-sm lg:text-[2.188vw]">
                 We&apos;re working hard to bring you <br /> something amazing. Stay tuned!
               </p>
               <div className="flex justify-center gap-2 whitespace-nowrap">
                 <Link href="/">
-                  <Button180
-                    color="white"
-                    text="Back to Home"
-                    addClass="w-full h-fit px-6 py-[1.563vw] text-[2.9vw] mt-[6.154vw] lg:mt-[1.25vw] font-bold"
-                  />
+                  <Button180 color="white" text="Back to Home" />
                 </Link>
                 <Link href="/aboutus">
-                  <Button180
-                    color="green"
-                    text="About Us"
-                    addClass="w-full px-6 h-fit py-[1.563vw] text-[2.9vw] mt-[6.154vw] lg:mt-[1.25vw] font-bold"
-                  />
+                  <Button180 color="green" text="About Us" />
                 </Link>
               </div>
             </div>

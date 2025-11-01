@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button180 from "@/components/elements/Button";
+import Button180 from "@/components/elements/Button180";
 
 export function HeroCaseComps() {
   return (
@@ -35,7 +35,7 @@ export function HeroCaseComps() {
             {/* bagian enroll */}
             <div className="mt-[3.646vw] hidden w-full flex-col items-center px-4 lg:mt-[1.8vw] lg:flex">
               <div>
-                <p className="font-lato-semibold text-brand-white-180 w-[30vw] text-[4vw] lg:text-[1.25vw]">
+                <p className="font-lato-semibold text-gray-100-180 w-[30vw] text-[4vw] lg:text-[1.25vw]">
                   Calling all aspiring Problem Solver Join 180DC APAC Case Competition UGM and leave
                   your mark.
                 </p>
@@ -69,7 +69,7 @@ export function HeroCaseComps() {
           </div>
 
           <div className="relative -mt-[20vw] flex w-full flex-col items-center justify-center gap-y-[2vw] px-[8.667vw] lg:hidden">
-            <p className="font-lato-semibold text-brand-white-180 flex w-[70vw] justify-center text-center text-[3vw]">
+            <p className="font-lato-semibold text-gray-100-180 flex w-[70vw] justify-center text-center text-[3vw]">
               Calling all aspiring consultants and changemakers! <br /> Join 180DC APAC Case
               Competition UGM and leave your mark.
             </p>

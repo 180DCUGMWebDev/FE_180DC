@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Button180 from "@/components/elements/Button";
+import Button180 from "@/components/elements/Button180";
 
 const batches = [
   {
@@ -47,7 +47,7 @@ export default function Linking() {
         {/* Section Header */}
         <div className="mb-16 text-center">
           <h2 className="font-avenir-black mb-4 text-3xl text-white sm:text-4xl lg:text-5xl">
-            Take your <span className="text-brand-primary">Impact</span> now!
+            Take your <span className="text-green-300">Impact</span> now!
           </h2>
           <p className="font-lato-regular mx-auto text-lg text-white/70">
             Join the latest recruitment cycle and become part of our community of changemakers.
@@ -75,11 +75,11 @@ export default function Linking() {
                 {/* Status Badge */}
                 <div className="mb-5 flex flex-row flex-wrap items-center justify-between gap-3">
                   <div className="flex flex-wrap items-center gap-3">
-                    <span className="border-brand-primary text-brand-black inline-flex items-center gap-2 rounded-full border bg-white px-4 py-1 text-sm font-medium">
+                    <span className="text-black-300 inline-flex items-center gap-2 rounded-full border border-green-300 bg-white px-4 py-1 text-sm font-medium">
                       {currentBatch.status}
                     </span>
                     {currentBatch.cycle && (
-                      <span className="bg-brand-primary inline-flex items-center rounded-full px-4 py-1 text-sm font-medium text-white">
+                      <span className="inline-flex items-center rounded-full bg-green-300 px-4 py-1 text-sm font-medium text-white">
                         {currentBatch.cycle}
                       </span>
                     )}
@@ -112,7 +112,7 @@ export default function Linking() {
             </div>
 
             {/* Subtle Hover Effects */}
-            <div className="bg-brand-primary/10 absolute -right-1 -bottom-1 h-16 w-16 rounded-full opacity-0 blur-xl transition-all duration-300 group-hover:opacity-100"></div>
+            <div className="absolute -right-1 -bottom-1 h-16 w-16 rounded-full bg-green-300/10 opacity-0 blur-xl transition-all duration-300 group-hover:opacity-100"></div>
           </div>
         </div>
 
@@ -120,12 +120,12 @@ export default function Linking() {
         {previousBatches.length > 0 && (
           <div className="mb-16">
             <h3 className="font-avenir-black mb-8 text-center text-2xl text-white lg:text-3xl">
-              Previous <span className="text-brand-primary">Recruitment</span> Cycles
+              Previous <span className="text-green-300">Recruitment</span> Cycles
             </h3>
 
             <div className="relative">
               {/* Timeline Line */}
-              <div className="from-brand-primary via-brand-primary/50 absolute top-0 bottom-0 left-4 w-0.5 bg-linear-to-b to-transparent lg:left-1/2 lg:-translate-x-px"></div>
+              <div className="absolute top-0 bottom-0 left-4 w-0.5 bg-linear-to-b from-green-300 via-green-300/50 to-transparent lg:left-1/2 lg:-translate-x-px"></div>
 
               {/* Timeline Items */}
               <div className="space-y-8">
@@ -135,8 +135,8 @@ export default function Linking() {
                     className={`relative flex items-center ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}
                   >
                     {/* Timeline Dot */}
-                    <div className="bg-brand-primary shadow-brand-primary/50 absolute left-2 h-4 w-4 rounded-full shadow-lg lg:left-1/2 lg:-translate-x-1/2">
-                      <div className="bg-brand-primary absolute inset-0 animate-ping rounded-full opacity-30"></div>
+                    <div className="absolute left-2 h-4 w-4 rounded-full bg-green-300 shadow-lg shadow-green-300/50 lg:left-1/2 lg:-translate-x-1/2">
+                      <div className="absolute inset-0 animate-ping rounded-full bg-green-300 opacity-30"></div>
                     </div>
 
                     {/* Timeline Card */}
@@ -160,10 +160,10 @@ export default function Linking() {
                           {/* Header */}
                           <div className="mb-4 flex flex-wrap items-center justify-between">
                             <div className="flex gap-2">
-                              <span className="border-brand-primary rounded-full border bg-transparent px-3 py-1 text-sm font-semibold text-white">
+                              <span className="rounded-full border border-green-300 bg-transparent px-3 py-1 text-sm font-semibold text-white">
                                 {batch.status}
                               </span>
-                              <span className="bg-brand-primary rounded-full px-3 py-1 text-sm font-semibold text-white">
+                              <span className="rounded-full bg-green-300 px-3 py-1 text-sm font-semibold text-white">
                                 {batch.cycle}
                               </span>
                             </div>
@@ -206,9 +206,9 @@ export default function Linking() {
         )}
 
         {/* Additional Info */}
-        <div className="from-brand-primary/10 rounded-3xl bg-linear-to-r to-blue-500/10 p-8 text-center">
+        <div className="rounded-3xl bg-linear-to-r from-green-300/10 to-cyan-500/10 p-8 text-center">
           <h3 className="font-avenir-black mb-4 text-xl text-white lg:text-2xl">
-            Ready to join <span className="text-brand-primary">180DC UGM</span>?
+            Ready to join <span className="text-green-300">180DC UGM</span>?
           </h3>
           <p className="font-lato-regular mb-6 text-white/80">
             Learn more about our program structure, requirements, and what makes 180DC UGM special.
@@ -218,7 +218,7 @@ export default function Linking() {
               <Button180
                 color="transparent"
                 text="About Us"
-                addClass="border border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-brand-black transition-all duration-300"
+                addClass="border border-green-300 text-green-300 hover:bg-green-300 hover:text-black-300 transition-all duration-300"
                 className="px-4 py-1"
               />
             </Link>

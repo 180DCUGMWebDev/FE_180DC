@@ -67,7 +67,7 @@ export default function PreviousClients() {
                 key={JSON.stringify(client) + idx}
                 className={
                   "h-[0.8vw] w-[0.8vw] rounded-full hover:cursor-pointer 2xl:h-[12.3px] 2xl:w-[12.3px] " +
-                  (slide === idx ? "bg-brand-primary" : "bg-light-white")
+                  (slide === idx ? "bg-green-300" : "bg-light-white")
                 }
                 onClick={() => {
                   setSlide(idx);
@@ -99,19 +99,19 @@ export default function PreviousClients() {
           <ImageAction alt="portofolio hero background" src="/img/portofolio/hero_bg-c.png" />
         </div>
         <div className="to-light-white absolute -z-997 h-full w-full bg-linear-to-b from-transparent from-70% to-90%" />
-        <div className="bg-brand-black absolute -z-996 h-full w-full opacity-[85.45%]" />
+        <div className="bg-black-300 absolute -z-996 h-full w-full opacity-[85.45%]" />
 
         {/* Hero */}
-        <h1 className="font-avenir-black text-brand-light-white text-center text-[12vw]/[11vw] lg:text-[4.9vw]/[4.8vw] 2xl:text-[75px]/[64.5px]">
+        <h1 className="font-avenir-black text-center text-[12vw]/[11vw] text-gray-100 lg:text-[4.9vw]/[4.8vw] 2xl:text-[75px]/[64.5px]">
           {"Our Previous Clients"}
         </h1>
 
         {/* Scroll Down [DESKTOP] */}
         <button className="flex flex-col items-center outline-0" onClick={handleClick}>
-          <h2 className="font-lato-bold text-brand-light-white mt-[1.4vw] text-[1vw] max-lg:hidden 2xl:mt-[21.5px] 2xl:text-[15.36px]">
+          <h2 className="font-lato-bold mt-[1.4vw] text-[1vw] text-gray-100 max-lg:hidden 2xl:mt-[21.5px] 2xl:text-[15.36px]">
             {"SCROLL DOWN"}
           </h2>
-          <FaChevronDown className="animate-moving-pointer text-brand-light-white text-[1.4vw] hover:cursor-pointer 2xl:text-[21.5px]" />
+          <FaChevronDown className="animate-moving-pointer text-[1.4vw] text-gray-100 hover:cursor-pointer 2xl:text-[21.5px]" />
         </button>
 
         {/* Swiper [MOBILE] */}
@@ -160,7 +160,7 @@ export default function PreviousClients() {
                           );
                         }}
                       >
-                        <FaChevronLeft className="text-brand-light-white/35 text-[6vw]" />
+                        <FaChevronLeft className="text-[6vw] text-gray-100/35" />
                       </div>
 
                       <div className="flex h-full w-full flex-col items-center justify-center gap-[5vw] overflow-clip">
@@ -175,10 +175,10 @@ export default function PreviousClients() {
 
                           {/* Title & NPS */}
                           <div className="flex h-full w-[65%] flex-col items-start justify-center gap-[.8vh]">
-                            <p className="font-avenir-black text-brand-primary text-[5vw] leading-none">
+                            <p className="font-avenir-black text-[5vw] leading-none text-green-300">
                               {client.name}
                             </p>
-                            {/* <p className="font-avenir-light text-[4.5vw] leading-none text-brand-secondary">
+                            {/* <p className="font-avenir-light text-[4.5vw] leading-none text-cyan-300">
                               {"NPS of "}
                               <strong className="font-avenir-heavy">{client.nps}</strong>
                             </p> */}
@@ -187,22 +187,22 @@ export default function PreviousClients() {
 
                         {/* Lower Body: Description */}
                         <div className="swiper-no-swiping flex h-[60%] w-full flex-col gap-[2vh] overflow-y-scroll">
-                          <p className="font-avenir-black text-brand-primary">
+                          <p className="font-avenir-black text-green-300">
                             What challenges does {client.name} face?
                           </p>
-                          <p className="font-lato-regular text-brand-light-white text-[3.5vw] leading-[1.2]">
+                          <p className="font-lato-regular text-[3.5vw] leading-[1.2] text-gray-100">
                             {client.pright}
                           </p>
-                          <p className="font-lato-regular text-brand-light-white text-[3.5vw] leading-[1.2]">
+                          <p className="font-lato-regular text-[3.5vw] leading-[1.2] text-gray-100">
                             {client.pcenter}
                           </p>
-                          <p className="font-lato-regular text-brand-light-white text-[3.5vw] leading-[1.2]">
+                          <p className="font-lato-regular text-[3.5vw] leading-[1.2] text-gray-100">
                             {client.pleft}
                           </p>
                         </div>
 
                         <div className="h-[10%]">
-                          <p className="font-lato-light-italic text-brand-light-white text-[3.5vmin]">
+                          <p className="font-lato-light-italic text-[3.5vmin] text-gray-100">
                             {"Slide For More"}
                           </p>
                         </div>
@@ -215,7 +215,7 @@ export default function PreviousClients() {
                           setSlide((slide + 1) % (clientsPorto.length + 1));
                         }}
                       >
-                        <FaChevronRight className="text-brand-light-white/35 w-fit text-[6vw]" />
+                        <FaChevronRight className="w-fit text-[6vw] text-gray-100/35" />
                       </div>
                     </div>
                   </div>
@@ -236,7 +236,7 @@ export default function PreviousClients() {
           <ImageAction alt="portofolio hero background" src="/img/portofolio/hero_bg-c.png" />
         </div>
         <div className="from-light-white absolute -z-997 h-full w-full bg-linear-to-b from-20% via-transparent via-45% to-black to-75%" />
-        <div className="bg-brand-black absolute top-0 -z-997 h-full w-full opacity-85" />
+        <div className="bg-black-300 absolute top-0 -z-997 h-full w-full opacity-85" />
 
         <div className="h-full w-full 2xl:w-[1536px]">
           {/* Card Frame */}
@@ -277,10 +277,10 @@ export default function PreviousClients() {
                       <div className="relative mt-[1.1vw] flex h-[50%] w-full gap-[30px] p-[20px] 2xl:mt-[16.8px] 2xl:p-[23px]">
                         {/* Title & NPS */}
                         <div className="flex h-full w-6/12 flex-col items-start justify-end">
-                          <p className="font-avenir-black text-brand-primary text-[2vw] leading-none 2xl:text-[30.7px]">
+                          <p className="font-avenir-black text-[2vw] leading-none text-green-300 2xl:text-[30.7px]">
                             {client.name}
                           </p>
-                          {/* <p className="font-avenir-light text-[1.2vw] leading-none text-brand-secondary 2xl:text-[18.4px]">
+                          {/* <p className="font-avenir-light text-[1.2vw] leading-none text-cyan-300 2xl:text-[18.4px]">
                             {"NPS of "}
                             <strong className="font-avenir-heavy">{client.nps}</strong>
                           </p> */}
@@ -295,20 +295,20 @@ export default function PreviousClients() {
                       </div>
                       {/* Lower Body: Description */}
                       <div className="mt-[1.2vw] flex h-full w-full gap-[1vw] px-[20px] pb-[20vw] 2xl:mt-[18px] 2xl:px-[23px]">
-                        <p className="font-lato-regular text-brand-light-white w-4/12 text-[1vw] leading-[1.2] 2xl:text-[15.36px]">
-                          <p className="font-avenir-black text-brand-primary mb-[0.6vw]">
+                        <p className="font-lato-regular w-4/12 text-[1vw] leading-[1.2] text-gray-100 2xl:text-[15.36px]">
+                          <p className="font-avenir-black mb-[0.6vw] text-green-300">
                             What challenges does {client.name} face?
                           </p>
                           {client.pleft}
                         </p>
-                        <p className="font-lato-regular text-brand-light-white w-4/12 text-[1vw] leading-[1.2] 2xl:text-[15.36px]">
-                          <p className="font-avenir-black text-brand-primary mb-[0.6vw]">
+                        <p className="font-lato-regular w-4/12 text-[1vw] leading-[1.2] text-gray-100 2xl:text-[15.36px]">
+                          <p className="font-avenir-black mb-[0.6vw] text-green-300">
                             What solution does we offer?
                           </p>
                           {client.pcenter}
                         </p>
-                        <p className="font-lato-regular text-brand-light-white w-4/12 text-[1vw] leading-[1.2] 2xl:text-[15.36px]">
-                          <p className="font-avenir-black text-brand-primary mb-[0.6vw]">
+                        <p className="font-lato-regular w-4/12 text-[1vw] leading-[1.2] text-gray-100 2xl:text-[15.36px]">
+                          <p className="font-avenir-black mb-[0.6vw] text-green-300">
                             Impact that we deliver
                           </p>
                           {client.pright}
@@ -329,7 +329,7 @@ export default function PreviousClients() {
                   setSlide((slide - 1 + clientsPorto.length - 1) % (clientsPorto.length - 1));
                 }}
               >
-                <FaChevronLeft className="text-brand-light-white text-[1.4vw] hover:cursor-pointer 2xl:text-[21.5px]" />
+                <FaChevronLeft className="text-[1.4vw] text-gray-100 hover:cursor-pointer 2xl:text-[21.5px]" />
               </div>
               <div className="flex items-center gap-[8px]">{slideBullets}</div>
               <div
@@ -338,7 +338,7 @@ export default function PreviousClients() {
                   setSlide((slide + 1) % (clientsPorto.length - 1));
                 }}
               >
-                <FaChevronRight className="text-brand-light-white text-[1.4vw] hover:cursor-pointer 2xl:text-[21.5px]" />
+                <FaChevronRight className="text-[1.4vw] text-gray-100 hover:cursor-pointer 2xl:text-[21.5px]" />
               </div>
             </div>
           </div>

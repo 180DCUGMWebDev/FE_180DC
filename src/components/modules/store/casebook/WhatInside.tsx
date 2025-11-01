@@ -55,7 +55,7 @@ export default function WhatInside() {
             alt="180DC UGM Casebook"
             width={2000}
             height={2000}
-            className="absolute -right-[10vw] -top-[2vw] z-0 w-[14.008vw] object-cover max-lg:hidden"
+            className="absolute -top-[2vw] -right-[10vw] z-0 w-[14.008vw] object-cover max-lg:hidden"
           />
           {/* Content */}
           <div className="flex w-full flex-col items-center justify-center">
@@ -67,9 +67,9 @@ export default function WhatInside() {
                   alt="Gradient Card Ornament"
                   width={2000}
                   height={2000}
-                  className="absolute inset-0 left-[3vw] top-[3vw] h-[1.25vw] w-[6.25vw] object-cover max-lg:hidden"
+                  className="absolute inset-0 top-[3vw] left-[3vw] h-[1.25vw] w-[6.25vw] object-cover max-lg:hidden"
                 />
-                <h1 className="mt-[6vw] w-[17.188vw] font-lato-regular text-[1.567vw]">
+                <h1 className="font-lato-regular mt-[6vw] w-[17.188vw] text-[1.567vw]">
                   <span>All you need to know to ace </span>
                   <span className="font-bold underline">CV-making, Cover Letters,</span>
                   <span>and </span>
@@ -83,9 +83,9 @@ export default function WhatInside() {
                   alt="Gradient Card Ornament"
                   width={2000}
                   height={2000}
-                  className="absolute inset-0 left-[3vw] top-[3vw] h-[1.25vw] w-[6.25vw] object-cover max-lg:hidden"
+                  className="absolute inset-0 top-[3vw] left-[3vw] h-[1.25vw] w-[6.25vw] object-cover max-lg:hidden"
                 />
-                <h1 className="mt-[6vw] w-[17.188vw] font-lato-regular text-[1.567vw]">
+                <h1 className="font-lato-regular mt-[6vw] w-[17.188vw] text-[1.567vw]">
                   <span>Case practices on Yogyakarta’s SMEs, including </span>
                   <span className="font-bold underline">
                     market entry, profitability, supply chain efficiency,
@@ -101,9 +101,9 @@ export default function WhatInside() {
                   alt="Gradient Card Ornament"
                   width={2000}
                   height={2000}
-                  className="absolute inset-0 left-[3vw] top-[3vw] h-[1.25vw] w-[6.25vw] object-cover max-lg:hidden"
+                  className="absolute inset-0 top-[3vw] left-[3vw] h-[1.25vw] w-[6.25vw] object-cover max-lg:hidden"
                 />
-                <h1 className="mt-[6vw] w-[17.188vw] font-lato-regular text-[1.567vw]">
+                <h1 className="font-lato-regular mt-[6vw] w-[17.188vw] text-[1.567vw]">
                   <span>Duplicate </span>
                   <span className="font-bold underline">ghost deck & slide format examples </span>
                   <span>you can use to present your own business cases </span>
@@ -114,7 +114,7 @@ export default function WhatInside() {
         </div>
 
         {/* Mobile */}
-        <div className="z-2 mb-[26.372vw] mt-[12.372vw] flex w-full flex-col items-center lg:hidden">
+        <div className="z-2 mt-[12.372vw] mb-[26.372vw] flex w-full flex-col items-center lg:hidden">
           <div className="flex w-full flex-col items-center justify-center">
             <h1 className="font-avenir-heavy text-[6.154vw] text-white">{"What's Inside?"}</h1>
 
@@ -125,9 +125,9 @@ export default function WhatInside() {
                   alt="Gradient Card Ornament"
                   width={2000}
                   height={2000}
-                  className="absolute inset-0 left-[27.5vw] top-[12vw] h-[4.103vw] w-[25.641vw] object-cover lg:hidden"
+                  className="absolute inset-0 top-[12vw] left-[27.5vw] h-[4.103vw] w-[25.641vw] object-cover lg:hidden"
                 />
-                <h1 className="mt-[6vw] w-[67.179vw] px-[2vw] text-center font-lato-regular text-[4.303vw]/[4.4vw]">
+                <h1 className="font-lato-regular mt-[6vw] w-[67.179vw] px-[2vw] text-center text-[4.303vw]/[4.4vw]">
                   <span>All you need to know to ace </span>
                   <span className="font-bold underline">CV-making, Cover Letters,</span>
                   <span>and </span>
@@ -140,9 +140,9 @@ export default function WhatInside() {
                   alt="Gradient Card Ornament"
                   width={2000}
                   height={2000}
-                  className="absolute inset-0 left-[27.5vw] top-[12vw] h-[4.103vw] w-[25.641vw] object-cover lg:hidden"
+                  className="absolute inset-0 top-[12vw] left-[27.5vw] h-[4.103vw] w-[25.641vw] object-cover lg:hidden"
                 />
-                <h1 className="mt-[6vw] w-[67.179vw] px-[2vw] text-center font-lato-regular text-[4.303vw]/[4.4vw]">
+                <h1 className="font-lato-regular mt-[6vw] w-[67.179vw] px-[2vw] text-center text-[4.303vw]/[4.4vw]">
                   <span>Case practices on Yogyakarta’s SMEs, including </span>
                   <span className="font-bold underline">
                     market entry, profitability, supply chain efficiency,
@@ -157,9 +157,9 @@ export default function WhatInside() {
                   alt="Gradient Card Ornament"
                   width={2000}
                   height={2000}
-                  className="absolute inset-0 left-[27.5vw] top-[12vw] h-[4.103vw] w-[25.641vw] object-cover lg:hidden"
+                  className="absolute inset-0 top-[12vw] left-[27.5vw] h-[4.103vw] w-[25.641vw] object-cover lg:hidden"
                 />
-                <h1 className="mt-[6vw] w-[67.179vw] px-[2vw] text-center font-lato-regular text-[4.303vw]/[4.4vw]">
+                <h1 className="font-lato-regular mt-[6vw] w-[67.179vw] px-[2vw] text-center text-[4.303vw]/[4.4vw]">
                   <span>Duplicate </span>
                   <span className="font-bold underline">ghost deck & slide format examples </span>
                   <span>you can use to present your own business cases </span>

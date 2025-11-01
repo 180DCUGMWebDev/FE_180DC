@@ -82,18 +82,16 @@ export default function RootLayout({ children }) {
           latoSemiboldItalic.variable
         )}
       >
-        <LocomotiveProvider>
-          <UtilsProvider>
-            {/* Content > 250px */}
-            <main className="hidden flex-col overflow-clip min-[250px]:flex">
-              <Navbar />
-              {children}
-              <Footer />
-            </main>
-            {/* Second Option < 250px*/}
-            <TooSmall />
-          </UtilsProvider>
-        </LocomotiveProvider>
+        <UtilsProvider>
+          {/* Content > 250px */}
+          <main className="hidden flex-col overflow-clip min-[250px]:flex">
+            <Navbar />
+            {children}
+            <Footer />
+          </main>
+          {/* Second Option < 250px*/}
+          <TooSmall />
+        </UtilsProvider>
 
         {/* Toaster at body level for optimal rendering */}
         <Toaster />

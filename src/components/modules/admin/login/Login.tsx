@@ -87,7 +87,7 @@ export function Login() {
   }
 
   return (
-    <section className="to-brand-primary/90 flex min-h-screen items-center justify-center bg-linear-to-b from-black p-4">
+    <section className="flex min-h-screen items-center justify-center bg-linear-to-b from-black to-green-300/90 p-4">
       <div className="w-full max-w-md">
         {/* Header */}
         <div className="mb-8 text-center">

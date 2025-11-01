@@ -42,9 +42,7 @@ export default function ModuleMain({ data }) {
               </h1>
             </div>
             <div className="mt-[8vw]">
-              <h1 className="font-avenir-heavy text-brand-light-white text-[1.823vw]">
-                Download E-Module!
-              </h1>
+              <h1 className="font-avenir-heavy text-[1.823vw] text-gray-100">Download E-Module!</h1>
               <div className="flex h-[21.667vw] w-[21.354vw] flex-col rounded-[1.302vw] bg-white p-[1.302vw]">
                 <Image
                   src="/img/academy/module1.png"
@@ -54,7 +52,7 @@ export default function ModuleMain({ data }) {
                   className="mx-auto h-[10.938vw] w-[20.427vw] object-cover max-lg:hidden"
                 />
                 <div className="mt-[1vw] text-[1.2vw]/[1.7vw]">
-                  <h1 className="font-avenir-black text-brand-black text-[1.302vw]">{data.type}</h1>
+                  <h1 className="font-avenir-black text-black-300 text-[1.302vw]">{data.type}</h1>
                   <h1 className="font-avenir-black h-[1.8vw] bg-linear-to-r from-[#6FAA26] to-[#58B9D1] bg-clip-text text-[1.823vw] text-transparent">
                     {data.name}
                   </h1>
@@ -70,7 +68,7 @@ export default function ModuleMain({ data }) {
           </div>
           {/* Kanan */}
           <div className="w-[55.469vw]">
-            <h1 className="font-avenir-regular text-brand-light-white text-justify text-[1.823vw]/[2vw]">
+            <h1 className="font-avenir-regular text-justify text-[1.823vw]/[2vw] text-gray-100">
               In this module, you will learn the basics to consulting through problem identification
               and formulation of a proper logical approach. You will learn frameworks like MECE,
               develop analysis, and deliver spot-on solutions.
@@ -120,16 +118,14 @@ export default function ModuleMain({ data }) {
             />
           </div>
 
-          <h1 className="font-avenir-regular text-brand-light-white w-[81.944vw] text-justify text-[3.333vw]/[3.1vw]">
+          <h1 className="font-avenir-regular w-[81.944vw] text-justify text-[3.333vw]/[3.1vw] text-gray-100">
             In this module, you will learn the basics to consulting through problem identification
             and formulation of a proper logical approach. You will learn frameworks like MECE,
             develop analysis, and deliver spot-on solutions.
           </h1>
 
           <div className="relative mt-[4vw] mb-[2vw] flex w-[81.944vw] justify-end text-[2vw]/[7vw]">
-            <h1 className="font-avenir-regular text-brand-light-white text-[4.167vw]">
-              Download E-Module!
-            </h1>
+            <h1 className="font-avenir-regular text-[4.167vw] text-gray-100">Download E-Module!</h1>
           </div>
 
           <div className="relative flex h-[21.742vw] w-[81.944vw] rounded-md bg-white">
@@ -141,7 +137,7 @@ export default function ModuleMain({ data }) {
               className="my-auto ml-[1.5vw] h-[17.392vw] w-[30.639vw] object-cover lg:hidden"
             />
             <div className="mb-[2vw] flex flex-col justify-end text-[2vw]/[4.3vw]">
-              <h1 className="font-avenir-black text-brand-black text-[3.333vw]">Module 1</h1>
+              <h1 className="font-avenir-black text-black-300 text-[3.333vw]">Module 1</h1>
               <h1 className="font-avenir-black h-[5vw] bg-linear-to-r from-[#6FAA26] to-[#58B9D1] bg-clip-text text-[4.722vw] text-transparent">
                 {"Consulting 101"}
               </h1>

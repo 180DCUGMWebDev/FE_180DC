@@ -69,7 +69,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
   return (
     <div className="animate-fade-in space-y-6">
       <div className="text-center">
-        <h2 className="font-avenir-black text-brand-primary mt-2 mb-1 text-2xl leading-snug lg:text-3xl">
+        <h2 className="font-avenir-black mt-2 mb-1 text-2xl leading-snug text-green-300 lg:text-3xl">
           EXTENDED! 180DC UGM - Functional Analyst Recruitment Form 2025/2026
         </h2>
         <p className="font-lato-regular text-gray-600">
@@ -80,7 +80,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
       {/* Prerequisites */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <h3 className="font-avenir-black mb-6 flex items-center gap-2 text-xl text-gray-800">
-          <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
             <span className="text-sm font-bold text-white">1</span>
           </div>
           About 180DC UGM
@@ -128,7 +128,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
       {/* Personal Information Form */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <h3 className="font-avenir-black mb-6 flex items-center gap-2 text-xl text-gray-800">
-          <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
             <span className="text-sm font-bold text-white">2</span>
           </div>
           Personal Information
@@ -148,7 +148,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Enter your full name as registered in UGM"
-              className="font-lato-regular focus:ring-brand-primary/50 border-gray-300 transition-all duration-200 focus:ring-2"
+              className="font-lato-regular border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-green-300/50"
             />
           </div>
 
@@ -165,7 +165,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="your.email@ugm.ac.id"
-              className="font-lato-regular focus:ring-brand-primary/50 border-gray-300 transition-all duration-200 focus:ring-2"
+              className="font-lato-regular border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-green-300/50"
             />
           </div>
 
@@ -208,7 +208,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               placeholder="62 8xx-xxxx-xxxx"
-              className="font-lato-regular focus:ring-brand-primary/50 border-gray-300 transition-all duration-200 focus:ring-2"
+              className="font-lato-regular border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-green-300/50"
             />
           </div>
 
@@ -225,7 +225,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
               value={faculty}
               onChange={(e) => setFaculty(e.target.value)}
               placeholder="e.g., Faculty of Economics and Business"
-              className="font-lato-regular focus:ring-brand-primary/50 border-gray-300 transition-all duration-200 focus:ring-2"
+              className="font-lato-regular border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-green-300/50"
             />
           </div>
 
@@ -242,7 +242,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
               value={major}
               onChange={(e) => setMajor(e.target.value)}
               placeholder="e.g., Management"
-              className="font-lato-regular focus:ring-brand-primary/50 border-gray-300 transition-all duration-200 focus:ring-2"
+              className="font-lato-regular border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-green-300/50"
             />
           </div>
           <div>
@@ -259,7 +259,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
               value={gpa}
               onChange={(e) => setgpa(e.target.value)}
               placeholder="e.g., 3.75 or 90"
-              className="font-lato-regular focus:ring-brand-primary/50 border-gray-300 transition-all duration-200 focus:ring-2"
+              className="font-lato-regular border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-green-300/50"
             />
           </div>
         </div>
@@ -284,7 +284,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
         <Button
           onClick={handleNext}
           disabled={!isValid}
-          className="bg-brand-primary font-avenir-regular hover:bg-brand-primary/90 disabled:text-brand-black flex items-center gap-2 text-white transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
+          className="font-avenir-regular disabled:text-black-300 flex items-center gap-2 bg-green-300 text-white transition-all duration-200 hover:scale-105 hover:bg-green-300/90 disabled:opacity-50 disabled:hover:scale-100"
         >
           Continue to Next Step
           <ChevronRight className="h-4 w-4" />

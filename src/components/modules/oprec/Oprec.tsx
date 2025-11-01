@@ -36,7 +36,7 @@ export default function Oprec() {
           {/* Header */}
           <div className="mb-16 text-center">
             <h1 className="font-avenir-black mb-6 text-4xl sm:text-5xl lg:text-7xl">
-              Open <span className="text-brand-primary">Recruitment</span>
+              Open <span className="text-green-300">Recruitment</span>
             </h1>
             <p className="font-lato-regular mx-auto max-w-3xl text-lg text-white/80 sm:text-xl lg:text-2xl">
               Join 180DC UGM and become part of the world&apos;s largest student-led consultancy.
@@ -48,25 +48,25 @@ export default function Oprec() {
           <div className="mb-16 grid grid-cols-2 gap-4 lg:grid-cols-4">
             <div className="rounded-2xl bg-white/10 p-6 text-center backdrop-blur-xs">
               <div className="font-avenir-black text-2xl lg:text-3xl">
-                100<span className="text-brand-primary">+</span>
+                100<span className="text-green-300">+</span>
               </div>
               <div className="text-sm text-white/80">Alumni Network</div>
             </div>
             <div className="rounded-2xl bg-white/10 p-6 text-center backdrop-blur-xs">
               <div className="font-avenir-black text-2xl lg:text-3xl">
-                50<span className="text-brand-primary">+</span>
+                50<span className="text-green-300">+</span>
               </div>
               <div className="text-sm text-white/80">Projects Completed</div>
             </div>
             <div className="rounded-2xl bg-white/10 p-6 text-center backdrop-blur-xs">
               <div className="font-avenir-black text-2xl lg:text-3xl">
-                20<span className="text-brand-primary">+</span>
+                20<span className="text-green-300">+</span>
               </div>
               <div className="text-sm text-white/80">Partner Organizations</div>
             </div>
             <div className="rounded-2xl bg-white/10 p-6 text-center backdrop-blur-xs">
               <div className="font-avenir-black text-2xl lg:text-3xl">
-                Global<span className="text-brand-primary">+</span>
+                Global<span className="text-green-300">+</span>
               </div>
               <div className="text-sm text-white/80">Network Access</div>
             </div>

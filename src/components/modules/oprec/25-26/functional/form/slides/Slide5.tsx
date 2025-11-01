@@ -122,11 +122,9 @@ const Slide5 = ({ formData, updateFormData, onNext, onPrevious }) => {
     return (
       <div className="space-y-6">
         <div className="mb-6 text-center">
-          <div className="bg-brand-secondary/10 inline-flex items-center gap-2 rounded-full px-4 py-2">
-            <span className="text-brand-secondary text-sm font-medium">
-              Second Choice Division:
-            </span>
-            <span className="text-brand-secondary font-semibold">{secondChoice}</span>
+          <div className="inline-flex items-center gap-2 rounded-full bg-cyan-300/10 px-4 py-2">
+            <span className="text-sm font-medium text-cyan-300">Second Choice Division:</span>
+            <span className="font-semibold text-cyan-300">{secondChoice}</span>
           </div>
         </div>
         {renderDivisionSpecificForm(secondChoice)}
@@ -136,7 +134,7 @@ const Slide5 = ({ formData, updateFormData, onNext, onPrevious }) => {
           <Button
             onClick={handleNext}
             disabled={!isValid}
-            className="bg-brand-primary font-avenir-regular hover:bg-brand-primary/90 disabled:text-brand-black flex items-center gap-2 text-white transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
+            className="font-avenir-regular disabled:text-black-300 flex items-center gap-2 bg-green-300 text-white transition-all duration-200 hover:scale-105 hover:bg-green-300/90 disabled:opacity-50 disabled:hover:scale-100"
           >
             Continue to Next Step
             <ChevronRight className="h-4 w-4" />

@@ -5,7 +5,7 @@ import { useRouter, usePathname } from "next/navigation";
 
 // Import Components
 import ImageAction from "@/components/elements/ImageAction";
-import Button180 from "@/components/elements/Button";
+import Button180 from "@/components/elements/Button180";
 
 // Import Configs
 import { intLinks } from "@/config/Links";
@@ -18,7 +18,7 @@ export default function LookForward({ theme }) {
 
   // Themes
   const bgTheme =
-    theme === "light" ? " bg-white " : theme === "dark" ? " bg-brand-black " : " bg-brand-primary ";
+    theme === "light" ? " bg-white " : theme === "dark" ? " bg-black-300 " : " bg-green-300 ";
 
   const mobileBg = (
     <div className="absolute top-0 left-0 -z-998 h-full w-full lg:hidden">
@@ -28,21 +28,17 @@ export default function LookForward({ theme }) {
           src="/img/global/bgimg_lookforward.png"
           className="absolute top-0"
         />
-        <div className="bg-brand-black absolute top-0 left-0 -z-0 h-[115%] w-full opacity-85" />
+        <div className="bg-black-300 absolute top-0 left-0 -z-0 h-[115%] w-full opacity-85" />
       </div>
     </div>
   );
 
   const txtTheme =
-    theme === "light"
-      ? " text-brand-black "
-      : theme === "dark"
-        ? " text-white "
-        : " text-brand-primary ";
+    theme === "light" ? " text-black-300 " : theme === "dark" ? " text-white " : " text-green-300 ";
 
   const topLeftShard =
     pathname === "/portofolio" ? (
-      <div className="absolute -top-[25vw] left-0 w-[25vw] opacity-40 max-lg:hidden 2xl:-top-[384px] 2xl:w-[384px]">
+      <div className="absolute -top-[480px] left-0 w-[480px] opacity-40 max-lg:hidden 2xl:-top-[384px] 2xl:w-[384px]">
         <ImageAction alt="portofolio shard left" src="/img/portofolio/shard1.png" />
       </div>
     ) : (
@@ -51,7 +47,7 @@ export default function LookForward({ theme }) {
 
   const topRightShard =
     pathname === "/portofolio" ? (
-      <div className="absolute -top-[15vw] right-0 w-[15vw] opacity-25 max-lg:hidden 2xl:-top-[230px] 2xl:w-[230px]">
+      <div className="absolute -top-[288px] right-0 w-[288px] opacity-25 max-lg:hidden 2xl:-top-[230px] 2xl:w-[230px]">
         <ImageAction alt="portofolio shard left" src="/img/portofolio/shard2.png" />
       </div>
     ) : (
@@ -60,7 +56,7 @@ export default function LookForward({ theme }) {
 
   return (
     <section className="h-fit w-full">
-      <div className="relative flex h-screen w-full items-center justify-center max-lg:max-h-[100vmin] lg:h-full">
+      <div className="relative flex w-full items-center justify-center">
         {/* Background */}
         {topLeftShard}
         {topRightShard}
@@ -68,16 +64,16 @@ export default function LookForward({ theme }) {
         {mobileBg}
 
         {/* Content */}
-        <div className="relative mx-[50px] h-full w-full 2xl:w-[1536px]">
-          <div className="flex h-full w-full flex-col items-center justify-center py-[15vh] lg:gap-[16px] lg:p-[100px] 2xl:py-[110px]">
-            <h1 className="from-brand-primary to-brand-secondary font-avenir-black bg-linear-to-br from-35% to-65% bg-clip-text py-[4px] text-center text-[7vw] leading-none text-transparent lg:text-[5.4vw]/[6vw] 2xl:text-[83px]/[92px]">
+        <div className="relative mx-auto h-full w-full max-w-[2160px]">
+          <div className="flex h-full w-full flex-col items-center justify-center py-[70px] lg:gap-[10px] lg:p-[50px] 2xl:py-[60px]">
+            <h1 className="font-avenir-black bg-gradient-to-br from-green-300 from-35% to-cyan-300 to-65% bg-clip-text py-[4px] text-center text-[80px] leading-none text-transparent lg:text-[60px]/[66px] 2xl:text-[52px]/[58px]">
               {"We Look Forward to"}
               <br />
               {"Speaking with You"}
             </h1>
             <h2
               className={
-                "font-lato-regular max-lg:text-brand-light-white mt-[8px] text-center text-[2.8vw] lg:text-[1.8vw]/[2.1vw] 2xl:text-[27.6px]/[32.3px] " +
+                "font-lato-regular mt-[6px] text-center text-[32px] max-lg:text-gray-100 lg:text-[22px]/[26px] 2xl:text-[19px]/[23px] " +
                 txtTheme
               }
             >
@@ -86,11 +82,8 @@ export default function LookForward({ theme }) {
               {"reach out to us for a discussion."}
             </h2>
             <Button180
-              color={"green"}
-              text={"Consult Now!"}
-              addClass={
-                "w-[18vw] lg:w-[11vw] text-[2vw] lg:text-[1.1vw] py-[2px] lg:py-[9px] hover:bg-[green] duration-500 transition-all 2xl:w-[170px] 2xl:text-[17px] max-lg:mt-[10px]"
-              }
+              color="green"
+              text="Consult Now!"
               action={() => {
                 directRoute(intLinks.Apply, router, pathname);
               }}

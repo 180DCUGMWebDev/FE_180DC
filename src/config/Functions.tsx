@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 // Background Function
 export const createBackground = (theme, className = "") => {
   const bgTheme =
-    theme === "light" ? " bg-white " : theme === "dark" ? " bg-brand-black " : " bg-brand-primary ";
+    theme === "light" ? " bg-white " : theme === "dark" ? " bg-black-300 " : " bg-green-300 ";
 
   return (
     <div className={"absolute top-0 left-0 -z-999 h-full w-full " + bgTheme + " " + className} />

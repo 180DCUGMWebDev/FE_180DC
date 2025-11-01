@@ -7,7 +7,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { intLinks } from "@/config/Links";
 import { directRoute } from "@/config/Functions";
 import ImageAction from "@/components/elements/ImageAction";
-import Button180 from "@/components/elements/Button";
+import Button180 from "@/components/elements/Button180";
 
 export default function SecureYoursFbank({ theme }) {
   // Router Hook
@@ -24,26 +24,23 @@ export default function SecureYoursFbank({ theme }) {
         {/* Content */}
         <div className="relative mx-[50px] h-full w-full 2xl:w-[1536px]">
           <div className="flex h-full w-full flex-col items-center justify-center py-[15vh] lg:gap-[16px] lg:p-[100px] 2xl:py-[110px]">
-            <h1 className="from-brand-primary to-brand-secondary font-avenir-black bg-linear-to-br from-35% to-65% bg-clip-text py-[4px] text-center text-[12vw] leading-none text-transparent lg:text-[6vw]/[6vw] 2xl:text-[90px]/[92px]">
+            <h1 className="font-avenir-black bg-linear-to-br from-green-300 from-35% to-cyan-300 to-65% bg-clip-text py-[4px] text-center text-[12vw] leading-none text-transparent lg:text-[6vw]/[6vw] 2xl:text-[90px]/[92px]">
               {"Secure yours"}
               <br />
               {"right now!"}
             </h1>
             <h2
               className={
-                "font-lato-regular max-lg:text-brand-light-white mt-[8px] text-center text-[3.8vw] text-white lg:text-[1.8vw]/[2.1vw] 2xl:text-[27.6px]/[32.3px]"
+                "font-lato-regular mt-[8px] text-center text-[3.8vw] text-white max-lg:text-gray-100 lg:text-[1.8vw]/[2.1vw] 2xl:text-[27.6px]/[32.3px]"
               }
             >
-              {"discover the blueprint for"}
+              {"discover the cyanprint for"}
               <br />
               {"consulting excellence"}
             </h2>
             <Button180
-              color={"green"}
-              text={"Buy Now"}
-              addClass={
-                "max-lg:mt-[7vw] lg:mt-[0.5vw]! hover:bg-[green] transition-all duration-500 w-[22vw] lg:w-[11vw] text-[3.3vw] lg:text-[1.1vw] py-[2vw] lg:py-[9px] 2xl:w-[170px] 2xl:text-[17px]"
-              }
+              color="green"
+              text="Buy Now"
               action={() => {
                 window.location.href = "https://lynk.id/180dcugm/wxwNY7V";
               }}

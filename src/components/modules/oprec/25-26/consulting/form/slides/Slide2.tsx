@@ -38,7 +38,7 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
   return (
     <div className="animate-fade-in space-y-6">
       <div className="text-center">
-        <h2 className="font-avenir-black text-brand-primary mt-2 mb-1 text-2xl leading-snug lg:text-3xl">
+        <h2 className="font-avenir-black mt-2 mb-1 text-2xl leading-snug text-green-300 lg:text-3xl">
           180 DC Alumni Information
         </h2>
         <p className="font-lato-regular text-gray-600">
@@ -49,7 +49,7 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
       {/* Alumni Status Check */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <h3 className="font-avenir-black mb-6 flex items-center gap-2 text-xl text-gray-800">
-          <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
             <span className="text-sm font-bold text-white">3</span>
           </div>
           Alumni Status
@@ -166,7 +166,7 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
         <Button
           onClick={handleNext}
           disabled={!isValid}
-          className="bg-brand-primary font-avenir-regular hover:bg-brand-primary/90 disabled:text-brand-black flex items-center gap-2 text-white transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
+          className="font-avenir-regular disabled:text-black-300 flex items-center gap-2 bg-green-300 text-white transition-all duration-200 hover:scale-105 hover:bg-green-300/90 disabled:opacity-50 disabled:hover:scale-100"
         >
           Continue to Next Step
           <ChevronRight className="h-4 w-4" />

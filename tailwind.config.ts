@@ -9,25 +9,54 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Warna utama brand
-        "brand-primary": "#6faa26",
-        "brand-secondary": "#58b9d1",
-
-        // Warna netral
-        "brand-black": "#1a1a1a",
-        "brand-grey": "#e2e2e2",
-        "brand-light-blue": "#a7cdd1",
-        "brand-light-white": "#fdfdfd",
-
-        // Warna 180 series
-        "brand-black-180": "#25313c",
-        "brand-grey-black-180": "#6d7d8b",
-        "brand-grey-white-180": "#bbc8d4",
-        "brand-white-180": "#dae3ea",
-        "brand-blue-180": "#5a4ff3",
-        "brand-green-180": "#00c04d",
-        "brand-yellow-180": "#ffbb00",
-        "brand-red-180": "#ed455d",
+        green: {
+          100: "#C8E3B5",
+          200: "#9FCE7D",
+          300: "#77BA47",
+          400: "#5E9438",
+          500: "#476F2A",
+          DEFAULT: "#77BA47",
+        },
+        cyan: {
+          100: "#E7F3F4",
+          200: "#C4E2E4",
+          300: "#A0D1D3",
+          400: "#6DB8BB",
+          500: "#459396",
+          DEFAULT: "#A0D1D3",
+        },
+        black: {
+          100: "#BABABA",
+          200: "#878787",
+          300: "#202020",
+          400: "080808",
+          500: "000000",
+          DEFAULT: "#202020",
+        },
+        gray: {
+          100: "#FFFFFF",
+          200: "#FCFCFC",
+          300: "#F4F4F4",
+          400: "#C2C2C2",
+          500: "#8F8F8F",
+          DEFAULT: "#F4F4F4",
+        },
+        lime: {
+          100: "#E9F9E1",
+          200: "#BAECA2",
+          300: "#8ADF60",
+          400: "#5FCC29",
+          500: "#418C1C",
+          DEFAULT: "#8ADF60",
+        },
+        blue: {
+          100: "#A9E6EF",
+          200: "#69D3E3",
+          300: "#28C0D7",
+          400: "#1C8696",
+          500: "#104D56",
+          DEFAULT: "#28C0D7",
+        },
       },
       fontFamily: {
         // Mulish fonts
@@ -86,7 +115,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
 
 export default config;

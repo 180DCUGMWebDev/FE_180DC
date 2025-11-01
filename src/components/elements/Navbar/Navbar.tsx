@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import ImageAction from "@/components/elements/ImageAction";
-import Button180 from "@/components/elements/Button";
+import Button180 from "@/components/elements/Button180";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
@@ -18,7 +18,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/elements/Form/navigation-menu";
+} from "@/components/elements/Navbar/navigation-menu";
 
 const components = [
   {
@@ -117,10 +117,8 @@ export default function Navbar() {
     <nav className="fixed z-101 flex w-full">
       <div className="flex w-full flex-col">
         <div
-          className={`${scroll !== "down" || mobileMenuOpen ? "" : "translate-y-[-200%]"} ${mobileMenuOpen ? "bg-brand-black overflow-y-clip" : ""} flex h-20 w-full flex-row items-center justify-between gap-2 px-[10px] text-white transition-all ${mobileMenuOpen ? "duration-0" : "duration-1000"} ease-in-out lg:px-[30px] xl:px-[50px] ${
-            isScrolled
-              ? "lg:bg-brand-black/70 lg:shadow-lg lg:backdrop-blur-lg"
-              : "lg:bg-transparent"
+          className={`${scroll !== "down" || mobileMenuOpen ? "" : "translate-y-[-200%]"} ${mobileMenuOpen ? "bg-black-300 overflow-y-clip" : ""} flex h-20 w-full flex-row items-center justify-between gap-2 px-[10px] text-white transition-all ${mobileMenuOpen ? "duration-0" : "duration-1000"} ease-in-out lg:px-[30px] xl:px-[50px] ${
+            isScrolled ? "lg:bg-black-300/70 lg:shadow-lg lg:backdrop-blur-lg" : "lg:bg-transparent"
           },`}
         >
           {/* Logo */}
@@ -190,8 +188,8 @@ export default function Navbar() {
                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                       <Link
                         href="/portofolio"
-                        className={`hover:text-brand-black transition-all duration-300 hover:bg-white ${
-                          pathname === "/portofolio" ? "text-brand-black bg-white" : ""
+                        className={`hover:text-black-300 transition-all duration-300 hover:bg-white ${
+                          pathname === "/portofolio" ? "text-black-300 bg-white" : ""
                         }`}
                       >
                         <p className="text-lg">Clients</p>
@@ -231,8 +229,8 @@ export default function Navbar() {
                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                       <Link
                         href="/academy"
-                        className={`hover:text-brand-black transition-all duration-300 hover:bg-white ${
-                          pathname === "/academy" ? "text-brand-black bg-white" : ""
+                        className={`hover:text-black-300 transition-all duration-300 hover:bg-white ${
+                          pathname === "/academy" ? "text-black-300 bg-white" : ""
                         }`}
                       >
                         <div className="text-lg">Academy</div>
@@ -259,11 +257,7 @@ export default function Navbar() {
             {/* Button */}
             <div className="hidden items-center justify-end lg:flex">
               <Link href="/apply">
-                <Button180
-                  color={"green"}
-                  text={"Consult Now!"}
-                  className="px-[20px] py-[9px] whitespace-nowrap"
-                />
+                <Button180 color="green" text="Consult Now!" />
               </Link>
             </div>
 
@@ -276,7 +270,7 @@ export default function Navbar() {
         {/* Mobile Menu */}
         <div
           className={cn(
-            "bg-brand-black relative w-full rounded-b-[10px] py-4 text-center text-lg font-normal text-white lg:hidden",
+            "bg-black-300 relative w-full rounded-b-[10px] py-4 text-center text-lg font-normal text-white lg:hidden",
             mobileMenuOpen ? "block" : "hidden"
           )}
         >
@@ -285,7 +279,7 @@ export default function Navbar() {
               <Link
                 onClick={closeMobileMenu}
                 href="/aboutus"
-                className={`w-full ${pathname === "/aboutus" ? "text-brand-primary font-semibold" : ""}`}
+                className={`w-full ${pathname === "/aboutus" ? "font-semibold text-green-300" : ""}`}
               >
                 <div>About</div>
               </Link>
@@ -295,7 +289,7 @@ export default function Navbar() {
                 onClick={closeMobileMenu}
                 href="/aboutus/#services"
                 className={`w-full ${
-                  pathname === "/aboutus#services" ? "text-brand-primary font-semibold" : ""
+                  pathname === "/aboutus#services" ? "font-semibold text-green-300" : ""
                 } `}
               >
                 <div>Services</div>
@@ -306,7 +300,7 @@ export default function Navbar() {
                 onClick={closeMobileMenu}
                 href="/portofolio"
                 className={`w-full ${
-                  pathname === "/portofolio" ? "text-brand-primary font-semibold" : ""
+                  pathname === "/portofolio" ? "font-semibold text-green-300" : ""
                 }`}
               >
                 <div>Clients</div>
@@ -318,7 +312,7 @@ export default function Navbar() {
               <div
                 className={`flex w-full cursor-pointer items-center justify-between ${
                   pathname === "/store/casebook" || pathname === "/store/merch"
-                    ? "text-brand-primary font-semibold"
+                    ? "font-semibold text-green-300"
                     : ""
                 }`}
                 onClick={() => toggleAccordion("store")}
@@ -357,7 +351,7 @@ export default function Navbar() {
                   pathname === "/bootcamp" ||
                   pathname === "/cycle2oprec" ||
                   pathname === "/casecompetition"
-                    ? "text-brand-primary font-semibold"
+                    ? "font-semibold text-green-300"
                     : ""
                 }`}
                 onClick={() => toggleAccordion("event")}
@@ -400,7 +394,7 @@ export default function Navbar() {
               <Link
                 onClick={closeMobileMenu}
                 href="/academy"
-                className={pathname === "/academy" ? "text-brand-primary font-semibold" : ""}
+                className={pathname === "/academy" ? "font-semibold text-green-300" : ""}
               >
                 <div>Academy</div>
               </Link>
@@ -411,7 +405,7 @@ export default function Navbar() {
               <div
                 className={`flex cursor-pointer items-center justify-between ${
                   pathname === "/telescope" || pathname === "/industrialreport"
-                    ? "text-brand-primary font-semibold"
+                    ? "font-semibold text-green-300"
                     : ""
                 }`}
                 onClick={() => toggleAccordion("telescope")}
@@ -444,7 +438,7 @@ export default function Navbar() {
             </div>
             <div className="mt-6 mb-4 h-px w-full bg-neutral-200" />
             <Link onClick={closeMobileMenu} className="w-full" href="/apply">
-              <div className="bg-brand-primary font-mulish-bold w-full rounded-[5px] py-[6px] text-center text-base text-white">
+              <div className="font-mulish-bold w-full rounded-[5px] bg-green-300 py-[6px] text-center text-base text-white">
                 Consult Now!
               </div>
             </Link>

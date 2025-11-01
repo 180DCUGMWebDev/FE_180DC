@@ -32,7 +32,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
   return (
     <form onSubmit={handleSubmit} className="animate-fade-in space-y-6">
       <div className="text-center">
-        <h2 className="font-avenir-black text-brand-primary mt-2 mb-1 text-2xl leading-snug lg:text-3xl">
+        <h2 className="font-avenir-black mt-2 mb-1 text-2xl leading-snug text-green-300 lg:text-3xl">
           Review Your Application
         </h2>
         <p className="font-lato-regular text-gray-600">
@@ -44,7 +44,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <div className="mb-4 flex items-center justify-between">
           <h3 className="font-avenir-black flex items-center gap-2 text-xl text-gray-800">
-            <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
+            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
               <User className="h-3 w-3 text-white" />
             </div>
             Personal Information
@@ -100,7 +100,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <div className="mb-4 flex items-center justify-between">
           <h3 className="font-avenir-black flex items-center gap-2 text-xl text-gray-800">
-            <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
+            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
               <User className="h-3 w-3 text-white" />
             </div>
             180DC Alumni Information
@@ -146,7 +146,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <div className="mb-4 flex items-center justify-between">
           <h3 className="font-avenir-black flex items-center gap-2 text-xl text-gray-800">
-            <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
+            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
               <GraduationCap className="h-3 w-3 text-white" />
             </div>
             Position Preferences
@@ -177,7 +177,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <div className="mb-4 flex items-center justify-between">
           <h3 className="font-avenir-black flex items-center gap-2 text-xl text-gray-800">
-            <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
+            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
               <Briefcase className="h-3 w-3 text-white" />
             </div>
             First Choice: {formData.firstChoice || "Not selected"}
@@ -203,22 +203,22 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                     {formData.firstChoice === "Marketing" && (
                       <>
                         {formData.first_content && (
-                          <span className="bg-brand-primary/10 text-brand-primary inline-block rounded-full px-3 py-1 text-sm">
+                          <span className="inline-block rounded-full bg-green-300/10 px-3 py-1 text-sm text-green-300">
                             Content
                           </span>
                         )}
                         {formData.first_graphicDesigner && (
-                          <span className="bg-brand-primary/10 text-brand-primary inline-block rounded-full px-3 py-1 text-sm">
+                          <span className="inline-block rounded-full bg-green-300/10 px-3 py-1 text-sm text-green-300">
                             Graphic Designer
                           </span>
                         )}
                         {formData.first_videographer && (
-                          <span className="bg-brand-primary/10 text-brand-primary inline-block rounded-full px-3 py-1 text-sm">
+                          <span className="inline-block rounded-full bg-green-300/10 px-3 py-1 text-sm text-green-300">
                             Videographer
                           </span>
                         )}
                         {formData.first_partnership && (
-                          <span className="bg-brand-primary/10 text-brand-primary inline-block rounded-full px-3 py-1 text-sm">
+                          <span className="inline-block rounded-full bg-green-300/10 px-3 py-1 text-sm text-green-300">
                             Partnership
                           </span>
                         )}
@@ -227,17 +227,17 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                     {formData.firstChoice === "IT" && (
                       <>
                         {formData.first_frontend && (
-                          <span className="bg-brand-primary/10 text-brand-primary inline-block rounded-full px-3 py-1 text-sm">
+                          <span className="inline-block rounded-full bg-green-300/10 px-3 py-1 text-sm text-green-300">
                             Frontend Developer
                           </span>
                         )}
                         {formData.first_backend && (
-                          <span className="bg-brand-primary/10 text-brand-primary inline-block rounded-full px-3 py-1 text-sm">
+                          <span className="inline-block rounded-full bg-green-300/10 px-3 py-1 text-sm text-green-300">
                             Backend Developer
                           </span>
                         )}
                         {formData.first_uiux && (
-                          <span className="bg-brand-primary/10 text-brand-primary inline-block rounded-full px-3 py-1 text-sm">
+                          <span className="inline-block rounded-full bg-green-300/10 px-3 py-1 text-sm text-green-300">
                             UI/UX Designer
                           </span>
                         )}
@@ -246,12 +246,12 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                     {formData.firstChoice === "Strategy and Growth" && (
                       <>
                         {formData.first_sngManager && (
-                          <span className="bg-brand-primary/10 text-brand-primary inline-block rounded-full px-3 py-1 text-sm">
+                          <span className="inline-block rounded-full bg-green-300/10 px-3 py-1 text-sm text-green-300">
                             SNG Manager
                           </span>
                         )}
                         {formData.first_sngAnalyst && (
-                          <span className="bg-brand-primary/10 text-brand-primary inline-block rounded-full px-3 py-1 text-sm">
+                          <span className="inline-block rounded-full bg-green-300/10 px-3 py-1 text-sm text-green-300">
                             SNG Analyst
                           </span>
                         )}
@@ -289,7 +289,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                     href={formData.first_cvLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-brand-primary hover:underline"
+                    className="text-green-300 hover:underline"
                   >
                     View CV ({formData.first_cvLink})
                   </Link>
@@ -308,7 +308,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                     href={formData.first_documentLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-brand-primary hover:underline"
+                    className="text-green-300 hover:underline"
                   >
                     View Document ({formData.first_documentLink})
                   </Link>
@@ -327,7 +327,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                     href={formData.first_portfolioLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-brand-primary hover:underline"
+                    className="text-green-300 hover:underline"
                   >
                     View Portfolio ({formData.first_portfolioLink})
                   </Link>
@@ -343,7 +343,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
         <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
           <div className="mb-4 flex items-center justify-between">
             <h3 className="font-avenir-black flex items-center gap-2 text-xl text-gray-800">
-              <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
                 <Upload className="h-3 w-3 text-white" />
               </div>
               Second Choice: {formData.secondChoice || "Not selected"}
@@ -369,22 +369,22 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                       {formData.secondChoice === "Marketing" && (
                         <>
                           {formData.second_content && (
-                            <span className="bg-brand-secondary/10 text-brand-secondary inline-block rounded-full px-3 py-1 text-sm">
+                            <span className="inline-block rounded-full bg-cyan-300/10 px-3 py-1 text-sm text-cyan-300">
                               Content
                             </span>
                           )}
                           {formData.second_graphicDesigner && (
-                            <span className="bg-brand-secondary/10 text-brand-secondary inline-block rounded-full px-3 py-1 text-sm">
+                            <span className="inline-block rounded-full bg-cyan-300/10 px-3 py-1 text-sm text-cyan-300">
                               Graphic Designer
                             </span>
                           )}
                           {formData.second_videographer && (
-                            <span className="bg-brand-secondary/10 text-brand-secondary inline-block rounded-full px-3 py-1 text-sm">
+                            <span className="inline-block rounded-full bg-cyan-300/10 px-3 py-1 text-sm text-cyan-300">
                               Videographer
                             </span>
                           )}
                           {formData.second_partnership && (
-                            <span className="bg-brand-secondary/10 text-brand-secondary inline-block rounded-full px-3 py-1 text-sm">
+                            <span className="inline-block rounded-full bg-cyan-300/10 px-3 py-1 text-sm text-cyan-300">
                               Partnership
                             </span>
                           )}
@@ -393,17 +393,17 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                       {formData.secondChoice === "IT" && (
                         <>
                           {formData.second_frontend && (
-                            <span className="bg-brand-secondary/10 text-brand-secondary inline-block rounded-full px-3 py-1 text-sm">
+                            <span className="inline-block rounded-full bg-cyan-300/10 px-3 py-1 text-sm text-cyan-300">
                               Frontend Developer
                             </span>
                           )}
                           {formData.second_backend && (
-                            <span className="bg-brand-secondary/10 text-brand-secondary inline-block rounded-full px-3 py-1 text-sm">
+                            <span className="inline-block rounded-full bg-cyan-300/10 px-3 py-1 text-sm text-cyan-300">
                               Backend Developer
                             </span>
                           )}
                           {formData.second_uiux && (
-                            <span className="bg-brand-secondary/10 text-brand-secondary inline-block rounded-full px-3 py-1 text-sm">
+                            <span className="inline-block rounded-full bg-cyan-300/10 px-3 py-1 text-sm text-cyan-300">
                               UI/UX Designer
                             </span>
                           )}
@@ -412,12 +412,12 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                       {formData.secondChoice === "Strategy and Growth" && (
                         <>
                           {formData.second_sngManager && (
-                            <span className="bg-brand-secondary/10 text-brand-secondary inline-block rounded-full px-3 py-1 text-sm">
+                            <span className="inline-block rounded-full bg-cyan-300/10 px-3 py-1 text-sm text-cyan-300">
                               SNG Manager
                             </span>
                           )}
                           {formData.second_sngAnalyst && (
-                            <span className="bg-brand-secondary/10 text-brand-secondary inline-block rounded-full px-3 py-1 text-sm">
+                            <span className="inline-block rounded-full bg-cyan-300/10 px-3 py-1 text-sm text-cyan-300">
                               SNG Analyst
                             </span>
                           )}
@@ -455,7 +455,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                       href={formData.second_cvLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-brand-primary hover:underline"
+                      className="text-green-300 hover:underline"
                     >
                       View CV ({formData.second_cvLink})
                     </Link>
@@ -474,7 +474,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                       href={formData.second_documentLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-brand-primary hover:underline"
+                      className="text-green-300 hover:underline"
                     >
                       View Document ({formData.second_documentLink})
                     </Link>
@@ -493,7 +493,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                       href={formData.second_portfolioLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-brand-primary hover:underline"
+                      className="text-green-300 hover:underline"
                     >
                       View Portfolio ({formData.second_portfolioLink})
                     </Link>
@@ -509,7 +509,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <div className="mb-4 flex items-center justify-between">
           <h3 className="font-avenir-black flex items-center gap-2 text-xl text-gray-800">
-            <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
+            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
               <Upload className="h-3 w-3 text-white" />
             </div>
             Social Media Requirements
@@ -526,7 +526,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                   href={formData.twibbonPostLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-primary hover:underline"
+                  className="text-green-300 hover:underline"
                 >
                   View Post ({formData.twibbonPostLink})
                 </Link>
@@ -545,7 +545,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                   href={formData.twibbonProofLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-primary hover:underline"
+                  className="text-green-300 hover:underline"
                 >
                   View Proof ({formData.twibbonProofLink})
                 </Link>
@@ -560,7 +560,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
             </span>
             <p className="font-lato-regular text-gray-600">
               {formData.consentAgreed ? (
-                <span className="text-brand-primary font-medium">Agreed</span>
+                <span className="font-medium text-green-300">Agreed</span>
               ) : (
                 <span className="text-red-500">Not agreed</span>
               )}
@@ -577,7 +577,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
         <div className="space-y-2">
           <div className="flex items-center gap-2">
             <div
-              className={`h-2 w-2 rounded-full ${formData.name ? "bg-brand-primary" : "bg-red-500"}`}
+              className={`h-2 w-2 rounded-full ${formData.name ? "bg-green-300" : "bg-red-500"}`}
             ></div>
             <span className="font-avenir-regular text-sm">
               Personal Information:{" "}
@@ -594,7 +594,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
           </div>
           <div className="flex items-center gap-2">
             <div
-              className={`h-2 w-2 rounded-full ${formData.firstChoice && formData.first_cvLink && formData.first_documentLink ? "bg-brand-primary" : "bg-red-500"}`}
+              className={`h-2 w-2 rounded-full ${formData.firstChoice && formData.first_cvLink && formData.first_documentLink ? "bg-green-300" : "bg-red-500"}`}
             />
             <span className="font-avenir-regular text-sm">
               First Choice Documents:{" "}
@@ -604,7 +604,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
           {formData.secondChoice && (
             <div className="flex items-center gap-2">
               <div
-                className={`h-2 w-2 rounded-full ${formData.second_cvLink && formData.second_documentLink ? "bg-brand-primary" : "bg-red-500"}`}
+                className={`h-2 w-2 rounded-full ${formData.second_cvLink && formData.second_documentLink ? "bg-green-300" : "bg-red-500"}`}
               />
               <span className="font-avenir-regular text-sm">
                 Second Choice Documents:{" "}
@@ -614,7 +614,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
           )}
           <div className="flex items-center gap-2">
             <div
-              className={`h-2 w-2 rounded-full ${formData.twibbonPostLink && formData.twibbonProofLink ? "bg-brand-primary" : "bg-red-500"}`}
+              className={`h-2 w-2 rounded-full ${formData.twibbonPostLink && formData.twibbonProofLink ? "bg-green-300" : "bg-red-500"}`}
             ></div>
             <span className="font-avenir-regular text-sm">
               Social Media Requirements:{" "}
@@ -623,7 +623,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
           </div>
           <div className="flex items-center gap-2">
             <div
-              className={`h-2 w-2 rounded-full ${formData.consentAgreed ? "bg-brand-primary" : "bg-red-500"}`}
+              className={`h-2 w-2 rounded-full ${formData.consentAgreed ? "bg-green-300" : "bg-red-500"}`}
             ></div>
             <span className="font-avenir-regular text-sm">
               Consent Agreement: {formData.consentAgreed ? "Agreed" : "Not Agreed"}
@@ -651,7 +651,7 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
         <Button
           type="submit"
           disabled={!isValid || isSubmitting}
-          className="bg-brand-primary font-avenir-regular hover:bg-brand-primary/90 disabled:text-brand-black flex items-center gap-2 text-white transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
+          className="font-avenir-regular disabled:text-black-300 flex items-center gap-2 bg-green-300 text-white transition-all duration-200 hover:scale-105 hover:bg-green-300/90 disabled:opacity-50 disabled:hover:scale-100"
         >
           {isSubmitting ? (
             <>

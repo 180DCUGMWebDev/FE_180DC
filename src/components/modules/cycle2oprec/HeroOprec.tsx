@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button180 from "@/components/elements/Button";
+import Button180 from "@/components/elements/Button180";
 
 export function HeroOprec() {
   const items = [
@@ -66,30 +66,22 @@ export function HeroOprec() {
             {/* bagian enroll */}
             <div className="mt-[3.646vw] hidden w-full flex-col items-center px-4 lg:mt-[1.8vw] lg:flex">
               <div>
-                <p className="font-lato-semibold text-brand-white-180 w-[30vw] text-[4vw] lg:text-[1.25vw]">
+                <p className="font-lato-semibold text-gray-100-180 w-[30vw] text-[4vw] lg:text-[1.25vw]">
                   Calling all aspiring consultants and changemakers! <br /> Join 180DC UGM and leave
                   your mark.
                 </p>
                 <div className="flex gap-2">
-                  <Button180
-                    color="red"
-                    text="Register is Closed"
-                    addClass="w-[80%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%]"
-                    // href="bit.ly/180DC-ConsultingOpenRecruitmentForm-Cycle2"
-                    href="#"
-                  />
+                  <Button180 color="red" text="Register is Closed" href="#" />
 
                   <Button180
                     color="green"
                     text="Guidebook"
-                    addClass="w-[60%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-white hover:text-brand-primary"
                     href="bit.ly/ConsultingCycle2-BookletOprec2025"
                   />
                 </div>
                 <Button180
                   color="white"
                   text="Consulting Day Registration"
-                  addClass="w-full  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743]  hover:text-white"
                   href="bit.ly/180DC-ConsultingOpenRecruitmentForm-Cycle2"
                 />
               </div>
@@ -108,7 +100,7 @@ export function HeroOprec() {
           </div>
 
           <div className="mt-[5.938vw] flex w-full flex-col items-center justify-center gap-y-[2vw] px-[8.667vw] lg:hidden">
-            <p className="font-lato-semibold text-brand-white-180 flex w-[70vw] justify-center text-center text-[3vw]">
+            <p className="font-lato-semibold text-gray-100-180 flex w-[70vw] justify-center text-center text-[3vw]">
               Calling all aspiring consultants and changemakers! <br /> Join 180DC UGM and leave
               your mark.
             </p>
@@ -116,19 +108,16 @@ export function HeroOprec() {
               <Button180
                 color="red"
                 text="Register is Closed"
-                addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[2.154vw] lg:mt-[1.25vw] font-bold"
                 href="bit.ly/180DC-ConsultingOpenRecruitmentForm-Cycle2"
               />
               <Button180
                 color="green"
                 text="Guidebook"
-                addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[2.154vw] lg:mt-[1.25vw] font-bold"
                 href="bit.ly/ConsultingCycle2-BookletOprec2025"
               />
               <Button180
                 color="green"
                 text="Consulting Day"
-                addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[2.154vw] lg:mt-[1.25vw] font-bold"
                 href="bit.ly/180DC-ConsultingOpenRecruitmentForm-Cycle2"
               />
             </div>

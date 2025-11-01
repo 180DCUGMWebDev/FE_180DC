@@ -478,7 +478,7 @@ export function FormCaseComp() {
 
   if (currentData.payment === null) {
     return (
-      <section className="bg-brand-black relative flex min-h-screen items-center justify-center text-white">
+      <section className="bg-black-300 relative flex min-h-screen items-center justify-center text-white">
         <Image
           src="/img/casecomp/bg-hero-form-landing.png"
           alt="background"
@@ -489,7 +489,7 @@ export function FormCaseComp() {
         {/* Title Section */}
         <div className="z-10 container mx-auto flex flex-col items-center py-12 text-center">
           <h1 className="mt-[10vh] mb-4 text-3xl font-bold lg:text-5xl">
-            <span className="bg-linear-to-r from-green-500 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-green-500 to-cyan-400 bg-clip-text text-transparent">
               Select Payment Method
             </span>
           </h1>
@@ -515,7 +515,7 @@ export function FormCaseComp() {
   }
   // Page
   return (
-    <section ref={headRef} className="bg-brand-black relative min-h-screen text-white">
+    <section ref={headRef} className="bg-black-300 relative min-h-screen text-white">
       <Image
         src="/img/bootcamp/ellipseBlue.png"
         alt="background"
@@ -543,7 +543,7 @@ export function FormCaseComp() {
       {/* Title Section */}
       <div className="z- container mx-auto py-12 text-center">
         <h1 className="mt-[10vh] mb-4 text-4xl font-bold">
-          <span className="z-10 bg-linear-to-r from-green-500 to-blue-400 bg-clip-text text-transparent">
+          <span className="z-10 bg-linear-to-r from-green-500 to-cyan-400 bg-clip-text text-transparent">
             Team Registration
           </span>
         </h1>

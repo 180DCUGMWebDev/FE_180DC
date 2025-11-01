@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Button180 from "@/components/elements/Button";
+import Button180 from "@/components/elements/Button180";
 import { HiOutlineArrowUpRight, HiOutlineArrowLeft, HiOutlineArrowRight } from "react-icons/hi2";
 
 const products = [
@@ -50,7 +50,7 @@ export default function HeroIR() {
       {/* Content */}
       <div className="relative z-50 flex h-screen w-full flex-col items-center justify-center">
         <div className="flex flex-col items-center justify-center gap-[10px] px-[4%] py-[9vh] max-lg:pt-[10vw] lg:gap-[30px]">
-          <div className="font-avenir-black text-brand-light-white mt-[7vw] text-xl sm:text-4xl lg:text-[80px] lg:leading-none 2xl:text-[112px]">
+          <div className="font-avenir-black mt-[7vw] text-xl text-gray-100 sm:text-4xl lg:text-[80px] lg:leading-none 2xl:text-[112px]">
             Industrial Report
           </div>
 
@@ -81,7 +81,7 @@ export default function HeroIR() {
                     height={1000}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
-                  <div className="bg-brand-black/30 absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                  <div className="bg-black-300/30 absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                 </Link>
               ))}
             </div>
@@ -91,7 +91,7 @@ export default function HeroIR() {
               {/* Previous Arrow */}
               <button
                 onClick={prevSlide}
-                className="text-brand-light-white flex h-10 w-10 items-center justify-center rounded-full bg-gray-800/50 transition-colors hover:bg-gray-700"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800/50 text-gray-100 transition-colors hover:bg-gray-700"
                 aria-label="Previous slide"
               >
                 <HiOutlineArrowLeft className="h-5 w-5" />
@@ -114,7 +114,7 @@ export default function HeroIR() {
               {/* Next Arrow */}
               <button
                 onClick={nextSlide}
-                className="text-brand-light-white flex h-10 w-10 items-center justify-center rounded-full bg-gray-800/50 transition-colors hover:bg-gray-700"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800/50 text-gray-100 transition-colors hover:bg-gray-700"
                 aria-label="Next slide"
               >
                 <HiOutlineArrowRight className="h-5 w-5" />

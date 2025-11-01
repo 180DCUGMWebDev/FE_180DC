@@ -87,7 +87,7 @@ export default function CourseSection() {
         {/* Desktop */}
         <div className="relative flex flex-col items-center justify-center max-lg:hidden">
           <div className="flex w-full flex-col items-center justify-center">
-            <h1 className="stroke- font-avenir-black text-brand-light-white text-[3.385vw]">
+            <h1 className="stroke- font-avenir-black text-[3.385vw] text-gray-100">
               Start Your Course !
             </h1>
             <div className="w-[90vw]">
@@ -105,7 +105,7 @@ export default function CourseSection() {
             height={2000}
             className="absolute inset-0 top-[0vw] z-0 h-full w-full origin-top scale-[1.1] rounded-t-xl object-cover lg:hidden"
           />
-          <h1 className="font-avenir-black text-brand-light-white z-3 text-[5.556vw]">
+          <h1 className="font-avenir-black z-3 text-[5.556vw] text-gray-100">
             Start Your Course !
           </h1>
           {modules.map(renderModuleCard)}

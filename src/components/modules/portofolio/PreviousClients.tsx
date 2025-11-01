@@ -181,7 +181,7 @@ export default function PreviousClients() {
                 key={idx} // Added unique key
                 className={
                   "h-[0.8vw] w-[0.8vw] rounded-full hover:cursor-pointer " +
-                  (slide === idx ? "bg-brand-primary" : "bg-light-white")
+                  (slide === idx ? "bg-green-300" : "bg-light-white")
                 }
                 onClick={() => {
                   setSlide(idx);
@@ -216,19 +216,19 @@ export default function PreviousClients() {
           <ImageAction alt="portofolio hero background" src="/img/portofolio/hero_bg-c.png" />
         </div>
         <div className="to-light-white absolute -z-997 h-full w-full bg-linear-to-b from-transparent from-70% to-90%" />
-        <div className="bg-brand-black absolute -z-996 h-full w-full opacity-[85.45%]" />
+        <div className="bg-black-300 absolute -z-996 h-full w-full opacity-[85.45%]" />
 
         {/* Hero */}
-        <h1 className="font-avenir-black text-brand-light-white text-center text-[12vw]/[11vw] lg:text-[4.9vw]/[4.8vw]">
+        <h1 className="font-avenir-black text-center text-[12vw]/[11vw] text-gray-100 lg:text-[4.9vw]/[4.8vw]">
           {"Our Previous Clients"}
         </h1>
 
         {/* Scroll Down [DESKTOP] */}
         <button className="flex flex-col items-center outline-0" onClick={handleClick}>
-          <h2 className="font-lato-bold text-brand-light-white mt-[1.4vw] text-[1vw] max-lg:hidden">
+          <h2 className="font-lato-bold mt-[1.4vw] text-[1vw] text-gray-100 max-lg:hidden">
             {"SCROLL DOWN"}
           </h2>
-          <FaChevronDown className="animate-moving-pointer text-brand-light-white text-[1.4vw] hover:cursor-pointer" />
+          <FaChevronDown className="animate-moving-pointer text-[1.4vw] text-gray-100 hover:cursor-pointer" />
         </button>
 
         {/* Swiper [MOBILE] */}
@@ -273,7 +273,7 @@ export default function PreviousClients() {
                         setSlide((slide - 1 + clientsPorto.length - 1) % (clientsPorto.length - 1));
                       }}
                     >
-                      <FaChevronLeft className="text-brand-light-white/35 text-[6vw]" />
+                      <FaChevronLeft className="text-[6vw] text-gray-100/35" />
                     </div>
 
                     <div className="flex h-full w-full flex-col items-center justify-center gap-[5vw] overflow-clip">
@@ -288,10 +288,10 @@ export default function PreviousClients() {
 
                         {/* Title & NPS */}
                         <div className="flex h-full w-[65%] flex-col items-start justify-center gap-[.8vh]">
-                          <p className="font-avenir-black text-brand-primary text-[5vw] leading-none">
+                          <p className="font-avenir-black text-[5vw] leading-none text-green-300">
                             {client.name}
                           </p>
-                          {/* <p className="font-avenir-light text-[4.5vw] leading-none text-brand-secondary">
+                          {/* <p className="font-avenir-light text-[4.5vw] leading-none text-cyan-300">
                             {"NPS of "}
                             <strong className="font-avenir-heavy">{client.nps}</strong>
                           </p> */}
@@ -300,20 +300,20 @@ export default function PreviousClients() {
 
                       {/* Lower Body: Description */}
                       <div className="swiper-no-swiping flex h-[60%] w-full flex-col gap-[2vh] overflow-y-scroll">
-                        <div className="font-lato-regular text-brand-light-white text-justify text-[3.5vw] leading-[1.2]">
-                          <p className="font-avenir-black text-brand-primary mb-[0.6vw]">
+                        <div className="font-lato-regular text-justify text-[3.5vw] leading-[1.2] text-gray-100">
+                          <p className="font-avenir-black mb-[0.6vw] text-green-300">
                             What challenges does {client.name} face?
                           </p>
                           <p>{client.pleft}</p>
                         </div>
-                        <div className="font-lato-regular text-brand-light-white text-[3.5vw] leading-[1.2]">
-                          <p className="font-avenir-black text-brand-primary mb-[0.6vw]">
+                        <div className="font-lato-regular text-[3.5vw] leading-[1.2] text-gray-100">
+                          <p className="font-avenir-black mb-[0.6vw] text-green-300">
                             What solution does we offer?
                           </p>
                           <p>{client.pcenter}</p>
                         </div>
-                        <div className="font-lato-regular text-brand-light-white text-[3.5vw] leading-[1.2]">
-                          <p className="font-avenir-black text-brand-primary mb-[0.6vw]">
+                        <div className="font-lato-regular text-[3.5vw] leading-[1.2] text-gray-100">
+                          <p className="font-avenir-black mb-[0.6vw] text-green-300">
                             {client.prightcondition === "impact"
                               ? "Impact that we deliver"
                               : `${client.name} comments of our work`}
@@ -323,7 +323,7 @@ export default function PreviousClients() {
                       </div>
 
                       <div className="h-[10%]">
-                        <p className="font-lato-light-italic text-brand-light-white text-[3.5vmin]">
+                        <p className="font-lato-light-italic text-[3.5vmin] text-gray-100">
                           {"Slide For More"}
                         </p>
                       </div>
@@ -336,7 +336,7 @@ export default function PreviousClients() {
                         setSlide((slide + 1) % (clientsPorto.length + 1));
                       }}
                     >
-                      <FaChevronRight className="text-brand-light-white/35 w-fit text-[6vw]" />
+                      <FaChevronRight className="w-fit text-[6vw] text-gray-100/35" />
                     </div>
                   </div>
                 </div>
@@ -356,7 +356,7 @@ export default function PreviousClients() {
           <ImageAction alt="portofolio hero background" src="/img/portofolio/hero_bg-c.png" />
         </div>
         <div className="from-light-white absolute -z-997 h-full w-full bg-linear-to-b from-20% via-transparent via-45% to-black to-75%" />
-        <div className="bg-brand-black absolute top-0 -z-997 h-full w-full opacity-85" />
+        <div className="bg-black-300 absolute top-0 -z-997 h-full w-full opacity-85" />
 
         <div className="h-full w-full 2xl:w-[1536px]">
           {/* Card Frame */}
@@ -395,14 +395,11 @@ export default function PreviousClients() {
                       <div className="relative mt-[1.1vw] flex h-[50%] w-full gap-[30px] p-[20px]">
                         {/* Title & NPS */}
                         <div className="relative flex h-full w-7/12 flex-col items-start justify-start">
-                          <p className="font-avenir-black text-brand-primary text-[2vw] leading-none">
+                          <p className="font-avenir-black text-[2vw] leading-none text-green-300">
                             {client.name}
                           </p>
-                          <div className="font-avenir-light text-brand-secondary mt-[1vw] text-[1.2vw] leading-none">
-                            <h2 className="font-avenir-black text-brand-light-white">
-                              {" "}
-                              {client.desc}{" "}
-                            </h2>
+                          <div className="font-avenir-light mt-[1vw] text-[1.2vw] leading-none text-cyan-300">
+                            <h2 className="font-avenir-black text-gray-100"> {client.desc} </h2>
                             <p>
                               <strong className="font-avenir-heavy absolute bottom-[0] text-[1.9vw]">
                                 {" "}
@@ -421,20 +418,20 @@ export default function PreviousClients() {
                       </div>
                       {/* Lower Body: Description */}
                       <div className="mt-[1.2vw] flex h-full w-full gap-[2.4vw] px-[20px] pb-[20vw]">
-                        <div className="font-lato-regular text-brand-light-white w-4/12 text-justify text-[1vw] leading-[1.2]">
-                          <p className="font-avenir-black text-brand-primary mb-[0.6vw]">
+                        <div className="font-lato-regular w-4/12 text-justify text-[1vw] leading-[1.2] text-gray-100">
+                          <p className="font-avenir-black mb-[0.6vw] text-green-300">
                             What challenges does {client.name} face?
                           </p>
                           <p>{client.pleft}</p>
                         </div>
-                        <div className="font-lato-regular text-brand-light-white w-4/12 text-justify text-[1vw] leading-[1.2]">
-                          <p className="font-avenir-black text-brand-primary mb-[0.6vw]">
+                        <div className="font-lato-regular w-4/12 text-justify text-[1vw] leading-[1.2] text-gray-100">
+                          <p className="font-avenir-black mb-[0.6vw] text-green-300">
                             What solution does we offer?
                           </p>
                           <p>{client.pcenter}</p>
                         </div>
-                        <div className="font-lato-regular text-brand-light-white w-4/12 text-justify text-[1vw] leading-[1.2]">
-                          <p className="font-avenir-black text-brand-primary mb-[0.6vw]">
+                        <div className="font-lato-regular w-4/12 text-justify text-[1vw] leading-[1.2] text-gray-100">
+                          <p className="font-avenir-black mb-[0.6vw] text-green-300">
                             {client.prightcondition === "impact"
                               ? "Impact that we deliver"
                               : `${client.name} comments of our work`}
@@ -457,7 +454,7 @@ export default function PreviousClients() {
                   setSlide((slide - 1 + clientsPorto.length - 1) % (clientsPorto.length - 1));
                 }}
               >
-                <FaChevronLeft className="text-brand-light-white text-[1.4vw] hover:cursor-pointer" />
+                <FaChevronLeft className="text-[1.4vw] text-gray-100 hover:cursor-pointer" />
               </div>
               <div className="flex items-center gap-[8px]">{slideBullets}</div>
               <div
@@ -466,7 +463,7 @@ export default function PreviousClients() {
                   setSlide((slide + 1) % (clientsPorto.length - 1));
                 }}
               >
-                <FaChevronRight className="text-brand-light-white text-[1.4vw] hover:cursor-pointer" />
+                <FaChevronRight className="text-[1.4vw] text-gray-100 hover:cursor-pointer" />
               </div>
             </div>
           </div>

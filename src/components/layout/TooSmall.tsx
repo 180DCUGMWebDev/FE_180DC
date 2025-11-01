@@ -23,7 +23,7 @@ export default function TooSmall() {
         </div>
 
         {/* Text */}
-        <p className="font-lato-regular text-brand-light-white text-center text-[8vw]">
+        <p className="font-lato-regular text-center text-[8vw] text-gray-100">
           {
             "Your current screen is too small to read the content of the page. Please use a better device with bigger resolution / try to increase your current resolution!"
           }

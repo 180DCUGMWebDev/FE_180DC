@@ -5,10 +5,10 @@ const SubmitSlide = ({ formData }) => {
   return (
     <div className="animate-fade-in space-y-6">
       <div className="text-center">
-        <div className="bg-brand-primary/10 mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full">
-          <CheckCircle className="text-brand-primary h-10 w-10" />
+        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-300/10">
+          <CheckCircle className="h-10 w-10 text-green-300" />
         </div>
-        <h2 className="font-avenir-black text-brand-primary mb-2 text-2xl leading-snug lg:text-3xl">
+        <h2 className="font-avenir-black mb-2 text-2xl leading-snug text-green-300 lg:text-3xl">
           Thank You for Submitting!
         </h2>
         <p className="font-lato-regular text-gray-600">
@@ -19,7 +19,7 @@ const SubmitSlide = ({ formData }) => {
       {/* Next Steps */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <h3 className="font-avenir-black mb-6 flex items-center gap-2 text-xl text-gray-800">
-          <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
             <span className="text-sm font-bold text-white">6</span>
           </div>
           Next Steps
@@ -45,7 +45,7 @@ const SubmitSlide = ({ formData }) => {
             <Link
               href="https://bit.ly/ConsultingRecruitment-Cycle1"
               target="_blank"
-              className="bg-brand-secondary font-avenir-regular hover:bg-brand-secondary/80 inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm text-white transition-all duration-200"
+              className="font-avenir-regular inline-flex items-center gap-2 rounded-md bg-cyan-300 px-4 py-2 text-sm text-white transition-all duration-200 hover:bg-cyan-300/80"
             >
               <ExternalLink className="h-4 w-4" />
               bit.ly/ConsultingRecruitment-Cycle1
@@ -61,7 +61,7 @@ const SubmitSlide = ({ formData }) => {
             <Link
               href="https://bit.ly/180DCUGMCOMMUNITY1"
               target="_blank"
-              className="bg-brand-primary font-avenir-regular hover:bg-brand-primary/80 inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm text-white transition-all duration-200"
+              className="font-avenir-regular inline-flex items-center gap-2 rounded-md bg-green-300 px-4 py-2 text-sm text-white transition-all duration-200 hover:bg-green-300/80"
             >
               <ExternalLink className="h-4 w-4" />
               bit.ly/180DCUGMCOMMUNITY1
@@ -82,7 +82,7 @@ const SubmitSlide = ({ formData }) => {
       {/* Application Summary */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <h3 className="font-avenir-black mb-6 flex items-center gap-2 text-xl text-gray-800">
-          <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
             <span className="text-sm font-bold text-white">7</span>
           </div>
           Application Summary
@@ -171,7 +171,7 @@ const SubmitSlide = ({ formData }) => {
       {/* Documents Section */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <h3 className="font-avenir-black mb-6 flex items-center gap-2 text-xl text-gray-800">
-          <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
             <span className="text-sm font-bold text-white">8</span>
           </div>
           Submitted Documents
@@ -188,7 +188,7 @@ const SubmitSlide = ({ formData }) => {
                   href={formData.documentLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-primary hover:underline"
+                  className="text-green-300 hover:underline"
                 >
                   View Document
                 </Link>
@@ -207,7 +207,7 @@ const SubmitSlide = ({ formData }) => {
                   href={formData.cvLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-primary hover:underline"
+                  className="text-green-300 hover:underline"
                 >
                   View CV
                 </Link>
@@ -226,7 +226,7 @@ const SubmitSlide = ({ formData }) => {
                   href={formData.twibbonPost}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-primary hover:underline"
+                  className="text-green-300 hover:underline"
                 >
                   View Post
                 </Link>
@@ -245,7 +245,7 @@ const SubmitSlide = ({ formData }) => {
                   href={formData.instagramProofLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-primary hover:underline"
+                  className="text-green-300 hover:underline"
                 >
                   View Proof
                 </Link>
@@ -264,7 +264,7 @@ const SubmitSlide = ({ formData }) => {
                   href={formData.registrationProofLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-brand-primary hover:underline"
+                  className="text-green-300 hover:underline"
                 >
                   View Registration Proof
                 </Link>
@@ -279,7 +279,7 @@ const SubmitSlide = ({ formData }) => {
       {/* Additional Information */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <h3 className="font-avenir-black mb-6 flex items-center gap-2 text-xl text-gray-800">
-          <div className="bg-brand-primary flex h-6 w-6 items-center justify-center rounded-full">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
             <span className="text-sm font-bold text-white">9</span>
           </div>
           Additional Information

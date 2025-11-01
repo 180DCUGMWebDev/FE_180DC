@@ -42,10 +42,10 @@ export default function Team() {
           <div className="flex min-h-[15vh] w-full flex-col justify-end bg-white px-[50px] lg:min-h-[25vh]">
             {hydrate && (
               <div className="mb-[24px] flex w-full flex-col items-center justify-center text-center">
-                <h1 className="font-avenir-black text-brand-primary mt-[8%] text-[5vw] lg:text-[4vw]/[3.9vw] 2xl:text-[61px]/[60px]">
+                <h1 className="font-avenir-black mt-[8%] text-[5vw] text-green-300 lg:text-[4vw]/[3.9vw] 2xl:text-[61px]/[60px]">
                   Meet Our Team
                 </h1>
-                <div className="font-avenir-book text-brand-secondary relative z-1 mt-[4%] flex aspect-383/90 w-[40%] flex-row items-center justify-center rounded-[5%/20%] border-2 border-[#58B9D1] px-[2%] py-[0.5%] text-center text-[2.6vw] font-bold outline-0 md:aspect-383/74 md:w-[36%] md:border-[3px] lg:mt-[2%] lg:w-[16%] lg:text-[1.4vw] 2xl:text-[20px]">
+                <div className="font-avenir-book relative z-1 mt-[4%] flex aspect-383/90 w-[40%] flex-row items-center justify-center rounded-[5%/20%] border-2 border-[#58B9D1] px-[2%] py-[0.5%] text-center text-[2.6vw] font-bold text-cyan-300 outline-0 md:aspect-383/74 md:w-[36%] md:border-[3px] lg:mt-[2%] lg:w-[16%] lg:text-[1.4vw] 2xl:text-[20px]">
                   <button
                     type="button"
                     value={term}
@@ -69,7 +69,7 @@ export default function Team() {
                         type="button"
                         disabled={!open}
                         onClick={() => handleChangeTerm(item)}
-                        className="font-avenir-book text-brand-secondary flex aspect-383/90 w-full flex-row items-center justify-center bg-[white] px-[2%] py-[0.5%] text-center text-[2.6vw] font-bold outline-0 transition-all duration-500 hover:bg-[#58B9D1] hover:text-white md:aspect-383/74 lg:text-[1.4vw] 2xl:text-[20px]"
+                        className="font-avenir-book flex aspect-383/90 w-full flex-row items-center justify-center bg-[white] px-[2%] py-[0.5%] text-center text-[2.6vw] font-bold text-cyan-300 outline-0 transition-all duration-500 hover:bg-[#58B9D1] hover:text-white md:aspect-383/74 lg:text-[1.4vw] 2xl:text-[20px]"
                       >
                         {item}
                       </button>
@@ -83,7 +83,7 @@ export default function Team() {
           <div className="relative flex h-fit min-h-[75vh] w-full flex-col items-center pb-[60px] lg:px-[130px] 2xl:mx-[50px]">
             {/* White Background */}
             <div className="absolute -z-998 h-full w-full bg-white" />
-            <h2 className="font-lato-bold-italic text-brand-primary mt-[6px] text-[4vw] lg:text-[1.8vw]/[2vw] 2xl:text-[27.6px]/[30.7px]">
+            <h2 className="font-lato-bold-italic mt-[6px] text-[4vw] text-green-300 lg:text-[1.8vw]/[2vw] 2xl:text-[27.6px]/[30.7px]">
               {"Board of Directors"}
             </h2>
             {/* Cards Row */}

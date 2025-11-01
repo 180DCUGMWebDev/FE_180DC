@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Button180 from "@/components/elements/Button";
+import Button180 from "@/components/elements/Button180";
 
 export default function Guidebook() {
   return (
@@ -10,7 +10,7 @@ export default function Guidebook() {
         <div className="mb-12 text-center">
           <div>
             <h2 className="font-avenir-black mb-4 text-3xl text-white sm:text-4xl lg:text-5xl">
-              Recruitment <span className="text-brand-primary">Guidebook</span>
+              Recruitment <span className="text-green-300">Guidebook</span>
             </h2>
             <p className="font-lato-regular mx-auto max-w-2xl text-lg text-white/70">
               Download and read our comprehensive guidebook to understand the recruitment process

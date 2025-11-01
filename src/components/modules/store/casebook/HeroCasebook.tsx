@@ -43,7 +43,7 @@ export default function HeroCasebook() {
             className="absolute top-[6vw] left-[14.5vw] h-[1.776vw] w-[1.531vw] object-cover lg:top-[5.5vw] lg:right-[2vw] lg:h-[1.776vw] lg:w-[1.531vw]"
           />
 
-          <div className="font-avenir-black text-brand-light-white flex h-[5.677vw] w-fit flex-col items-center justify-center rounded-[5.208vw] bg-linear-to-r from-[#6FAA26] to-[#58B9D1] px-[2vw] pt-[1vw] text-[3.333vw] lg:mt-[0.5vw] lg:pt-[0.5vw]">
+          <div className="font-avenir-black flex h-[5.677vw] w-fit flex-col items-center justify-center rounded-[5.208vw] bg-linear-to-r from-[#6FAA26] to-[#58B9D1] px-[2vw] pt-[1vw] text-[3.333vw] text-gray-100 lg:mt-[0.5vw] lg:pt-[0.5vw]">
             CASEBOOK
           </div>
           <div className="font-avenir-book ml-[1.6vw] text-[1.7vw] max-lg:mt-[0.8vw]">
@@ -57,7 +57,7 @@ export default function HeroCasebook() {
           </div>
           <Link
             href="https://docs.google.com/forms/d/e/1FAIpQLSf9lMS6EHYZPyo6IL80EcYrdxVglOv1PnpZnTS29Ew0jBHEMw/viewform"
-            className="bg-brand-black font-avenir-heavy relative ml-[1.6vw] flex h-[3.75vw] w-[12.677vw] items-center justify-center gap-[1vw] rounded-[5.208vw] text-[1.25vw] text-white transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#5AB0BB]/20 lg:h-[3.75vw] lg:w-[10.677vw]"
+            className="bg-black-300 font-avenir-heavy relative ml-[1.6vw] flex h-[3.75vw] w-[12.677vw] items-center justify-center gap-[1vw] rounded-[5.208vw] text-[1.25vw] text-white transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#5AB0BB]/20 lg:h-[3.75vw] lg:w-[10.677vw]"
           >
             <Image
               src="/img/store/casebook/greenstar.png"

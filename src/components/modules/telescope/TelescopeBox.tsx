@@ -7,9 +7,9 @@ export function TelescopeBox({ article, type, className = "" }) {
 
   // Handle different possible structures from Payload
   const thumbnailUrl = article.thumbnail?.url || article.thumbnail;
-  const imageUrl = thumbnailUrl?.startsWith('http') 
-    ? thumbnailUrl 
-    : `${process.env.NEXT_PUBLIC_PAYLOAD_URL || ''}${thumbnailUrl}`;
+  const imageUrl = thumbnailUrl?.startsWith("http")
+    ? thumbnailUrl
+    : `${process.env.NEXT_PUBLIC_PAYLOAD_URL || ""}${thumbnailUrl}`;
 
   return (
     <Link href={`/telescope/${article.slug}`}>
@@ -31,8 +31,8 @@ export function TelescopeBox({ article, type, className = "" }) {
           <div className="absolute inset-0 z-10 overflow-hidden rounded-[10px]">
             {type === "article" || (
               <>
-                <div className="from-brand-primary to-brand-secondary absolute inset-0 bg-[linear-gradient(120deg,var(--tw-gradient-stops))] from-20% to-80%" />
-                <div className="bg-brand-black absolute inset-0 opacity-[0.35]" />
+                <div className="absolute inset-0 bg-[linear-gradient(120deg,var(--tw-gradient-stops))] from-green-300 from-20% to-cyan-300 to-80%" />
+                <div className="bg-black-300 absolute inset-0 opacity-[0.35]" />
               </>
             )}
             {thumbnailUrl && (
@@ -49,7 +49,7 @@ export function TelescopeBox({ article, type, className = "" }) {
           </div>
           {/* Text */}
           <div
-            className={`text-brand-light-white relative z-20 flex h-full flex-col ${
+            className={`relative z-20 flex h-full flex-col text-gray-100 ${
               type === "lg" ? "justify-between lg:justify-end" : "justify-end"
             }`}
           >

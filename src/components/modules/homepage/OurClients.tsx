@@ -1,26 +1,27 @@
 import Image from "next/image";
-import Button180 from "@/components/elements/Button";
+import Button180 from "@/components/elements/Button180";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import Link from "next/link";
+import Container from "@/components/layout/Container";
 
 export function OurClients() {
   return (
-    <section className="flex flex-col justify-between">
+    <Container>
       {/* Our Previous Clients */}
-      <div className="relative mt-[3vw] h-fit w-[96%] max-lg:py-7 lg:h-[30vh]">
+      <div className="relative mt-[32px] h-fit w-[96%] max-lg:py-5 lg:h-[240px]">
         <Image
           src="/img/homepage/clients.png"
           alt="Clients"
           width={1000}
           height={1000}
-          className="absolute inset-0 z-10 h-full w-full rounded-r-[18px] object-cover"
+          className="absolute inset-0 z-10 h-full w-full rounded-r-[14px] object-cover"
         />
         <div className="relative z-20 flex h-full items-center justify-between px-[4%] lg:pr-[2%]">
-          <div className="font-avenir-black text-2xl text-white sm:text-4xl lg:text-[80px] lg:leading-none 2xl:text-[112px]">
+          <div className="font-avenir-black text-xl text-white sm:text-3xl lg:text-[58px] lg:leading-none 2xl:text-[72px]">
             Our Previous Clients
           </div>
-          <Link href="/portofolio" className="w-[15%] max-lg:hidden">
+          <Link href="/portofolio" className="max-lg:hidden">
             <Button180
               color="black"
               text={
@@ -29,26 +30,21 @@ export function OurClients() {
                   <AiOutlineArrowRight />
                 </>
               }
-              addClass="w-full h-fit py-3 text-xl flex justify-between items-center px-10 transition-all duration-500 hover:scale-110 hover:bg-gray-800 hover:text-white"
             />
           </Link>
-          <Link href="/portofolio" className="w-fit lg:hidden">
-            <Button180
-              color="green"
-              text={<HiOutlineArrowUpRight />}
-              addClass="h-fit rounded-full p-[3px] sm:p-[4px] text-lg sm:text-xl"
-            />
+          <Link href="/portofolio" className="lg:hidden">
+            <Button180 color="green" text={<HiOutlineArrowUpRight />} />
           </Link>
         </div>
       </div>
       {/* Newsletter & Press Releases */}
-      <div className="flex flex-col gap-[10px] px-[4%] py-[9vh] max-lg:pt-[10vw] lg:gap-[30px]">
-        <div className="font-avenir-black text-2xl sm:text-4xl lg:text-[80px] lg:leading-none 2xl:text-[112px]">
+      <div className="flex flex-col gap-[8px] py-[60px] lg:gap-[20px]">
+        <div className="font-avenir-black text-xl sm:text-3xl lg:text-[58px] lg:leading-none 2xl:text-[72px]">
           Newsletter & Press Releases
         </div>
-        <div className="flex items-center gap-[20px] max-lg:flex-col lg:h-[38vh] lg:gap-[56px]">
+        <div className="flex items-center gap-[16px] max-lg:flex-col lg:h-[300px] lg:gap-[40px]">
           <Link
-            className="group relative flex h-full w-full flex-1 items-center overflow-hidden rounded-lg max-lg:max-h-[38vh]"
+            className="group relative flex h-full w-full flex-1 items-center overflow-hidden rounded-lg max-lg:max-h-[300px]"
             href="/telescope/oersonalization-why-brand-knows-you-better-than-your-bestie"
           >
             <Image
@@ -58,10 +54,10 @@ export function OurClients() {
               height={1000}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
-            <div className="bg-brand-black/30 absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+            <div className="bg-black-300/30 absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
           </Link>
           <Link
-            className="group relative flex h-full w-full flex-1 items-center overflow-hidden rounded-lg max-lg:max-h-[38vh]"
+            className="group relative flex h-full w-full flex-1 items-center overflow-hidden rounded-lg max-lg:max-h-[300px]"
             href="/telescope/Fintech-Supporting-The-Economic-of-Indonesia"
           >
             <Image
@@ -71,25 +67,17 @@ export function OurClients() {
               height={1000}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
-            <div className="bg-brand-black/30 absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+            <div className="bg-black-300/30 absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
           </Link>
-          <Link href="/telescope">
-            <Button180
-              color="black"
-              text={<HiOutlineArrowUpRight />}
-              addClass="w-fit h-fit rounded-full p-[6px] text-2xl max-lg:hidden transition-transform duration-300 hover:scale-110 hover:bg-gray-800 hover:text-white"
-            />
+          <Link href="/telescope" className="max-lg:hidden">
+            <Button180 color="black" text={<HiOutlineArrowUpRight />} />
           </Link>
 
-          <Link href="/telescope">
-            <Button180
-              color="green"
-              text="View more"
-              addClass="px-[20px] h-fit py-2 text-sm sm:text-base lg:hidden"
-            />
+          <Link href="/telescope" className="lg:hidden">
+            <Button180 color="green" text="View more" />
           </Link>
         </div>
       </div>
-    </section>
+    </Container>
   );
 }

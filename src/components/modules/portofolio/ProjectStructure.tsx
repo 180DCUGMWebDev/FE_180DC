@@ -27,7 +27,7 @@ export default function ProjectStructure() {
       </div>
 
       <div className="absolute top-[25vw] left-[8vw] w-[10vw] max-lg:hidden 2xl:left-[123px] 2xl:w-[154px]">
-        <ImageAction alt="portofolio star blue 1" src="/img/portofolio/type2blue.png" />
+        <ImageAction alt="portofolio star cyan 1" src="/img/portofolio/type2blue.png" />
       </div>
 
       <div className="absolute right-[14vw] bottom-[27vw] w-[8vw] rotate-45 max-lg:hidden 2xl:right-[215px] 2xl:w-[122px]">
@@ -35,7 +35,7 @@ export default function ProjectStructure() {
       </div>
 
       <div className="absolute bottom-[34vw] left-[12vw] w-[4vw] -rotate-12 max-lg:hidden 2xl:left-[184px] 2xl:w-[61px]">
-        <ImageAction alt="portofolio star blue 2" src="/img/portofolio/type2blue.png" />
+        <ImageAction alt="portofolio star cyan 2" src="/img/portofolio/type2blue.png" />
       </div>
 
       <div className="flex w-full flex-col justify-center max-lg:gap-[3vw] lg:w-[40%] 2xl:w-[614px]">
@@ -48,7 +48,7 @@ export default function ProjectStructure() {
             />
           </div>
 
-          <h1 className="font-avenir-black text-brand-light-white lg:text-brand-primary text-center text-[7vw] max-lg:grow lg:text-[4.9vw]/[4.8vw] 2xl:text-[75px]/[64.5px]">
+          <h1 className="font-avenir-black text-center text-[7vw] text-gray-100 max-lg:grow lg:text-[4.9vw]/[4.8vw] lg:text-green-300 2xl:text-[75px]/[64.5px]">
             {"Project Structure"}
           </h1>
 
@@ -60,7 +60,7 @@ export default function ProjectStructure() {
             />
           </div>
         </div>
-        <div className="bg-brand-secondary mt-[1vw] mb-[3vw] h-[0.15vw] w-full max-lg:hidden 2xl:mt-[15px] 2xl:mb-[46px] 2xl:h-[2.3px]" />
+        <div className="mt-[1vw] mb-[3vw] h-[0.15vw] w-full bg-cyan-300 max-lg:hidden 2xl:mt-[15px] 2xl:mb-[46px] 2xl:h-[2.3px]" />
         <ProjectStructureList
           divConfig={"w-full gap-[8vmin] 2xl:gap-[50px] max-lg:px-[8vw]"}
           lineConfig={"h-[146%] lg:h-[174%] mt-[1%]"}

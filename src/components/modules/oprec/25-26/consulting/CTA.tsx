@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Button180 from "@/components/elements/Button";
+import Button180 from "@/components/elements/Button180";
 import Image from "next/image";
 
 export default function CTA() {
@@ -11,7 +11,7 @@ export default function CTA() {
       <div className="mx-auto max-w-4xl text-center">
         <div className="mb-12">
           <h2 className="font-avenir-black mb-6 text-3xl text-white sm:text-4xl lg:text-5xl">
-            Ready to <span className="text-brand-primary">Apply</span>?
+            Ready to <span className="text-green-300">Apply</span>?
           </h2>
           <p className="font-lato-regular mx-auto max-w-2xl text-lg text-white/70 lg:text-xl">
             After reading the guidebook, submit your application and start your journey as a 180DC

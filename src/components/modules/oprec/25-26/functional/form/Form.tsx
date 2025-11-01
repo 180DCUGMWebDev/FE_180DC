@@ -186,7 +186,7 @@ export default function Form() {
   };
 
   return (
-    <section className="to-brand-primary/90 flex min-h-screen items-center justify-center bg-linear-to-b from-black p-4">
+    <section className="flex min-h-screen items-center justify-center bg-linear-to-b from-black to-green-300/90 p-4">
       <div className="w-full max-w-4xl py-20">
         <div className="rounded-lg border-0 bg-white/90 p-6 shadow-2xl backdrop-blur-xs">
           <div className="pb-4">
@@ -221,9 +221,9 @@ export default function Form() {
                         key={i + 1}
                         className={`h-2 w-2 rounded-full transition-colors ${
                           i + 1 === currentSlide
-                            ? "bg-brand-primary"
+                            ? "bg-green-300"
                             : i + 1 < currentSlide || slideHistory.includes(i + 1)
-                              ? "bg-brand-primary/50"
+                              ? "bg-green-300/50"
                               : "bg-gray-300"
                         }`}
                       />

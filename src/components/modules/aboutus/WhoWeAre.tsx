@@ -45,12 +45,12 @@ export default function WhoWeAre() {
   const contentTag = (
     <>
       {/* Who Are We? Title */}
-      <div className="font-avenir-black text-brand-light-white flex w-full items-center text-[5.5vw] lg:w-[27%] lg:text-[3vw] 2xl:text-[46px]">
+      <div className="font-avenir-black flex w-full items-center text-[5.5vw] text-gray-100 lg:w-[27%] lg:text-[3vw] 2xl:text-[46px]">
         <h1>{content.title}</h1>
       </div>
       {/* Who Are We? Content */}
       <div className="flex h-full w-full items-center lg:w-[73%]">
-        <p className="font-lato-regular text-brand-light-white text-justify text-[3vw]/[2.7vw] lg:text-[1.5vw]/[2vw] 2xl:text-[23.1px]/[30.8px]">
+        <p className="font-lato-regular text-justify text-[3vw]/[2.7vw] text-gray-100 lg:text-[1.5vw]/[2vw] 2xl:text-[23.1px]/[30.8px]">
           {content.weDesc}
         </p>
       </div>
@@ -60,10 +60,10 @@ export default function WhoWeAre() {
   const videoButton = (
     <>
       {/* Button Desktop */}
-      <div className="bg-brand-black absolute -right-[10px] -bottom-[20px] h-[6.5vw] w-[6.5vw] rounded-full rounded-br-none p-[0.6vw] max-lg:hidden 2xl:h-[100px] 2xl:w-[100px] 2xl:p-[9.2px]">
+      <div className="bg-black-300 absolute -right-[10px] -bottom-[20px] h-[6.5vw] w-[6.5vw] rounded-full rounded-br-none p-[0.6vw] max-lg:hidden 2xl:h-[100px] 2xl:w-[100px] 2xl:p-[9.2px]">
         <div className="hover:cursor-pointer" onClick={() => handlePlayVideo()}>
           <div className="bg-light-white h-full w-full rounded-full p-[1vw] pl-[1.5vw] 2xl:p-[15.36px] 2xl:pl-[23px]">
-            <FaPlay className="text-brand-primary h-full w-full" />
+            <FaPlay className="h-full w-full text-green-300" />
           </div>
         </div>
       </div>
@@ -72,14 +72,14 @@ export default function WhoWeAre() {
         <div
           className={
             "absolute z-15 flex h-full w-full items-center justify-center transition duration-600 ease-in-out hover:cursor-pointer " +
-            (!isPlaying ? "bg-transparent" : "bg-brand-black/50")
+            (!isPlaying ? "bg-transparent" : "bg-black-300/50")
           }
           onClick={() => handlePlayVideo()}
         >
           <div className="flex h-[4vmax] w-[4vmax] items-center justify-center">
             <FaPlay
               className={
-                "text-brand-light-white transition-all duration-400 " +
+                "text-gray-100 transition-all duration-400 " +
                 (!isPlaying ? "h-0 w-0" : "h-full w-full")
               }
               onClick={() => handlePlayVideo()}
@@ -122,7 +122,7 @@ export default function WhoWeAre() {
             </div>
             {/* Images / All for Mobile */}
             <div className="flex h-fit w-full flex-wrap gap-[4vw] lg:h-[38vh] lg:max-h-[26vw] lg:flex-row lg:flex-nowrap lg:gap-[3.5vw] 2xl:h-[350px] 2xl:gap-[72px]">
-              <div className="group text-brand-light-white relative flex h-[35vw] w-[35vw] flex-col items-start rounded-[10px] p-[2vw] pb-[15px] max-lg:grow lg:h-full lg:w-[27%] 2xl:gap-[40px] 2xl:p-[30px] 2xl:pb-[25px]">
+              <div className="group relative flex h-[35vw] w-[35vw] flex-col items-start rounded-[10px] p-[2vw] pb-[15px] text-gray-100 max-lg:grow lg:h-full lg:w-[27%] 2xl:gap-[40px] 2xl:p-[30px] 2xl:pb-[25px]">
                 {/* Background */}
                 <div className="absolute top-0 left-0 -z-1 h-full w-full overflow-clip rounded-[10px]">
                   <ImageAction

@@ -1,5 +1,5 @@
 "use client";
-import { Hero, OurClients } from "@/components/modules/homepage";
+import { Hero, OurClients, WhatIs } from "@/components/modules/homepage";
 import LookForward from "@/components/layout/LookForward";
 import { useRef } from "react";
 
@@ -8,6 +8,7 @@ export default function Home() {
   return (
     <>
       <Hero contactRef={contactRef} />
+      <WhatIs />
       <OurClients />
       <LookForward theme="dark" />
     </>

@@ -31,10 +31,10 @@ const HeroTemplate = ({ children }) => {
           className="h-auto w-[3.3vw] animate-bounce object-cover md:w-[2.7vw] lg:w-[1.615vw]"
         /> */}
         <button className="flex flex-col items-center outline-0" onClick={handleClick}>
-          <h2 className="font-lato-bold text-brand-black180 mt-[1.4vw] text-[1vw] max-lg:hidden">
+          <h2 className="font-lato-bold text-black-300180 mt-[1.4vw] text-[1vw] max-lg:hidden">
             {"GET TO KNOW MORE"}
           </h2>
-          <FaChevronDown className="animate-moving-pointer text-brand-black180 text-[1.4vw] hover:cursor-pointer" />
+          <FaChevronDown className="animate-moving-pointer text-black-300180 text-[1.4vw] hover:cursor-pointer" />
         </button>
       </div>
       <div className="absolute bottom-[1000]" ref={scrollRef}></div>

@@ -20,7 +20,7 @@ export default function CountinueCourse() {
         <div className="relative mt-[5vw] flex items-center justify-center gap-x-[5vw] max-lg:hidden">
           {/* Kiri */}
           <div className="">
-            <h1 className="font-avenir-heavy text-brand-light-white w-[80.26vw] text-start text-[3.385vw]">
+            <h1 className="font-avenir-heavy w-[80.26vw] text-start text-[3.385vw] text-gray-100">
               Next Module.......
             </h1>
             <div className="flex gap-x-[2vw]">

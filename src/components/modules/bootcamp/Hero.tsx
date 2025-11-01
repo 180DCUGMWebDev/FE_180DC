@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button180 from "@/components/elements/Button";
+import Button180 from "@/components/elements/Button180";
 
 export function Hero() {
   const items = [
@@ -63,23 +63,13 @@ export function Hero() {
             {/* bagian enroll */}
             <div className="mt-[3.646vw] hidden w-full flex-col items-center px-4 lg:mt-[1.8vw] lg:flex">
               <div>
-                <p className="text-brand-white-180 text-[4vw] lg:text-[1.25vw]">
+                <p className="text-gray-100-180 text-[4vw] lg:text-[1.25vw]">
                   in-depth sessions to equip you <br /> all necessary materials of Consulting
                 </p>
                 <div className="flex gap-2">
-                  <Button180
-                    color="white"
-                    text="Enroll me Now"
-                    addClass="w-[80%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743]  hover:text-white"
-                    href="bit.ly/RegistrationCB180DC"
-                  />
+                  <Button180 color="white" text="Enroll me Now" href="bit.ly/RegistrationCB180DC" />
 
-                  <Button180
-                    color="green"
-                    text="Guidebook"
-                    addClass="w-[60%]  h-fit py-[1.563vw] lg:py-[0.9vw] text-[1.2vw] mt-[1.25vw] font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-white hover:text-primary"
-                    href="bit.ly/GuidebookCB180DC"
-                  />
+                  <Button180 color="green" text="Guidebook" href="bit.ly/GuidebookCB180DC" />
                 </div>
               </div>
             </div>
@@ -111,7 +101,7 @@ export function Hero() {
                   className="ml-4 hidden h-[24.103vw] w-[16.923vw] object-contain lg:ml-[1.667vw] lg:flex lg:h-[12.292vw] lg:w-[8.646vw]"
                 />
                 <div className="mt-4 ml-4 w-full md:mt-1 lg:mt-[1.2vw] lg:ml-[1vw]">
-                  <p className="font-avenir-regular text-brand-white-180 text-[3vw] lg:text-[1.875vw]">
+                  <p className="font-avenir-regular text-gray-100-180 text-[3vw] lg:text-[1.875vw]">
                     learn now! become consultants tomorrow.
                   </p>
                 </div>
@@ -154,22 +144,12 @@ export function Hero() {
             </div>
 
             <div className="mt-[10.938vw] flex w-full flex-col px-[8.667vw] lg:hidden">
-              <p className="text-brand-white-180 text-sm lg:text-[2.188vw]">
+              <p className="text-gray-100-180 text-sm lg:text-[2.188vw]">
                 in-depth sessions to equip you <br /> all necessary materials of Consulting
               </p>
               <div className="flex gap-2">
-                <Button180
-                  color="white"
-                  text="Enroll me Now"
-                  addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[6.154vw] lg:mt-[1.25vw] font-bold"
-                  href="bit.ly/RegistrationCB180DC"
-                />
-                <Button180
-                  color="green"
-                  text="Guidebook"
-                  addClass="w-[40%]  h-fit py-[1.563vw] text-[2.9vw] mt-[6.154vw] lg:mt-[1.25vw] font-bold"
-                  href="bit.ly/GuidebookCB180DC"
-                />
+                <Button180 color="white" text="Enroll me Now" href="bit.ly/RegistrationCB180DC" />
+                <Button180 color="green" text="Guidebook" href="bit.ly/GuidebookCB180DC" />
               </div>
             </div>
           </div>

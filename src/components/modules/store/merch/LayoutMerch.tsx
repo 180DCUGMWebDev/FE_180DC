@@ -9,7 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./merch.css";
 import products from "./products";
-import Button180 from "@/components/elements/Button";
+import Button180 from "@/components/elements/Button180";
 
 const LayoutMerch = () => {
   return (
@@ -68,7 +68,7 @@ const LayoutMerch = () => {
                   />
                 </div>
                 {/* Product Name */}
-                <b className="text-brand-black w-[80%] text-left text-lg max-lg:mt-[4vw] max-lg:text-[3.2vw]">
+                <b className="text-black-300 w-[80%] text-left text-lg max-lg:mt-[4vw] max-lg:text-[3.2vw]">
                   {item.name}
                 </b>
                 {/* Product Price */}

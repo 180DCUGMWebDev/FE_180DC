@@ -29,29 +29,7 @@ const nextConfig = {
     ],
   },
 
-  webpack: (config, { isServer }) => {
-    // // Exclude Node.js modules from client-side bundle
-    // if (!isServer) {
-    //   config.resolve.fallback = {
-    //     ...config.resolve.fallback,
-    //     dns: false,
-    //     net: false,
-    //     tls: false,
-    //     fs: false,
-    //     crypto: false,
-    //     stream: false,
-    //     url: false,
-    //     zlib: false,
-    //     http: false,
-    //     https: false,
-    //     assert: false,
-    //     os: false,
-    //     path: false,
-    //     worker_threads: false,
-    //     readline: false,
-    //   };
-    // }
-
+  webpack: (config) => {
     // Set mainFields order for module resolution
     config.resolve.mainFields = ["browser", "module", "main"];
 

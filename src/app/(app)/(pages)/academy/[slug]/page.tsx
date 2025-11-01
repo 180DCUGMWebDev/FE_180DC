@@ -15,7 +15,7 @@ export default function AcademyModule({ params }) {
   const pdfFileUrl = "/file/samplepdf.pdf";
 
   return (
-    <main className="bg-brand-black">
+    <main className="bg-black-300">
       <ModuleMain data={moduleData} />
       <PdfViewer url={"/file/samplepdf.pdf"} />
       <MiniQuiz />

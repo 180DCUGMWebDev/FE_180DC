@@ -57,7 +57,7 @@ const NavigationMenuTrigger = React.forwardRef<
     ref={ref}
     className={cn(
       navigationMenuTriggerStyle(),
-      "group hover:text-brand-black focus:text-brand-black text-lg transition-all duration-300 hover:bg-white focus:bg-white",
+      "group hover:text-black-300 focus:text-black-300 text-lg transition-all duration-300 hover:bg-white focus:bg-white",
       className
     )}
     {...props}
@@ -78,7 +78,7 @@ const NavigationMenuContent = React.forwardRef<
   <NavigationMenuPrimitive.Content
     ref={ref}
     className={cn(
-      "data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 text-brand-black left-0 h-fit w-full rounded-xl bg-white p-1 transition-all duration-300 md:absolute md:w-auto lg:mt-[4px] lg:border lg:p-4",
+      "data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 text-black-300 left-0 h-fit w-full rounded-xl bg-white p-1 transition-all duration-300 md:absolute md:w-auto lg:mt-[4px] lg:border lg:p-4",
       className
     )}
     {...props}

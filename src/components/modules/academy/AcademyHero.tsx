@@ -45,7 +45,7 @@ export default function AcademyHero() {
               <h1 className="font-avenir-black bg-linear-to-r from-[#6FAA26] to-[#58B9D1] bg-clip-text text-center text-[5.833vw]/[7.2vw] text-transparent">
                 {"180DC Academy"}
               </h1>
-              <h1 className="font-avenir-regular text-brand-light-white w-[60.219vw] pt-[2.5vw] text-center text-[1.823vw]/[1.67vw]">
+              <h1 className="font-avenir-regular w-[60.219vw] pt-[2.5vw] text-center text-[1.823vw]/[1.67vw] text-gray-100">
                 {
                   "180DC Academy is our series of free courses to teach you all necessary materials to equip you with skills in attempt to increase the accessibility of consulting. You will learn everything you need to know to apply it to different fields even if you're not a part of our internal team."
                 }
@@ -56,10 +56,10 @@ export default function AcademyHero() {
               className="flex flex-col items-center outline-0"
               onClick={handleClick}
             >
-              <h2 className="font-lato-bold text-brand-light-white mt-[1.4vw] text-[1vw] max-lg:hidden">
+              <h2 className="font-lato-bold mt-[1.4vw] text-[1vw] text-gray-100 max-lg:hidden">
                 {"SCROLL DOWN"}
               </h2>
-              <FaChevronDown className="animate-moving-pointer text-brand-light-white text-[1.4vw] hover:cursor-pointer" />
+              <FaChevronDown className="animate-moving-pointer text-[1.4vw] text-gray-100 hover:cursor-pointer" />
             </button>
           </div>
           {/* Scroll Down Target */}
@@ -73,12 +73,12 @@ export default function AcademyHero() {
               <h1 className="font-avenir-black bg-linear-to-r from-[#6FAA26] to-[#58B9D1] bg-clip-text text-center text-[8.333vw] text-transparent">
                 {"180DC Academy"}
               </h1>
-              <h1 className="font-avenir-regular text-brand-light-white w-[87.222vw] pt-[2.5vw] text-center text-[3.333vw]/[3.67vw]">
+              <h1 className="font-avenir-regular w-[87.222vw] pt-[2.5vw] text-center text-[3.333vw]/[3.67vw] text-gray-100">
                 {
                   "180DC Academy is our series of free courses to teach you all necessary materials to equip you with skills in attempt to increase the accessibility of consulting. You will learn everything you need to know to apply it to different fields even if you're not a part of our internal team."
                 }
               </h1>
-              <h1 className="font-avenir-regular text-brand-light-white flex flex-col items-center justify-center pt-[15vw] text-center text-[3.056vw]">
+              <h1 className="font-avenir-regular flex flex-col items-center justify-center pt-[15vw] text-center text-[3.056vw] text-gray-100">
                 {"SCROLL DOWN"}
                 <Image
                   src="/img/academy/scrollDownArrow.png"

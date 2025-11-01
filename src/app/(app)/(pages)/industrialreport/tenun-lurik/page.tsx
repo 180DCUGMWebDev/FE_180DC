@@ -16,7 +16,7 @@ export default function TenunLurik() {
   const redirectToDrive = () => {
     window.open(
       "https://drive.google.com/file/d/1wguQID175Y3Wgn0uRJSNqKdiE6Nn51h3/view?usp=sharing",
-      "_blank",
+      "_blank"
     );
   };
 
@@ -69,7 +69,7 @@ export default function TenunLurik() {
           </button>
           <button
             onClick={redirectToDrive}
-            className="mb-6 flex w-full items-center justify-center rounded-lg bg-blue-600 py-4 font-medium text-white shadow-lg hover:bg-blue-700"
+            className="mb-6 flex w-full items-center justify-center rounded-lg bg-cyan-600 py-4 font-medium text-white shadow-lg hover:bg-cyan-700"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +122,7 @@ export default function TenunLurik() {
           {/* Google Drive Link */}
           <button
             onClick={redirectToDrive}
-            className="mb-6 flex w-full items-center justify-center rounded-lg bg-blue-600 py-4 font-medium text-white shadow-lg hover:bg-blue-700"
+            className="mb-6 flex w-full items-center justify-center rounded-lg bg-cyan-600 py-4 font-medium text-white shadow-lg hover:bg-cyan-700"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -156,10 +156,10 @@ export default function TenunLurik() {
         </div>
 
         {/* Decorative Elements - responsive positioning */}
-        <div className="absolute left-10 top-1/4 hidden text-4xl text-blue-300 opacity-70 md:left-20 md:block md:text-5xl">
+        <div className="absolute top-1/4 left-10 hidden text-4xl text-cyan-300 opacity-70 md:left-20 md:block md:text-5xl">
           ✦
         </div>
-        <div className="absolute bottom-1/4 right-10 hidden text-4xl text-green-400 opacity-70 md:right-20 md:block md:text-5xl">
+        <div className="absolute right-10 bottom-1/4 hidden text-4xl text-green-400 opacity-70 md:right-20 md:block md:text-5xl">
           ✦
         </div>
       </div>

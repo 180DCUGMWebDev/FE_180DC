@@ -170,10 +170,10 @@ export function Admin({ submissions, adminUser }) {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Total Submissions</p>
-                <p className="text-brand-primary text-3xl font-bold">{submissions.length}</p>
+                <p className="text-3xl font-bold text-green-300">{submissions.length}</p>
               </div>
-              <div className="bg-brand-primary/10 rounded-full p-3">
-                <Mail className="text-brand-primary h-6 w-6" />
+              <div className="rounded-full bg-green-300/10 p-3">
+                <Mail className="h-6 w-6 text-green-300" />
               </div>
             </div>
           </div>
@@ -182,7 +182,7 @@ export function Admin({ submissions, adminUser }) {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Today&apos;s Submissions</p>
-                <p className="text-brand-primary text-3xl font-bold">
+                <p className="text-3xl font-bold text-green-300">
                   {
                     submissions.filter(
                       (s) => new Date(s.submitted_at).toDateString() === new Date().toDateString()
@@ -190,8 +190,8 @@ export function Admin({ submissions, adminUser }) {
                   }
                 </p>
               </div>
-              <div className="bg-brand-primary/10 rounded-full p-3">
-                <Calendar className="text-brand-primary h-6 w-6" />
+              <div className="rounded-full bg-green-300/10 p-3">
+                <Calendar className="h-6 w-6 text-green-300" />
               </div>
             </div>
           </div>
@@ -200,12 +200,12 @@ export function Admin({ submissions, adminUser }) {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Unique Applicants</p>
-                <p className="text-brand-primary text-3xl font-bold">
+                <p className="text-3xl font-bold text-green-300">
                   {new Set(submissions.map((s) => s.email)).size}
                 </p>
               </div>
-              <div className="bg-brand-primary/10 rounded-full p-3">
-                <User className="text-brand-primary h-6 w-6" />
+              <div className="rounded-full bg-green-300/10 p-3">
+                <User className="h-6 w-6 text-green-300" />
               </div>
             </div>
           </div>
@@ -231,7 +231,7 @@ export function Admin({ submissions, adminUser }) {
                   <select
                     value={selectedPosition}
                     onChange={(e) => setSelectedPosition(e.target.value)}
-                    className="focus:border-brand-primary focus:ring-brand-primary rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-1 focus:outline-hidden"
+                    className="rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-green-300 focus:ring-1 focus:ring-green-300 focus:outline-hidden"
                   >
                     <option value="all">All Positions</option>
                     {uniquePositions.map((position) => (
@@ -284,7 +284,7 @@ export function Admin({ submissions, adminUser }) {
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="bg-brand-primary/10 text-brand-primary rounded-full px-3 py-1 text-sm font-medium">
+                      <div className="rounded-full bg-green-300/10 px-3 py-1 text-sm font-medium text-green-300">
                         {formatDate(submission.submitted_at)}
                       </div>
                     </div>
@@ -369,7 +369,7 @@ export function Admin({ submissions, adminUser }) {
                               href={submission.first_cvLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-brand-primary hover:underline"
+                              className="text-green-300 hover:underline"
                             >
                               View
                             </a>
@@ -384,7 +384,7 @@ export function Admin({ submissions, adminUser }) {
                               href={submission.first_documentLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-brand-primary hover:underline"
+                              className="text-green-300 hover:underline"
                             >
                               View
                             </a>
@@ -399,7 +399,7 @@ export function Admin({ submissions, adminUser }) {
                               href={submission.first_portfolioLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-brand-primary hover:underline"
+                              className="text-green-300 hover:underline"
                             >
                               View
                             </a>
@@ -417,22 +417,22 @@ export function Admin({ submissions, adminUser }) {
                           {submission.firstChoice === "Marketing" && (
                             <>
                               {submission.first_content && (
-                                <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-800">
+                                <span className="inline-block rounded-full bg-cyan-100 px-2 py-1 text-xs text-cyan-800">
                                   Content
                                 </span>
                               )}
                               {submission.first_graphicDesigner && (
-                                <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-800">
+                                <span className="inline-block rounded-full bg-cyan-100 px-2 py-1 text-xs text-cyan-800">
                                   Graphic Designer
                                 </span>
                               )}
                               {submission.first_videographer && (
-                                <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-800">
+                                <span className="inline-block rounded-full bg-cyan-100 px-2 py-1 text-xs text-cyan-800">
                                   Videographer
                                 </span>
                               )}
                               {submission.first_partnership && (
-                                <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-800">
+                                <span className="inline-block rounded-full bg-cyan-100 px-2 py-1 text-xs text-cyan-800">
                                   Partnership
                                 </span>
                               )}
@@ -491,7 +491,7 @@ export function Admin({ submissions, adminUser }) {
                                   href={submission.second_cvLink}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-brand-primary hover:underline"
+                                  className="text-green-300 hover:underline"
                                 >
                                   View
                                 </a>
@@ -506,7 +506,7 @@ export function Admin({ submissions, adminUser }) {
                                   href={submission.second_documentLink}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-brand-primary hover:underline"
+                                  className="text-green-300 hover:underline"
                                 >
                                   View
                                 </a>
@@ -521,7 +521,7 @@ export function Admin({ submissions, adminUser }) {
                                   href={submission.second_portfolioLink}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-brand-primary hover:underline"
+                                  className="text-green-300 hover:underline"
                                 >
                                   View
                                 </a>
@@ -538,7 +538,7 @@ export function Admin({ submissions, adminUser }) {
                               href={submission.twibbonPostLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-brand-primary hover:underline"
+                              className="text-green-300 hover:underline"
                             >
                               View
                             </a>
@@ -553,7 +553,7 @@ export function Admin({ submissions, adminUser }) {
                               href={submission.twibbonProofLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-brand-primary hover:underline"
+                              className="text-green-300 hover:underline"
                             >
                               View
                             </a>

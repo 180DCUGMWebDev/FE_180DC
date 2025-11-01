@@ -16,7 +16,7 @@ export default function CafeIndustries() {
   const redirectToDrive = () => {
     window.open(
       "https://drive.google.com/file/d/1-b-srMHzofqIB-TW4IKtaBNzvWlFisqW/view?usp=sharing",
-      "_blank",
+      "_blank"
     );
   };
 
@@ -29,7 +29,7 @@ export default function CafeIndustries() {
       <div className="relative mt-[5vh] flex w-full flex-col items-center justify-center px-4 py-8">
         <div className="mb-6 text-center">
           <h2 className="text-2xl font-bold text-white md:text-3xl">
-           <span className="text-teal-400">Café Industries</span>
+            <span className="text-teal-400">Café Industries</span>
           </h2>
         </div>
 
@@ -69,7 +69,7 @@ export default function CafeIndustries() {
           </button>
           <button
             onClick={redirectToDrive}
-            className="mb-6 flex w-full items-center justify-center rounded-lg bg-blue-600 py-4 font-medium text-white shadow-lg hover:bg-blue-700"
+            className="mb-6 flex w-full items-center justify-center rounded-lg bg-cyan-600 py-4 font-medium text-white shadow-lg hover:bg-cyan-700"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +122,7 @@ export default function CafeIndustries() {
           {/* Google Drive Link */}
           <button
             onClick={redirectToDrive}
-            className="mb-6 flex w-full items-center justify-center rounded-lg bg-blue-600 py-4 font-medium text-white shadow-lg hover:bg-blue-700"
+            className="mb-6 flex w-full items-center justify-center rounded-lg bg-cyan-600 py-4 font-medium text-white shadow-lg hover:bg-cyan-700"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -156,10 +156,10 @@ export default function CafeIndustries() {
         </div>
 
         {/* Decorative Elements - responsive positioning */}
-        <div className="absolute left-10 top-1/4 hidden text-4xl text-blue-300 opacity-70 md:left-20 md:block md:text-5xl">
+        <div className="absolute top-1/4 left-10 hidden text-4xl text-cyan-300 opacity-70 md:left-20 md:block md:text-5xl">
           ✦
         </div>
-        <div className="absolute bottom-1/4 right-10 hidden text-4xl text-green-400 opacity-70 md:right-20 md:block md:text-5xl">
+        <div className="absolute right-10 bottom-1/4 hidden text-4xl text-green-400 opacity-70 md:right-20 md:block md:text-5xl">
           ✦
         </div>
       </div>

@@ -72,7 +72,7 @@ export default function CasebookJourney() {
                 <h1 className="font-avenir-black mt-[0.1vw] text-[1.867vw] text-[#58B9D1]">
                   Our Mini Casebook was published.
                 </h1>
-                <h1 className="font-lato-regular text-brand-black mt-[0.8vw] w-[42.917vw] text-[1.25vw]/[1.35vw]">
+                <h1 className="font-lato-regular text-black-300 mt-[0.8vw] w-[42.917vw] text-[1.25vw]/[1.35vw]">
                   180 DC UGM Mini Casebook is our initial version of delivering Consulting 101
                   materials, as well as case interview practices and a step-by-step guide on how to
                   solve a typical business case, which was loved by thousands of you
@@ -86,7 +86,7 @@ export default function CasebookJourney() {
                 <h1 className="font-avenir-black mt-[0.1vw] text-[1.867vw] text-[#58B9D1]">
                   Introducing Casebook Vol.2
                 </h1>
-                <h1 className="font-lato-regular text-brand-black mt-[0.8vw] w-[42.917vw] text-[1.25vw]/[1.35vw]">
+                <h1 className="font-lato-regular text-black-300 mt-[0.8vw] w-[42.917vw] text-[1.25vw]/[1.35vw]">
                   Casebook Vol 2 aims to provide a walkthrough for readers on getting into
                   Consulting companies, including CV, Cover Letter, and especially case-based
                   interviews. In this newest version of 180DC UGM’s Casebook, SMEs in Yogyakarta
@@ -122,7 +122,7 @@ export default function CasebookJourney() {
                 <h1 className="font-avenir-black mt-[0.1vw] text-[3.79vw] text-[#58B9D1]">
                   Our Mini Casebook was published.
                 </h1>
-                <h1 className="font-lato-bold text-brand-black mt-[2.8vw] w-[69.231vw] text-[3.79vw]/[4.5vw]">
+                <h1 className="font-lato-bold text-black-300 mt-[2.8vw] w-[69.231vw] text-[3.79vw]/[4.5vw]">
                   180 DC UGM Mini Casebook is our initial version of delivering Consulting 101
                   materials, as well as case interview practices and a step-by-step guide on how to
                   solve a typical business case, which was loved by thousands of you
@@ -136,7 +136,7 @@ export default function CasebookJourney() {
                 <h1 className="font-avenir-black mt-[0.1vw] text-[3.79vw] text-[#58B9D1]">
                   Introducing Casebook Vol.2
                 </h1>
-                <h1 className="mt-[4 .8vw] font-lato-bold text-brand-black w-[69.231vw] text-[3.79vw]/[4.5vw]">
+                <h1 className="mt-[4 .8vw] font-lato-bold text-black-300 w-[69.231vw] text-[3.79vw]/[4.5vw]">
                   Casebook Vol 2 aims to provide a walkthrough for readers on getting into
                   Consulting companies, including CV, Cover Letter, and especially case-based
                   interviews. In this newest version of 180DC UGM’s Casebook, SMEs in Yogyakarta

@@ -70,10 +70,10 @@ export default function HeroPage() {
           </div>
           {/* Scroll Down [DESKTOP] */}
           <div className="flex flex-col items-center outline-0">
-            <h2 className="font-lato-bold text-brand-light-white mt-[1.4vw] text-[12px]">
+            <h2 className="font-lato-bold mt-[1.4vw] text-[12px] text-gray-100">
               {"SCROLL DOWN TO ACCESS GUIDEBOOK AND REGISTRATION"}
             </h2>
-            <FaChevronDown className="animate-moving-pointer text-brand-light-white text-[1.4vw]" />
+            <FaChevronDown className="animate-moving-pointer text-[1.4vw] text-gray-100" />
           </div>
         </div>
       </div>
