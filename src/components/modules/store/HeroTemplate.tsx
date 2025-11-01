@@ -2,7 +2,7 @@
 
 import { createBackground } from "@/config/Functions";
 import Image from "next/image";
-import {useRef} from "react";
+import { useRef } from "react";
 import { FaChevronDown } from "react-icons/fa";
 
 const HeroTemplate = ({ children }) => {
@@ -15,7 +15,7 @@ const HeroTemplate = ({ children }) => {
 
       {/* Content */}
       <div className="relative flex min-h-screen w-full items-center justify-center max-sm:py-[4vw] md:py-[8vw] lg:h-screen lg:py-0">
-        <div className="relative mb-[5vw] flex flex-col items-center justify-center max-lg:w-full max-lg:pb-[20vw] lg:mb-0 lg:mt-[0]">
+        <div className="relative mb-[5vw] flex flex-col items-center justify-center max-lg:w-full max-lg:pb-[20vw] lg:mt-[0] lg:mb-0">
           {children}
         </div>
       </div>
@@ -31,14 +31,13 @@ const HeroTemplate = ({ children }) => {
           className="h-auto w-[3.3vw] animate-bounce object-cover md:w-[2.7vw] lg:w-[1.615vw]"
         /> */}
         <button className="flex flex-col items-center outline-0" onClick={handleClick}>
-              <h2 className="mt-[1.4vw] font-lato-bold text-[1vw] text-black180 max-lg:hidden">
-                {"GET TO KNOW MORE"}
-              </h2>
-              <FaChevronDown className="animate-moving-pointer text-[1.4vw] text-black180 hover:cursor-pointer" />
-            </button>
+          <h2 className="font-lato-bold text-black-300180 mt-[1.4vw] text-[1vw] max-lg:hidden">
+            {"GET TO KNOW MORE"}
+          </h2>
+          <FaChevronDown className="animate-moving-pointer text-black-300180 text-[1.4vw] hover:cursor-pointer" />
+        </button>
       </div>
-      <div className="absolute bottom-[1000] " ref={scrollRef}>
-          </div>
+      <div className="absolute bottom-[1000]" ref={scrollRef}></div>
     </section>
   );
 };

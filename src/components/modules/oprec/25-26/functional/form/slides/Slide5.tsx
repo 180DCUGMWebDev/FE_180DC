@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/elements/Form/button";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 
 // Import division-specific slides
@@ -122,9 +122,9 @@ const Slide5 = ({ formData, updateFormData, onNext, onPrevious }) => {
     return (
       <div className="space-y-6">
         <div className="mb-6 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-secondary/10 px-4 py-2">
-            <span className="text-sm font-medium text-secondary">Second Choice Division:</span>
-            <span className="font-semibold text-secondary">{secondChoice}</span>
+          <div className="inline-flex items-center gap-2 rounded-full bg-cyan-300/10 px-4 py-2">
+            <span className="text-sm font-medium text-cyan-300">Second Choice Division:</span>
+            <span className="font-semibold text-cyan-300">{secondChoice}</span>
           </div>
         </div>
         {renderDivisionSpecificForm(secondChoice)}
@@ -134,7 +134,7 @@ const Slide5 = ({ formData, updateFormData, onNext, onPrevious }) => {
           <Button
             onClick={handleNext}
             disabled={!isValid}
-            className="flex items-center gap-2 bg-primary font-avenir-regular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
+            className="font-avenir-regular disabled:text-black-300 flex items-center gap-2 bg-green-300 text-white transition-all duration-200 hover:scale-105 hover:bg-green-300/90 disabled:opacity-50 disabled:hover:scale-100"
           >
             Continue to Next Step
             <ChevronRight className="h-4 w-4" />

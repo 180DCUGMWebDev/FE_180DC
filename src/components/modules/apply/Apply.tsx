@@ -2,9 +2,9 @@
 
 import { useContext, useEffect, useState } from "react";
 import { FaPlay } from "react-icons/fa";
-import Button180 from "@/components/element/Button";
-import ImgF from "@/components/element/ImgF";
-import ProjectStructureList from "@/components/element/ProjectStructureList";
+import Button180 from "@/components/elements/Button180";
+import ImageAction from "@/components/elements/ImageAction";
+import ProjectStructureList from "@/components/contents/ProjectStructureList";
 import { createBackground } from "@/config/Functions";
 import { connectSS } from "@/components/modules/apply/connectSpreadsheets";
 import { UtilsContext } from "@/contexts/UtilsContext";
@@ -134,33 +134,33 @@ function BackgroundDecorations() {
   return (
     <div className="absolute -z-997 flex h-full w-screen lg:h-[112.5vw]">
       {/* Green Flowers */}
-      <div className="absolute bottom-[5%] right-0 opacity-[.06] max-lg:hidden">
-        <ImgF src="/img/apply/type1green.png" alt="deco img" />
+      <div className="absolute right-0 bottom-[5%] opacity-[.06] max-lg:hidden">
+        <ImageAction src="/img/apply/type1green.png" alt="deco img" />
       </div>
-      <div className="absolute left-0 top-0 rotate-12 scale-[.5] opacity-[.06] max-lg:hidden lg:bottom-[15%] lg:left-[30%]">
-        <ImgF src="/img/apply/type1green.png" alt="deco img" />
+      <div className="absolute top-0 left-0 scale-[.5] rotate-12 opacity-[.06] max-lg:hidden lg:bottom-[15%] lg:left-[30%]">
+        <ImageAction src="/img/apply/type1green.png" alt="deco img" />
       </div>
-      <div className="absolute left-[30%] top-[35%] rotate-40 scale-[.3] opacity-[.06] max-lg:hidden">
-        <ImgF src="/img/apply/type1green.png" alt="deco img" />
+      <div className="absolute top-[35%] left-[30%] scale-[.3] rotate-40 opacity-[.06] max-lg:hidden">
+        <ImageAction src="/img/apply/type1green.png" alt="deco img" />
       </div>
-      <div className="absolute -top-[1.5%] left-[14%] -rotate-15 scale-[.3] opacity-[.06] max-lg:hidden">
-        <ImgF src="/img/apply/type1green.png" alt="deco img" />
-      </div>
-
-      {/* Light Blue Flowers */}
-      <div className="absolute left-[5%] top-[4%] opacity-[.06] max-lg:hidden">
-        <ImgF src="/img/apply/type3lgblue.png" alt="deco img" />
+      <div className="absolute -top-[1.5%] left-[14%] scale-[.3] -rotate-15 opacity-[.06] max-lg:hidden">
+        <ImageAction src="/img/apply/type1green.png" alt="deco img" />
       </div>
 
-      {/* Blue Flowers */}
-      <div className="absolute right-[2%] top-[155px] opacity-[.08] max-lg:scale-[0.9] lg:right-[5%] lg:top-[6%]">
-        <ImgF src="/img/apply/type2blue.png" alt="deco img" />
+      {/* Light cyan Flowers */}
+      <div className="absolute top-[4%] left-[5%] opacity-[.06] max-lg:hidden">
+        <ImageAction src="/img/apply/type3lgblue.png" alt="deco img" />
+      </div>
+
+      {/* cyan Flowers */}
+      <div className="absolute top-[155px] right-[2%] opacity-[.08] max-lg:scale-[0.9] lg:top-[6%] lg:right-[5%]">
+        <ImageAction src="/img/apply/type2blue.png" alt="deco img" />
       </div>
       <div className="absolute bottom-[26%] left-[4%] opacity-[.08] max-lg:hidden">
-        <ImgF src="/img/apply/type2blue.png" alt="deco img" />
+        <ImageAction src="/img/apply/type2blue.png" alt="deco img" />
       </div>
-      <div className="absolute left-[2%] top-[90px] rotate-45 scale-[2] opacity-[.08] max-lg:scale-[1.5] lg:-bottom-[9%] lg:left-[1%]">
-        <ImgF src="/img/apply/type2blue.png" alt="deco img" />
+      <div className="absolute top-[90px] left-[2%] scale-[2] rotate-45 opacity-[.08] max-lg:scale-[1.5] lg:-bottom-[9%] lg:left-[1%]">
+        <ImageAction src="/img/apply/type2blue.png" alt="deco img" />
       </div>
     </div>
   );
@@ -174,14 +174,14 @@ function FormField({ form, idx, onChange }) {
 
   return (
     <div className="flex w-full flex-col">
-      <label className="font-lato-regular text-light-white max-lg:text-[3.7vw]/[4vw] lg:text-[1.13vw] 2xl:text-[17.3px]">
+      <label className="font-lato-regular text-gray-100 max-lg:text-[3.7vw]/[4vw] lg:text-[1.13vw] 2xl:text-[17.3px]">
         {form.question}
       </label>
 
       {form.type === "textarea" ? (
         <textarea
           className={
-            "rounded-[1vw] min-h-[90px] px-[1vw] py-[0.5vw] text-start outline-hidden bg-white placeholder:text-black/40 max-lg:text-[3.7vw]/[4vw] lg:rounded-[4px] lg:px-[9px] lg:py-[4px] lg:text-[1.13vw] 2xl:text-[17.3px]" +
+            "placeholder:text-black-300/40 min-h-[90px] rounded-[1vw] bg-white px-[1vw] py-[0.5vw] text-start outline-hidden max-lg:text-[3.7vw]/[4vw] lg:rounded-[4px] lg:px-[9px] lg:py-[4px] lg:text-[1.13vw] 2xl:text-[17.3px]" +
             form.className
           }
           id={idx + "_applyform"}
@@ -194,7 +194,7 @@ function FormField({ form, idx, onChange }) {
       ) : (
         <input
           className={
-            " bg-white placeholder:text-black/40 rounded-[1vw] px-[9px] py-[4px] text-start outline-hidden max-lg:text-[3vw] lg:rounded-[4px] lg:text-[1.13vw] 2xl:text-[17.3px]" +
+            "placeholder:text-black-300/40 rounded-[1vw] bg-white px-[9px] py-[4px] text-start outline-hidden max-lg:text-[3vw] lg:rounded-[4px] lg:text-[1.13vw] 2xl:text-[17.3px]" +
             form.className
           }
           id={idx + "_applyform"}
@@ -214,7 +214,7 @@ function FormField({ form, idx, onChange }) {
 function ProjectScopeSection() {
   return (
     <div className="my-[10px] flex flex-col">
-      <h1 className="font-lato-regular text-light-white max-lg:text-[3.7vw]/[4vw] lg:text-[1.13vw] 2xl:text-[17.3px]">
+      <h1 className="font-lato-regular text-gray-100 max-lg:text-[3.7vw]/[4vw] lg:text-[1.13vw] 2xl:text-[17.3px]">
         Project Scope
       </h1>
       <div className="flex w-full">
@@ -222,10 +222,10 @@ function ProjectScopeSection() {
           <ul key={idx} className="flex w-full flex-col max-lg:gap-[0.45vh]">
             {project.map((item) => (
               <li
-                className="flex items-center gap-[5px] font-lato-regular text-light-white max-lg:text-[3vw]/[3.2vw] lg:text-[1.13vw] 2xl:text-[17.3px]"
+                className="font-lato-regular flex items-center gap-[5px] text-gray-100 max-lg:text-[3vw]/[3.2vw] lg:text-[1.13vw] 2xl:text-[17.3px]"
                 key={item}
               >
-                <div className="mb-[3px] h-[6px] w-[6px] rounded-full bg-primary lg:h-[12px] lg:w-[12px]" />
+                <div className="mb-[3px] h-[6px] w-[6px] rounded-full bg-green-300 lg:h-[12px] lg:w-[12px]" />
                 <p className="w-full">{item}</p>
               </li>
             ))}
@@ -283,10 +283,10 @@ export default function Apply() {
         <BackgroundDecorations />
 
         {/* Content */}
-        <div className="flex h-fit w-full flex-col overflow-clip px-[50px] pb-[60px] pt-[120px] lg:gap-[2.2vw] 2xl:w-[1536px] 2xl:gap-[33.8px]">
+        <div className="flex h-fit w-full flex-col overflow-clip px-[50px] pt-[120px] pb-[60px] lg:gap-[2.2vw] 2xl:w-[1536px] 2xl:gap-[33.8px]">
           {/* Title */}
           <div className="flex w-full justify-center">
-            <h1 className="text-center font-avenir-black text-[10vw]/[10vw] text-primary lg:text-[5vw] 2xl:text-[76.8px]">
+            <h1 className="font-avenir-black text-center text-[10vw]/[10vw] text-green-300 lg:text-[5vw] 2xl:text-[76.8px]">
               Client Application Form
             </h1>
           </div>
@@ -300,7 +300,7 @@ export default function Apply() {
           >
             {/* Project Structure */}
             <div className="w-full lg:w-[40%]">
-              <div className="relative my-[2vh] flex w-full items-center justify-center bg-light-white/2 font-avenir-book text-[5vw] text-primary lg:hidden">
+              <div className="bg-light-white/2 font-avenir-book relative my-[2vh] flex w-full items-center justify-center text-[5vw] text-green-300 lg:hidden">
                 <FaPlay
                   className="scale-x-[1.05] scale-y-[1.4]"
                   onClick={() => setOpenPS(!openPS)}

@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/components/elements/Form/button";
+import { Input } from "@/components/elements/Form/input";
 import { LogOut, Search, Mail, User, Calendar, Globe, Filter, Download } from "lucide-react";
 import { createClient } from "@/integrations/supabase/client";
 import { useRouter } from "next/navigation";
@@ -170,10 +170,10 @@ export function Admin({ submissions, adminUser }) {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Total Submissions</p>
-                <p className="text-3xl font-bold text-primary">{submissions.length}</p>
+                <p className="text-3xl font-bold text-green-300">{submissions.length}</p>
               </div>
-              <div className="rounded-full bg-primary/10 p-3">
-                <Mail className="h-6 w-6 text-primary" />
+              <div className="rounded-full bg-green-300/10 p-3">
+                <Mail className="h-6 w-6 text-green-300" />
               </div>
             </div>
           </div>
@@ -182,7 +182,7 @@ export function Admin({ submissions, adminUser }) {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Today&apos;s Submissions</p>
-                <p className="text-3xl font-bold text-primary">
+                <p className="text-3xl font-bold text-green-300">
                   {
                     submissions.filter(
                       (s) => new Date(s.submitted_at).toDateString() === new Date().toDateString()
@@ -190,8 +190,8 @@ export function Admin({ submissions, adminUser }) {
                   }
                 </p>
               </div>
-              <div className="rounded-full bg-primary/10 p-3">
-                <Calendar className="h-6 w-6 text-primary" />
+              <div className="rounded-full bg-green-300/10 p-3">
+                <Calendar className="h-6 w-6 text-green-300" />
               </div>
             </div>
           </div>
@@ -200,12 +200,12 @@ export function Admin({ submissions, adminUser }) {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Unique Applicants</p>
-                <p className="text-3xl font-bold text-primary">
+                <p className="text-3xl font-bold text-green-300">
                   {new Set(submissions.map((s) => s.email)).size}
                 </p>
               </div>
-              <div className="rounded-full bg-primary/10 p-3">
-                <User className="h-6 w-6 text-primary" />
+              <div className="rounded-full bg-green-300/10 p-3">
+                <User className="h-6 w-6 text-green-300" />
               </div>
             </div>
           </div>
@@ -217,7 +217,7 @@ export function Admin({ submissions, adminUser }) {
             <div className="flex flex-1 items-center gap-4">
               <div className="flex items-center gap-4">
                 <div className="relative max-w-md flex-1">
-                  <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+                  <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-gray-400" />
                   <Input
                     placeholder="Cari nama, email, phone, fakultas, batch..."
                     value={searchTerm}
@@ -231,7 +231,7 @@ export function Admin({ submissions, adminUser }) {
                   <select
                     value={selectedPosition}
                     onChange={(e) => setSelectedPosition(e.target.value)}
-                    className="rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-primary focus:outline-hidden focus:ring-1 focus:ring-primary"
+                    className="rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-green-300 focus:ring-1 focus:ring-green-300 focus:outline-hidden"
                   >
                     <option value="all">All Positions</option>
                     {uniquePositions.map((position) => (
@@ -284,7 +284,7 @@ export function Admin({ submissions, adminUser }) {
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+                      <div className="rounded-full bg-green-300/10 px-3 py-1 text-sm font-medium text-green-300">
                         {formatDate(submission.submitted_at)}
                       </div>
                     </div>
@@ -369,7 +369,7 @@ export function Admin({ submissions, adminUser }) {
                               href={submission.first_cvLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-primary hover:underline"
+                              className="text-green-300 hover:underline"
                             >
                               View
                             </a>
@@ -384,7 +384,7 @@ export function Admin({ submissions, adminUser }) {
                               href={submission.first_documentLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-primary hover:underline"
+                              className="text-green-300 hover:underline"
                             >
                               View
                             </a>
@@ -399,7 +399,7 @@ export function Admin({ submissions, adminUser }) {
                               href={submission.first_portfolioLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-primary hover:underline"
+                              className="text-green-300 hover:underline"
                             >
                               View
                             </a>
@@ -417,22 +417,22 @@ export function Admin({ submissions, adminUser }) {
                           {submission.firstChoice === "Marketing" && (
                             <>
                               {submission.first_content && (
-                                <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-800">
+                                <span className="inline-block rounded-full bg-cyan-100 px-2 py-1 text-xs text-cyan-800">
                                   Content
                                 </span>
                               )}
                               {submission.first_graphicDesigner && (
-                                <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-800">
+                                <span className="inline-block rounded-full bg-cyan-100 px-2 py-1 text-xs text-cyan-800">
                                   Graphic Designer
                                 </span>
                               )}
                               {submission.first_videographer && (
-                                <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-800">
+                                <span className="inline-block rounded-full bg-cyan-100 px-2 py-1 text-xs text-cyan-800">
                                   Videographer
                                 </span>
                               )}
                               {submission.first_partnership && (
-                                <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-800">
+                                <span className="inline-block rounded-full bg-cyan-100 px-2 py-1 text-xs text-cyan-800">
                                   Partnership
                                 </span>
                               )}
@@ -491,7 +491,7 @@ export function Admin({ submissions, adminUser }) {
                                   href={submission.second_cvLink}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-primary hover:underline"
+                                  className="text-green-300 hover:underline"
                                 >
                                   View
                                 </a>
@@ -506,7 +506,7 @@ export function Admin({ submissions, adminUser }) {
                                   href={submission.second_documentLink}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-primary hover:underline"
+                                  className="text-green-300 hover:underline"
                                 >
                                   View
                                 </a>
@@ -521,7 +521,7 @@ export function Admin({ submissions, adminUser }) {
                                   href={submission.second_portfolioLink}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-primary hover:underline"
+                                  className="text-green-300 hover:underline"
                                 >
                                   View
                                 </a>
@@ -538,7 +538,7 @@ export function Admin({ submissions, adminUser }) {
                               href={submission.twibbonPostLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-primary hover:underline"
+                              className="text-green-300 hover:underline"
                             >
                               View
                             </a>
@@ -553,7 +553,7 @@ export function Admin({ submissions, adminUser }) {
                               href={submission.twibbonProofLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-primary hover:underline"
+                              className="text-green-300 hover:underline"
                             >
                               View
                             </a>

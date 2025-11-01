@@ -42,10 +42,10 @@ export default function Team() {
           <div className="flex min-h-[15vh] w-full flex-col justify-end bg-white px-[50px] lg:min-h-[25vh]">
             {hydrate && (
               <div className="mb-[24px] flex w-full flex-col items-center justify-center text-center">
-                <h1 className="mt-[8%] font-avenir-black text-[5vw] text-primary lg:text-[4vw]/[3.9vw] 2xl:text-[61px]/[60px]">
+                <h1 className="font-avenir-black mt-[8%] text-[5vw] text-green-300 lg:text-[4vw]/[3.9vw] 2xl:text-[61px]/[60px]">
                   Meet Our Team
                 </h1>
-                <div className="relative z-1 mt-[4%] flex aspect-383/90 w-[40%] flex-row items-center justify-center rounded-[5%/20%] border-2 border-[#58B9D1] px-[2%] py-[0.5%] text-center font-avenir-book text-[2.6vw] font-bold text-secondary outline-0 md:aspect-383/74 md:w-[36%] md:border-[3px] lg:mt-[2%] lg:w-[16%] lg:text-[1.4vw] 2xl:text-[20px]">
+                <div className="font-avenir-book relative z-1 mt-[4%] flex aspect-383/90 w-[40%] flex-row items-center justify-center rounded-[5%/20%] border-2 border-[#58B9D1] px-[2%] py-[0.5%] text-center text-[2.6vw] font-bold text-cyan-300 outline-0 md:aspect-383/74 md:w-[36%] md:border-[3px] lg:mt-[2%] lg:w-[16%] lg:text-[1.4vw] 2xl:text-[20px]">
                   <button
                     type="button"
                     value={term}
@@ -60,7 +60,7 @@ export default function Team() {
                     />
                   </button>
                   <div
-                    className={`${open ? "flex -translate-y-0 flex-col opacity-100" : "-translate-y-full opacity-0"} absolute left-0 top-[101%] z-9 h-fit w-full gap-0 rounded-b-lg border-2 border-[#58B9D1] py-[1%] transition-all duration-500 md:border-[3px]`}
+                    className={`${open ? "flex -translate-y-0 flex-col opacity-100" : "-translate-y-full opacity-0"} absolute top-[101%] left-0 z-9 h-fit w-full gap-0 rounded-b-lg border-2 border-[#58B9D1] py-[1%] transition-all duration-500 md:border-[3px]`}
                   >
                     {terms.map((item) => (
                       <button
@@ -69,7 +69,7 @@ export default function Team() {
                         type="button"
                         disabled={!open}
                         onClick={() => handleChangeTerm(item)}
-                        className="flex aspect-383/90 w-full flex-row items-center justify-center bg-[white] px-[2%] py-[0.5%] text-center font-avenir-book text-[2.6vw] font-bold text-secondary outline-0 transition-all duration-500 hover:bg-[#58B9D1] hover:text-white md:aspect-383/74 lg:text-[1.4vw] 2xl:text-[20px]"
+                        className="font-avenir-book flex aspect-383/90 w-full flex-row items-center justify-center bg-[white] px-[2%] py-[0.5%] text-center text-[2.6vw] font-bold text-cyan-300 outline-0 transition-all duration-500 hover:bg-[#58B9D1] hover:text-white md:aspect-383/74 lg:text-[1.4vw] 2xl:text-[20px]"
                       >
                         {item}
                       </button>
@@ -83,7 +83,7 @@ export default function Team() {
           <div className="relative flex h-fit min-h-[75vh] w-full flex-col items-center pb-[60px] lg:px-[130px] 2xl:mx-[50px]">
             {/* White Background */}
             <div className="absolute -z-998 h-full w-full bg-white" />
-            <h2 className="mt-[6px] font-lato-bold-italic text-[4vw] text-primary lg:text-[1.8vw]/[2vw] 2xl:text-[27.6px]/[30.7px]">
+            <h2 className="font-lato-bold-italic mt-[6px] text-[4vw] text-green-300 lg:text-[1.8vw]/[2vw] 2xl:text-[27.6px]/[30.7px]">
               {"Board of Directors"}
             </h2>
             {/* Cards Row */}

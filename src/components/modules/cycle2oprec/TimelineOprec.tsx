@@ -26,15 +26,15 @@ export function TimelineOprec() {
             alt="Star ornament"
             width={2000}
             height={2000}
-            className="absolute -left-[14.5vw] top-[9vw] w-[10.531vw] object-cover"
+            className="absolute top-[9vw] -left-[14.5vw] w-[10.531vw] object-cover"
           />
-          {/* Blue Spark positioned absolutely relative to the container */}
+          {/* cyan Spark positioned absolutely relative to the container */}
           <Image
             src="/img/store/casebook/BlueSpark.png"
             alt="180DC UGM Casebook"
             width={2000}
             height={2000}
-            className="z-5 absolute -right-[18vw] -top-[10vw] w-[24.008vw] object-cover max-lg:hidden"
+            className="absolute -top-[10vw] -right-[18vw] z-5 w-[24.008vw] object-cover max-lg:hidden"
           />
           {/* Centered Timeline image */}
           <h1 className="font-lato-bold text-[3.33vw] text-[#73B743]">Timeline</h1>

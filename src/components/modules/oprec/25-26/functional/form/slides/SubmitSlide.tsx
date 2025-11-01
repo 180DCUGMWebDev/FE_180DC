@@ -5,10 +5,10 @@ const SubmitSlide = ({ formData }) => {
   return (
     <div className="animate-fade-in space-y-6">
       <div className="text-center">
-        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-          <CheckCircle className="h-10 w-10 text-primary" />
+        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-300/10">
+          <CheckCircle className="h-10 w-10 text-green-300" />
         </div>
-        <h2 className="mb-2 font-avenir-black text-2xl leading-snug text-primary lg:text-3xl">
+        <h2 className="font-avenir-black mb-2 text-2xl leading-snug text-green-300 lg:text-3xl">
           Thank You for Submitting!
         </h2>
         <p className="font-lato-regular text-gray-600">
@@ -18,8 +18,8 @@ const SubmitSlide = ({ formData }) => {
 
       {/* Next Steps */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
-        <h3 className="mb-6 flex items-center gap-2 font-avenir-black text-xl text-gray-800">
-          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+        <h3 className="font-avenir-black mb-6 flex items-center gap-2 text-xl text-gray-800">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
             <span className="text-sm font-bold text-white">6</span>
           </div>
           Next Steps
@@ -29,7 +29,7 @@ const SubmitSlide = ({ formData }) => {
           {/* Confirm with HR Team */}
           <div className="mb-4">
             <h2 className="font-avenir-regular font-bold">Confirm with HR Team</h2>
-            <p className="mb-3 font-lato-regular text-gray-600">
+            <p className="font-lato-regular mb-3 text-gray-600">
               Please kindly confirm with our HR Team regarding your submission.
             </p>
             <p className="font-lato-bold underline">Faz: +62 813-8001-0227</p>
@@ -39,14 +39,14 @@ const SubmitSlide = ({ formData }) => {
           {/* Join Recruitment Group */}
           <div className="mb-4">
             <h2 className="font-avenir-regular font-bold">Join Our Groups</h2>
-            <p className="mb-3 font-lato-regular text-gray-600">
+            <p className="font-lato-regular mb-3 text-gray-600">
               Kindly join our Recruitment Group and 180DC&apos;s Community Group
             </p>
             <div className="space-y-2">
               <Link
                 href="https://bit.ly/180DCUGMCOMMUNITY1"
                 target="_blank"
-                className="mr-2 inline-flex items-center gap-2 rounded-md bg-secondary px-4 py-2 font-avenir-regular text-sm text-white transition-all duration-200 hover:bg-blue-700"
+                className="font-avenir-regular mr-2 inline-flex items-center gap-2 rounded-md bg-cyan-300 px-4 py-2 text-sm text-white transition-all duration-200 hover:bg-cyan-700"
               >
                 <ExternalLink className="h-4 w-4" />
                 bit.ly/180DCUGMCOMMUNITY1
@@ -54,7 +54,7 @@ const SubmitSlide = ({ formData }) => {
               <Link
                 href="https://bit.ly/180DC-FARecruitment2526"
                 target="_blank"
-                className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 font-avenir-regular text-sm text-white transition-all duration-200 hover:bg-blue-800"
+                className="font-avenir-regular inline-flex items-center gap-2 rounded-md bg-green-300 px-4 py-2 text-sm text-white transition-all duration-200 hover:bg-cyan-800"
               >
                 <ExternalLink className="h-4 w-4" />
                 bit.ly/180DC-FARecruitment2526
@@ -65,7 +65,7 @@ const SubmitSlide = ({ formData }) => {
           {/* Email Results */}
           <div className="mb-4">
             <h2 className="font-avenir-regular font-bold">Monitor Your Email</h2>
-            <p className="mb-3 font-lato-regular text-gray-600">
+            <p className="font-lato-regular mb-3 text-gray-600">
               Please monitor your email regularly, as we will further announce our decision via
               email. We wish you the best of luck!
             </p>
@@ -75,8 +75,8 @@ const SubmitSlide = ({ formData }) => {
 
       {/* Application Summary */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
-        <h3 className="mb-6 flex items-center gap-2 font-avenir-black text-xl text-gray-800">
-          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+        <h3 className="font-avenir-black mb-6 flex items-center gap-2 text-xl text-gray-800">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
             <span className="text-sm font-bold text-white">7</span>
           </div>
           Application Summary

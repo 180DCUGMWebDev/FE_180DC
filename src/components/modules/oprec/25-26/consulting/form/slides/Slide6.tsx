@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/elements/Form/button";
 import { ChevronRight, User, GraduationCap, Briefcase, Upload, Loader2 } from "lucide-react";
 import Link from "next/link";
 
@@ -35,7 +35,7 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
   return (
     <form onSubmit={handleSubmit} className="animate-fade-in space-y-6">
       <div className="text-center">
-        <h2 className="mb-1 mt-2 font-avenir-black text-2xl leading-snug text-primary lg:text-3xl">
+        <h2 className="font-avenir-black mt-2 mb-1 text-2xl leading-snug text-green-300 lg:text-3xl">
           Review Your Application
         </h2>
         <p className="font-lato-regular text-gray-600">
@@ -46,8 +46,8 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
       {/* Personal Information */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <div className="mb-4 flex items-center justify-between">
-          <h3 className="flex items-center gap-2 font-avenir-black text-xl text-gray-800">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+          <h3 className="font-avenir-black flex items-center gap-2 text-xl text-gray-800">
+            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
               <User className="h-3 w-3 text-white" />
             </div>
             Personal Information
@@ -55,7 +55,9 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           <div>
-            <span className="font-avenir-regular text-sm font-medium text-gray-700">Full Name:</span>
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">
+              Full Name:
+            </span>
             <p className="font-lato-regular text-gray-600">{formData.name || "Not provided"}</p>
           </div>
           <div>
@@ -100,8 +102,8 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
       {/* Alumni Information */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <div className="mb-4 flex items-center justify-between">
-          <h3 className="flex items-center gap-2 font-avenir-black text-xl text-gray-800">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+          <h3 className="font-avenir-black flex items-center gap-2 text-xl text-gray-800">
+            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
               <GraduationCap className="h-3 w-3 text-white" />
             </div>
             Alumni Information
@@ -146,8 +148,8 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
       {/* Position & Motivation */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <div className="mb-4 flex items-center justify-between">
-          <h3 className="flex items-center gap-2 font-avenir-black text-xl text-gray-800">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+          <h3 className="font-avenir-black flex items-center gap-2 text-xl text-gray-800">
+            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
               <Briefcase className="h-3 w-3 text-white" />
             </div>
             Position & Motivation
@@ -180,7 +182,7 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
                   href={formData.documentLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-green-300 hover:underline"
                 >
                   View Document
                 </Link>
@@ -199,7 +201,7 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
                   href={formData.cvLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-green-300 hover:underline"
                 >
                   View CV
                 </Link>
@@ -214,8 +216,8 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
       {/* Documents & Information */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <div className="mb-4 flex items-center justify-between">
-          <h3 className="flex items-center gap-2 font-avenir-black text-xl text-gray-800">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
+          <h3 className="font-avenir-black flex items-center gap-2 text-xl text-gray-800">
+            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
               <Upload className="h-3 w-3 text-white" />
             </div>
             Documents & Information
@@ -232,7 +234,7 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
                   href={formData.twibbonPost}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-green-300 hover:underline"
                 >
                   View Post
                 </Link>
@@ -251,7 +253,7 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
                   href={formData.instagramProofLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-green-300 hover:underline"
                 >
                   View Proof
                 </Link>
@@ -270,7 +272,7 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
                   href={formData.registrationProofLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-green-300 hover:underline"
                 >
                   View Registration Proof
                 </Link>
@@ -325,7 +327,7 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
         <Button
           type="submit"
           disabled={!isValid || isSubmitting}
-          className="flex items-center gap-2 bg-primary font-avenir-regular text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90 disabled:text-black disabled:opacity-50 disabled:hover:scale-100"
+          className="font-avenir-regular disabled:text-black-300 flex items-center gap-2 bg-green-300 text-white transition-all duration-200 hover:scale-105 hover:bg-green-300/90 disabled:opacity-50 disabled:hover:scale-100"
         >
           {isSubmitting ? (
             <>

@@ -17,7 +17,7 @@ export default function HeroPage() {
         alt="Decorative Element"
         width={2000}
         height={2000}
-        className="absolute left-[10%] top-[30%] z-20 h-[49.07vw] w-[68.27vw] lg:right-[20.3vw] lg:top-0 lg:h-[26.82vw] lg:w-[37.29vw]"
+        className="absolute top-[30%] left-[10%] z-20 h-[49.07vw] w-[68.27vw] lg:top-0 lg:right-[20.3vw] lg:h-[26.82vw] lg:w-[37.29vw]"
       />
 
       <Image
@@ -25,7 +25,7 @@ export default function HeroPage() {
         alt="Decorative Element"
         width={2000}
         height={2000}
-        className="absolute -right-[32vw] top-[30%] z-20 h-[49.07vw] w-[68.27vw] lg:-right-[15%] lg:top-0 lg:h-[26.82vw] lg:w-[37.29vw]"
+        className="absolute top-[30%] -right-[32vw] z-20 h-[49.07vw] w-[68.27vw] lg:top-0 lg:-right-[15%] lg:h-[26.82vw] lg:w-[37.29vw]"
       />
 
       <Image
@@ -33,7 +33,7 @@ export default function HeroPage() {
         alt="Decorative Element"
         width={2000}
         height={2000}
-        className="absolute bottom-[30%] z-20 h-[49.07vw] w-[68.27vw] lg:bottom-[10%] lg:right-[10%] lg:h-[26.82vw] lg:w-[37.29vw]"
+        className="absolute bottom-[30%] z-20 h-[49.07vw] w-[68.27vw] lg:right-[10%] lg:bottom-[10%] lg:h-[26.82vw] lg:w-[37.29vw]"
       />
 
       <div className="relative z-30 flex min-h-screen items-center justify-center">
@@ -54,7 +54,7 @@ export default function HeroPage() {
           />
 
           <div className="mt-8 max-lg:hidden">
-            <p className="max-w-2xl font-lato-semibold text-xl text-white lg:text-2xl">
+            <p className="font-lato-semibold max-w-2xl text-xl text-white lg:text-2xl">
               Calling all aspiring consultants and changemakers!
               <br />
               Join 180DC UGM and leave your mark.
@@ -62,7 +62,7 @@ export default function HeroPage() {
           </div>
 
           <div className="mt-6 lg:hidden">
-            <p className="max-w-sm font-lato-semibold text-base text-white">
+            <p className="font-lato-semibold max-w-sm text-base text-white">
               Calling all aspiring consultants and changemakers!
               <br />
               Join 180DC UGM and leave your mark.
@@ -70,10 +70,10 @@ export default function HeroPage() {
           </div>
           {/* Scroll Down [DESKTOP] */}
           <div className="flex flex-col items-center outline-0">
-            <h2 className="mt-[1.4vw] font-lato-bold text-[12px] text-light-white">
+            <h2 className="font-lato-bold mt-[1.4vw] text-[12px] text-gray-100">
               {"SCROLL DOWN TO ACCESS GUIDEBOOK AND REGISTRATION"}
             </h2>
-            <FaChevronDown className="animate-moving-pointer text-[1.4vw] text-light-white" />
+            <FaChevronDown className="animate-moving-pointer text-[1.4vw] text-gray-100" />
           </div>
         </div>
       </div>

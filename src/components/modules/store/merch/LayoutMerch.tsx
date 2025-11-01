@@ -9,7 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./merch.css";
 import products from "./products";
-import Button180 from "@/components/element/Button";
+import Button180 from "@/components/elements/Button180";
 
 const LayoutMerch = () => {
   return (
@@ -22,7 +22,7 @@ const LayoutMerch = () => {
           alt="180DC UGM Casebook"
           width={2000}
           height={2000}
-          className="absolute -right-[1vw] -top-[2vw] z-0 w-[14.008vw] object-cover max-lg:hidden"
+          className="absolute -top-[2vw] -right-[1vw] z-0 w-[14.008vw] object-cover max-lg:hidden"
         />
       </div>
 
@@ -68,7 +68,7 @@ const LayoutMerch = () => {
                   />
                 </div>
                 {/* Product Name */}
-                <b className="w-[80%] text-left text-lg text-black max-lg:mt-[4vw] max-lg:text-[3.2vw]">
+                <b className="text-black-300 w-[80%] text-left text-lg max-lg:mt-[4vw] max-lg:text-[3.2vw]">
                   {item.name}
                 </b>
                 {/* Product Price */}

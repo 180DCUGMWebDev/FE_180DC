@@ -1,35 +1,40 @@
 /** @type {import('next').NextConfig} */
-// const webpack = require("webpack");
+const { withPayload } = require("@payloadcms/next/withPayload");
 
-module.exports = {
+const nextConfig = {
   reactStrictMode: false,
+  turbopack: {},
   images: {
     remotePatterns: [
       {
         protocol: "https",
         hostname: "www.shutterstock.com",
-        port: "",
         pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "goldfish-app-38lif.ondigitalocean.app",
-        port: "",
         pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "utfs.io",
-        port: "",
         pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "strapi.180dcugm.org",
-        port: "",
         pathname: "/uploads/**",
       },
     ],
   },
-  // crossOrigin: "anonymous",
+
+  webpack: (config) => {
+    // Set mainFields order for module resolution
+    config.resolve.mainFields = ["browser", "module", "main"];
+
+    return config;
+  },
 };
+
+module.exports = withPayload(nextConfig);

@@ -3,23 +3,24 @@ import { toast } from "react-toastify";
 // Background Function
 export const createBackground = (theme, className = "") => {
   const bgTheme =
-    theme === "light" ? " bg-white " : theme === "dark" ? " bg-black " : " bg-primary ";
+    theme === "light" ? " bg-white " : theme === "dark" ? " bg-black-300 " : " bg-green-300 ";
 
   return (
-    <div className={"absolute left-0 top-0 -z-999 h-full w-full " + bgTheme + " " + className} />
+    <div className={"absolute top-0 left-0 -z-999 h-full w-full " + bgTheme + " " + className} />
   );
 };
 
 // Copy Function
 export const copyContent = (content, context) => {
   // Toasters
-  navigator.clipboard.writeText(content)
+  navigator.clipboard
+    .writeText(content)
     .then(() => {
       toast.success(context + " sucessfully copied!");
     })
     .catch((err) => {
       toast.error("Failed to copy " + context);
-    })
+    });
 };
 
 // Routing Function

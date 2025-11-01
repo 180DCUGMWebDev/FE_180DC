@@ -1,18 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import Button180 from "@/components/element/Button";
+import Button180 from "@/components/elements/Button180";
 
 export default function Guidebook() {
   return (
-    <section className="relative w-full bg-gray-900 px-[5%] pb-10 pt-20 sm:px-[10%] lg:px-[4%]">
+    <section className="relative w-full bg-gray-900 px-[5%] pt-20 pb-10 sm:px-[10%] lg:px-[4%]">
       <div className="relative flex flex-col md:flex-row md:items-center">
         <div className="mb-12 text-center">
           <div>
-            <h2 className="mb-4 font-avenir-black text-3xl text-white sm:text-4xl lg:text-5xl">
-              Recruitment <span className="text-primary">Guidebook</span>
+            <h2 className="font-avenir-black mb-4 text-3xl text-white sm:text-4xl lg:text-5xl">
+              Recruitment <span className="text-green-300">Guidebook</span>
             </h2>
-            <p className="mx-auto max-w-2xl font-lato-regular text-lg text-white/70">
+            <p className="font-lato-regular mx-auto max-w-2xl text-lg text-white/70">
               Download and read our comprehensive guidebook to understand the recruitment process
               and requirements.
             </p>
@@ -50,7 +50,7 @@ export default function Guidebook() {
             width="100%"
             height="600"
             title="180DC Recruitment Guidebook"
-            className="h-[70vh] w-full rounded-lg bg-white pointer-events-none group-hover:pointer-events-auto"
+            className="pointer-events-none h-[70vh] w-full rounded-lg bg-white group-hover:pointer-events-auto"
             style={{ border: "none" }}
             loading="lazy"
             tabIndex={-1}

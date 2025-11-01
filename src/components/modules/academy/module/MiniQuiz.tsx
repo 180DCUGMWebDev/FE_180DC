@@ -1,5 +1,5 @@
 "use client";
-import Button180 from "@/components/element/Button";
+import Button180 from "@/components/elements/Button180";
 import React, { useState, useEffect, useMemo } from "react";
 
 export default function MiniQuiz() {
@@ -42,7 +42,7 @@ export default function MiniQuiz() {
         answerKey: 0,
       },
     ],
-    [],
+    []
   );
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -85,16 +85,16 @@ export default function MiniQuiz() {
   };
 
   return (
-    <section className="bg-black px-[9%]">
+    <section className="bg-black-300 px-[9%]">
       <div className="relative mt-[9.92vw] flex flex-col rounded-[16px] bg-white px-[6%] py-[6%] lg:p-[3.333vw]">
         <div className="flex flex-col">
-          <h2 className="font-lato-bold text-[8vw] text-primary lg:text-[2.083vw]">Mini Quiz</h2>
-          <h2 className="font-lato-bold text-[4vw] text-black lg:text-[1.25vw]">
+          <h2 className="font-lato-bold text-[8vw] text-green-300 lg:text-[2.083vw]">Mini Quiz</h2>
+          <h2 className="font-lato-bold text-black-300 text-[4vw] lg:text-[1.25vw]">
             Question {currentQuestion.number}/5
           </h2>
         </div>
 
-        <div className="mx-auto my-[2vw] flex w-full flex-col rounded-[16px] bg-primary px-[6%] py-[6%] lg:my-0 lg:-mt-[5vw] lg:min-h-[40.729vw] lg:w-[36.406vw] lg:rounded-[0.625vw] lg:p-[2.083vw]">
+        <div className="mx-auto my-[2vw] flex w-full flex-col rounded-[16px] bg-green-300 px-[6%] py-[6%] lg:my-0 lg:-mt-[5vw] lg:min-h-[40.729vw] lg:w-[36.406vw] lg:rounded-[0.625vw] lg:p-[2.083vw]">
           {isQuizCompleted ? (
             <div className="flex grow flex-col">
               <p className="text-[4vw] font-bold text-white lg:text-[1.25vw]">Result</p>
@@ -147,7 +147,7 @@ export default function MiniQuiz() {
           {questionAnswer.map((_, index) => (
             <div
               key={index}
-              className={`h-4 w-4 rounded-full ${index <= currentQuestionIndex ? "bg-black" : "bg-gray-300"}`}
+              className={`h-4 w-4 rounded-full ${index <= currentQuestionIndex ? "bg-black-300" : "bg-gray-300"}`}
             />
           ))}
         </div>

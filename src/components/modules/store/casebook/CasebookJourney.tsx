@@ -63,16 +63,16 @@ export default function CasebookJourney() {
                 alt="background"
                 width={2000}
                 height={2000}
-                className="absolute -left-[5vw] top-[3vw] z-0 h-[35.313vw] w-[1.446vw] object-cover max-lg:hidden"
+                className="absolute top-[3vw] -left-[5vw] z-0 h-[35.313vw] w-[1.446vw] object-cover max-lg:hidden"
               />
               <div className="mb-[2vw] h-[15.625vw] w-[47.917vw] rounded-[1.25vw] bg-white px-[2vw] py-[2vw]">
-                <h1 className="mt-[0.5vw] font-avenir-black text-[1.35vw] text-[#6FAA26]">
+                <h1 className="font-avenir-black mt-[0.5vw] text-[1.35vw] text-[#6FAA26]">
                   August 2021
                 </h1>
-                <h1 className="mt-[0.1vw] font-avenir-black text-[1.867vw] text-[#58B9D1]">
+                <h1 className="font-avenir-black mt-[0.1vw] text-[1.867vw] text-[#58B9D1]">
                   Our Mini Casebook was published.
                 </h1>
-                <h1 className="mt-[0.8vw] w-[42.917vw] font-lato-regular text-[1.25vw]/[1.35vw] text-black">
+                <h1 className="font-lato-regular text-black-300 mt-[0.8vw] w-[42.917vw] text-[1.25vw]/[1.35vw]">
                   180 DC UGM Mini Casebook is our initial version of delivering Consulting 101
                   materials, as well as case interview practices and a step-by-step guide on how to
                   solve a typical business case, which was loved by thousands of you
@@ -80,13 +80,13 @@ export default function CasebookJourney() {
               </div>
 
               <div className="mb-[2vw] h-[20.521vw] w-[47.917vw] rounded-[1.25vw] bg-white px-[2vw] py-[2vw]">
-                <h1 className="mt-[0.5vw] font-avenir-black text-[1.35vw] text-[#6FAA26]">
+                <h1 className="font-avenir-black mt-[0.5vw] text-[1.35vw] text-[#6FAA26]">
                   January 2024 - Now
                 </h1>
-                <h1 className="mt-[0.1vw] font-avenir-black text-[1.867vw] text-[#58B9D1]">
+                <h1 className="font-avenir-black mt-[0.1vw] text-[1.867vw] text-[#58B9D1]">
                   Introducing Casebook Vol.2
                 </h1>
-                <h1 className="mt-[0.8vw] w-[42.917vw] font-lato-regular text-[1.25vw]/[1.35vw] text-black">
+                <h1 className="font-lato-regular text-black-300 mt-[0.8vw] w-[42.917vw] text-[1.25vw]/[1.35vw]">
                   Casebook Vol 2 aims to provide a walkthrough for readers on getting into
                   Consulting companies, including CV, Cover Letter, and especially case-based
                   interviews. In this newest version of 180DC UGM’s Casebook, SMEs in Yogyakarta
@@ -100,9 +100,9 @@ export default function CasebookJourney() {
         </div>
 
         {/* Mobile */}
-        <div className="z-2 mb-[6.372vw] mt-[6.372vw] flex w-full flex-col items-center lg:hidden">
+        <div className="z-2 mt-[6.372vw] mb-[6.372vw] flex w-full flex-col items-center lg:hidden">
           <div className="flex w-full flex-col items-center justify-center">
-            <div className="flex flex-col items-center justify-center mb-[7vw]">
+            <div className="mb-[7vw] flex flex-col items-center justify-center">
               <h1 className="font-avenir-heavy text-[6.154vw]/[6.3vw] text-white">CASEBOOK</h1>
               <h1 className="font-avenir-heavy text-[6.154vw]/[6.3vw] text-white">Journey</h1>
             </div>
@@ -113,16 +113,16 @@ export default function CasebookJourney() {
                 alt="background"
                 width={2000}
                 height={2000}
-                className="absolute -left-[7vw] top-[6vw] z-0 h-[132.308vw] w-[4.103vw] object-cover lg:hidden"
+                className="absolute top-[6vw] -left-[7vw] z-0 h-[132.308vw] w-[4.103vw] object-cover lg:hidden"
               />
               <div className="mb-[4vw] h-[54.103vw] w-[79.487vw] rounded-[3.077vw] bg-white px-[5vw] py-[2vw]">
-                <h1 className="mt-[2.5vw] font-avenir-black text-[3.377vw] text-[#6FAA26]">
+                <h1 className="font-avenir-black mt-[2.5vw] text-[3.377vw] text-[#6FAA26]">
                   August 2021
                 </h1>
-                <h1 className="mt-[0.1vw] font-avenir-black text-[3.79vw] text-[#58B9D1]">
+                <h1 className="font-avenir-black mt-[0.1vw] text-[3.79vw] text-[#58B9D1]">
                   Our Mini Casebook was published.
                 </h1>
-                <h1 className="mt-[2.8vw] w-[69.231vw] font-lato-bold text-[3.79vw]/[4.5vw] text-black">
+                <h1 className="font-lato-bold text-black-300 mt-[2.8vw] w-[69.231vw] text-[3.79vw]/[4.5vw]">
                   180 DC UGM Mini Casebook is our initial version of delivering Consulting 101
                   materials, as well as case interview practices and a step-by-step guide on how to
                   solve a typical business case, which was loved by thousands of you
@@ -130,13 +130,13 @@ export default function CasebookJourney() {
               </div>
 
               <div className="w-[79.487vw]] mb-[2vw] h-[80.256vw] rounded-[3.077vw] bg-white px-[5vw] py-[2vw]">
-                <h1 className="mt-[2.5vw] font-avenir-black text-[3.377vw] text-[#6FAA26]">
+                <h1 className="font-avenir-black mt-[2.5vw] text-[3.377vw] text-[#6FAA26]">
                   January 2024 - Now
                 </h1>
-                <h1 className="mt-[0.1vw] font-avenir-black text-[3.79vw] text-[#58B9D1]">
+                <h1 className="font-avenir-black mt-[0.1vw] text-[3.79vw] text-[#58B9D1]">
                   Introducing Casebook Vol.2
                 </h1>
-                <h1 className="mt-[4    .8vw] w-[69.231vw] font-lato-bold text-[3.79vw]/[4.5vw] text-black ">
+                <h1 className="mt-[4 .8vw] font-lato-bold text-black-300 w-[69.231vw] text-[3.79vw]/[4.5vw]">
                   Casebook Vol 2 aims to provide a walkthrough for readers on getting into
                   Consulting companies, including CV, Cover Letter, and especially case-based
                   interviews. In this newest version of 180DC UGM’s Casebook, SMEs in Yogyakarta
