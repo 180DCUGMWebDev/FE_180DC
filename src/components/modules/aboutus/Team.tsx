@@ -13,7 +13,7 @@ import BoDCard from "./BoDCard";
 
 export default function Team() {
   // Content
-  const terms = ["2024/2025", "2023/2024"];
+  const terms = ["2025/2026", "2024/2025", "2023/2024"];
   const [term, setTerm] = useState(terms[0]);
   const [open, setOpen] = useState(false);
   const [hydrate, setHydrate] = useState(false);
