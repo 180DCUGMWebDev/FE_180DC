@@ -25,7 +25,7 @@ export function Telescopes({ articles, subscribeScrollRef = null }) {
     carouselApiRef.current.on("select", () => {
       setSlide(carouselApiRef.current.selectedScrollSnap());
     });
-  }, [carouselApiRef.current]);
+  }, []);
 
   const scrollPrev = () => {
     carouselApiRef.current?.scrollPrev();
