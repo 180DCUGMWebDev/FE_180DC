@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { getPayload } from "payload";
 import config from "@payload-config";
 
-
 export default async function TelescopePage() {
   const payload = await getPayload({ config });
 
