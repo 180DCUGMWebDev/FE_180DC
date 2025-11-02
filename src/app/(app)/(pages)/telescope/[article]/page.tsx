@@ -71,7 +71,7 @@ export default function Article({ params }: { params: Promise<{ article: string 
         {/* Article */}
         <div className="mt-[20px] text-justify text-[3.3vw] lg:text-[1.2vw]">
           <ReactMarkdown components={MdxComponents} rehypePlugins={[rehypeRaw]}>
-            {article.content || article.description || ""}
+            {String(article.content || article.description || "")}
           </ReactMarkdown>
         </div>
         <div className="font-avenir-black mt-[20px] flex flex-col text-[5vw] lg:text-[2.5vw]">
