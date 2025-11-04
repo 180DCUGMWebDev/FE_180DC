@@ -5,7 +5,7 @@ import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const Button180Variants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[14px] font-lato-regular transition-all duration-300 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap  font-lato-regular transition-all duration-300 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       color: {
@@ -24,10 +24,10 @@ const Button180Variants = cva(
           "bg-transparent text-current hover:bg-gray-100/10 shadow-md hover:shadow-lg border-gray-300",
       },
       size: {
-        sm: "px-6 py-2 text-sm border-b-[2px] border-r-[1px]",
-        md: "px-8 py-3 text-base border-b-[3px] border-r-[2px]",
-        lg: "px-10 py-4 text-lg border-b-[4px] border-r-[3px]",
-        icon: "h-14 w-14 border-b-[1px] border-r-[1px]",
+        sm: "px-6 py-2 text-sm border-b-[2px] border-r-[1px] rounded-[10px]",
+        md: "px-8 py-3 text-base border-b-[3px] border-r-[2px] rounded-[14px]",
+        lg: "px-9 py-3 text-lg border-b-[4px] border-r-[3px] rounded-[18px]",
+        icon: "h-14 w-14 border-b-[1px] border-r-[1px] rounded-[10px]",
       },
     },
     defaultVariants: {
@@ -39,6 +39,7 @@ const Button180Variants = cva(
 
 export interface Button180Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: "green" | "lime" | "gray" | "cyan" | "blue" | "black" | "white" | "red" | "transparent";
+  size?: "sm" | "md" | "lg" | "icon";
   text?: React.ReactNode;
   icon?: React.ReactNode;
   action?: ((e: React.MouseEvent<HTMLButtonElement>) => void) | null;
@@ -49,6 +50,7 @@ export interface Button180Props extends React.ButtonHTMLAttributes<HTMLButtonEle
 
 export default function Button180({
   color = "green",
+  size = "sm",
   text,
   icon,
   action = null,
@@ -73,7 +75,7 @@ export default function Button180({
   return (
     <button
       className={cn(
-        Button180Variants({ color: color as any, size: "sm" }),
+        Button180Variants({ color: color as any, size: size as any }),
         addClass,
         "font-avenir-regular cursor-pointer",
         icon && "group relative overflow-hidden",

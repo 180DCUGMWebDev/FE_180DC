@@ -29,13 +29,13 @@ export function Hero({ contactRef }) {
           {/* Hero Content */}
           <div className="relative z-20 flex h-fit w-full text-white max-lg:pb-[20px] lg:h-1/2 lg:justify-between">
             {/* Kolom Kiri */}
-            <div className="flex w-full flex-col justify-between max-lg:items-center max-lg:gap-[15px] lg:w-[54%]">
+            <div className="flex w-full flex-col gap-10 max-lg:items-center lg:w-[54%]">
               {/* Teks */}
               <div className="flex flex-col gap-2 max-lg:items-center">
-                <div className="font-avenir-black text-3xl max-lg:text-center max-lg:text-green-300 sm:text-4xl lg:text-6xl xl:text-7xl 2xl:text-[80px]">
+                <div className="font-avenir-black text-2xl max-lg:text-center max-lg:text-green-300 sm:text-3xl lg:text-5xl xl:text-6xl">
                   Providing Perfect Solutions For Your Own Business.
                 </div>
-                <div className="font-lato-regular w-[90%] text-xs max-lg:text-center sm:text-base lg:w-[72%] lg:text-xl xl:text-2xl 2xl:text-[26px]">
+                <div className="font-lato-regular w-[90%] text-xs max-lg:text-center sm:text-sm lg:w-[72%] lg:text-lg xl:text-xl">
                   UGM branch of the world&apos;s largest student-led consultancy for non-profits &
                   social enterprises.
                 </div>
@@ -43,11 +43,12 @@ export function Hero({ contactRef }) {
               {/* Tombol */}
               <div className="flex gap-8 max-lg:w-full max-lg:justify-center">
                 <Link href="/apply" className="max-lg:max-w-[200px]">
-                  <Button180 color="green" text="Consult Now!" icon={<ArrowUpRight />} />
+                  <Button180 size="lg" color="green" text="Consult Now!" icon={<ArrowUpRight />} />
                 </Link>
                 <Button180
                   color="green"
                   text="Contact Us"
+                  size="lg"
                   action={() => contactRef.current.scrollIntoView({ behavior: "smooth" })}
                 />
               </div>

@@ -4,6 +4,10 @@ import Services from "@/components/modules/aboutus/Services";
 import Team from "@/components/modules/aboutus/Team";
 import LookForward from "@/components/layout/LookForward";
 
+export const metadata = {
+  title: "About Us | 180 Degrees Consulting UGM",
+};
+
 export default async function AboutUs() {
   return (
     <main>

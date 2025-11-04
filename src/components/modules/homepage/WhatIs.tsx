@@ -2,6 +2,7 @@ import Image from "next/image";
 import Button180 from "@/components/elements/Button180";
 import Link from "next/link";
 import Container from "@/components/layout/Container";
+import { AiOutlineArrowRight } from "react-icons/ai";
 
 export function WhatIs() {
   return (
@@ -36,10 +37,10 @@ export function WhatIs() {
             </div>
           </div>
           <Link href="/aboutus" className="max-lg:hidden">
-            <Button180 color="black" text="Read More" />
+            <Button180 color="black" text="Read More" icon={<AiOutlineArrowRight />} />
           </Link>
           <Link href="/aboutus" className="lg:hidden">
-            <Button180 color="green" text="Read More" />
+            <Button180 color="green" text="Read More" icon={<AiOutlineArrowRight />} />
           </Link>
         </div>
       </div>

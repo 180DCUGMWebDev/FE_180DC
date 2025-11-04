@@ -204,7 +204,7 @@ export interface Telescope {
 export interface Link {
   id: number;
   /**
-   * Contoh: "instagram" untuk 180dcugm.com/go/instagram
+   * Contoh: "instagram" untuk 180dcugm.com/instagram
    */
   slug: string;
   /**

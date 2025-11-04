@@ -4,6 +4,7 @@ import { FaBriefcase } from "react-icons/fa";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";
+import Container from "@/components/layout/Container";
 
 export default function VisMis() {
   // Values
@@ -34,14 +35,14 @@ export default function VisMis() {
       <div id="vismis" className="flex grow flex-col max-lg:w-[94%]">
         {/* Title */}
         <div className="flex items-end max-lg:items-end">
-          <FaBriefcase className="text-[5vw] text-green-300 max-lg:rotate-[8deg] lg:text-[50px]" />
-          <p className="font-lato-bold-italic ml-[2vw] text-[3vw]/[2.5vw] text-gray-100 lg:ml-[20px] lg:text-[2vw]/[1.9vw] 2xl:text-[31px]/[29px]">
+          <FaBriefcase className="text-[16px] text-green-300 max-lg:rotate-[8deg] lg:text-[32px]" />
+          <p className="font-lato-bold-italic ml-[6px] text-[10px]/[8px] text-gray-100 lg:ml-[12px] lg:text-[20px]/[19px] 2xl:text-[24px]/[23px]">
             {title}
           </p>
         </div>
         {/* Content */}
-        <div className="mt-[2vw] lg:mt-[20px]">
-          <p className="font-lato-regular text-justify text-[2.8vw]/[3.3vw] text-gray-100 lg:text-[1.3vw]/[1.7vw] 2xl:text-[20px]/[26px]">
+        <div className="mt-[6px] lg:mt-[12px]">
+          <p className="font-lato-regular text-justify text-[9px]/[11px] text-gray-100 lg:text-[14px]/[18px] 2xl:text-[16px]/[20px]">
             {content}
           </p>
         </div>
@@ -51,16 +52,13 @@ export default function VisMis() {
 
   // Page
   return (
-    <section className="relative">
-      {/* Background */}
-      {createBackground("dark")}
-
+    <Container color="dark">
       {/* Content */}
-      <div className="flex h-fit w-full items-center justify-center max-lg:py-[8vh] lg:h-screen">
-        <div className="flex flex-col items-center justify-center px-[6vw] 2xl:w-[1536px] 2xl:px-[100px]">
+      <div className="flex h-fit w-full items-center justify-center max-lg:py-[48px]">
+        <div className="flex flex-col items-center justify-center px-[20px] 2xl:w-[1536px] 2xl:px-[80px]">
           {/* Title */}
           <div className="w-full">
-            <h1 className="font-avenir-black text-center text-[8vw]/[7.2vw] text-gray-100 lg:text-[4vw]/[3.8vw] lg:text-green-300 2xl:text-[61px]/[58px]">
+            <h1 className="font-avenir-black text-center text-[26px]/[24px] text-gray-100 lg:text-[48px]/[46px] lg:text-green-300 2xl:text-[52px]/[50px]">
               {"180DC UGM"}
               <br />
               <span className="max-lg:text-cyan-300">{"Vision"}</span>
@@ -69,29 +67,29 @@ export default function VisMis() {
             </h1>
           </div>
           {/* Vision */}
-          <div className="mt-[40px] flex w-full max-lg:flex max-lg:h-fit max-lg:items-center">
-            <h2 className="font-avenir-black w-[14.2%] text-[2.3vw]/[1.9vw] text-cyan-300 max-lg:hidden 2xl:text-[35px]/[29px]">
+          <div className="mt-[28px] flex w-full max-lg:flex max-lg:h-fit max-lg:items-center">
+            <h2 className="font-avenir-black w-[14.2%] text-[24px]/[20px] text-cyan-300 max-lg:hidden 2xl:text-[28px]/[24px]">
               {"Vision"}
             </h2>
-            <div className="flex h-[10vw] w-[6%] justify-start lg:hidden">
-              <div className="h-full w-[60%] rounded-[4vw] bg-cyan-300" />
+            <div className="flex h-[32px] w-[6%] justify-start lg:hidden">
+              <div className="h-full w-[60%] rounded-[12px] bg-cyan-300" />
             </div>
-            <p className="font-lato-regular w-[94%] text-justify text-[2.8vw]/[3.3vw] text-gray-100 lg:w-[85.8%] lg:text-[1.5vw]/[2vw] 2xl:text-[23px]/[30px]">
+            <p className="font-lato-regular w-[94%] text-justify text-[9px]/[11px] text-gray-100 lg:w-[85.8%] lg:text-[16px]/[22px] 2xl:text-[18px]/[24px]">
               {vision}
             </p>
           </div>
           {/* Mision */}
-          <div className="flex w-full lg:mt-[28px]">
-            <h2 className="font-avenir-black w-[14.2%] text-[2.3vw]/[1.9vw] text-cyan-300 max-lg:hidden 2xl:text-[35px]/[29px]">
+          <div className="flex w-full lg:mt-[20px]">
+            <h2 className="font-avenir-black w-[14.2%] text-[24px]/[20px] text-cyan-300 max-lg:hidden 2xl:text-[28px]/[24px]">
               {"Mision"}
             </h2>
-            <div className="flex w-full flex-col gap-[2.5vw] max-lg:mt-[2.5vw] lg:w-[85.8%] lg:flex-row lg:gap-[120px]">
+            <div className="flex w-full flex-col gap-[8px] max-lg:mt-[8px] lg:w-[85.8%] lg:flex-row lg:gap-[60px]">
               {titles.map((title, idx) => {
                 return (
                   <div key={title + "_" + idx} className="max-lg:flex">
                     {/* Bar Left MOBILE */}
-                    <div className="flex h-[16.7vw] w-[6%] justify-start lg:hidden">
-                      <div className="h-full w-[60%] rounded-[4vw] bg-green-300" />
+                    <div className="flex h-[54px] w-[6%] justify-start lg:hidden">
+                      <div className="h-full w-[60%] rounded-[12px] bg-green-300" />
                     </div>
                     {missionFormat(title, values[idx])}
                   </div>
@@ -101,6 +99,6 @@ export default function VisMis() {
           </div>
         </div>
       </div>
-    </section>
+    </Container>
   );
 }

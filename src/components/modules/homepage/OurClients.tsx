@@ -9,7 +9,7 @@ export function OurClients() {
   return (
     <Container>
       {/* Our Previous Clients */}
-      <div className="relative mt-[32px] h-fit w-[96%] max-lg:py-5 lg:h-[240px]">
+      <div className="relative h-fit w-full lg:h-[180px]">
         <Image
           src="/img/homepage/clients.png"
           alt="Clients"
@@ -22,18 +22,10 @@ export function OurClients() {
             Our Previous Clients
           </div>
           <Link href="/portofolio" className="max-lg:hidden">
-            <Button180
-              color="black"
-              text={
-                <>
-                  <div>Read More</div>
-                  <AiOutlineArrowRight />
-                </>
-              }
-            />
+            <Button180 color="black" text="Read More" icon={<AiOutlineArrowRight />} />
           </Link>
           <Link href="/portofolio" className="lg:hidden">
-            <Button180 color="green" text={<HiOutlineArrowUpRight />} />
+            <Button180 color="green" icon={<HiOutlineArrowUpRight />} />
           </Link>
         </div>
       </div>
@@ -45,7 +37,7 @@ export function OurClients() {
         <div className="flex items-center gap-[16px] max-lg:flex-col lg:h-[300px] lg:gap-[40px]">
           <Link
             className="group relative flex h-full w-full flex-1 items-center overflow-hidden rounded-lg max-lg:max-h-[300px]"
-            href="/telescope/oersonalization-why-brand-knows-you-better-than-your-bestie"
+            href="/telescope/personalization-why-brand-knows-you-better-than-your-bestie"
           >
             <Image
               src="/img/homepage/Website_Cover.png"

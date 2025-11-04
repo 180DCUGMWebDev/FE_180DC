@@ -1,15 +1,27 @@
 import { cn } from "@/lib/utils";
 import React from "react";
 
-const Container = ({ children, className }: { children?: React.ReactNode; className?: string }) => {
+interface ContainerProps {
+  children?: React.ReactNode;
+  className?: string;
+  color?: "light" | "dark" | "green";
+}
+
+const Container = ({ children, className, color }: ContainerProps) => {
+  const bgColor =
+    color === "light"
+      ? "bg-white"
+      : color === "dark"
+        ? "bg-black-300"
+        : color === "green"
+          ? "bg-green-300"
+          : "";
+
   return (
     <section
-      className={cn(
-        `relative mx-auto flex w-full max-w-[2160px] flex-col gap-4 px-6 py-10 sm:px-8`,
-        className
-      )}
+      className={cn(`relative mx-auto flex w-full flex-col gap-4 px-6 py-10 sm:px-8`, bgColor)}
     >
-      {children}
+      <div className={cn("mx-auto w-full max-w-[2160px]", className)}>{children}</div>
     </section>
   );
 };

@@ -4,6 +4,10 @@ import { useRef } from "react";
 import { getPayload } from "payload";
 import config from "@payload-config";
 
+export const metadata = {
+  title: "Telescope | 180 Degrees Consulting UGM",
+};
+
 export default async function TelescopePage() {
   const payload = await getPayload({ config });
 
