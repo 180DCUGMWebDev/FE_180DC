@@ -65,23 +65,25 @@ export default function LookForward({ theme }) {
 
         {/* Content */}
         <div className="relative mx-auto h-full w-full max-w-[2160px]">
-          <div className="flex h-full w-full flex-col items-center justify-center py-[70px] lg:gap-[10px] lg:p-[50px] 2xl:py-[60px]">
-            <h1 className="font-avenir-black bg-gradient-to-br from-green-300 from-35% to-cyan-300 to-65% bg-clip-text py-[4px] text-center text-[80px] leading-none text-transparent lg:text-[60px]/[66px] 2xl:text-[52px]/[58px]">
+          <div className="flex h-full w-full flex-col items-center justify-center gap-4 px-6 py-16 lg:gap-6 lg:p-[50px] lg:py-20 2xl:py-[60px]">
+            <h1 className="font-avenir-black bg-gradient-to-br from-green-300 from-35% to-cyan-300 to-65% bg-clip-text text-center text-4xl leading-tight text-transparent sm:text-5xl lg:text-[60px]/[66px] 2xl:text-[52px]/[58px]">
               {"We Look Forward to"}
               <br />
               {"Speaking with You"}
             </h1>
             <h2
               className={
-                "font-lato-regular mt-[6px] text-center text-[32px] max-lg:text-gray-100 lg:text-[22px]/[26px] 2xl:text-[19px]/[23px] " +
+                "font-lato-regular text-center text-base leading-relaxed max-lg:text-gray-100 sm:text-lg lg:text-[22px]/[26px] 2xl:text-[19px]/[23px] " +
                 txtTheme
               }
             >
               {"Explore our different services offerings, and"}
-              <br />
+              <br className="hidden sm:block" />
+              <span className="sm:hidden"> </span>
               {"reach out to us for a discussion."}
             </h2>
             <Button180
+              size="md"
               color="green"
               text="Consult Now!"
               action={() => {

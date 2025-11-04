@@ -116,8 +116,9 @@ export default function Footer() {
         ? "bg-gray-300 "
         : "bg-transparent ";
 
-  const classHead = "max-lg:mb-[20px] font-lato-bold text-[48px] lg:text-[22px] 2xl:text-[20px]";
-  const classFavIcon = "text-[56px] lg:text-[26px] 2xl:text-[22px] hover:cursor-pointer";
+  const classHead = "font-lato-bold text-2xl mb-4 lg:mb-0 lg:text-[22px] 2xl:text-[20px]";
+  const classFavIcon =
+    "text-3xl lg:text-[26px] 2xl:text-[22px] hover:cursor-pointer transition-transform hover:scale-110";
 
   const getAddress = (inClass) => {
     return (
@@ -321,12 +322,12 @@ export default function Footer() {
             }
           />
 
-          <div className="bg-black-300 flex w-full flex-col gap-[12px] px-[32px] py-[24px] pb-[2px] select-none lg:rounded-tl-[20px] lg:rounded-tr-[20px] 2xl:px-[30px] 2xl:py-[22px]">
+          <div className="bg-black-300 flex w-full flex-col gap-8 px-6 py-8 select-none lg:gap-6 lg:rounded-tl-[20px] lg:rounded-tr-[20px] lg:px-8 lg:py-6 2xl:px-[30px] 2xl:py-[22px]">
             {/* Contents */}
-            <div className="mx-auto flex w-full max-w-[2160px] gap-[80px] text-white max-lg:flex-col max-lg:items-center lg:gap-[40px] 2xl:justify-between">
+            <div className="mx-auto flex w-full max-w-[2160px] flex-col gap-12 text-white lg:flex-row lg:gap-10 2xl:justify-between">
               {/* Logo */}
-              <div className="w-[30%] max-lg:mb-[40px] lg:w-2/12 2xl:w-[400px]">
-                <div className="flex w-full flex-col items-center justify-center gap-[6px] 2xl:w-[120px]">
+              <div className="flex justify-center lg:w-2/12 2xl:w-[400px]">
+                <div className="flex w-32 flex-col items-center justify-center 2xl:w-[120px]">
                   <ImageAction
                     src="/img/global/footerlogo180dc.png"
                     alt="logo footer 180dc"
@@ -336,42 +337,35 @@ export default function Footer() {
                   />
                 </div>
               </div>
-              {/* Office n Navigation [DESKTOP] */}
-              <div className="flex w-[90%] gap-[40px] max-lg:mb-[32px] max-lg:justify-center lg:flex lg:w-[41.66%] 2xl:w-fit">
-                {/* Office [DESKTOP] */}
-                <div className="flex w-full flex-col items-center lg:w-[60%] lg:items-end 2xl:w-fit">
-                  <div className="max-lg:w-full 2xl:w-[260px]">
-                    <h1 className={classHead + " max-lg:text-center"}>{"Office"}</h1>
-                    {getAddress(
-                      "max-lg:leading-[38px] text-[34px] lg:text-[12px] 2xl:text-[11px] max-lg:text-center"
-                    )}
-                    {getEmail(
-                      "text-[34px] lg:text-[12px] 2xl:text-[11px] mt-[6px] max-lg:text-center"
-                    )}
-                  </div>
+              {/* Office */}
+              <div className="flex flex-col items-center text-center lg:w-[41.66%] lg:items-end lg:text-left 2xl:w-fit">
+                <div className="w-full lg:w-auto 2xl:w-[260px]">
+                  <h1 className={classHead}>{"Office"}</h1>
+                  {getAddress("text-sm leading-relaxed lg:text-[12px] 2xl:text-[11px]")}
+                  {getEmail("text-sm lg:text-[12px] 2xl:text-[11px] mt-2")}
                 </div>
               </div>
-              {/* Navigations [DESKTOP] */}
-              <div className="flex w-[40%] flex-col max-lg:-mb-[32px] 2xl:w-fit">
-                <h1 className={classHead + " max-lg:text-center"}>{"Navigation"}</h1>
+              {/* Navigations */}
+              <div className="flex flex-col items-center text-center lg:items-start lg:text-left 2xl:w-fit">
+                <h1 className={classHead}>{"Navigation"}</h1>
                 <NavFootItems
-                  ulClass="flex flex-col! w-full max-lg:text-center gap-[24px] lg:gap-[2px] text-[34px] lg:text-[12px] 2xl:text-[11px] max-lg:text-center"
-                  liClass="flex w-full text-center"
-                  aClass="text-white font-lato-regular hover:font-lato-bold"
+                  ulClass="flex flex-col w-full gap-4 text-sm lg:gap-1 lg:text-[12px] 2xl:text-[11px]"
+                  liClass="flex w-full justify-center lg:justify-start"
+                  aClass="text-white font-lato-regular hover:font-lato-bold transition-all"
                   identifier="Footer"
                 />
               </div>
               {/* Stay Connected */}
-              <div className="flex w-[90%] flex-col items-end justify-center gap-[6px] lg:w-[41.67%] 2xl:w-[400px]">
+              <div className="flex w-full flex-col gap-4 lg:w-[41.67%] lg:items-end 2xl:w-[400px]">
                 {/* Form */}
-                <div className="w-full max-lg:flex max-lg:h-[25%] max-lg:flex-col max-lg:gap-[20px]">
-                  <div className="flex w-full items-start">
+                <div className="flex w-full flex-col gap-4">
+                  <div className="flex w-full flex-col items-center gap-4 lg:flex-row lg:items-start lg:justify-between">
                     <div className="w-full">
-                      <h1 className="font-avenir-regular text-[36px] lg:text-[22px] 2xl:text-[18px]">
+                      <h1 className="font-avenir-regular text-center text-xl lg:text-left lg:text-[22px] 2xl:text-[18px]">
                         {"Let's Stay Connected"}
                       </h1>
                     </div>
-                    <div className="flex w-fit justify-end gap-[32px] lg:gap-[18px] 2xl:gap-[16px]">
+                    <div className="flex gap-6 lg:gap-4 2xl:gap-4">
                       <FaInstagram
                         className={classFavIcon}
                         onClick={() => {
@@ -398,29 +392,29 @@ export default function Footer() {
                       />
                     </div>
                   </div>
-                  <div className="flex h-[80px] w-full items-center max-lg:mb-[40px] lg:h-[36px] 2xl:h-[34px]">
+                  <div className="flex h-12 w-full items-center lg:h-9 2xl:h-[34px]">
                     <input
                       type="text"
                       value={email}
-                      className="h-full w-full rounded-tl-[8px] rounded-bl-[8px] bg-gray-100 px-[16px] py-[10px] text-[30px] text-gray-300 outline-hidden lg:text-[11px] 2xl:rounded-tl-[8px] 2xl:rounded-bl-[8px] 2xl:px-[16px] 2xl:py-[10px] 2xl:text-[10px]"
+                      className="text-black-300 h-full w-full rounded-l-lg bg-gray-100 px-4 py-2 text-sm outline-none placeholder:text-xs lg:text-[11px] 2xl:text-[10px]"
                       placeholder="Enter Your Email to Subscribe to Our Newsletter"
                       onChange={(e) => setEmail(e.target.value)}
                     />
                     <button
                       type="button"
-                      className="h-full rounded-tr-[8px] rounded-br-[8px] bg-gray-100 pr-[10px] 2xl:rounded-tr-[8px] 2xl:rounded-br-[8px]"
+                      className="flex h-full items-center justify-center rounded-r-lg bg-blue-300 px-3 transition-opacity hover:opacity-80 disabled:opacity-80"
                       onClick={handleSubmitButton}
                       disabled={!email}
                     >
-                      <FaArrowRight className="text-[24px] text-gray-300 opacity-57 lg:text-[20px] 2xl:text-[18px]" />
+                      <FaArrowRight className="text-lg text-white lg:text-base 2xl:text-sm" />
                     </button>
                   </div>
                 </div>
               </div>
             </div>
             {/* Copyright */}
-            <div className="flex w-full justify-center">
-              <h3 className="font-avenir-book text-[28px] text-green-300 lg:text-[11px] 2xl:text-[10px]">
+            <div className="flex w-full justify-center border-t border-gray-600 pt-6 lg:pt-4">
+              <h3 className="font-avenir-book text-sm text-green-300 lg:text-[11px] 2xl:text-[10px]">
                 {copyright}
               </h3>
             </div>

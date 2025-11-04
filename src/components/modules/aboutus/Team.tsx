@@ -10,6 +10,7 @@ import BoD from "./BoD";
 import "./aboutus.css";
 import { IoTriangle } from "react-icons/io5";
 import BoDCard from "./BoDCard";
+import Container from "@/components/layout/Container";
 
 export default function Team() {
   // Content
@@ -31,15 +32,12 @@ export default function Team() {
   }, []);
 
   return (
-    <section id="team" className="relative">
-      {/* Background */}
-      {createBackground("light")}
-
+    <Container color="light" className="relative">
       {/* Content */}
-      <div className="flex h-fit w-full flex-col items-center justify-center">
+      <div className="mt-4 flex h-fit w-full flex-col items-center justify-center">
         <div className="flex h-fit w-full flex-col items-center 2xl:w-[1536px]">
           {/* Title */}
-          <div className="flex h-32 w-full flex-col justify-end bg-white px-[50px] lg:h-52">
+          <div className="flex h-fit w-full flex-col justify-end bg-white px-[50px]">
             {hydrate && (
               <div className="mb-6 flex w-full flex-col items-center justify-center text-center">
                 <h1 className="font-avenir-black mt-8 text-[40px] text-green-300 lg:text-5xl lg:leading-[47px] 2xl:text-[61px] 2xl:leading-[60px]">
@@ -115,6 +113,6 @@ export default function Team() {
           </div>
         </div>
       </div>
-    </section>
+    </Container>
   );
 }

@@ -24,7 +24,7 @@ export function WhatIs() {
           />
         </div>
         {/* Teks */}
-        <div className="z-20 flex flex-col gap-[16px] px-[2.3%] max-lg:-mt-[8px] max-lg:items-center">
+        <div className="z-20 mt-8 flex flex-col gap-[16px] px-[2.3%] max-lg:items-center">
           <div className="flex flex-col">
             <div className="font-avenir-black max-lg:hidden lg:text-5xl xl:text-6xl">
               What is 180DC UGM?

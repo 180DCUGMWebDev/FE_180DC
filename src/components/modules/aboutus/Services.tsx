@@ -83,16 +83,16 @@ export default function Services() {
       {/* Background */}
       <div className="flex w-full items-center justify-center">
         <div className="flex h-fit w-full flex-col items-center justify-center px-12 py-6 lg:h-full lg:gap-12 lg:px-12 2xl:h-fit 2xl:w-[1536px]">
-          <div className="flex h-fit w-full flex-col gap-4 lg:h-[28%] lg:flex-row lg:gap-0">
+          <div className="flex h-fit w-full flex-col gap-4 lg:h-[28%] lg:gap-8">
             {/* Titles */}
-            <div className="flex items-end lg:w-5/12">
-              <h1 className="font-avenir-black text-start text-[32px] leading-[30px] text-green-300 lg:text-[48px] lg:leading-[46px] 2xl:text-[61px] 2xl:leading-[60px]">
+            <div className="flex w-full flex-col items-center">
+              <h1 className="font-avenir-black text-center text-[32px] leading-[30px] text-green-300 lg:text-[48px] lg:leading-[46px] 2xl:text-[61px] 2xl:leading-[60px]">
                 {"Our Services"}
                 <br />
                 {"Offered for You"}
               </h1>
             </div>
-            <div className="flex items-end lg:w-7/12">
+            <div className="flex w-full items-center justify-center">
               <p className="font-lato-regular text-justify text-sm leading-[15px] text-gray-100 lg:text-2xl lg:leading-8 2xl:text-[30.7px] 2xl:leading-[41px]">
                 {content.desc}
               </p>

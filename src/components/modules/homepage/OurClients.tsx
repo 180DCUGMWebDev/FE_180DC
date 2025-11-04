@@ -9,7 +9,7 @@ export function OurClients() {
   return (
     <Container>
       {/* Our Previous Clients */}
-      <div className="relative h-fit w-full lg:h-[180px]">
+      <div className="relative h-[100px] w-full md:h-[180px]">
         <Image
           src="/img/homepage/clients.png"
           alt="Clients"
