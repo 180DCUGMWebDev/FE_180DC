@@ -22,7 +22,7 @@ export const Links: CollectionConfig = {
       unique: true,
       label: "Short URL",
       admin: {
-        description: 'Contoh: "instagram" untuk 180dcugm.com/go/instagram',
+        description: 'Contoh: "instagram" untuk 180dcugm.com/instagram',
         placeholder: "instagram",
       },
       validate: (val: unknown) => {
