@@ -3,12 +3,13 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, DoorOpen, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import ImageAction from "@/components/elements/ImageAction";
 import Button180 from "@/components/elements/Button180";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { useScroll, useMotionValueEvent, AnimatePresence, motion } from "motion/react";
 
 import {
   NavigationMenu,
@@ -19,35 +20,14 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/elements/Navbar/navigation-menu";
-
-const components = [
-  {
-    title: "Operations",
-    href: "/aboutus/#services",
-    description: "Operations management and process optimization.",
-  },
-  {
-    title: "Market Research",
-    href: "/aboutus/#services",
-    description: "Market research and analysis services.",
-  },
-  {
-    title: "Growth",
-    href: "/aboutus/#services",
-    description: "Business growth strategies and implementation.",
-  },
-  {
-    title: "Organization",
-    href: "/aboutus/#services",
-    description: "Organization and management consulting.",
-  },
-];
+import Container from "@/components/layout/Container";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState(null);
   const pathname = usePathname();
+  const { scrollY } = useScroll();
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -62,38 +42,9 @@ export default function Navbar() {
     setActiveAccordion(activeAccordion === section ? null : section);
   };
 
-  // Scroll Direction Hook
-  const useLastScrollDirection = () => {
-    const [lastScrollTop, setLastScrollTop] = useState(0);
-    const [scrollDirection, setScrollDirection] = useState(null);
-
-    useEffect(() => {
-      const handleScroll = () => {
-        const currentScrollTop = window.scrollY || document.documentElement.scrollTop;
-
-        // Update background berdasarkan scroll position
-        setIsScrolled(currentScrollTop > 50);
-
-        if (currentScrollTop > lastScrollTop) {
-          setScrollDirection("down");
-        } else if (currentScrollTop < lastScrollTop) {
-          setScrollDirection("up");
-        }
-        setLastScrollTop(currentScrollTop <= 0 ? 0 : currentScrollTop);
-      };
-
-      window.addEventListener("scroll", handleScroll);
-
-      return () => window.removeEventListener("scroll", handleScroll);
-    }, [lastScrollTop]);
-
-    useEffect(() => {
-      setMobileMenuOpen(false);
-    }, []);
-
-    return scrollDirection;
-  };
-  const scroll = useLastScrollDirection();
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setIsScrolled(latest > 20);
+  });
 
   useEffect(() => {
     // Hanya tutup mobile menu saat scroll di desktop (lg breakpoint ke atas)
@@ -111,15 +62,24 @@ export default function Navbar() {
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [scroll]);
+  }, []);
 
   return (
-    <nav className="fixed z-101 flex w-full">
-      <div className="flex w-full flex-col">
+    <nav
+      className={cn(
+        "fixed top-0 z-50 flex w-full items-center justify-center transition-all duration-300",
+        isScrolled && "lg:top-6"
+      )}
+    >
+      <div
+        className={cn(
+          "w-full bg-black transition-all duration-300",
+          isScrolled &&
+            `mx-0 w-full bg-black/60 shadow-[0_4px_30px_rgba(0,0,0,0.5)] backdrop-blur-xl md:mx-8 md:rounded-2xl  ${mobileMenuOpen ? "bg-black rounded-b-[20px]" : ""}`
+        )}
+      >
         <div
-          className={`${scroll !== "down" || mobileMenuOpen ? "" : "translate-y-[-200%]"} ${mobileMenuOpen ? "bg-black-300 overflow-y-clip" : ""} flex h-20 w-full flex-row items-center justify-between gap-2 px-[10px] text-white transition-all ${mobileMenuOpen ? "duration-0" : "duration-1000"} ease-in-out lg:px-[30px] xl:px-[50px] ${
-            isScrolled ? "lg:bg-black-300/70 lg:shadow-lg lg:backdrop-blur-lg" : "lg:bg-transparent"
-          },`}
+          className={`${mobileMenuOpen ? "overflow-y-clip" : ""} mx-auto flex h-20 w-full max-w-[2160px] items-center rounded-b-[20px] justify-between gap-2 px-6 text-white transition-all md:px-10 ${mobileMenuOpen ? "duration-0" : "duration-300"} ease-in-out`}
         >
           {/* Logo */}
           <Link className="flex w-[48px] items-center" href="/">
@@ -131,319 +91,243 @@ export default function Navbar() {
           </Link>
           <>
             {/* Navigation Menu */}
-            <div className="hidden lg:block">
+            <div className="font-avenir-regular hidden flex-row lg:flex">
               <NavigationMenu
                 //viewport harus selalu false untuk menghindari error
                 viewport={false}
               >
-                <NavigationMenuList>
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger>About</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="grid md:w-[300px] lg:w-[400px] lg:grid-cols-[.75fr_1fr]">
-                        <div className="row-span-3">
-                          <NavigationMenuLink asChild>
-                            <div className="relative flex items-center justify-center">
-                              <div className="relative aspect-square h-full w-full">
-                                <Image
-                                  src="/180dc.webp"
-                                  alt="logo 180dc"
-                                  fill
-                                  style={{ objectFit: "contain" }}
-                                  className="aspect-square transition-transform duration-500 hover:scale-[1.05]"
-                                />
-                              </div>
-                            </div>
-                          </NavigationMenuLink>
-                        </div>
-                        <ListItem href="/aboutus" title="Who Are We?">
-                          Get to know 180DC UGM.
-                        </ListItem>
-                        <ListItem href="/aboutus/#vismis" title="Vission & Mission">
-                          Our Vision & Mission.
-                        </ListItem>
-                        <ListItem href="/aboutus/#team" title="Our Team">
-                          Meet the people behind 180DC UGM.
-                        </ListItem>
-                      </div>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger>Services</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="grid w-[300px] gap-2 md:w-[400px] md:grid-cols-2">
-                        {components.map((component) => (
-                          <ListItem
-                            key={component.title}
-                            title={component.title}
-                            href={component.href}
+                <div className="mr-6 hidden lg:block">
+                  <AnimatePresence>
+                    <NavigationMenuList>
+                      <NavigationMenuItem>
+                        <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
+                        <NavigationMenuContent>
+                          <motion.div
+                            key="about-accordion"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.5 }}
+                            className="flex h-auto w-[390px] flex-row justify-between gap-6"
                           >
-                            {component.description}
-                          </ListItem>
-                        ))}
-                      </div>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem>
-                    <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                      <Link
-                        href="/portofolio"
-                        className={`hover:text-black-300 transition-all duration-300 hover:bg-white ${
-                          pathname === "/portofolio" ? "text-black-300 bg-white" : ""
-                        }`}
-                      >
-                        <p className="text-lg">Clients</p>
-                      </Link>
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger>Store</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="w-[300px]">
-                        <ListItem href="/store/casebook" title="Casebook">
-                          Casebook of 180DC UGM.
-                        </ListItem>
-                        <ListItem href="/store/merch" title="Merch">
-                          Explore our merchandise.
-                        </ListItem>
-                      </div>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger>Events</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="flex w-[300px] flex-col">
-                        <ListItem href="/bootcamp" title="Bootcamp">
-                          Bootcamp of 180DC UGM.
-                        </ListItem>
-                        <ListItem href="/oprec" title="Open Recruitment">
-                          Open Recruitment 180DC UGM.
-                        </ListItem>
-                        <ListItem href="/casecompetition" title="Asian Pasific Case Competition">
-                          Competition of 180DC UGM.
-                        </ListItem>
-                      </div>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem>
-                    <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                      <Link
-                        href="/academy"
-                        className={`hover:text-black-300 transition-all duration-300 hover:bg-white ${
-                          pathname === "/academy" ? "text-black-300 bg-white" : ""
-                        }`}
-                      >
-                        <div className="text-lg">Academy</div>
-                      </Link>
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger>Article</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="w-[200px]">
-                        <ListItem href="/telescope" title="Article">
-                          Article of 180DC UGM.
-                        </ListItem>
-                        <ListItem href="/industrialreport" title="Telescope">
-                          Telescope of 180DC UGM.
-                        </ListItem>
-                      </div>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                </NavigationMenuList>
+                            <div className="relative !aspect-square w-[140px]">
+                              <Image
+                                src="/180dc.webp"
+                                alt="logo 180dc"
+                                fill
+                                className="absolute aspect-square object-contain"
+                              />
+                            </div>
+                            <div className="flex w-full flex-col gap-2">
+                              <ListItem href="/aboutus" title="Who we are">
+                                Get to know about 180DC UGM
+                              </ListItem>
+                              <ListItem href="/aboutus/#vismis" title="What we do">
+                                Get to know about our services
+                              </ListItem>
+                            </div>
+                          </motion.div>
+                        </NavigationMenuContent>
+                      </NavigationMenuItem>
+                      <NavigationMenuItem>
+                        <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                          <Link
+                            href="/article"
+                            className={`hover:text-black-300 transition-all duration-300 hover:bg-white ${
+                              pathname === "/article" ? "text-black-300 bg-white" : ""
+                            }`}
+                          >
+                            <p className="text-base">Article</p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </NavigationMenuItem>
+                      <NavigationMenuItem>
+                        <NavigationMenuTrigger>Store</NavigationMenuTrigger>
+                        <NavigationMenuContent>
+                          <motion.div
+                            key="store-accordion"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.5 }}
+                            className="w-[300px]"
+                          >
+                            <ListItem href="/store/casebook" title="Casebook">
+                              Casebook of 180DC UGM.
+                            </ListItem>
+                            <ListItem href="/store/merch" title="Merch">
+                              Explore our merchandise.
+                            </ListItem>
+                          </motion.div>
+                        </NavigationMenuContent>
+                      </NavigationMenuItem>
+                    </NavigationMenuList>
+                  </AnimatePresence>
+                </div>
               </NavigationMenu>
-            </div>
-
-            {/* Button */}
-            <div className="hidden items-center justify-end lg:flex">
-              <Link href="/apply">
-                <Button180 color="green" text="Consult Now!" />
-              </Link>
+              <div className="hidden items-center gap-5 lg:flex">
+                <Link href="/oprec">
+                  <Button180
+                    color="transparent"
+                    text="Join Us!"
+                    icon={<DoorOpen />}
+                    className="border border-green-300"
+                  />
+                </Link>
+                <Link href="/apply">
+                  <Button180
+                    text="Consult Now"
+                    icon={<ArrowUpRight />}
+                    className="bg-green-300 border-0 text-white hover:bg-green-400"
+                  />
+                </Link>
+              </div>
             </div>
 
             {/* Mobile Menu Toggle */}
             <div className="flex lg:hidden" onClick={toggleMobileMenu}>
-              {mobileMenuOpen ? <X size={48} /> : <Menu size={48} />}
+              {mobileMenuOpen ? <X size={36} /> : <Menu size={36} />}
             </div>
           </>
         </div>
         {/* Mobile Menu */}
-        <div
+        <Container
           className={cn(
-            "bg-black-300 relative w-full rounded-b-[10px] py-4 text-center text-lg font-normal text-white lg:hidden",
-            mobileMenuOpen ? "block" : "hidden"
+            "bg-black-300 font-avenir-regular relative w-full gap-5 py-6 text-left text-lg text-white lg:hidden",
+            mobileMenuOpen ? "flex rounded-b-[20px]" : "hidden"
           )}
         >
-          <div className="flex w-full flex-col items-start justify-start gap-2 px-[20px] text-left">
-            <div className="w-full">
-              <Link
-                onClick={closeMobileMenu}
-                href="/aboutus"
-                className={`w-full ${pathname === "/aboutus" ? "font-semibold text-green-300" : ""}`}
-              >
-                <div>About</div>
-              </Link>
-            </div>
-            <div className="w-full">
-              <Link
-                onClick={closeMobileMenu}
-                href="/aboutus/#services"
-                className={`w-full ${
-                  pathname === "/aboutus#services" ? "font-semibold text-green-300" : ""
-                } `}
-              >
-                <div>Services</div>
-              </Link>
-            </div>
-            <div className="w-full">
-              <Link
-                onClick={closeMobileMenu}
-                href="/portofolio"
-                className={`w-full ${
-                  pathname === "/portofolio" ? "font-semibold text-green-300" : ""
-                }`}
-              >
-                <div>Clients</div>
-              </Link>
-            </div>
-
-            {/* Store Accordion */}
-            <div className="w-full">
+          <AnimatePresence initial={false}>
+            <div>
+              {/* About */}
               <div
-                className={`flex w-full cursor-pointer items-center justify-between ${
-                  pathname === "/store/casebook" || pathname === "/store/merch"
-                    ? "font-semibold text-green-300"
-                    : ""
-                }`}
-                onClick={() => toggleAccordion("store")}
+                key="about-wrapper"
+                className="font-avenir-regular relative flex w-full flex-col items-end gap-2"
               >
-                <span>Store</span>
-                <span
-                  className={`transition-transform duration-300 ${activeAccordion === "store" ? "rotate-180" : ""}`}
+                <div
+                  className={`flex w-full cursor-pointer items-center justify-between p-2 ${
+                    pathname.startsWith("/aboutus") ? "font-semibold text-green-300" : ""
+                  }`}
+                  onClick={() => toggleAccordion("about")}
                 >
-                  <ChevronDown size={24} />
-                </span>
-              </div>
-              {activeAccordion === "store" && (
-                <div className="mt-1 flex flex-col gap-2 border-l border-neutral-200 pl-4 text-base">
-                  <Link
-                    href="/store/merch"
-                    onClick={closeMobileMenu}
-                    className="text-white/90 transition-colors duration-200 hover:text-white"
+                  <span>About Us</span>
+                  <motion.span
+                    animate={{ rotate: activeAccordion === "about" ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    Merch
-                  </Link>
-                  <Link
-                    href="/store/casebook"
-                    onClick={closeMobileMenu}
-                    className="text-white/90 transition-colors duration-200 hover:text-white"
-                  >
-                    Casebook
-                  </Link>
+                    <ChevronDown size={24} />
+                  </motion.span>
                 </div>
-              )}
-            </div>
 
-            {/* Event Accordion */}
-            <div className="w-full">
-              <div
-                className={`flex cursor-pointer items-center justify-between ${
-                  pathname === "/bootcamp" ||
-                  pathname === "/cycle2oprec" ||
-                  pathname === "/casecompetition"
-                    ? "font-semibold text-green-300"
-                    : ""
-                }`}
-                onClick={() => toggleAccordion("event")}
-              >
-                <span>Event</span>
-                <span
-                  className={`transition-transform duration-300 ${activeAccordion === "event" ? "rotate-180" : ""}`}
-                >
-                  <ChevronDown size={24} />
-                </span>
+                <AnimatePresence>
+                  {activeAccordion === "about" && (
+                    <motion.div
+                      key="about-accordion"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute top-[110%] z-101 flex w-fit flex-col gap-7 rounded-[20px] bg-white p-8 text-black"
+                    >
+                      <Link href="/aboutus" onClick={closeMobileMenu}>
+                        <div className="font-avenir-regular flex flex-col items-start hover:text-white">
+                          <span className="font-lato-bold">Who we are</span>
+                          <span>Get to know about 180DC UGM</span>
+                        </div>
+                      </Link>
+
+                      <Link href="/store/casebook" onClick={closeMobileMenu}>
+                        <div className="font-avenir-regular flex flex-col items-start hover:text-white">
+                          <span className="font-lato-bold">What we do</span>
+                          <span>Get to know about our services</span>
+                        </div>
+                      </Link>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-              {activeAccordion === "event" && (
-                <div className="mt-1 flex flex-col gap-2 border-l border-neutral-200 pl-4 text-base">
-                  <Link
-                    href="/bootcamp"
-                    onClick={closeMobileMenu}
-                    className="text-white/90 transition-colors duration-200 hover:text-white"
-                  >
-                    Bootcamp
-                  </Link>
-                  <Link
-                    href="/oprec"
-                    onClick={closeMobileMenu}
-                    className="text-white/90 transition-colors duration-200 hover:text-white"
-                  >
-                    Open Recruitment
-                  </Link>
-                  <Link
-                    href="/casecompetition"
-                    onClick={closeMobileMenu}
-                    className="text-white/90 transition-colors duration-200 hover:text-white"
-                  >
-                    Asian Pacific Case Competition
-                  </Link>
-                </div>
-              )}
-            </div>
 
-            <div className="w-full">
-              <Link
-                onClick={closeMobileMenu}
-                href="/academy"
-                className={pathname === "/academy" ? "font-semibold text-green-300" : ""}
-              >
-                <div>Academy</div>
-              </Link>
-            </div>
-
-            {/* Telescope Accordion */}
-            <div className="w-full">
-              <div
-                className={`flex cursor-pointer items-center justify-between ${
-                  pathname === "/telescope" || pathname === "/industrialreport"
-                    ? "font-semibold text-green-300"
-                    : ""
-                }`}
-                onClick={() => toggleAccordion("telescope")}
-              >
-                <span>Article</span>
-                <span
-                  className={`transition-transform duration-300 ${activeAccordion === "telescope" ? "rotate-180" : ""}`}
-                >
-                  <ChevronDown size={24} />
-                </span>
-              </div>
-              {activeAccordion === "telescope" && (
-                <div className="mt-1 flex flex-col gap-2 border-l border-neutral-200 pl-4 text-base">
-                  <Link
-                    onClick={closeMobileMenu}
-                    href="/telescope"
-                    className="text-white/90 transition-colors duration-200 hover:text-white"
+              {/* Article */}
+              <div key="article-wrapper">
+                <Link href="/article" onClick={closeMobileMenu}>
+                  <div
+                    className={`font-avenir-regular w-full p-2 ${
+                      pathname === "/article" ? "font-semibold text-green-300" : ""
+                    }`}
                   >
                     Article
-                  </Link>
-                  <Link
-                    onClick={closeMobileMenu}
-                    href="/industrialreport"
-                    className="text-white/90 transition-colors duration-200 hover:text-white"
-                  >
-                    Telescope
-                  </Link>
-                </div>
-              )}
-            </div>
-            <div className="mt-6 mb-4 h-px w-full bg-neutral-200" />
-            <Link onClick={closeMobileMenu} className="w-full" href="/apply">
-              <div className="font-mulish-bold w-full rounded-[5px] bg-green-300 py-[6px] text-center text-base text-white">
-                Consult Now!
+                  </div>
+                </Link>
               </div>
+
+              {/* Store */}
+              <div
+                key="store-wrapper"
+                className="font-avenir-regular relative flex w-full flex-col items-end"
+              >
+                <div
+                  className={`flex w-full cursor-pointer items-center justify-between p-2 ${
+                    pathname.startsWith("/store") ? "font-semibold text-green-300" : ""
+                  }`}
+                  onClick={() => toggleAccordion("store")}
+                >
+                  <span>Store</span>
+                  <motion.span
+                    animate={{ rotate: activeAccordion === "store" ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ChevronDown size={24} />
+                  </motion.span>
+                </div>
+
+                <AnimatePresence>
+                  {activeAccordion === "store" && (
+                    <motion.div
+                      key="store-accordion"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute top-[110%] z-101 flex w-fit flex-col gap-7 rounded-[20px] bg-white p-8 text-black"
+                    >
+                      <div className="flex flex-col gap-7">
+                        <Link href="/store/casebook" onClick={closeMobileMenu}>
+                          <div className="font-avenir-regular flex flex-col items-start hover:text-white">
+                            <span className="font-lato-bold">Casebook</span>
+                            <span>Casebook of 180DC UGM</span>
+                          </div>
+                        </Link>
+                        <Link href="/store/merch" onClick={closeMobileMenu}>
+                          <div className="font-avenir-regular flex flex-col items-start hover:text-white">
+                            <span className="font-lato-bold">Merch</span>
+                            <span>Explore our merchandise</span>
+                          </div>
+                        </Link>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
+          </AnimatePresence>
+          <div className="flex w-full flex-col items-center gap-4">
+            <Link href="/oprec" className="w-full">
+              <Button180
+                color="transparent"
+                text="Join Us!"
+                icon={<DoorOpen />}
+                className="w-full border border-green-300"
+              />
+            </Link>
+            <Link href="/apply" className="w-full">
+              <Button180
+                text="Consult Now"
+                icon={<ArrowUpRight />}
+                className="w-full border-0 bg-green-300 text-white hover:bg-green-400"
+              />
             </Link>
           </div>
-        </div>
+        </Container>
       </div>
     </nav>
   );
@@ -457,8 +341,8 @@ function ListItem({ title, children, href, ...props }) {
     >
       <NavigationMenuLink asChild>
         <Link href={href} className="flex flex-col items-start justify-center">
-          <div className="text-md leading-snug font-medium">{title}</div>
-          <p className="text-muted-foreground line-clamp-2 text-sm leading-none">{children}</p>
+          <div className="font-avenir-heavy text-lg leading-snug">{title}</div>
+          <p className="inline-block w-full text-base">{children}</p>
         </Link>
       </NavigationMenuLink>
     </div>
