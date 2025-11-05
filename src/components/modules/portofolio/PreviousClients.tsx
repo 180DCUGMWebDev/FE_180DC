@@ -1,19 +1,24 @@
 "use client";
 
 // Import Packages
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import { useMemo, useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
+import Autoplay from "embla-carousel-autoplay";
 
 // Import Components
 import ImageAction from "@/components/elements/ImageAction";
 import { FaChevronDown, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";
-
-// Import Styles
-import "swiper/css";
+import { NavbarResolver } from "@/components/elements/Navbar/NavbarResolver";
+import Container from "@/components/layout/Container";
 
 export default function PreviousClients() {
   // State to check if the component is mounted
@@ -35,7 +40,7 @@ export default function PreviousClients() {
         pleft:
           "Kopi Sembilan faced problems regarding to supply chain, ambiguity of their management structure, and challenges on getting structured budget planning and bookkeeping.",
         pcenter:
-          "We helped them by restructurizing the hierarchy of Kopi Sembilan’s management. Our team also provided the integrated bookkeeping system by creating supply chain tracking management system",
+          "We helped them by restructurizing the hierarchy of Kopi Sembilan's management. Our team also provided the integrated bookkeeping system by creating supply chain tracking management system",
         pright:
           "We provided organization structure, inventory management, and management controlling system which are more effective for financial reporting. It also affects for the better operational controlling and decision making in Kopi Sembilan.",
         prightcondition: "impact",
@@ -76,7 +81,7 @@ export default function PreviousClients() {
         pcenter:
           " We offered to provide Widya Edu in gaining exposure on the current red ocean edu tech market. This widened their market channel of  all students.",
         pright:
-          " “Made it much easier to achieve our aims. We are Satisfied with the work! We are so impressed. Thank you! “.",
+          ' "Made it much easier to achieve our aims. We are Satisfied with the work! We are so impressed. Thank you! ".',
         prightcondition: "comment",
       },
       {
@@ -89,7 +94,7 @@ export default function PreviousClients() {
         pcenter:
           "We offered to provide consultation on the increasing of their current brand recognition of their current market segment, especially since they are about to re-launch..",
         pright:
-          " “It was the best solution for social impact initiatives to receive help from many new insights from 180 Degrees Consulting team. It does not interfere with our day-to-day operations, it did not cost us a lot of resources, and it definitely helped us fill a gap in our company.”",
+          ' "It was the best solution for social impact initiatives to receive help from many new insights from 180 Degrees Consulting team. It does not interfere with our day-to-day operations, it did not cost us a lot of resources, and it definitely helped us fill a gap in our company."',
         prightcondition: "comment",
       },
       {
@@ -102,7 +107,7 @@ export default function PreviousClients() {
         pcenter:
           "We helped to analyze the brand perception of Kolom Remaja and created a development map to strengthen its brand personality. We also developed strategies to improve the synergies among its members.",
         pright:
-          " “Great work on this and it was really insightful. Eventually someone was able to do market research and proper analysis to this!”",
+          ' "Great work on this and it was really insightful. Eventually someone was able to do market research and proper analysis to this!"',
         prightcondition: "comment",
       },
       {
@@ -113,9 +118,9 @@ export default function PreviousClients() {
         pleft:
           "Gores Denai faced challenges in broadening its leverage in the market through its branding and gaining profits while simultaneously maintaining free product access to the audiences.",
         pcenter:
-          "We conducted analysis on Gores Denai’s branding and recommended the sustainable strategic steps to attract customers and increase user engagement which includes the display of filler content and re-evaluation of its programs.",
+          "We conducted analysis on Gores Denai's branding and recommended the sustainable strategic steps to attract customers and increase user engagement which includes the display of filler content and re-evaluation of its programs.",
         pright:
-          " “180DC has been very helpful in navigating our organizational concerns. On top of that, the performance of the analyst were incredible as they constantly came up with highly practical and feasible solutions. 100% would recommend.”",
+          ' "180DC has been very helpful in navigating our organizational concerns. On top of that, the performance of the analyst were incredible as they constantly came up with highly practical and feasible solutions. 100% would recommend."',
         prightcondition: "comment",
       },
       {
@@ -126,9 +131,9 @@ export default function PreviousClients() {
         pleft:
           "KitaBisa sought the ways to enhance their its branding eminence against its competitors.",
         pcenter:
-          "We ran a diagnostic analysis on KitaBisa’s internal situation and offered solutions to strengthen the corporate value, such as strategies to enhance data collection, transparency for viewers, and fill the gaps in its social campaigns and program.",
+          "We ran a diagnostic analysis on KitaBisa's internal situation and offered solutions to strengthen the corporate value, such as strategies to enhance data collection, transparency for viewers, and fill the gaps in its social campaigns and program.",
         pright:
-          " “The report they assisted us in developing not only met our expectations, but far exceeded them, reflecting their unwavering commitment to delivering top-tier work.” ",
+          ' "The report they assisted us in developing not only met our expectations, but far exceeded them, reflecting their unwavering commitment to delivering top-tier work." ',
         prightcondition: "comment",
       },
       {
@@ -152,9 +157,9 @@ export default function PreviousClients() {
         pleft:
           "Tersalur had difficulties in giving training and mentoring to its members, organize effective virtual teams, raise knowledge transfer awareness, and collect documentation.",
         pcenter:
-          "We ran an analysis of Tersalur’s organizational structure, recruitment process, and competitors. More to that, we also recommended the strategies to conduct relevant upgrading program to improve both department and general technical skills.",
+          "We ran an analysis of Tersalur's organizational structure, recruitment process, and competitors. More to that, we also recommended the strategies to conduct relevant upgrading program to improve both department and general technical skills.",
         pright:
-          " “With an affordable price, I would highly recommend their services for other NGOs searching for ways to grow. 180DC not only focus on business profits but also impact which aligns with NGOs, giving their NGO clients well-aligned solutions.”",
+          ' "With an affordable price, I would highly recommend their services for other NGOs searching for ways to grow. 180DC not only focus on business profits but also impact which aligns with NGOs, giving their NGO clients well-aligned solutions."',
         prightcondition: "comment",
       },
     ],
@@ -162,313 +167,267 @@ export default function PreviousClients() {
   );
 
   // Scroll Down Button
-  const handleClick = () => scrollRef.current.scrollIntoView({ behavior: "smooth" });
+  const handleClick = () => scrollRef.current?.scrollIntoView({ behavior: "smooth" });
 
-  // Slide Position
+  // Carousel state
+  const [api, setApi] = useState<any>(null);
   const [slide, setSlide] = useState(0);
-  const swiperRef = useRef(null);
-  const swiperRefMobile = useRef(null);
   const scrollRef = useRef(null);
 
-  // Bullets
-  const loopForBullets = useCallback(() => {
-    return (
-      <>
-        {clientsPorto.map((client, idx) => {
-          if (idx !== clientsPorto.length - 1)
-            return (
-              <div
-                key={idx} // Added unique key
-                className={
-                  "h-[0.8vw] w-[0.8vw] rounded-full hover:cursor-pointer " +
-                  (slide === idx ? "bg-green-300" : "bg-light-white")
-                }
-                onClick={() => {
-                  setSlide(idx);
-                }}
-              />
-            );
-        })}
-      </>
-    );
-  }, [clientsPorto, slide]);
-
-  const [slideBullets, setSlideBullets] = useState(loopForBullets);
-
+  // Update slide position
   useEffect(() => {
-    setSlideBullets(loopForBullets);
-    if (swiperRef.current) swiperRef.current.slideTo(slide);
-    if (swiperRefMobile.current) swiperRefMobile.current.slideTo(slide);
-  }, [loopForBullets, slide]);
+    if (!api) return;
+    api.on("select", () => {
+      setSlide(api.selectedIndex);
+    });
+  }, [api]);
 
-  // Only render Swiper on the client side
+  // Only render on the client side
   if (!isMounted) return null;
 
   return (
-    <section className="relative">
+    <div className="relative">
       {/* Background */}
-      {createBackground("dark")}
+      <div className="absolute z-1 h-screen w-full overflow-hidden">
+        <ImageAction
+          heightPtg="100%"
+          alt="portofolio hero background"
+          src="/img/portofolio/hero_bg-c.png"
+        />
+      </div>
+      <div className="to-black-300 absolute z-2 h-screen w-full bg-gradient-to-b from-transparent from-70% to-90%" />
+      <div className="bg-black-300 absolute z-2 h-screen w-full opacity-[75.45%]" />
 
-      {/* Section 1: Title */}
-      <div className="relative flex h-full w-full flex-col items-center justify-center px-[10vw] max-lg:gap-[2vh] lg:h-screen">
+      <Container color="dark" className="relative">
+        {/* Section 1: Title */}
+        <div className="relative flex min-h-screen w-full flex-col items-center justify-center max-lg:gap-8 max-lg:px-8 lg:min-h-screen">
+          {/* Hero */}
+          <h1 className="font-avenir-black z-3 text-center text-4xl leading-tight text-gray-100 sm:text-5xl md:text-6xl lg:text-7xl">
+            {"Our Previous Clients"}
+          </h1>
+
+          {/* Scroll Down [DESKTOP] */}
+          <button className="z-3 flex flex-col items-center outline-0">
+            <h2 className="font-lato-bold mt-4 text-sm text-gray-100 max-lg:hidden sm:text-base md:text-lg">
+              {"SCROLL DOWN"}
+            </h2>
+            <FaChevronDown
+              className="animate-moving-pointer text-lg text-gray-100 hover:cursor-pointer sm:text-2xl md:text-3xl"
+              onClick={() => scrollRef.current?.scrollIntoView({ behavior: "smooth" })}
+            />
+          </button>
+        </div>
+      </Container>
+      <div className="relative">
         {/* Background */}
-        <div className="absolute -z-998 h-full w-[240vh] lg:w-full">
+        <div className="absolute inset-0 z-1 h-full w-full overflow-clip">
           <ImageAction alt="portofolio hero background" src="/img/portofolio/hero_bg-c.png" />
         </div>
-        <div className="to-light-white absolute -z-997 h-full w-full bg-linear-to-b from-transparent from-70% to-90%" />
-        <div className="bg-black-300 absolute -z-996 h-full w-full opacity-[85.45%]" />
+        <div className="from-black-300 to-black-300 absolute z-1 h-full w-full bg-gradient-to-b from-20% via-transparent via-45% to-90%" />
+        <div className="bg-black-300 absolute top-0 z-1 h-full w-full opacity-85" />
 
-        {/* Hero */}
-        <h1 className="font-avenir-black text-center text-[12vw]/[11vw] text-gray-100 lg:text-[4.9vw]/[4.8vw]">
-          {"Our Previous Clients"}
-        </h1>
-
-        {/* Scroll Down [DESKTOP] */}
-        <button className="flex flex-col items-center outline-0" onClick={handleClick}>
-          <h2 className="font-lato-bold mt-[1.4vw] text-[1vw] text-gray-100 max-lg:hidden">
-            {"SCROLL DOWN"}
-          </h2>
-          <FaChevronDown className="animate-moving-pointer text-[1.4vw] text-gray-100 hover:cursor-pointer" />
-        </button>
-
-        {/* Swiper [MOBILE] */}
-        <div className="h-fit w-full overflow-clip rounded-[5vw] rounded-bl-none lg:hidden">
-          <Swiper
-            modules={[Autoplay]}
-            onSwiper={(swiper) => {
-              swiperRefMobile.current = swiper;
-            }}
-            spaceBetween={50}
-            slidesPerView={1}
-            autoplay={{
-              delay: 5000,
-              disableOnInteraction: false,
-            }}
-            onSlideChange={(swiper) => {
-              setSlide(swiper.realIndex);
-            }}
+        <Container color="dark" className="relative z-2">
+          {/* Section 2: Portos [DESKTOP] */}
+          <div
+            ref={scrollRef}
+            className="relative hidden w-full flex-col items-center justify-center px-6 lg:flex"
           >
-            {clientsPorto.map((client, idx) => (
-              <SwiperSlide key={idx}>
-                <div className="relative h-[55vmax] w-full overflow-clip rounded-[5vw] rounded-bl-none">
-                  {/* Background */}
-                  <div className="absolute -z-990 h-full w-full">
-                    <div className="relative h-full w-full bg-[#2C6970]/47">
-                      <div className="absolute left-0 -z-990 h-full w-[70vh]">
-                        {/* <ImageAction
-                          alt={client.name + "_bg" + "_" + { idx }}
-                          src={client.backgr}
-                          heightPtg={"100%"}
-                        /> */}
-                      </div>
-                    </div>
-                  </div>
+            <div className="h-full w-full 2xl:w-[1536px]">
+              <div className="relative flex h-[85%] w-full items-end justify-center pb-12 lg:pb-16 2xl:pb-20">
+                <Carousel
+                  opts={{
+                    align: "start",
+                    loop: true,
+                    slidesToScroll: 1,
+                  }}
+                  plugins={[
+                    Autoplay({
+                      delay: 5000,
+                    }),
+                  ]}
+                  setApi={setApi}
+                  className="w-full"
+                >
+                  <CarouselContent className="-ml-4">
+                    {/* Group items in pairs for 2 items per slide */}
+                    {clientsPorto.map((client, slideIndex) => (
+                      <CarouselItem key={slideIndex} className="basis-1/2 pl-4">
+                        <div className="w-full">
+                          {/* Card */}
+                          <div className="relative h-96 w-full lg:h-[500px] xl:h-[600px] 2xl:h-[700px]">
+                            {/* Background */}
+                            <div className="absolute h-1/2 w-full rounded-lg rounded-bl-none lg:rounded-xl 2xl:rounded-2xl">
+                              <div className="relative h-full w-full bg-[#0A1E22]/47" />
+                            </div>
 
-                  {/* Cards */}
-                  <div className="flex h-full w-full items-center justify-center px-[1vmin] py-[1.5vh]">
-                    {/* Side Arrow Left */}
-                    <div
-                      className="mr-[1vw] w-fit"
-                      onClick={() => {
-                        setSlide((slide - 1 + clientsPorto.length - 1) % (clientsPorto.length - 1));
-                      }}
-                    >
-                      <FaChevronLeft className="text-[6vw] text-gray-100/35" />
-                    </div>
+                            {/* Upper Body: Identity */}
+                            <div className="relative mt-4 flex h-1/2 w-full gap-4 p-4 lg:mt-6 lg:gap-8 lg:p-6 xl:gap-12 2xl:p-8">
+                              {/* Title & NPS */}
+                              <div className="relative flex h-full w-7/12 flex-col items-start justify-start gap-2 lg:gap-4">
+                                <p className="font-avenir-black text-lg leading-none text-green-300 lg:text-2xl 2xl:text-3xl">
+                                  {client.name}
+                                </p>
+                                <div className="font-avenir-light text-sm leading-none text-cyan-300 lg:text-base 2xl:text-lg">
+                                  <h2 className="font-avenir-black text-gray-100">{client.desc}</h2>
+                                  <p>
+                                    <strong className="font-avenir-heavy absolute bottom-0 text-base lg:text-xl 2xl:text-2xl">
+                                      NPS of {client.nps}
+                                    </strong>
+                                  </p>
+                                </div>
+                              </div>
 
-                    <div className="flex h-full w-full flex-col items-center justify-center gap-[5vw] overflow-clip">
-                      {/* Identity */}
-                      <div className="relative mt-[1.1vw] flex h-[30%] w-full gap-[4vw]">
-                        {/* Company Logo */}
-                        <div className="flex h-full w-[35%] items-center justify-end">
-                          <div className="flex w-full overflow-clip rounded-[3vw]">
-                            <ImageAction alt={client.name + "_logo"} src={client.logo} />
+                              {/* Company Logo */}
+                              <div className="flex h-full w-5/12 items-center justify-center">
+                                <div className="flex w-4/5 overflow-clip rounded-lg lg:rounded-xl 2xl:rounded-2xl">
+                                  <ImageAction
+                                    alt={client.name + "_logo"}
+                                    src={client.logo || "/placeholder.svg"}
+                                  />
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Lower Body: Description */}
+                            <div className="mt-4 flex h-full w-full gap-4 px-4 pb-32 lg:mt-6 lg:gap-6 lg:px-6 lg:pb-40 2xl:gap-8 2xl:px-8 2xl:pb-48">
+                              <div className="font-lato-regular w-4/12 text-justify text-xs leading-relaxed text-gray-100 lg:text-sm 2xl:text-base">
+                                <p className="font-avenir-black mb-2 text-green-300 lg:mb-3">
+                                  What challenges does {client.name} face?
+                                </p>
+                                <p>{client.pleft}</p>
+                              </div>
+                              <div className="font-lato-regular w-4/12 text-justify text-xs leading-relaxed text-gray-100 lg:text-sm 2xl:text-base">
+                                <p className="font-avenir-black mb-2 text-green-300 lg:mb-3">
+                                  What solution does we offer?
+                                </p>
+                                <p>{client.pcenter}</p>
+                              </div>
+                              <div className="font-lato-regular w-4/12 text-justify text-xs leading-relaxed text-gray-100 lg:text-sm 2xl:text-base">
+                                <p className="font-avenir-black mb-2 text-green-300 lg:mb-3">
+                                  {client.prightcondition === "impact"
+                                    ? "Impact that we deliver"
+                                    : `${client.name} comments of our work`}
+                                </p>
+                                <p>{client.pright}</p>
+                              </div>
+                            </div>
                           </div>
                         </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="left-4 z-10 hidden rounded-[10px] bg-green-300/80 hover:bg-green-300 lg:flex" />
+                  <CarouselNext className="right-4 z-10 hidden rounded-[10px] bg-green-300/80 hover:bg-green-300 lg:flex" />
+                </Carousel>
+              </div>
+            </div>
+          </div>
 
-                        {/* Title & NPS */}
-                        <div className="flex h-full w-[65%] flex-col items-start justify-center gap-[.8vh]">
-                          <p className="font-avenir-black text-[5vw] leading-none text-green-300">
-                            {client.name}
-                          </p>
-                          {/* <p className="font-avenir-light text-[4.5vw] leading-none text-cyan-300">
-                            {"NPS of "}
-                            <strong className="font-avenir-heavy">{client.nps}</strong>
-                          </p> */}
-                        </div>
-                      </div>
-
-                      {/* Lower Body: Description */}
-                      <div className="swiper-no-swiping flex h-[60%] w-full flex-col gap-[2vh] overflow-y-scroll">
-                        <div className="font-lato-regular text-justify text-[3.5vw] leading-[1.2] text-gray-100">
-                          <p className="font-avenir-black mb-[0.6vw] text-green-300">
-                            What challenges does {client.name} face?
-                          </p>
-                          <p>{client.pleft}</p>
-                        </div>
-                        <div className="font-lato-regular text-[3.5vw] leading-[1.2] text-gray-100">
-                          <p className="font-avenir-black mb-[0.6vw] text-green-300">
-                            What solution does we offer?
-                          </p>
-                          <p>{client.pcenter}</p>
-                        </div>
-                        <div className="font-lato-regular text-[3.5vw] leading-[1.2] text-gray-100">
-                          <p className="font-avenir-black mb-[0.6vw] text-green-300">
-                            {client.prightcondition === "impact"
-                              ? "Impact that we deliver"
-                              : `${client.name} comments of our work`}
-                          </p>
-                          <p>{client.pright}</p>
-                        </div>
-                      </div>
-
-                      <div className="h-[10%]">
-                        <p className="font-lato-light-italic text-[3.5vmin] text-gray-100">
-                          {"Slide For More"}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Side Arrow Right */}
-                    <div
-                      className="ml-[1vw] w-fit"
-                      onClick={() => {
-                        setSlide((slide + 1) % (clientsPorto.length + 1));
-                      }}
-                    >
-                      <FaChevronRight className="w-fit text-[6vw] text-gray-100/35" />
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </div>
-
-      {/* Section 2: Portos [DESKTOP] */}
-      <div
-        ref={scrollRef}
-        className="relative hidden w-full flex-col items-center justify-center px-[50px] lg:flex lg:h-screen"
-      >
-        {/* Background */}
-        <div className="absolute top-0 -z-998 h-full w-full overflow-clip">
-          <ImageAction alt="portofolio hero background" src="/img/portofolio/hero_bg-c.png" />
-        </div>
-        <div className="from-light-white absolute -z-997 h-full w-full bg-linear-to-b from-20% via-transparent via-45% to-black to-75%" />
-        <div className="bg-black-300 absolute top-0 -z-997 h-full w-full opacity-85" />
-
-        <div className="h-full w-full 2xl:w-[1536px]">
-          {/* Card Frame */}
-          {/* yang ini */}
-          <div className="flex h-[85%] w-full items-end justify-center pb-[50px]">
-            <Swiper
-              modules={[Autoplay]}
-              onSwiper={(swiper) => {
-                swiperRef.current = swiper;
+          {/* Carousel [MOBILE] */}
+          <div className="z-4 h-fit w-full lg:hidden">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
               }}
-              spaceBetween={50}
-              slidesPerView={2}
-              autoplay={{
-                delay: 5000,
-                disableOnInteraction: false,
-              }}
-              // loop={true}
-              onSlideChange={(swiper) => {
-                setSlide(swiper.realIndex);
-              }}
+              plugins={[
+                Autoplay({
+                  delay: 5000,
+                }),
+              ]}
+              setApi={setApi}
             >
-              {clientsPorto.map((client, idx) => {
-                return (
-                  <SwiperSlide key={idx}>
-                    <div className="relative h-[40vw] min-w-[45%]">
+              <CarouselContent>
+                {clientsPorto.map((client, idx) => (
+                  <CarouselItem key={idx} className="basis-full">
+                    <div className="relative h-96 overflow-clip rounded-[14px] sm:min-h-screen md:h-full">
                       {/* Background */}
-                      <div className="absolute h-[50%] w-full rounded-[1.25vw] rounded-bl-none">
-                        <div className="relative h-full w-full bg-[#0A1E22]/47">
-                          {/* <div className="absolute left-0 -z-990 h-full w-full">
-                            <ImageAction alt={client.name + "_bg" + "_" + { idx }} src={client.backgr} />
-                          </div> */}
-                        </div>
+                      <div className="absolute -z-990 h-full w-full">
+                        <div className="relative h-full w-full bg-[#2C6970]/47" />
                       </div>
 
-                      {/* Upper Body: Identity */}
-                      <div className="relative mt-[1.1vw] flex h-[50%] w-full gap-[30px] p-[20px]">
-                        {/* Title & NPS */}
-                        <div className="relative flex h-full w-7/12 flex-col items-start justify-start">
-                          <p className="font-avenir-black text-[2vw] leading-none text-green-300">
-                            {client.name}
-                          </p>
-                          <div className="font-avenir-light mt-[1vw] text-[1.2vw] leading-none text-cyan-300">
-                            <h2 className="font-avenir-black text-gray-100"> {client.desc} </h2>
-                            <p>
-                              <strong className="font-avenir-heavy absolute bottom-[0] text-[1.9vw]">
-                                {" "}
-                                NPS of {client.nps}
-                              </strong>
+                      {/* Cards */}
+                      <div className="flex h-full w-full items-center justify-center px-2 py-4 sm:px-4">
+                        {/* Side Arrow Left */}
+                        <div
+                          className="mr-2 w-fit sm:mr-4"
+                          onClick={() => {
+                            api?.scrollPrev();
+                          }}
+                        >
+                          <FaChevronLeft className="text-4xl text-gray-100/35 sm:text-5xl md:text-6xl" />
+                        </div>
+
+                        <div className="flex h-full w-full flex-col items-center justify-center gap-8 overflow-clip sm:gap-12">
+                          {/* Identity */}
+                          <div className="relative mt-4 flex h-1/3 w-full gap-4 sm:mt-6 sm:gap-6">
+                            {/* Company Logo */}
+                            <div className="flex h-full w-1/3 items-center justify-end sm:w-2/5">
+                              <div className="flex w-full overflow-clip rounded-2xl sm:rounded-3xl">
+                                <ImageAction
+                                  alt={client.name + "_logo"}
+                                  src={client.logo || "/placeholder.svg"}
+                                />
+                              </div>
+                            </div>
+
+                            {/* Title & NPS */}
+                            <div className="flex h-full flex-col items-start justify-center gap-2 sm:gap-3">
+                              <p className="font-avenir-black text-2xl leading-none text-green-300 sm:text-3xl md:text-4xl">
+                                {client.name}
+                              </p>
+                            </div>
+                          </div>
+
+                          {/* Lower Body: Description */}
+                          <div className="flex h-3/5 w-full flex-col gap-4 overflow-y-scroll px-4 sm:gap-6 sm:px-6">
+                            <div className="font-lato-regular text-justify text-sm leading-relaxed text-gray-100 sm:text-base md:text-lg">
+                              <p className="font-avenir-black mb-2 text-green-300">
+                                What challenges does {client.name} face?
+                              </p>
+                              <p>{client.pleft}</p>
+                            </div>
+                            <div className="font-lato-regular text-sm leading-relaxed text-gray-100 sm:text-base md:text-lg">
+                              <p className="font-avenir-black mb-2 text-green-300">
+                                What solution does we offer?
+                              </p>
+                              <p>{client.pcenter}</p>
+                            </div>
+                            <div className="font-lato-regular text-sm leading-relaxed text-gray-100 sm:text-base md:text-lg">
+                              <p className="font-avenir-black mb-2 text-green-300">
+                                {client.prightcondition === "impact"
+                                  ? "Impact that we deliver"
+                                  : `${client.name} comments of our work`}
+                              </p>
+                              <p>{client.pright}</p>
+                            </div>
+                          </div>
+
+                          <div className="h-1/12">
+                            <p className="font-lato-light-italic text-sm text-gray-100 sm:text-base">
+                              {"Slide For More"}
                             </p>
                           </div>
                         </div>
 
-                        {/* Company Logo */}
-                        <div className="flex h-full w-5/12 items-center justify-center">
-                          <div className="2x:rounded-[23px] flex w-[80%] overflow-clip rounded-[1.5vw]">
-                            <ImageAction alt={client.name + "_logo"} src={client.logo} />
-                          </div>
-                        </div>
-                      </div>
-                      {/* Lower Body: Description */}
-                      <div className="mt-[1.2vw] flex h-full w-full gap-[2.4vw] px-[20px] pb-[20vw]">
-                        <div className="font-lato-regular w-4/12 text-justify text-[1vw] leading-[1.2] text-gray-100">
-                          <p className="font-avenir-black mb-[0.6vw] text-green-300">
-                            What challenges does {client.name} face?
-                          </p>
-                          <p>{client.pleft}</p>
-                        </div>
-                        <div className="font-lato-regular w-4/12 text-justify text-[1vw] leading-[1.2] text-gray-100">
-                          <p className="font-avenir-black mb-[0.6vw] text-green-300">
-                            What solution does we offer?
-                          </p>
-                          <p>{client.pcenter}</p>
-                        </div>
-                        <div className="font-lato-regular w-4/12 text-justify text-[1vw] leading-[1.2] text-gray-100">
-                          <p className="font-avenir-black mb-[0.6vw] text-green-300">
-                            {client.prightcondition === "impact"
-                              ? "Impact that we deliver"
-                              : `${client.name} comments of our work`}
-                          </p>
-                          <p>{client.pright}</p>
+                        {/* Side Arrow Right */}
+                        <div
+                          className="ml-2 w-fit sm:ml-4"
+                          onClick={() => {
+                            api?.scrollNext();
+                          }}
+                        >
+                          <FaChevronRight className="w-fit text-4xl text-gray-100/35 sm:text-5xl md:text-6xl" />
                         </div>
                       </div>
                     </div>
-                  </SwiperSlide>
-                );
-              })}
-            </Swiper>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
           </div>
-          {/* Dot Frame */}
-          <div className="flex h-[15%] items-start justify-center">
-            <div className="flex h-fit items-center gap-[10px]">
-              <div
-                className="w-fit"
-                onClick={() => {
-                  setSlide((slide - 1 + clientsPorto.length - 1) % (clientsPorto.length - 1));
-                }}
-              >
-                <FaChevronLeft className="text-[1.4vw] text-gray-100 hover:cursor-pointer" />
-              </div>
-              <div className="flex items-center gap-[8px]">{slideBullets}</div>
-              <div
-                className="w-fit"
-                onClick={() => {
-                  setSlide((slide + 1) % (clientsPorto.length - 1));
-                }}
-              >
-                <FaChevronRight className="text-[1.4vw] text-gray-100 hover:cursor-pointer" />
-              </div>
-            </div>
-          </div>
-        </div>
+        </Container>
       </div>
-    </section>
+    </div>
   );
 }

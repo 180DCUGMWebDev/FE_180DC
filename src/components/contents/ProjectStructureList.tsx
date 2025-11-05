@@ -41,8 +41,8 @@ export default function ProjectStructureList({ divConfig, lineConfig, componentE
             {idx !== steps.length - 1 ? (
               <div className={"absolute flex w-[10%] justify-center lg:w-[5%] " + lineConfig}>
                 <div className="flex w-[40%] justify-center">
-                  <div className={"lg:-[0.4vw] relative h-full w-[2.5vw] 2xl:w-[6.1px]"}>
-                    <div className="absolute -z-997 h-full w-full bg-cyan-300 max-lg:top-[1vh]" />
+                  <div className={"lg:-[0.2vw] relative h-full w-[2.5vw] 2xl:w-[5.1px]"}>
+                    <div className="absolute z-1 h-full w-full bg-blue-300 max-lg:top-[1vh]" />
                   </div>
                 </div>
               </div>
@@ -52,7 +52,7 @@ export default function ProjectStructureList({ divConfig, lineConfig, componentE
             {/* Balls and Title */}
             <div className={"flex h-fit w-full items-center gap-[5%]"}>
               <div className="flex w-[10%] justify-center lg:w-[5%]">
-                <div className="mb-[3px] h-[6vw] w-[6vw] rounded-full bg-green-300 lg:h-[1.5vw] lg:w-[1.5vw] 2xl:h-[23px] 2xl:w-[23px]" />
+                <div className="z-2 mb-[3px] h-[6vw] w-[6vw] rounded-full bg-green-300 lg:h-[1.5vw] lg:w-[1.5vw] 2xl:h-[23px] 2xl:w-[23px]" />
               </div>
               <div className="flex w-[90%]">
                 <h1 className="font-avenir-black w-full text-[5vw] leading-[1.1] text-green-300 lg:text-[1.9vw] 2xl:text-[29px]">

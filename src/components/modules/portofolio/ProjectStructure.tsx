@@ -4,13 +4,14 @@ import ProjectStructureList from "@/components/contents/ProjectStructureList";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";
+import Container from "@/components/layout/Container";
 
 export default function ProjectStructure() {
   return (
-    <section className="relative flex h-fit items-center justify-center py-[10vh] lg:h-[200vh]">
-      {/* Background */}
-      {createBackground("dark", "max-lg:opacity-[85.45%]")}
-
+    <Container
+      color="dark"
+      className="lg:min-h-screen] relative flex h-fit items-center justify-center py-[10vh]"
+    >
       <div className="absolute top-0 left-0 w-[20vw] opacity-30 max-lg:hidden 2xl:w-[307px]">
         <ImageAction alt="portofolio shard upper left" src="/img/portofolio/shard_upper_left.png" />
       </div>
@@ -38,7 +39,7 @@ export default function ProjectStructure() {
         <ImageAction alt="portofolio star cyan 2" src="/img/portofolio/type2blue.png" />
       </div>
 
-      <div className="flex w-full flex-col justify-center max-lg:gap-[3vw] lg:w-[40%] 2xl:w-[614px]">
+      <div className="flex w-full flex-col justify-center max-lg:gap-[3vw] lg:w-[50%] 2xl:w-[60%]">
         <div className="flex items-center">
           {/* Mobile Decoration Left */}
           <div className="w-[14%] opacity-[0.3] lg:hidden">
@@ -60,12 +61,12 @@ export default function ProjectStructure() {
             />
           </div>
         </div>
-        <div className="mt-[1vw] mb-[3vw] h-[0.15vw] w-full bg-cyan-300 max-lg:hidden 2xl:mt-[15px] 2xl:mb-[46px] 2xl:h-[2.3px]" />
+        <div className="mt-[1vw] mb-[3vw] h-[0.15vw] w-full bg-blue-300 max-lg:hidden 2xl:mt-[15px] 2xl:mb-[46px] 2xl:h-[2.3px]" />
         <ProjectStructureList
           divConfig={"w-full gap-[8vmin] 2xl:gap-[50px] max-lg:px-[8vw]"}
           lineConfig={"h-[146%] lg:h-[174%] mt-[1%]"}
         />
       </div>
-    </section>
+    </Container>
   );
 }
