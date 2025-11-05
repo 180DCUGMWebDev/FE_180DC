@@ -13,7 +13,7 @@ export default async function AdminPage() {
   } = await supabase.auth.getUser();
 
   if (authError || !user) {
-    redirect("/admin/login");
+    redirect("/dashboard/login");
   }
 
   // Check if user is admin
@@ -24,7 +24,7 @@ export default async function AdminPage() {
     .single();
 
   if (adminError || !adminUser) {
-    redirect("/admin/login?error=unauthorized");
+    redirect("/dashboard/login?error=unauthorized");
   }
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50 p-4">
@@ -34,7 +34,7 @@ export default async function AdminPage() {
           <p className="text-lg text-gray-600">Choose your management section</p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-3">
           {/* Consulting Card */}
           <div className="rounded-lg border-2 bg-white p-6 shadow-md transition-shadow duration-300 hover:border-cyan-300 hover:shadow-lg">
             <div className="pb-4 text-center">
@@ -44,7 +44,7 @@ export default async function AdminPage() {
                 Manage consulting projects, clients, and related administrative tasks
               </p>
             </div>
-            <Link href="/admin/consulting">
+            <Link href="/dashboard/consulting">
               <Button
                 className="w-full bg-cyan-600 py-3 text-lg font-medium text-white hover:bg-cyan-700"
                 size="lg"
@@ -63,12 +63,31 @@ export default async function AdminPage() {
                 Manage functional teams, operations, and organizational tasks
               </p>
             </div>
-            <Link href="/admin/functional">
+            <Link href="/dashboard/functional">
               <Button
                 className="w-full bg-green-600 py-3 text-lg font-medium text-white hover:bg-green-700"
                 size="lg"
               >
                 Access Functional
+              </Button>
+            </Link>
+          </div>
+
+          {/* Bootcamp Card */}
+          <div className="rounded-lg border-2 bg-white p-6 shadow-md transition-shadow duration-300 hover:border-lime-300 hover:shadow-lg">
+            <div className="pb-4 text-center">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-lime-100"></div>
+              <h2 className="mb-2 text-2xl font-semibold text-gray-900">Bootcamp 2025</h2>
+              <p className="mb-6 text-gray-600">
+                Manage bootcamp registrations and participant information
+              </p>
+            </div>
+            <Link href="/dashboard/bootcamp-2025">
+              <Button
+                className="w-full bg-lime-600 py-3 text-lg font-medium text-white hover:bg-lime-700"
+                size="lg"
+              >
+                Access Bootcamp
               </Button>
             </Link>
           </div>
