@@ -55,7 +55,7 @@ export function Login() {
             // If table doesn't exist, we'll skip admin check for now
             if (adminError.code === "42P01") {
               console.warn("admin_users table doesn't exist, proceeding without admin check");
-              router.push("/admin");
+              router.push("/dashboard");
               return;
             }
 
@@ -72,7 +72,7 @@ export function Login() {
           }
 
           console.log("Admin access granted, redirecting...");
-          router.push("/admin");
+          router.push("/dashboard");
         } catch (adminCheckError) {
           console.error("Error checking admin status:", adminCheckError);
           setError("Terjadi kesalahan saat memeriksa akses admin");

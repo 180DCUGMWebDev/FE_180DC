@@ -41,7 +41,7 @@ export function Admin({ submissions, adminUser }) {
   async function handleLogout() {
     setIsLoggingOut(true);
     await supabase.auth.signOut();
-    router.push("/admin/login");
+    router.push("/dashboard/login");
   }
 
   function formatDate(dateString) {

@@ -1,8 +1,8 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/integrations/supabase/admin";
-import { Admin } from "@/components/modules/admin/functional/Admin";
+import { Admin } from "@/components/modules/admin/bootcamp-25/Admin";
 
-export default async function AdminPage() {
+export default async function BootcampAdminPage() {
   const supabase = await createClient();
 
   // Check if user is authenticated
@@ -26,14 +26,14 @@ export default async function AdminPage() {
     redirect("/dashboard/login?error=unauthorized");
   }
 
-  // Fetch submissions
+  // Fetch bootcamp submissions
   const { data: submissions, error: submissionsError } = await supabase
-    .from("functional-batch1-25-26-submissions")
+    .from("bootcamp-submissions-2025")
     .select("*")
     .order("submitted_at", { ascending: false });
 
   if (submissionsError) {
-    console.error("Error fetching submissions:", submissionsError);
+    console.error("Error fetching bootcamp submissions:", submissionsError);
   }
 
   return <Admin submissions={submissions || []} adminUser={adminUser} />;

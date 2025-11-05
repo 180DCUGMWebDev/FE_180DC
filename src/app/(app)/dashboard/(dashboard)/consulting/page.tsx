@@ -12,7 +12,7 @@ export default async function AdminPage() {
   } = await supabase.auth.getUser();
 
   if (authError || !user) {
-    redirect("/admin/login");
+    redirect("/dashboard/login");
   }
 
   // Check if user is admin
@@ -23,7 +23,7 @@ export default async function AdminPage() {
     .single();
 
   if (adminError || !adminUser) {
-    redirect("/admin/login?error=unauthorized");
+    redirect("/dashboard/login?error=unauthorized");
   }
 
   // Fetch submissions
