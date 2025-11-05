@@ -193,7 +193,7 @@ export default function Navbar() {
         {/* Mobile Menu */}
         <section
           className={cn(
-            "bg-black-300 font-avenir-regular relative w-full gap-5 py-6 text-left text-lg text-white lg:hidden",
+            "bg-black-300 font-avenir-regular relative w-full flex-col gap-5 px-4 py-6 text-left text-lg text-white lg:hidden",
             mobileMenuOpen ? "flex rounded-b-[20px]" : "hidden"
           )}
         >

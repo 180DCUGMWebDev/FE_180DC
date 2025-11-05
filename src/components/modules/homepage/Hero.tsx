@@ -41,10 +41,14 @@ export function Hero({ contactRef }) {
                 </div>
               </div>
               {/* Tombol */}
-              <div className="flex gap-8 max-lg:w-full max-lg:justify-center">
-                <Link href="/apply" className="max-lg:max-w-[200px]">
-                  <Button180 size="lg" color="green" text="Consult Now!" icon={<ArrowUpRight />} />
-                </Link>
+              <div className="flex flex-col gap-2 max-lg:w-full max-lg:justify-center md:flex-row md:gap-8">
+                <Button180
+                  href="/apply"
+                  size="lg"
+                  color="green"
+                  text="Consult Now!"
+                  icon={<ArrowUpRight />}
+                />
                 <Button180
                   color="green"
                   text="Contact Us"
