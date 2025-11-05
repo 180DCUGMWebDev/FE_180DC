@@ -6,86 +6,101 @@ import Link from "next/link";
 
 // Import Configs
 import React from "react";
-import HeroTemplate from "../HeroTemplate";
+import Container from "@/components/layout/Container";
 
 export default function HeroCasebook() {
   // Page
   return (
-    <HeroTemplate>
-      <div className="flex w-full flex-col-reverse items-center justify-center lg:flex-row lg:pl-[5vw]">
-        <div className="relative mt-[14vw] max-lg:scale-[2.3] lg:mt-0 lg:ml-[6.5vw]">
-          <Image
-            src="/img/store/casebook/whitestar.png"
-            alt="Star ornament"
-            width={2000}
-            height={2000}
-            className="absolute -top-[5.7vw] left-[-2.7vw] h-[9.538vw] w-[9.141vw] object-cover lg:-top-[5vw] lg:h-[9.538vw] lg:w-[9.141vw]"
-          />
-          <Image
-            src="/img/store/casebook/vol2.png"
-            alt="Star ornament"
-            width={3000}
-            height={2000}
-            className="absolute top-[-2.7vw] left-[17.5vw] h-[4vw] w-[6.7vw] object-cover lg:-top-[2.5vw] lg:left-[15vw] lg:h-[4.419vw] lg:w-[9vw]"
-          />
-          <Image
-            src="/img/store/casebook/curl.png"
-            alt="Star ornament"
-            width={2000}
-            height={2000}
-            className="absolute top-[2.4vw] -left-[4vw] h-[8vw] w-[7vw] object-cover max-lg:scale-[0.6] lg:top-[2vw] lg:-left-[6vw] lg:h-[8.815vw] lg:w-[7.415vw]"
-          />
-          <Image
-            src="/img/store/casebook/sparkOrnament.png"
-            alt="Star ornament"
-            width={2000}
-            height={2000}
-            className="absolute top-[6vw] left-[14.5vw] h-[1.776vw] w-[1.531vw] object-cover lg:top-[5.5vw] lg:right-[2vw] lg:h-[1.776vw] lg:w-[1.531vw]"
-          />
+    <div className="bg-[url(/img/store/casebook/bgHeroCasebookMobile.png)] bg-cover lg:bg-[url(/img/store/casebook/bgHeroCasebook-c.png)]">
+      <Container>
+        <div className="flex min-h-screen w-full flex-col-reverse items-center justify-center gap-4 px-4 py-8 sm:px-6 sm:py-12 lg:flex-row lg:gap-0 lg:py-0 lg:pl-20">
+          {/* Content Section */}
+          <div className="relative mt-12 flex flex-col items-center max-lg:origin-bottom max-lg:scale-[1.8] sm:mt-16 sm:max-lg:scale-[1.5] md:mt-20 md:max-lg:scale-[1.3] lg:mt-0 lg:ml-24 lg:scale-100">
+            {/* Ornaments */}
+            <Image
+              src="/img/store/casebook/whitestar.png"
+              alt="Star ornament"
+              width={132}
+              height={137}
+              className="absolute -top-8 -left-2 h-20 w-24 object-cover sm:-top-10 sm:h-24 sm:w-28 md:-top-12 md:h-28 md:w-32 lg:-top-20 lg:h-[137px] lg:w-[132px]"
+            />
+            <Image
+              src="/img/store/casebook/vol2.png"
+              alt="Vol 2 badge"
+              width={130}
+              height={60}
+              className="absolute top-0 left-28 h-10 w-16 object-cover sm:left-32 sm:h-12 sm:w-20 md:left-40 md:h-14 md:w-24 lg:-top-10 lg:left-[216px] lg:h-16 lg:w-[130px]"
+            />
+            <Image
+              src="/img/store/casebook/curl.png"
+              alt="Curl ornament"
+              width={107}
+              height={127}
+              className="absolute top-6 -left-12 h-20 w-16 object-cover sm:top-8 sm:-left-14 sm:h-24 sm:w-20 md:top-10 md:-left-16 md:h-28 md:w-24 lg:top-8 lg:-left-24 lg:h-[127px] lg:w-[107px]"
+            />
+            <Image
+              src="/img/store/casebook/sparkOrnament.png"
+              alt="Spark ornament"
+              width={22}
+              height={26}
+              className="absolute top-16 left-44 h-4 w-3 object-cover sm:top-20 sm:left-52 sm:h-5 sm:w-4 md:top-24 md:left-60 md:h-6 md:w-5 lg:top-20 lg:right-8 lg:h-[26px] lg:w-[22px]"
+            />
 
-          <div className="font-avenir-black flex h-[5.677vw] w-fit flex-col items-center justify-center rounded-[5.208vw] bg-linear-to-r from-[#6FAA26] to-[#58B9D1] px-[2vw] pt-[1vw] text-[3.333vw] text-gray-100 lg:mt-[0.5vw] lg:pt-[0.5vw]">
-            CASEBOOK
+            {/* CASEBOOK Title */}
+            <div className="font-avenir-black relative flex h-12 w-fit flex-col items-center justify-center rounded-full bg-gradient-to-r from-[#6FAA26] to-[#58B9D1] px-6 pt-2 text-2xl text-gray-100 sm:h-14 sm:px-8 sm:pt-3 sm:text-3xl md:h-16 md:text-4xl lg:h-20 lg:px-8 lg:pt-4 lg:text-5xl">
+              CASEBOOK
+            </div>
+
+            {/* By 180DC UGM */}
+            <div className="font-avenir-book mt-2 text-base sm:mt-3 sm:text-lg md:mt-4 md:text-xl lg:mt-0 lg:ml-6 lg:text-2xl">
+              <h2>
+                <span className="font-avenir-regular">by </span>
+                <span className="font-avenir-black">180DC UGM</span>
+              </h2>
+            </div>
+
+            {/* Description */}
+            <div className="font-avenir-regular my-6 text-center text-sm leading-5 sm:my-8 sm:text-base sm:leading-6 md:my-10 md:text-lg md:leading-7 lg:my-10 lg:ml-6 lg:text-left lg:leading-5">
+              <p className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-[403px]">
+                The ultimate e-book you need to learn about consulting! Get it in bundles!
+              </p>
+            </div>
+
+            {/* Buy Now Button */}
+            <Link
+              href="https://docs.google.com/forms/d/e/1FAIpQLSf9lMS6EHYZPyo6IL80EcYrdxVglOv1PnpZnTS29Ew0jBHEMw/viewform"
+              className="bg-black-300 font-avenir-heavy hover:bg-black-200 relative flex h-12 w-44 items-center justify-center gap-3 rounded-full text-base text-white transition-all duration-300 ease-in-out hover:scale-105 sm:h-13 sm:w-48 sm:text-lg md:h-14 md:text-base lg:h-14 lg:w-[154px] lg:text-lg"
+            >
+              <Image
+                src="/img/store/casebook/greenstar.png"
+                alt=""
+                width={128}
+                height={128}
+                className="absolute -top-12 -left-8 w-20 sm:-top-14 sm:-left-10 sm:w-24 md:-top-16 md:-left-12 md:w-28 lg:-top-16 lg:-left-12 lg:w-32"
+              />
+              <Image
+                src="/img/store/casebook/trolley.png"
+                alt="Cart icon"
+                width={20}
+                height={20}
+                className="h-4 w-4 object-cover sm:h-5 sm:w-5"
+              />
+              <h1>Buy Now</h1>
+            </Link>
           </div>
-          <div className="font-avenir-book ml-[1.6vw] text-[1.7vw] max-lg:mt-[0.8vw]">
-            <h2>
-              <span className="font-avenir-regular">by </span>
-              <span className="font-avenir-black">180DC UGM</span>
-            </h2>
-          </div>
-          <div className="font-avenir-regular my-[2.5vw] ml-[1.6vw] max-w-[28vw] text-[1.25vw]/[1.3vw] leading-[1.7vw] lg:leading-[1.4vw]">
-            The ultimate e-book you need to learn about consulting! Get it in bundles!
-          </div>
-          <Link
-            href="https://docs.google.com/forms/d/e/1FAIpQLSf9lMS6EHYZPyo6IL80EcYrdxVglOv1PnpZnTS29Ew0jBHEMw/viewform"
-            className="bg-black-300 font-avenir-heavy relative ml-[1.6vw] flex h-[3.75vw] w-[12.677vw] items-center justify-center gap-[1vw] rounded-[5.208vw] text-[1.25vw] text-white transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#5AB0BB]/20 lg:h-[3.75vw] lg:w-[10.677vw]"
-          >
+
+          {/* Image Section */}
+          <div className="relative flex w-full flex-1 items-center justify-center">
             <Image
-              src="/img/store/casebook/greenstar.png"
-              alt=""
-              width={2000}
-              height={2000}
-              className="absolute -top-[4vw] -left-[3.2vw] w-[8vw]"
+              src="/img/store/casebook/HeroImageBook-c.png"
+              alt="Casebook cover"
+              width={907}
+              height={1020}
+              className="h-auto w-full scale-75 object-cover sm:scale-90 md:scale-100 lg:-right-40 lg:h-[1019.8px] lg:w-[907px] lg:scale-100"
             />
-            <Image
-              src="/img/store/casebook/trolley.png"
-              alt="background"
-              width={2000}
-              height={2000}
-              className="h-[1.389vw] w-[1.389vw] object-cover"
-            />
-            <h1>Buy Now</h1>
-          </Link>
+          </div>
         </div>
-        <div>
-          <Image
-            src="/img/store/casebook/HeroImageBook-c.png"
-            alt="background"
-            width={2000}
-            height={2000}
-            className="inset-0 h-auto object-cover max-lg:w-[107.026vw] max-lg:scale-[1.4] max-lg:pr-[14vw] lg:-right-[10vw] lg:h-[1019.8] lg:w-[63.006vw]"
-          />
-        </div>
-      </div>
-    </HeroTemplate>
+      </Container>
+    </div>
   );
 }

@@ -75,7 +75,7 @@ export default function Navbar() {
         className={cn(
           "mx-auto w-full max-w-[2160px] bg-black transition-all duration-300",
           isScrolled &&
-            `mx-0 w-full bg-black/60 shadow-[0_4px_30px_rgba(0,0,0,0.5)] backdrop-blur-xl md:mx-8 md:rounded-2xl ${mobileMenuOpen ? "rounded-b-[20px] bg-black" : ""}`
+            `mx-0 w-full bg-black/60 shadow-[0_4px_30px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-all duration-500 md:mx-8 md:rounded-2xl ${mobileMenuOpen ? "rounded-b-[20px] bg-black" : ""}`
         )}
       >
         <div
@@ -119,10 +119,10 @@ export default function Navbar() {
                               />
                             </div>
                             <div className="flex w-full flex-col gap-2">
-                              <ListItem href="/aboutus" title="Who We Are">
+                              <ListItem href="/about/us" title="Who We Are">
                                 Get to know about 180DC UGM.
                               </ListItem>
-                              <ListItem href="/portofolio" title="Our Services">
+                              <ListItem href="/about/services" title="Our Services">
                                 Explore how we can help you.
                               </ListItem>
                             </div>
@@ -157,6 +157,9 @@ export default function Navbar() {
                             </ListItem>
                             <ListItem href="/store/merch" title="Merch">
                               Explore our merchandise.
+                            </ListItem>
+                            <ListItem href="/store/frameworkbank" title="Framework Bank">
+                              Explore our collection of consulting frameworks.
                             </ListItem>
                           </motion.div>
                         </NavigationMenuContent>
@@ -206,7 +209,7 @@ export default function Navbar() {
               >
                 <div
                   className={`flex w-full cursor-pointer items-center justify-between p-2 ${
-                    pathname.startsWith("/aboutus") ? "font-semibold text-green-300" : ""
+                    pathname.startsWith("/about") ? "font-semibold text-green-300" : ""
                   }`}
                   onClick={() => toggleAccordion("about")}
                 >
@@ -229,14 +232,14 @@ export default function Navbar() {
                       transition={{ duration: 0.3 }}
                       className="absolute top-[110%] z-101 flex w-fit flex-col gap-7 rounded-[20px] bg-white p-8 text-black"
                     >
-                      <Link href="/aboutus" onClick={closeMobileMenu}>
+                      <Link href="/about/us" onClick={closeMobileMenu}>
                         <div className="font-avenir-regular flex flex-col items-start hover:text-white">
                           <span className="font-lato-bold">Who We Are</span>
                           <span>Learn about our mission and team</span>
                         </div>
                       </Link>
 
-                      <Link href="/aboutus/#vismis" onClick={closeMobileMenu}>
+                      <Link href="/about/services" onClick={closeMobileMenu}>
                         <div className="font-avenir-regular flex flex-col items-start hover:text-white">
                           <span className="font-lato-bold">Our Services</span>
                           <span>Explore how we can help you</span>

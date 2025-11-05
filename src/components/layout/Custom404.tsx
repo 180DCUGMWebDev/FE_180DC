@@ -11,7 +11,7 @@ export default function Custom404({
   homeLink = "/",
   additionalLinks = [
     { text: "About Us", href: "/aboutus", onClick: null },
-    { text: "Portfolio", href: "/portofolio", onClick: null },
+    { text: "Portfolio", href: "/about/services", onClick: null },
     { text: "Store", href: "/store", onClick: null },
   ],
 }) {
@@ -78,7 +78,7 @@ export default function Custom404({
                 <Link href={homeLink}>
                   <Button180 color="green" text="Go to Homepage" />
                 </Link>
-                <Link href="/aboutus">
+                <Link href="/about/us">
                   <Button180 color="white" text="About Us" />
                 </Link>
               </div>

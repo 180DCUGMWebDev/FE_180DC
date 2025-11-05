@@ -36,10 +36,10 @@ export function WhatIs() {
               entities in overcoming the challenges they face at extremely affordable costs.{" "}
             </div>
           </div>
-          <Link href="/aboutus" className="max-lg:hidden">
+          <Link href="/about/us" className="max-lg:hidden">
             <Button180 color="black" text="Read More" icon={<AiOutlineArrowRight />} />
           </Link>
-          <Link href="/aboutus" className="lg:hidden">
+          <Link href="/about/us" className="lg:hidden">
             <Button180 color="green" text="Read More" icon={<AiOutlineArrowRight />} />
           </Link>
         </div>

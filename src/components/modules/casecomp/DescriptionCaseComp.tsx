@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
@@ -49,7 +51,7 @@ export function DescriptionCaseComp() {
         </div>
         <div className="mx-auto max-w-4xl rounded-xl bg-green-50/90 p-6 text-center md:p-10">
           <div className="mb-8 text-xl font-medium text-green-800 md:text-3xl">
-            <div className="mb-[2vw] mt-[3vw] font-lato-bold text-[3.33vw] text-[#73B743]"></div>
+            <div className="font-lato-bold mt-[3vw] mb-[2vw] text-[3.33vw] text-[#73B743]"></div>
           </div>
 
           <div className="space-y-6 text-left text-gray-800">

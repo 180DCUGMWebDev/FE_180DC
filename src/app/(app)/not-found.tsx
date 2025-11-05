@@ -9,8 +9,8 @@ export default function NotFound() {
       homeLink="/"
       additionalLinks={[
         { text: "Open Recruitment", href: "/oprec", onClick: null },
-        { text: "About Us", href: "/aboutus", onClick: null },
-        { text: "Portfolio", href: "/portofolio", onClick: null },
+        { text: "About Us", href: "/about/us", onClick: null },
+        { text: "Portfolio", href: "/about/services", onClick: null },
         { text: "Store", href: "/store", onClick: null },
         { text: "Academy", href: "/academy", onClick: null },
       ]}

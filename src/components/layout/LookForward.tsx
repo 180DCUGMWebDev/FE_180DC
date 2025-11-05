@@ -37,7 +37,7 @@ export default function LookForward({ theme }) {
     theme === "light" ? " text-black-300 " : theme === "dark" ? " text-white " : " text-green-300 ";
 
   const topLeftShard =
-    pathname === "/portofolio" ? (
+    pathname === "/about/services" ? (
       <div className="absolute -top-[480px] left-0 w-[480px] opacity-40 max-lg:hidden 2xl:-top-[384px] 2xl:w-[384px]">
         <ImageAction alt="portofolio shard left" src="/img/portofolio/shard1.png" />
       </div>
@@ -46,7 +46,7 @@ export default function LookForward({ theme }) {
     );
 
   const topRightShard =
-    pathname === "/portofolio" ? (
+    pathname === "/about/services" ? (
       <div className="absolute -top-[288px] right-0 w-[288px] opacity-25 max-lg:hidden 2xl:-top-[230px] 2xl:w-[230px]">
         <ImageAction alt="portofolio shard left" src="/img/portofolio/shard2.png" />
       </div>

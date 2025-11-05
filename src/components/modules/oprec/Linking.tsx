@@ -214,7 +214,7 @@ export default function Linking() {
             Learn more about our program structure, requirements, and what makes 180DC UGM special.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <Link href="/aboutus">
+            <Link href="/about/us">
               <Button180
                 color="transparent"
                 text="About Us"
@@ -222,7 +222,7 @@ export default function Linking() {
                 className="px-4 py-1"
               />
             </Link>
-            <Link href="/aboutus#services">
+            <Link href="/about/us#services">
               <Button180
                 color="green"
                 text="Services"

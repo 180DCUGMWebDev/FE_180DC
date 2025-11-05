@@ -4,6 +4,10 @@ import CountinueCourse from "@/components/modules/academy/module1/ContinueCourse
 import PdfViewer from "@/components/modules/academy/module/PdfViewer";
 import MiniQuiz from "@/components/modules/academy/module/MiniQuiz";
 
+export const metadata = {
+  title: "Academy | 180 Degrees Consulting UGM",
+};
+
 export default function AcademyModule({ params }) {
   const { slug } = params;
 

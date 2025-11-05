@@ -21,7 +21,7 @@ const Container = ({ children, className, color }: ContainerProps) => {
     <section
       className={cn(`relative mx-auto flex w-full flex-col gap-4 px-6 py-10 sm:px-8`, bgColor)}
     >
-      <div className={cn("mx-auto w-full max-w-[2160px]", className)}>{children}</div>
+      <div className={cn("mx-auto h-full w-full max-w-[2160px]", className)}>{children}</div>
     </section>
   );
 };
