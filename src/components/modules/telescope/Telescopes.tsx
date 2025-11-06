@@ -1,43 +1,59 @@
 "use client";
 import Image from "next/image";
-import { TelescopeBox } from "./TelescopeBox";
 import { useEffect, useRef, useState } from "react";
 import { FaChevronDown, FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Container from "@/components/layout/Container";
+import Link from "next/link";
 
 export function Telescopes({ articles, subscribeScrollRef = null }) {
-  const [showArticles, setShowArticles] = useState(false);
-  const [slide, setSlide] = useState(0);
   const [search, setSearch] = useState("");
+  const [currentImageSlide, setCurrentImageSlide] = useState(0);
   const scrollRef = useRef(null);
-  const carouselApiRef = useRef(null);
+  const imageCarouselApiRef = useRef<CarouselApi>(null);
 
   // Ensure articles is always an array
   const safeArticles = Array.isArray(articles) ? articles : [];
-  const carouselArticles = safeArticles.slice(1, 9);
+  const imageArticles = safeArticles.filter((article) => article.image);
 
-  const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }));
+  const imagePlugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: true }));
 
   useEffect(() => {
-    if (!carouselApiRef.current) return;
+    if (!imageCarouselApiRef.current) return;
 
-    carouselApiRef.current.on("select", () => {
-      setSlide(carouselApiRef.current.selectedScrollSnap());
+    imageCarouselApiRef.current.on("select", () => {
+      setCurrentImageSlide(imageCarouselApiRef.current.selectedScrollSnap());
     });
   }, []);
 
-  const scrollPrev = () => {
-    carouselApiRef.current?.scrollPrev();
+  const scrollImagePrev = () => {
+    imageCarouselApiRef.current?.scrollPrev();
   };
 
-  const scrollNext = () => {
-    carouselApiRef.current?.scrollNext();
+  const scrollImageNext = () => {
+    imageCarouselApiRef.current?.scrollNext();
   };
 
-  const scrollTo = (index) => {
-    carouselApiRef.current?.scrollTo(index);
+  const scrollImageTo = (index) => {
+    imageCarouselApiRef.current?.scrollTo(index);
+  };
+
+  // Sanitize slug - remove spaces and special characters
+  const sanitizeSlug = (slug: string) => {
+    if (!slug) return "";
+    return slug
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, "-") // Replace spaces with hyphens
+      .replace(/[^\w\-]/g, "") // Remove special characters except hyphens
+      .replace(/\-+/g, "-") // Replace multiple hyphens with single hyphen
+      .replace(/^-+|-+$/g, ""); // Remove leading/trailing hyphens
   };
 
   return (
@@ -91,117 +107,109 @@ export function Telescopes({ articles, subscribeScrollRef = null }) {
             </button>
           </div>
         </div>
-        {/* Articles */}
-        <div
-          ref={scrollRef}
-          className="lg:bg-black-300 relative flex flex-col items-center gap-20 px-6 pb-60 max-lg:bg-linear-to-b max-lg:from-black max-lg:from-70% max-lg:to-black/[85.45%] max-lg:to-100%"
-        >
-          {/* Main Article */}
-          {safeArticles.length > 0 && (
-            <>
-              <div className="font-lato-regular w-full text-2xl text-gray-100 italic lg:hidden">
-                Earlier This Week
-              </div>
-              <div className="w-full lg:mt-36">
-                <TelescopeBox article={safeArticles[0]} type="lg" />
-              </div>
-            </>
-          )}
-          {/* Article List (Mobile) */}
-          {safeArticles.length > 1 && (
-            <div className="grid w-full grid-cols-2 gap-20 lg:hidden">
-              {safeArticles.slice(1, showArticles ? 9 : 3).map((article) => (
-                <TelescopeBox key={article.id} article={article} type="sm" />
-              ))}
-            </div>
-          )}
-          {safeArticles.length >= 3 && (
-            <button
-              className="font-lato-regular w-fit text-center text-sm leading-tight text-gray-100 underline lg:hidden"
-              onClick={() => setShowArticles(!showArticles)}
+
+        {/* Image Gallery Carousel */}
+        {imageArticles.length > 0 && (
+          <div
+            ref={scrollRef}
+            className="relative flex flex-col items-center gap-8 px-6 py-20 lg:gap-10 lg:py-24"
+          >
+            <Carousel
+              plugins={[imagePlugin.current]}
+              className="w-full"
+              opts={{
+                align: "center",
+                loop: true,
+              }}
+              setApi={(api) => (imageCarouselApiRef.current = api)}
+              onMouseEnter={imagePlugin.current.stop}
+              onMouseLeave={imagePlugin.current.reset}
             >
-              Show {showArticles ? "less" : "more"}
-            </button>
-          )}
-          {/* Article Carousel (Desktop) */}
-          {carouselArticles.length > 0 && (
-            <div className="flex w-full flex-col gap-8 rounded-[20px] max-lg:hidden">
-              <Carousel
-                plugins={[plugin.current]}
-                className="w-full"
-                opts={{
-                  align: "start",
-                  loop: true,
-                }}
-                setApi={(api) => (carouselApiRef.current = api)}
-                onMouseEnter={plugin.current.stop}
-                onMouseLeave={plugin.current.reset}
-              >
-                <CarouselContent className="-ml-12">
-                  {carouselArticles.map((article) => (
-                    <CarouselItem key={article.id} className="basis-1/2 pl-12">
-                      <TelescopeBox article={article} type="sm" />
+              <CarouselContent className="w-full">
+                {imageArticles.map((article) => {
+                  let imageUrl = "";
+                  if (article.image) {
+                    if (typeof article.image === "object" && article.image.url) {
+                      imageUrl = article.image.url;
+                    } else if (typeof article.image === "string") {
+                      imageUrl = article.image;
+                    }
+                  }
+                  if (imageUrl && !imageUrl.startsWith("http")) {
+                    imageUrl = `${process.env.NEXT_PUBLIC_PAYLOAD_URL || ""}${imageUrl}`;
+                  }
+
+                  return (
+                    <CarouselItem
+                      key={article.id}
+                      className="basis-full sm:basis-3/4 md:basis-2/3 lg:basis-1/2"
+                    >
+                      <Link href={`/article/telescope/${sanitizeSlug(article.slug)}`}>
+                        <div
+                          className="relative w-full overflow-hidden rounded-lg"
+                          style={{ aspectRatio: "16/9" }}
+                        >
+                          {imageUrl && (
+                            <Image
+                              src={imageUrl}
+                              alt={article.title || "article image"}
+                              fill
+                              className="object-cover"
+                            />
+                          )}
+                          <div className="absolute inset-0 bg-black/20" />
+                          <div className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black to-transparent px-4 py-6 sm:px-6 sm:py-8">
+                            <h3 className="font-avenir-black line-clamp-2 text-lg text-white sm:text-xl md:text-2xl">
+                              {article.title}
+                            </h3>
+                            {article.author && (
+                              <p className="font-lato-regular mt-2 text-sm text-gray-300 sm:text-base">
+                                by {article.author}
+                              </p>
+                            )}
+                          </div>
+                        </div>
+                      </Link>
                     </CarouselItem>
+                  );
+                })}
+              </CarouselContent>
+            </Carousel>
+
+            {/* Image Carousel Controls */}
+            {imageArticles.length > 1 && (
+              <div className="flex items-center justify-center gap-4 sm:gap-6">
+                <button
+                  onClick={scrollImagePrev}
+                  className="hover:text-black-300 rounded-full border border-gray-100 p-2 text-gray-100 transition-all hover:bg-gray-100 sm:p-3"
+                >
+                  <FaChevronLeft className="text-lg sm:text-xl" />
+                </button>
+
+                <div className="flex items-center gap-2 sm:gap-3">
+                  {imageArticles.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => scrollImageTo(idx)}
+                      className={`h-2 rounded-full transition-all sm:h-3 ${
+                        idx === currentImageSlide
+                          ? "w-6 bg-green-300 sm:w-8"
+                          : "w-2 bg-gray-100/40 hover:bg-gray-100/60 sm:w-3"
+                      }`}
+                    />
                   ))}
-                </CarouselContent>
-              </Carousel>
-              {/* Carousel Control */}
-              {carouselArticles.length > 2 && (
-                <div className="flex justify-center gap-2">
-                  <button className="w-fit" onClick={scrollPrev}>
-                    <FaChevronLeft className="text-2xl text-gray-100 hover:cursor-pointer" />
-                  </button>
-                  <div className="flex items-center gap-2">
-                    {Array.from({ length: Math.ceil(carouselArticles.length / 2) }).map(
-                      (_, idx) => (
-                        <button
-                          key={idx}
-                          className={`h-4 w-4 rounded-full transition-colors ${
-                            slide === idx ? "bg-green-300" : "bg-light-white"
-                          }`}
-                          onClick={() => scrollTo(idx)}
-                        />
-                      )
-                    )}
-                  </div>
-                  <button className="w-fit" onClick={scrollNext}>
-                    <FaChevronRight className="text-2xl text-gray-100 hover:cursor-pointer" />
-                  </button>
                 </div>
-              )}
-            </div>
-          )}
-          {/* Search Article */}
-          {safeArticles.length > 0 && (
-            <div className="flex w-full flex-col gap-8 lg:hidden">
-              <div className="font-lato-regular text-2xl text-gray-100 italic lg:hidden">
-                Find The Article
+
+                <button
+                  onClick={scrollImageNext}
+                  className="hover:text-black-300 rounded-full border border-gray-100 p-2 text-gray-100 transition-all hover:bg-gray-100 sm:p-3"
+                >
+                  <FaChevronRight className="text-lg sm:text-xl" />
+                </button>
               </div>
-              <input
-                className="font-lato-semibold outline-grey-gray-100-180 w-full rounded px-2 py-1 text-sm outline-hidden outline-offset-0"
-                placeholder="Type the news title or the author's name"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-              {/* Article List (Mobile) */}
-              <div className="mt-8 grid w-full grid-cols-2 gap-20 lg:hidden">
-                {safeArticles
-                  .filter((article) =>
-                    search
-                      .split(/\s+/)
-                      .every((word) =>
-                        (article.title + " " + (article.author || ""))
-                          .toLowerCase()
-                          .includes(word.toLowerCase())
-                      )
-                  )
-                  .map((article) => (
-                    <TelescopeBox key={article.id} article={article} type="sm" />
-                  ))}
-              </div>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        )}
       </Container>
     </div>
   );

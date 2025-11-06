@@ -15,21 +15,21 @@ export default function HeroCasebook() {
       <Container>
         <div className="flex min-h-screen w-full flex-col-reverse items-center justify-center gap-4 px-4 py-8 sm:px-6 sm:py-12 lg:flex-row lg:gap-0 lg:py-0 lg:pl-20">
           {/* Content Section */}
-          <div className="relative mt-12 flex flex-col items-center max-lg:origin-bottom max-lg:scale-[1.8] sm:mt-16 sm:max-lg:scale-[1.5] md:mt-20 md:max-lg:scale-[1.3] lg:mt-0 lg:ml-24 lg:scale-100">
+          <div className="relative mt-12 flex flex-col flex-wrap items-center lg:ml-24 lg:scale-100 lg:items-start">
             {/* Ornaments */}
             <Image
               src="/img/store/casebook/whitestar.png"
               alt="Star ornament"
               width={132}
               height={137}
-              className="absolute -top-8 -left-2 h-20 w-24 object-cover sm:-top-10 sm:h-24 sm:w-28 md:-top-12 md:h-28 md:w-32 lg:-top-20 lg:h-[137px] lg:w-[132px]"
+              className="absolute -top-8 -left-2 hidden h-20 w-24 object-cover sm:-top-10 sm:h-24 sm:w-28 md:-top-12 md:flex md:h-28 md:w-32 lg:-top-20 lg:h-[137px] lg:w-[132px]"
             />
             <Image
               src="/img/store/casebook/vol2.png"
               alt="Vol 2 badge"
               width={130}
               height={60}
-              className="absolute top-0 left-28 h-10 w-16 object-cover sm:left-32 sm:h-12 sm:w-20 md:left-40 md:h-14 md:w-24 lg:-top-10 lg:left-[216px] lg:h-16 lg:w-[130px]"
+              className="absolute top-0 left-[60%] z-2 h-10 w-16 object-cover sm:left-[70%] sm:h-12 sm:w-20 md:-top-4 md:left-[63%] md:h-14 md:w-24 lg:-top-10 lg:left-[216px] lg:h-16 lg:w-[130px]"
             />
             <Image
               src="/img/store/casebook/curl.png"
@@ -43,7 +43,7 @@ export default function HeroCasebook() {
               alt="Spark ornament"
               width={22}
               height={26}
-              className="absolute top-16 left-44 h-4 w-3 object-cover sm:top-20 sm:left-52 sm:h-5 sm:w-4 md:top-24 md:left-60 md:h-6 md:w-5 lg:top-20 lg:right-8 lg:h-[26px] lg:w-[22px]"
+              className="absolute top-12 left-54 h-4 w-3 object-cover sm:top-16 sm:left-62 sm:h-5 sm:w-4 md:top-18 md:left-80 md:h-6 md:w-5 lg:top-20 lg:right-8 lg:h-[26px] lg:w-[22px]"
             />
 
             {/* CASEBOOK Title */}
@@ -60,10 +60,8 @@ export default function HeroCasebook() {
             </div>
 
             {/* Description */}
-            <div className="font-avenir-regular my-6 text-center text-sm leading-5 sm:my-8 sm:text-base sm:leading-6 md:my-10 md:text-lg md:leading-7 lg:my-10 lg:ml-6 lg:text-left lg:leading-5">
-              <p className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-[403px]">
-                The ultimate e-book you need to learn about consulting! Get it in bundles!
-              </p>
+            <div className="font-avenir-regular my-6 flex w-full flex-wrap px-4 text-center text-sm leading-5 whitespace-normal sm:my-8 sm:text-base sm:leading-6 md:my-10 md:text-lg md:leading-7 lg:my-10 lg:ml-6 lg:text-left lg:leading-5">
+              <p>The ultimate e-book you need to learn about consulting! Get it in bundles!</p>
             </div>
 
             {/* Buy Now Button */}
@@ -90,13 +88,13 @@ export default function HeroCasebook() {
           </div>
 
           {/* Image Section */}
-          <div className="relative flex w-full flex-1 items-center justify-center">
+          <div className="relative flex aspect-[9027/1020] w-full items-center justify-center">
             <Image
               src="/img/store/casebook/HeroImageBook-c.png"
               alt="Casebook cover"
               width={907}
               height={1020}
-              className="h-auto w-full scale-75 object-cover sm:scale-90 md:scale-100 lg:-right-40 lg:h-[1019.8px] lg:w-[907px] lg:scale-100"
+              className="absolute h-full w-full object-cover sm:scale-90 md:scale-100 lg:-right-40 lg:h-[1019.8px] lg:w-[907px] lg:scale-100"
             />
           </div>
         </div>
