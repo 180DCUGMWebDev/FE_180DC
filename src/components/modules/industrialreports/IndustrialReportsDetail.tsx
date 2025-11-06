@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { createBackground } from "@/config/Functions";
 import Image from "next/image";
 import { IndustrialReport } from "./data";
 import { Download, ExternalLink } from "lucide-react";
