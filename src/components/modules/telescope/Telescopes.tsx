@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Container from "@/components/layout/Container";
-import Link from "next/dist/client/link";
+import Link from "next/link";
 
 export function Telescopes({ articles, subscribeScrollRef = null }) {
   const [search, setSearch] = useState("");
