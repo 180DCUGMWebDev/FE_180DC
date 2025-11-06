@@ -232,17 +232,17 @@ export default function Navbar() {
                       transition={{ duration: 0.3 }}
                       className="z-101 ml-3 flex w-fit flex-col gap-3 border-l-1 py-1 pl-3"
                     >
-                      <Link href="/aboutus" onClick={closeMobileMenu}>
+                      <Link href="/about/us" onClick={closeMobileMenu}>
                         <div className="font-avenir-regular flex flex-col items-start text-base hover:text-white">
-                          <span className="font-lato-bold">Who we are</span>
-                          <span>Get to know about 180DC UGM</span>
+                          <span className="font-lato-bold">Who We Are</span>
+                          <span>Get to know about 180DC UGM.</span>
                         </div>
                       </Link>
 
                       <Link href="/about/services" onClick={closeMobileMenu}>
                         <div className="font-avenir-regular flex flex-col items-start text-base hover:text-white">
                           <span className="font-lato-bold">Our Services</span>
-                          <span>Explore how we can help you</span>
+                          <span>Explore how we can help you.</span>
                         </div>
                       </Link>
                     </motion.div>
@@ -296,13 +296,19 @@ export default function Navbar() {
                       <Link href="/store/casebook" onClick={closeMobileMenu}>
                         <div className="font-avenir-regular flex flex-col items-start text-base hover:text-white">
                           <span className="font-lato-bold">Casebook</span>
-                          <span>Casebook of 180DC UGM</span>
+                          <span>Casebook of 180DC UGM.</span>
                         </div>
                       </Link>
                       <Link href="/store/merch" onClick={closeMobileMenu}>
                         <div className="font-avenir-regular flex flex-col items-start text-base hover:text-white">
                           <span className="font-lato-bold">Merch</span>
-                          <span>Explore our merchandise</span>
+                          <span>Explore our merchandise.</span>
+                        </div>
+                      </Link>
+                      <Link href="/store/frameworkbank" onClick={closeMobileMenu}>
+                        <div className="font-avenir-regular flex flex-col items-start text-base hover:text-white">
+                          <span className="font-lato-bold">Framework Bank</span>
+                          <span>Explore our collection of consulting frameworks.</span>
                         </div>
                       </Link>
                     </motion.div>
