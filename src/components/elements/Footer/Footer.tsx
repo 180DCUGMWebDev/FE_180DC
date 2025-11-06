@@ -88,7 +88,7 @@ export default function Footer() {
     else if (theme === "black") return themeCheck({ themeToCheck: themeDevice.dark });
   };
 
-  const bgTheme = pathname.includes("/telescope/")
+  const bgTheme = pathname.includes("/article/")
     ? "bg-[black] "
     : checkTheme({
           theme: "light",
@@ -102,7 +102,7 @@ export default function Footer() {
         ? "bg-gray-300 "
         : "bg-transparent ";
 
-  const bgThemeMobile = pathname.includes("/telescope/")
+  const bgThemeMobile = pathname.includes("/article/")
     ? "bg-[black]"
     : checkTheme({
           theme: "light",

@@ -6,7 +6,7 @@ export const navLinks = {
   Store: "/store/merch",
   Event: "/casecompetition",
   Academy: "/academy",
-  Telescope: "/telescope",
+  Telescope: "/article/telescope",
 };
 
 export const childLink = {
@@ -20,8 +20,8 @@ export const childLink = {
     "Case Competition": "/casecompetition",
   },
   Telescope: {
-    Article: "/telescope",
-    "Industrial Report": "/industrialreport",
+    Article: "/article/telescope",
+    "Industrial Report": "/article/industrialreport",
   },
 };
 

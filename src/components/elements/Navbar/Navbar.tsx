@@ -132,9 +132,9 @@ export default function Navbar() {
                       <NavigationMenuItem>
                         <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                           <Link
-                            href="/telescope"
+                            href="/article/telescope"
                             className={`hover:text-black-300 transition-all duration-300 hover:bg-white ${
-                              pathname === "/telescope" ? "text-black-300 bg-white" : ""
+                              pathname === "/article/telescope" ? "text-black-300 bg-white" : ""
                             }`}
                           >
                             <p className="text-base">Article</p>
@@ -252,10 +252,10 @@ export default function Navbar() {
 
               {/* Article */}
               <div key="article-wrapper">
-                <Link href="/telescope" onClick={closeMobileMenu}>
+                <Link href="/article/telescope" onClick={closeMobileMenu}>
                   <div
                     className={`font-avenir-regular w-full p-2 ${
-                      pathname === "/telescope" ? "font-semibold text-green-300" : ""
+                      pathname === "/article/telescope" ? "font-semibold text-green-300" : ""
                     }`}
                   >
                     Article

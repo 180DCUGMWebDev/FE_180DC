@@ -5,6 +5,9 @@ export const Telescope: CollectionConfig = {
   admin: {
     useAsTitle: "title",
   },
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       name: "title",
@@ -24,7 +27,7 @@ export const Telescope: CollectionConfig = {
       required: true,
       unique: true,
       admin: {
-        description: "Unique identifier for the article (auto-generated from title)",
+        description: "Eh kalau bisa sih kecil semua terus gaada spasi, dan juga gaada simbol yaa",
       },
     },
     {

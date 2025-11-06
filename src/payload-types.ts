@@ -171,7 +171,7 @@ export interface Telescope {
   title: string;
   author: string;
   /**
-   * Unique identifier for the article (auto-generated from title)
+   * Eh kalau bisa sih kecil semua terus gaada spasi, dan juga gaada simbol yaa
    */
   slug: string;
   image: number | Media;
