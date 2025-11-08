@@ -65,7 +65,7 @@ const SelectContent = React.forwardRef<HTMLDivElement, SelectPrimitive.SelectCon
       <SelectPrimitive.Content
         ref={ref}
         className={cn(
-          "bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-h-(--radix-select-content-available-height) min-w-32 origin-(--radix-select-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-md border bg-white shadow-md",
+          "bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-h-(--radix-select-content-available-height) min-w-32 origin-(--radix-select-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-lg border border-gray-200 bg-white shadow-lg",
           position === "popper" &&
             "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
           className
@@ -76,7 +76,7 @@ const SelectContent = React.forwardRef<HTMLDivElement, SelectPrimitive.SelectCon
         <SelectScrollUpButton />
         <SelectPrimitive.Viewport
           className={cn(
-            "p-1",
+            "p-1.5",
             position === "popper" &&
               "h-(--radix-select-trigger-height) w-full min-w-(--radix-select-trigger-width)"
           )}
@@ -106,14 +106,14 @@ const SelectItem = React.forwardRef<HTMLDivElement, SelectPrimitive.SelectItemPr
     <SelectPrimitive.Item
       ref={ref}
       className={cn(
-        "focus:bg-accent focus:text-accent-foreground relative flex w-full cursor-default items-center rounded-xs py-1.5 pr-2 pl-8 text-sm outline-hidden select-none hover:cursor-pointer hover:bg-neutral-200 data-disabled:pointer-events-none data-disabled:opacity-50",
+        "font-lato-regular relative flex w-full cursor-pointer items-center rounded-sm py-2.5 pr-2 pl-8 text-sm outline-hidden transition-colors duration-150 select-none hover:bg-green-300/10 focus:bg-green-300/20 data-disabled:pointer-events-none data-disabled:opacity-50",
         className
       )}
       {...props}
     >
-      <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+      <span className="absolute left-2 flex h-4 w-4 items-center justify-center">
         <SelectPrimitive.ItemIndicator>
-          <Check className="h-4 w-4" />
+          <Check className="h-4 w-4 text-green-300" />
         </SelectPrimitive.ItemIndicator>
       </span>
 

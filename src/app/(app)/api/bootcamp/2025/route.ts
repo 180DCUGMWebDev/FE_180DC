@@ -62,6 +62,8 @@ export async function POST(request: Request) {
       p1_whatsapp: formData.get("whatsapp") as string,
       p1_university: formData.get("university") as string,
       p1_batch: formData.get("batch") as string,
+      p1_faculty: formData.get("faculty") as string, // <-- BARU
+      p1_major: formData.get("major") as string, // <-- BARU
       p1_motivation: formData.get("motivation") as string,
       p1_cv_link: formData.get("cv") as string,
 
@@ -71,8 +73,13 @@ export async function POST(request: Request) {
       p2_whatsapp: formData.get("whatsapp_p2") as string | null,
       p2_university: formData.get("university_p2") as string | null,
       p2_batch: formData.get("batch_p2") as string | null,
+      p2_faculty: formData.get("faculty_p2") as string | null, // <-- BARU
+      p2_major: formData.get("major_p2") as string | null, // <-- BARU
       p2_motivation: formData.get("motivation_p2") as string | null,
       p2_cv_link: formData.get("cv_p2") as string | null,
+
+      find_us: formData.get("findUs") as string, // <-- BARU
+      drive_link: formData.get("drive_link") as string, // <-- BARU
 
       // Meta Information
       user_agent: request.headers.get("user-agent"),
@@ -88,8 +95,10 @@ export async function POST(request: Request) {
     if (
       !submissionData.reg_type ||
       !submissionData.p1_full_name ||
-      !submissionData.p1_email ||
-      !submissionData.p1_cv_link
+      !submissionData.p1_faculty || // <-- BARU
+      !submissionData.p1_major || // <-- BARU
+      !submissionData.find_us || // <-- BARU
+      !submissionData.drive_link // <-- BARU
     ) {
       return NextResponse.json(
         { error: "Missing required fields for Participant 1." },

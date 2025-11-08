@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useFormContext } from "react-hook-form";
 import UploadFileField from "../components/UploadFileField";
 import { Button } from "@/components/elements/Form/button";
+import { toast } from "sonner";
 
 interface Slide4Props {
   regType: "individual" | "duo";
@@ -125,6 +126,41 @@ export default function Slide4({ regType, buyCasebook, onBack, isSubmitting }: S
         <p className="font-lato-regular mt-1 text-sm text-gray-600">
           {paymentDetails.breakdown} ={" "}
           <strong className="font-lato-bold">IDR {paymentDetails.total / 1000}K</strong>
+        </p>
+        <div className="my-3 h-[2px] w-[90%] bg-gray-700" />
+
+        <h3 className="font-avenir-regular mb-4 text-lg font-bold text-gray-700">
+          Transfer to This Account
+        </h3>
+
+        <div className="flex flex-row items-center justify-start gap-2">
+          <p className="font-lato-regular text-md text-gray-600">Bank Name: </p>
+          <p className="font-avenir-regular text-md font-bold text-gray-900">blu by BCA</p>
+        </div>
+        <div className="mt-2 flex flex-row items-center gap-2 border-t border-gray-200">
+          <p className="font-lato-regular text-md text-gray-600">Account Number: </p>
+
+          <div className="flex flex-row items-center gap-2">
+            <p className="font-avenir-black text-2xl text-green-300">0072 6270 9150</p>
+            <button
+              type="button"
+              onClick={() => {
+                navigator.clipboard.writeText("007262709150");
+                toast.success("Account number copied succesfully!");
+              }}
+              className="rounded-md bg-green-100 px-3 py-1 text-xs font-medium text-green-600 transition-colors hover:bg-green-200 hover:text-white"
+            >
+              Copy
+            </button>
+          </div>
+        </div>
+        <div className="mt-2 flex flex-row items-center justify-start gap-2 border-t border-gray-200">
+          <p className="font-lato-regular text-md text-gray-600">Account Holder: </p>
+          <p className="font-lato-bold text-base text-gray-900">Keyra Audrey Annabelle Christian</p>
+        </div>
+        <p className="font-lato-regular mt-4 text-xs text-gray-500 italic">
+          <span className="text-red-300">*</span>Make sure to transfer the exact amount and upload
+          your payment proof below
         </p>
       </div>
 
