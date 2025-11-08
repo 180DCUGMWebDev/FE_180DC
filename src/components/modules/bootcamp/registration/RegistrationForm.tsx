@@ -24,6 +24,8 @@ type FormData = {
   whatsapp: string;
   university: string;
   batch: string;
+  faculty: string;
+  major: string;
   motivation: string;
   cv: string; // Link CV
 
@@ -33,8 +35,13 @@ type FormData = {
   whatsapp_p2?: string;
   university_p2?: string;
   batch_p2?: string;
+  faculty_p2?: string; // <-- BARU
+  major_p2?: string; // <-- BARU
   motivation_p2?: string;
   cv_p2?: string;
+
+  findUs: string; // (Single choice)
+  drive_link: string; // (Social proof)
 
   // --- Field dari Slide 4 ---
   paymentProof: FileList; // Bukti bayar
@@ -148,6 +155,8 @@ export default function RegistrationForm() {
     fd.append("whatsapp", data.whatsapp);
     fd.append("university", data.university);
     fd.append("batch", data.batch);
+    fd.append("faculty", data.faculty); // <-- BARU
+    fd.append("major", data.major); // <-- BARU
     fd.append("motivation", data.motivation);
     fd.append("cv", data.cv);
 
@@ -158,10 +167,15 @@ export default function RegistrationForm() {
       fd.append("whatsapp_p2", data.whatsapp_p2 || "");
       fd.append("university_p2", data.university_p2 || "");
       fd.append("batch_p2", data.batch_p2 || "");
+      fd.append("faculty_p2", data.faculty_p2 || ''); // <-- BARU
+      fd.append("major_p2", data.major_p2 || ''); // <-- BARU
       fd.append("motivation_p2", data.motivation_p2 || "");
       fd.append("cv_p2", data.cv_p2 || "");
     }
 
+    fd.append("findUs", data.findUs); // <-- BARU
+    fd.append("drive_link", data.drive_link); // <-- BARU
+    
     // 6. Tambahkan file bukti bayar
     if (data.paymentProof && data.paymentProof.length > 0) {
       fd.append("paymentProof", data.paymentProof[0]);

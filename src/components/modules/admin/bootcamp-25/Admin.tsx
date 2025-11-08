@@ -69,6 +69,8 @@ export function Admin({ submissions, adminUser }) {
       "WhatsApp",
       "University",
       "Batch",
+      "Faculty",
+      "Major",
       "Motivation",
       "CV Link",
       "Full Name P2",
@@ -76,8 +78,12 @@ export function Admin({ submissions, adminUser }) {
       "WhatsApp P2",
       "University P2",
       "Batch P2",
+      "Faculty P2",
+      "Major P2",
       "Motivation P2",
       "CV Link P2",
+      "Find Us",
+      "Social Proof Link",
       "Payment Proof URL",
       "Submitted At",
       "IP Address",
@@ -94,6 +100,8 @@ export function Admin({ submissions, adminUser }) {
           `"${submission.p1_whatsapp}"`,
           `"${submission.p1_university}"`,
           `"${submission.p1_batch}"`,
+          `"${submission.p1_faculty || ""}"`,
+          `"${submission.p1_major || ""}"`,
           `"${submission.p1_motivation?.replace(/"/g, '""') || ""}"`,
           `"${submission.p1_cv_link}"`,
           `"${submission.p2_full_name || ""}"`,
@@ -101,8 +109,12 @@ export function Admin({ submissions, adminUser }) {
           `"${submission.p2_whatsapp || ""}"`,
           `"${submission.p2_university || ""}"`,
           `"${submission.p2_batch || ""}"`,
+          `"${submission.p2_faculty || ""}"`,
+          `"${submission.p2_major || ""}"`,
           `"${submission.p2_motivation?.replace(/"/g, '""') || ""}"`,
           `"${submission.p2_cv_link || ""}"`,
+          `"${submission.find_us || ""}"`,
+          `"${submission.drive_link || ""}"`,
           `"${submission.payment_proof_url || ""}"`,
           `"${formatDate(submission.submitted_at)}"`,
           `"${submission.ip_address || ""}"`,
@@ -293,7 +305,7 @@ export function Admin({ submissions, adminUser }) {
                   <p className="font-avenir-regular mb-3 text-sm font-bold text-gray-700">
                     Participant 1
                   </p>
-                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
                     <div>
                       <p className="font-lato-regular text-sm font-medium text-gray-500">
                         Contact Info
@@ -305,6 +317,22 @@ export function Admin({ submissions, adminUser }) {
                         <p className="font-lato-regular">
                           <span className="font-lato-bold">University:</span>{" "}
                           {submission.p1_university}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div>
+                      <p className="font-lato-regular text-sm font-medium text-gray-500">
+                        Academic Info
+                      </p>
+                      <div className="mt-1 space-y-1 text-sm">
+                        <p className="font-lato-regular">
+                          <span className="font-lato-bold">Faculty:</span>{" "}
+                          {submission.p1_faculty || "-"}
+                        </p>
+                        <p className="font-lato-regular">
+                          <span className="font-lato-bold">Major:</span>{" "}
+                          {submission.p1_major || "-"}
                         </p>
                       </div>
                     </div>
@@ -347,7 +375,7 @@ export function Admin({ submissions, adminUser }) {
                     <p className="font-avenir-regular mb-3 text-sm font-bold text-gray-700">
                       Participant 2
                     </p>
-                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
                       <div>
                         <p className="font-lato-regular text-sm font-medium text-gray-500">
                           Personal Info
@@ -379,6 +407,22 @@ export function Admin({ submissions, adminUser }) {
                             <span className="font-lato-bold">Batch:</span> {submission.p2_batch}
                           </p>
                           <p className="font-lato-regular">
+                            <span className="font-lato-bold">Faculty:</span>{" "}
+                            {submission.p2_faculty || "-"}
+                          </p>
+                          <p className="font-lato-regular">
+                            <span className="font-lato-bold">Major:</span>{" "}
+                            {submission.p2_major || "-"}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div>
+                        <p className="font-lato-regular text-sm font-medium text-gray-500">
+                          Documents
+                        </p>
+                        <div className="mt-1 space-y-1 text-sm">
+                          <p className="font-lato-regular">
                             <span className="font-lato-bold">CV:</span>{" "}
                             <a
                               href={submission.p2_cv_link}
@@ -405,6 +449,44 @@ export function Admin({ submissions, adminUser }) {
                     </div>
                   </div>
                 )}
+
+                {/* Additional Info */}
+                <div className="mb-4 border-t border-gray-200 pt-4">
+                  <p className="font-avenir-regular mb-3 text-sm font-bold text-gray-700">
+                    Additional Information
+                  </p>
+                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                    <div>
+                      <p className="font-lato-regular text-sm font-medium text-gray-500">
+                        How did they find us?
+                      </p>
+                      <div className="mt-1 text-sm">
+                        <p className="font-lato-regular text-gray-700">
+                          {submission.find_us || "-"}
+                        </p>
+                      </div>
+                    </div>
+                    <div>
+                      <p className="font-lato-regular text-sm font-medium text-gray-500">
+                        Social Media Proof
+                      </p>
+                      <div className="mt-1 text-sm">
+                        {submission.drive_link ? (
+                          <a
+                            href={submission.drive_link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:underline"
+                          >
+                            View Drive Link
+                          </a>
+                        ) : (
+                          <p className="font-lato-regular text-gray-500">No link provided</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
                 {/* Payment Proof */}
                 <div className="border-t border-gray-200 pt-4">
