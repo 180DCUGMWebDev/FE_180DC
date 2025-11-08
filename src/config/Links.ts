@@ -1,14 +1,13 @@
 // NavFoot Links
 export const navLinks = {
   Home: "/",
-  "About Us": "/aboutus",
-  "Our Clients": "/portofolio",
+  "About Us": "/about/us",
+  "Our Clients": "/about/services",
   Store: "/store/merch",
   Event: "/casecompetition",
   Academy: "/academy",
-  Telescope: "/telescope",
+  Telescope: "/article/telescope",
 };
-
 
 export const childLink = {
   Store: {
@@ -21,8 +20,8 @@ export const childLink = {
     "Case Competition": "/casecompetition",
   },
   Telescope: {
-    Article: "/telescope",
-    "Industrial Report": "/industrialreport",
+    Article: "/article/telescope",
+    "Industrial Report": "/article/industrialreport",
   },
 };
 

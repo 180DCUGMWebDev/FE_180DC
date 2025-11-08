@@ -21,10 +21,10 @@ export function OurClients() {
           <div className="font-avenir-black text-xl text-white sm:text-3xl lg:text-[58px] lg:leading-none 2xl:text-[72px]">
             Our Previous Clients
           </div>
-          <Link href="/portofolio" className="max-lg:hidden">
+          <Link href="/about/services" className="max-lg:hidden">
             <Button180 color="black" text="Read More" icon={<AiOutlineArrowRight />} />
           </Link>
-          <Link href="/portofolio" className="lg:hidden">
+          <Link href="/about/services" className="lg:hidden">
             <Button180 color="green" icon={<HiOutlineArrowUpRight />} />
           </Link>
         </div>

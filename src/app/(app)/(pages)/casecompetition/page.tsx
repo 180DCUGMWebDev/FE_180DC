@@ -1,9 +1,11 @@
-"use client";
-
 import { FormCaseComp } from "@/components/modules/casecomp/FormCaseCompetition";
 import ComingSoon from "@/components/modules/casecomp/ComingSoon";
 import { HeroCaseComps } from "@/components/modules/casecomp/HeroCaseComp";
 import { TimelineCaseComp } from "@/components/modules/casecomp/TimelineCaseComp";
+
+export const metadata = {
+  title: "APAC | 180 Degrees Consulting UGM",
+};
 
 export default function CaseComp() {
   return (

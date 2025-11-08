@@ -72,7 +72,7 @@ export default function Closed() {
                       addClass="h-fit py-[1.563vw] lg:py-[0.9vw] w-full text-[1.2vw] mt-[1.25vw] px-6 font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743] hover:text-white"
                     />
                   </Link>
-                  <Link href="/aboutus">
+                  <Link href="/about/us">
                     <Button180
                       color="green"
                       text="About Us"
@@ -155,7 +155,7 @@ export default function Closed() {
                     addClass="w-full h-fit px-6 py-[1.563vw] text-[2.9vw] mt-[6.154vw] lg:mt-[1.25vw] font-bold"
                   />
                 </Link>
-                <Link href="/aboutus">
+                <Link href="/about/us">
                   <Button180
                     color="green"
                     text="About Us"

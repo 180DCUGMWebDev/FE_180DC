@@ -68,7 +68,7 @@ export default function ComingSoon() {
                   <Link href="/">
                     <Button180 color="white" text="Back to Home" />
                   </Link>
-                  <Link href="/aboutus">
+                  <Link href="/about/us">
                     <Button180 color="green" text="About Us" />
                   </Link>
                 </div>
@@ -143,7 +143,7 @@ export default function ComingSoon() {
                 <Link href="/">
                   <Button180 color="white" text="Back to Home" />
                 </Link>
-                <Link href="/aboutus">
+                <Link href="/about/us">
                   <Button180 color="green" text="About Us" />
                 </Link>
               </div>

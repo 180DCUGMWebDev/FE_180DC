@@ -41,7 +41,7 @@ export const Links: CollectionConfig = {
           "assets",
           "dashboard",
           // App routes (pages)
-          "aboutus",
+          "about",
           "academy",
           "apply",
           "bootcamp",

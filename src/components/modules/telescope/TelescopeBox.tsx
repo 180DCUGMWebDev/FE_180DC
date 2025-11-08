@@ -12,7 +12,7 @@ export function TelescopeBox({ article, type, className = "" }) {
     : `${process.env.NEXT_PUBLIC_PAYLOAD_URL || ""}${thumbnailUrl}`;
 
   return (
-    <Link href={`/telescope/${article.slug}`}>
+    <Link href={`/article/telescope/${article.slug}`}>
       <div
         className={`w-full ${
           type !== "article"

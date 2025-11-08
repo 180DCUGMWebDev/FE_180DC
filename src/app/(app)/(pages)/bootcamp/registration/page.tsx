@@ -1,6 +1,8 @@
-"use client";
-
 import RegistrationForm from "@/components/modules/bootcamp/registration/RegistrationForm";
+
+export const metadata = {
+  title: "Bootcamp | 180 Degrees Consulting UGM",
+};
 
 export default function BootcampRegistrationPage() {
   return (

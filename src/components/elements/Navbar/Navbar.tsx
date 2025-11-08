@@ -68,14 +68,14 @@ export default function Navbar() {
     <nav
       className={cn(
         "fixed top-0 z-50 flex w-full items-center justify-center transition-all duration-300",
-        isScrolled && "lg:top-6"
+        isScrolled && "md:top-6"
       )}
     >
       <div
         className={cn(
-          "mx-auto w-full max-w-[2160px] bg-black transition-all duration-300",
+          `w-full bg-black transition-all duration-300 ${mobileMenuOpen ? "rounded-b-[20px]" : ""}`,
           isScrolled &&
-            `mx-0 w-full bg-black/60 shadow-[0_4px_30px_rgba(0,0,0,0.5)] backdrop-blur-xl md:mx-8 md:rounded-2xl ${mobileMenuOpen ? "rounded-b-[20px] bg-black" : ""}`
+            `mx-0 w-full bg-black/60 shadow-[0_4px_30px_rgba(0,0,0,0.5)] backdrop-blur-xl md:mx-8 md:rounded-2xl ${mobileMenuOpen ? "bg-black" : ""}`
         )}
       >
         <div
@@ -119,10 +119,10 @@ export default function Navbar() {
                               />
                             </div>
                             <div className="flex w-full flex-col gap-2">
-                              <ListItem href="/aboutus" title="Who We Are">
+                              <ListItem href="/about/us" title="Who We Are">
                                 Get to know about 180DC UGM.
                               </ListItem>
-                              <ListItem href="/portofolio" title="Our Services">
+                              <ListItem href="/about/services" title="Our Services">
                                 Explore how we can help you.
                               </ListItem>
                             </div>
@@ -132,9 +132,9 @@ export default function Navbar() {
                       <NavigationMenuItem>
                         <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                           <Link
-                            href="/telescope"
+                            href="/article/telescope"
                             className={`hover:text-black-300 transition-all duration-300 hover:bg-white ${
-                              pathname === "/telescope" ? "text-black-300 bg-white" : ""
+                              pathname === "/article/telescope" ? "text-black-300 bg-white" : ""
                             }`}
                           >
                             <p className="text-base">Article</p>
@@ -157,6 +157,9 @@ export default function Navbar() {
                             </ListItem>
                             <ListItem href="/store/merch" title="Merch">
                               Explore our merchandise.
+                            </ListItem>
+                            <ListItem href="/store/frameworkbank" title="Framework Bank">
+                              Explore our collection of consulting frameworks.
                             </ListItem>
                           </motion.div>
                         </NavigationMenuContent>
@@ -202,11 +205,11 @@ export default function Navbar() {
               {/* About */}
               <div
                 key="about-wrapper"
-                className="font-avenir-regular relative flex w-full flex-col items-end gap-2"
+                className="font-avenir-regular relative flex w-full flex-col items-start"
               >
                 <div
                   className={`flex w-full cursor-pointer items-center justify-between p-2 ${
-                    pathname.startsWith("/aboutus") ? "font-semibold text-green-300" : ""
+                    pathname.startsWith("/about") ? "font-semibold text-green-300" : ""
                   }`}
                   onClick={() => toggleAccordion("about")}
                 >
@@ -227,19 +230,19 @@ export default function Navbar() {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="absolute top-[110%] z-101 flex w-fit flex-col gap-7 rounded-[20px] bg-white p-8 text-black"
+                      className="z-101 ml-3 flex w-fit flex-col gap-3 border-l-1 py-1 pl-3"
                     >
-                      <Link href="/aboutus" onClick={closeMobileMenu}>
-                        <div className="font-avenir-regular flex flex-col items-start hover:text-white">
+                      <Link href="/about/us" onClick={closeMobileMenu}>
+                        <div className="font-avenir-regular flex flex-col items-start text-base hover:text-white">
                           <span className="font-lato-bold">Who We Are</span>
-                          <span>Learn about our mission and team</span>
+                          <span>Get to know about 180DC UGM.</span>
                         </div>
                       </Link>
 
-                      <Link href="/aboutus/#vismis" onClick={closeMobileMenu}>
-                        <div className="font-avenir-regular flex flex-col items-start hover:text-white">
+                      <Link href="/about/services" onClick={closeMobileMenu}>
+                        <div className="font-avenir-regular flex flex-col items-start text-base hover:text-white">
                           <span className="font-lato-bold">Our Services</span>
-                          <span>Explore how we can help you</span>
+                          <span>Explore how we can help you.</span>
                         </div>
                       </Link>
                     </motion.div>
@@ -249,10 +252,10 @@ export default function Navbar() {
 
               {/* Article */}
               <div key="article-wrapper">
-                <Link href="/telescope" onClick={closeMobileMenu}>
+                <Link href="/article/telescope" onClick={closeMobileMenu}>
                   <div
                     className={`font-avenir-regular w-full p-2 ${
-                      pathname === "/telescope" ? "font-semibold text-green-300" : ""
+                      pathname === "/article/telescope" ? "font-semibold text-green-300" : ""
                     }`}
                   >
                     Article
@@ -263,7 +266,7 @@ export default function Navbar() {
               {/* Store */}
               <div
                 key="store-wrapper"
-                className="font-avenir-regular relative flex w-full flex-col items-end"
+                className="font-avenir-regular relative flex w-full flex-col items-start"
               >
                 <div
                   className={`flex w-full cursor-pointer items-center justify-between p-2 ${
@@ -288,22 +291,26 @@ export default function Navbar() {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="absolute top-[110%] z-101 flex w-fit flex-col gap-7 rounded-[20px] bg-white p-8 text-black"
+                      className="z-101 ml-3 flex w-fit flex-col gap-3 border-l-1 py-1 pl-3"
                     >
-                      <div className="flex flex-col gap-7">
-                        <Link href="/store/casebook" onClick={closeMobileMenu}>
-                          <div className="font-avenir-regular flex flex-col items-start hover:text-white">
-                            <span className="font-lato-bold">Casebook</span>
-                            <span>Casebook of 180DC UGM</span>
-                          </div>
-                        </Link>
-                        <Link href="/store/merch" onClick={closeMobileMenu}>
-                          <div className="font-avenir-regular flex flex-col items-start hover:text-white">
-                            <span className="font-lato-bold">Merch</span>
-                            <span>Explore our merchandise</span>
-                          </div>
-                        </Link>
-                      </div>
+                      <Link href="/store/casebook" onClick={closeMobileMenu}>
+                        <div className="font-avenir-regular flex flex-col items-start text-base hover:text-white">
+                          <span className="font-lato-bold">Casebook</span>
+                          <span>Casebook of 180DC UGM.</span>
+                        </div>
+                      </Link>
+                      <Link href="/store/merch" onClick={closeMobileMenu}>
+                        <div className="font-avenir-regular flex flex-col items-start text-base hover:text-white">
+                          <span className="font-lato-bold">Merch</span>
+                          <span>Explore our merchandise.</span>
+                        </div>
+                      </Link>
+                      <Link href="/store/frameworkbank" onClick={closeMobileMenu}>
+                        <div className="font-avenir-regular flex flex-col items-start text-base hover:text-white">
+                          <span className="font-lato-bold">Framework Bank</span>
+                          <span>Explore our collection of consulting frameworks.</span>
+                        </div>
+                      </Link>
                     </motion.div>
                   )}
                 </AnimatePresence>

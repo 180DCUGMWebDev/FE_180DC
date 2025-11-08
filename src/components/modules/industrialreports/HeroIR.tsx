@@ -8,12 +8,12 @@ import { HiOutlineArrowUpRight, HiOutlineArrowLeft, HiOutlineArrowRight } from "
 
 const products = [
   {
-    href: "/industrialreport/cafe-industry",
+    href: "/article/industrialreport/cafe-industries",
     image: "/img/industrialreport/CafeIndusThumb.png",
     alt: "Thumbnail of the Cafe Industry Report",
   },
   {
-    href: "/industrialreport/tenun-lurik",
+    href: "/article/industrialreport/tenun-lurik",
     image: "/img/industrialreport/tenunlurikthumb.png",
     alt: "Thumbnail of the Tenun Lurik Report",
   },
@@ -48,7 +48,7 @@ export default function HeroIR() {
       </div>
 
       {/* Content */}
-      <div className="relative z-50 flex h-screen w-full flex-col items-center justify-center">
+      <div className="relative z-10 flex h-screen w-full flex-col items-center justify-center">
         <div className="flex flex-col items-center justify-center gap-[10px] px-[4%] py-[9vh] max-lg:pt-[10vw] lg:gap-[30px]">
           <div className="font-avenir-black mt-[7vw] text-xl text-gray-100 sm:text-4xl lg:text-[80px] lg:leading-none 2xl:text-[112px]">
             Industrial Report

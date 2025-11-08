@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Container from "@/components/layout/Container";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -13,10 +14,10 @@ import Button180 from "@/components/elements/Button180";
 
 const LayoutMerch = () => {
   return (
-    <section className="relative w-full bg-[url('/img/store/casebook/bgBlackPatterned1.png')] object-cover py-[6vw] max-lg:py-[12vw]">
+    <Container className="relative !py-16">
       {/* Title */}
       <div className="flex w-full flex-col items-center justify-center px-[6vw] lg:px-[10vw]">
-        <span className="text-[3.333vw] font-bold text-white max-lg:text-[6vw]">Shop Now!</span>
+        <span className="text-[3.333vw] font-bold text-green-300 max-lg:text-[6vw]">Shop Now!</span>
         <Image
           src="/img/store/casebook/BlueSpark.png"
           alt="180DC UGM Casebook"
@@ -27,7 +28,7 @@ const LayoutMerch = () => {
       </div>
 
       {/* Product Carousel */}
-      <div className="mt-[5vw] flex w-full items-center justify-center max-lg:mt-[8vw] lg:mt-[2vw]">
+      <div className="mt-[5vw] flex w-full items-center justify-center py-2">
         <Swiper
           effect="slide"
           loop
@@ -55,7 +56,7 @@ const LayoutMerch = () => {
           className="relative flex w-full items-center justify-center gap-[2vw] overflow-visible px-[4vw]"
         >
           {products.map((item, index) => (
-            <SwiperSlide key={index} className="relative">
+            <SwiperSlide key={index} className="relative py-4">
               <div className="flex h-[30vw] w-[92%] max-w-[1200px] flex-col gap-[1vw] rounded-2xl bg-white p-[2vw] shadow-lg max-lg:h-auto max-lg:p-[4vw]">
                 {/* Product Image */}
                 <div className="flex h-full w-full items-center justify-center">
@@ -80,19 +81,7 @@ const LayoutMerch = () => {
           ))}
         </Swiper>
       </div>
-
-      {/* Buy Button */}
-      <div className="flex h-full w-full flex-col items-center justify-center py-[15vh] max-lg:px-[4vw] max-lg:py-[12vw] lg:gap-[16px] lg:p-[100px] 2xl:py-[110px]">
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLScOuHT1hdVMUeLNjxFaLC8zAcgERZnL5b2qZgjcWBdaRSi4NQ/viewform"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex w-[22vw] items-center justify-center rounded-full bg-green-600 py-[2vw] text-[3.3vw] text-white transition-all duration-300 hover:bg-green-700 max-lg:mt-[7vw] max-lg:w-[60vw] max-lg:py-[3.5vw] max-lg:text-[4.2vw] lg:mt-[0.5vw]! lg:w-[11vw] lg:py-[9px] lg:text-[1.1vw] 2xl:w-[170px] 2xl:text-[17px]"
-        >
-          Buy Now
-        </a>
-      </div>
-    </section>
+    </Container>
   );
 };
 
