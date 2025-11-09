@@ -60,11 +60,21 @@ export default function Button180({
   className,
   ...props
 }: Button180Props) {
+  const router = useRouter();
+
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (disableForm) return;
 
     if (href && href !== "#") {
-      window.open(`https://${href}`, "_blank", "noopener,noreferrer");
+      // Check if it's an internal route (starts with /)
+      if (href.startsWith("/")) {
+        router.push(href);
+      } else {
+        // External link - add https:// if not present
+        const url =
+          href.startsWith("http://") || href.startsWith("https://") ? href : `https://${href}`;
+        window.open(url, "_blank", "noopener,noreferrer");
+      }
     } else if (action) {
       action(e);
     } else {

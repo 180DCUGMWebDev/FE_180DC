@@ -1,27 +1,28 @@
-"use client"
+"use client";
 import Button180 from "@/components/elements/Button180";
 import Image from "next/image";
-import Container from "@/components/layout/Container"
+import Container from "@/components/layout/Container";
 import { useMobile } from "@/utils/hooks/MobileProvider";
 import { useTablet } from "@/utils/hooks/TabletProvider";
+import { Play } from "lucide-react";
 
 export function Hero() {
   const itemsDesktop = [
-    {line1: "Gain consulting skills", line2: "from experienced experts."},
-    {line1: "Apply knowledge in", line2:"hands-on workshops"},
-    {line1: "Network with like-", line2: "minded peers"},
-    {line1: "Get special mentoring from the", line2: "180DC UGM team & experts."},
-    {line1: "Solve real business problems", line2: "and compete for prizes."},
-    {line1: "Receive an e-certificate", line2: "upon completion."},
+    { line1: "Gain consulting skills", line2: "from experienced experts." },
+    { line1: "Apply knowledge in", line2: "hands-on workshops" },
+    { line1: "Network with like-", line2: "minded peers" },
+    { line1: "Get special mentoring from the", line2: "180DC UGM team & experts." },
+    { line1: "Solve real business problems", line2: "and compete for prizes." },
+    { line1: "Receive an e-certificate", line2: "upon completion." },
   ];
 
   const itemsMobile = [
-    {line1: "Gain consulting", line2: "skills", line3: "from experienced", line4: "experts."},
-    {line1: "Apply knowledge in", line2:"hands-on", line3: "workshops."},
-    {line1: "Network with", line2:"like-minded", line3: "peers"},
-    {line1: "Get special mentoring", line2: "from the 180DC UGM", line3: "team & experts."},
-    {line1: "Solve real business", line2: "problems and", line3: "compete for prizes."},
-    {line1: "Receive an e-", line2: "certificate upon", line3: "completion."},
+    { line1: "Gain consulting", line2: "skills", line3: "from experienced", line4: "experts." },
+    { line1: "Apply knowledge in", line2: "hands-on", line3: "workshops." },
+    { line1: "Network with", line2: "like-minded", line3: "peers" },
+    { line1: "Get special mentoring", line2: "from the 180DC UGM", line3: "team & experts." },
+    { line1: "Solve real business", line2: "problems and", line3: "compete for prizes." },
+    { line1: "Receive an e-", line2: "certificate upon", line3: "completion." },
   ];
 
   const isMobile = useMobile();
@@ -41,7 +42,7 @@ export function Hero() {
         alt="background"
         width={2000}
         height={2000}
-        className="absolute z-10 hidden lg:block lg:-top-[2.96%] lg:-left-[37.88vw] lg:h-[56.31vw] lg:w-[62.98vw]"
+        className="absolute z-10 hidden lg:-top-[2.96%] lg:-left-[37.88vw] lg:block lg:h-[56.31vw] lg:w-[62.98vw]"
       />
 
       <Image
@@ -49,7 +50,7 @@ export function Hero() {
         alt="background"
         width={2000}
         height={2000}
-        className="absolute z-10 top-[5.4%] -left-[69.2vw]  h-[100.7vw] w-[112.5vw] lg:top-[25.92%] lg:left-[43.38vw] lg:h-[19.85vw] lg:w-[22.17vw]"
+        className="absolute top-[5.4%] -left-[69.2vw] z-10 h-[100.7vw] w-[112.5vw] lg:top-[25.92%] lg:left-[43.38vw] lg:h-[19.85vw] lg:w-[22.17vw]"
       />
 
       <Image
@@ -57,7 +58,7 @@ export function Hero() {
         alt="background"
         width={2000}
         height={2000}
-        className="absolute z-10 hidden lg:right-[10%] lg:block lg:top-[22.77%] lg:left-[53.89vw] lg:h-[19.85vw] lg:w-[22.17vw]"
+        className="absolute z-10 hidden lg:top-[22.77%] lg:right-[10%] lg:left-[53.89vw] lg:block lg:h-[19.85vw] lg:w-[22.17vw]"
       />
 
       <Image
@@ -65,7 +66,7 @@ export function Hero() {
         alt="background"
         width={2000}
         height={2000}
-        className="absolute z-10 hidden lg:block lg:top-[14.07%] lg:left-[69.9vw] lg:h-[19.85vw] lg:w-[22.17vw]"
+        className="absolute z-10 hidden lg:top-[14.07%] lg:left-[69.9vw] lg:block lg:h-[19.85vw] lg:w-[22.17vw]"
       />
 
       <Image
@@ -73,78 +74,84 @@ export function Hero() {
         alt="background"
         width={2000}
         height={2000}
-        className="absolute z-10 hidden lg:block lg:top-[7.22%] lg:left-[73.33vw] lg:h-[29.44vw] lg:w-[32.93vw]"
+        className="absolute z-10 hidden lg:top-[7.22%] lg:left-[73.33vw] lg:block lg:h-[29.44vw] lg:w-[32.93vw]"
       />
       <Image
         src="/img/bootcamp/ellipse_6.webp"
         alt="background"
         width={2000}
         height={2000}
-        className="absolute z-10 top-[11.5%] left-[60vw] h-[149.5vw] w-[167.1vw] lg:hidden"
+        className="absolute top-[11.5%] left-[60vw] z-10 h-[149.5vw] w-[167.1vw] lg:hidden"
       />
       <Container className="w-screen min-h-screen flex items-center justify-center flex-col relative z-20 leading-none">
         <div className="mx-auto flex overflow-clip w-full h-fit items-center lg:justify-center relative">
           <div className="relative w-full">
             {/* Main Layout */}
-            <div className="flex relative flex-col w-full lg:h-fit lg:flex-row pb-8 lg:pb-0 lg:gap-8 xl:gap-12 items-center lg:items-center lg:justify-start mt-[8.2%] md:mt-[3%] lg:mt-0">
+            <div className="relative mt-[8.2%] flex w-full flex-col items-center pb-8 md:mt-[3%] lg:mt-0 lg:h-fit lg:flex-row lg:items-center lg:justify-start lg:gap-8 lg:pb-0 xl:gap-12">
               {/* Left Column */}
-              <div className="w-full lg:w-[40%] lg:h-full flex flex-col items-center lg:justify-center lg:items-start">
+              <div className="flex w-full flex-col items-center lg:h-full lg:w-[40%] lg:items-start lg:justify-center">
                 <Image
                   data-aos={isMobile || isTablet ? "fade-up" : "fade-right"}
                   alt="consultingBootcamp"
                   src="/img/bootcamp/consultingBootcamp.webp"
                   width={2000}
                   height={2000}
-                  className="mx-auto w-[70%] sm:w-[60%] md:w-[45%] lg:w-[90%]"
+                  className="relative mx-auto w-[70%] sm:w-[60%] md:w-[45%] lg:w-[90%]"
                 />
-                <div data-aos="fade-right" className="hidden lg:flex lg:flex-col gap-4 mt-[2%] pb-8 ml-[20%]">
-                  <p className="font-lato-black lg:text-[33.54px] text-white">
+                <div
+                  data-aos="fade-right"
+                  className="relative mt-[2%] ml-[20%] hidden gap-4 pb-8 lg:flex lg:flex-col"
+                >
+                  <p className="font-lato-black text-white lg:text-[33.54px]">
                     <span className="font-lato-regular">by</span> 180DC UGM
                   </p>
-                  <p className="font-lato-regular lg:text-[24px] text-white">
-                    Lorem ipsum dolor sit amet consectetur adipiscing
-                    elit. Ut et massa mi. Aliquam in hendrerit urna.
+                  <p className="font-lato-regular text-white lg:text-[24px]">
+                    Lorem ipsum dolor sit amet consectetur adipiscing elit. Ut et massa mi. Aliquam
+                    in hendrerit urna.
                   </p>
-                  <div className="hidden relative lg:flex flex-row gap-x-2 mt-[4.5%]">
-                    <Button180 
-                      color="green" 
-                      className="font-avenir-heavy rounded-[24.23px] w-[43%] py-[17px] md:text-[14px] lg:text-[clamp(16px,1.5vw,24.23px)]"
-                      text="▶ Enroll Me"
-                      href="/bootcamp/registration" 
+                  <div className="relative mt-[4.5%] hidden flex-row gap-x-2 lg:flex">
+                    <Button180
+                      color="green"
+                      className="font-avenir-heavy w-[43%] rounded-[24.23px] py-[17px] md:text-[14px] lg:text-[clamp(16px,1.5vw,24.23px)]"
+                      text="Enroll Me"
+                      icon={<Play />}
+                      href="/bootcamp/registration"
                     />
-                    <Button180 
-                      color="white" 
-                      className="font-avenir-heavy rounded-[24.23px] w-[43%] py-[17px] md:text-[14px] lg:text-[clamp(16px,1.5vw,24.23px)]"
-                      text="Guidebook" 
-                      href="" 
+                    <Button180
+                      color="white"
+                      className="font-avenir-heavy w-[43%] rounded-[24.23px] py-[17px] md:text-[14px] lg:text-[clamp(16px,1.5vw,24.23px)]"
+                      text="Guidebook"
+                      href=""
                     />
                   </div>
                 </div>
               </div>
               {/* Right Column */}
-              <div className="flex flex-col lg:justify-center w-full lg:h-full px-[6.7%] lg:gap-3 lg:pr-0 lg:pl-3 lg:w-[60%] mt-[2%] lg:mt-[6.6%]">
-                <div data-aos="fade-left" className="relative lg:flex lg:justify-center h-[120px] lg:h-[30%] w-full lg:w-[87%] mt-[2%] lg:ml-auto bg-white items-center rounded-[24px] lg:rounded-r-none lg:rounded-l-[54px] lg:mx-0">
+              <div className="mt-[2%] flex w-full flex-col px-[6.7%] lg:mt-[6.6%] lg:h-full lg:w-[60%] lg:justify-center lg:gap-3 lg:pr-0 lg:pl-3">
+                <div
+                  data-aos="fade-left"
+                  className="relative mt-[2%] h-[120px] w-full items-center rounded-[24px] bg-white lg:mx-0 lg:ml-auto lg:flex lg:h-[30%] lg:w-[87%] lg:justify-center lg:rounded-l-[54px] lg:rounded-r-none"
+                >
                   <Image
                     alt="180 DC Semi Circle"
                     src="/img/bootcamp/180dc_semicircle.webp"
                     width={2000}
                     height={2000}
-                    className="absolute object-contain w-[25%] top-0 left-0 translate-x-[2%] lg:-translate-x-[40%] -translate-y-[59%] lg:-translate-y-[53%]"
+                    className="absolute top-0 left-0 w-[25%] translate-x-[2%] -translate-y-[59%] object-contain lg:-translate-x-[40%] lg:-translate-y-[53%]"
                   />
-                  <div className="relative h-full text-[31.41px] md:text-[40px] lg:text-[50px] xl:text-[68px] 2xl:text-[68px] flex flex-col items-center justify-center px-5 py-2 lg:px-6 lg:py-6">
-                    <div className="flex flex-col font-lato-black text-transparent bg-clip-text bg-gradient-to-r from-[#77BA47] to-[#58B9D1] text-outline-decoration text-stroke-width drop-shadow-[2px_3px_0px_rgba(0,0,0,1)] lg:drop-shadow-[4px_5px_0px_rgba(0,0,0,1)]">
-                      {isMobile ? 
-                      <>
-                        <p>The more you learn,</p>
-                        <p>the more you earn!</p>
-                      </> 
-                      : 
+                  <div className="relative flex h-full flex-col items-center justify-center px-5 py-2 text-[31.41px] md:text-[40px] lg:px-6 lg:py-6 lg:text-[50px] xl:text-[68px] 2xl:text-[68px]">
+                    <div className="font-lato-black text-outline-decoration text-stroke-width flex flex-col bg-gradient-to-r from-[#77BA47] to-[#58B9D1] bg-clip-text text-transparent drop-shadow-[2px_3px_0px_rgba(0,0,0,1)] lg:drop-shadow-[4px_5px_0px_rgba(0,0,0,1)]">
+                      {isMobile ? (
                         <>
-                          <p className="pl-1 font-lato-black-italic">The more you learn,</p>
+                          <p>The more you learn,</p>
+                          <p>the more you earn!</p>
+                        </>
+                      ) : (
+                        <>
+                          <p className="font-lato-black-italic pl-1">The more you learn,</p>
                           <p className="font-lato-black-italic">the more you earn!</p>
                         </>
-                      }
-                      
+                      )}
                     </div>
                   </div>
                   <Image
@@ -152,32 +159,41 @@ export function Hero() {
                     src="/img/bootcamp/plsfix.webp"
                     width={2000}
                     height={2000}
-                    className="absolute object-contain w-[35%] lg:w-[25%] bottom-0 -right-7 lg:right-[3%] translate-y-[50%]"
+                    className="absolute -right-7 bottom-0 w-[35%] translate-y-[50%] object-contain lg:right-[3%] lg:w-[25%]"
                   />
                 </div>
-                <p data-aos="fade-left" className="font-lato-bold lg:text-[35px] lg:ml-[13%] mt-[6%] lg:mt-[4%] text-white">What you will get..</p>
-                <div className="relative w-full flex flex-col items-end">
-                  <div 
+                <p
+                  data-aos="fade-left"
+                  className="font-lato-bold mt-[6%] text-white lg:mt-[4%] lg:ml-[13%] lg:text-[35px]"
+                >
+                  What you will get..
+                </p>
+                <div className="relative flex w-full flex-col items-end">
+                  <div
                     data-aos="fade-left"
-                    className="hidden lg:w-[87%] lg:ml-auto lg:h-full lg:absolute lg:flex lg: lg:bottom-0 z-21 rounded-[54px] lg:rounded-r-[0] relative items-center justify-center p-[5px] backdrop-blur-[14.8px]" 
-                    style={{ 
-                      background: 'linear-gradient(to left, transparent 5%, #77BA47 50%, #58B9D1 100%)',
-                      WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                      WebkitMaskComposite: 'xor',
-                      mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                      maskComposite: 'exclude',
+                    className="lg: relative z-21 hidden items-center justify-center rounded-[54px] p-[5px] backdrop-blur-[14.8px] lg:absolute lg:bottom-0 lg:ml-auto lg:flex lg:h-full lg:w-[87%] lg:rounded-r-[0]"
+                    style={{
+                      background:
+                        "linear-gradient(to left, transparent 5%, #77BA47 50%, #58B9D1 100%)",
+                      WebkitMask:
+                        "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                      WebkitMaskComposite: "xor",
+                      mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                      maskComposite: "exclude",
                     }}
+                  ></div>
+                  <div
+                    data-aos="fade-left"
+                    className="relative hidden h-full w-[87%] items-center justify-center bg-transparent px-5 py-2.5 lg:flex"
                   >
-                  </div>
-                  <div data-aos="fade-left" className="hidden relative lg:flex items-center justify-center h-full w-[87%] bg-transparent px-5 py-2.5">
-                    <div className="relative font-bold text-white px-[4%] py-[4%]">
-                      <div className="hidden lg:flex flex-row flex-wrap z-10 gap-y-5 lg:gap-y-3 gap-x-4">
+                    <div className="relative px-[4%] py-[4%] font-bold text-white">
+                      <div className="z-10 hidden flex-row flex-wrap gap-x-4 gap-y-5 lg:flex lg:gap-y-3">
                         {itemsDesktop.map((item, index) => (
                           <div
                             key={index}
-                            className="w-fit bg-white rounded-r-[30px] rounded-bl-[30px] p-2 px-6"
+                            className="w-fit rounded-r-[30px] rounded-bl-[30px] bg-white p-2 px-6"
                           >
-                            <h2 className="font-lato-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#77BA47] to-[#58B9D1] lg:text-[13px] xl:text-[18px] 2xl:text-[24px]">
+                            <h2 className="font-lato-bold bg-gradient-to-r from-[#77BA47] to-[#58B9D1] bg-clip-text text-center text-transparent lg:text-[13px] xl:text-[18px] 2xl:text-[24px]">
                               <div>{item.line1}</div>
                               <div>{item.line2}</div>
                             </h2>
@@ -207,13 +223,13 @@ export function Hero() {
                       {itemsMobile.map((item, index) => (
                         <div
                           key={index}
-                          className="w-fit flex items-center bg-white rounded-r-[12px] rounded-bl-[12px] p-2 px-3 m-1"
+                          className="m-1 flex w-fit items-center rounded-r-[12px] rounded-bl-[12px] bg-white p-2 px-3"
                         >
-                          <h2 className="font-lato-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#77BA47] to-[#58B9D1] text-[13.73px] sm:text-[16px] md:text-[20px]">
+                          <h2 className="font-lato-bold bg-gradient-to-r from-[#77BA47] to-[#58B9D1] bg-clip-text text-center text-[13.73px] text-transparent sm:text-[16px] md:text-[20px]">
                             <div>{item.line1}</div>
                             <div>{item.line2}</div>
                             <div>{item.line3}</div>
-                            {(item.line4) ? <div>{item.line4}</div> : null}
+                            {item.line4 ? <div>{item.line4}</div> : null}
                           </h2>
                         </div>
                       ))}
@@ -223,15 +239,17 @@ export function Hero() {
               </div>
               {/* Mobile Button 180 */}
               <div data-aos="fade-up" className="w-full lg:hidden">
-                <div className="relative flex items-center justify-center mt-[8%] md:mt-[5%] mx-[6.7%]">
-                  <Button180 color="green" className="font-avenir-heavy w-full h-[59px] text-[24.23px]"
+                <div className="relative mx-[6.7%] mt-[8%] flex items-center justify-center md:mt-[5%]">
+                  <Button180
+                    color="green"
+                    className="font-avenir-heavy h-[59px] w-full text-[24.23px]"
+                    icon={<Play />}
                     text={
                       <>
-                        <span>▶</span>
                         <span>Enroll Me</span>
                       </>
                     }
-                    href="/bootcamp/registration" 
+                    href="/bootcamp/registration"
                   />
                 </div>
               </div>

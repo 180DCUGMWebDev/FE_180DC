@@ -10,21 +10,21 @@ export const GuideBookBootcamp = () => {
         src="/img/bootcamp/backgroundBawahMobile.webp"
         width={2000}
         height={2000}
-        className="absolute lg:hidden inset-0 z-0 min-h-screen w-screen"
+        className="absolute inset-0 z-0 min-h-screen w-screen lg:hidden"
       />
       <Image
         alt="bintang bawah mobile"
         src="/img/bootcamp/bintangBawahMobile.webp"
         width={2000}
         height={2000}
-        className="absolute lg:hidden z-10 w-[80%] top-[5%] left-[18%] "
+        className="absolute top-[5%] left-[18%] z-10 w-[80%] lg:hidden"
       />
       <Image
         alt="city"
         src="/img/bootcamp/kotaBawahMobile.webp"
         width={2000}
         height={2000}
-        className="absolute lg:hidden z-0 w-full bottom-0 "
+        className="absolute bottom-0 z-0 w-full lg:hidden"
       />
       {/* Desktop background */}
       <Image
@@ -32,21 +32,21 @@ export const GuideBookBootcamp = () => {
         src="/img/bootcamp/backgroundBawahDesktop.webp"
         width={2000}
         height={2000}
-        className="hidden lg:block lg:absolute inset-0 z-0 min-h-screen w-screen"
+        className="inset-0 z-0 hidden min-h-screen w-screen lg:absolute lg:block"
       />
       <Image
         alt="bintang bawah desktop"
         src="/img/bootcamp/bintangBawahDesktop.webp"
         width={2000}
         height={2000}
-        className="hidden lg:absolute lg:block z-10 max-w-none w-[160vw] top-0 left-[3vw]"
+        className="top-0 left-[3vw] z-10 hidden w-[160vw] max-w-none lg:absolute lg:block"
       />
       <Image
         alt="city"
         src="/img/bootcamp/kotaBawahDesktop.webp"
         width={2000}
         height={2000}
-        className="absolute hidden lg:block z-0 w-full bottom-0 "
+        className="absolute bottom-0 z-0 hidden w-full lg:block"
       />
       {/* Background Fleksibel */}
       <Image
@@ -54,9 +54,9 @@ export const GuideBookBootcamp = () => {
         src="/img/bootcamp/ellipseBawah.webp"
         width={2000}
         height={2000}
-        className="absolute z-0 max-w-none w-[231vw] -left-[71vw] -bottom-[130vw]"
+        className="absolute -bottom-[130vw] -left-[71vw] z-0 w-[231vw] max-w-none"
       />
-      <Container className="w-screen h-fit flex items-center lg:justify-center flex-col relative z-30 leading-none">
+      <Container className="relative z-30 flex h-fit w-screen flex-col items-center leading-none lg:justify-center">
         <Image
           alt="bootcampTimeline"
           src="/img/bootcamp/bootcampGuidebook.webp"
@@ -64,7 +64,7 @@ export const GuideBookBootcamp = () => {
           height={2000}
           className="w-[100%] lg:w-[50%]"
         />
-        <div className="relative w-[90%] h-[60vw] lg:mb-[4%] flex items-center justify-center mt-[6%]">
+        <div className="relative w-[90%] h-[58vw] lg:mb-[4%] flex items-center justify-center mt-[6%]">
           <div 
             className="w-full h-full flex z-30 rounded-[20.43px] items-center justify-center p-[9.83px] lg:p-[31px] bg-gradient-to-b from-[#77BA47] to-[#58B9D1]" 
           >
@@ -73,28 +73,28 @@ export const GuideBookBootcamp = () => {
               src="/img/bootcamp/downTree.webp"
               width={2000}
               height={2000}
-              className="absolute z-40 w-[20%] lg:w-[10%] top-0 left-0 -rotate-68 -translate-x-[10%] lg:-translate-x-[60%] -translate-y-[90%] lg:-translate-y-[80%]"
+              className="absolute top-0 left-0 z-40 w-[20%] -translate-x-[10%] -translate-y-[90%] -rotate-68 lg:w-[10%] lg:-translate-x-[60%] lg:-translate-y-[80%]"
             />
             <Image
               alt="down tree bawah"
               src="/img/bootcamp/downTree.webp"
               width={2000}
               height={2000}
-              className="absolute z-50 w-[20%] lg:w-[10%] bottom-0 right-0 rotate-120 lg:rotate-140 translate-x-[25%] lg:translate-x-[] translate-y-[85%]"
+              className="lg:translate-x-[] absolute right-0 bottom-0 z-50 w-[20%] translate-x-[25%] translate-y-[85%] rotate-120 lg:w-[10%] lg:rotate-140"
             />
             <Image
               alt="plsfix"
               src="/img/bootcamp/plsfix.webp"
               width={2000}
               height={2000}
-              className="absolute lg:hidden z-50 w-[55%] rotate-35 top-0 right-0 translate-x-[12%] -translate-y-[50%] pointer-events-none"
+              className="pointer-events-none absolute top-0 right-0 z-50 w-[55%] translate-x-[12%] -translate-y-[50%] rotate-35 lg:hidden"
             />
             <Image
               alt="ring"
               src="/img/bootcamp/cincin.webp"
               width={2000}
               height={2000}
-              className="absolute z-50 w-[55%] lg:w-[20%] rotate-0 bottom-0 left-0 lg:left-20 -translate-x-[25%] translate-y-[35%] lg:translate-y-[60%] pointer-events-none"
+              className="pointer-events-none absolute bottom-0 left-0 z-50 w-[55%] -translate-x-[25%] translate-y-[35%] rotate-0 lg:left-20 lg:w-[20%] lg:translate-y-[60%]"
             />
             <iframe
               src="/file/CAOprecGuidebook.pdf"
@@ -106,5 +106,5 @@ export const GuideBookBootcamp = () => {
         </div>
       </Container>
     </div>
-  )
+  );
 };
