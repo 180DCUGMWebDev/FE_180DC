@@ -20,7 +20,7 @@ export function Timeline() {
 
   // Page
   return (
-    <div className="relative w-screen min-h-fit z-10">
+    <div className="relative w-screen min-h-fit z-10 bg-[#C4E2E4]">
       <Container className="w-screen py-0 lg:py-20 min-h-fit flex items-center justify-start flex-col relative leading-none">
         <div className="w-full">
           <div className="lg:h-full w-full lg:py-8">
@@ -46,8 +46,7 @@ export function Timeline() {
                   <div className="flex relative flex-col w-[95%] items-center lg:justify-center p-[12.14px] mt-[5px]">
                     <div 
                       data-aos="fade-up"
-                      className="hidden lg:block lg:absolute h-full w-full z-10 rounded-[38.73px]" 
-                      style={{ background: 'radial-gradient(ellipse at center, #77BA47 0%, #77BA47 30%, #58B9D1 100%)'}}
+                      className="hidden lg:block lg:absolute h-full w-full z-10 rounded-[38.73px] bg-gradient-to-b from-[#73B743] to-[#28C0D7]" 
                     >
                     </div>
                     <Image

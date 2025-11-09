@@ -64,12 +64,9 @@ export const GuideBookBootcamp = () => {
           height={2000}
           className="w-[100%] lg:w-[50%]"
         />
-        <div className="relative w-full h-[100vw] lg:h-[60vw] lg:mb-[4%] flex items-center justify-center mt-[6%]">
+        <div className="relative w-[90%] h-[60vw] lg:mb-[4%] flex items-center justify-center mt-[6%]">
           <div 
-            className="w-full h-full flex z-30 rounded-[20.43px] items-center justify-center p-[20.43px] lg:p-[31px]" 
-            style={{ 
-              background: 'linear-gradient(to bottom, #77BA47 0%, #58B9D1 100%)',
-            }}
+            className="w-full h-full flex z-30 rounded-[20.43px] items-center justify-center p-[9.83px] lg:p-[31px] bg-gradient-to-b from-[#77BA47] to-[#58B9D1]" 
           >
             <Image
               alt="down tree atas"
@@ -101,7 +98,7 @@ export const GuideBookBootcamp = () => {
             />
             <iframe
               src="/file/CAOprecGuidebook.pdf"
-              className="absolute z-40 w-[98%] h-[96%] rounded-[6px]"
+              className="relative z-40 w-[98%] h-[96%] rounded-[6px]"
               title="PDF Viewer"
               loading="lazy"
             />

@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function Bootcamp() {
   return (
-    <main className="bg-[#C4E2E4]">
+    <main>
       <AOSInit />
       <Hero />
       <Speaker />

@@ -82,7 +82,7 @@ export function Hero() {
         height={2000}
         className="absolute z-10 top-[11.5%] left-[60vw] h-[149.5vw] w-[167.1vw] lg:hidden"
       />
-      <Container className="w-screen px-0 sm:px-0 min-h-screen flex items-center justify-center flex-col relative z-20 leading-none">
+      <Container className="w-screen min-h-screen flex items-center justify-center flex-col relative z-20 leading-none">
         <div className="mx-auto flex overflow-clip w-full h-fit items-center lg:justify-center relative">
           <div className="relative w-full">
             {/* Main Layout */}
@@ -192,7 +192,7 @@ export function Hero() {
               <div data-aos="fade-up" className="w-full lg:hidden">
                 <div className="relative items-center justify-center h-full w-full mt-[2%] mx-[6.7%] rounded-[17.12px] bg-transparent overflow-hidden">
                   <div 
-                    className="absolute lg:hidden h-full w-[83.3%] z-21 items-center rounded-[18.87px] justify-center p-[1.75px]" 
+                    className="absolute lg:hidden h-full w-[86%] z-21 items-center rounded-[18.87px] justify-center p-[1.75px]" 
                     style={{ 
                       background: 'radial-gradient(ellipse at center, #77BA47 0%, #77BA47 30%, #58B9D1 100%)',
                       WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
@@ -202,7 +202,7 @@ export function Hero() {
                     }}
                   >
                   </div>
-                  <div data-aos="fade-up" className="relative w-[83.3%] z-30 font-bold text-white py-[4%]">
+                  <div data-aos="fade-up" className="relative w-[86%] z-30 font-bold text-white py-[4%]">
                     <div className="flex lg:hidden flex-row justify-center flex-wrap gap-y-5 md:gap-y-2 gap-x-1 ">
                       {itemsMobile.map((item, index) => (
                         <div
