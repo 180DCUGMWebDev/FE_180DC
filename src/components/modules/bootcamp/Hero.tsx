@@ -1,3 +1,4 @@
+"use client"
 import Button180 from "@/components/elements/Button180";
 import Image from "next/image";
 import Container from "@/components/layout/Container"
