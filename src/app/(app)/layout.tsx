@@ -21,6 +21,8 @@ import {
   latoLightItalic,
   latoSemibold,
   latoSemiboldItalic,
+  latoBlack,
+  latoBlackItalic,
 } from "@/lib/font";
 import { cn } from "@/lib/utils";
 
@@ -79,7 +81,9 @@ export default function RootLayout({ children }) {
           latoLight.variable,
           latoLightItalic.variable,
           latoSemibold.variable,
-          latoSemiboldItalic.variable
+          latoSemiboldItalic.variable,
+          latoBlack.variable,
+          latoBlackItalic.variable
         )}
       >
         <UtilsProvider>
