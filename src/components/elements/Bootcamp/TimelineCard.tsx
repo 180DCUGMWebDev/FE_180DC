@@ -16,8 +16,8 @@ export default function TimelineCard({
   const isDesktop = useDesktop();
   const isTablet = useTablet();
 
-  let dashHeights : number[]
-  let dashGap : number
+  let dashHeights: number[]
+  let dashGap: number
   if (isDesktop) {
     dashHeights = [4, 7, 7, 7, 4];
     dashGap = 7

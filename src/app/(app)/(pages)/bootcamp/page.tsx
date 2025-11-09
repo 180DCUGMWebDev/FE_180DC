@@ -17,7 +17,7 @@ export default function Bootcamp() {
       <Timeline />
       <GuideBookBootcamp />
       <Container className="hidden min-w-screen h-auto px-0 sm:px-0 py-0 lg:block">
-        <SecureYours theme="dark" padding-y="0" />
+        <SecureYours theme="dark"/>
       </Container>
     </main>
   );

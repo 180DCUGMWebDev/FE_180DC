@@ -25,7 +25,7 @@ export function Speaker() {
     {
       line1: "After-class materials",
       line2: "implementation through workshop",
-      line3: "esssions",
+      line3: "sessions",
     },
     { line1: "Networking with like-minded", line2: "individuals" },
     {
@@ -120,7 +120,7 @@ export function Speaker() {
                   <div className="absolute -top-7 left-1/2 -translate-x-1/2 flex flex-row gap-x-10 md:gap-x-20 lg:gap-x-5 xl:gap-x-10">
                     {speakers.map((item, index) => (
                       <div
-                        key={index} // Menambahkan key
+                        key={index}
                         className="bg-white w-fit rounded-[10.47px] shadow-[0px_6.11px_3.49px_0px_rgba(0,0,0,0.25)] p-2 px-5 md:p-5 md:px-10  xl:p-5 xl:px-10 2xl:p-5 2xl:px-15"
                       >
                         <p className="">{item}</p>
