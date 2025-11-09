@@ -83,7 +83,7 @@ export function Hero() {
         height={2000}
         className="absolute top-[11.5%] left-[60vw] z-10 h-[149.5vw] w-[167.1vw] lg:hidden"
       />
-      <Container className="relative z-20 flex min-h-screen w-screen flex-col items-center justify-center px-0 leading-none sm:px-0">
+      <Container className="relative z-20 flex min-h-screen w-screen flex-col items-center justify-center !px-0 leading-none sm:px-0">
         <div className="relative mx-auto flex h-fit w-full items-center overflow-clip lg:justify-center">
           <div className="relative w-full">
             {/* Main Layout */}
@@ -96,11 +96,11 @@ export function Hero() {
                   src="/img/bootcamp/consultingBootcamp.webp"
                   width={2000}
                   height={2000}
-                  className="mx-auto w-[70%] sm:w-[60%] md:w-[45%] lg:w-[90%]"
+                  className="relative mx-auto w-[70%] sm:w-[60%] md:w-[45%] lg:w-[90%]"
                 />
                 <div
                   data-aos="fade-right"
-                  className="mt-[2%] ml-[20%] hidden gap-4 pb-8 lg:flex lg:flex-col"
+                  className="relative mt-[2%] ml-[20%] hidden gap-4 pb-8 lg:flex lg:flex-col"
                 >
                   <p className="font-lato-black text-white lg:text-[33.54px]">
                     <span className="font-lato-regular">by</span> 180DC UGM
