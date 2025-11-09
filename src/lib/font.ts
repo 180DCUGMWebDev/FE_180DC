@@ -104,3 +104,15 @@ export const latoSemiboldItalic = localFont({
   variable: "--font-lato-semibold-italic",
   display: "swap",
 });
+
+export const latoBlack = localFont({
+  src: "./fonts/Lato/Lato-Black.ttf",
+  variable: "--font-lato-black",
+  display: "swap",
+});
+
+export const latoBlackItalic = localFont({
+  src: "./fonts/Lato/Lato-BlackItalic.ttf",
+  variable: "--font-lato-black-italic",
+  display: "swap",
+});

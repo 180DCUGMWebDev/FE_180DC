@@ -1,160 +1,266 @@
-import Image from "next/image";
+"use client";
 import Button180 from "@/components/elements/Button180";
+import Image from "next/image";
+import Container from "@/components/layout/Container";
+import { useMobile } from "@/utils/hooks/MobileProvider";
+import { useTablet } from "@/utils/hooks/TabletProvider";
+import { Play } from "lucide-react";
 
 export function Hero() {
-  const items = [
-    "Final Pitching",
-    "Exclusive Speaker Sessions",
-    "Mentoring Sessions",
-    "Crack the Case",
+  const itemsDesktop = [
+    { line1: "Gain consulting skills", line2: "from experienced experts." },
+    { line1: "Apply knowledge in", line2: "hands-on workshops" },
+    { line1: "Network with like-", line2: "minded peers" },
+    { line1: "Get special mentoring from the", line2: "180DC UGM team & experts." },
+    { line1: "Solve real business problems", line2: "and compete for prizes." },
+    { line1: "Receive an e-certificate", line2: "upon completion." },
   ];
 
+  const itemsMobile = [
+    { line1: "Gain consulting", line2: "skills", line3: "from experienced", line4: "experts." },
+    { line1: "Apply knowledge in", line2: "hands-on", line3: "workshops." },
+    { line1: "Network with", line2: "like-minded", line3: "peers" },
+    { line1: "Get special mentoring", line2: "from the 180DC UGM", line3: "team & experts." },
+    { line1: "Solve real business", line2: "problems and", line3: "compete for prizes." },
+    { line1: "Receive an e-", line2: "certificate upon", line3: "completion." },
+  ];
+
+  const isMobile = useMobile();
+  const isTablet = useTablet();
+
   return (
-    <section>
-      <div className="relative">
-        <Image
-          src="/img/bootcamp/heroBootcamp.png"
-          alt="background"
-          width={2000}
-          height={2000}
-          className="absolute inset-0 z-10 h-screen w-screen object-cover"
-        />
+    <div className="relative">
+      <Image
+        src="/img/bootcamp/heroBootcamp.webp"
+        alt="background"
+        width={2000}
+        height={2000}
+        className="absolute inset-0 z-0 min-h-full w-screen overflow-clip object-cover"
+      />
+      <Image
+        src="/img/bootcamp/ellipse_1.webp"
+        alt="background"
+        width={2000}
+        height={2000}
+        className="absolute z-10 hidden lg:-top-[2.96%] lg:-left-[37.88vw] lg:block lg:h-[56.31vw] lg:w-[62.98vw]"
+      />
 
-        <Image
-          src="/img/bootcamp/ellipseBlack.png"
-          alt="background"
-          width={2000}
-          height={2000}
-          className="absolute top-[30%] right-[20%] z-20 h-[49.07vw] w-[68.27vw] lg:top-0 lg:right-[20.3vw] lg:h-[26.82vw] lg:w-[37.29vw]"
-        />
+      <Image
+        src="/img/bootcamp/ellipse_2.webp"
+        alt="background"
+        width={2000}
+        height={2000}
+        className="absolute top-[5.4%] -left-[69.2vw] z-10 h-[100.7vw] w-[112.5vw] lg:top-[25.92%] lg:left-[43.38vw] lg:h-[19.85vw] lg:w-[22.17vw]"
+      />
 
-        <Image
-          src="/img/bootcamp/ellipseBlue.png"
-          alt="background"
-          width={2000}
-          height={2000}
-          className="absolute top-[30%] -right-[32vw] z-20 h-[49.07vw] w-[68.27vw] lg:top-0 lg:-right-[15%] lg:h-[26.82vw] lg:w-[37.29vw]"
-        />
+      <Image
+        src="/img/bootcamp/ellipse_3.webp"
+        alt="background"
+        width={2000}
+        height={2000}
+        className="absolute z-10 hidden lg:top-[22.77%] lg:right-[10%] lg:left-[53.89vw] lg:block lg:h-[19.85vw] lg:w-[22.17vw]"
+      />
 
-        <Image
-          src="/img/bootcamp/ellipseGreen.png"
-          alt="background"
-          width={2000}
-          height={2000}
-          className="absolute bottom-[30%] z-20 h-[49.07vw] w-[68.27vw] lg:right-[10%] lg:bottom-[10%] lg:h-[26.82vw] lg:w-[37.29vw]"
-        />
+      <Image
+        src="/img/bootcamp/ellipse_4.webp"
+        alt="background"
+        width={2000}
+        height={2000}
+        className="absolute z-10 hidden lg:top-[14.07%] lg:left-[69.9vw] lg:block lg:h-[19.85vw] lg:w-[22.17vw]"
+      />
 
-        <div className="relative z-30 flex h-screen flex-col items-center justify-center lg:flex-row">
-          {/* bagian kiri */}
-          <div className="flex flex-col lg:w-1/2">
-            <div className="flex w-full flex-col items-center px-8">
-              <Image
-                alt="consulting bootcamp logo"
-                src="/img/bootcamp/consultingBootcampLogo.png"
-                width={2000}
-                height={2000}
-                className="h-[30.162vw] w-[77.949vw] object-contain lg:h-[15.052vw] lg:w-[38.958vw]"
-              />
-              <h2 className="font-avenir-black mt-3 text-[4vw] text-white lg:text-[2.5vw]">
-                {" "}
-                <span className="font-avenir-light">by</span> 180DC UGM
-              </h2>
-            </div>
-            {/* bagian enroll */}
-            <div className="mt-[3.646vw] hidden w-full flex-col items-center px-4 lg:mt-[1.8vw] lg:flex">
-              <div>
-                <p className="text-gray-100-180 text-[4vw] lg:text-[1.25vw]">
-                  in-depth sessions to equip you <br /> all necessary materials of Consulting
-                </p>
-                <div className="flex gap-2">
-                  <Button180 color="white" text="Enroll me Now" href="bit.ly/RegistrationCB180DC" />
-
-                  <Button180 color="green" text="Guidebook" href="bit.ly/GuidebookCB180DC" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* bagian kanan */}
-          <div className="flex flex-col lg:w-1/2">
-            <div className="relative mt-[80px] ml-[8.667vw] h-[21.282vw] w-full rotate-2 rounded-bl-[40px] bg-white lg:ml-0 lg:h-[12.135vw]">
-              <div className="absolute flex h-full w-full items-center justify-end">
-                <h1 className="text-outline-decoration lg:max-w-[100%]: font-avenir-black text-secondary max-w-[75%] pr-10 text-[6.154vw] leading-[5.385vw] md:text-[4vw] lg:pr-20 lg:text-[3.49vw] lg:leading-[3.125vw]">
-                  The more you learn, the more you earn!
-                </h1>
-              </div>
-
-              <div className="absolute -top-10 flex flex-row lg:-top-[4.167vw]">
+      <Image
+        src="/img/bootcamp/ellipse_5.webp"
+        alt="background"
+        width={2000}
+        height={2000}
+        className="absolute z-10 hidden lg:top-[7.22%] lg:left-[73.33vw] lg:block lg:h-[29.44vw] lg:w-[32.93vw]"
+      />
+      <Image
+        src="/img/bootcamp/ellipse_6.webp"
+        alt="background"
+        width={2000}
+        height={2000}
+        className="absolute top-[11.5%] left-[60vw] z-10 h-[149.5vw] w-[167.1vw] lg:hidden"
+      />
+      <Container className="relative z-20 flex min-h-screen w-screen flex-col items-center justify-center px-0 leading-none sm:px-0">
+        <div className="relative mx-auto flex h-fit w-full items-center overflow-clip lg:justify-center">
+          <div className="relative w-full">
+            {/* Main Layout */}
+            <div className="relative mt-[8.2%] flex w-full flex-col items-center pb-8 md:mt-[3%] lg:mt-0 lg:h-fit lg:flex-row lg:items-center lg:justify-start lg:gap-8 lg:pb-0 xl:gap-12">
+              {/* Left Column */}
+              <div className="flex w-full flex-col items-center lg:h-full lg:w-[40%] lg:items-start lg:justify-center">
                 <Image
-                  alt="consulting bootcamp book"
-                  src="/img/bootcamp/bootcampBookHijau.png"
+                  data-aos={isMobile || isTablet ? "fade-up" : "fade-right"}
+                  alt="consultingBootcamp"
+                  src="/img/bootcamp/consultingBootcamp.webp"
                   width={2000}
                   height={2000}
-                  className="ml-8 h-[21.282vw] w-[15.128vw] lg:hidden"
+                  className="mx-auto w-[70%] sm:w-[60%] md:w-[45%] lg:w-[90%]"
                 />
-
-                <Image
-                  alt="consulting bootcamp book"
-                  src="/img/bootcamp/bootcampBookHijau.png"
-                  width={2000}
-                  height={2000}
-                  className="ml-4 hidden h-[24.103vw] w-[16.923vw] object-contain lg:ml-[1.667vw] lg:flex lg:h-[12.292vw] lg:w-[8.646vw]"
-                />
-                <div className="mt-4 ml-4 w-full md:mt-1 lg:mt-[1.2vw] lg:ml-[1vw]">
-                  <p className="font-avenir-regular text-gray-100-180 text-[3vw] lg:text-[1.875vw]">
-                    learn now! become consultants tomorrow.
+                <div
+                  data-aos="fade-right"
+                  className="mt-[2%] ml-[20%] hidden gap-4 pb-8 lg:flex lg:flex-col"
+                >
+                  <p className="font-lato-black text-white lg:text-[33.54px]">
+                    <span className="font-lato-regular">by</span> 180DC UGM
                   </p>
+                  <p className="font-lato-regular text-white lg:text-[24px]">
+                    Lorem ipsum dolor sit amet consectetur adipiscing elit. Ut et massa mi. Aliquam
+                    in hendrerit urna.
+                  </p>
+                  <div className="relative mt-[4.5%] hidden flex-row gap-x-2 lg:flex">
+                    <Button180
+                      color="green"
+                      className="font-avenir-heavy w-[43%] rounded-[24.23px] py-[17px] md:text-[14px] lg:text-[clamp(16px,1.5vw,24.23px)]"
+                      text="Enroll Me"
+                      icon={<Play />}
+                      href="/bootcamp/registration"
+                    />
+                    <Button180
+                      color="white"
+                      className="font-avenir-heavy w-[43%] rounded-[24.23px] py-[17px] md:text-[14px] lg:text-[clamp(16px,1.5vw,24.23px)]"
+                      text="Guidebook"
+                      href=""
+                    />
+                  </div>
                 </div>
               </div>
-
-              <Image
-                alt="consulting bootcamp sticky notes"
-                src="/img/bootcamp/bootcampStickyNotes.png"
-                width={2000}
-                height={2000}
-                className="absolute -top-10 -right-2 h-[14.359vw] w-[21.795vw] md:-top-14 md:right-2 lg:-top-[5vw] lg:-right-[5vw] lg:h-[8.229vw] lg:w-[12.448vw]"
-              />
-
-              <Image
-                alt="consulting bootcamp pencil"
-                src="/img/bootcamp/plsfixBootcamp.png"
-                width={2000}
-                height={2000}
-                className="absolute right-8 -bottom-[30px] h-[14.359vw] w-[25.641vw] md:right-[18.205vw] md:-bottom-[6.3vw] md:h-[14.583vw] md:w-[26.042vw] lg:right-[3.333vw] lg:-bottom-[4.04vw] lg:h-[7.833vw] lg:w-[15.417vw]"
-              />
-            </div>
-
-            <div className="flex w-full flex-col justify-start px-[8.667vw] lg:px-0">
-              <h3 className="mt-2 text-sm text-white lg:mt-[1vw] lg:mb-[1vw] lg:text-[2.083vw]">
-                Discover Yourself Through...
-              </h3>
-
-              <div className="mt-[3.2vw] flex flex-wrap gap-[2.133vw] lg:mt-[1vw] lg:gap-[0.833vw]">
-                {items.map((item, index) => (
-                  <div
-                    key={index}
-                    className="rounded-r-xl rounded-bl-xl bg-white px-[2.564vw] py-[0.513vw] lg:rounded-r-3xl lg:rounded-bl-3xl lg:px-[1.458vw] lg:py-[0.365vw]"
-                  >
-                    <h2 className="font-avenir-black text-[2.9vw] text-[#73B743] lg:text-[1.823vw]">
-                      {item}
-                    </h2>
+              {/* Right Column */}
+              <div className="mt-[2%] flex w-full flex-col px-[6.7%] lg:mt-[6.6%] lg:h-full lg:w-[60%] lg:justify-center lg:gap-3 lg:pr-0 lg:pl-3">
+                <div
+                  data-aos="fade-left"
+                  className="relative mt-[2%] h-[120px] w-full items-center rounded-[24px] bg-white lg:mx-0 lg:ml-auto lg:flex lg:h-[30%] lg:w-[87%] lg:justify-center lg:rounded-l-[54px] lg:rounded-r-none"
+                >
+                  <Image
+                    alt="180 DC Semi Circle"
+                    src="/img/bootcamp/180dc_semicircle.webp"
+                    width={2000}
+                    height={2000}
+                    className="absolute top-0 left-0 w-[25%] translate-x-[2%] -translate-y-[59%] object-contain lg:-translate-x-[40%] lg:-translate-y-[53%]"
+                  />
+                  <div className="relative flex h-full flex-col items-center justify-center px-5 py-2 text-[31.41px] md:text-[40px] lg:px-6 lg:py-6 lg:text-[50px] xl:text-[68px] 2xl:text-[68px]">
+                    <div className="font-lato-black text-outline-decoration text-stroke-width flex flex-col bg-gradient-to-r from-[#77BA47] to-[#58B9D1] bg-clip-text text-transparent drop-shadow-[2px_3px_0px_rgba(0,0,0,1)] lg:drop-shadow-[4px_5px_0px_rgba(0,0,0,1)]">
+                      {isMobile ? (
+                        <>
+                          <p>The more you learn,</p>
+                          <p>the more you earn!</p>
+                        </>
+                      ) : (
+                        <>
+                          <p className="font-lato-black-italic pl-1">The more you learn,</p>
+                          <p className="font-lato-black-italic">the more you earn!</p>
+                        </>
+                      )}
+                    </div>
                   </div>
-                ))}
+                  <Image
+                    alt="plsfix"
+                    src="/img/bootcamp/plsfix.webp"
+                    width={2000}
+                    height={2000}
+                    className="absolute -right-7 bottom-0 w-[35%] translate-y-[50%] object-contain lg:right-[3%] lg:w-[25%]"
+                  />
+                </div>
+                <p
+                  data-aos="fade-left"
+                  className="font-lato-bold mt-[6%] text-white lg:mt-[4%] lg:ml-[13%] lg:text-[35px]"
+                >
+                  What you will get..
+                </p>
+                <div className="relative flex w-full flex-col items-end">
+                  <div
+                    data-aos="fade-left"
+                    className="lg: relative z-21 hidden items-center justify-center rounded-[54px] p-[5px] backdrop-blur-[14.8px] lg:absolute lg:bottom-0 lg:ml-auto lg:flex lg:h-full lg:w-[87%] lg:rounded-r-[0]"
+                    style={{
+                      background:
+                        "linear-gradient(to left, transparent 5%, #77BA47 50%, #58B9D1 100%)",
+                      WebkitMask:
+                        "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                      WebkitMaskComposite: "xor",
+                      mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                      maskComposite: "exclude",
+                    }}
+                  ></div>
+                  <div
+                    data-aos="fade-left"
+                    className="relative hidden h-full w-[87%] items-center justify-center bg-transparent px-5 py-2.5 lg:flex"
+                  >
+                    <div className="relative px-[4%] py-[4%] font-bold text-white">
+                      <div className="z-10 hidden flex-row flex-wrap gap-x-4 gap-y-5 lg:flex lg:gap-y-3">
+                        {itemsDesktop.map((item, index) => (
+                          <div
+                            key={index}
+                            className="w-fit rounded-r-[30px] rounded-bl-[30px] bg-white p-2 px-6"
+                          >
+                            <h2 className="font-lato-bold bg-gradient-to-r from-[#77BA47] to-[#58B9D1] bg-clip-text text-center text-transparent lg:text-[13px] xl:text-[18px] 2xl:text-[24px]">
+                              <div>{item.line1}</div>
+                              <div>{item.line2}</div>
+                            </h2>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-
-            <div className="mt-[10.938vw] flex w-full flex-col px-[8.667vw] lg:hidden">
-              <p className="text-gray-100-180 text-sm lg:text-[2.188vw]">
-                in-depth sessions to equip you <br /> all necessary materials of Consulting
-              </p>
-              <div className="flex gap-2">
-                <Button180 color="white" text="Enroll me Now" href="bit.ly/RegistrationCB180DC" />
-                <Button180 color="green" text="Guidebook" href="bit.ly/GuidebookCB180DC" />
+              {/* Mobile Gradient Card */}
+              <div data-aos="fade-up" className="w-full lg:hidden">
+                <div className="relative mx-[6.7%] mt-[2%] h-full w-full items-center justify-center overflow-hidden rounded-[17.12px] bg-transparent">
+                  <div
+                    className="absolute z-21 h-full w-[83.3%] items-center justify-center rounded-[18.87px] p-[1.75px] lg:hidden"
+                    style={{
+                      background:
+                        "radial-gradient(ellipse at center, #77BA47 0%, #77BA47 30%, #58B9D1 100%)",
+                      WebkitMask:
+                        "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                      WebkitMaskComposite: "xor",
+                      mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                      maskComposite: "exclude",
+                    }}
+                  ></div>
+                  <div
+                    data-aos="fade-up"
+                    className="relative z-30 w-[83.3%] py-[4%] font-bold text-white"
+                  >
+                    <div className="flex flex-row flex-wrap justify-center gap-x-1 gap-y-5 md:gap-y-2 lg:hidden">
+                      {itemsMobile.map((item, index) => (
+                        <div
+                          key={index}
+                          className="m-1 flex w-fit items-center rounded-r-[12px] rounded-bl-[12px] bg-white p-2 px-3"
+                        >
+                          <h2 className="font-lato-bold bg-gradient-to-r from-[#77BA47] to-[#58B9D1] bg-clip-text text-center text-[13.73px] text-transparent sm:text-[16px] md:text-[20px]">
+                            <div>{item.line1}</div>
+                            <div>{item.line2}</div>
+                            <div>{item.line3}</div>
+                            {item.line4 ? <div>{item.line4}</div> : null}
+                          </h2>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Mobile Button 180 */}
+              <div data-aos="fade-up" className="w-full lg:hidden">
+                <div className="relative mx-[6.7%] mt-[8%] flex items-center justify-center md:mt-[5%]">
+                  <Button180
+                    color="green"
+                    className="font-avenir-heavy h-[59px] w-full text-[24.23px]"
+                    icon={<Play />}
+                    text={
+                      <>
+                        <span>Enroll Me</span>
+                      </>
+                    }
+                    href="/bootcamp/registration"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </Container>
+    </div>
   );
 }

@@ -81,6 +81,8 @@ const config: Config = {
         "lato-light-italic": ["var(--font-lato-light-italic)"],
         "lato-semibold": ["var(--font-lato-semibold)"],
         "lato-semibold-italic": ["var(--font-lato-semibold-italic)"],
+        "lato-black": ["var(--font-lato-black)"],
+        "lato-black-italic": ["var(--font-lato-black-italic)"],
       },
       animation: {
         "moving-pointer": "downPointer 2s ease-in-out infinite",
