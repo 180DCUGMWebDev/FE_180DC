@@ -1,0 +1,156 @@
+import Image from "next/image";
+import Link from "next/link";
+import Button180 from "@/components/elements/Button180";
+
+export default function ComingSoon() {
+  return (
+    <section>
+      <div className="bg-black-300 relative min-h-[120vh] lg:min-h-screen">
+        {/* Background */}
+        <Image
+          src="/img/homepage/balairung.png"
+          alt="background"
+          width={2000}
+          height={2000}
+          className="absolute inset-0 z-10 h-full min-h-[120vh] w-full object-cover lg:min-h-screen"
+        />
+
+        {/* Decorative Elements - Following bootcamp pattern */}
+        <Image
+          src="/img/bootcamp/ellipseBlack.png"
+          alt="background"
+          width={2000}
+          height={2000}
+          className="absolute top-[30%] right-[20%] z-20 h-[49.07vw] w-[68.27vw] lg:top-0 lg:right-[20.3vw] lg:h-[26.82vw] lg:w-[37.29vw]"
+        />
+
+        <Image
+          src="/img/bootcamp/ellipseBlue.png"
+          alt="background"
+          width={2000}
+          height={2000}
+          className="absolute top-[30%] -right-[32vw] z-20 h-[49.07vw] w-[68.27vw] lg:top-0 lg:-right-[15%] lg:h-[26.82vw] lg:w-[37.29vw]"
+        />
+
+        <Image
+          src="/img/bootcamp/ellipseGreen.png"
+          alt="background"
+          width={2000}
+          height={2000}
+          className="absolute bottom-[30%] z-20 h-[49.07vw] w-[68.27vw] lg:right-[10%] lg:bottom-[10%] lg:h-[26.82vw] lg:w-[37.29vw]"
+        />
+
+        <div className="relative z-30 flex min-h-screen flex-col items-center justify-center pb-[10vw] lg:flex-row lg:pb-0">
+          {/* Left Section */}
+          <div className="flex flex-col lg:w-1/2">
+            <div className="flex w-full flex-col items-center px-8">
+              {/* Title Section */}
+              <div className="mb-6 flex aspect-square items-center justify-center rounded-full">
+                <Image src={"/logogray-100-180.png"} width={200} height={200} alt="logo-180" />
+              </div>
+
+              <h1 className="font-avenir-black text-center text-4xl text-white sm:text-5xl lg:text-6xl">
+                Coming <span className="text-green-300">Soon</span>
+              </h1>
+
+              <h2 className="font-avenir-black mt-3 text-center text-[4vw] text-white lg:text-[2.5vw]">
+                <span className="font-avenir-light">by</span> 180DC UGM
+              </h2>
+            </div>
+
+            {/* Description and Buttons - Desktop */}
+            <div className="mt-[3.646vw] hidden w-full flex-col items-center px-4 lg:mt-[1.8vw] lg:flex">
+              <div>
+                <p className="text-gray-100-180 text-center text-[4vw] lg:text-[1.25vw]">
+                  We&apos;re working hard to bring you <br /> something amazing. Stay tuned!
+                </p>
+                <div className="mt-4 flex w-full justify-center gap-2 whitespace-nowrap">
+                  <Link href="/">
+                    <Button180 color="white" text="Back to Home" />
+                  </Link>
+                  <Link href="/about/us">
+                    <Button180 color="green" text="About Us" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Section */}
+          <div className="flex flex-col lg:w-1/2">
+            <div className="relative mt-[80px] ml-[8.667vw] h-[21.282vw] w-full rotate-2 rounded-bl-[40px] bg-white lg:ml-0 lg:h-[12.135vw]">
+              <div className="absolute flex h-full w-full items-center justify-end">
+                <h1 className="text-outline-decoration lg:max-w-[100%]: font-avenir-black max-w-[75%] pr-10 text-[6.154vw] leading-[5.385vw] text-cyan-300 md:text-[4vw] lg:pr-20 lg:text-[3.49vw] lg:leading-[3.125vw]">
+                  Something great is coming your way!
+                </h1>
+              </div>
+
+              {/* Progress Indicator */}
+              <div className="absolute -top-10 flex flex-row lg:-top-[4.167vw]">
+                <div className="ml-8 flex h-[21.282vw] w-[15.128vw] flex-col items-center justify-center rounded-lg bg-green-300/80 lg:hidden">
+                  <div className="px-3 text-center text-white">
+                    <div className="font-avenir-black text-2xl">75%</div>
+                    <div className="font-lato-regular text-sm">Complete</div>
+                  </div>
+                </div>
+
+                <div className="ml-4 hidden h-[24.103vw] w-[16.923vw] flex-col items-center justify-center rounded-lg bg-green-300/80 object-contain lg:ml-[1.667vw] lg:flex lg:h-[12.292vw] lg:w-[8.646vw]">
+                  <div className="text-center text-white">
+                    <div className="font-avenir-black text-xl">75%</div>
+                    <div className="font-lato-regular text-xs">Complete</div>
+                  </div>
+                </div>
+
+                <div className="mt-4 ml-4 w-full md:mt-1 lg:mt-[1.2vw] lg:ml-[1vw]">
+                  <p className="font-avenir-regular text-gray-100-180 text-[3vw] lg:text-[1.875vw]">
+                    Development in progress. Coming soon!
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Development Progress Items */}
+            <div className="flex w-full flex-col justify-start px-[8.667vw] lg:px-0">
+              <h3 className="mt-2 text-sm text-white lg:mt-[1vw] lg:mb-[1vw] lg:text-[2.083vw]">
+                Current Progress...
+              </h3>
+
+              <div className="mt-[3.2vw] flex flex-wrap gap-[2.133vw] lg:mt-[1vw] lg:gap-[0.833vw]">
+                {[
+                  "Design Complete",
+                  "Backend Development",
+                  "Frontend Development",
+                  "Testing & Launch",
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className="rounded-r-xl rounded-bl-xl bg-white px-[2.564vw] py-[0.513vw] lg:rounded-r-3xl lg:rounded-bl-3xl lg:px-[1.458vw] lg:py-[0.365vw]"
+                  >
+                    <h2 className="font-avenir-black text-[2.9vw] text-[#73B743] lg:text-[1.823vw]">
+                      {item}
+                    </h2>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile Buttons */}
+            <div className="mt-[10.938vw] flex w-full flex-col px-[8.667vw] pb-6 lg:hidden">
+              <p className="text-gray-100-180 mb-4 text-center text-sm lg:text-[2.188vw]">
+                We&apos;re working hard to bring you <br /> something amazing. Stay tuned!
+              </p>
+              <div className="flex justify-center gap-2 whitespace-nowrap">
+                <Link href="/">
+                  <Button180 color="white" text="Back to Home" />
+                </Link>
+                <Link href="/about/us">
+                  <Button180 color="green" text="About Us" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

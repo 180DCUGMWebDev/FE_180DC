@@ -1,0 +1,24 @@
+import LookForward from "@/components/layout/LookForward";
+import { Telescopes } from "@/components/modules/telescope";
+import { useRef } from "react";
+import { getPayload } from "payload";
+import config from "@payload-config";
+
+export const metadata = {
+  title: "Telescope | 180 Degrees Consulting UGM",
+};
+
+export default async function TelescopePage() {
+  const payload = await getPayload({ config });
+
+  const telescope = await payload.find({
+    collection: "telescope",
+  });
+
+  return (
+    <main>
+      <Telescopes articles={telescope.docs} />
+      <LookForward theme={"dark"} />
+    </main>
+  );
+}
