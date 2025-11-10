@@ -53,6 +53,18 @@ export function Speaker() {
       line1: '"The Art of The Problem:',
       line2: 'Problem Analysis"',
     },
+    {
+      name: "#Session 3",
+      line1: '"Data to Decision:"',
+      line2: "Business Research",
+      line3: 'Methodology"',
+    },
+    {
+      name: "#Session 4",
+      line1: '"Business Case Competition:"',
+      line2: "Case Walkthrough &",
+      line3: 'Deck-Making"',
+    },
   ];
 
   return (
@@ -258,7 +270,7 @@ export function Speaker() {
                       </p>
                       <div
                         data-aos={isMobile || isTablet ? "fade-up" : "fade-left"}
-                        className="grid w-full flex-1 grid-cols-2 gap-x-3 lg:gap-x-10"
+                        className="grid w-full flex-1 grid-cols-2 gap-x-3 gap-y-2 lg:gap-x-10"
                       >
                         {speakerSession.map((item, index) => (
                           <div

@@ -83,8 +83,8 @@ export function Hero() {
         height={2000}
         className="absolute top-[11.5%] left-[60vw] z-10 h-[149.5vw] w-[167.1vw] lg:hidden"
       />
-      <Container className="w-screen min-h-screen flex items-center justify-center flex-col relative z-20 leading-none">
-        <div className="mx-auto flex overflow-clip w-full h-fit items-center lg:justify-center relative">
+      <Container className="relative z-20 flex min-h-screen w-screen flex-col items-center justify-center leading-none">
+        <div className="relative mx-auto flex h-fit w-full items-center overflow-clip lg:justify-center">
           <div className="relative w-full">
             {/* Main Layout */}
             <div className="relative mt-[8.2%] flex w-full flex-col items-center pb-8 md:mt-[3%] lg:mt-0 lg:h-fit lg:flex-row lg:items-center lg:justify-start lg:gap-8 lg:pb-0 xl:gap-12">
@@ -133,7 +133,7 @@ export function Hero() {
                   className="relative mt-[2%] h-[120px] w-full items-center rounded-[24px] bg-white lg:mx-0 lg:ml-auto lg:flex lg:h-[30%] lg:w-[87%] lg:justify-center lg:rounded-l-[54px] lg:rounded-r-none"
                 >
                   <Image
-                    alt="180 DC Semi Circle"
+                    alt="180DC Semi Circle"
                     src="/img/bootcamp/180dc_semicircle.webp"
                     width={2000}
                     height={2000}
@@ -206,20 +206,24 @@ export function Hero() {
               </div>
               {/* Mobile Gradient Card */}
               <div data-aos="fade-up" className="w-full lg:hidden">
-                <div className="relative items-center justify-center h-full w-full mt-[2%] mx-[6.7%] rounded-[17.12px] bg-transparent overflow-hidden">
-                  <div 
-                    className="absolute lg:hidden h-full w-[86%] z-21 items-center rounded-[18.87px] justify-center p-[1.75px]" 
-                    style={{ 
-                      background: 'radial-gradient(ellipse at center, #77BA47 0%, #77BA47 30%, #58B9D1 100%)',
-                      WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                      WebkitMaskComposite: 'xor',
-                      mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                      maskComposite: 'exclude',
+                <div className="relative mx-[6.7%] mt-[2%] h-full w-full items-center justify-center overflow-hidden rounded-[17.12px] bg-transparent">
+                  <div
+                    className="absolute z-21 h-full w-[86%] items-center justify-center rounded-[18.87px] p-[1.75px] lg:hidden"
+                    style={{
+                      background:
+                        "radial-gradient(ellipse at center, #77BA47 0%, #77BA47 30%, #58B9D1 100%)",
+                      WebkitMask:
+                        "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                      WebkitMaskComposite: "xor",
+                      mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                      maskComposite: "exclude",
                     }}
+                  ></div>
+                  <div
+                    data-aos="fade-up"
+                    className="relative z-30 w-[86%] py-[4%] font-bold text-white"
                   >
-                  </div>
-                  <div data-aos="fade-up" className="relative w-[86%] z-30 font-bold text-white py-[4%]">
-                    <div className="flex lg:hidden flex-row justify-center flex-wrap gap-y-5 md:gap-y-2 gap-x-1 ">
+                    <div className="flex flex-row flex-wrap justify-center gap-x-1 gap-y-5 md:gap-y-2 lg:hidden">
                       {itemsMobile.map((item, index) => (
                         <div
                           key={index}
