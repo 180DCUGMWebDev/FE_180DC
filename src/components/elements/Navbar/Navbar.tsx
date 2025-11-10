@@ -3,7 +3,7 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, DoorOpen, ArrowUpRight } from "lucide-react";
+import { Menu, X, ChevronDown, DoorOpen, ArrowUpRight, BookOpen } from "lucide-react";
 import Link from "next/link";
 import ImageAction from "@/components/elements/ImageAction";
 import Button180 from "@/components/elements/Button180";
@@ -177,6 +177,14 @@ export default function Navbar() {
                     className="border border-green-300 hover:bg-green-300 hover:text-white"
                   />
                 </Link>
+                <Link href="/bootcamp">
+                  <Button180
+                    color="transparent"
+                    text="Bootcamp"
+                    icon={<BookOpen />}
+                    className="border-none bg-red-300 hover:bg-red-300 hover:text-white"
+                  />
+                </Link>
                 <Link href="/apply">
                   <Button180
                     text="Consult Now"
@@ -324,6 +332,14 @@ export default function Navbar() {
                 text="Join Us!"
                 icon={<DoorOpen />}
                 className="w-full border border-green-300"
+              />
+            </Link>
+            <Link href="/bootcamp" className="w-full">
+              <Button180
+                color="transparent"
+                text="Bootcamp"
+                icon={<BookOpen />}
+                className="w-full border-none bg-red-300"
               />
             </Link>
             <Link href="/apply" className="w-full">

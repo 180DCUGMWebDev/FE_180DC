@@ -34,6 +34,7 @@ import TooSmall from "@/components/layout/TooSmall";
 import Script from "next/script";
 import LocomotiveProvider from "@/contexts/LocomotiveContext";
 import UtilsProvider from "@/contexts/UtilsContext";
+import { AnimationProvider } from "@/utils/hooks/AnimationProvider";
 
 export const metadata = {
   title: "180 Degrees Consulting UGM",
@@ -90,7 +91,7 @@ export default function RootLayout({ children }) {
           {/* Content > 250px */}
           <main className="hidden flex-col overflow-clip min-[250px]:flex">
             <Navbar />
-            {children}
+            <AnimationProvider>{children}</AnimationProvider>
             <Footer />
           </main>
           {/* Second Option < 250px*/}

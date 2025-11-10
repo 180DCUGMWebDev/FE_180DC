@@ -45,6 +45,8 @@ type FormData = {
 
   // --- Field dari Slide 4 ---
   paymentProof: FileList; // Bukti bayar
+  refundBank: string;
+  refundNumber: string;
 };
 
 // === 1. KUNCI UNTUK LOCALSTORAGE ===
@@ -167,18 +169,20 @@ export default function RegistrationForm() {
       fd.append("whatsapp_p2", data.whatsapp_p2 || "");
       fd.append("university_p2", data.university_p2 || "");
       fd.append("batch_p2", data.batch_p2 || "");
-      fd.append("faculty_p2", data.faculty_p2 || ''); // <-- BARU
-      fd.append("major_p2", data.major_p2 || ''); // <-- BARU
+      fd.append("faculty_p2", data.faculty_p2 || ""); // <-- BARU
+      fd.append("major_p2", data.major_p2 || ""); // <-- BARU
       fd.append("motivation_p2", data.motivation_p2 || "");
       fd.append("cv_p2", data.cv_p2 || "");
     }
 
     fd.append("findUs", data.findUs); // <-- BARU
     fd.append("drive_link", data.drive_link); // <-- BARU
-    
+
     // 6. Tambahkan file bukti bayar
     if (data.paymentProof && data.paymentProof.length > 0) {
       fd.append("paymentProof", data.paymentProof[0]);
+      fd.append("refundBank", data.refundBank);
+      fd.append("refundNumber", data.refundNumber);
     } else {
       // Validasi jaga-jaga
       toast.error("Payment proof is missing!");

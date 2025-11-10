@@ -5,6 +5,7 @@ import { useFormContext } from "react-hook-form";
 import UploadFileField from "../components/UploadFileField";
 import { Button } from "@/components/elements/Form/button";
 import { toast } from "sonner";
+import InputField from "@/components/modules/bootcamp/registration/components/InputField";
 
 interface Slide4Props {
   regType: "individual" | "duo";
@@ -29,6 +30,8 @@ type FormData = {
   motivation_p2?: string;
   cv_p2?: string;
   paymentProof: FileList;
+  refundBank: string;
+  refundNumber: string;
 };
 
 export default function Slide4({ regType, buyCasebook, onBack, isSubmitting }: Slide4Props) {
@@ -54,18 +57,20 @@ export default function Slide4({ regType, buyCasebook, onBack, isSubmitting }: S
 
     if (regType === "individual") {
       if (buyCasebook) {
-        bootcampFee = 90000; // 70k + 20k casebook (sesuai GForm)
-        breakdownText = `Bootcamp Fee + Casebook: IDR 90K + IDR 50K (Refundable)`;
+        bootcampFee = 89000; // Individual + casebook
+        breakdownText = `Bootcamp Fee + Casebook: IDR 89K + IDR 50K (Refundable)`;
       } else {
-        bootcampFee = 70000;
-        breakdownText = `Bootcamp Fee: IDR 70K + IDR 50K (Refundable)`;
+        bootcampFee = 69000; // Individual only
+        breakdownText = `Bootcamp Fee: IDR 69K + IDR 50K (Refundable)`;
       }
     } else if (regType === "duo") {
-      bootcampFee = 133000;
-      breakdownText = `Bootcamp Fee Duo: IDR 133K + IDR 50K (Refundable)`;
+      bootcampFee = 129000; // Bundle (duo) - commitment fee per person jadi 2x50k = 100k
+      breakdownText = `Bootcamp Fee Duo: IDR 129K + IDR 100K (Refundable - IDR 50K per person)`;
     }
 
-    const totalPayment = bootcampFee + commitmentFee;
+    // Untuk duo, commitment fee adalah 50k per orang = 100k total
+    const totalCommitmentFee = regType === "duo" ? commitmentFee * 2 : commitmentFee;
+    const totalPayment = bootcampFee + totalCommitmentFee;
 
     setPaymentDetails({
       total: totalPayment,
@@ -179,6 +184,26 @@ export default function Slide4({ regType, buyCasebook, onBack, isSubmitting }: S
             hasFile: (files: FileList) => files.length > 0 || "Payment proof is required",
           },
         }}
+      />
+
+      <InputField<FormData>
+        label="Bank Account (for refund) "
+        name={`refundBank`}
+        register={register}
+        error={errors[`refundBank`]}
+        type="text"
+        validationRules={{ required: "Bank account is required" }}
+        placeholder="ex: BCA, Mandiri"
+      />
+
+      <InputField<FormData>
+        label="Bank Account Number (for refund)"
+        name={`refundNumber`}
+        register={register}
+        error={errors[`refundNumber`]}
+        type="text"
+        validationRules={{ required: "Bank account number is required" }}
+        placeholder="ex: 007262709150"
       />
 
       <div className="mt-10 flex justify-between">

@@ -8,7 +8,7 @@ const batches = [
     title: "Consulting Analyst",
     type: "Consulting Analyst",
     description: "Open recruitment for Consulting Analyst Batch 1 25/26",
-    status: "Open",
+    status: "Closed",
     period: "13 August 2025",
     image: "/img/opreccycle/bgHeroOprec.png",
     href: "/oprec/25-26/consulting",

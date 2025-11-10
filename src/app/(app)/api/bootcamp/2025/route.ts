@@ -81,6 +81,9 @@ export async function POST(request: Request) {
       find_us: formData.get("findUs") as string, // <-- BARU
       drive_link: formData.get("drive_link") as string, // <-- BARU
 
+      refundbank: formData.get("refundBank") as string,
+      refundnumber: formData.get("refundNumber") as string,
+
       // Meta Information
       user_agent: request.headers.get("user-agent"),
       ip_address:

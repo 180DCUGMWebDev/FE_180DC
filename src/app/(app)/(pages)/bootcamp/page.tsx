@@ -1,6 +1,11 @@
-import { Hero, Timeline, GuideBookBootcamp, Speaker } from "@/components/modules/bootcamp";
-import SecureYours from "@/components/modules/store/casebook/SecureYours";
-import AOSInit from "@/components/AOSInit"; // komponen baru
+import {
+  Hero,
+  Timeline,
+  GuideBookBootcamp,
+  Speaker,
+  ApplyNow,
+} from "@/components/modules/bootcamp";
+import AOSInit from "@/components/AOSInit";
 import Container from "@/components/layout/Container";
 
 export const metadata = {
@@ -15,7 +20,7 @@ export default function Bootcamp() {
       <Speaker />
       <Timeline />
       <GuideBookBootcamp />
-      <SecureYours theme="dark"/>
+      <ApplyNow theme="dark" />
     </main>
   );
 }

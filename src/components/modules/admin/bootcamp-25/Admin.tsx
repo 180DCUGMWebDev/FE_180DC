@@ -84,6 +84,8 @@ export function Admin({ submissions, adminUser }) {
       "CV Link P2",
       "Find Us",
       "Social Proof Link",
+      "Refund Bank",
+      "Refund Account Number",
       "Payment Proof URL",
       "Submitted At",
       "IP Address",
@@ -115,6 +117,8 @@ export function Admin({ submissions, adminUser }) {
           `"${submission.p2_cv_link || ""}"`,
           `"${submission.find_us || ""}"`,
           `"${submission.drive_link || ""}"`,
+          `"${submission.refundbank || ""}"`,
+          `"${submission.refundnumber || ""}"`,
           `"${submission.payment_proof_url || ""}"`,
           `"${formatDate(submission.submitted_at)}"`,
           `"${submission.ip_address || ""}"`,
@@ -455,7 +459,7 @@ export function Admin({ submissions, adminUser }) {
                   <p className="font-avenir-regular mb-3 text-sm font-bold text-gray-700">
                     Additional Information
                   </p>
-                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                     <div>
                       <p className="font-lato-regular text-sm font-medium text-gray-500">
                         How did they find us?
@@ -483,6 +487,21 @@ export function Admin({ submissions, adminUser }) {
                         ) : (
                           <p className="font-lato-regular text-gray-500">No link provided</p>
                         )}
+                      </div>
+                    </div>
+                    <div>
+                      <p className="font-lato-regular text-sm font-medium text-gray-500">
+                        Refund Bank Account
+                      </p>
+                      <div className="mt-1 space-y-1 text-sm">
+                        <p className="font-lato-regular text-gray-700">
+                          <span className="font-lato-bold">Bank:</span>{" "}
+                          {submission.refundbank || "-"}
+                        </p>
+                        <p className="font-lato-regular text-gray-700">
+                          <span className="font-lato-bold">Number:</span>{" "}
+                          {submission.refundnumber || "-"}
+                        </p>
                       </div>
                     </div>
                   </div>
