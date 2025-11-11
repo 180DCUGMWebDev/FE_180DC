@@ -64,10 +64,8 @@ export const GuideBookBootcamp = () => {
           height={2000}
           className="w-[100%] lg:w-[50%]"
         />
-        <div className="relative w-[90%] h-[58vw] lg:mb-[4%] flex items-center justify-center mt-[6%]">
-          <div 
-            className="w-full h-full flex z-30 rounded-[20.43px] items-center justify-center p-[9.83px] lg:p-[31px] bg-gradient-to-b from-[#77BA47] to-[#58B9D1]" 
-          >
+        <div className="relative mt-[6%] flex h-[58vw] w-[90%] items-center justify-center lg:mb-[4%]">
+          <div className="z-30 flex h-full w-full items-center justify-center rounded-[20.43px] bg-gradient-to-b from-[#77BA47] to-[#58B9D1] p-[9.83px] lg:p-[31px]">
             <Image
               alt="down tree atas"
               src="/img/bootcamp/downTree.webp"
@@ -97,8 +95,8 @@ export const GuideBookBootcamp = () => {
               className="pointer-events-none absolute bottom-0 left-0 z-50 w-[55%] -translate-x-[25%] translate-y-[35%] rotate-0 lg:left-20 lg:w-[20%] lg:translate-y-[60%]"
             />
             <iframe
-              src="/file/CAOprecGuidebook.pdf"
-              className="relative z-40 w-[98%] h-[96%] rounded-[6px]"
+              src="/file/ConsultingBootcampGuidebook.pdf"
+              className="relative z-40 h-[96%] w-[98%] rounded-[6px]"
               title="PDF Viewer"
               loading="lazy"
             />
