@@ -65,7 +65,7 @@ export default function Custom404({
                 {title}
               </h1>
 
-              <h2 className="font-avenir-light text-gray-100-180 mb-6 text-[4vw] lg:text-[2.5vw]">
+              <h2 className="font-avenir-light mb-6 text-[4vw] text-gray-100 lg:text-[2.5vw]">
                 {subtitle}
               </h2>
 
@@ -97,7 +97,7 @@ export default function Custom404({
               {/* Helpful Links */}
               <div className="absolute -top-10 flex flex-row lg:-top-[4.167vw]">
                 <div className="mt-4 ml-4 w-full md:mt-1 lg:mt-[1.2vw] lg:ml-[1vw]">
-                  <p className="font-avenir-regular text-gray-100-180 text-[3vw] lg:text-[1.875vw]">
+                  <p className="font-avenir-regular text-[3vw] text-gray-100 lg:text-[1.875vw]">
                     Navigate back to safety!
                   </p>
                 </div>
@@ -106,7 +106,7 @@ export default function Custom404({
 
             {/* Popular Pages */}
             <div className="flex w-full flex-col justify-start px-[8.667vw] lg:px-0">
-              <h3 className="text-gray-100-180 mt-2 text-sm lg:mt-[1vw] lg:mb-[1vw] lg:text-[2.083vw]">
+              <h3 className="mt-2 text-sm text-gray-100 lg:mt-[1vw] lg:mb-[1vw] lg:text-[2.083vw]">
                 Popular Pages...
               </h3>
 
