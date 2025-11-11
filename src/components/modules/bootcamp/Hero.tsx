@@ -121,7 +121,7 @@ export function Hero() {
                       color="white"
                       className="font-avenir-heavy w-[43%] rounded-[24.23px] py-[17px] md:text-[14px] lg:text-[clamp(16px,1.5vw,24.23px)]"
                       text="Guidebook"
-                      href=""
+                      href="https://drive.google.com/drive/folders/1AW7jYbjcmmGORcJJZLi0MePEtwwi6NU8?usp=drive_link"
                     />
                   </div>
                 </div>
