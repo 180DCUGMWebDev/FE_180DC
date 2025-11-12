@@ -14,22 +14,6 @@ export default function Oprec() {
         />
       </div>
 
-      {/* Decorative Elements */}
-      <Image
-        src="/img/bootcamp/ellipseBlue.png"
-        alt="decoration"
-        width={600}
-        height={600}
-        className="absolute top-[20%] right-[10%] z-20 h-[30vw] w-[30vw] opacity-30 lg:h-[20vw] lg:w-[20vw]"
-      />
-      <Image
-        src="/img/bootcamp/ellipseGreen.png"
-        alt="decoration"
-        width={400}
-        height={400}
-        className="absolute bottom-[20%] left-[5%] z-20 h-[20vw] w-[20vw] opacity-20 lg:h-[15vw] lg:w-[15vw]"
-      />
-
       {/* Hero Content */}
       <div className="relative z-30 flex min-h-screen flex-col justify-center px-[5%] py-20 text-white sm:px-[10%] lg:px-[4%]">
         <div className="mx-auto max-w-6xl">

@@ -3,16 +3,47 @@ import config from "@payload-config";
 import { redirect, notFound } from "next/navigation";
 import type { Link } from "@/payload-types";
 
-export const dynamic = "force-dynamic"; // Disable caching untuk real-time redirect
+export const dynamic = "force-dynamic";
 
 interface PageParams {
   params: Promise<{
-    slug: string;
+    slug: string[];
   }>;
+}
+
+export async function generateMetadata({ params }: PageParams) {
+  const { slug } = await params;
+  const slugString = slug.join("/");
+  return {
+    title: `404 | Link "${slugString}" Not Found`,
+  };
 }
 
 export default async function LinkRedirectPage({ params }: PageParams) {
   const { slug } = await params;
+
+  // Blacklist: route yang sudah ada
+  const reservedRoutes = [
+    "bootcamp",
+    "academy",
+    "about",
+    "article",
+    "apply",
+    "casecompetition",
+    "oprec",
+    "store",
+    "dashboard",
+    "api",
+    "admin",
+  ];
+
+  // Jika segment pertama adalah reserved route, langsung 404
+  if (slug.length > 0 && reservedRoutes.includes(slug[0].toLowerCase())) {
+    notFound();
+  }
+
+  // Gabungkan slug array menjadi string
+  const slugString = slug.join("/");
 
   let payload;
   let result;
@@ -20,12 +51,11 @@ export default async function LinkRedirectPage({ params }: PageParams) {
   try {
     payload = await getPayload({ config });
 
-    // Query link dari database
     result = await payload.find({
       collection: "links",
       where: {
         slug: {
-          equals: slug,
+          equals: slugString,
         },
         isActive: {
           equals: true,
@@ -45,7 +75,7 @@ export default async function LinkRedirectPage({ params }: PageParams) {
 
   const link = result.docs[0] as Link;
 
-  // Update click count dan last clicked time (async, tidak perlu ditunggu)
+  // Update click count
   payload
     .update({
       collection: "links",
@@ -59,6 +89,5 @@ export default async function LinkRedirectPage({ params }: PageParams) {
       console.error("Failed to update click count:", error);
     });
 
-  // Redirect to destination
   redirect(link.destination);
 }
