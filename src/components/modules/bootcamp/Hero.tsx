@@ -106,8 +106,7 @@ export function Hero() {
                     <span className="font-lato-regular">by</span> 180DC UGM
                   </p>
                   <p className="font-lato-regular text-white lg:text-[24px]">
-                    Lorem ipsum dolor sit amet consectetur adipiscing elit. Ut et massa mi. Aliquam
-                    in hendrerit urna.
+                    Every great consultant starts with one bold move, are you ready to make your own WINNING MOVES?
                   </p>
                   <div className="relative mt-[4.5%] hidden flex-row gap-x-2 lg:flex">
                     <Button180
