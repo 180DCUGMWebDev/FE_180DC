@@ -27,31 +27,6 @@ export default function Custom404({
           className="absolute inset-0 z-10 h-full w-full object-cover"
         />
 
-        {/* Decorative Elements */}
-        <Image
-          src="/img/bootcamp/ellipseBlack.png"
-          alt="background"
-          width={2000}
-          height={2000}
-          className="absolute top-[30%] right-[20%] z-20 h-[49.07vw] w-[68.27vw] lg:top-0 lg:right-[20.3vw] lg:h-[26.82vw] lg:w-[37.29vw]"
-        />
-
-        <Image
-          src="/img/bootcamp/ellipseBlue.png"
-          alt="background"
-          width={2000}
-          height={2000}
-          className="absolute top-[30%] -right-[32vw] z-20 h-[49.07vw] w-[68.27vw] lg:top-0 lg:-right-[15%] lg:h-[26.82vw] lg:w-[37.29vw]"
-        />
-
-        <Image
-          src="/img/bootcamp/ellipseGreen.png"
-          alt="background"
-          width={2000}
-          height={2000}
-          className="absolute bottom-[30%] z-20 h-[49.07vw] w-[68.27vw] lg:right-[10%] lg:bottom-[10%] lg:h-[26.82vw] lg:w-[37.29vw]"
-        />
-
         <div className="relative z-30 flex min-h-screen flex-col items-center justify-center px-[5%] lg:flex-row lg:px-[4%]">
           {/* Left Section */}
           <div className="flex flex-col lg:w-1/2">

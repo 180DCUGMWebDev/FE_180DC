@@ -41,20 +41,16 @@ type FormData = {
 const ParticipantFormFields = ({
   participantNumber = 1,
   register,
-  control,
   errors,
 }: {
   participantNumber: 1 | 2;
   register: any;
-  control: any;
   errors: any;
 }) => {
   const prefix = participantNumber === 1 ? "" : "_p2";
-  const findUsOptions = ["Instagram", "LinkedIn", "Friends", "Others"];
-  const igLink = "https://www.instagram.com/180dcugm";
 
   return (
-    <div className="mb-8 rounded-lg border border-gray-200 p-6">
+    <div className="mb-2 rounded-lg border border-gray-200 p-6">
       <h3 className="mb-4 text-xl font-semibold">
         {participantNumber === 1 ? "Participant 1" : "Participant 2"}
       </h3>
@@ -130,7 +126,7 @@ const ParticipantFormFields = ({
         placeholder="ex: I am passionate about consulting and want to develop my skills..."
       />
       <InputField<FormData>
-        label="Link CV (Google Drive, etc), Make sure the access is set to 'Anyone with the link'"
+        label="CV Link (Google Drive, etc)"
         name={`cv${prefix}`}
         register={register}
         error={errors[`cv${prefix}`]}
@@ -138,54 +134,10 @@ const ParticipantFormFields = ({
         validationRules={{ required: "CV Link is required" }}
         placeholder="ex: https://drive.google.com/..."
       />
-      <SelectField<FormData>
-        control={control}
-        name="findUs"
-        label="How did you find us?"
-        placeholder="Select an option..."
-        options={findUsOptions}
-        validationRules={{ required: "Please select one option" }}
-        error={errors.findUs}
-      />
-
-      <div className="mt-4">
-        <div className="mb-4 rounded-md border-2 border-green-300/50 bg-gray-50/50 p-4">
-          <p className="font-lato-regular text-sm leading-relaxed text-gray-700">
-            <span className="font-lato-bold">Required screenshots:</span>
-          </p>
-          <ol className="font-lato-regular mt-2 ml-4 list-decimal space-y-1 text-sm text-gray-700">
-            <li>
-              Following our Instagram{" "}
-              <a
-                href={igLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-lato-bold text-blue-600 hover:underline"
-              >
-                @180dcugm
-              </a>
-            </li>
-            <li>Sharing the bootcamp poster on your Instagram story</li>
-            <li>Screenshot the proofs and insert them in a Google Drive</li>
-          </ol>
-          <p className="font-lato-regular mt-3 text-xs text-gray-600">
-            💡 <span className="font-lato-bold">Tip:</span> Upload both screenshots to one Google
-            Drive folder and share the link below
-          </p>
-        </div>
-
-        <InputField<FormData>
-          label="Google Drive Link"
-          name="drive_link"
-          register={register}
-          error={errors.drive_link}
-          placeholder="https://drive.google.com/..."
-          validationRules={{
-            required: "Drive link is required",
-            pattern: { value: /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i, message: "Invalid URL" },
-          }}
-        />
-      </div>
+      <p className="font-lato-regular -mt-2 mb-3 text-xs text-gray-500 italic">
+        Don&apos;t forget to set your Google Drive access to{" "}
+        <span className="font-lato-bold">&quot;Anyone with the link&quot;</span> so we can view it
+      </p>
     </div>
   );
 };
@@ -199,6 +151,11 @@ export default function Slide2({ regType, onNext, onBack }: Slide2Props) {
     trigger,
     formState: { errors },
   } = useFormContext<FormData>();
+
+  const findUsOptions = ["Instagram", "LinkedIn", "Friends", "Others"];
+  const igLink = "https://www.instagram.com/180dcugm";
+  const posterLink =
+    "https://drive.google.com/drive/folders/1Da6Qxwn7h8NOrtDN1bCY3ejZ7E8Sdztv?usp=sharing";
 
   const handleNext = async () => {
     // 1. Tentukan field P1 + field umum
@@ -243,22 +200,77 @@ export default function Slide2({ regType, onNext, onBack }: Slide2Props) {
       <h2 className="mb-8 text-center text-2xl font-semibold">Participant Details</h2>
 
       {/* --- Form Peserta 1 (Selalu tampil) --- */}
-      <ParticipantFormFields
-        participantNumber={1}
-        register={register}
-        control={control}
-        errors={errors}
-      />
+      <ParticipantFormFields participantNumber={1} register={register} errors={errors} />
 
       {/* --- Form Peserta 2 (Tampil HANYA JIKA 'duo') --- */}
       {regType === "duo" && (
-        <ParticipantFormFields
-          participantNumber={2}
-          register={register}
-          control={control}
-          errors={errors}
-        />
+        <ParticipantFormFields participantNumber={2} register={register} errors={errors} />
       )}
+
+      {/* --- SECTION: HOW DID YOU FIND US & SOCIAL PROOF (Muncul 1x saja) --- */}
+      <div className="space-y-6 px-6">
+        <SelectField<FormData>
+          control={control}
+          name="findUs"
+          label="How did you find us?"
+          placeholder="Select an option..."
+          options={findUsOptions}
+          validationRules={{ required: "Please select one option" }}
+          error={errors.findUs}
+        />
+
+        <div className="rounded-lg border border-gray-200 pt-6">
+          <h4 className="font-avenir-regular mb-4 text-lg font-bold text-gray-900">
+            Social Media Proof
+          </h4>
+
+          <div className="mb-4 rounded-md border-2 border-green-300/50 bg-gray-50/75 p-4">
+            <ol className="font-lato-regular mt-2 ml-4 list-decimal space-y-1 text-sm text-gray-700">
+              <li>
+                Follow our Instagram{" "}
+                <a
+                  href={igLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-lato-bold text-blue-600 hover:underline"
+                >
+                  @180dcugm
+                </a>
+              </li>
+              <li>
+                Share{" "}
+                <a
+                  href={posterLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-lato-bold text-blue-600 hover:underline"
+                >
+                  the bootcamp poster
+                </a>{" "}
+                on your Instagram story
+              </li>
+              <li>Upload both screenshots to one Google Drive folder and share the link below</li>
+            </ol>
+          </div>
+
+          <InputField<FormData>
+            label="Google Drive Link"
+            name="drive_link"
+            register={register}
+            error={errors.drive_link}
+            placeholder="https://drive.google.com/..."
+            validationRules={{
+              required: "Drive link is required",
+              pattern: { value: /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i, message: "Invalid URL" },
+            }}
+          />
+          <p className="font-lato-regular -mt-2 text-xs text-gray-500 italic">
+            Don&apos;t forget to set your Google Drive access to{" "}
+            <span className="font-lato-bold">&quot;Anyone with the link&quot;</span> so we can view
+            it
+          </p>
+        </div>
+      </div>
 
       <div className="mt-10 flex justify-between">
         <Button type="button" variant="outline" onClick={onBack}>
