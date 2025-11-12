@@ -517,22 +517,6 @@ export function FormCaseComp() {
   return (
     <section ref={headRef} className="bg-black-300 relative min-h-screen text-white">
       <Image
-        src="/img/bootcamp/ellipseBlue.png"
-        alt="background"
-        width={2000}
-        height={2000}
-        className="absolute top-[30%] -right-[32vw] z-20 h-[49.07vw] w-[68.27vw] max-lg:hidden lg:top-0 lg:-right-[15%] lg:h-[26.82vw] lg:w-[37.29vw]"
-      />
-
-      <Image
-        src="/img/bootcamp/ellipseGreen.png"
-        alt="background"
-        width={2000}
-        height={2000}
-        className="absolute bottom-[30%] -left-[20vw] z-0 h-[49.07vw] w-[68.27vw] max-lg:hidden lg:bottom-[10%] lg:h-[26.82vw] lg:w-[37.29vw]"
-      />
-
-      <Image
         src="/img/store/casebook/greenstar.png"
         alt="greenstar"
         width={2000}

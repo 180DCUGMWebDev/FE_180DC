@@ -135,8 +135,8 @@ const ParticipantFormFields = ({
         placeholder="ex: https://drive.google.com/..."
       />
       <p className="font-lato-regular -mt-2 mb-3 text-xs text-gray-500 italic">
-        Don't forget to set your Google Drive access to{" "}
-        <span className="font-lato-bold">"Anyone with the link"</span> so we can view it
+        Don&apos;t forget to set your Google Drive access to{" "}
+        <span className="font-lato-bold">&quot;Anyone with the link&quot;</span> so we can view it
       </p>
     </div>
   );
@@ -265,8 +265,9 @@ export default function Slide2({ regType, onNext, onBack }: Slide2Props) {
             }}
           />
           <p className="font-lato-regular -mt-2 text-xs text-gray-500 italic">
-            Don't forget to set your Google Drive access to{" "}
-            <span className="font-lato-bold">"Anyone with the link"</span> so we can view it
+            Don&apos;t forget to set your Google Drive access to{" "}
+            <span className="font-lato-bold">&quot;Anyone with the link&quot;</span> so we can view
+            it
           </p>
         </div>
       </div>
