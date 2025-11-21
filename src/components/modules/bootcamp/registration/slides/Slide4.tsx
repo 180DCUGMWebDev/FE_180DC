@@ -57,11 +57,11 @@ export default function Slide4({ regType, buyCasebook, onBack, isSubmitting }: S
 
     if (regType === "individual") {
       if (buyCasebook) {
-        bootcampFee = 89000; // Individual + casebook
-        breakdownText = `Bootcamp Fee + Casebook: IDR 89K + IDR 50K (Refundable)`;
+        bootcampFee = 99000; // Individual + casebook
+        breakdownText = `Bootcamp Fee + Casebook: IDR 99K + IDR 50K (Refundable)`;
       } else {
-        bootcampFee = 69000; // Individual only
-        breakdownText = `Bootcamp Fee: IDR 69K + IDR 50K (Refundable)`;
+        bootcampFee = 79000; // Individual only
+        breakdownText = `Bootcamp Fee: IDR 79K + IDR 50K (Refundable)`;
       }
     } else if (regType === "duo") {
       bootcampFee = 129000; // Bundle (duo) - commitment fee per person jadi 2x50k = 100k
