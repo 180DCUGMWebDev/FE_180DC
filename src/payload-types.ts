@@ -71,6 +71,7 @@ export interface Config {
     media: Media;
     telescope: Telescope;
     links: Link;
+    telescope_comments: TelescopeComment;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -82,6 +83,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     telescope: TelescopeSelect<false> | TelescopeSelect<true>;
     links: LinksSelect<false> | LinksSelect<true>;
+    telescope_comments: TelescopeCommentsSelect<false> | TelescopeCommentsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -231,6 +233,33 @@ export interface Link {
   createdAt: string;
 }
 /**
+ * User comments on telescope articles
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "telescope_comments".
+ */
+export interface TelescopeComment {
+  id: number;
+  /**
+   * The telescope article this comment belongs to
+   */
+  telescope_id: number | Telescope;
+  /**
+   * The comment content
+   */
+  comment: string;
+  /**
+   * Name of the commenter
+   */
+  username: string;
+  /**
+   * Email of the commenter (not displayed publicly)
+   */
+  user_email?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
@@ -269,6 +298,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'links';
         value: number | Link;
+      } | null)
+    | ({
+        relationTo: 'telescope_comments';
+        value: number | TelescopeComment;
       } | null)
     | ({
         relationTo: 'payload-kv';
@@ -382,6 +415,18 @@ export interface LinksSelect<T extends boolean = true> {
   isActive?: T;
   clickCount?: T;
   lastClickedAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "telescope_comments_select".
+ */
+export interface TelescopeCommentsSelect<T extends boolean = true> {
+  telescope_id?: T;
+  comment?: T;
+  username?: T;
+  user_email?: T;
   updatedAt?: T;
   createdAt?: T;
 }
