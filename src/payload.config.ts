@@ -11,6 +11,7 @@ import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
 import { Telescope } from "./collections/Telescope";
 import { Links } from "./collections/Links";
+import { TelescopeComments } from "./collections/TelescopeComments";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -22,7 +23,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Telescope, Links],
+  collections: [Users, Media, Telescope, Links, TelescopeComments],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

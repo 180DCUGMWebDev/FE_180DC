@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import TelescopeDetail from "@/components/modules/telescope/TelescopeDetail";
+import CommentSection from "@/components/modules/telescope/CommentSection";
 
 async function getData() {
   const baseUrl = process.env.NEXT_PUBLIC_PAYLOAD_URL || "http://localhost:3000";
@@ -52,5 +53,10 @@ export default async function Article({ params }: { params: Promise<{ article: s
     notFound();
   }
 
-  return <TelescopeDetail article={article} allArticles={articles} articleSlug={articleSlug} />;
+  return (
+    <>
+      <TelescopeDetail article={article} allArticles={articles} articleSlug={articleSlug} />
+      <CommentSection telescopeId={article.id} />
+    </>
+  );
 }
