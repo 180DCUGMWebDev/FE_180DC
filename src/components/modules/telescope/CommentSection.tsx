@@ -100,7 +100,7 @@ const CommentSection = ({ telescopeId }: { telescopeId: number }) => {
           />
         </form>
 
-        <div className="my-10 ">
+        <div className="my-10">
           {comments.length === 0 && (
             <p className="flex flex-row gap-2">
               {" "}
@@ -108,28 +108,30 @@ const CommentSection = ({ telescopeId }: { telescopeId: number }) => {
               No comments for this post
             </p>
           )}
-          <span className="flex flex-row gap-2">
-            <ChevronRight />
-            This post has {comments.length} comment{comments.length !== 1 ? "s" : ""}{" "}
-          </span>
-          {Array.isArray(comments) &&
-            comments.map((c) => (
-              <>
-                <div key={c.id} className="border-b border-white p-4">
-                  <div className="flex flex-row items-center gap-3">
-                    <p className="font-bold">{c.username}</p>
-                    <p className="text-sm text-gray-400">
-                      {new Date(c.created_at).toLocaleDateString("en-GB", {
-                        day: "numeric",
-                        month: "long",
-                        year: "numeric",
-                      })}
-                    </p>
+          {comments.length > 0 && (
+            <>
+              <span className="flex flex-row gap-2">
+                <ChevronRight />
+                This post has {comments.length} comment{comments.length !== 1 ? "s" : ""}{" "}
+              </span>
+              {Array.isArray(comments) &&
+                comments.map((c) => (
+                  <div key={c.id} className="border-b border-white p-4">
+                    <div className="flex flex-row items-center gap-3">
+                      <p className="font-bold">{c.username}</p>
+                      <p className="text-sm text-gray-400">
+                        {new Date(c.created_at).toLocaleDateString("en-GB", {
+                          day: "numeric",
+                          month: "long",
+                          year: "numeric",
+                        })}
+                      </p>
+                    </div>
+                    <p className="mt-2">{c.comment}</p>
                   </div>
-                  <p className="mt-2">{c.comment}</p>
-                </div>
-              </>
-            ))}
+                ))}
+            </>
+          )}
         </div>
       </Container>
     </section>

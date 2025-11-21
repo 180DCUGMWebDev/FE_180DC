@@ -5,21 +5,21 @@ export function TelescopeBox({ article, type, className = "" }) {
   // type = "lg" or "sm" or "article"
   if (!article) return null;
 
-  // Handle different possible structures from Payload
-  const thumbnailUrl = article.thumbnail?.url || article.thumbnail;
-  const imageUrl = thumbnailUrl?.startsWith("http")
-    ? thumbnailUrl
-    : `${process.env.NEXT_PUBLIC_PAYLOAD_URL || ""}${thumbnailUrl}`;
+  // Handle image field (relationship to media collection)
+  const imageUrl = article.image?.url || article.image;
+  const fullImageUrl = imageUrl?.startsWith("http")
+    ? imageUrl
+    : `${process.env.NEXT_PUBLIC_PAYLOAD_URL || "http://localhost:3000"}${imageUrl}`;
 
   return (
     <Link href={`/article/telescope/${article.slug}`}>
       <div
-        className={`w-full ${
+        className={`${
           type !== "article"
             ? type === "lg"
-              ? "aspect-h-[154] aspect-w-[326]"
-              : "aspect-h-[106] aspect-w-[154]"
-            : "aspect-h-[400] aspect-w-[1068]"
+              ? "aspect-h-[254] aspect-w-[326]"
+              : "aspect-h-[156] aspect-w-[154]"
+            : "aspect-h-[500] aspect-w-[1068]"
         } ${className}`}
       >
         <div
@@ -29,23 +29,22 @@ export function TelescopeBox({ article, type, className = "" }) {
         >
           {/* Background */}
           <div className="absolute inset-0 z-10 overflow-hidden rounded-[10px]">
-            {type === "article" || (
+            {imageUrl ? (
+              <Image
+                src={fullImageUrl}
+                alt={article.title || "article image"}
+                width={2000}
+                height={2000}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            ) : (
               <>
                 <div className="absolute inset-0 bg-[linear-gradient(120deg,var(--tw-gradient-stops))] from-green-300 from-20% to-cyan-300 to-80%" />
                 <div className="bg-black-300 absolute inset-0 opacity-[0.35]" />
               </>
             )}
-            {thumbnailUrl && (
-              <Image
-                src={imageUrl}
-                alt={article.title || "article image"}
-                width={2000}
-                height={2000}
-                className={`absolute inset-0 h-full w-full object-cover ${
-                  type === "article" ? "opacity-50" : "opacity-20 blur-[2px] grayscale"
-                }`}
-              />
-            )}
+            {/* Dark gradient overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
           </div>
           {/* Text */}
           <div
@@ -57,17 +56,17 @@ export function TelescopeBox({ article, type, className = "" }) {
               <div
                 className={`font-avenir-black ${
                   type === "lg" ? "text-[5vw]" : "text-[3.5vw]"
-                } line-clamp-2 leading-[1.2]`}
+                } line-clamp-2 leading-[1.2] drop-shadow-lg`}
               >
                 {article.title}
               </div>
-              {type === "lg" && article.previewText && (
-                <div className="font-lato-regular text-[2.7vw] leading-[1.2]">
-                  {article.previewText}
+              {type === "lg" && article.description && (
+                <div className="font-lato-regular line-clamp-2 text-[2.7vw] leading-[1.2] drop-shadow-md">
+                  {article.description}
                 </div>
               )}
             </div>
-            <div className="text-[2.7vw] leading-[1.2] italic underline lg:hidden">
+            <div className="text-[2.7vw] leading-[1.2] italic underline drop-shadow-md lg:hidden">
               Read Article
             </div>
           </div>
