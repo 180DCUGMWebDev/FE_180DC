@@ -22,6 +22,7 @@ export default function ImageAction({
       sizes="100vw"
       style={{ width: "100%", height: heightPtg }}
       draggable="false"
+      unoptimized
     />
   );
 }

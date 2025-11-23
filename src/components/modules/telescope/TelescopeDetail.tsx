@@ -21,13 +21,18 @@ export default function TelescopeDetail({
   const getImageUrl = (image: any): string => {
     if (!image) return "";
 
+    // Handle Payload CMS object format - Force S3 URL if filename exists
+    if (typeof image === "object" && image !== null && "filename" in image) {
+      return `https://gvwdpmgyinzctwyzqqdy.supabase.co/storage/v1/object/public/media/${encodeURIComponent(image.filename)}`;
+    }
+
     let imageUrl = "";
 
     // Handle string format
     if (typeof image === "string") {
       imageUrl = image;
     }
-    // Handle Payload CMS object format
+    // Handle Payload CMS object format (fallback)
     else if (typeof image === "object") {
       // Try different possible URL field names
       imageUrl = image.url || image.src || image.filename || "";
@@ -99,6 +104,7 @@ export default function TelescopeDetail({
               alt={article.title || "article image"}
               fill
               className="object-cover"
+              unoptimized
             />
           </div>
         )}

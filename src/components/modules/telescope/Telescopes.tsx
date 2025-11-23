@@ -64,6 +64,7 @@ export function Telescopes({ articles, subscribeScrollRef = null }) {
         width={2000}
         height={2000}
         className="absolute inset-0 z-10 !h-screen !w-screen object-cover"
+        unoptimized
       />
       <Container color="dark" className="relative flex flex-col">
         {/* Hero */}
@@ -129,16 +130,25 @@ export function Telescopes({ articles, subscribeScrollRef = null }) {
                 {imageArticles.map((article) => {
                   let imageUrl = "";
                   if (article.image) {
-                    if (typeof article.image === "object" && article.image.url) {
+                    // Construct S3 URL directly if filename exists
+                    if (
+                      typeof article.image === "object" &&
+                      article.image !== null &&
+                      "filename" in article.image
+                    ) {
+                      const filename = (article.image as any).filename;
+                      imageUrl = `https://gvwdpmgyinzctwyzqqdy.supabase.co/storage/v1/object/public/media/${encodeURIComponent(filename)}`;
+                    } else if (typeof article.image === "object" && article.image?.url) {
                       imageUrl = article.image.url;
                     } else if (typeof article.image === "string") {
                       imageUrl = article.image;
                     }
+
+                    // Fallback for other relative URLs (though the above should cover S3 images)
+                    if (imageUrl && !imageUrl.startsWith("http")) {
+                      imageUrl = `${process.env.NEXT_PUBLIC_PAYLOAD_URL || ""}${imageUrl}`;
+                    }
                   }
-                  if (imageUrl && !imageUrl.startsWith("http")) {
-                    imageUrl = `${process.env.NEXT_PUBLIC_PAYLOAD_URL || ""}${imageUrl}`;
-                  }
-                  
 
                   return (
                     <CarouselItem
@@ -156,6 +166,7 @@ export function Telescopes({ articles, subscribeScrollRef = null }) {
                               alt={article.title || "article image"}
                               fill
                               className="object-cover"
+                              unoptimized
                             />
                           )}
                           <div className="absolute inset-0 bg-black/20" />

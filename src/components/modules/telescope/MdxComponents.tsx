@@ -8,7 +8,7 @@ function Img({ src, alt = "" }) {
   return (
     <div className="flex h-[20vw] justify-center">
       <div className="aspect-w-[1920] relative h-full w-[70%]">
-        <Image alt={alt} src={src} fill className="object-contain" />
+        <Image alt={alt} src={src} fill className="object-contain" unoptimized />
       </div>
     </div>
   );

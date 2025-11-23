@@ -6,10 +6,20 @@ export function TelescopeBox({ article, type, className = "" }) {
   if (!article) return null;
 
   // Handle image field (relationship to media collection)
-  const imageUrl = article.image?.url || article.image;
-  const fullImageUrl = imageUrl?.startsWith("http")
-    ? imageUrl
-    : `${process.env.NEXT_PUBLIC_PAYLOAD_URL || "http://localhost:3000"}${imageUrl}`;
+  // Handle image field (relationship to media collection)
+  let fullImageUrl = "";
+  if (
+    typeof article.image === "object" &&
+    article.image !== null &&
+    "filename" in article.image
+  ) {
+    fullImageUrl = `https://gvwdpmgyinzctwyzqqdy.supabase.co/storage/v1/object/public/media/${encodeURIComponent(article.image.filename)}`;
+  } else {
+    const imageUrl = article.image?.url || article.image;
+    fullImageUrl = imageUrl?.startsWith("http")
+      ? imageUrl
+      : `${process.env.NEXT_PUBLIC_PAYLOAD_URL || "http://localhost:3000"}${imageUrl}`;
+  }
 
   return (
     <Link href={`/article/telescope/${article.slug}`}>
@@ -29,13 +39,14 @@ export function TelescopeBox({ article, type, className = "" }) {
         >
           {/* Background */}
           <div className="absolute inset-0 z-10 overflow-hidden rounded-[10px]">
-            {imageUrl ? (
+            {fullImageUrl ? (
               <Image
                 src={fullImageUrl}
                 alt={article.title || "article image"}
                 width={2000}
                 height={2000}
                 className="absolute inset-0 h-full w-full object-cover"
+                unoptimized
               />
             ) : (
               <>
