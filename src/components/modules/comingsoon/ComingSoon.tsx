@@ -21,7 +21,7 @@ export default function ComingSoon() {
             <div className="flex w-full flex-col items-center px-8">
               {/* Title Section */}
               <div className="mb-6 flex aspect-square items-center justify-center rounded-full">
-                <Image src={"/logogray-100-180.png"} width={200} height={200} alt="logo-180" />
+                <Image src={"/logowhite180.png"} width={200} height={200} alt="logo-180" />
               </div>
 
               <h1 className="font-avenir-black text-center text-4xl text-white sm:text-5xl lg:text-6xl">
@@ -36,7 +36,7 @@ export default function ComingSoon() {
             {/* Description and Buttons - Desktop */}
             <div className="mt-[3.646vw] hidden w-full flex-col items-center px-4 lg:mt-[1.8vw] lg:flex">
               <div>
-                <p className="text-gray-100-180 text-center text-[4vw] lg:text-[1.25vw]">
+                <p className="text-center text-[4vw] text-gray-300 lg:text-[1.25vw]">
                   We&apos;re working hard to bring you <br /> something amazing. Stay tuned!
                 </p>
                 <div className="mt-4 flex w-full justify-center gap-2 whitespace-nowrap">
@@ -77,7 +77,7 @@ export default function ComingSoon() {
                 </div>
 
                 <div className="mt-4 ml-4 w-full md:mt-1 lg:mt-[1.2vw] lg:ml-[1vw]">
-                  <p className="font-avenir-regular text-gray-100-180 text-[3vw] lg:text-[1.875vw]">
+                  <p className="font-avenir-regular text-[3vw] text-gray-300 lg:text-[1.875vw]">
                     Development in progress. Coming soon!
                   </p>
                 </div>
@@ -111,7 +111,7 @@ export default function ComingSoon() {
 
             {/* Mobile Buttons */}
             <div className="mt-[10.938vw] flex w-full flex-col px-[8.667vw] pb-6 lg:hidden">
-              <p className="text-gray-100-180 mb-4 text-center text-sm lg:text-[2.188vw]">
+              <p className="mb-4 text-center text-sm text-gray-300 lg:text-[2.188vw]">
                 We&apos;re working hard to bring you <br /> something amazing. Stay tuned!
               </p>
               <div className="flex justify-center gap-2 whitespace-nowrap">

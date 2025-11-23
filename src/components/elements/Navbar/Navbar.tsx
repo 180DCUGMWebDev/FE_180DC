@@ -177,14 +177,6 @@ export default function Navbar() {
                     className="border border-green-300 hover:bg-green-300 hover:text-white"
                   />
                 </Link>
-                <Link href="/bootcamp">
-                  <Button180
-                    color="transparent"
-                    text="Bootcamp"
-                    icon={<BookOpen />}
-                    className="border-none bg-red-300 hover:bg-red-300 hover:text-white"
-                  />
-                </Link>
                 <Link href="/apply">
                   <Button180
                     text="Consult Now"
@@ -332,14 +324,6 @@ export default function Navbar() {
                 text="Join Us!"
                 icon={<DoorOpen />}
                 className="w-full border border-green-300"
-              />
-            </Link>
-            <Link href="/bootcamp" className="w-full">
-              <Button180
-                color="transparent"
-                text="Bootcamp"
-                icon={<BookOpen />}
-                className="w-full border-none bg-red-300"
               />
             </Link>
             <Link href="/apply" className="w-full">

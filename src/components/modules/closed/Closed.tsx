@@ -21,7 +21,7 @@ export default function Closed() {
             <div className="flex w-full flex-col items-center px-8">
               {/* Title Section */}
               <div className="mb-6 flex aspect-square items-center justify-center rounded-full">
-                <Image src={"/logogray-100-180.png"} width={200} height={200} alt="logo-180" />
+                <Image src={"/logowhite180.png"} width={200} height={200} alt="logo-180" />
               </div>
 
               <h1 className="font-avenir-black text-center text-4xl text-white sm:text-5xl lg:text-6xl">
@@ -36,7 +36,7 @@ export default function Closed() {
             {/* Description and Buttons - Desktop */}
             <div className="mt-[3.646vw] hidden w-full flex-col items-center px-4 lg:mt-[1.8vw] lg:flex">
               <div>
-                <p className="text-gray-100-180 text-center text-[4vw] lg:text-[1.25vw]">
+                <p className="text-center text-[4vw] text-gray-300 lg:text-[1.25vw]">
                   Sorry registration is closed. Stay tuned for future opportunities!
                 </p>
                 <div className="mt-4 flex w-full justify-center gap-2 whitespace-nowrap">
@@ -63,21 +63,21 @@ export default function Closed() {
           <div className="flex flex-col lg:w-1/2">
             <div className="relative mt-[80px] ml-[8.667vw] h-[21.282vw] w-full rotate-2 rounded-bl-[40px] bg-white lg:ml-0 lg:h-[12.135vw]">
               <div className="absolute flex h-full w-full items-center justify-end">
-                <h1 className="text-outline-decoration font-avenir-black max-w-[75%] pr-10 text-[6.154vw] leading-[5.385vw] text-cyan-300 md:text-[4vw] lg:max-w-full lg:pr-20 lg:text-[3.49vw] lg:leading-[3.125vw]">
+                <h1 className="text-outline-decoration font-avenir-black z-10 max-w-[75%] pr-10 text-[6.154vw] leading-[5.385vw] text-cyan-300 md:text-[4vw] lg:max-w-full lg:pr-20 lg:text-[3.49vw] lg:leading-[3.125vw]">
                   Registration is now closed
                 </h1>
               </div>
 
               {/* Progress Indicator */}
               <div className="absolute -top-10 flex flex-row lg:-top-[4.167vw]">
-                <div className="ml-8 flex h-[21.282vw] w-[15.128vw] flex-col items-center justify-center rounded-lg bg-green-300/80 lg:hidden">
+                <div className="from-bg-green-300/80 ml-8 flex h-[21.282vw] w-[15.128vw] flex-col items-center justify-center rounded-lg bg-gradient-to-b lg:hidden">
                   <div className="px-3 text-center text-white">
                     <div className="font-avenir-black text-2xl">100%</div>
                     <div className="font-lato-regular text-sm">Complete</div>
                   </div>
                 </div>
 
-                <div className="ml-4 hidden h-[24.103vw] w-[16.923vw] flex-col items-center justify-center rounded-lg bg-green-300/80 object-contain lg:ml-[1.667vw] lg:flex lg:h-[12.292vw] lg:w-[8.646vw]">
+                <div className="ml-4 hidden h-[24.103vw] w-[16.923vw] flex-col items-center justify-center rounded-lg bg-gradient-to-b from-green-300 to-white/0 object-contain lg:ml-[1.667vw] lg:flex lg:h-[12.292vw] lg:w-[8.646vw]">
                   <div className="text-center text-white">
                     <div className="font-avenir-black text-xl">100%</div>
                     <div className="font-lato-regular text-xs">Complete</div>
@@ -85,7 +85,7 @@ export default function Closed() {
                 </div>
 
                 <div className="mt-4 ml-4 w-full md:mt-1 lg:mt-[1.2vw] lg:ml-[1vw]">
-                  <p className="font-avenir-regular text-gray-100-180 text-[3vw] lg:text-[1.875vw]">
+                  <p className="font-avenir-regular text-[3vw] text-gray-300 lg:text-[1.875vw]">
                     Thank you for your interest in joining us!
                   </p>
                 </div>
@@ -119,7 +119,7 @@ export default function Closed() {
 
             {/* Mobile Buttons */}
             <div className="mt-[10.938vw] flex w-full flex-col px-[8.667vw] pb-6 lg:hidden">
-              <p className="text-gray-100-180 mb-4 text-center text-sm lg:text-[2.188vw]">
+              <p className="mb-4 text-center text-sm text-gray-300 lg:text-[2.188vw]">
                 Sorry, registration is closed. Stay tuned for future opportunities!
               </p>
               <div className="flex justify-center gap-2 whitespace-nowrap">
