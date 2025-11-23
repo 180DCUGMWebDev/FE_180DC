@@ -138,6 +138,7 @@ export function Telescopes({ articles, subscribeScrollRef = null }) {
                   if (imageUrl && !imageUrl.startsWith("http")) {
                     imageUrl = `${process.env.NEXT_PUBLIC_PAYLOAD_URL || ""}${imageUrl}`;
                   }
+                  
 
                   return (
                     <CarouselItem

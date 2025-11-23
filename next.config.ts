@@ -31,6 +31,11 @@ const nextConfig = {
         hostname: "strapi.180dcugm.org",
         pathname: "/uploads/**",
       },
+      {
+        protocol: "https",
+        hostname: "gvwdpmgyinzctwyzqqdy.supabase.co",
+        pathname: "/**",
+      },
     ],
   },
 
