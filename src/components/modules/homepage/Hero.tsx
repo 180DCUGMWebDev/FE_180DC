@@ -29,7 +29,7 @@ export function Hero({ contactRef }) {
           {/* Hero Content */}
           <div className="relative z-20 flex h-fit w-full text-white max-lg:pb-[20px] lg:h-1/2 lg:justify-between">
             {/* Kolom Kiri */}
-            <div className="flex w-full flex-col gap-10 max-lg:items-center lg:w-[54%]">
+            <div className="flex w-full justify-center flex-col gap-10 max-lg:items-center lg:w-[54%]">
               {/* Teks */}
               <div className="flex flex-col gap-2 max-lg:items-center">
                 <div className="font-avenir-black text-2xl max-lg:text-center max-lg:text-green-300 sm:text-3xl lg:text-5xl xl:text-6xl">

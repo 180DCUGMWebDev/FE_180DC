@@ -66,7 +66,7 @@ const CommentSection = ({ telescopeId }: { telescopeId: number }) => {
 
   return (
     <section className="bg-black text-gray-100">
-      <div className="mx-[5%] h-[1px] bg-white md:mx-[20%]" />
+      <div className="mx-[5%] h-[1px] bg-white lg:mx-[10%]" />
       <Container className="px-[5%] lg:px-[26%]">
         <h2 className="mb-6 text-2xl font-semibold">Comments</h2>
 
