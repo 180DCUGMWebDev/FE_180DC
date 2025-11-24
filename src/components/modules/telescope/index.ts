@@ -1,2 +1,2 @@
 export * from "./Telescopes";
-export * from "./MdxComponents";
+export * from "./TelescopeDetail";

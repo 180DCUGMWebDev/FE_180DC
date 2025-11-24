@@ -39,7 +39,7 @@ export const Telescope: CollectionConfig = {
     },
     {
       name: "description",
-      type: "textarea",
+      type: "richText",
       required: false,
       label: "Article Description",
     },

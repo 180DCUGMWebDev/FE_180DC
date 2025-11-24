@@ -66,18 +66,20 @@ export function TelescopeBox({ article, type, className = "" }) {
             <div className="flex flex-col gap-[6px]">
               <div
                 className={`font-avenir-black ${
-                  type === "lg" ? "text-[5vw]" : "text-[3.5vw]"
+                  type === "lg"
+                    ? "text-3xl lg:text-5xl"
+                    : "text-xl lg:text-3xl"
                 } line-clamp-2 leading-[1.2] drop-shadow-lg`}
               >
                 {article.title}
               </div>
               {type === "lg" && article.description && (
-                <div className="font-lato-regular line-clamp-2 text-[2.7vw] leading-[1.2] drop-shadow-md">
+                <div className="font-lato-regular line-clamp-2 text-sm lg:text-lg leading-[1.2] drop-shadow-md">
                   {article.description}
                 </div>
               )}
             </div>
-            <div className="text-[2.7vw] leading-[1.2] italic underline drop-shadow-md lg:hidden">
+            <div className="text-sm leading-[1.2] italic underline drop-shadow-md lg:hidden">
               Read Article
             </div>
           </div>
