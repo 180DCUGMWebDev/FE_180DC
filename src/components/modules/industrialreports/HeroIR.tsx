@@ -17,6 +17,11 @@ const products = [
     image: "/img/industrialreport/tenunlurikthumb.png",
     alt: "Thumbnail of the Tenun Lurik Report",
   },
+  {
+    href: "/article/industrialreport/sustainibility-report",
+    image: "/img/industrialreport/SustainableReport.jpg",
+    alt: "Thumbnail of the Sustainability Report",
+  },
 ];
 
 export default function HeroIR() {

@@ -33,6 +33,18 @@ export const industrialReports: IndustrialReport[] = [
     driveLink: "https://drive.google.com/file/d/your-tenun-lurik-link/view?usp=sharing",
     fileName: "Reapra-Report.pdf",
   },
+  {
+    id: "3",
+    slug: "sustainibility-report",
+    title: "Sustainibility Report",
+    subtitle: "Environmental Impact Analysis",
+    description: "Comprehensive analysis of sustainability practices",
+    coverImage: "/img/industrialreport/SustainableReport.jpg",
+    pdfFile: "/file/SustainibilityReport.pdf",
+    driveLink:
+      "https://docs.google.com/presentation/d/1Hqe2jQzUgeN7qYpK_koziuxGbGDP5cA0TaNtgTiaELE/edit?slide=id.g15687b4e4a8204ee_0#slide=id.g15687b4e4a8204ee_0",
+    fileName: "SustainibilityReport.pdf",
+  },
 ];
 
 export const getReportBySlug = (slug: string): IndustrialReport | undefined => {
