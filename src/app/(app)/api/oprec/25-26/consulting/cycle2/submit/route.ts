@@ -1,7 +1,7 @@
 import { createClient } from "@/integrations/supabase/server";
 import { NextResponse } from "next/server";
 
-const TABLE_NAME = "consulting-batch1-25-26-submissions";
+const TABLE_NAME = "consulting-batch2-25-26-submissions";
 
 export async function POST(request) {
   try {
@@ -38,12 +38,10 @@ export async function POST(request) {
       // Social Media Requirements (matching slide6 field names)
       twibbonPost: formData.get("twibbonPost"),
       instagramProofLink: formData.get("instagramProofLink"),
-      // registrationProofLink: formData.get("registrationProofLink"),
 
       // Additional fields from slide6
       hearAboutUs: formData.get("hearAboutUs"),
       consentAgreed: formData.get("consentAgreed") === "true",
-      // consentConsultingAgreed: formData.get("consentConsultingAgreed") === "true",
 
       // Meta Information
       user_agent: request.headers.get("user-agent"),
@@ -73,10 +71,8 @@ export async function POST(request) {
       !submissionData.cvLink ||
       !submissionData.twibbonPost ||
       !submissionData.instagramProofLink ||
-      // !submissionData.registrationProofLink ||
       !submissionData.hearAboutUs?.length ||
       !submissionData.consentAgreed
-      // !submissionData.consentConsultingAgreed
     ) {
       return NextResponse.json(
         {
