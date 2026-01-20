@@ -1,4 +1,5 @@
 import { createClient } from "@/integrations/supabase/server";
+import { appendToSheet } from "@/integrations/google-sheets/client";
 import { NextResponse } from "next/server";
 
 const TABLE_NAME = "consulting-batch2-25-26-submissions";
@@ -123,6 +124,46 @@ export async function POST(request) {
     }
 
     console.log("Attempting insert with data:", JSON.stringify(submissionData, null, 2));
+
+    //sgeets
+    try {
+      const spreadsheetId = process.env.GOOGLE_SHEETS_ID;
+      if (spreadsheetId) {
+        const timestamp = new Date().toISOString();
+        const sheetRow = [
+          timestamp,
+          submissionData.name,
+          submissionData.email,
+          submissionData.batch,
+          submissionData.phone,
+          submissionData.faculty,
+          submissionData.major,
+          submissionData.gpa?.toString() || "",
+          submissionData.activeStudent ? "Yes" : "No",
+          submissionData.is180DCAlumni ? "Yes" : "No",
+          submissionData.pastPosition || "",
+          submissionData.pastBatch || "",
+          submissionData.firstChoicePosition,
+          submissionData.secondChoicePosition || "No second choice",
+          submissionData.documentLink,
+          submissionData.cvLink,
+          submissionData.twibbonPost,
+          submissionData.instagramProofLink,
+          submissionData.hearAboutUs || "",
+          submissionData.consentAgreed ? "Yes" : "No",
+          submissionData.ip_address,
+          submissionData.user_agent,
+        ];
+
+        const sheetName = process.env.GOOGLE_SHEETS_CONSULTING_TAB || "Response Data";
+        await appendToSheet(spreadsheetId, `${sheetName}!A:V`, [sheetRow]);
+        console.log("Successfully submitted to Google Sheets");
+      } else {
+        console.warn("Google Sheets ID not configured, skipping Google Sheets submission");
+      }
+    } catch (sheetsError) {
+      console.error("Failed to submit to Google Sheets:", sheetsError);
+    }
 
     const { data, error } = await supabase.from(TABLE_NAME).insert([submissionData]);
 
