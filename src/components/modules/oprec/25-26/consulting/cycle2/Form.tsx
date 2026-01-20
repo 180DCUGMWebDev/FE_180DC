@@ -128,7 +128,8 @@ export default function Form() {
 
       console.log("Form submitted successfully via API:", result.message);
       setIsSubmitted(true);
-      setCurrentSlide(7);
+      setCurrentSlide(6);
+      // setCurrentSlide(7); -> Kalau ada consulting day
 
       toast("Success!", {
         description: result.message || "Your application has been submitted successfully.",
