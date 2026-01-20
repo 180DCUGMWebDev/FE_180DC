@@ -2,7 +2,11 @@ import Link from "next/link";
 import Button180 from "@/components/elements/Button180";
 import Image from "next/image";
 
-export default function CTA() {
+interface CTAProps {
+  registerPath?: string;
+}
+
+export default function CTA({ registerPath = "register" }: CTAProps) {
   return (
     <section
       id="cta"
@@ -26,7 +30,7 @@ export default function CTA() {
             height={100}
             className="absolute top-[-60%] right-[-14%] rotate-[-20deg] sm:top-[-30%]"
           />
-          <Link href="/oprec/25-26/consulting/register" className="w-full">
+          <Link href={registerPath || "register"} className="w-full">
             <Button180
               color="green"
               text="Apply Now"

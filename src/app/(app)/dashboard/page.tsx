@@ -1,103 +1,169 @@
-import { redirect } from "next/navigation";
-import { createClient } from "@/integrations/supabase/admin";
+"use client";
+
+import { useState, useMemo } from "react";
 import Link from "next/link";
-import { Button } from "@/components/elements/Form/button";
+import Image from "next/image";
+import { Search } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { createClient } from "@/integrations/supabase/client";
 
-export default async function AdminPage() {
-  const supabase = await createClient();
+const dashboardCards = [
+  {
+    id: "consulting-cycle-1",
+    title: "Consulting Cycle 1",
+    description: "Batch 25/26 Cycle 1 recruitment submissions",
+    href: "/dashboard/25-26/consulting/cycle1",
+    type: "Consulting",
+  },
+  {
+    id: "consulting-cycle-2",
+    title: "Consulting Cycle 2",
+    description: "Batch 25/26 Cycle 2 recruitment submissions",
+    href: "/dashboard/25-26/consulting/cycle2",
+    type: "Consulting",
+  },
+  {
+    id: "functional",
+    title: "Functional",
+    description: "Functional teams & operations management",
+    href: "/dashboard/25-26/functional",
+    type: "Functional",
+  },
+  {
+    id: "bootcamp-2025",
+    title: "Bootcamp 2025",
+    description: "Bootcamp registrations & participant data",
+    href: "/dashboard/25-26/bootcamp",
+    type: "Bootcamp",
+  },
+];
 
-  // Check if user is authenticated
-  const {
-    data: { user },
-    error: authError,
-  } = await supabase.auth.getUser();
+export default function AdminPage() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const router = useRouter();
+  const supabase = createClient();
 
-  if (authError || !user) {
-    redirect("/dashboard/login");
+  const filteredCards = useMemo(() => {
+    if (!searchQuery.trim()) return dashboardCards;
+
+    const query = searchQuery.toLowerCase();
+    return dashboardCards.filter(
+      (card) =>
+        card.title.toLowerCase().includes(query) ||
+        card.description.toLowerCase().includes(query) ||
+        card.type.toLowerCase().includes(query)
+    );
+  }, [searchQuery]);
+
+  async function handleLogout() {
+    setIsLoggingOut(true);
+    await supabase.auth.signOut();
+    router.push("/dashboard/login");
   }
 
-  // Check if user is admin
-  const { data: adminUser, error: adminError } = await supabase
-    .from("admin_users")
-    .select("*")
-    .eq("id", user.id)
-    .single();
-
-  if (adminError || !adminUser) {
-    redirect("/dashboard/login?error=unauthorized");
-  }
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 p-4">
-      <div className="w-full max-w-4xl">
-        <div className="mb-8 text-center">
-          <h1 className="mb-2 text-4xl font-bold text-gray-900">Admin Dashboard</h1>
-          <p className="text-lg text-gray-600">Choose your management section</p>
-        </div>
+    <section className="bg-black-300 relative min-h-screen">
+      {/* Background Image */}
+      <Image
+        src="/img/homepage/balairung.png"
+        alt="background"
+        width={2000}
+        height={2000}
+        className="absolute inset-0 z-10 h-full w-full object-cover opacity-30"
+      />
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {/* Consulting Card */}
-          <div className="rounded-lg border-2 bg-white p-6 shadow-md transition-shadow duration-300 hover:border-cyan-300 hover:shadow-lg">
-            <div className="pb-4 text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-cyan-100"></div>
-              <h2 className="mb-2 text-2xl font-semibold text-gray-900">Consulting Management</h2>
-              <p className="mb-6 text-gray-600">
-                Manage consulting projects, clients, and related administrative tasks
-              </p>
+      <div className="relative z-20 flex min-h-screen flex-col items-center px-[5%] py-20 sm:px-[10%]">
+        <div className="w-full max-w-3xl">
+          {/* Header Section */}
+          <div className="mb-8 text-center">
+            <div className="mb-6 flex items-center justify-center">
+              <Image src="/logowhite180.png" width={80} height={80} alt="logo-180" />
             </div>
-            <Link href="/dashboard/consulting">
-              <Button
-                className="w-full bg-cyan-600 py-3 text-lg font-medium text-white hover:bg-cyan-700"
-                size="lg"
-              >
-                Access Consulting
-              </Button>
-            </Link>
+            <h1 className="font-avenir-black mb-3 text-4xl text-white md:text-5xl">
+              Admin <span className="text-green-300">Dashboard</span>
+            </h1>
+            <p className="font-lato-regular text-lg text-gray-400">Select a management section</p>
           </div>
 
-          {/* Functional Card */}
-          <div className="rounded-lg border-2 bg-white p-6 shadow-md transition-shadow duration-300 hover:border-green-300 hover:shadow-lg">
-            <div className="pb-4 text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100"></div>
-              <h2 className="mb-2 text-2xl font-semibold text-gray-900">Functional Management</h2>
-              <p className="mb-6 text-gray-600">
-                Manage functional teams, operations, and organizational tasks
-              </p>
-            </div>
-            <Link href="/dashboard/functional">
-              <Button
-                className="w-full bg-green-600 py-3 text-lg font-medium text-white hover:bg-green-700"
-                size="lg"
-              >
-                Access Functional
-              </Button>
-            </Link>
+          {/* Search Bar */}
+          <div className="relative mb-8">
+            <Search className="pointer-events-none absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-gray-400" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search dashboards..."
+              className="font-lato-regular bg-black-300/80 w-full rounded-[14px] border-2 border-white/20 py-4 pr-4 pl-12 text-white placeholder-gray-500 transition-all focus:border-green-300 focus:outline-none"
+            />
           </div>
 
-          {/* Bootcamp Card */}
-          <div className="rounded-lg border-2 bg-white p-6 shadow-md transition-shadow duration-300 hover:border-lime-300 hover:shadow-lg">
-            <div className="pb-4 text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-lime-100"></div>
-              <h2 className="mb-2 text-2xl font-semibold text-gray-900">Bootcamp 2025</h2>
-              <p className="mb-6 text-gray-600">
-                Manage bootcamp registrations and participant information
-              </p>
-            </div>
-            <Link href="/dashboard/bootcamp-2025">
-              <Button
-                className="w-full bg-lime-600 py-3 text-lg font-medium text-white hover:bg-lime-700"
-                size="lg"
-              >
-                Access Bootcamp
-              </Button>
-            </Link>
-          </div>
-        </div>
+          {/* Cards List */}
+          <div className="space-y-4">
+            {filteredCards.length === 0 ? (
+              <div className="bg-black-300/80 rounded-[14px] border-2 border-white/10 p-8 text-center backdrop-blur-sm">
+                <p className="font-lato-regular text-gray-400">
+                  No dashboards found matching your search.
+                </p>
+              </div>
+            ) : (
+              filteredCards.map((card) => (
+                <Link
+                  key={card.id}
+                  href={card.href}
+                  className="group bg-black-300/80 hover:bg-black-300/90 flex items-center justify-between rounded-[14px] border-2 border-white/10 p-5 backdrop-blur-sm transition-all duration-300 hover:border-green-300/50"
+                >
+                  {/* Left Content */}
+                  <div className="flex-1">
+                    <h2 className="font-avenir-black mb-1 text-xl text-white transition-colors group-hover:text-green-300">
+                      {card.title}
+                    </h2>
+                    <p className="font-lato-regular text-sm text-gray-400">{card.description}</p>
+                  </div>
 
-        {/* Additional Info */}
-        <div className="mt-12 text-center">
-          <p className="text-sm text-gray-500">Need help? Contact the system administrator</p>
+                  {/* Right Arrow */}
+                  <div className="ml-4 flex items-center">
+                    <svg
+                      className="h-5 w-5 text-gray-500 transition-all group-hover:translate-x-1 group-hover:text-green-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </div>
+                </Link>
+              ))
+            )}
+          </div>
+
+          {/* Logout Button */}
+          <div className="mt-8 text-center">
+            <button
+              onClick={handleLogout}
+              disabled={isLoggingOut}
+              className="font-lato-regular text-sm text-gray-500 transition-colors hover:text-red-500"
+            >
+              {isLoggingOut ? "Logging out..." : "Logout"}
+            </button>
+          </div>
+
+          {/* Footer */}
+          <div className="mt-4 text-center">
+            <p className="font-lato-regular text-sm text-gray-600">
+              Need help? Contact{" "}
+              <a href="mailto:admin@180dcugm.id" className="text-green-300 hover:underline">
+                admin@180dcugm.id
+              </a>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

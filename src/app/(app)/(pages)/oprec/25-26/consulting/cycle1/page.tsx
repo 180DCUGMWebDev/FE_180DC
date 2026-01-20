@@ -9,7 +9,7 @@ export default function OpenRecruitment2526() {
     <>
       {/* <HeroOprec />
       <Guidebook />
-      <CTA /> */}
+      <CTA registerPath="/oprec/25-26/consulting/cycle1/register" /> */}
       <Closed />
       {/* <ComingSoon /> */}
     </>

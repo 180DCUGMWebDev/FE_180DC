@@ -5,15 +5,16 @@ import { Progress } from "@/components/elements/Form/progress";
 import { Button } from "@/components/elements/Form/button";
 import { ChevronLeft } from "lucide-react";
 import { toast } from "sonner";
-import Slide1 from "./slides/Slide1";
-import Slide2 from "./slides/Slide2";
-import Slide3 from "./slides/Slide3";
-import Slide4 from "./slides/Slide4";
-import Slide5 from "./slides/Slide5";
-import Slide6 from "./slides/Slide6";
-import SubmitSlide from "./slides/SubmitSlide";
+import Slide1 from "../form/slides/Slide1";
+import Slide2 from "../form/slides/Slide2";
+import Slide3 from "../form/slides/Slide3";
+import Slide4 from "../form/slides/Slide4";
+import Slide5 from "../form/slides/Slide5";
+import Slide6 from "../form/slides/Slide6";
+import SubmitSlide from "../form/slides/SubmitSlide";
 
-const STORAGE_KEY = "180DC-consulting-25-26-batch-1";
+const STORAGE_KEY = "180DC-consulting-25-26-cycle-2";
+const API_ENDPOINT = "/api/oprec/25-26/consulting/cycle2/submit";
 
 export default function Form() {
   const [currentSlide, setCurrentSlide] = useState(1);
@@ -114,7 +115,7 @@ export default function Form() {
         }
       });
 
-      const response = await fetch("/api/oprec/25-26/consulting/submit", {
+      const response = await fetch(API_ENDPOINT, {
         method: "POST",
         body: submitFormData, // Send as FormData, not JSON
       });

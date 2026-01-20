@@ -1,13 +1,15 @@
 "use client";
 
-import { HeroOprec } from "@/components/modules/cycle2oprec/HeroOprec";
-import { TimelineOprec } from "@/components/modules/cycle2oprec/TimelineOprec";
+// import { HeroOprec } from "@/components/modules/cycle2oprec/HeroOprec";
+// import { TimelineOprec } from "@/components/modules/cycle2oprec/TimelineOprec";
+import Closed from "@/components/modules/closed/Closed";
 
 export default function Cycle2Oprec() {
   return (
-    <main className="bg-[#E8E8E8]">
-      <HeroOprec />
-      <TimelineOprec />
-    </main>
+    <>
+      <Closed />
+      {/* <HeroOprec />
+      <TimelineOprec /> */}
+    </>
   );
 }

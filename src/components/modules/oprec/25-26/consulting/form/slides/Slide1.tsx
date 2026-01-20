@@ -65,7 +65,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
     <div className="abatchate-fade-in space-y-6">
       <div className="text-center">
         <h2 className="font-avenir-black mt-2 mb-1 text-2xl leading-snug text-green-300 lg:text-3xl">
-          180 DC Functional Analyst Recruitment.
+          180 DC Consulting Analyst Recruitment.
         </h2>
         <p className="font-lato-regular text-gray-600">
           Start your journey by get knowing more about 180DC UGM
