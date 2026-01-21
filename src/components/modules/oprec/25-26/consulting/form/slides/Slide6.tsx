@@ -262,7 +262,7 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
               )}
             </p>
           </div>
-          {/* <div className="md:col-span-2">
+          <div className="md:col-span-2">
             <span className="font-avenir-regular text-sm font-medium text-gray-700">
               Consulting Day Registration Proof:
             </span>
@@ -280,7 +280,7 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
                 "Not provided"
               )}
             </p>
-          </div> */}
+          </div>
           <div>
             <span className="font-avenir-regular text-sm font-medium text-gray-700">
               How did you hear about us:
@@ -297,14 +297,14 @@ const Slide6 = ({ formData, onSubmit, isSubmitting }) => {
               {formData.consentAgreed ? "Agreed" : "Not agreed"}
             </p>
           </div>
-          {/* <div>
+          <div>
             <span className="font-avenir-regular text-sm font-medium text-gray-700">
               Consent Consulting Agreement:
             </span>
             <p className="font-lato-regular text-gray-600">
               {formData.consentConsultingAgreed ? "Agreed" : "Not agreed"}
             </p>
-          </div> */}
+          </div>
         </div>
       </div>
 
