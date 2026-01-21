@@ -58,62 +58,74 @@ const Slide5 = ({ formData, updateFormData, onNext }) => {
             </Label>
             <div className="mb-4 rounded-lg border border-green-300/20 bg-green-300/5 p-4">
               <h4 className="font-lato-bold mb-2 text-green-300">
-                🧑🏻‍💻 Consulting Day - Unlocking Potential: Your Journey into Consulting
+                🚀 180DC UGM Consulting Day 2026 - Step In, Level Up: Crafting the Consultants of
+                Tomorrow 🧑🏻‍💻
               </h4>
               <p className="font-lato-regular mb-3 text-sm text-gray-700">
-                Curious about the consulting world? Don&quot;t miss your chance to step inside the
-                world of consulting at Consulting Day! Learn directly from top consultants at
-                leading firms.
+                Curious about what it&apos;s really like to work in consulting? Join Consulting Day
+                2026, a{" "}
+                <span className="font-lato-bold text-green-300">
+                  FREE webinar & sharing session
+                </span>{" "}
+                where you&apos;ll gain real insights into the consulting world directly from
+                professionals at top consulting firms.
               </p>
 
               <div className="space-y-2 text-sm text-gray-700">
                 <div>
-                  <span className="font-lato-bold">🎙 Main Room Speaker:</span>
-                  <br />• Achmad Fauzon - Senior Associate at KPMG
+                  <span className="font-lato-bold">🎙️ Main Room Speaker:</span>
+                  <br />• Dennis Lim — Corporate Finance Associate, KPMG Indonesia
                 </div>
 
                 <div>
-                  <span className="font-lato-bold">🎙 Breakout Room Speakers:</span>
+                  <span className="font-lato-bold">🎙️ Breakout Room Speakers:</span>
                   <br />
-                  • James Pratama - Go-To-Market Strategy Manager at MarkPlus
-                  <br />• Nicholas Wijaya - Consultant at Monitor Deloitte
+                  • Finance Consulting: Adrian Siregar — ex-Big 4 Assistant Manager (Financial
+                  Services Management Consulting)
+                  <br />• Strategy Consulting: Christian Goldberg — Strategy & Transaction
+                  Consultant, Deloitte
+                  <br />• Marketing Consulting: Randi Saputra — Marketing Consultant, Grab-OVO
                 </div>
 
                 <div>
-                  <span className="font-lato-bold">📅 Date:</span> Sunday, August 17, 2025
+                  <span className="font-lato-bold">📅 Date:</span> Saturday, 24 January 2026
                   <br />
-                  <span className="font-lato-bold">🕖 Time:</span> 10.00 - 12.45 WIB
+                  <span className="font-lato-bold">🕘 Time:</span> 09.45 – 12.45 WIB
                   <br />
-                  <span className="font-lato-bold">📍 Platform:</span> ZOOM Meeting
+                  <span className="font-lato-bold">📍 Platform:</span> Zoom Meeting
+                  <br />
+                  <span className="font-lato-bold">🎟️ Registration:</span>{" "}
+                  <span className="font-lato-bold text-green-300">FREE!</span>
                 </div>
 
                 <div className="mt-3 rounded-md bg-green-300/10 p-3">
-                  <span className="font-lato-bold text-green-300">VIP Packages Available:</span>
+                  <span className="font-lato-bold text-green-300">
+                    For those who want to level up even more 😆, we also offer exclusive bundles:
+                  </span>
                   <br />
-                  💸 VIP 1: CV Review & Casebook Bundle (IDR 50K)
+                  💸 VIP 1 — Framework Bank / Casebook Bank (IDR 50K)
                   <br />
-                  💸 VIP 2: Mock Case Interview & Casebook Bundle (IDR 80K)
+                  💸 VIP 2 — CV Review + Framework Bank / Casebook Bank (IDR 80K)
                   <br />
-                  💸 VVIP: CV Review, Mock Case Interview & Casebook Bundle (IDR 100K)
+                  💸 VVIP — CV Review, Mock Case Interview & Framework Bank / Casebook Bank (IDR
+                  100K)
                 </div>
 
                 <div className="mt-3">
-                  <span className="font-lato-bold">📝 Registration:</span>{" "}
+                  <span className="font-lato-bold">🔗 Register now:</span>{" "}
                   <Link
-                    href="https://bit.ly/ConsultingDayRegistration"
+                    href="https://180dcugm.com/consultingday2026"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-black-300 underline hover:text-green-300"
                   >
-                    https://bit.ly/ConsultingDayRegistration
+                    180dcugm.com/consultingday2026
                   </Link>
                 </div>
 
                 <div>
-                  <span className="font-lato-bold">📞 Contact:</span>
-                  <br />
-                  • Jovita: +62 813-2778-2367
-                  <br />• Qina: +62 812-3003-4275
+                  <span className="font-lato-bold">📩 For more information:</span>
+                  <br />• Valen: +62 812-2951-4748
                 </div>
               </div>
             </div>
