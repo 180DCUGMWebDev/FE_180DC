@@ -120,23 +120,23 @@ const Slide4 = ({ formData, updateFormData, onNext, onPrevious }) => {
               1. Tagging 3 friends on this post {"->"}{" "}
               <span className="font-lato-bold text-black-300">
                 <Link
-                  href="https://www.instagram.com/p/DNSx_afTwcP/?igsh=MmZ2c3IzaG5ycWZm"
+                  href="https://www.instagram.com/p/DTxbOgtE-lF/?igsh=ank2cWRqZWljcjUw"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline hover:text-green-300"
                 >
-                  https://www.instagram.com/p/DNSx_afTwcP/?igsh=MmZ2c3IzaG5ycWZm
+                  https://www.instagram.com/p/DTxbOgtE-lF/?igsh=ank2cWRqZWljcjUw
                 </Link>
               </span>
               <br />
               2. Uploading this image on your story {"->"}{" "}
               <span className="font-lato-bold text-black-300 underline hover:text-green-300">
                 <Link
-                  href="https://drive.google.com/drive/folders/1zjn0EhE53nGUhKvBr47ZpHb7k1_k9rTu"
+                  href="https://drive.google.com/drive/folders/1z8NURTHPRVnFOwBrpwL79JgV1oQ8gKMh"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  https://drive.google.com/drive/folders/1zjn0EhE53nGUhKvBr47ZpHb7k1_k9rTu
+                  https://drive.google.com/drive/folders/1z8NURTHPRVnFOwBrpwL79JgV1oQ8gKMh
                 </Link>
               </span>
               <br />

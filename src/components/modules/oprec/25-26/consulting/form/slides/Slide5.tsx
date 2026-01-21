@@ -136,7 +136,7 @@ const Slide5 = ({ formData, updateFormData, onNext }) => {
               Event Details
             </Label>
             <Image
-              src="/img/oprec/consulting-day.webp"
+              src="/img/oprec/consultingdaycycle2.jpeg"
               alt="Consulting Day Event Details"
               width={600}
               height={400}
