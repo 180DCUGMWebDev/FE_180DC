@@ -32,8 +32,8 @@ const SubmitSlide = ({ formData }) => {
             <p className="font-lato-regular mb-3 text-gray-600">
               Please kindly confirm with our HR Team regarding your submission.
             </p>
-            <p className="font-lato-bold underline">Faz: +62 813-8001-0227</p>
-            <p className="font-lato-bold underline">Doni: +62 822-1100-0333</p>
+            <p className="font-lato-bold underline">Moody: +62 895-39707-5008</p>
+            <p className="font-lato-bold underline">Viola: +62 812-4997-4911</p>
           </div>
 
           {/* Join Recruitment Group */}
@@ -43,12 +43,12 @@ const SubmitSlide = ({ formData }) => {
               And kindly join our Recruitment Group here
             </p>
             <Link
-              href="https://bit.ly/ConsultingRecruitment-Cycle1"
+              href="https://180dcugm.com/ConsultingRecruitment-Cycle2"
               target="_blank"
               className="font-avenir-regular inline-flex items-center gap-2 rounded-md bg-cyan-300 px-4 py-2 text-sm text-white transition-all duration-200 hover:bg-cyan-300/80"
             >
               <ExternalLink className="h-4 w-4" />
-              bit.ly/ConsultingRecruitment-Cycle1
+              Group Link Consulting Recruitment Cycle 2
             </Link>
           </div>
 
@@ -59,12 +59,12 @@ const SubmitSlide = ({ formData }) => {
               And 180DC&quot;s Community Group here
             </p>
             <Link
-              href="https://bit.ly/180DCUGMCOMMUNITY1"
+              href="https://180dcugm.com/COMMUNITY1"
               target="_blank"
               className="font-avenir-regular inline-flex items-center gap-2 rounded-md bg-green-300 px-4 py-2 text-sm text-white transition-all duration-200 hover:bg-green-300/80"
             >
               <ExternalLink className="h-4 w-4" />
-              bit.ly/180DCUGMCOMMUNITY1
+              Group Link 180DC UGM Community
             </Link>
           </div>
 
