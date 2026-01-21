@@ -80,7 +80,9 @@ const SlideLegal = ({
             </Label>
             <p className="font-lato-regular mb-3 text-sm text-gray-500">
               Please do make sure you use McKinsey ATS Template{" "}
-              <span className="font-lato-bold text-black-300">(bit.ly/McKinseyATS-Example)</span>
+              <span className="font-lato-bold text-black-300">
+                (180dcugm.com/McKinseyATS-Example)
+              </span>
               <br />
               <br />
               <span className="font-lato-bold text-black-300">
