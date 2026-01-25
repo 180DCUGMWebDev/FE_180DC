@@ -304,14 +304,14 @@ const SubmitSlide = ({ formData }) => {
               {formData.consentAgreed ? "Agreed" : "Not agreed"}
             </p>
           </div>
-          <div>
+          {/* <div>
             <span className="font-avenir-regular text-sm font-medium text-gray-700">
               Consulting Day Consent:
             </span>
             <p className="font-lato-regular text-gray-600">
               {formData.consentAgreed ? "Agreed" : "Not agreed"}
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -43,7 +43,7 @@ export default function Form() {
         // If user has already submitted, always direct to submit slide
         if (savedIsSubmitted) {
           setIsSubmitted(true);
-          setCurrentSlide(7);
+          setCurrentSlide(6);
         } else {
           setCurrentSlide(savedSlide || 1);
         }
@@ -78,7 +78,7 @@ export default function Form() {
 
   const handlePrevious = () => {
     // If user has submitted, don't allow navigation away from success slide
-    if (isSubmitted && currentSlide === 7) {
+    if (isSubmitted && currentSlide === 6) {
       return;
     }
 
@@ -92,7 +92,7 @@ export default function Form() {
   };
 
   const getProgressPercentage = () => {
-    if (currentSlide === 7) return 100;
+    if (currentSlide === 6) return 100;
     return (currentSlide / totalSlides) * 100;
   };
 
@@ -128,7 +128,7 @@ export default function Form() {
 
       console.log("Form submitted successfully via API:", result.message);
       setIsSubmitted(true);
-      setCurrentSlide(7);
+      setCurrentSlide(6);
 
       toast("Success!", {
         description: result.message || "Your application has been submitted successfully.",
@@ -162,16 +162,16 @@ export default function Form() {
         return <Slide3 {...slideProps} />;
       case 4:
         return <Slide4 {...slideProps} />;
+      // case 5:
+      //   return (
+      //     <Slide5
+      //       {...slideProps}
+      //       onSubmit={handleSubmit} isSubmitting={isSubmitting}
+      //     />
+      //   );
       case 5:
-        return (
-          <Slide5
-            {...slideProps}
-            // onSubmit={handleSubmit} isSubmitting={isSubmitting}
-          />
-        );
-      case 6:
         return <Slide6 {...slideProps} onSubmit={handleSubmit} isSubmitting={isSubmitting} />;
-      case 7:
+      case 6:
         return <SubmitSlide formData={formData} /*onBack={handlePrevious}*/ />;
       default:
         return <Slide1 {...slideProps} />;
@@ -185,9 +185,9 @@ export default function Form() {
           <div className="pb-4">
             <div className="mb-4 flex items-center justify-between">
               <div className="text-sm font-medium text-gray-600">
-                {currentSlide === 6
+                {currentSlide === 5
                   ? "Review"
-                  : currentSlide === 7
+                  : currentSlide === 6
                     ? "Complete"
                     : `Step ${currentSlide} of ${totalSlides}`}
               </div>
@@ -197,7 +197,7 @@ export default function Form() {
           <div className="pb-8">
             <div className="flex min-h-[400px] flex-col">
               <div className="mb-6 flex-1">{renderSlide()}</div>
-              {currentSlide !== 7 && (
+              {currentSlide !== 6 && (
                 <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                   <Button
                     variant="outline"
