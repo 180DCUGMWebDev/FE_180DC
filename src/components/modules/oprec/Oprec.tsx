@@ -28,7 +28,7 @@ const batches: RecruitmentBatch[] = [
     type: "Consulting Analyst",
     description:
       "Join our second cycle of consulting recruitment for Batch 25/26. Apply your skills to real-world consulting projects and create meaningful impact.",
-    status: "Open",
+    status: "Closed",
     period: "January 2026",
     image: "/img/opreccycle/bgHeroOprec.png",
     href: "/oprec/25-26/consulting/cycle2",
