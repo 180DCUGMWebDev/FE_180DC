@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { FaPlay } from "react-icons/fa";
 import Button180 from "@/components/elements/Button180";
 import ImageAction from "@/components/elements/ImageAction";
-import ProjectStructureList from "@/components/contents/ProjectStructureList";
+import ProjectStructureList from "@/contents/ProjectStructureList";
 import { createBackground } from "@/config/Functions";
 import { connectSS } from "@/components/modules/apply/connectSpreadsheets";
 import { UtilsContext } from "@/contexts/UtilsContext";

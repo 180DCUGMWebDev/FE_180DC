@@ -114,7 +114,7 @@ export default function Oprec() {
           <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             {/* Search Bar */}
             <div className="relative flex-1 sm:max-w-md">
-              <Search className="pointer-events-none absolute top-1/2 left-4 h-4 w-4 -translate-y-1/2 text-white/50" />
+              <Search className="h-4 w-4 text-white" />
               <input
                 type="text"
                 placeholder="Search recruitment..."

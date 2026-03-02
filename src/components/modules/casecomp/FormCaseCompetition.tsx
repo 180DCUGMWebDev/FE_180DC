@@ -209,7 +209,7 @@ export function FormCaseComp() {
     form.append("status", status);
 
     try {
-      await fetch("/api/verify-registration", {
+      await fetch("/api/videocasecomp/verify", {
         method: "POST",
         body: form,
       });
@@ -374,7 +374,7 @@ export function FormCaseComp() {
     // Register
     try {
       setLoading(true);
-      const res = await fetch("/api/register-case-competition", {
+      const res = await fetch("/api/videocasecomp/register", {
         method: "POST",
         body: form,
       });

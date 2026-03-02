@@ -89,7 +89,7 @@ export default function Module1Main() {
         <div className="relative z-2 mt-[20.372vw] flex w-full flex-col items-center lg:hidden">
           <div className="relative flex w-[81.944vw] text-[2vw]/[7vw]">
             <Link
-              href="/academy"
+              href="/events/academy"
               className="absolute top-[2.5vw] -left-[3.7vw] h-[3.056vw] w-[1.944vw]"
             >
               <Image

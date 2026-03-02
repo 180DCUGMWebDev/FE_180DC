@@ -38,7 +38,7 @@ export function ApplyNow({ theme }) {
               <br />
               {"from industry experts in just a few weeks"}
             </h2>
-            <Button180 color="green" text="Register Now" href="/bootcamp/registration" />
+            <Button180 color="green" text="Register Now" href="/events/bootcamp/registration" />
           </div>
         </div>
       </div>

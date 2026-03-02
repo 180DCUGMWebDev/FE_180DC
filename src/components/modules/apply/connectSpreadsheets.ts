@@ -1,5 +1,5 @@
 export const connectSS = async (data, target, flush) => {
-  await fetch("/api/upload-spreadsheet", {
+  await fetch("/api/website/submissions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -8,8 +8,8 @@ import Button180 from "@/components/elements/Button180";
 import { BsCalendar2CheckFill } from "react-icons/bs";
 import { HiLocationMarker } from "react-icons/hi";
 import { AiFillClockCircle } from "react-icons/ai";
-import { useMobile } from "@/utils/hooks/MobileProvider";
-import { useTablet } from "@/utils/hooks/TabletProvider";
+import { useMobile } from "@/hooks/MobileProvider";
+import { useTablet } from "@/hooks/TabletProvider";
 
 export function Speaker() {
   const isMobile = useMobile();
@@ -170,7 +170,7 @@ export function Speaker() {
                         color="green"
                         className="font-avenir-heavy w-[100%] rounded-[8.54px] py-[10px] text-[8.54px] md:text-[25px] lg:w-[60%] lg:rounded-[24.23px] lg:py-[17px] lg:text-[clamp(16px,1.5vw,24.23px)]"
                         text="Enroll Me"
-                        href="/bootcamp/registration"
+                        href="/events/bootcamp/registration"
                       />
                     </div>
                   </div>

@@ -132,9 +132,9 @@ export default function Navbar() {
                       <NavigationMenuItem>
                         <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                           <Link
-                            href="/article/telescope"
+                            href="/article"
                             className={`hover:text-black-300 transition-all duration-300 hover:bg-white ${
-                              pathname === "/article/telescope" ? "text-black-300 bg-white" : ""
+                              pathname.startsWith("/article") ? "text-black-300 bg-white" : ""
                             }`}
                           >
                             <p className="text-base">Article</p>
@@ -169,7 +169,7 @@ export default function Navbar() {
                 </div>
               </NavigationMenu>
               <div className="hidden items-center gap-5 lg:flex">
-                <Link href="/oprec">
+                <Link href="/events">
                   <Button180
                     color="transparent"
                     text="Join Us!"
@@ -252,10 +252,10 @@ export default function Navbar() {
 
               {/* Article */}
               <div key="article-wrapper">
-                <Link href="/article/telescope" onClick={closeMobileMenu}>
+                <Link href="/article" onClick={closeMobileMenu}>
                   <div
                     className={`font-avenir-regular w-full p-2 ${
-                      pathname === "/article/telescope" ? "font-semibold text-green-300" : ""
+                      pathname.startsWith("/article") ? "font-semibold text-green-300" : ""
                     }`}
                   >
                     Article
@@ -318,7 +318,7 @@ export default function Navbar() {
             </div>
           </AnimatePresence>
           <div className="flex w-full flex-col items-center gap-4">
-            <Link href="/oprec" className="w-full">
+            <Link href="/events" className="w-full">
               <Button180
                 color="transparent"
                 text="Join Us!"

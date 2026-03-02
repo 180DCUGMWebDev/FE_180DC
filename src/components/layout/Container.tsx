@@ -18,10 +18,8 @@ const Container = ({ children, className, color }: ContainerProps) => {
           : "";
 
   return (
-    <section
-      className={cn(`relative mx-auto flex w-full flex-col gap-4 px-0 py-10`, bgColor)}
-    >
-      <div className={cn("mx-auto h-full w-full max-w-[2160px]", className)}>{children}</div>
+    <section className={cn(`relative mx-auto flex w-full flex-col gap-4 px-0 py-10`, bgColor)}>
+      <div className={cn("mx-auto h-full w-full max-w-[1440px]", className)}>{children}</div>
     </section>
   );
 };

@@ -1,0 +1,102 @@
+import React, { useState } from "react";
+import Image from "next/image";
+import { Button } from "@/components/elements/Form/button";
+import { Input } from "@/components/elements/Form/input";
+import { Label } from "@/components/elements/Form/label";
+import { ChevronRight } from "lucide-react";
+
+const Slide5 = ({ formData, updateFormData, onNext, isSubmitting, onSubmit }) => {
+  const [buktiPembayaranLink, setBuktiPembayaranLink] = useState(
+    formData.buktiPembayaranLink || ""
+  );
+  const [rekening, setRekening] = useState(formData.rekening || "");
+
+  const handleNext = () => {
+    updateFormData({
+      buktiPembayaranLink,
+      rekening,
+    });
+    // Trigger submit since this is the final interactive slide
+    onSubmit();
+  };
+
+  const isValid = buktiPembayaranLink.trim() && rekening.trim();
+
+  return (
+    <div className="animate-fade-in space-y-6">
+      <div className="text-center">
+        <h2 className="font-avenir-black mt-2 mb-1 text-2xl leading-snug text-green-300 lg:text-3xl">
+          Payment
+        </h2>
+        <p className="font-lato-regular text-gray-600">Complete your team registration payment</p>
+      </div>
+
+      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
+        <h3 className="font-avenir-black mb-6 flex items-center gap-2 text-xl text-gray-800">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
+            <span className="text-sm font-bold text-white">$</span>
+          </div>
+          Payment Details
+        </h3>
+
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-col items-center justify-center rounded-lg border border-gray-100 bg-gray-50 py-6">
+            <Image
+              src="/img/videocasecomp/qris.jpeg"
+              alt="QRIS Payment"
+              width={250}
+              height={250}
+              className="rounded-xl shadow-md"
+            />
+            <p className="font-lato-regular mt-4 text-center text-sm text-gray-500">
+              Please scan the QRIS code above to complete your payment of{" "}
+              <strong className="text-gray-700">Rp 20.000,00</strong>.
+            </p>
+          </div>
+
+          <div>
+            <Label className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700">
+              Payment Proof (Transfer Rp 20.000,00) *
+            </Label>
+            <Input
+              value={buktiPembayaranLink}
+              onChange={(e) => setBuktiPembayaranLink(e.target.value)}
+              placeholder="Google Drive link of Payment Proof"
+              className="font-lato-regular border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-green-300/50"
+            />
+          </div>
+
+          <div>
+            <Label
+              htmlFor="rekening"
+              className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700"
+            >
+              Registrant Account Number / E-Wallet Number *
+            </Label>
+            <Input
+              id="rekening"
+              type="text"
+              value={rekening}
+              onChange={(e) => setRekening(e.target.value)}
+              placeholder="Ex: Mandiri 12345678 a.n John Doe / Gopay 081234..."
+              className="font-lato-regular border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-green-300/50"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="flex justify-end pt-4">
+        <Button
+          onClick={handleNext}
+          disabled={!isValid || isSubmitting}
+          className="font-avenir-regular disabled:text-black-300 flex items-center gap-2 bg-green-300 text-white transition-all duration-200 hover:scale-105 hover:bg-green-300/90 disabled:opacity-50 disabled:hover:scale-100"
+        >
+          {isSubmitting ? "Submitting..." : "Submit Registration"}
+          {isSubmitting ? null : <ChevronRight className="h-4 w-4" />}
+        </Button>
+      </div>
+    </div>
+  );
+};
+
+export default Slide5;
