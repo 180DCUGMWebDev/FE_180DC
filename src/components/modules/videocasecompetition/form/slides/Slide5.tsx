@@ -54,6 +54,24 @@ const Slide5 = ({ formData, updateFormData, onNext, isSubmitting, onSubmit }) =>
             </p>
           </div>
 
+          <div className="flex items-center gap-3 text-gray-400">
+            <div className="h-px flex-1 bg-gray-200" />
+            <span className="font-lato-regular text-xs">or transfer via bank</span>
+            <div className="h-px flex-1 bg-gray-200" />
+          </div>
+
+          <div className="rounded-lg border border-gray-100 bg-gray-50 px-6 py-4">
+            <p className="font-avenir-heavy mb-1 text-sm text-gray-700">Bank Transfer</p>
+            <p className="font-lato-regular text-sm text-gray-500">BNI</p>
+            <p className="font-lato-bold text-lg tracking-wide text-gray-900">2022144115</p>
+            <p className="font-lato-regular text-sm text-gray-500">
+              a.n <strong className="text-gray-700">Zufar Purwa Sanosuke</strong>
+            </p>
+            <p className="font-lato-regular mt-2 text-xs text-gray-400">
+              Transfer amount: <strong className="text-gray-700">Rp 20.000,00</strong>
+            </p>
+          </div>
+
           <div>
             <Label className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700">
               Payment Proof (Transfer Rp 20.000,00) *

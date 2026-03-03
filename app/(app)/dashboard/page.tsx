@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/integrations/supabase/client";
+import { Button } from "@/components/elements/Form/button";
 
 const dashboardCards = [
   {
@@ -158,6 +159,23 @@ export default function AdminPage() {
             >
               {isLoggingOut ? "Logging out..." : "Logout"}
             </button>
+          </div>
+          <div className="rounded-lg border-2 bg-white p-6 shadow-md transition-shadow duration-300 hover:border-lime-300 hover:shadow-lg">
+            <div className="pb-4 text-center">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-200"></div>
+              <h2 className="mb-2 text-2xl font-semibold text-gray-900">180 DC Store</h2>
+              <p className="mb-6 text-gray-600">
+                Manage store (merchandise, framework, casebook) 180DC UGM
+              </p>
+            </div>
+            <Link href="/dashboard/store">
+              <Button
+                className="w-full bg-lime-600 py-3 text-lg font-medium text-white hover:bg-lime-700"
+                size="lg"
+              >
+                Access Store
+              </Button>
+            </Link>
           </div>
 
           {/* Footer */}

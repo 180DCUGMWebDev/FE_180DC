@@ -1,7 +1,6 @@
 import { HeroVCC } from "@/components/modules/videocasecompetition/HeroVCC";
 import { TimelineVCC } from "@/components/modules/videocasecompetition/TimelineVCC";
 import { GuidebookVCC } from "@/components/modules/videocasecompetition/GuidebookVCC";
-import AOSInit from "@/components/elements/AOSInit";
 
 export const metadata = {
   title: "Video Case Competition | 180 Degrees Consulting UGM",
@@ -10,7 +9,6 @@ export const metadata = {
 export default function VideoCaseComp() {
   return (
     <main className="relative flex min-h-screen flex-col overflow-x-hidden bg-[#2B2B2B] pt-16">
-      <AOSInit />
       {/* Hero section enclosed in its own bg container, fully full width, rounded bottom only */}
       <div className="relative z-20 w-full">
         <div

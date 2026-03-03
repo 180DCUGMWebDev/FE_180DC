@@ -1,5 +1,5 @@
 // Import
-import "@/app/globals.css";
+import "../globals.css";
 
 import { Toaster } from "@/components/elements/Toast";
 
