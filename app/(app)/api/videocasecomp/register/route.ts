@@ -3,6 +3,7 @@ import { GoogleSpreadsheet } from "google-spreadsheet";
 import { driveFolderId, GetJWTAuth, saveFileToDrive, sendEmail, uploadData } from "./utils";
 import { google } from "googleapis";
 import { requestCreatePayment } from "../../midtrans/create-payment/utils";
+import { createClient } from "@/integrations/supabase/server";
 
 export async function POST(request) {
   try {
@@ -78,6 +79,44 @@ export async function POST(request) {
         rekening: form.get("rekening"),
       }
     );
+
+    // Insert into Supabase
+    const supabase = createClient();
+    const { error: supabaseError } = await supabase.from("vcc-registrations").insert({
+      status: "pending",
+      payment: payment,
+      team_name: teamLeader.namaTim,
+      leader_name: teamLeader.namaLengkap,
+      leader_university: teamLeader.universitas,
+      leader_major: teamLeader.prodi,
+      leader_batch: teamLeader.batch,
+      leader_email: teamLeader.email,
+      leader_phone: teamLeader.nomorHP,
+      member1_name: teamMember[0]?.namaLengkap || null,
+      member1_university: teamMember[0]?.universitas || null,
+      member1_major: teamMember[0]?.prodi || null,
+      member1_batch: teamMember[0]?.batch || null,
+      member1_email: teamMember[0]?.email || null,
+      member1_phone: teamMember[0]?.nomorHP || null,
+      member2_name: teamMember[1]?.namaLengkap || null,
+      member2_university: teamMember[1]?.universitas || null,
+      member2_major: teamMember[1]?.prodi || null,
+      member2_batch: teamMember[1]?.batch || null,
+      member2_email: teamMember[1]?.email || null,
+      member2_phone: teamMember[1]?.nomorHP || null,
+      doc_id_card: idCardLink,
+      doc_follow: followLink,
+      doc_mention: mentionLink,
+      doc_repost: repostLink,
+      doc_twibbon: twibbonLink,
+      doc_bukti_pembayaran: buktiLink,
+      rekening: form.get("rekening") || null,
+    });
+
+    if (supabaseError) {
+      console.error("Supabase insert error:", supabaseError);
+      // Don't throw - Google Sheets already has the data
+    }
 
     await sendEmail({
       teamLeader,

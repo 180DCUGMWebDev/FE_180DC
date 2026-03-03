@@ -66,8 +66,12 @@ export default function Button180({
     if (disableForm) return;
 
     if (href && href !== "#") {
-      // Check if it's an internal route (starts with /)
-      if (href.startsWith("/")) {
+      // Anchor link - smooth scroll to element
+      if (href.startsWith("#")) {
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+        // Check if it's an internal route (starts with /)
+      } else if (href.startsWith("/")) {
         router.push(href);
       } else {
         // External link - add https:// if not present

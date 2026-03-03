@@ -15,7 +15,7 @@ const programs = [
     available: true,
   },
   {
-    title: "180DC UGM Bootcamp",
+    title: "Consulting Bootcamp",
     description:
       "Intensive training program designed to teach core consulting frameworks and skills.",
     href: "/events/bootcamp",

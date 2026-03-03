@@ -2,7 +2,7 @@ const nodemailer = require("nodemailer");
 const moment = require("moment");
 import { JWT } from "google-auth-library";
 import { Readable } from "stream";
-import { committeHTML, participantHTML } from "../verify/confirmationEmail";
+import { committeHTML, participantHTML } from "./confirmationEmail";
 
 export const driveFolderId = {
   follow: "1miiYf9kIuXems8nb4NvSxhJwpDycclm1",
@@ -166,13 +166,15 @@ export const sendEmail = async ({ teamLeader }) => {
 
     await Promise.all([
       transporter.sendMail({
+        from: `"180DC UGM" <${process.env.APP_EMAIL}>`,
         to: teamLeader.email,
-        subject: "Verification Status",
+        subject: "Video Case Competition - Registration Received (Pending Review)",
         html: participantHTML(teamLeader),
       }),
       transporter.sendMail({
+        from: `"180DC UGM" <${process.env.APP_EMAIL}>`,
         to: process.env.APAC_EMAIL ?? "",
-        subject: "Verification Status",
+        subject: "Video Case Competition - New Registration (Pending Review)",
         html: committeHTML(teamLeader),
       }),
     ]);

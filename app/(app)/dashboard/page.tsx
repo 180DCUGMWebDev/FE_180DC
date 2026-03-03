@@ -36,6 +36,13 @@ const dashboardCards = [
     href: "/dashboard/25-26/bootcamp",
     type: "Bootcamp",
   },
+  {
+    id: "vcc-2025",
+    title: "Video Case Competition",
+    description: "Video Case Competition registrations & team management",
+    href: "/dashboard/25-26/vcc",
+    type: "Competition",
+  },
 ];
 
 export default function AdminPage() {
