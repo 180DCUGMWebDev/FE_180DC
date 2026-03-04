@@ -1,26 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { Button } from "@/components/elements/Form/button";
 import { Input } from "@/components/elements/Form/input";
 import { Label } from "@/components/elements/Form/label";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Upload, CheckCircle, Loader2 } from "lucide-react";
 
 const Slide5 = ({ formData, updateFormData, onNext, isSubmitting, onSubmit }) => {
-  const [buktiPembayaranLink, setBuktiPembayaranLink] = useState(
-    formData.buktiPembayaranLink || ""
+  const [buktiPembayaranFile, setBuktiPembayaranFile] = useState<File | null>(
+    formData.buktiPembayaranFile || null
   );
   const [rekening, setRekening] = useState(formData.rekening || "");
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleNext = () => {
-    updateFormData({
-      buktiPembayaranLink,
-      rekening,
-    });
-    // Trigger submit since this is the final interactive slide
-    onSubmit();
+    const latestData = { buktiPembayaranFile, rekening };
+    updateFormData(latestData);
+    // Pass latest data directly to avoid stale closure
+    onSubmit(latestData);
   };
 
-  const isValid = buktiPembayaranLink.trim() && rekening.trim();
+  const isValid = buktiPembayaranFile && rekening.trim();
 
   return (
     <div className="animate-fade-in space-y-6">
@@ -45,8 +44,8 @@ const Slide5 = ({ formData, updateFormData, onNext, isSubmitting, onSubmit }) =>
               src="/img/videocasecomp/qris.jpeg"
               alt="QRIS Payment"
               width={250}
-              height={250}
-              className="rounded-xl shadow-md"
+              height={350}
+              className="rounded-xl object-contain shadow-md"
             />
             <p className="font-lato-regular mt-4 text-center text-sm text-gray-500">
               Please scan the QRIS code above to complete your payment of{" "}
@@ -76,11 +75,34 @@ const Slide5 = ({ formData, updateFormData, onNext, isSubmitting, onSubmit }) =>
             <Label className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700">
               Payment Proof (Transfer Rp 20.000,00) *
             </Label>
-            <Input
-              value={buktiPembayaranLink}
-              onChange={(e) => setBuktiPembayaranLink(e.target.value)}
-              placeholder="Google Drive link of Payment Proof"
-              className="font-lato-regular border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-green-300/50"
+            <div
+              onClick={() => fileInputRef.current?.click()}
+              className={`flex cursor-pointer items-center gap-3 rounded-lg border-2 border-dashed px-4 py-3 transition-all duration-200 ${
+                buktiPembayaranFile
+                  ? "border-green-400 bg-green-50"
+                  : "border-gray-300 bg-gray-50 hover:border-green-300 hover:bg-green-50/50"
+              }`}
+            >
+              {buktiPembayaranFile ? (
+                <CheckCircle className="h-5 w-5 shrink-0 text-green-500" />
+              ) : (
+                <Upload className="h-5 w-5 shrink-0 text-gray-400" />
+              )}
+              <span
+                className={`font-lato-regular truncate text-sm ${buktiPembayaranFile ? "text-green-700" : "text-gray-500"}`}
+              >
+                {buktiPembayaranFile ? buktiPembayaranFile.name : "Click to upload payment proof"}
+              </span>
+            </div>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/png, image/jpeg, application/pdf"
+              className="hidden"
+              onChange={(e) => {
+                const selected = e.target.files?.[0] || null;
+                setBuktiPembayaranFile(selected);
+              }}
             />
           </div>
 
@@ -109,8 +131,17 @@ const Slide5 = ({ formData, updateFormData, onNext, isSubmitting, onSubmit }) =>
           disabled={!isValid || isSubmitting}
           className="font-avenir-regular disabled:text-black-300 flex items-center gap-2 bg-green-300 text-white transition-all duration-200 hover:scale-105 hover:bg-green-300/90 disabled:opacity-50 disabled:hover:scale-100"
         >
-          {isSubmitting ? "Submitting..." : "Submit Registration"}
-          {isSubmitting ? null : <ChevronRight className="h-4 w-4" />}
+          {isSubmitting ? (
+            <>
+              <Loader2 className="h-4 w-4 animate-spin" />
+              Submitting...
+            </>
+          ) : (
+            <>
+              Submit Registration
+              <ChevronRight className="h-4 w-4" />
+            </>
+          )}
         </Button>
       </div>
     </div>

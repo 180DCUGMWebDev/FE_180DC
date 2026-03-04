@@ -44,7 +44,7 @@ const programs = [
     available: true,
   },
   {
-    title: "Videocase Competition",
+    title: "Video Case Competition",
     description:
       "Showcase your analytical and presentation skills through a creative video case study.",
     href: "/events/videocasecompetition",

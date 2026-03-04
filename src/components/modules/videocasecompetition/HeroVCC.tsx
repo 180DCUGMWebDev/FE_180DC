@@ -56,7 +56,7 @@ export function HeroVCC() {
       </div>
 
       {/* Main content */}
-      <Container>
+      <Container className="px-4 sm:px-6 lg:px-8">
         <div className="relative z-10 mx-auto flex flex-col items-center text-center">
           {/* Title */}
           <h1
@@ -66,7 +66,7 @@ export function HeroVCC() {
             className="font-avenir-black text-[40px] leading-tight text-white md:text-[52px] lg:text-[72px]"
             style={{
               textShadow: "0px 4px 6px rgba(0,0,0,0.8)",
-              WebkitTextStroke: "2.5px #000",
+              WebkitTextStroke: "1px #000",
             }}
           >
             180DC Video Case Competition
@@ -105,12 +105,12 @@ export function HeroVCC() {
           >
             <div className="absolute inset-0 w-full bg-gradient-to-r from-[#58B9D1]/10 via-[#73B743] to-[#58B9D1]/10" />
             <h2
-              className="font-avenir-black relative z-10 text-[32px] italic sm:text-4xl md:text-5xl lg:text-[64px]"
+              className="font-avenir-black relative z-10 text-[24px] italic sm:text-4xl md:text-5xl lg:text-[64px]"
               style={{
                 background: "linear-gradient(90deg, #8ADF60, #58B9D1)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
-                WebkitTextStroke: "2.5px black",
+                WebkitTextStroke: "1.5px black",
                 filter: "drop-shadow(3px 4px 5px rgba(0,0,0,0.8))",
               }}
             >
@@ -160,7 +160,7 @@ export function HeroVCC() {
           </div>
 
           {/* Benefits Section */}
-          <div className="relative z-20 mx-auto mt-20 flex w-full flex-col px-2">
+          <div className="relative z-20 mx-auto mt-20 flex w-full flex-col px-4 sm:px-2">
             {/* Benefits label with full-width line */}
             <div className="mb-8 flex w-full items-center justify-center gap-6">
               <div className="h-[1px] flex-grow bg-white/40" />

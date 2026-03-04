@@ -64,11 +64,11 @@ export const sendEmail = async ({ teamLeader }) => {
       port: 465,
       secure: true,
       auth: {
+        type: "OAuth2",
         user: process.env.APP_EMAIL ?? "",
-        pass: process.env.APP_PASSWORD ?? "",
-      },
-      tls: {
-        rejectUnauthorized: false,
+        clientId: process.env.GOOGLE_CLIENT_ID ?? "",
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
+        refreshToken: process.env.APP_MAIL_REFRESH_TOKEN ?? "",
       },
     });
 

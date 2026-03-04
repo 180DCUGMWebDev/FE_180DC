@@ -13,6 +13,7 @@ import Slide4 from "./slides/Slide4";
 import Slide5 from "./slides/Slide5";
 import SubmitSlide from "./slides/SubmitSlide";
 import Image from "next/image";
+import Button180 from "@/components/elements/Button180";
 
 const STORAGE_KEY = "180DC-VCC-Registration";
 
@@ -35,12 +36,12 @@ interface RegistrationFormData {
   member2Batch?: string;
   member2Email?: string;
   member2NomorHP?: string;
-  idCardLink?: string;
-  followLink?: string;
-  mentionLink?: string;
-  repostLink?: string;
-  twibbonLink?: string;
-  buktiPembayaranLink?: string;
+  idCardFile?: File;
+  followFile?: File;
+  mentionFile?: File;
+  repostFile?: File;
+  twibbonFile?: File;
+  buktiPembayaranFile?: File;
   rekening?: string;
 }
 
@@ -82,10 +83,19 @@ export default function Form() {
     }
   }, []);
 
-  // Save progress to localStorage whenever state changes
+  // Save progress to localStorage whenever state changes (exclude File objects as they are not serializable)
   useEffect(() => {
+    const {
+      idCardFile,
+      followFile,
+      mentionFile,
+      repostFile,
+      twibbonFile,
+      buktiPembayaranFile,
+      ...serializableData
+    } = formData;
     const progressData = {
-      formData,
+      formData: serializableData,
       currentSlide,
       slideHistory,
       isSubmitted,
@@ -129,47 +139,50 @@ export default function Form() {
     return (activeIndex / activeLength) * 100;
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (latestData?: Partial<RegistrationFormData>) => {
     setIsSubmitting(true);
+
+    // Merge any latest data (from Slide5) to avoid stale closure
+    const merged = { ...formData, ...latestData };
 
     try {
       const submitFormData = new FormData();
 
       // Format payloads matching Oprec / CaseComp backend expectations
       const leaderPayload = {
-        namaTim: formData.namaTim || "",
-        teamSize: formData.teamSize || "3",
-        source: formData.source || "",
-        namaLengkap: formData.leaderNamaLengkap || "",
-        asalSekolah: formData.leaderAsalSekolah || "",
-        batch: formData.leaderBatch || "",
-        email: formData.leaderEmail || "",
-        nomorHP: formData.leaderNomorHP || "",
+        namaTim: merged.namaTim || "",
+        teamSize: merged.teamSize || "3",
+        source: merged.source || "",
+        namaLengkap: merged.leaderNamaLengkap || "",
+        asalSekolah: merged.leaderAsalSekolah || "",
+        batch: merged.leaderBatch || "",
+        email: merged.leaderEmail || "",
+        nomorHP: merged.leaderNomorHP || "",
         // Mappings for old backend compatibility
-        universitas: formData.leaderAsalSekolah || "",
+        universitas: merged.leaderAsalSekolah || "",
         prodi: "-",
       };
 
       const membersPayload = [];
-      if (formData.member1NamaLengkap) {
+      if (merged.member1NamaLengkap) {
         membersPayload.push({
-          namaLengkap: formData.member1NamaLengkap,
-          asalSekolah: formData.member1AsalSekolah,
-          batch: formData.member1Batch,
-          email: formData.member1Email,
-          nomorHP: formData.member1NomorHP,
-          universitas: formData.member1AsalSekolah,
+          namaLengkap: merged.member1NamaLengkap,
+          asalSekolah: merged.member1AsalSekolah,
+          batch: merged.member1Batch,
+          email: merged.member1Email,
+          nomorHP: merged.member1NomorHP,
+          universitas: merged.member1AsalSekolah,
           prodi: "-",
         });
       }
-      if (formData.teamSize === "3" && formData.member2NamaLengkap) {
+      if (merged.teamSize === "3" && merged.member2NamaLengkap) {
         membersPayload.push({
-          namaLengkap: formData.member2NamaLengkap,
-          asalSekolah: formData.member2AsalSekolah,
-          batch: formData.member2Batch,
-          email: formData.member2Email,
-          nomorHP: formData.member2NomorHP,
-          universitas: formData.member2AsalSekolah,
+          namaLengkap: merged.member2NamaLengkap,
+          asalSekolah: merged.member2AsalSekolah,
+          batch: merged.member2Batch,
+          email: merged.member2Email,
+          nomorHP: merged.member2NomorHP,
+          universitas: merged.member2AsalSekolah,
           prodi: "-",
         });
       }
@@ -190,16 +203,16 @@ export default function Form() {
       submitFormData.append("teamMembers", JSON.stringify(membersPayload));
       submitFormData.append("payment", "national"); // Standard fixed payment
       submitFormData.append("competition", "180DC BCC");
-      submitFormData.append("rekening", formData.rekening || "");
+      submitFormData.append("rekening", merged.rekening || "");
 
-      // Append files as link strings, mapping them back to the expected API param names if backend relies on them
-      if (formData.idCardLink) submitFormData.append("idCard", formData.idCardLink);
-      if (formData.followLink) submitFormData.append("follow", formData.followLink);
-      if (formData.mentionLink) submitFormData.append("mention", formData.mentionLink);
-      if (formData.repostLink) submitFormData.append("repost", formData.repostLink);
-      if (formData.twibbonLink) submitFormData.append("twibbon", formData.twibbonLink);
-      if (formData.buktiPembayaranLink)
-        submitFormData.append("buktiPembayaran", formData.buktiPembayaranLink);
+      // Append actual file objects for upload to Google Drive
+      if (merged.idCardFile) submitFormData.append("idCard", merged.idCardFile);
+      if (merged.followFile) submitFormData.append("follow", merged.followFile);
+      if (merged.mentionFile) submitFormData.append("mention", merged.mentionFile);
+      if (merged.repostFile) submitFormData.append("repost", merged.repostFile);
+      if (merged.twibbonFile) submitFormData.append("twibbon", merged.twibbonFile);
+      if (merged.buktiPembayaranFile)
+        submitFormData.append("buktiPembayaran", merged.buktiPembayaranFile);
 
       const response = await fetch("/api/videocasecomp/register", {
         method: "POST",
@@ -254,7 +267,7 @@ export default function Form() {
   };
 
   return (
-    <section className="flex min-h-screen items-center justify-center bg-linear-to-b from-black to-green-300/90 p-4">
+    <section className="flex min-h-screen flex-col items-center justify-center bg-linear-to-b from-black to-green-300/90 p-4">
       <div className="w-full max-w-4xl py-20">
         <div className="rounded-lg border-0 bg-white/90 p-6 shadow-2xl backdrop-blur-xs">
           <div className="pb-4">
@@ -302,6 +315,29 @@ export default function Form() {
                 </div>
               )}
             </div>
+          </div>
+        </div>
+
+        {/* Contact Person Section */}
+        <div className="flex flex-col items-center justify-center gap-2 p-4">
+          <p className="font-avenir-heavy my-3 text-sm text-white">
+            If there is any problem, kindly chat:
+          </p>
+          <div className="flex flex-row gap-2">
+            <Button180
+              color="green"
+              text="Joylin (+62 817-0005-889)"
+              href="https://wa.me/628170005889"
+              size="md"
+              className="font-avenir-heavy rounded-full px-8 text-white transition-colors hover:bg-green-300 hover:text-white"
+            />
+            <Button180
+              color="green"
+              text="Anindya (+62 812-5734-0001)"
+              href="https://wa.me/6281257340001"
+              size="md"
+              className="font-avenir-heavy rounded-full px-8 text-white transition-colors hover:bg-green-300 hover:text-white"
+            />
           </div>
         </div>
       </div>

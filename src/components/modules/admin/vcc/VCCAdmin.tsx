@@ -20,6 +20,7 @@ import {
 import { createClient } from "@/integrations/supabase/client";
 import { useRouter } from "next/navigation";
 import { RejectModal } from "./RejectModal";
+import { BroadcastModal } from "./BroadcastModal";
 
 interface VCCSubmission {
   id: string;
@@ -69,6 +70,8 @@ export function VCCAdmin({
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const [processingId, setProcessingId] = useState<string | null>(null);
   const [rejectModalOpen, setRejectModalOpen] = useState(false);
+  const [broadcastModalOpen, setBroadcastModalOpen] = useState(false);
+  const [isBroadcasting, setIsBroadcasting] = useState(false);
   const [selectedSubmission, setSelectedSubmission] = useState<VCCSubmission | null>(null);
   const router = useRouter();
   const supabase = createClient();
@@ -177,6 +180,28 @@ export function VCCAdmin({
       alert(error.message || "Failed to reject team");
     } finally {
       setProcessingId(null);
+    }
+  }
+
+  async function handleBroadcast(targetGroup: string, subject: string, content: string) {
+    setIsBroadcasting(true);
+    try {
+      const res = await fetch("/api/videocasecomp/teams/broadcast", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ targetGroup, subject, content }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message);
+
+      alert(`Success! Broadcast sent to ${data.count} teams.`);
+      setBroadcastModalOpen(false);
+    } catch (error: any) {
+      console.error("Error broadcasting:", error);
+      alert(error.message || "Failed to send broadcast");
+    } finally {
+      setIsBroadcasting(false);
     }
   }
 
@@ -434,6 +459,13 @@ export function VCCAdmin({
               </div>
             </div>
             <div className="flex gap-2">
+              <Button
+                onClick={() => setBroadcastModalOpen(true)}
+                className="flex items-center gap-2 bg-blue-500 text-white hover:bg-blue-400"
+              >
+                <Mail className="h-4 w-4" />
+                Broadcast Email
+              </Button>
               <Button onClick={refreshData} variant="outline" className="flex items-center gap-2">
                 Refresh
               </Button>
@@ -631,6 +663,14 @@ export function VCCAdmin({
         onSubmit={handleReject}
         teamName={selectedSubmission?.team_name || ""}
         isLoading={processingId !== null}
+      />
+
+      {/* Broadcast Modal */}
+      <BroadcastModal
+        isOpen={broadcastModalOpen}
+        onClose={() => setBroadcastModalOpen(false)}
+        onSubmit={handleBroadcast}
+        isLoading={isBroadcasting}
       />
     </section>
   );

@@ -1,6 +1,13 @@
 import { NextResponse } from "next/server";
 import { GoogleSpreadsheet } from "google-spreadsheet";
-import { driveFolderId, GetJWTAuth, saveFileToDrive, sendEmail, uploadData } from "./utils";
+import {
+  driveFolderId,
+  GetJWTAuth,
+  GetOAuth,
+  saveFileToDrive,
+  sendEmail,
+  uploadData,
+} from "./utils";
 import { google } from "googleapis";
 import { requestCreatePayment } from "../../midtrans/create-payment/utils";
 import { createClient } from "@/integrations/supabase/server";
@@ -34,7 +41,8 @@ export async function POST(request) {
     // }
 
     const auth = await GetJWTAuth();
-    const drive = google.drive({ version: "v3", auth });
+    const oauth = await GetOAuth();
+    const drive = google.drive({ version: "v3", auth: oauth });
 
     const teamLeader = JSON.parse(form.get("teamLeader"));
     const teamMember = JSON.parse(form.get("teamMembers"));
@@ -46,22 +54,143 @@ export async function POST(request) {
 
     const doc = new GoogleSpreadsheet(driveFolderId.spreadsheet, auth);
     const fileBaseName = `${teamLeader.namaLengkap} - ${formattedDate}`;
-    const [idCardLink, followLink, mentionLink, repostLink, twibbonLink, buktiLink] =
-      await Promise.all([
-        saveFileToDrive(fileBaseName, "idCard", drive, form),
-        saveFileToDrive(fileBaseName, "follow", drive, form),
-        saveFileToDrive(fileBaseName, "mention", drive, form),
-        saveFileToDrive(fileBaseName, "repost", drive, form),
-        saveFileToDrive(fileBaseName, "twibbon", drive, form),
-        saveFileToDrive(fileBaseName, "buktiPembayaran", drive, form),
-        doc.loadInfo(),
-      ]);
+
+    // Upload files sequentially to avoid Google Drive API rate limits
+    const idCardLink = await saveFileToDrive(fileBaseName, "idCard", drive, form);
+    const followLink = await saveFileToDrive(fileBaseName, "follow", drive, form);
+    const mentionLink = await saveFileToDrive(fileBaseName, "mention", drive, form, true);
+    const repostLink = await saveFileToDrive(fileBaseName, "repost", drive, form);
+    const twibbonLink = await saveFileToDrive(fileBaseName, "twibbon", drive, form);
+    const buktiLink = await saveFileToDrive(fileBaseName, "buktiPembayaran", drive, form);
+    await doc.loadInfo();
 
     const target = "Data";
-    const sheet = doc.sheetsByTitle[target];
+    let sheet = doc.sheetsByTitle[target];
+
+    // Auto-create the sheet and headers if it doesn't exist
     if (!sheet) {
-      throw new Error(`Sheet with title "${target}" not found`);
+      // First check if 'Sheet1' exists and just needs renaming
+      const defaultSheet = doc.sheetsByIndex[0];
+      if (defaultSheet && defaultSheet.title === "Sheet1") {
+        await defaultSheet.updateProperties({ title: target });
+
+        // Ensure the sheet has enough columns (we need 29)
+        if (defaultSheet.columnCount < 29) {
+          await defaultSheet.resize({ rowCount: defaultSheet.rowCount, columnCount: 30 });
+        }
+
+        await defaultSheet.setHeaderRow([
+          "timestamp",
+          "Status",
+          "Payment",
+          "Team Name",
+          "Leader's Name",
+          "Leader's University",
+          "Leader's Major",
+          "Leader's Batch",
+          "Leader's Email",
+          "Leader's Phone",
+          "1st Member's Name",
+          "1st Member's University",
+          "1st Member's Major",
+          "1st Member's Batch",
+          "1st Member's Email",
+          "1st Member's Phone",
+          "2nd Member's Name",
+          "2nd Member's University",
+          "2nd Member's Major",
+          "2nd Member's Batch",
+          "2nd Member's Email",
+          "2nd Member's Phone",
+          "ID Card",
+          "Follow",
+          "Mention",
+          "Repost",
+          "Twibbon",
+          "Bukti Pembayaran",
+          "Rekening",
+        ]);
+        sheet = defaultSheet;
+      } else {
+        // Create an entirely new tab
+        sheet = await doc.addSheet({
+          title: target,
+          headerValues: [
+            "timestamp",
+            "Status",
+            "Payment",
+            "Team Name",
+            "Leader's Name",
+            "Leader's University",
+            "Leader's Major",
+            "Leader's Batch",
+            "Leader's Email",
+            "Leader's Phone",
+            "1st Member's Name",
+            "1st Member's University",
+            "1st Member's Major",
+            "1st Member's Batch",
+            "1st Member's Email",
+            "1st Member's Phone",
+            "2nd Member's Name",
+            "2nd Member's University",
+            "2nd Member's Major",
+            "2nd Member's Batch",
+            "2nd Member's Email",
+            "2nd Member's Phone",
+            "ID Card",
+            "Follow",
+            "Mention",
+            "Repost",
+            "Twibbon",
+            "Bukti Pembayaran",
+            "Rekening",
+          ],
+        });
+      }
+    } else {
+      // make sure headers are set even if sheet exists
+
+      // Ensure the existing sheet has enough columns (we need 29)
+      if (sheet.columnCount < 29) {
+        await sheet.resize({ rowCount: sheet.rowCount, columnCount: 30 });
+      }
+
+      await sheet.loadHeaderRow().catch(async () => {
+        await sheet.setHeaderRow([
+          "timestamp",
+          "Status",
+          "Payment",
+          "Team Name",
+          "Leader's Name",
+          "Leader's University",
+          "Leader's Major",
+          "Leader's Batch",
+          "Leader's Email",
+          "Leader's Phone",
+          "1st Member's Name",
+          "1st Member's University",
+          "1st Member's Major",
+          "1st Member's Batch",
+          "1st Member's Email",
+          "1st Member's Phone",
+          "2nd Member's Name",
+          "2nd Member's University",
+          "2nd Member's Major",
+          "2nd Member's Batch",
+          "2nd Member's Email",
+          "2nd Member's Phone",
+          "ID Card",
+          "Follow",
+          "Mention",
+          "Repost",
+          "Twibbon",
+          "Bukti Pembayaran",
+          "Rekening",
+        ]);
+      });
     }
+
     await uploadData(
       sheet,
       payment,
@@ -120,8 +249,9 @@ export async function POST(request) {
 
     await sendEmail({
       teamLeader,
-    }).catch(() => {
-      throw new Error("Failed to send email");
+    }).catch((e) => {
+      console.error("Failed to send email:", e);
+      // Don't throw - the registration was actually successful, just the notification failed
     });
 
     // Return payment

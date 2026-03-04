@@ -50,12 +50,12 @@ export function TimelineVCC() {
       >
         <div className="absolute inset-0 w-full bg-gradient-to-r from-[#58B9D1]/10 via-[#73B743] to-[#58B9D1]/10" />
         <h2
-          className="font-avenir-black relative z-10 text-center text-2xl italic sm:text-3xl md:text-4xl lg:text-5xl"
+          className="font-avenir-black relative z-10 text-center text-xl italic sm:text-3xl md:text-4xl lg:text-5xl"
           style={{
             background: "linear-gradient(90deg, #8ADF60, #58B9D1)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
-            WebkitTextStroke: "2.5px black",
+            WebkitTextStroke: "1.5px black",
             filter: "drop-shadow(3px 4px 5px rgba(0,0,0,0.8))",
           }}
         >
@@ -64,7 +64,7 @@ export function TimelineVCC() {
       </div>
 
       {/* Timeline cards */}
-      <div className="relative z-20 mx-auto lg:px-6">
+      <div className="relative z-20 mx-auto px-4 lg:px-6">
         <div className="flex flex-col items-center justify-center gap-6 lg:flex-row lg:items-center lg:gap-8">
           {timelineSteps.map((step, i) => (
             <div key={i} className="flex flex-col items-center gap-6 lg:flex-row lg:gap-8">
@@ -73,7 +73,7 @@ export function TimelineVCC() {
                 data-aos-duration="600"
                 data-aos-delay={i * 150}
                 data-aos-once="true"
-                className="relative flex aspect-[4/3] w-[290px] flex-col items-center justify-center overflow-hidden rounded-[20px] bg-white text-center shadow-xl transition-transform hover:-translate-y-1 md:w-[320px]"
+                className="relative flex aspect-[4/3] w-full max-w-[290px] flex-col items-center justify-center overflow-hidden rounded-[20px] bg-white text-center shadow-xl transition-transform hover:-translate-y-1 md:max-w-[320px]"
               >
                 <div className="relative z-10 flex h-full w-full flex-col items-center justify-center bg-white p-6">
                   <h3 className="font-avenir-black text-[20px] leading-tight text-[#2B2B2B] uppercase">

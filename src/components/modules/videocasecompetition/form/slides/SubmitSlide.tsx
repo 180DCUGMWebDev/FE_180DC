@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import Button180 from "@/components/elements/Button180";
+import { MessageCircle } from "lucide-react";
 
 const SubmitSlide = () => {
   return (
@@ -27,23 +29,14 @@ const SubmitSlide = () => {
         </p>
       </div>
 
-      <div className="mt-8">
-        <a
-          href="https://chat.whatsapp.com/Ifz0bQ52rX54u3wG34F0v9" // Placeholder link matching old Case Comp implementation
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <button className="flex items-center gap-2 rounded-lg bg-green-500 px-8 py-3 font-semibold text-white shadow-lg transition-all hover:bg-green-600 hover:shadow-xl">
-            <Image
-              src="/img/admin/auth/wa-icon.svg"
-              alt="whatsapp"
-              width={24}
-              height={24}
-              className="mr-2"
-            />
-            Join WhatsApp Line
-          </button>
-        </a>
+      <div className="mt-8 flex justify-center">
+        <Button180
+          text="Join WhatsApp Group"
+          color="green"
+          size="md"
+          href="https://chat.whatsapp.com/Ifz0bQ52rX54u3wG34F0v9"
+          icon={<MessageCircle className="h-5 w-5" />}
+        />
       </div>
     </div>
   );

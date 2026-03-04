@@ -4,18 +4,21 @@ import { JWT } from "google-auth-library";
 import { Readable } from "stream";
 import { committeHTML, participantHTML } from "./confirmationEmail";
 
+const DRIVE_FOLDER = "1yrObkfYR4tjjrhLs8V_VGQZujgUL6Gaf";
+
 export const driveFolderId = {
-  follow: "1miiYf9kIuXems8nb4NvSxhJwpDycclm1",
-  idCard: "1N8WL6PlYekVJoZkEt1FIMPKGLki1xkC7",
-  mention: "1qIpYsukeS2QUpSP22_SLdV2T4gNRkGf4",
-  repost: "1kfpWnBI5kef6-9lXPgNK9xGHXUqM5WmF",
-  twibbon: "1rsf6jzYrO-bc-CQZSEZZZ231rn4Tp0o5",
-  buktiPembayaran: "1bEYYPH0oBNT3RRTE2nHj4lfKY7M42ezW",
-  spreadsheet: "1e2CSou81IKNyoi4UZ11UVpBWVwMB1gsqN4yiVnPQ2qM",
+  follow: DRIVE_FOLDER,
+  idCard: DRIVE_FOLDER,
+  mention: DRIVE_FOLDER,
+  repost: DRIVE_FOLDER,
+  twibbon: DRIVE_FOLDER,
+  buktiPembayaran: DRIVE_FOLDER,
+  spreadsheet: "1PiiIuG9SVxq2-SIgZ33WIGZ_7iXmupD4WYoOzQbXQQA",
 };
 
-import { getGoogleAuth } from "@/lib/googleAuth";
+import { getGoogleAuth, getGoogleOAuth } from "@/lib/googleAuth";
 export const GetJWTAuth = async () => getGoogleAuth();
+export const GetOAuth = async () => getGoogleOAuth();
 
 export const uploadData = async (sheet, payment, teamLeader, teamMember, link, bukti) => {
   try {
@@ -51,24 +54,24 @@ export const uploadData = async (sheet, payment, teamLeader, teamMember, link, b
       Rekening: bukti.rekening,
     });
   } catch (error) {
-    throw new Error("Failed to upload data");
+    console.error("Sheet upload error:", error);
+    throw new Error(
+      `Failed to upload data: ${error instanceof Error ? error.message : String(error)}`
+    );
   }
 };
 
 export const saveFileToDrive = async (fileName, column, drive, form, opsional = false) => {
-  // if (opsional) return null;
   const file = form.get(column);
 
   if (!file) {
-    throw new Error("File not found");
+    if (opsional) return null;
+    throw new Error(`File not found for field: ${column}`);
   }
 
   const arrayBuffer = await file.arrayBuffer();
   const buffer = Buffer.from(arrayBuffer);
-
-  const stream = new Readable();
-  stream.push(buffer);
-  stream.push(null); // Akhiri stream
+  const stream = Readable.from(buffer);
 
   //   Prepare file metadata
   const extension = file.name.split(".").pop();
@@ -91,14 +94,18 @@ export const saveFileToDrive = async (fileName, column, drive, form, opsional = 
 
   let uploadedFile = null;
   try {
-    // upload file
+    // upload file — supportsAllDrives needed for service account (no personal quota)
     uploadedFile = await drive.files.create({
       resource: fileMetadata,
       media: media,
       fields: "id",
+      supportsAllDrives: true,
     });
   } catch (error) {
-    throw new Error("Failed to upload file");
+    console.error(`Failed to upload file for ${column}:`, error);
+    throw new Error(
+      `Failed to upload file for ${column}: ${error instanceof Error ? error.message : String(error)}`
+    );
   }
 
   //   Share file
@@ -111,13 +118,14 @@ export const saveFileToDrive = async (fileName, column, drive, form, opsional = 
     await drive.permissions.create({
       fileId: uploadedFile.data.id,
       resource: permission,
+      supportsAllDrives: true,
     });
   } catch (error) {
     throw new Error("Failed to share file");
   }
 
   //  Return link file
-  return `https://drive.google.com/file/d/${uploadedFile.data.id}/preview`;
+  return `https://drive.google.com/file/d/${uploadedFile.data.id}/view`;
 };
 
 export const uploadSubscribe = async (data, sheet) => {
@@ -156,11 +164,11 @@ export const sendEmail = async ({ teamLeader }) => {
       port: 465,
       secure: true,
       auth: {
+        type: "OAuth2",
         user: process.env.APP_EMAIL ?? "",
-        pass: process.env.APP_PASSWORD ?? "",
-      },
-      tls: {
-        rejectUnauthorized: false,
+        clientId: process.env.GOOGLE_CLIENT_ID ?? "",
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
+        refreshToken: process.env.APP_MAIL_REFRESH_TOKEN ?? "",
       },
     });
 

@@ -1,27 +1,76 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Button } from "@/components/elements/Form/button";
-import { Input } from "@/components/elements/Form/input";
 import { Label } from "@/components/elements/Form/label";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Upload, CheckCircle } from "lucide-react";
 import Link from "next/link";
 
-const Slide4 = ({ formData, updateFormData, onNext }) => {
-  const [idCardLink, setIdCardLink] = useState(formData.idCardLink || "");
-  const [followLink, setFollowLink] = useState(formData.followLink || "");
-  const [mentionLink, setMentionLink] = useState(formData.mentionLink || "");
-  const [repostLink, setRepostLink] = useState(formData.repostLink || "");
-  const [twibbonLink, setTwibbonLink] = useState(formData.twibbonLink || "");
+const FileInput = ({
+  label,
+  file,
+  onChange,
+  accept = "image/png, image/jpeg, application/pdf",
+}: {
+  label: React.ReactNode;
+  file: File | null;
+  onChange: (f: File | null) => void;
+  accept?: string;
+}) => {
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  const isValid = idCardLink.trim() && followLink.trim() && repostLink.trim() && twibbonLink.trim();
-  // mention is optional based on payload
+  return (
+    <div>
+      <Label className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700">
+        {label}
+      </Label>
+      <div
+        onClick={() => inputRef.current?.click()}
+        className={`flex cursor-pointer items-center gap-3 rounded-lg border-2 border-dashed px-4 py-3 transition-all duration-200 ${
+          file
+            ? "border-green-400 bg-green-50"
+            : "border-gray-300 bg-gray-50 hover:border-green-300 hover:bg-green-50/50"
+        }`}
+      >
+        {file ? (
+          <CheckCircle className="h-5 w-5 shrink-0 text-green-500" />
+        ) : (
+          <Upload className="h-5 w-5 shrink-0 text-gray-400" />
+        )}
+        <span
+          className={`font-lato-regular truncate text-sm ${file ? "text-green-700" : "text-gray-500"}`}
+        >
+          {file ? file.name : "Click to upload file"}
+        </span>
+      </div>
+      <input
+        ref={inputRef}
+        type="file"
+        accept={accept}
+        className="hidden"
+        onChange={(e) => {
+          const selected = e.target.files?.[0] || null;
+          onChange(selected);
+        }}
+      />
+    </div>
+  );
+};
+
+const Slide4 = ({ formData, updateFormData, onNext }) => {
+  const [idCardFile, setIdCardFile] = useState<File | null>(formData.idCardFile || null);
+  const [followFile, setFollowFile] = useState<File | null>(formData.followFile || null);
+  const [mentionFile, setMentionFile] = useState<File | null>(formData.mentionFile || null);
+  const [repostFile, setRepostFile] = useState<File | null>(formData.repostFile || null);
+  const [twibbonFile, setTwibbonFile] = useState<File | null>(formData.twibbonFile || null);
+
+  const isValid = idCardFile && followFile && repostFile && twibbonFile;
 
   const handleNext = () => {
     updateFormData({
-      idCardLink,
-      followLink,
-      mentionLink,
-      repostLink,
-      twibbonLink,
+      idCardFile,
+      followFile,
+      mentionFile,
+      repostFile,
+      twibbonFile,
     });
     onNext();
   };
@@ -33,7 +82,7 @@ const Slide4 = ({ formData, updateFormData, onNext }) => {
           Attachments
         </h2>
         <p className="font-lato-regular text-gray-600">
-          Upload your verification documents to Google Drive and provide the links here
+          Upload your verification documents (image or PDF)
         </p>
       </div>
 
@@ -46,89 +95,70 @@ const Slide4 = ({ formData, updateFormData, onNext }) => {
         </h3>
 
         <div className="flex flex-col gap-6">
-          <div>
-            <Label className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700">
-              Student ID Card *
-            </Label>
-            <Input
-              value={idCardLink}
-              onChange={(e) => setIdCardLink(e.target.value)}
-              placeholder="Google Drive link of the compiled file consisting of all team members’ documents"
-              className="font-lato-regular border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-green-300/50"
-            />
-          </div>
+          <FileInput
+            label="Student ID Card (all team members compiled) *"
+            file={idCardFile}
+            onChange={setIdCardFile}
+          />
 
-          <div>
-            <Label className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700">
-              Follow{" "}
-              <Link
-                href="https://www.instagram.com/180dcugm/"
-                target="_blank"
-                className="font-bold text-green-500 hover:text-green-600 hover:underline"
-              >
-                @180dcugm
-              </Link>{" "}
-              and{" "}
-              <Link
-                href="https://www.instagram.com/180dc.casecomp/"
-                target="_blank"
-                className="font-bold text-green-500 hover:text-green-600 hover:underline"
-              >
-                @180dc.casecomp
-              </Link>{" "}
-              *
-            </Label>
-            <Input
-              value={followLink}
-              onChange={(e) => setFollowLink(e.target.value)}
-              placeholder="Google Drive link of the compiled file consisting of all team members’ documents"
-              className="font-lato-regular border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-green-300/50"
-            />
-          </div>
+          <FileInput
+            label={
+              <>
+                Screenshot Follow{" "}
+                <Link
+                  href="https://www.instagram.com/180dcugm/"
+                  target="_blank"
+                  className="font-bold text-green-500 hover:text-green-600 hover:underline"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  @180dcugm
+                </Link>{" "}
+                and{" "}
+                <Link
+                  href="https://www.instagram.com/180dc.casecomp/"
+                  target="_blank"
+                  className="font-bold text-green-500 hover:text-green-600 hover:underline"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  @180dc.casecomp
+                </Link>{" "}
+                *
+              </>
+            }
+            file={followFile}
+            onChange={setFollowFile}
+          />
 
-          <div>
-            <Label className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700">
-              Repost our Story (Required) *
-            </Label>
-            <Input
-              value={repostLink}
-              onChange={(e) => setRepostLink(e.target.value)}
-              placeholder="Google Drive link of the compiled file consisting of all team members’ documents"
-              className="font-lato-regular border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-green-300/50"
-            />
-          </div>
+          <FileInput
+            label="Screenshot Repost our Story *"
+            file={repostFile}
+            onChange={setRepostFile}
+          />
 
-          <div>
-            <Label className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700">
-              Post our{" "}
-              <Link
-                href="#" // Todo: correct twibbon link
-                target="_blank"
-                className="font-bold text-green-500 hover:text-green-600 hover:underline"
-              >
-                Twibbon
-              </Link>{" "}
-              *
-            </Label>
-            <Input
-              value={twibbonLink}
-              onChange={(e) => setTwibbonLink(e.target.value)}
-              placeholder="Google Drive link of the compiled file consisting of all team members’ documents"
-              className="font-lato-regular border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-green-300/50"
-            />
-          </div>
+          <FileInput
+            label={
+              <>
+                Screenshot Post our{" "}
+                <Link
+                  href="#"
+                  target="_blank"
+                  className="font-bold text-green-500 hover:text-green-600 hover:underline"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Twibbon
+                </Link>{" "}
+                *
+              </>
+            }
+            file={twibbonFile}
+            onChange={setTwibbonFile}
+          />
 
-          <div>
-            <Label className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700">
-              Mention (Optional? Required in API? Currently mapped as Twibbon related)
-            </Label>
-            <Input
-              value={mentionLink}
-              onChange={(e) => setMentionLink(e.target.value)}
-              placeholder="Google Drive link: Mention on your Twibbon’s Caption"
-              className="font-lato-regular border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-green-300/50"
-            />
-          </div>
+          <FileInput
+            label="Screenshot Mention on Twibbon Caption (Optional)"
+            file={mentionFile}
+            onChange={setMentionFile}
+          />
         </div>
       </div>
 
