@@ -36,7 +36,7 @@ export const sendBroadcastEmail = async ({ teams, subject, content }) => {
       `;
       
       return transporter.sendMail({
-        from: \`"180DC UGM Video Case Competition" <\${process.env.APP_EMAIL}>\`,
+        from: `"180DC UGM Video Case Competition" <${process.env.APP_EMAIL}>`,
         to: team.leader_email,
         subject: subject,
         html: htmlBody,
@@ -49,3 +49,5 @@ export const sendBroadcastEmail = async ({ teams, subject, content }) => {
     throw new Error("Failed to send broadcast emails");
   }
 };
+
+
