@@ -77,25 +77,6 @@ export const participantHTML = (teamLeader) => `<!DOCTYPE html>
         Our team will carefully review your submission and you will receive another email
         once your registration has been accepted or if any changes are needed.
       </p>
-      <p>
-        In the meantime, please join our WhatsApp group for the latest updates and announcements:
-      </p>
-      <div style="text-align: center; margin: 24px 0">
-        <a
-          href="https://chat.whatsapp.com/Ifz0bQ52rX54u3wG34F0v9"
-          style="
-            display: inline-block;
-            background-color: #25d366;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-          "
-        >
-          Join WhatsApp Group
-        </a>
-      </div>
       <p>If you have any questions, feel free to reach out to us.</p>
       <hr style="margin: 32px 0" />
       <p style="font-size: 12px; color: #777">

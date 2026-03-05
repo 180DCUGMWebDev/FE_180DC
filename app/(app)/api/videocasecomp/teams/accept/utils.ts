@@ -23,7 +23,7 @@ export const sendAcceptedEmail = async ({ teamLeader }) => {
       transporter.sendMail({
         from: `"180DC UGM" <${process.env.APP_EMAIL}>`,
         to: teamLeader.email,
-        subject: "Video Case Competition - Registration Accepted!",
+        subject: "Registration Confirmed - 180DC Video Case Competition",
         html: acceptedParticipantHTML(teamLeader),
       }),
       transporter.sendMail({
