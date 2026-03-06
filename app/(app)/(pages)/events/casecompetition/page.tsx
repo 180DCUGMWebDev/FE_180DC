@@ -1,5 +1,5 @@
 import { FormCaseComp } from "@/components/modules/casecomp/FormCaseCompetition";
-import ComingSoon from "@/components/modules/casecomp/ComingSoon";
+import ComingSoon from "@/components/modules/comingsoon/ComingSoon";
 import { HeroCaseComps } from "@/components/modules/casecomp/HeroCaseComp";
 import { TimelineCaseComp } from "@/components/modules/casecomp/TimelineCaseComp";
 
@@ -10,8 +10,9 @@ export const metadata = {
 export default function CaseComp() {
   return (
     <main className="bg-[#E8E8E8]">
-      <HeroCaseComps />
-      <TimelineCaseComp />
+      <ComingSoon />
+      {/* <HeroCaseComps />
+      <TimelineCaseComp /> */}
     </main>
   );
 }

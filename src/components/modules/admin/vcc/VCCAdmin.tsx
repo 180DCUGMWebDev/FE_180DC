@@ -21,6 +21,7 @@ import { createClient } from "@/integrations/supabase/client";
 import { useRouter } from "next/navigation";
 import { RejectModal } from "./RejectModal";
 import { BroadcastModal } from "./BroadcastModal";
+import { ConfirmModal } from "./ConfirmModal";
 
 interface VCCSubmission {
   id: string;
@@ -69,6 +70,7 @@ export function VCCAdmin({
   const [selectedStatus, setSelectedStatus] = useState("all");
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const [processingId, setProcessingId] = useState<string | null>(null);
+  const [acceptModalOpen, setAcceptModalOpen] = useState(false);
   const [rejectModalOpen, setRejectModalOpen] = useState(false);
   const [broadcastModalOpen, setBroadcastModalOpen] = useState(false);
   const [isBroadcasting, setIsBroadcasting] = useState(false);
@@ -101,8 +103,14 @@ export function VCCAdmin({
   const acceptedCount = submissions.filter((s) => s.status === "accepted").length;
   const rejectedCount = submissions.filter((s) => s.status === "rejected").length;
 
+  function confirmAccept(submission: VCCSubmission) {
+    setSelectedSubmission(submission);
+    setAcceptModalOpen(true);
+  }
+
   async function handleAccept(submission: VCCSubmission) {
     setProcessingId(submission.id);
+    setAcceptModalOpen(false);
     try {
       const response = await fetch("/api/videocasecomp/teams/accept", {
         method: "POST",
@@ -527,7 +535,7 @@ export function VCCAdmin({
                       <div className="flex gap-2">
                         <Button
                           size="sm"
-                          onClick={() => handleAccept(s)}
+                          onClick={() => confirmAccept(s)}
                           disabled={processingId === s.id}
                           className="bg-green-500 text-white hover:bg-green-600"
                         >
@@ -652,6 +660,21 @@ export function VCCAdmin({
           )}
         </div>
       </div>
+
+      {/* Accept Confirm Modal */}
+      <ConfirmModal
+        isOpen={acceptModalOpen}
+        onClose={() => {
+          setAcceptModalOpen(false);
+          if (!rejectModalOpen) setSelectedSubmission(null);
+        }}
+        onConfirm={() => {
+          if (selectedSubmission) handleAccept(selectedSubmission);
+        }}
+        title="Accept Team Registration"
+        message="Are you sure you want to accept this team? This action cannot be inverted."
+        isLoading={processingId !== null}
+      />
 
       {/* Reject Modal */}
       <RejectModal

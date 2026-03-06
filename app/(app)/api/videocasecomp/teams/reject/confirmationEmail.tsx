@@ -19,6 +19,9 @@ export const rejectedParticipantHTML = (teamLeader, reason: string) => `<!DOCTYP
         <p style="margin: 8px 0 0 0; color: #333;">${reason}</p>
       </div>
       <p>
+        If you would like to re-register, please make sure to register with <strong>another email address</strong>.
+      </p>
+      <p>
         If you believe this was a mistake or would like further clarification, please don't
         hesitate to reach out to us.
       </p>

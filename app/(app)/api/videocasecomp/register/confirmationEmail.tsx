@@ -74,7 +74,7 @@ export const participantHTML = (teamLeader) => `<!DOCTYPE html>
       </p>
       <p>
         We have received your registration and it is currently <strong>under review</strong>.
-        Our team will carefully review your submission and you will receive another email
+        Our team will carefully review your submission and you will receive another email within 1x24 hours
         once your registration has been accepted or if any changes are needed.
       </p>
       <p>If you have any questions, feel free to reach out to us.</p>

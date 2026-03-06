@@ -323,7 +323,7 @@ export default function Form() {
           <p className="font-avenir-heavy my-3 text-sm text-white">
             If there is any problem, kindly chat:
           </p>
-          <div className="flex flex-row gap-2">
+          <div className="flex flex-col gap-2 md:flex-row">
             <Button180
               color="green"
               text="Joylin (+62 817-0005-889)"

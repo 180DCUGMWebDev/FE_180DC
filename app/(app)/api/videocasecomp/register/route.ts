@@ -58,7 +58,7 @@ export async function POST(request) {
     // Upload files sequentially to avoid Google Drive API rate limits
     const idCardLink = await saveFileToDrive(fileBaseName, "idCard", drive, form);
     const followLink = await saveFileToDrive(fileBaseName, "follow", drive, form);
-    const mentionLink = await saveFileToDrive(fileBaseName, "mention", drive, form, true);
+    const mentionLink = await saveFileToDrive(fileBaseName, "mention", drive, form);
     const repostLink = await saveFileToDrive(fileBaseName, "repost", drive, form);
     const twibbonLink = await saveFileToDrive(fileBaseName, "twibbon", drive, form);
     const buktiLink = await saveFileToDrive(fileBaseName, "buktiPembayaran", drive, form);

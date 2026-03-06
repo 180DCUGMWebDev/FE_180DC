@@ -182,8 +182,8 @@ export default function AdminPage() {
           <div className="mt-4 text-center">
             <p className="font-lato-regular text-sm text-gray-600">
               Need help? Contact{" "}
-              <a href="mailto:admin@180dcugm.id" className="text-green-300 hover:underline">
-                admin@180dcugm.id
+              <a href="mailto:it180dc@gmail.com" className="text-green-300 hover:underline">
+                it180dc@gmail.com
               </a>
             </p>
           </div>

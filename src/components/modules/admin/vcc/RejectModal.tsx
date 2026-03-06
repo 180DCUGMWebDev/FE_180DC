@@ -71,6 +71,9 @@ export function RejectModal({ isOpen, onClose, onSubmit, teamName, isLoading }: 
             <p className="font-lato-regular mb-3 text-xs text-gray-500">
               This message will be sent to the team leader via email.
             </p>
+            <p className="font-lato-bold mb-3 text-xs text-red-500">
+              Are you sure you want to reject this team? This action cannot be inverted.
+            </p>
             <textarea
               id="rejection-reason"
               value={reason}

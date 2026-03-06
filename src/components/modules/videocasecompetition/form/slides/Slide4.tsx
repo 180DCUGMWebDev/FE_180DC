@@ -62,7 +62,7 @@ const Slide4 = ({ formData, updateFormData, onNext }) => {
   const [repostFile, setRepostFile] = useState<File | null>(formData.repostFile || null);
   const [twibbonFile, setTwibbonFile] = useState<File | null>(formData.twibbonFile || null);
 
-  const isValid = idCardFile && followFile && repostFile && twibbonFile;
+  const isValid = idCardFile && followFile && repostFile && twibbonFile && mentionFile;
 
   const handleNext = () => {
     updateFormData({
@@ -155,7 +155,7 @@ const Slide4 = ({ formData, updateFormData, onNext }) => {
           />
 
           <FileInput
-            label="Screenshot Mention on Twibbon Caption (Optional)"
+            label="Screenshot Mention on Twibbon Caption *"
             file={mentionFile}
             onChange={setMentionFile}
           />

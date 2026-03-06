@@ -1,7 +1,4 @@
 import React from "react";
-import Image from "next/image";
-import Button180 from "@/components/elements/Button180";
-import { MessageCircle } from "lucide-react";
 
 const SubmitSlide = () => {
   return (
@@ -23,20 +20,7 @@ const SubmitSlide = () => {
         <p className="font-lato-regular text-lg">
           Thank you for registering your team for the 180DC Video Case Competition.
         </p>
-        <p className="font-lato-regular mt-4">
-          Please join the WhatsApp group using the link below for further updates on the
-          competition.
-        </p>
-      </div>
-
-      <div className="mt-8 flex justify-center">
-        <Button180
-          text="Join WhatsApp Group"
-          color="green"
-          size="md"
-          href="https://chat.whatsapp.com/Ifz0bQ52rX54u3wG34F0v9"
-          icon={<MessageCircle className="h-5 w-5" />}
-        />
+        <p className="font-lato-regular mt-4">Please wait 1x24 hours for the verification email.</p>
       </div>
     </div>
   );
