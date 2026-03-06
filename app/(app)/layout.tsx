@@ -2,6 +2,7 @@
 import "../globals.css";
 
 import { Toaster } from "@/components/elements/Toast";
+import { Analytics } from "@vercel/analytics/next";
 
 import {
   mulishLight,
@@ -100,6 +101,7 @@ export default function RootLayout({ children }) {
 
         {/* Toaster at body level for optimal rendering */}
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );
