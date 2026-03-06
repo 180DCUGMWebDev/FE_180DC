@@ -12,6 +12,8 @@ import { google } from "googleapis";
 import { requestCreatePayment } from "../../midtrans/create-payment/utils";
 import { createClient } from "@/integrations/supabase/server";
 
+export const maxDuration = 60;
+
 export async function POST(request) {
   try {
     const form = await request.formData();
@@ -55,13 +57,16 @@ export async function POST(request) {
     const doc = new GoogleSpreadsheet(driveFolderId.spreadsheet, auth);
     const fileBaseName = `${teamLeader.namaLengkap} - ${formattedDate}`;
 
-    // Upload files sequentially to avoid Google Drive API rate limits
-    const idCardLink = await saveFileToDrive(fileBaseName, "idCard", drive, form);
-    const followLink = await saveFileToDrive(fileBaseName, "follow", drive, form);
-    const mentionLink = await saveFileToDrive(fileBaseName, "mention", drive, form);
-    const repostLink = await saveFileToDrive(fileBaseName, "repost", drive, form);
-    const twibbonLink = await saveFileToDrive(fileBaseName, "twibbon", drive, form);
-    const buktiLink = await saveFileToDrive(fileBaseName, "buktiPembayaran", drive, form);
+    // Upload files in parallel to save time and prevent Vercel timeouts
+    const [idCardLink, followLink, mentionLink, repostLink, twibbonLink, buktiLink] =
+      await Promise.all([
+        saveFileToDrive(fileBaseName, "idCard", drive, form),
+        saveFileToDrive(fileBaseName, "follow", drive, form),
+        saveFileToDrive(fileBaseName, "mention", drive, form),
+        saveFileToDrive(fileBaseName, "repost", drive, form),
+        saveFileToDrive(fileBaseName, "twibbon", drive, form),
+        saveFileToDrive(fileBaseName, "buktiPembayaran", drive, form),
+      ]);
     await doc.loadInfo();
 
     const target = "Data";
