@@ -12,12 +12,22 @@ interface ConfirmModalProps {
   isLoading?: boolean;
 }
 
-export function ConfirmModal({ isOpen, onClose, onConfirm, title, message, isLoading }: ConfirmModalProps) {
+export function ConfirmModal({
+  isOpen,
+  onClose,
+  onConfirm,
+  title,
+  message,
+  isLoading,
+}: ConfirmModalProps) {
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={!isLoading ? onClose : undefined} />
+      <div
+        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+        onClick={!isLoading ? onClose : undefined}
+      />
       <div className="relative z-10 mx-4 w-full max-w-md rounded-xl bg-white p-6 shadow-2xl">
         <button
           type="button"
@@ -47,9 +57,7 @@ export function ConfirmModal({ isOpen, onClose, onConfirm, title, message, isLoa
             disabled={isLoading}
             className="bg-yellow-500 text-white hover:bg-yellow-600 disabled:opacity-50"
           >
-            {isLoading ? (
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            ) : null}
+            {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
             Confirm
           </Button>
         </div>
