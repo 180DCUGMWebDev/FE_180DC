@@ -1,6 +1,6 @@
 // Import Components
 import ImageAction from "@/components/elements/ImageAction";
-import ProjectStructureList from "@/components/contents/ProjectStructureList";
+import ProjectStructureList from "@/contents/ProjectStructureList";
 
 // Import Configs
 import { createBackground } from "@/config/Functions";

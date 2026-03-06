@@ -2,8 +2,8 @@
 import Button180 from "@/components/elements/Button180";
 import Image from "next/image";
 import Container from "@/components/layout/Container";
-import { useMobile } from "@/utils/hooks/MobileProvider";
-import { useTablet } from "@/utils/hooks/TabletProvider";
+import { useMobile } from "@/hooks/MobileProvider";
+import { useTablet } from "@/hooks/TabletProvider";
 import { Play } from "lucide-react";
 
 export function Hero() {
@@ -106,7 +106,8 @@ export function Hero() {
                     <span className="font-lato-regular">by</span> 180DC UGM
                   </p>
                   <p className="font-lato-regular text-white lg:text-[24px]">
-                    Every great consultant starts with one bold move, are you ready to make your own WINNING MOVES?
+                    Every great consultant starts with one bold move, are you ready to make your own
+                    WINNING MOVES?
                   </p>
                   <div className="relative mt-[4.5%] hidden flex-row gap-x-2 lg:flex">
                     <Button180
@@ -114,7 +115,7 @@ export function Hero() {
                       className="font-avenir-heavy w-[43%] rounded-[24.23px] py-[17px] md:text-[14px] lg:text-[clamp(16px,1.5vw,24.23px)]"
                       text="Enroll Me"
                       icon={<Play />}
-                      href="/bootcamp/registration"
+                      href="/events/bootcamp/registration"
                     />
                     <Button180
                       color="white"

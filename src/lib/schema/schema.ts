@@ -64,3 +64,22 @@ export const TeamMemberSchema = z.object({
   email: EmailSchema,
   nomorHP: NomorHPSchema,
 });
+
+export const VideoTeamLeaderSchema = z.object({
+  namaTim: z.string().min(3, { message: "Team name must be at least 3 characters long!" }),
+  teamSize: z.string().min(1, { message: "Team size must be selected!" }),
+  source: z.string().min(1, { message: "Source must be selected!" }),
+  namaLengkap: NamaSchema,
+  asalSekolah: UniversitasSchema, // Storing High School here
+  batch: BatchSchema,
+  email: EmailSchema,
+  nomorHP: NomorHPSchema,
+});
+
+export const VideoTeamMemberSchema = z.object({
+  namaLengkap: NamaSchema,
+  asalSekolah: UniversitasSchema,
+  batch: BatchSchema,
+  email: EmailSchema,
+  nomorHP: NomorHPSchema,
+});

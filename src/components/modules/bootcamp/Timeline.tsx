@@ -4,36 +4,35 @@
 import React from "react";
 import Image from "next/image";
 import TimelineCard from "@/components/elements/Bootcamp/TimelineCard";
-import { timelineBootcampData } from "@/components/data/timelineBootcamp";
-import { useMobile } from "@/utils/hooks/MobileProvider";
+import { timelineBootcampData } from "@/data/timelineBootcamp";
+import { useMobile } from "@/hooks/MobileProvider";
 import Container from "@/components/layout/Container";
-
 
 // Exported Component
 export function Timeline() {
   // State
   const isMobile = useMobile();
 
-  const totalHeight = isMobile 
-    ? (timelineBootcampData.length - 1) * 200 
+  const totalHeight = isMobile
+    ? (timelineBootcampData.length - 1) * 200
     : (timelineBootcampData.length - 1) * 130;
 
   // Page
   return (
-    <div className="relative w-screen min-h-fit z-10 bg-[#C4E2E4]">
-      <Container className="w-screen py-0 lg:py-20 min-h-fit flex items-center justify-start flex-col relative leading-none">
+    <div className="relative z-10 min-h-fit w-screen bg-[#C4E2E4]">
+      <Container className="relative flex min-h-fit w-screen flex-col items-center justify-start py-0 leading-none lg:py-20">
         <div className="w-full">
-          <div className="lg:h-full w-full lg:py-8">
-            <div className="mx-auto flex w-full h-full flex-col justify-start lg:justify-center relative">
-              <div className="relative w-full flex flex-col">
-                <div className="relative flex flex-col w-full lg:h-full lg:pb-0 gap-7 lg:gap-8 xl:gap-12 items-center lg:items-center lg:mt-0">
+          <div className="w-full lg:h-full lg:py-8">
+            <div className="relative mx-auto flex h-full w-full flex-col justify-start lg:justify-center">
+              <div className="relative flex w-full flex-col">
+                <div className="relative flex w-full flex-col items-center gap-7 lg:mt-0 lg:h-full lg:items-center lg:gap-8 lg:pb-0 xl:gap-12">
                   <Image
                     data-aos={isMobile ? "fade-up" : "fade-left"}
                     alt="bootcampTimeline"
                     src="/img/bootcamp/bootcampTimeline.webp"
                     width={2000}
                     height={2000}
-                    className="mx-auto z-10 w-[70%] xl:w-[35%] xl:absolute xl:z-30  xl:top-50 xl:right-0 xl:translate-x-[8%] xl:translate-y-[80%] xl:rotate-15"
+                    className="z-10 mx-auto w-[70%] xl:absolute xl:top-50 xl:right-0 xl:z-30 xl:w-[35%] xl:translate-x-[8%] xl:translate-y-[80%] xl:rotate-15"
                   />
                   <Image
                     data-aos="fade-up"
@@ -41,21 +40,20 @@ export function Timeline() {
                     src="/img/bootcamp/atasBootcampTimeline.webp"
                     width={2000}
                     height={2000}
-                    className="hidden xl:block lg:absolute z-40 w-[40%] -translate-y-[70%]"
+                    className="z-40 hidden w-[40%] -translate-y-[70%] lg:absolute xl:block"
                   />
-                  <div className="flex relative flex-col w-[95%] items-center lg:justify-center p-[12.14px] mt-[5px]">
-                    <div 
+                  <div className="relative mt-[5px] flex w-[95%] flex-col items-center p-[12.14px] lg:justify-center">
+                    <div
                       data-aos="fade-up"
-                      className="hidden lg:block lg:absolute h-full w-full z-10 rounded-[38.73px] bg-gradient-to-b from-[#73B743] to-[#28C0D7]" 
-                    >
-                    </div>
+                      className="z-10 hidden h-full w-full rounded-[38.73px] bg-gradient-to-b from-[#73B743] to-[#28C0D7] lg:absolute lg:block"
+                    ></div>
                     <Image
                       data-aos="fade-up"
                       alt="down tree"
                       src="/img/bootcamp/downTree.webp"
                       width={2000}
                       height={2000}
-                      className="absolute z-20 w-[18%] top-0 right-0 translate-x-[18%] -translate-y-[80%] lg:left-0 lg:-translate-x-[52%] lg:-translate-y-[90%] lg:-rotate-70"
+                      className="absolute top-0 right-0 z-20 w-[18%] translate-x-[18%] -translate-y-[80%] lg:left-0 lg:-translate-x-[52%] lg:-translate-y-[90%] lg:-rotate-70"
                     />
                     <Image
                       data-aos="fade-left"
@@ -63,7 +61,7 @@ export function Timeline() {
                       src="/img/bootcamp/180PlsFix.webp"
                       width={2000}
                       height={2000}
-                      className="hidden lg:block absolute z-30 w-[24%] top-0 right-0 -translate-x-[2%] -translate-y-[40%]"
+                      className="absolute top-0 right-0 z-30 hidden w-[24%] -translate-x-[2%] -translate-y-[40%] lg:block"
                     />
                     <Image
                       data-aos="fade-right"
@@ -71,7 +69,7 @@ export function Timeline() {
                       src="/img/bootcamp/plsfix.webp"
                       width={2000}
                       height={2000}
-                      className="hidden lg:block absolute z-30 w-[24%] bottom-0 left-0 -translate-x-[11%] translate-y-[70%]"
+                      className="absolute bottom-0 left-0 z-30 hidden w-[24%] -translate-x-[11%] translate-y-[70%] lg:block"
                     />
                     <Image
                       data-aos={isMobile ? "fade-right" : "fade-left"}
@@ -79,7 +77,7 @@ export function Timeline() {
                       src="/img/bootcamp/upTree.webp"
                       width={2000}
                       height={2000}
-                      className="absolute z-30 w-[30%] lg:w-[18%] bottom-0 left-0 -translate-x-[10%] translate-y-[90%] lg:left-auto lg:right-0 lg:bottom-0 lg:-translate-x-75 lg:translate-y-80 lg:rotate-5"
+                      className="absolute bottom-0 left-0 z-30 w-[30%] -translate-x-[10%] translate-y-[90%] lg:right-0 lg:bottom-0 lg:left-auto lg:w-[18%] lg:-translate-x-75 lg:translate-y-80 lg:rotate-5"
                     />
                     <Image
                       data-aos="fade-left"
@@ -87,38 +85,38 @@ export function Timeline() {
                       src="/img/bootcamp/180DCCircle.webp"
                       width={2000}
                       height={2000}
-                      className="absolute z-30 w-[65%] lg:w-[28%] bottom-0 right-0 translate-x-[38%] translate-y-[70%] lg:bottom-0 lg:translate-x-7 lg:translate-y-50 lg:-rotate-15"
+                      className="absolute right-0 bottom-0 z-30 w-[65%] translate-x-[38%] translate-y-[70%] lg:bottom-0 lg:w-[28%] lg:translate-x-7 lg:translate-y-50 lg:-rotate-15"
                     />
                     <Image
                       alt="awan"
                       src="/img/bootcamp/awan.webp"
                       width={2000}
                       height={2000}
-                      className="absolute -z-1 w-[100%] lg:w-[50%] bottom-0 right-0 scale-x-[-1] lg:scale-x-[1] translate-x-[60%] translate-y-[50%] lg:-translate-x-[20%] lg:translate-y-[82%]"
+                      className="absolute right-0 bottom-0 -z-1 w-[100%] translate-x-[60%] translate-y-[50%] scale-x-[-1] lg:w-[50%] lg:-translate-x-[20%] lg:translate-y-[82%] lg:scale-x-[1]"
                     />
                     <Image
                       alt="awan"
                       src="/img/bootcamp/awan.webp"
                       width={2000}
                       height={2000}
-                      className="absolute z-0 w-[100%] lg:hidden lg:w-[50%] top-0 left-0 lg:left-1/2 scale-x-[-1] -translate-x-[60%] -translate-y-[80%] lg:-translate-x-1/2 lg:-translate-y-[75%]"
+                      className="absolute top-0 left-0 z-0 w-[100%] -translate-x-[60%] -translate-y-[80%] scale-x-[-1] lg:left-1/2 lg:hidden lg:w-[50%] lg:-translate-x-1/2 lg:-translate-y-[75%]"
                     />
                     <Image
                       alt="awan desktop"
                       src="/img/bootcamp/awan.webp"
                       width={2000}
                       height={2000}
-                      className="absolute z-0 w-[100%] lg:w-[50%] bottom-0 right-0 lg:right-auto lg:left-0 scale-x-[-1] lg:scale-x-[1] translate-x-[60%] lg:-translate-x-[42%] translate-y-[50%] lg:translate-y-[45%]"
+                      className="absolute right-0 bottom-0 z-0 w-[100%] translate-x-[60%] translate-y-[50%] scale-x-[-1] lg:right-auto lg:left-0 lg:w-[50%] lg:-translate-x-[42%] lg:translate-y-[45%] lg:scale-x-[1]"
                     />
                     <Image
                       alt="bintangTengahTengah"
                       src="/img/bootcamp/bintangTengahTengah.webp"
                       width={2000}
                       height={2000}
-                      className="hidden xl:block absolute z-40 w-[12%] top-0 left-0 -translate-x-[25%] -translate-y-[240%]"
+                      className="absolute top-0 left-0 z-40 hidden w-[12%] -translate-x-[25%] -translate-y-[240%] xl:block"
                     />
-                    <div className="w-full h-full bg-[#C4E2E4] lg:bg-[#E8E8E8] lg:px-[3%] lg:py-[3%] lg:z-20 lg:rounded-[35px]">
-                      <div className="flex flex-col relative gap-[37.68px] lg:gap-[79.23px]">
+                    <div className="h-full w-full bg-[#C4E2E4] lg:z-20 lg:rounded-[35px] lg:bg-[#E8E8E8] lg:px-[3%] lg:py-[3%]">
+                      <div className="relative flex flex-col gap-[37.68px] lg:gap-[79.23px]">
                         {timelineBootcampData.map((timeline, index) => (
                           <TimelineCard
                             key={index}
@@ -144,7 +142,7 @@ export function Timeline() {
         src="/img/bootcamp/180PlsFix.webp"
         width={2000}
         height={2000}
-        className="lg:hidden absolute z-30 w-[60%] -rotate-10 bottom-0 left-0  translate-y-[30%]"
+        className="absolute bottom-0 left-0 z-30 w-[60%] translate-y-[30%] -rotate-10 lg:hidden"
       />
       <Image
         alt="bg bootcamp"
