@@ -70,7 +70,7 @@ export const participantHTML = (teamLeader) => `<!DOCTYPE html>
       <p>Hi ${teamLeader.namaLengkap}! 👋</p>
       <p>
         Thank you for registering your team <strong>${teamLeader.namaTim}</strong> for the
-        <strong>180DC UGM Video Case Competition</strong>!
+        <strong>180DC Video Case Competition</strong>!
       </p>
       <p>
         We have received your registration and it is currently <strong>under review</strong>.

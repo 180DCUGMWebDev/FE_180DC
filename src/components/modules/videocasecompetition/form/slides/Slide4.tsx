@@ -48,6 +48,12 @@ const FileInput = ({
         className="hidden"
         onChange={(e) => {
           const selected = e.target.files?.[0] || null;
+          if (selected && selected.size > 2 * 1024 * 1024) {
+            alert("File size exceeds 2MB limit. Please upload a smaller file.");
+            onChange(null);
+            if (inputRef.current) inputRef.current.value = "";
+            return;
+          }
           onChange(selected);
         }}
       />
@@ -130,7 +136,20 @@ const Slide4 = ({ formData, updateFormData, onNext }) => {
           />
 
           <FileInput
-            label="Screenshot Repost our Story *"
+            label={
+              <>
+                Screenshot Repost our{" "}
+                <Link
+                  href="https://180dcugm.com/AttachmentVCC"
+                  target="_blank"
+                  className="font-bold text-green-500 hover:text-green-600 hover:underline"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Poster
+                </Link>{" "}
+                *
+              </>
+            }
             file={repostFile}
             onChange={setRepostFile}
           />
@@ -140,7 +159,7 @@ const Slide4 = ({ formData, updateFormData, onNext }) => {
               <>
                 Screenshot Post our{" "}
                 <Link
-                  href="#"
+                  href="https://180dcugm.com/AttachmentVCC"
                   target="_blank"
                   className="font-bold text-green-500 hover:text-green-600 hover:underline"
                   onClick={(e) => e.stopPropagation()}

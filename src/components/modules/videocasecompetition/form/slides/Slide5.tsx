@@ -101,6 +101,12 @@ const Slide5 = ({ formData, updateFormData, onNext, isSubmitting, onSubmit }) =>
               className="hidden"
               onChange={(e) => {
                 const selected = e.target.files?.[0] || null;
+                if (selected && selected.size > 2 * 1024 * 1024) {
+                  alert("File size exceeds 2MB limit. Please upload a smaller file.");
+                  setBuktiPembayaranFile(null);
+                  if (fileInputRef.current) fileInputRef.current.value = "";
+                  return;
+                }
                 setBuktiPembayaranFile(selected);
               }}
             />

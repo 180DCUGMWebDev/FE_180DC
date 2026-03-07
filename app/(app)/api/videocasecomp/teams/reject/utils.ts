@@ -21,13 +21,13 @@ export const sendRejectedEmail = async ({ teamLeader, reason }) => {
 
     await Promise.all([
       transporter.sendMail({
-        from: `"180DC UGM" <${process.env.APP_EMAIL}>`,
+        from: `"180DC Video Case Competition" <${process.env.APP_EMAIL}>`,
         to: teamLeader.email,
-        subject: "Video Case Competition - Registration Update",
+        subject: "Registration Rejected - 180DC Video Case Competition",
         html: rejectedParticipantHTML(teamLeader, reason),
       }),
       transporter.sendMail({
-        from: `"180DC UGM" <${process.env.APP_EMAIL}>`,
+        from: `"180DC Video Case Competition" <${process.env.APP_EMAIL}>`,
         to: process.env.APAC_EMAIL ?? "",
         subject: "Video Case Competition - Team Rejected",
         html: rejectedCommitteeHTML(teamLeader, reason),
