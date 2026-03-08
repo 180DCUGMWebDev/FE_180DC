@@ -54,7 +54,7 @@ export function GuidebookVCC() {
           className="relative mx-auto w-full max-w-[1000px] rounded-[1.5rem] bg-gradient-to-tr from-[#319ab5] via-[#5db8c9] to-[#8ADF60] p-[3px] shadow-[0_15px_40px_rgba(0,0,0,0.5)] sm:rounded-[2.5rem] sm:p-[6px]"
         >
           <iframe
-            src="/file/ConsultingBootcampGuidebook.pdf"
+            src="/file/Guidebook180DCVCC.pdf"
             className="h-[400px] w-full rounded-[1.3rem] sm:rounded-[2.2rem] md:h-[650px] lg:h-[800px]"
             title="VCC Guidebook"
           />
