@@ -230,7 +230,6 @@ export async function POST(request) {
     );
 
     // Insert into Supabase
-    const supabase = createClient();
     const { error: supabaseError } = await supabase.from("vcc-registrations").insert({
       status: "pending",
       payment: payment,
