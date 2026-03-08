@@ -7,7 +7,17 @@ import { ChevronRight } from "lucide-react";
 const Slide1 = ({ formData, updateFormData, onNext }) => {
   const [namaTim, setNamaTim] = useState(formData.namaTim || "");
   const [teamSize, setTeamSize] = useState(formData.teamSize || "3");
-  const [source, setSource] = useState(formData.source || "");
+  const isPredefined = [
+    "Instagram",
+    "WhatsApp/Line",
+    "Friend/Teacher",
+    "School Announcement",
+  ].includes(formData.source || "");
+  const initialSource = formData.source ? (isPredefined ? formData.source : "Other") : "";
+  const initialOther = formData.source && !isPredefined ? formData.source : "";
+
+  const [source, setSource] = useState(initialSource);
+  const [otherSource, setOtherSource] = useState(initialOther);
   const [leaderNamaLengkap, setLeaderNamaLengkap] = useState(formData.leaderNamaLengkap || "");
   const [leaderAsalSekolah, setLeaderAsalSekolah] = useState(formData.leaderAsalSekolah || "");
   const [leaderBatch, setLeaderBatch] = useState(formData.leaderBatch || "");
@@ -18,7 +28,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
     updateFormData({
       namaTim,
       teamSize,
-      source,
+      source: source === "Other" ? otherSource : source,
       leaderNamaLengkap,
       leaderAsalSekolah,
       leaderBatch,
@@ -31,7 +41,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
   const isValid =
     namaTim.trim() &&
     teamSize.trim() &&
-    source.trim() &&
+    (source === "Other" ? otherSource.trim() : source.trim()) &&
     leaderNamaLengkap.trim() &&
     leaderAsalSekolah.trim() &&
     leaderBatch.trim() &&
@@ -122,6 +132,17 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
                     <span className="font-lato-regular text-gray-700">{sourceOption}</span>
                   </label>
                 )
+              )}
+              {source === "Other" && (
+                <div className="mt-2 ml-7">
+                  <Input
+                    type="text"
+                    value={otherSource}
+                    onChange={(e) => setOtherSource(e.target.value)}
+                    placeholder="Please specify"
+                    className="font-lato-regular w-full border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-green-300/50 md:w-1/2"
+                  />
+                </div>
               )}
             </div>
           </div>

@@ -36,7 +36,7 @@ export const acceptedParticipantHTML = (teamLeader: any) => `<!DOCTYPE html>
         <li>Anindya (+62 812-5734-0001)</li>
       </ul>
 
-      <p style="margin-top: 24px;">We cannot wait to see the creative and impactful ideas you will bring to the table. Have fun with the case and best of luck in preparing your video! 💫</p>
+      <p style="margin-top: 24px;">We can't wait to see the creative and impactful ideas you will bring to the table. Have fun with the case and best of luck in preparing your video! 💫</p>
 
       <br/>
       <p style="margin-bottom: 0;">Warm regards,<br/>

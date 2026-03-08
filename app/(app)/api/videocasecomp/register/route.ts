@@ -49,6 +49,21 @@ export async function POST(request) {
     const teamLeader = JSON.parse(form.get("teamLeader"));
     const teamMember = JSON.parse(form.get("teamMembers"));
 
+    // Check if email already exists
+    const supabase = createClient();
+    const { data: existingUser } = await supabase
+      .from("vcc-registrations")
+      .select("leader_email")
+      .eq("leader_email", teamLeader.email)
+      .limit(1);
+
+    if (existingUser && existingUser.length > 0) {
+      return NextResponse.json(
+        { message: "You've registered with this email, please use another email" },
+        { status: 400 }
+      );
+    }
+
     const formattedDate = new Date()
       .toISOString()
       .replace(/:/g, "-") // Menghindari karakter tidak valid
@@ -215,7 +230,6 @@ export async function POST(request) {
     );
 
     // Insert into Supabase
-    const supabase = createClient();
     const { error: supabaseError } = await supabase.from("vcc-registrations").insert({
       status: "pending",
       payment: payment,

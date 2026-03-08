@@ -10,7 +10,7 @@ export const rejectedParticipantHTML = (teamLeader, reason: string) => `<!DOCTYP
       <h2 style="color: #e74c3c;">Registration Update</h2>
       <p>Hi ${teamLeader.name}! 👋</p>
       <p>
-        Thank you for your interest in the <strong>180DC UGM Video Case Competition</strong>.
+        Thank you for your interest in the <strong>180DC Video Case Competition</strong>.
         After careful review, we regret to inform you that your team
         <strong>${teamLeader.teamName || ""}</strong> registration could not be accepted at this time.
       </p>
