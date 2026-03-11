@@ -17,18 +17,18 @@ export const acceptedParticipantHTML = (teamLeader: any) => `<!DOCTYPE html>
       <p>Next step, please make sure the team leader to join our WhatsApp group to stay updated with announcements and further instructions regarding the competition:</p>
 
       <p style="margin-bottom: 4px;"><strong>📌 WhatsApp Group</strong></p>
-      <p style="margin-top: 0;"><a href="https://bit.ly/WhatsAppGroupVCC" style="color: #6faa26; font-weight: bold; text-decoration: none;">https://bit.ly/WhatsAppGroupVCC</a></p>
+      <p style="margin-top: 0;"><a href="https://180dcugm.com/WhatsAppGroupVCC" style="color: #6faa26; font-weight: bold; text-decoration: none;">180dcugm.com/WhatsAppGroupVCC</a></p>
 
       <p>And here are the documents! Please make sure to review the Guidebook, Casebook, and Submission Form carefully as they contain essential information for your participation:</p>
 
       <p style="margin-bottom: 4px;"><strong>📖 Guidebook</strong><br/>
-      <a href="https://bit.ly/GuidebookVCC" style="color: #6faa26; text-decoration: none;">bit.ly/GuidebookVCC</a></p>
+      <a href="https://180dcugm.com/GuidebookVCC" style="color: #6faa26; text-decoration: none;">180dcugm.com/GuidebookVCC</a></p>
 
       <p style="margin-bottom: 4px;"><strong>📘 Casebook</strong><br/>
-      <a href="https://bit.ly/CasebookVCC" style="color: #6faa26; text-decoration: none;">bit.ly/CasebookVCC</a></p>
+      <a href="https://180dcugm.com/CasebookVCC" style="color: #6faa26; text-decoration: none;">180dcugm.com/CasebookVCC</a></p>
 
       <p style="margin-bottom: 24px;"><strong>🎬 Submission Form</strong><br/>
-      <a href="https://bit.ly/SubmissionVideoCaseComp" style="color: #6faa26; text-decoration: none;">bit.ly/SubmissionVideoCaseComp</a></p>
+      <a href="https://180dcugm.com/SubmissionVCC" style="color: #6faa26; text-decoration: none;">180dcugm.com/SubmissionVCC</a></p>
 
       <p>If you have any questions, feel free to reach out to our Contact Persons:</p>
       <ul style="margin-top: 0; padding-left: 20px;">
