@@ -4,6 +4,7 @@ import { Button } from "@/components/elements/Form/button";
 import { Input } from "@/components/elements/Form/input";
 import { Label } from "@/components/elements/Form/label";
 import { ChevronRight, Upload, CheckCircle, Loader2 } from "lucide-react";
+import { FileLimitModal } from "@/components/elements/FileLimitModal";
 
 const Slide5 = ({ formData, updateFormData, onNext, isSubmitting, onSubmit }) => {
   const [buktiPembayaranFile, setBuktiPembayaranFile] = useState<File | null>(
@@ -11,6 +12,7 @@ const Slide5 = ({ formData, updateFormData, onNext, isSubmitting, onSubmit }) =>
   );
   const [rekening, setRekening] = useState(formData.rekening || "");
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleNext = () => {
     const latestData = { buktiPembayaranFile, rekening };
@@ -23,6 +25,7 @@ const Slide5 = ({ formData, updateFormData, onNext, isSubmitting, onSubmit }) =>
 
   return (
     <div className="animate-fade-in space-y-6">
+      <FileLimitModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <div className="text-center">
         <h2 className="font-avenir-black mt-2 mb-1 text-2xl leading-snug text-green-300 lg:text-3xl">
           Payment
@@ -102,7 +105,7 @@ const Slide5 = ({ formData, updateFormData, onNext, isSubmitting, onSubmit }) =>
               onChange={(e) => {
                 const selected = e.target.files?.[0] || null;
                 if (selected && selected.size > 2 * 1024 * 1024) {
-                  alert("File size exceeds 2MB limit. Please upload a smaller file.");
+                  setIsModalOpen(true);
                   setBuktiPembayaranFile(null);
                   if (fileInputRef.current) fileInputRef.current.value = "";
                   return;
