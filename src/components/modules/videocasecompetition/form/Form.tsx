@@ -229,10 +229,10 @@ export default function Form() {
       setIsSubmitted(true);
       setCurrentSlide(6); // Success Slide
       localStorage.removeItem(STORAGE_KEY); // Clear only upon successful execution
-      toastNotify("success", "Registration Successful!");
+      toastNotify("Registration Successful! 🎉", "success");
     } catch (error) {
       console.error("Error submitting form:", error);
-      toastNotify("error", error.message || "Failed to submit form. Please try again.");
+      toastNotify(error.message || "Failed to submit form. Please try again.", "error");
     } finally {
       setIsSubmitting(false);
     }
