@@ -6,9 +6,10 @@ import { AlertCircle, X } from "lucide-react";
 interface FileLimitModalProps {
   isOpen: boolean;
   onClose: () => void;
+  message?: string;
 }
 
-export function FileLimitModal({ isOpen, onClose }: FileLimitModalProps) {
+export function FileLimitModal({ isOpen, onClose, message }: FileLimitModalProps) {
   if (!isOpen) return null;
 
   return (
@@ -33,7 +34,7 @@ export function FileLimitModal({ isOpen, onClose }: FileLimitModalProps) {
           </div>
           <h2 className="font-avenir-black mb-2 text-xl text-gray-900">File Exceeds Limit</h2>
           <p className="font-lato-regular mb-6 text-sm text-gray-500">
-            The file you selected is larger than the 2MB limit. Please optimize your file or upload a smaller one.
+            {message ?? "The file you selected is larger than the 2MB limit. Please optimize your file or upload a smaller one."}
           </p>
 
           <Button

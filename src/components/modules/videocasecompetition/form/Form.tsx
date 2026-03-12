@@ -14,6 +14,7 @@ import Slide5 from "./slides/Slide5";
 import SubmitSlide from "./slides/SubmitSlide";
 import Image from "next/image";
 import Button180 from "@/components/elements/Button180";
+import { FileLimitModal } from "@/components/elements/FileLimitModal";
 
 const STORAGE_KEY = "180DC-VCC-Registration";
 
@@ -51,6 +52,7 @@ export default function Form() {
   const [slideHistory, setSlideHistory] = useState([1]);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isTotalSizeModalOpen, setIsTotalSizeModalOpen] = useState(false);
   const { toastNotify } = useContext(UtilsContext);
 
   const totalSlides = 5;
@@ -144,6 +146,23 @@ export default function Form() {
 
     // Merge any latest data (from Slide5) to avoid stale closure
     const merged = { ...formData, ...latestData };
+
+    // Guard: reject if total upload size exceeds 4MB
+    const allFiles = [
+      merged.idCardFile,
+      merged.followFile,
+      merged.mentionFile,
+      merged.repostFile,
+      merged.twibbonFile,
+      merged.buktiPembayaranFile,
+    ].filter(Boolean) as File[];
+    const totalBytes = allFiles.reduce((sum, f) => sum + f.size, 0);
+    const LIMIT = 4 * 1024 * 1024; // 4 MB
+    if (totalBytes > LIMIT) {
+      setIsTotalSizeModalOpen(true);
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       const submitFormData = new FormData();
@@ -268,6 +287,11 @@ export default function Form() {
 
   return (
     <section className="flex min-h-screen flex-col items-center justify-center bg-linear-to-b from-black to-green-300/90 p-4">
+      <FileLimitModal
+        isOpen={isTotalSizeModalOpen}
+        onClose={() => setIsTotalSizeModalOpen(false)}
+        message="Your combined uploads exceed the 4MB limit. Please compress your images or use smaller files before submitting."
+      />
       <div className="w-full max-w-4xl py-20">
         <div className="rounded-lg border-0 bg-white/90 p-6 shadow-2xl backdrop-blur-xs">
           <div className="pb-4">

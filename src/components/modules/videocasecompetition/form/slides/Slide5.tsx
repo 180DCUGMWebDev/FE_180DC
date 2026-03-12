@@ -15,7 +15,11 @@ const Slide5 = ({ formData, updateFormData, onNext, isSubmitting, onSubmit }) =>
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleNext = () => {
-    const latestData = { buktiPembayaranFile, rekening };
+    const latestData = {
+      // Only include file if it was actually selected this visit
+      ...(buktiPembayaranFile && { buktiPembayaranFile }),
+      rekening,
+    };
     updateFormData(latestData);
     // Pass latest data directly to avoid stale closure
     onSubmit(latestData);

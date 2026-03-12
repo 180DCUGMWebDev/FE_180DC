@@ -5,6 +5,7 @@ import { google } from "googleapis";
 import { createClient } from "@/integrations/supabase/server";
 
 export const maxDuration = 60;
+export const dynamic = "force-dynamic";
 
 const SHEET_HEADERS = [
   "timestamp", "Status", "Payment", "Team Name",
@@ -32,6 +33,16 @@ export async function POST(request) {
 
     const fileBaseName = `${teamLeader.namaLengkap} - ${formattedDate}`;
     const doc = new GoogleSpreadsheet(driveFolderId.spreadsheet, auth);
+
+    // ✅ Validate all required files are present before starting uploads
+    const requiredFields = ["idCard", "follow", "mention", "repost", "twibbon", "buktiPembayaran"] as const;
+    const missingFields = requiredFields.filter((field) => !form.get(field));
+    if (missingFields.length > 0) {
+      return NextResponse.json(
+        { message: `Missing required file(s): ${missingFields.join(", ")}. Please go back and re-upload your files.` },
+        { status: 400 }
+      );
+    }
 
     // ✅ Run file uploads AND spreadsheet loading in parallel
     const [idCardLink, followLink, mentionLink, repostLink, twibbonLink, buktiLink] =
