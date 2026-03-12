@@ -3,6 +3,7 @@ import { Button } from "@/components/elements/Form/button";
 import { Label } from "@/components/elements/Form/label";
 import { ChevronRight, Upload, CheckCircle } from "lucide-react";
 import Link from "next/link";
+import { FileLimitModal } from "@/components/elements/FileLimitModal";
 
 const FileInput = ({
   label,
@@ -16,9 +17,11 @@ const FileInput = ({
   accept?: string;
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div>
+      <FileLimitModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <Label className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700">
         {label}
       </Label>
@@ -49,7 +52,7 @@ const FileInput = ({
         onChange={(e) => {
           const selected = e.target.files?.[0] || null;
           if (selected && selected.size > 2 * 1024 * 1024) {
-            alert("File size exceeds 2MB limit. Please upload a smaller file.");
+            setIsModalOpen(true);
             onChange(null);
             if (inputRef.current) inputRef.current.value = "";
             return;
