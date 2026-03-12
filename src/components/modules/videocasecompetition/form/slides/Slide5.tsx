@@ -118,6 +118,7 @@ const Slide5 = ({ formData, updateFormData, onNext, isSubmitting, onSubmit }) =>
               }}
             />
           </div>
+          <p className="font-lato-regular mt-1 text-xs text-gray-400">Max. 700 KB — image or PDF</p>
 
           <div>
             <Label
