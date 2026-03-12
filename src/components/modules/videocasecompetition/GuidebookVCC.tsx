@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Button180 from "@/components/elements/Button180";
 
 export function GuidebookVCC() {
   return (
@@ -57,6 +58,21 @@ export function GuidebookVCC() {
             src="/file/Guidebook180DCVCC.pdf"
             className="h-[400px] w-full rounded-[1.3rem] sm:rounded-[2.2rem] md:h-[650px] lg:h-[800px]"
             title="VCC Guidebook"
+          />
+        </div>
+
+        <div
+          data-aos="fade-up"
+          data-aos-duration="700"
+          data-aos-delay="250"
+          data-aos-once="true"
+          className="mt-8 sm:mt-12"
+        >
+          <Button180
+            text="Download Guidebook"
+            href="https://180dcugm.com/GuidebookVCC"
+            color="green"
+            size="md"
           />
         </div>
       </div>
