@@ -107,39 +107,49 @@ const Slide4 = ({ formData, updateFormData, onNext }) => {
         </h3>
 
         <div className="flex flex-col gap-6">
-          <FileInput
-            label="Student ID Card (all team members compiled) *"
-            file={idCardFile}
-            onChange={setIdCardFile}
-          />
+          <div>
+            <FileInput
+              label="Student ID Card (all team members compiled) *"
+              file={idCardFile}
+              onChange={setIdCardFile}
+            />
+            <p className="font-lato-regular mt-1 text-xs text-gray-400">
+              Max. 700 KB — image or PDF
+            </p>
+          </div>
 
-          <FileInput
-            label={
-              <>
-                Screenshot Follow{" "}
-                <Link
-                  href="https://www.instagram.com/180dcugm/"
-                  target="_blank"
-                  className="font-bold text-green-500 hover:text-green-600 hover:underline"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  @180dcugm
-                </Link>{" "}
-                and{" "}
-                <Link
-                  href="https://www.instagram.com/180dc.casecomp/"
-                  target="_blank"
-                  className="font-bold text-green-500 hover:text-green-600 hover:underline"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  @180dc.casecomp
-                </Link>{" "}
-                *
-              </>
-            }
-            file={followFile}
-            onChange={setFollowFile}
-          />
+          <div>
+            <FileInput
+              label={
+                <>
+                  Screenshot Follow{" "}
+                  <Link
+                    href="https://www.instagram.com/180dcugm/"
+                    target="_blank"
+                    className="font-bold text-green-500 hover:text-green-600 hover:underline"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    @180dcugm
+                  </Link>{" "}
+                  and{" "}
+                  <Link
+                    href="https://www.instagram.com/180dc.casecomp/"
+                    target="_blank"
+                    className="font-bold text-green-500 hover:text-green-600 hover:underline"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    @180dc.casecomp
+                  </Link>{" "}
+                  *
+                </>
+              }
+              file={followFile}
+              onChange={setFollowFile}
+            />
+            <p className="font-lato-regular mt-1 text-xs text-gray-400">
+              Max. 700 KB — image or PDF
+            </p>
+          </div>
 
           <div>
             <FileInput
@@ -160,6 +170,9 @@ const Slide4 = ({ formData, updateFormData, onNext }) => {
               file={repostFile}
               onChange={setRepostFile}
             />
+            <p className="font-lato-regular mt-1 text-xs text-gray-400">
+              Max. 700 KB — image or PDF
+            </p>
             <Button180
               href="https://180dcugm.com/AttachmentVCC"
               text="View Poster"
@@ -188,6 +201,9 @@ const Slide4 = ({ formData, updateFormData, onNext }) => {
               file={twibbonFile}
               onChange={setTwibbonFile}
             />
+            <p className="font-lato-regular mt-1 text-xs text-gray-400">
+              Max. 700 KB — image or PDF
+            </p>
             <Button180
               href="https://180dcugm.com/AttachmentVCC"
               text="View Twibbon"
@@ -197,11 +213,16 @@ const Slide4 = ({ formData, updateFormData, onNext }) => {
             />
           </div>
 
-          <FileInput
-            label="Screenshot Mention on Twibbon Caption *"
-            file={mentionFile}
-            onChange={setMentionFile}
-          />
+          <div>
+            <FileInput
+              label="Screenshot Mention on Twibbon Caption *"
+              file={mentionFile}
+              onChange={setMentionFile}
+            />
+            <p className="font-lato-regular mt-1 text-xs text-gray-400">
+              Max. 700 KB — image or PDF
+            </p>
+          </div>
         </div>
       </div>
 
