@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { Button } from "@/components/elements/Form/button";
 import { Label } from "@/components/elements/Form/label";
 import { ChevronRight, Upload, CheckCircle } from "lucide-react";
+import Button180 from "@/components/elements/Button180";
 import Link from "next/link";
 import { FileLimitModal } from "@/components/elements/FileLimitModal";
 
@@ -75,11 +76,13 @@ const Slide4 = ({ formData, updateFormData, onNext }) => {
 
   const handleNext = () => {
     updateFormData({
-      idCardFile,
-      followFile,
-      mentionFile,
-      repostFile,
-      twibbonFile,
+      // Only overwrite a file key if the user actually selected a file this visit.
+      // Spreading nulls would wipe out files stored from a previous visit to this slide.
+      ...(idCardFile && { idCardFile }),
+      ...(followFile && { followFile }),
+      ...(mentionFile && { mentionFile }),
+      ...(repostFile && { repostFile }),
+      ...(twibbonFile && { twibbonFile }),
     });
     onNext();
   };
@@ -138,43 +141,61 @@ const Slide4 = ({ formData, updateFormData, onNext }) => {
             onChange={setFollowFile}
           />
 
-          <FileInput
-            label={
-              <>
-                Screenshot Repost our{" "}
-                <Link
-                  href="https://180dcugm.com/AttachmentVCC"
-                  target="_blank"
-                  className="font-bold text-green-500 hover:text-green-600 hover:underline"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  Poster
-                </Link>{" "}
-                *
-              </>
-            }
-            file={repostFile}
-            onChange={setRepostFile}
-          />
+          <div>
+            <FileInput
+              label={
+                <>
+                  Screenshot Repost our{" "}
+                  <Link
+                    href="https://180dcugm.com/AttachmentVCC"
+                    target="_blank"
+                    className="font-bold text-green-500 hover:text-green-600 hover:underline"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Poster
+                  </Link>{" "}
+                  *
+                </>
+              }
+              file={repostFile}
+              onChange={setRepostFile}
+            />
+            <Button180
+              href="https://180dcugm.com/AttachmentVCC"
+              text="View Poster"
+              color="green"
+              size="sm"
+              className="mt-2"
+            />
+          </div>
 
-          <FileInput
-            label={
-              <>
-                Screenshot Post our{" "}
-                <Link
-                  href="https://180dcugm.com/AttachmentVCC"
-                  target="_blank"
-                  className="font-bold text-green-500 hover:text-green-600 hover:underline"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  Twibbon
-                </Link>{" "}
-                *
-              </>
-            }
-            file={twibbonFile}
-            onChange={setTwibbonFile}
-          />
+          <div>
+            <FileInput
+              label={
+                <>
+                  Screenshot Post our{" "}
+                  <Link
+                    href="https://180dcugm.com/AttachmentVCC"
+                    target="_blank"
+                    className="font-bold text-green-500 hover:text-green-600 hover:underline"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Twibbon
+                  </Link>{" "}
+                  *
+                </>
+              }
+              file={twibbonFile}
+              onChange={setTwibbonFile}
+            />
+            <Button180
+              href="https://180dcugm.com/AttachmentVCC"
+              text="View Twibbon"
+              color="green"
+              size="sm"
+              className="mt-2"
+            />
+          </div>
 
           <FileInput
             label="Screenshot Mention on Twibbon Caption *"

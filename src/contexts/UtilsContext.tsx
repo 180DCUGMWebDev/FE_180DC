@@ -8,35 +8,28 @@ export const UtilsContext = createContext<any>({});
 const UtilsProvider = ({ children }) => {
   // toastNotify(message, status) — status: "info" | "success" | "error"
   const toastNotify = (message: string, status = "info") => {
+    const baseStyle = {
+      borderRadius: "12px",
+      fontWeight: "500",
+      color: "#fff",
+      border: "none",
+      boxShadow: "0 4px 20px rgba(0,0,0,0.18)",
+    };
+
     if (status === "success") {
       toast.success(message, {
         duration: 3000,
-        style: {
-          background: "#fff",
-          border: "1px solid rgba(119,186,71,0.4)",
-          borderRadius: "12px",
-          color: "#1a1a1a",
-        },
+        style: { ...baseStyle, background: "#77BA47" },
       });
     } else if (status === "error") {
       toast.error(message, {
         duration: 4000,
-        style: {
-          background: "#fff",
-          border: "1px solid rgba(239,68,68,0.4)",
-          borderRadius: "12px",
-          color: "#1a1a1a",
-        },
+        style: { ...baseStyle, background: "#ef4444" },
       });
     } else {
       toast(message, {
         duration: 3000,
-        style: {
-          background: "#fff",
-          border: "1px solid rgba(119,186,71,0.3)",
-          borderRadius: "12px",
-          color: "#1a1a1a",
-        },
+        style: { ...baseStyle, background: "#77BA47" },
       });
     }
   };
