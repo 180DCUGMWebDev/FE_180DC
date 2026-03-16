@@ -19,12 +19,12 @@ export const Hero: CollectionConfig = {
       },
     },
     {
-      name: "contact",
+      name: "newsLink",
       type: "text",
-      required: true,
-      label: "Contact Person",
+      required: false,
+      label: "News Link",
       admin: {
-        description: "The contact person for the CTA button.",
+        description: "The link the news card will redirect to when clicked/hovered.",
       },
     },
     {

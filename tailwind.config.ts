@@ -86,11 +86,16 @@ const config: Config = {
       },
       animation: {
         "moving-pointer": "downPointer 2s ease-in-out infinite",
+        marquee: "marquee 20s linear infinite",
       },
       keyframes: {
         downPointer: {
           "0%, 10%, 90%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(50%)" },
+        },
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
       aspectRatio: {

@@ -22,7 +22,8 @@ import {
 } from "@/components/elements/Navbar/navigation-menu";
 import Container from "@/components/layout/Container";
 
-export default function Navbar() {
+export default function Navbar({ notification }: { notification?: string }) {
+  const [isNotificationVisible, setIsNotificationVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState(null);
@@ -67,15 +68,15 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 z-50 flex w-full items-center justify-center transition-all duration-300",
-        isScrolled && "md:top-6"
+        "fixed top-0 z-50 flex w-full flex-col items-center justify-center transition-all duration-300",
+        isScrolled && "md:top-6 md:px-8"
       )}
     >
       <div
         className={cn(
           `w-full bg-black transition-all duration-300 ${mobileMenuOpen ? "rounded-b-[20px]" : ""}`,
           isScrolled &&
-            `mx-0 w-full bg-black/60 shadow-[0_4px_30px_rgba(0,0,0,0.5)] backdrop-blur-xl md:mx-8 md:rounded-2xl ${mobileMenuOpen ? "bg-black" : ""}`
+            `mx-0 bg-black/60 shadow-[0_4px_30px_rgba(0,0,0,0.5)] backdrop-blur-xl md:rounded-2xl ${mobileMenuOpen ? "bg-black" : ""}`
         )}
       >
         <div
@@ -335,6 +336,25 @@ export default function Navbar() {
             </Link>
           </div>
         </section>
+        <AnimatePresence>
+          {isNotificationVisible && notification && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className={cn(
+                "z-10 flex w-full flex-row items-center justify-around overflow-hidden bg-[#73B743] py-1 shadow-md",
+                isScrolled && "md:rounded-b-2xl shadow-lg"
+              )}
+            >
+              <p className="font-avenir-heavy text-lg text-black lg:text-xl">{notification}</p>
+              <button onClick={() => setIsNotificationVisible(false)}>
+                <X color="black" />
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );

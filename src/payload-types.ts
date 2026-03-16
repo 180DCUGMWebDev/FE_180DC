@@ -286,9 +286,9 @@ export interface Hero {
    */
   notification: string;
   /**
-   * The contact person for the CTA button.
+   * The link the news card will redirect to when clicked/hovered.
    */
-  contact: string;
+  newsLink?: string | null;
   /**
    * The image that will be displayed in the news section of the homepage.
    */
@@ -485,7 +485,7 @@ export interface TelescopeCommentsSelect<T extends boolean = true> {
  */
 export interface HeroSelect<T extends boolean = true> {
   notification?: T;
-  contact?: T;
+  newsLink?: T;
   newsImage?: T;
   newsTitle?: T;
   newsContent?: T;

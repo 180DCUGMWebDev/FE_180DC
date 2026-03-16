@@ -6,7 +6,8 @@ import { useState } from "react";
 import Container from "@/components/layout/Container";
 import type { Telescope } from "@/payload-types";
 import { industrialReports } from "@/components/modules/industrialreports/data";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, ArrowUpRight } from "lucide-react";
+import Button180 from "@/components/elements/Button180";
 
 type OurClientsProps = {
   cards: Telescope[];
@@ -86,8 +87,8 @@ export function OurClients({ cards }: OurClientsProps) {
 
   const currentTelescope = hasTelescope
     ? telescopeCards[
-    ((telescopeIndex % telescopeCards.length) + telescopeCards.length) % telescopeCards.length
-    ]
+        ((telescopeIndex % telescopeCards.length) + telescopeCards.length) % telescopeCards.length
+      ]
     : null;
 
   const goReportPrev = () => {
@@ -117,7 +118,7 @@ export function OurClients({ cards }: OurClientsProps) {
         alt="ornament"
         width={64}
         height={64}
-        className="pointer-events-none absolute left-[5%] top-[112px] z-10 hidden lg:block"
+        className="pointer-events-none absolute top-[112px] left-[5%] z-10 hidden lg:block"
       />
       <Image
         src="/img/bootcamp/cincin.webp"
@@ -129,21 +130,19 @@ export function OurClients({ cards }: OurClientsProps) {
 
       <Container>
         <div className="relative z-20 mx-auto w-full max-w-[1320px]">
-          <h2 className="font-avenir-black mx-auto max-w-[980px] text-center text-3xl leading-tight text-white sm:text-4xl lg:text-[60px] lg:leading-[1.1]">
-            Newsletter, Press Releases, Articles,
-            <br />
-            and Industry Report
+          <h2 className="font-avenir-black mx-auto max-w-[980px] text-center text-3xl leading-tight text-white sm:text-4xl lg:text-[60px] lg:leading-[1.1]" data-aos="fade-up">
+            Industry Reports and Articles
           </h2>
 
           <div className="mt-10 grid gap-8 lg:mt-12 lg:grid-cols-[0.72fr_1.6fr] lg:items-end lg:gap-10">
-            <div className="relative">
+            <div className="relative flex flex-col items-center" data-aos="fade-right" data-aos-delay="200">
               {currentReport ? (
                 <>
                   <div className="mx-auto flex w-full max-w-[360px] items-center gap-4 sm:max-w-[404px] lg:max-w-[310px]">
                     <div className="relative min-w-0 flex-1">
                       <Link
                         href={currentReport.href}
-                        className="group relative mx-auto block h-[260px] w-full overflow-hidden rounded-[10px] bg-[#868286] sm:h-[340px] lg:h-[480px]"
+                        className="group relative mx-auto block aspect-[310/480] w-full overflow-hidden rounded-[10px] bg-[#868286]"
                       >
                         <Image
                           src={currentReport.image}
@@ -153,7 +152,7 @@ export function OurClients({ cards }: OurClientsProps) {
                           unoptimized
                         />
 
-                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-4 pb-5 pt-16 sm:px-6 sm:pb-6">
+                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-4 pt-16 pb-5 sm:px-6 sm:pb-6">
                           <h3 className="font-avenir-black line-clamp-3 text-[20px] leading-tight text-white sm:text-[26px] lg:text-[42px] lg:leading-[1.05]">
                             {currentReport.title}
                           </h3>
@@ -169,7 +168,7 @@ export function OurClients({ cards }: OurClientsProps) {
                         type="button"
                         aria-label="Next industrial report"
                         onClick={goReportNext}
-                        className="absolute right-3 top-1/2 hidden h-[88px] w-[88px] -translate-y-1/2 items-center justify-center rounded-full bg-[#78BE43] text-black shadow-[0_12px_24px_rgba(0,0,0,0.28)] lg:flex"
+                        className="absolute top-1/2 right-3 hidden h-[88px] w-[88px] -translate-y-1/2 items-center justify-center rounded-full bg-[#78BE43] text-black shadow-[0_12px_24px_rgba(0,0,0,0.28)] lg:flex"
                       >
                         <ChevronRight size={52} strokeWidth={3} />
                       </button>
@@ -185,16 +184,23 @@ export function OurClients({ cards }: OurClientsProps) {
                     </button>
                   </div>
 
-                  <div className="font-avenir-black mx-auto mt-4 w-full max-w-[300px] rounded-[22px] bg-[#78BE43] px-6 py-3 text-center text-lg text-white sm:max-w-[330px] lg:mt-6 lg:max-w-[310px] lg:py-4 lg:text-lg lg:leading-none">
-                    Industrial Reports
-                  </div>
+                  <Button180
+                    text="See all Industrial Reports"
+                    icon={<ArrowUpRight />}
+                    href="/article/industrialreport"
+                    color="green"
+                    size="md"
+                    addClass="w-full lg:max-w-[320px] mt-4 mx-auto justify-center"
+                  />
                 </>
               ) : (
-                <div className="rounded-[10px] bg-black/20 p-6 text-white">No industrial reports yet.</div>
+                <div className="rounded-[10px] bg-black/20 p-6 text-white">
+                  No industrial reports yet.
+                </div>
               )}
             </div>
 
-            <div className="relative">
+            <div className="relative" data-aos="fade-left" data-aos-delay="400">
               {currentTelescope ? (
                 <>
                   <div className="flex w-full items-center gap-4 lg:block">
@@ -211,7 +217,7 @@ export function OurClients({ cards }: OurClientsProps) {
                           unoptimized
                         />
 
-                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-4 pb-5 pt-16 sm:px-6 sm:pb-6">
+                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-4 pt-16 pb-5 sm:px-6 sm:pb-6">
                           <h3 className="font-avenir-black line-clamp-3 text-[20px] leading-tight text-white sm:text-[28px] lg:text-[42px] lg:leading-[1.08]">
                             {currentTelescope.title}
                           </h3>
@@ -227,7 +233,7 @@ export function OurClients({ cards }: OurClientsProps) {
                         type="button"
                         aria-label="Next telescope article"
                         onClick={goTelescopeNext}
-                        className="absolute right-3 top-1/2 hidden h-[88px] w-[88px] -translate-y-1/2 items-center justify-center rounded-full bg-[#78BE43] text-black shadow-[0_12px_24px_rgba(0,0,0,0.28)] lg:flex"
+                        className="absolute top-1/2 right-3 hidden h-[88px] w-[88px] -translate-y-1/2 items-center justify-center rounded-full bg-[#78BE43] text-black shadow-[0_12px_24px_rgba(0,0,0,0.28)] lg:flex"
                       >
                         <ChevronRight size={52} strokeWidth={3} />
                       </button>
@@ -243,12 +249,19 @@ export function OurClients({ cards }: OurClientsProps) {
                     </button>
                   </div>
 
-                  <div className="font-avenir-black mt-4 rounded-[22px] bg-[#78BE43] px-6 py-3 text-center text-lg text-white lg:mt-6 lg:py-4 lg:text-lg lg:leading-none">
-                    Telescope Article
-                  </div>
+                  <Button180
+                    text="See all Telescope Articles"
+                    icon={<ArrowUpRight />}
+                    href="/article/telescope"
+                    color="green"
+                    size="md"
+                    addClass="w-full justify-center mt-4"
+                  />
                 </>
               ) : (
-                <div className="rounded-[10px] bg-black/20 p-6 text-white">No telescope articles yet.</div>
+                <div className="rounded-[10px] bg-black/20 p-6 text-white">
+                  No telescope articles yet.
+                </div>
               )}
             </div>
           </div>
