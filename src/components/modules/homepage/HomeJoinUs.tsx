@@ -1,6 +1,7 @@
 import Button180 from "@/components/elements/Button180";
 import Container from "@/components/layout/Container";
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 
 export function HomeJoinUs() {
   const clients = [
@@ -8,11 +9,13 @@ export function HomeJoinUs() {
       buttonTitle: "I'm a Business Owner",
       imageBG: "/img/homepage/owner.webp",
       icon: "/img/homepage/ownerIcon.webp",
+      link: "/about/services",
     },
     {
       title: "I'm a Student",
       imageBG: "/img/homepage/student.webp",
       icon: "/img/homepage/studentIcon.webp",
+      link: "/events",
     },
   ];
   return (
@@ -65,6 +68,7 @@ export function HomeJoinUs() {
                 key={index}
                 data-aos="fade-up"
                 data-aos-duration="600"
+                data-aos-delay={index * 200 + 200}
                 className="group relative aspect-[4/3] min-h-[200px] overflow-hidden rounded-[20px] shadow-[0_24px_15px_rgba(0,0,0,0.31)]"
               >
                 <Image
@@ -89,6 +93,8 @@ export function HomeJoinUs() {
                     size="sm"
                     color="green"
                     text={client.buttonTitle ?? client.title ?? ""}
+                    icon={<ArrowUpRight />}
+                    href={client.link}
                     addClass="w-full justify-center whitespace-nowrap"
                   />
                 </div>

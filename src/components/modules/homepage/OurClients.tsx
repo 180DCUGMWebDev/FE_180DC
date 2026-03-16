@@ -1,75 +1,272 @@
+"use client";
+
 import Image from "next/image";
-import Button180 from "@/components/elements/Button180";
-import { AiOutlineArrowRight } from "react-icons/ai";
-import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import Link from "next/link";
+import { useState } from "react";
 import Container from "@/components/layout/Container";
+import type { Telescope } from "@/payload-types";
+import { industrialReports } from "@/components/modules/industrialreports/data";
+import { ChevronRight, ArrowUpRight } from "lucide-react";
+import Button180 from "@/components/elements/Button180";
 
-export function OurClients() {
+type OurClientsProps = {
+  cards: Telescope[];
+};
+
+type ReportCard = {
+  id: string;
+  href: string;
+  image: string;
+  title: string;
+  subtitle?: string;
+};
+
+type TelescopeCard = {
+  id: string;
+  href: string;
+  image: string;
+  title: string;
+  subtitle?: string;
+};
+
+const SUPABASE_MEDIA_BASE_URL =
+  "https://gvwdpmgyinzctwyzqqdy.supabase.co/storage/v1/object/public/media/";
+
+const resolveTelescopeImageUrl = (image: Telescope["image"]): string => {
+  if (!image || typeof image === "number") return "";
+
+  if (typeof image.filename === "string" && image.filename.length > 0) {
+    return `${SUPABASE_MEDIA_BASE_URL}${encodeURIComponent(image.filename)}`;
+  }
+
+  if (typeof image.url === "string" && image.url.length > 0) {
+    if (image.url.startsWith("http://") || image.url.startsWith("https://")) {
+      return image.url;
+    }
+
+    const payloadUrl = process.env.NEXT_PUBLIC_PAYLOAD_URL || "";
+    return `${payloadUrl}${image.url.startsWith("/") ? "" : "/"}${image.url}`;
+  }
+
+  return "";
+};
+
+export function OurClients({ cards }: OurClientsProps) {
+  const [reportIndex, setReportIndex] = useState(0);
+  const [telescopeIndex, setTelescopeIndex] = useState(0);
+
+  const reportCards: ReportCard[] = industrialReports.map((report) => ({
+    id: `report-${report.id}`,
+    href: `/article/industrialreport/${report.slug}`,
+    image: report.coverImage,
+    title: report.title,
+    subtitle: report.subtitle,
+  }));
+
+  const telescopeCards: TelescopeCard[] = cards.reduce<TelescopeCard[]>((acc, card) => {
+    const imageUrl = resolveTelescopeImageUrl(card.image);
+    if (!imageUrl) return acc;
+
+    acc.push({
+      id: `telescope-${card.id}`,
+      href: `/article/telescope/${card.slug}`,
+      image: imageUrl,
+      title: card.title,
+      subtitle: card.author ? `by ${card.author}` : undefined,
+    });
+
+    return acc;
+  }, []);
+
+  const hasReports = reportCards.length > 0;
+  const hasTelescope = telescopeCards.length > 0;
+
+  const currentReport = hasReports
+    ? reportCards[((reportIndex % reportCards.length) + reportCards.length) % reportCards.length]
+    : null;
+
+  const currentTelescope = hasTelescope
+    ? telescopeCards[
+        ((telescopeIndex % telescopeCards.length) + telescopeCards.length) % telescopeCards.length
+      ]
+    : null;
+
+  const goReportPrev = () => {
+    if (!hasReports) return;
+    setReportIndex((prev) => (prev - 1 + reportCards.length) % reportCards.length);
+  };
+
+  const goReportNext = () => {
+    if (!hasReports) return;
+    setReportIndex((prev) => (prev + 1) % reportCards.length);
+  };
+
+  const goTelescopePrev = () => {
+    if (!hasTelescope) return;
+    setTelescopeIndex((prev) => (prev - 1 + telescopeCards.length) % telescopeCards.length);
+  };
+
+  const goTelescopeNext = () => {
+    if (!hasTelescope) return;
+    setTelescopeIndex((prev) => (prev + 1) % telescopeCards.length);
+  };
+
   return (
-    <Container>
-      {/* Our Previous Clients */}
-      <div className="relative h-[100px] w-full md:h-[180px]">
-        <Image
-          src="/img/homepage/clients.png"
-          alt="Clients"
-          width={1000}
-          height={1000}
-          className="absolute inset-0 z-10 h-full w-full rounded-r-[14px] object-cover"
-        />
-        <div className="relative z-20 flex h-full items-center justify-between px-[4%] lg:pr-[2%]">
-          <div className="font-avenir-black text-xl text-white sm:text-3xl lg:text-[58px] lg:leading-none 2xl:text-[72px]">
-            Our Previous Clients
-          </div>
-          <Link href="/about/services" className="max-lg:hidden">
-            <Button180 color="black" text="Read More" icon={<AiOutlineArrowRight />} />
-          </Link>
-          <Link href="/about/services" className="lg:hidden">
-            <Button180 color="green" icon={<HiOutlineArrowUpRight />} />
-          </Link>
-        </div>
-      </div>
-      {/* Newsletter & Press Releases */}
-      <div className="flex flex-col gap-[8px] py-[60px] lg:gap-[20px]">
-        <div className="font-avenir-black text-xl sm:text-3xl lg:text-[58px] lg:leading-none 2xl:text-[72px]">
-          Newsletter & Press Releases
-        </div>
-        <div className="flex items-center gap-[16px] max-lg:flex-col lg:h-[300px] lg:gap-[40px]">
-          <Link
-            className="group relative flex h-full w-full flex-1 items-center overflow-hidden rounded-lg max-lg:max-h-[300px]"
-            href="/telescope/personalization-why-brand-knows-you-better-than-your-bestie"
-          >
-            <Image
-              src="/img/homepage/Website_Cover.png"
-              alt="Telescope"
-              width={1000}
-              height={1000}
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
-            />
-            <div className="bg-black-300/30 absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-          </Link>
-          <Link
-            className="group relative flex h-full w-full flex-1 items-center overflow-hidden rounded-lg max-lg:max-h-[300px]"
-            href="/telescope/Fintech-Supporting-The-Economic-of-Indonesia"
-          >
-            <Image
-              src="/img/homepage/Cover_article.png"
-              alt="Newsletter"
-              width={1000}
-              height={1000}
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
-            />
-            <div className="bg-black-300/30 absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-          </Link>
-          <Link href="/telescope" className="max-lg:hidden">
-            <Button180 color="black" text={<HiOutlineArrowUpRight />} />
-          </Link>
+    <section className="relative overflow-hidden bg-[#2f3135] py-14 lg:py-16">
+      <Image
+        src="/img/homepage/homeStar.webp"
+        alt="ornament"
+        width={64}
+        height={64}
+        className="pointer-events-none absolute top-[112px] left-[5%] z-10 hidden lg:block"
+      />
+      <Image
+        src="/img/bootcamp/cincin.webp"
+        alt="ornament"
+        width={150}
+        height={150}
+        className="pointer-events-none absolute -right-2 bottom-0 z-10 hidden lg:block"
+      />
 
-          <Link href="/telescope" className="lg:hidden">
-            <Button180 color="green" text="View more" />
-          </Link>
+      <Container>
+        <div className="relative z-20 mx-auto w-full max-w-[1320px]">
+          <h2 className="font-avenir-black mx-auto max-w-[980px] text-center text-3xl leading-tight text-white sm:text-4xl lg:text-[60px] lg:leading-[1.1]" data-aos="fade-up">
+            Industry Reports and Articles
+          </h2>
+
+          <div className="mt-10 grid gap-8 lg:mt-12 lg:grid-cols-[0.72fr_1.6fr] lg:items-end lg:gap-10">
+            <div className="relative flex flex-col items-center" data-aos="fade-right" data-aos-delay="200">
+              {currentReport ? (
+                <>
+                  <div className="mx-auto flex w-full max-w-[360px] items-center gap-4 sm:max-w-[404px] lg:max-w-[310px]">
+                    <div className="relative min-w-0 flex-1">
+                      <Link
+                        href={currentReport.href}
+                        className="group relative mx-auto block aspect-[310/480] w-full overflow-hidden rounded-[10px] bg-[#868286]"
+                      >
+                        <Image
+                          src={currentReport.image}
+                          alt={currentReport.title}
+                          fill
+                          className="object-cover opacity-70 transition-transform duration-300 group-hover:scale-105"
+                          unoptimized
+                        />
+
+                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-4 pt-16 pb-5 sm:px-6 sm:pb-6">
+                          <h3 className="font-avenir-black line-clamp-3 text-[20px] leading-tight text-white sm:text-[26px] lg:text-[42px] lg:leading-[1.05]">
+                            {currentReport.title}
+                          </h3>
+                          {currentReport.subtitle && (
+                            <p className="font-lato-regular mt-2 text-sm text-white/90 sm:text-base lg:text-[13px] lg:leading-snug">
+                              {currentReport.subtitle}
+                            </p>
+                          )}
+                        </div>
+                      </Link>
+
+                      <button
+                        type="button"
+                        aria-label="Next industrial report"
+                        onClick={goReportNext}
+                        className="absolute top-1/2 right-3 hidden h-[88px] w-[88px] -translate-y-1/2 items-center justify-center rounded-full bg-[#78BE43] text-black shadow-[0_12px_24px_rgba(0,0,0,0.28)] lg:flex"
+                      >
+                        <ChevronRight size={52} strokeWidth={3} />
+                      </button>
+                    </div>
+
+                    <button
+                      type="button"
+                      aria-label="Next industrial report"
+                      onClick={goReportNext}
+                      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#78BE43] text-black shadow-[0_8px_18px_rgba(0,0,0,0.3)] lg:hidden"
+                    >
+                      <ChevronRight size={30} strokeWidth={3} />
+                    </button>
+                  </div>
+
+                  <Button180
+                    text="See all Industrial Reports"
+                    icon={<ArrowUpRight />}
+                    href="/article/industrialreport"
+                    color="green"
+                    size="md"
+                    addClass="w-full lg:max-w-[320px] mt-4 mx-auto justify-center"
+                  />
+                </>
+              ) : (
+                <div className="rounded-[10px] bg-black/20 p-6 text-white">
+                  No industrial reports yet.
+                </div>
+              )}
+            </div>
+
+            <div className="relative" data-aos="fade-left" data-aos-delay="400">
+              {currentTelescope ? (
+                <>
+                  <div className="flex w-full items-center gap-4 lg:block">
+                    <div className="relative min-w-0 flex-1">
+                      <Link
+                        href={currentTelescope.href}
+                        className="group relative block h-[260px] overflow-hidden rounded-[10px] bg-[#868286] sm:h-[340px] lg:h-[480px]"
+                      >
+                        <Image
+                          src={currentTelescope.image}
+                          alt={currentTelescope.title}
+                          fill
+                          className="object-cover opacity-70 transition-transform duration-300 group-hover:scale-105"
+                          unoptimized
+                        />
+
+                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-4 pt-16 pb-5 sm:px-6 sm:pb-6">
+                          <h3 className="font-avenir-black line-clamp-3 text-[20px] leading-tight text-white sm:text-[28px] lg:text-[42px] lg:leading-[1.08]">
+                            {currentTelescope.title}
+                          </h3>
+                          {currentTelescope.subtitle && (
+                            <p className="font-lato-regular mt-2 text-sm text-white/90 sm:text-base lg:text-2xl">
+                              {currentTelescope.subtitle}
+                            </p>
+                          )}
+                        </div>
+                      </Link>
+
+                      <button
+                        type="button"
+                        aria-label="Next telescope article"
+                        onClick={goTelescopeNext}
+                        className="absolute top-1/2 right-3 hidden h-[88px] w-[88px] -translate-y-1/2 items-center justify-center rounded-full bg-[#78BE43] text-black shadow-[0_12px_24px_rgba(0,0,0,0.28)] lg:flex"
+                      >
+                        <ChevronRight size={52} strokeWidth={3} />
+                      </button>
+                    </div>
+
+                    <button
+                      type="button"
+                      aria-label="Next telescope article"
+                      onClick={goTelescopeNext}
+                      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#78BE43] text-black shadow-[0_8px_18px_rgba(0,0,0,0.3)] lg:hidden"
+                    >
+                      <ChevronRight size={30} strokeWidth={3} />
+                    </button>
+                  </div>
+
+                  <Button180
+                    text="See all Telescope Articles"
+                    icon={<ArrowUpRight />}
+                    href="/article/telescope"
+                    color="green"
+                    size="md"
+                    addClass="w-full justify-center mt-4"
+                  />
+                </>
+              ) : (
+                <div className="rounded-[10px] bg-black/20 p-6 text-white">
+                  No telescope articles yet.
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </section>
   );
 }

@@ -1,39 +1,56 @@
-import Image from "next/image";
-import Button180 from "@/components/elements/Button180";
-import Link from "next/link";
-import Container from "@/components/layout/Container";
-import { ArrowUpRight } from "lucide-react";
+"use client";
 
-export function Hero({ contactRef }) {
-  const podcastLink = "https://open.spotify.com/episode/3LRLqk6d9B7XkSA5zekYC8?si=c122ebff6e664062";
+import Image from "next/image";
+import Link from "next/link";
+import Button180 from "@/components/elements/Button180";
+import Container from "@/components/layout/Container";
+import type { Hero as HeroType } from "@/payload-types";
+import { NavbarResolver } from "@/components/elements/Navbar/NavbarResolver";
+import { ArrowUpRight, Phone } from "lucide-react";
+
+export function Hero({ heroData }: { heroData: Partial<HeroType> }) {
+  const newsTitle = heroData?.newsTitle || "180DC UGM Consulting Bootcamp";
+  const newsContent =
+    heroData?.newsContent ||
+    "The 180DC UGM Consulting Bootcamp 2025 is an online program designed to help you learn, apply, and master the essential skills every consultant needs. Whether you're a beginner or an aspiring problem-solver, this is the perfect place to start your journey!";
+
+  const newsLink = heroData?.newsLink || "#";
+  const newsImage =
+    typeof heroData?.newsImage === "object" &&
+    heroData?.newsImage !== null &&
+    "url" in heroData.newsImage &&
+    heroData.newsImage.url
+      ? heroData.newsImage.url
+      : "/img/homepage/caseBook.webp";
+
   return (
     <>
       {/* Hero */}
-      <div className="lg:bg-black-300 relative z-10 flex h-fit w-full items-center px-[5%] max-lg:pt-[15vh] max-lg:pb-[25vh] sm:px-[10%] lg:h-screen lg:min-h-[50vw] lg:px-[4%]">
+      <div className="relative z-10 flex h-fit min-h-screen w-full items-center rounded-b-4xl border-b-6 border-white bg-[#313131] px-[5%] max-lg:pt-[15vh] max-lg:pb-[25vh] sm:px-[10%] lg:h-[50vw] lg:px-[4%]">
         {/* Hero Background */}
         <Image
-          src="/img/homepage/balairung.png"
+          src="/img/homepage/hero-background.webp"
           alt="background"
           width={2000}
           height={2000}
-          className="absolute inset-0 z-10 h-full w-full object-cover max-lg:hidden"
-        />
-        <Image
-          src="/img/homepage/balairung_mobile.png"
-          alt="background"
-          width={2000}
-          height={2000}
-          className="absolute inset-0 z-10 h-full w-full lg:hidden"
+          className="absolute inset-0 z-10 h-full w-full object-cover"
         />
         <Container className="flex flex-col">
+          <NavbarResolver />
           {/* Hero Content */}
-          <div className="relative z-20 flex h-fit w-full text-white max-lg:pb-[20px] lg:h-1/2 lg:justify-between">
+          <div className="relative z-20 flex w-full flex-col gap-8 py-5 text-white lg:min-h-[50vh] lg:flex-row lg:items-center lg:justify-between lg:gap-0 lg:pt-5">
             {/* Kolom Kiri */}
-            <div className="flex w-full justify-center flex-col gap-10 max-lg:items-center lg:w-[54%]">
+            <div className="flex w-full flex-col justify-center gap-10 max-lg:items-center">
               {/* Teks */}
-              <div className="flex flex-col gap-2 max-lg:items-center">
-                <div className="font-avenir-black text-2xl max-lg:text-center max-lg:text-green-300 sm:text-3xl lg:text-5xl xl:text-6xl">
-                  Providing Perfect Solutions For Your Own Business.
+              <div className="flex flex-col gap-2 max-lg:items-center" data-aos="fade-up">
+                <div className="font-avenir-black text-3xl max-lg:text-center max-lg:text-green-300 sm:text-4xl lg:text-5xl lg:leading-[1.1] xl:text-[54px]">
+                  Providing the{" "}
+                  <span className="bg-gradient-to-b from-[#73B743] to-[#58B9D1] bg-clip-text text-transparent">
+                    Perfect <br /> Solutions
+                  </span>{" "}
+                  For Your
+                  <br />
+                  Own Business.
                 </div>
                 <div className="font-lato-regular w-[90%] text-xs max-lg:text-center sm:text-sm lg:w-[72%] lg:text-lg xl:text-xl">
                   UGM branch of the world&apos;s largest student-led consultancy for non-profits &
@@ -41,57 +58,119 @@ export function Hero({ contactRef }) {
                 </div>
               </div>
               {/* Tombol */}
-              <div className="flex flex-col gap-2 max-lg:w-full max-lg:justify-center md:flex-row md:gap-8">
+              <div className="flex flex-col gap-2 max-lg:w-full max-lg:justify-center md:flex-row md:gap-8" data-aos="fade-up" data-aos-delay="200">
                 <Button180
+                  icon={<ArrowUpRight />}
                   href="/apply"
                   size="lg"
                   color="green"
                   text="Consult Now!"
-                  icon={<ArrowUpRight />}
                 />
                 <Button180
-                  color="green"
+                  color="gray"
                   text="Contact Us"
                   size="lg"
-                  action={() => contactRef.current.scrollIntoView({ behavior: "smooth" })}
+                  icon={<Phone />}
+                  href="https://wa.me/6281227136311"
                 />
               </div>
             </div>
+
             {/* Kolom Kanan */}
-            <div className="flex w-[45%] flex-col justify-between max-lg:hidden">
-              {/* Bagian atas */}
-              <div className="flex h-[60%] justify-between">
-                <div className="relative w-[62%] overflow-hidden rounded-tl-[60%] rounded-r-[7%] rounded-bl-[7%]">
-                  <Image
-                    src="/img/homepage/hero1.png"
-                    alt="Gambar Homepage Kanan"
-                    width={2000}
-                    height={2000}
-                    className="h-full w-full object-cover"
-                  />
+            <div className="flex w-full items-center justify-center lg:w-[52%] lg:justify-end" data-aos="fade-left" data-aos-delay="400">
+              <div className="relative h-[480px] w-full sm:h-[430px] lg:w-[860px]">
+                <div className="relative h-full w-full">
+                  {/* Green News Tab */}
+                  <div className="absolute top-0 left-0 z-30 flex items-center rounded-full bg-[#73B743] px-4 py-2.5 shadow-lg sm:px-6 sm:py-3.5 lg:px-10">
+                    <div className="mr-2 flex items-center gap-1.5 sm:mr-3 sm:gap-2">
+                      <span className="h-3 w-3 rounded-full bg-[#4A7D2A] sm:h-4 sm:w-4" />
+                      <span className="h-3 w-3 rounded-full bg-black sm:h-4 sm:w-4" />
+                      <span className="h-3 w-3 rounded-full bg-white sm:h-4 sm:w-4" />
+                    </div>
+                    <p className="font-avenir-heavy text-[11px] leading-none text-white sm:text-[13px] lg:text-sm">
+                      180DC UGM News
+                    </p>
+                  </div>
+
+                  {/* 1. Main Card Body (The large bottom rectangle) */}
+                  <div className="absolute inset-0 top-[40px] z-10 overflow-hidden rounded-b-[30px] border-r border-b border-l border-white/10 bg-[#3A3A3A] shadow-2xl sm:top-[50px] sm:rounded-b-[40px]">
+                    <div className="relative mx-auto grid h-full grid-cols-1 items-center justify-center gap-6 px-6 py-6 sm:grid-cols-2 sm:gap-6 sm:px-14 sm:py-4 lg:py-8">
+                      {/* Left: Content */}
+                      <div className="mt-6 flex flex-1 flex-col text-white max-sm:text-center sm:mt-0">
+                        <div className="font-avenir-black text-[24px] leading-[1.1] text-white sm:text-[32px] lg:text-[38px]">
+                          {newsTitle}
+                        </div>
+                        <p className="font-lato-regular mt-4 line-clamp-4 pr-0 text-[13px] leading-[1.5] text-white/85 sm:mt-6 sm:line-clamp-6 sm:pr-4 sm:text-[15px] sm:leading-[1.6]">
+                          {newsContent}
+                        </p>
+                      </div>
+
+                      {/* Right: Square Image */}
+                      <Link
+                        href={newsLink}
+                        className="group/news relative mx-auto aspect-square w-full max-w-[200px] overflow-hidden rounded-[16px] border border-white/5 shadow-2xl sm:mb-12 sm:max-w-full lg:rounded-[24px]"
+                      >
+                        <Image
+                          src={newsImage}
+                          alt={newsTitle}
+                          fill
+                          className="absolute object-cover transition-transform duration-500 group-hover/news:scale-110"
+                        />
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* 2. Top Bar Extension (The part to the right of the tab) */}
+                  <div className="absolute top-0 right-0 left-[200px] z-10 h-[41px] sm:left-[273px] sm:h-[51px] lg:left-[300px]">
+                    <div className="h-full w-full rounded-tr-[30px] border-t border-r border-white/10 bg-[#3A3A3A] sm:rounded-tr-[40px]" />
+                  </div>
+
+                  {/* 3. The Concave Corner SVG (The transition) */}
+                  <div className="absolute top-[0px] left-[160px] z-20 h-[40px] w-[40px] sm:top-[10px] sm:left-[233px] lg:left-[260px]">
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M40 40V0C40 22.0914 22.0914 40 0 40H40Z" fill="#3A3A3A" />
+                    </svg>
+                  </div>
                 </div>
-                <div className="font-avenir-black bg-black-300 flex w-[34%] flex-col justify-center rounded-[24px] px-[20px] pt-[30px]">
-                  <div className="text-[40px] leading-[25px] xl:text-[60px] xl:leading-[45px] 2xl:text-[70px] 2xl:leading-[50px]">
-                    8<span className="text-green-300">+</span>
-                  </div>
-                  <div className="lg:text-[12px] xl:text-[15px] 2xl:text-[20px]">
-                    Notable <span className="text-green-300">Mentors</span>
-                  </div>
-                  <div className="font-lato-regular overflow-hidden lg:text-[9px] xl:text-[10px] 2xl:text-[12px]">
-                    Delivering high quality consultancy to clients, supported by professional
-                    mentors from notable entities.
-                  </div>
-                </div>
-              </div>
-              {/* Bagian bawah */}
-              <div className="flex h-fit flex-col items-center justify-center">
-                <iframe
-                  title="Spotify Web Player"
-                  src={`https://open.spotify.com/embed${new URL(podcastLink).pathname}`}
-                  className="h-[152px] w-full rounded-[8px]"
-                />
               </div>
             </div>
+          </div>
+
+          {/* Marquee Section */}
+          <div className="relative z-20 flex w-full flex-col items-center gap-6 py-4 lg:pt-14 lg:pb-6" data-aos="fade-up" data-aos-delay="600">
+            <p className="font-avenir-heavy text-lg text-white">Our Previous Clients</p>
+
+            <div className="relative h-[90px] w-full overflow-hidden">
+              <div className="animate-marquee absolute flex items-center gap-14 border-y border-white/5 py-6">
+                {/* Double the items for a seamless loop */}
+                {[...Array(20)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="relative mt-2 h-10 w-40 shrink-0 opacity-65 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                  >
+                    <Image
+                      src="/img/homepage/marquee/deloitte.png"
+                      alt="Deloitte"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            <Link href="/about/services">
+              <button className="group flex cursor-pointer items-center gap-2">
+                <span className="font-lato-regular border-b border-transparent text-sm text-white/50 underline decoration-white/20 underline-offset-4 transition-all group-hover:border-white/30">
+                  More Details &gt;
+                </span>
+              </button>
+            </Link>
           </div>
         </Container>
       </div>

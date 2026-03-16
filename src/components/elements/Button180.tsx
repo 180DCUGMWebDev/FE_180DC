@@ -15,7 +15,7 @@ const Button180Variants = cva(
           "bg-black-300 text-white hover:bg-black-200 shadow-md hover:shadow-lg border-black-200",
         cyan: "bg-cyan-300 text-white hover:bg-cyan-400 shadow-md hover:shadow-lg border-cyan-400",
         lime: "bg-lime-300 text-white hover:bg-lime-400 shadow-md hover:shadow-lg border-lime-400",
-        gray: "bg-gray-300 text-black-300 hover:bg-gray-200 shadow-md hover:shadow-lg border-gray-200",
+        gray: "bg-black-200 text-white hover:bg-black-100 shadow-md hover:shadow-lg border-black-100",
         blue: "bg-blue-300 text-white hover:bg-blue-400 shadow-md hover:shadow-lg border-blue-400",
         white:
           "bg-white text-green-300 hover:bg-white/90 shadow-md hover:shadow-lg border-gray-200",
