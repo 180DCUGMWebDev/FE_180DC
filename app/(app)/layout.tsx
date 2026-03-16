@@ -30,6 +30,8 @@ import { cn } from "@/lib/utils";
 // Import Components
 import Navbar from "@/components/elements/Navbar/Navbar";
 import Footer from "@/components/elements/Footer/Footer";
+import { getPayload } from "payload";
+import config from "@payload-config";
 
 import TooSmall from "@/components/layout/TooSmall";
 import Script from "next/script";
@@ -51,7 +53,17 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const payload = await getPayload({ config });
+  const hero = await payload.find({
+    collection: "hero",
+    limit: 1,
+    sort: "-createdAt",
+    depth: 1,
+  });
+
+  const notification = hero.docs?.[0]?.notification;
+
   return (
     <html lang="en">
       <Script async src="https://www.googletagmanager.com/gtag/js?id=G-3J45MR3ZCW"></Script>
@@ -91,7 +103,7 @@ export default function RootLayout({ children }) {
         <UtilsProvider>
           {/* Content > 250px */}
           <main className="hidden flex-col overflow-clip min-[250px]:flex">
-            <Navbar />
+            <Navbar notification={notification as string | undefined} />
             <AnimationProvider>{children}</AnimationProvider>
             <Footer />
           </main>
