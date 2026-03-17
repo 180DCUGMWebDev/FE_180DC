@@ -13,6 +13,7 @@ import { Media } from "./collections/Media";
 import { Telescope } from "./collections/Telescope";
 import { Links } from "./collections/Links";
 import { TelescopeComments } from "./collections/TelescopeComments";
+import { AIKnowledge } from "./collections/AIKnowledge";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -24,7 +25,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Telescope, Links, TelescopeComments],
+  collections: [Users, Media, Telescope, Links, TelescopeComments, AIKnowledge],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

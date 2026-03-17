@@ -31,6 +31,7 @@ import Navbar from "@/components/elements/Navbar/Navbar";
 import Footer from "@/components/elements/Footer/Footer";
 
 import TooSmall from "@/components/layout/TooSmall";
+import EightyChatbot from "@/components/layout/EightyChatbot";
 import Script from "next/script";
 import LocomotiveProvider from "@/contexts/LocomotiveContext";
 import UtilsProvider from "@/contexts/UtilsContext";
@@ -97,6 +98,9 @@ export default function RootLayout({ children }) {
           {/* Second Option < 250px*/}
           <TooSmall />
         </UtilsProvider>
+
+        {/* Global Chatbot UI */}
+        <EightyChatbot />
 
         {/* Toaster at body level for optimal rendering */}
         <Toaster />
