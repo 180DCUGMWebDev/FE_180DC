@@ -60,7 +60,8 @@ export async function POST(request) {
     const teamLeader = JSON.parse(form.get("teamLeader"));
     const teamMember = JSON.parse(form.get("teamMembers"));
 
-    const fileBaseName = teamLeader.namaLengkap;
+    const formattedDate = new Date().toISOString().replace(/:/g, "-").split(".")[0];
+    const fileBaseName = `${teamLeader.namaLengkap} - ${formattedDate}`;
     const doc = new GoogleSpreadsheet(driveFolderId.spreadsheet, auth);
 
     // ✅ Validate required fields (now links except buktiPembayaran)

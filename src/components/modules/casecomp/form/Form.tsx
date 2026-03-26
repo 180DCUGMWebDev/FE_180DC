@@ -137,6 +137,7 @@ export default function FormCC() {
   };
 
   const handleSubmit = async (latestData?: Partial<RegistrationFormData>) => {
+    if (isSubmitting) return;
     setIsSubmitting(true);
 
     const merged = { ...formData, ...latestData };
