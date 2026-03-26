@@ -33,6 +33,7 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 
 import TooSmall from "@/components/layout/TooSmall";
+import EightyChatbot from "@/components/layout/EightyChatbot";
 import Script from "next/script";
 import LocomotiveProvider from "@/contexts/LocomotiveContext";
 import UtilsProvider from "@/contexts/UtilsContext";
@@ -109,6 +110,9 @@ export default async function RootLayout({ children }) {
           {/* Second Option < 250px*/}
           <TooSmall />
         </UtilsProvider>
+
+        {/* Global Chatbot UI */}
+        <EightyChatbot />
 
         {/* Toaster at body level for optimal rendering */}
         <Toaster />

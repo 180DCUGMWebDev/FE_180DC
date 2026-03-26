@@ -75,7 +75,7 @@ export default function ThanksSlide({ transactionId }: { transactionId?: string 
 
       const opt = {
         margin: 10,
-        filename: `receipt.pdf`,
+        filename: `receipt-${orderData?.transaction_id || 'new'}.pdf`,
         image: { type: "jpeg" as any, quality: 0.98 },
         html2canvas: {
           scale: 2,
