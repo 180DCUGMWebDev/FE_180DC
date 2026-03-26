@@ -72,8 +72,8 @@ export interface Config {
     telescope: Telescope;
     links: Link;
     telescope_comments: TelescopeComment;
-    ai_knowledge: AiKnowledge;
     hero: Hero;
+    ai_knowledge: AiKnowledge;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -86,8 +86,8 @@ export interface Config {
     telescope: TelescopeSelect<false> | TelescopeSelect<true>;
     links: LinksSelect<false> | LinksSelect<true>;
     telescope_comments: TelescopeCommentsSelect<false> | TelescopeCommentsSelect<true>;
-    ai_knowledge: AiKnowledgeSelect<false> | AiKnowledgeSelect<true>;
     hero: HeroSelect<false> | HeroSelect<true>;
+    ai_knowledge: AiKnowledgeSelect<false> | AiKnowledgeSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -278,29 +278,6 @@ export interface TelescopeComment {
   createdAt: string;
 }
 /**
- * Manage AI Knowledge
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ai_knowledge".
- */
-export interface AiKnowledge {
-  id: number;
-  /**
-   * Contoh: IT 180 DC UGM
-   */
-  title: string;
-  /**
-   * English knowledge (Bisa dibantu dengan gemini untuk membuatnya)
-   */
-  knowledge: string;
-  /**
-   * Name of the uploader
-   */
-  uploader: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "hero".
  */
@@ -326,6 +303,29 @@ export interface Hero {
    * The content of the news item.
    */
   newsContent?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Manage AI Knowledge
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ai_knowledge".
+ */
+export interface AiKnowledge {
+  id: number;
+  /**
+   * Contoh: IT 180 DC UGM
+   */
+  title: string;
+  /**
+   * English knowledge (Bisa dibantu dengan gemini untuk membuatnya)
+   */
+  knowledge: string;
+  /**
+   * Name of the uploader
+   */
+  uploader: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -374,12 +374,12 @@ export interface PayloadLockedDocument {
         value: number | TelescopeComment;
       } | null)
     | ({
-        relationTo: 'ai_knowledge';
-        value: number | AiKnowledge;
-      } | null)
-    | ({
         relationTo: 'hero';
         value: number | Hero;
+      } | null)
+    | ({
+        relationTo: 'ai_knowledge';
+        value: number | AiKnowledge;
       } | null)
     | ({
         relationTo: 'payload-kv';
@@ -510,12 +510,6 @@ export interface TelescopeCommentsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ai_knowledge_select".
- */
-export interface AiKnowledgeSelect<T extends boolean = true> {
-  title?: T;
-  knowledge?: T;
-  uploader?: T;
  * via the `definition` "hero_select".
  */
 export interface HeroSelect<T extends boolean = true> {
@@ -524,6 +518,17 @@ export interface HeroSelect<T extends boolean = true> {
   newsImage?: T;
   newsTitle?: T;
   newsContent?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ai_knowledge_select".
+ */
+export interface AiKnowledgeSelect<T extends boolean = true> {
+  title?: T;
+  knowledge?: T;
+  uploader?: T;
   updatedAt?: T;
   createdAt?: T;
 }
