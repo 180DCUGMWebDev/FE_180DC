@@ -97,7 +97,7 @@ export async function POST(request) {
 
     if (!sheet) {
       const defaultSheet = doc.sheetsByIndex[0];
-      if (defaultSheet && defaultSheet.title === "CaseComp") {
+      if (defaultSheet && defaultSheet.title === "Sheet1") {
         await defaultSheet.updateProperties({ title: TARGET_SHEET });
         if (defaultSheet.columnCount < 31) {
           await defaultSheet.resize({ rowCount: defaultSheet.rowCount, columnCount: 32 });
