@@ -17,9 +17,7 @@ export default function EightyChatbot() {
 
     // OMIT on certain routes
     const excludedRoutes = ['/login', '/form', '/oprec'];
-    if (excludedRoutes.some(route => pathname?.startsWith(route))) {
-        return null;
-    }
+    const isExcluded = excludedRoutes.some(route => pathname?.startsWith(route));
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const scrollToBottom = () => {
@@ -90,6 +88,8 @@ export default function EightyChatbot() {
             setIsLoading(false);
         }
     };
+
+    if (isExcluded) return null;
 
     return (
         <>
