@@ -2,48 +2,53 @@ import Image from "next/image";
 import Button180 from "@/components/elements/Button180";
 import Link from "next/link";
 import Container from "@/components/layout/Container";
-import { AiOutlineArrowRight } from "react-icons/ai";
 
 export function WhatIs() {
   return (
-    <Container>
-      <div className="flex h-fit flex-col items-center justify-center bg-white max-lg:-mt-[10vh] max-lg:rounded-[10px] max-lg:px-[4%] max-lg:py-[16px] max-lg:drop-shadow-[-2px_3px_5px_#1A1A1A40] lg:h-full">
-        {/* Judul (Mobile) */}
-        <div className="font-avenir-black mb-1.5 text-center text-xl text-green-300 sm:text-2xl lg:hidden">
-          What is <br />
-          180DC UGM?
-        </div>
-        {/* Gambar */}
-        <div className="relative z-10 h-[180px] w-full overflow-hidden rounded-t-[8px] sm:h-[220px] lg:h-[280px] lg:rounded-t-[16px] xl:h-[320px]">
-          <Image
-            src="/img/homepage/balairung_green.png"
-            alt="Balairung"
-            width={1000}
-            height={1000}
-            className="z-10 h-full w-full object-cover"
-          />
-        </div>
-        {/* Teks */}
-        <div className="z-20 mt-8 flex flex-col gap-[16px] px-[2.3%] max-lg:items-center">
-          <div className="flex flex-col">
-            <div className="font-avenir-black max-lg:hidden lg:text-5xl xl:text-6xl">
-              What is 180DC UGM?
-            </div>
-            <div className="font-lato-regular text-[11px] max-lg:text-center sm:text-sm lg:text-xl xl:text-2xl">
+    <section className="relative overflow-visible bg-white py-12 lg:py-16">
+      <Image
+        src="/img/bootcamp/180DCCircle.webp"
+        alt="left ornament"
+        width={200}
+        height={200}
+        className="pointer-events-none absolute top-[220px] left-[4vw] z-10 hidden lg:block"
+      />
+      <Image
+        src="/img/bootcamp/cincin.webp"
+        alt="right ornament"
+        width={270}
+        height={270}
+        className="pointer-events-none absolute top-10 right-4 z-10 hidden lg:block"
+      />
+
+      <Container>
+        <div className="relative mx-auto w-full px-12" data-aos="fade-up">
+          <div className="h-[180px] w-full overflow-hidden border border-black/10 sm:h-[210px] lg:h-[285px]">
+            <Image
+              src="/img/homepage/ugm-about.webp"
+              alt="180DC UGM"
+              width={1200}
+              height={360}
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+          <div className="mx-auto mt-9 max-w-[980px] text-center text-black lg:mt-11">
+            <h2 className="font-avenir-black text-3xl sm:text-4xl lg:text-[50px] lg:leading-tight">
+              What is <span className="text-[#73B743]">180DC UGM</span>?
+            </h2>
+            <p className="font-lato-regular mx-auto mt-5 max-w-[1060px] text-xl leading-relaxed lg:mt-7 lg:text-[30px] lg:leading-[1.34]">
               180 Degrees Consulting Universitas Gadjah Mada is the first Indonesian branch of the
               world&apos;s largest consultancy for non-profit and social enterprises. Being at the
               very forefront of desirable change, 180 Degrees Consulting UGM has helped various
-              entities in overcoming the challenges they face at extremely affordable costs.{" "}
+              entities in overcoming the challenges they face at extremely affordable costs.
+            </p>
+            <div className="mt-8 flex justify-center lg:mt-10">
+              <Button180 color="green" size="md" href="/about/us" text="Read More" />
             </div>
           </div>
-          <Link href="/about/us" className="max-lg:hidden">
-            <Button180 color="black" text="Read More" icon={<AiOutlineArrowRight />} />
-          </Link>
-          <Link href="/about/us" className="lg:hidden">
-            <Button180 color="green" text="Read More" icon={<AiOutlineArrowRight />} />
-          </Link>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </section>
   );
 }

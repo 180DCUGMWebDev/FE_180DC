@@ -73,6 +73,7 @@ export interface Config {
     links: Link;
     telescope_comments: TelescopeComment;
     ai_knowledge: AiKnowledge;
+    hero: Hero;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -86,6 +87,7 @@ export interface Config {
     links: LinksSelect<false> | LinksSelect<true>;
     telescope_comments: TelescopeCommentsSelect<false> | TelescopeCommentsSelect<true>;
     ai_knowledge: AiKnowledgeSelect<false> | AiKnowledgeSelect<true>;
+    hero: HeroSelect<false> | HeroSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -300,6 +302,35 @@ export interface AiKnowledge {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "hero".
+ */
+export interface Hero {
+  id: number;
+  /**
+   * This message will be displayed at the top notification banner on the homepage.
+   */
+  notification: string;
+  /**
+   * The link the news card will redirect to when clicked/hovered.
+   */
+  newsLink?: string | null;
+  /**
+   * The image that will be displayed in the news section of the homepage.
+   */
+  newsImage: number | Media;
+  /**
+   * The title of the news item.
+   */
+  newsTitle?: string | null;
+  /**
+   * The content of the news item.
+   */
+  newsContent?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -345,6 +376,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'ai_knowledge';
         value: number | AiKnowledge;
+      } | null)
+    | ({
+        relationTo: 'hero';
+        value: number | Hero;
       } | null)
     | ({
         relationTo: 'payload-kv';
@@ -481,6 +516,14 @@ export interface AiKnowledgeSelect<T extends boolean = true> {
   title?: T;
   knowledge?: T;
   uploader?: T;
+ * via the `definition` "hero_select".
+ */
+export interface HeroSelect<T extends boolean = true> {
+  notification?: T;
+  newsLink?: T;
+  newsImage?: T;
+  newsTitle?: T;
+  newsContent?: T;
   updatedAt?: T;
   createdAt?: T;
 }
