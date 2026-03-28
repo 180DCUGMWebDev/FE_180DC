@@ -104,11 +104,12 @@ export default function FormCC() {
     setFormData((prev) => ({ ...prev, ...data }));
   };
 
-  const handleNext = (nextSlide?: number) => {
+  const handleNext = (nextSlide?: number, latestData?: RegistrationFormData) => {
     let targetSlide = nextSlide || currentSlide + 1;
+    const currentRegType = latestData?.regType || formData.regType;
 
     // Skip member info slides if individual registration
-    if (currentSlide === 1 && formData.regType === "individual") {
+    if (currentSlide === 1 && currentRegType === "individual") {
       targetSlide = 3; // Jump to Attachments (Slide 4)
     }
 
@@ -279,7 +280,7 @@ export default function FormCC() {
       case 4:
         return <Slide5 {...slideProps} />;
       case 5:
-        return <SubmitSlide />;
+        return <SubmitSlide formData={formData} />;
       default:
         return <Slide1 {...slideProps} />;
     }

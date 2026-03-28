@@ -8,23 +8,23 @@ import Container from "@/components/layout/Container";
 
 const benefits = [
   {
-    text: "Sharpen critical thinking skills",
+    text: "Compete on an APAC Stage",
     icon: <Settings className="h-5 w-5 text-black" />,
   },
   {
-    text: "Boost your creativity & communication",
+    text: "Sharpen Real-World Strategic Thinking",
     icon: <Users className="h-5 w-5 text-black" />,
   },
   {
-    text: "Earn recognition & improve teamwork in a competitive setting",
+    text: "Expand Your Global Network",
     icon: <BarChart3 className="h-5 w-5 text-black" />,
   },
   {
-    text: "Strengthen your portfolio with e-certificate",
+    text: "Boost Your Career Credibility",
     icon: <Award className="h-5 w-5 text-black" />,
   },
   {
-    text: "Gain early exposure to consulting.",
+    text: "Unlock Recognition and Opportunities",
     icon: <Briefcase className="h-5 w-5 text-black" />,
   },
 ];
@@ -108,7 +108,7 @@ export function HeroCC() {
                 filter: "drop-shadow(3px 4px 5px rgba(0,0,0,0.8))",
               }}
             >
-              &ldquo;[Menyusul]&rdquo;
+              Winning the Next Curve: Formulating Future-Ready Growth Strategies
             </h2>
           </div>
 
@@ -120,10 +120,10 @@ export function HeroCC() {
             data-aos-once="true"
             className="font-lato-regular mt-8 text-lg text-white md:text-xl"
           >
-            The future belongs to visionary thinkers.
+            Turn your insight into impact,
           </p>
           <p className="font-lato-regular mt-1 text-base text-white md:text-lg">
-            Stay tuned for the most anticipated Case Competition of the year! 🌟
+            Let&apos;s shape tomorrow&apos;s strategies! 🌟
           </p>
 
           {/* Buttons */}

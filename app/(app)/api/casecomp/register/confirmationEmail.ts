@@ -1,4 +1,8 @@
-export const participantHTML = (teamLeader) => `
+export const participantHTML = (teamLeader) => {
+  const isIndividual = teamLeader.regType === "individual";
+  const emailTarget = isIndividual ? "your" : "the Team Leader’s";
+
+  return `
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +12,6 @@ export const participantHTML = (teamLeader) => `
         .header { background-color: #5bbd8b; color: white; padding: 20px; text-align: center; border-radius: 10px 10px 0 0; }
         .content { padding: 20px; }
         .footer { font-size: 12px; color: #777; text-align: center; margin-top: 20px; }
-        .team-info { background: #f9f9f9; padding: 15px; border-radius: 5px; margin: 20px 0; }
-        .btn { display: inline-block; padding: 10px 20px; background-color: #5bbd8b; color: white; text-decoration: none; border-radius: 5px; margin-top: 15px; }
     </style>
 </head>
 <body>
@@ -19,23 +21,9 @@ export const participantHTML = (teamLeader) => `
         </div>
         <div class="content">
             <p>Dear <strong>${teamLeader.namaLengkap}</strong>,</p>
-            <p>Thank you for registering for the <strong>180DC Case Competition 2026</strong>. We have received your submission and it is currently being reviewed by our committee.</p>
-            
-            <div class="team-info">
-                <h3>Submission Summary:</h3>
-                <p><strong>Team Name:</strong> ${teamLeader.namaTim || "-"}</p>
-                <p><strong>Team Leader:</strong> ${teamLeader.namaLengkap}</p>
-                <p><strong>Registration Phase:</strong> ${teamLeader.registrationPhase || "Normal"}</p>
-                <p><strong>Status:</strong> Pending Review</p>
-            </div>
-
-            <p>We will notify you via email once your registration has been verified. This process usually takes 1-3 business days.</p>
-            
-            <p>If you have any questions, please contact our CP:</p>
-            <ul>
-                <li>Naifa (+62 811-6824-001)</li>
-                <li>Sharon (+62 819-3443-3146)</li>
-            </ul>
+            <p>You are successfully registered for the <strong>180DC Case Competition 2026</strong>! 🎉</p>
+            <p>A confirmation email will be sent to <strong>${emailTarget}</strong> email address in 1x24 hours. Please check your inbox carefully, including Spam or Junk folders. If you have not received the email, kindly contact our contact persons for assistance.</p>
+            <p>Thank you and we are excited to have you join the competition!</p>
 
             <p>Best regards,<br><strong>180DC UGM Committee</strong></p>
         </div>
@@ -46,6 +34,7 @@ export const participantHTML = (teamLeader) => `
 </body>
 </html>
 `;
+};
 
 export const committeeHTML = (teamLeader) => `
 <!DOCTYPE html>

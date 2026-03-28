@@ -65,7 +65,7 @@ const Slide4 = ({ formData, updateFormData, onNext }) => {
                 Student ID Card Link *
               </Label>
               <p className="font-lato-regular mb-2 text-xs text-gray-500">
-                Make sure that this link includes all team members
+                Please ensure that the link includes all team members&apos; files
               </p>
               <div className="relative">
                 <LinkIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
@@ -86,7 +86,7 @@ const Slide4 = ({ formData, updateFormData, onNext }) => {
                 Curriculum Vitae Link *
               </Label>
               <p className="font-lato-regular mb-2 text-xs text-gray-500">
-                Make sure that this link includes all team members
+                Please ensure that the link includes all team members&apos; files
               </p>
               <div className="relative">
                 <LinkIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />

@@ -3,6 +3,10 @@
     {
       "path": "/api/keep-alive",
       "schedule": "0 0 */3 * *"
+    },
+    {
+      "path": "/api/casecomp/admin/check-pending",
+      "schedule": "0 9 * * *"
     }
   ]
 }

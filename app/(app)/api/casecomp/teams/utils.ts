@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import { acceptedParticipantHTML, rejectedParticipantHTML } from "./confirmationEmail";
+import { pendingReminderHTML } from "../admin/notifications";
 
 const createTransporter = () =>
   nodemailer.createTransport({
@@ -58,7 +59,22 @@ export const sendBroadcastEmail = async ({ recipient, subject, content }) => {
       html: content,
     });
   } catch (error) {
-    console.error("Failed to send broadcast email:", error);
     throw new Error("Failed to send broadcast email");
+  }
+};
+
+export const sendReminderEmail = async (pendingTeams) => {
+  try {
+    const transporter = createTransporter();
+
+    await transporter.sendMail({
+      from: `"180DC Case Competition Monitor" <${process.env.APP_EMAIL}>`,
+      to: process.env.APP_EMAIL,
+      subject: `🚨 Action Required: ${pendingTeams.length} Pending Review Registrations`,
+      html: pendingReminderHTML(pendingTeams),
+    });
+  } catch (error) {
+    console.error("Failed to send reminder email:", error);
+    throw new Error("Failed to send reminder email");
   }
 };

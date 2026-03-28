@@ -1,20 +1,62 @@
+import React from "react";
 import Image from "next/image";
+import { ArrowRight, ArrowDown } from "lucide-react";
 
 const timelineSteps = [
   {
     title: "Open Registration",
-    date: "29 Maret – 30 April 2026",
-    description: "(23.59 WIB)",
+    date: "29 Maret - 27 April 2026",
+    description: "(Dibuka sampai 30 April)",
   },
   {
-    title: "Open Submission",
-    date: "19 April – 2 May 2026",
-    description: "(23.59 WIB)",
-  },
-  {
-    title: "Announcement Preliminary",
-    date: "8 April 2026",
+    title: "Early Bird",
+    date: "29 March - 8 April 2026",
     description: "",
+  },
+  {
+    title: "Normal",
+    date: "9 April - 27 April 2026",
+    description: "",
+  },
+  {
+    title: "Case Release",
+    date: "19 April 2026",
+    description: "",
+  },
+  {
+    title: "Submission Period",
+    date: "19 April - 2 May 2026",
+    description: "(23.59 WIB)",
+  },
+  {
+    title: "Masterclass",
+    date: "25 April 2026",
+    description: "",
+  },
+  {
+    title: "Semifinal Announcement",
+    date: "8 May 2026",
+    description: "",
+  },
+  {
+    title: "Training Days",
+    date: "16 May 2026",
+    description: "",
+  },
+  {
+    title: "Finalist Announcement",
+    date: "29 May 2026",
+    description: "",
+  },
+  {
+    title: "Company Visit",
+    date: "27 June 2026",
+    description: "& Final Mentoring",
+  },
+  {
+    title: "Final Presentation",
+    date: "4 July 2026",
+    description: "& Awarding",
   },
 ];
 
@@ -63,25 +105,25 @@ export function TimelineCC() {
         </h2>
       </div>
 
-      {/* Timeline cards */}
-      <div className="relative z-20 mx-auto px-4 lg:px-6">
-        <div className="flex flex-col items-center justify-center gap-6 lg:flex-row lg:items-center lg:gap-8">
+      {/* Timeline cards sequence */}
+      <div className="relative z-20 mx-auto max-w-7xl px-4 lg:px-6">
+        <div className="flex flex-col items-center gap-y-4 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-4 sm:gap-y-12 lg:gap-x-8 xl:gap-x-12">
           {timelineSteps.map((step, i) => (
-            <div key={i} className="flex flex-col items-center gap-6 lg:flex-row lg:gap-8">
+            <React.Fragment key={i}>
               <div
                 data-aos="fade-up"
                 data-aos-duration="600"
-                data-aos-delay={i * 150}
+                data-aos-delay={(i % 4) * 150}
                 data-aos-once="true"
-                className="relative flex aspect-[4/3] w-full max-w-[290px] flex-col items-center justify-center overflow-hidden rounded-[20px] bg-white text-center shadow-xl transition-transform hover:-translate-y-1 md:max-w-[320px]"
+                className="relative flex min-h-[160px] w-[280px] flex-col items-center justify-center overflow-hidden rounded-[20px] bg-white text-center shadow-xl transition-transform hover:-translate-y-1 sm:aspect-[4/3] sm:min-h-0 sm:w-[300px] lg:w-[240px] xl:w-[280px]"
               >
-                <div className="relative z-10 flex h-full w-full flex-col items-center justify-center bg-white p-6">
-                  <h3 className="font-avenir-black text-[20px] leading-tight text-[#2B2B2B] uppercase">
+                <div className="relative z-10 flex h-full w-full flex-col items-center justify-center bg-white p-5">
+                  <h3 className="font-avenir-black text-[15px] leading-tight text-[#2B2B2B] uppercase sm:text-[18px]">
                     {step.title}
                   </h3>
-                  <p className="font-lato-bold mt-2 text-sm text-[#2B2B2B]">{step.date}</p>
+                  <p className="font-lato-bold mt-2 text-[13px] text-[#2b2b2b] sm:text-sm">{step.date}</p>
                   {step.description && (
-                    <p className="font-lato-regular mt-1 text-[13px] text-gray-500">
+                    <p className="font-lato-regular mt-1 text-[11px] leading-tight text-gray-500 sm:text-[12px]">
                       {step.description}
                     </p>
                   )}
@@ -90,13 +132,22 @@ export function TimelineCC() {
                 <div className="absolute bottom-0 left-0 h-[6px] w-full bg-gradient-to-r from-[#8ADF60] to-[#58B9D1]" />
               </div>
 
-              {/* Arrow between cards */}
+              {/* Connector Arrow */}
               {i < timelineSteps.length - 1 && (
-                <div className="my-2 flex min-w-[30px] rotate-90 items-center justify-center lg:my-0 lg:rotate-0">
-                  <div className="font-avenir-light flex tracking-[2px] text-white">--&gt;</div>
+                <div 
+                  data-aos="fade-in"
+                  data-aos-duration="600"
+                  data-aos-delay={(i % 4) * 150 + 75}
+                  data-aos-once="true"
+                  className="flex items-center justify-center py-4 sm:py-0"
+                >
+                  {/* Desktop/Tablet Arrow (Right) */}
+                  <ArrowRight className="hidden h-5 w-5 text-[#73B743] opacity-40 sm:block" />
+                  {/* Mobile Arrow (Down) */}
+                  <ArrowDown className="h-5 w-5 text-[#73B743] opacity-40 sm:hidden" />
                 </div>
               )}
-            </div>
+            </React.Fragment>
           ))}
         </div>
       </div>

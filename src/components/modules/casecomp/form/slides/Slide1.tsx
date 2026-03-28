@@ -34,7 +34,7 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
       setShowErrors(true);
       return;
     }
-    updateFormData({
+    const newData = {
       regType,
       role,
       namaTim: regType === "individual" ? "-" : namaTim,
@@ -45,8 +45,9 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
       leaderBatch,
       leaderEmail,
       leaderNomorHP,
-    });
-    onNext();
+    };
+    updateFormData(newData);
+    onNext(undefined, newData);
   };
 
   const isValid =
@@ -190,31 +191,33 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
             </div>
           </div>
 
-          <div>
-            <Label className="font-avenir-regular mb-3 block text-sm font-medium text-gray-700">
-              Are you the team leader or one of the members? *
-            </Label>
-            <div className="space-y-2">
-              <label className="flex cursor-pointer items-center space-x-3">
-                <input
-                  type="radio"
-                  checked={role === "leader"}
-                  onChange={() => setRole("leader")}
-                  className="h-4 w-4 text-green-600 focus:ring-green-500"
-                />
-                <span className="font-lato-regular text-gray-700">Yes, I am the Team Leader</span>
-              </label>
-              <label className="flex cursor-pointer items-center space-x-3">
-                <input
-                  type="radio"
-                  checked={role === "member"}
-                  onChange={() => setRole("member")}
-                  className="h-4 w-4 text-green-600 focus:ring-green-500"
-                />
-                <span className="font-lato-regular text-gray-700">No, I am one of the members</span>
-              </label>
+          {regType === "team" && (
+            <div>
+              <Label className="font-avenir-regular mb-3 block text-sm font-medium text-gray-700">
+                Are you the team leader or one of the members? *
+              </Label>
+              <div className="space-y-2">
+                <label className="flex cursor-pointer items-center space-x-3">
+                  <input
+                    type="radio"
+                    checked={role === "leader"}
+                    onChange={() => setRole("leader")}
+                    className="h-4 w-4 text-green-600 focus:ring-green-500"
+                  />
+                  <span className="font-lato-regular text-gray-700">Yes, I am the Team Leader</span>
+                </label>
+                <label className="flex cursor-pointer items-center space-x-3">
+                  <input
+                    type="radio"
+                    checked={role === "member"}
+                    onChange={() => setRole("member")}
+                    className="h-4 w-4 text-green-600 focus:ring-green-500"
+                  />
+                  <span className="font-lato-regular text-gray-700">No, I am one of the members</span>
+                </label>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
 

@@ -55,10 +55,10 @@ export function GuidebookCC() {
           className="relative mx-auto flex h-[300px] w-full max-w-[1000px] flex-col items-center justify-center rounded-[1.5rem] bg-gradient-to-tr from-[#319ab5] via-[#5db8c9] to-[#8ADF60] p-[3px] shadow-[0_15px_40px_rgba(0,0,0,0.5)] sm:h-[450px] sm:rounded-[2.5rem] sm:p-[6px]"
         >
           <div className="flex h-full w-full flex-col items-center justify-center rounded-[1.3rem] bg-white sm:rounded-[2.2rem]">
-            <h3 className="font-avenir-black text-2xl text-gray-800 sm:text-4xl">Coming Soon!</h3>
+            <h3 className="font-avenir-black text-2xl text-gray-800 sm:text-4xl">Available Now!</h3>
             <p className="font-lato-regular mt-4 text-center text-gray-600 sm:text-lg">
-              The official guidebook is currently being prepared. <br />
-              Stay tuned for the update!
+              Get all the information you need about <br />
+              180DC Case Competition 2026.
             </p>
           </div>
         </div>
@@ -71,11 +71,10 @@ export function GuidebookCC() {
           className="mt-8 sm:mt-12"
         >
           <Button180
-            text="On Progress"
-            href="#"
+            text="Download Guidebook"
+            href="https://180dcugm.com/GuidebookCC"
             color="green"
             size="md"
-            className="cursor-not-allowed opacity-70"
           />
         </div>
       </div>
