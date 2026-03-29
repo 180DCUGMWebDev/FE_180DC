@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button180 from "@/components/elements/Button180";
+import { ArrowRight } from "lucide-react";
 
 export function GuidebookCC() {
   return (
@@ -52,30 +53,75 @@ export function GuidebookCC() {
           data-aos-duration="700"
           data-aos-delay="150"
           data-aos-once="true"
-          className="relative mx-auto flex h-[300px] w-full max-w-[1000px] flex-col items-center justify-center rounded-[1.5rem] bg-gradient-to-tr from-[#319ab5] via-[#5db8c9] to-[#8ADF60] p-[3px] shadow-[0_15px_40px_rgba(0,0,0,0.5)] sm:h-[450px] sm:rounded-[2.5rem] sm:p-[6px]"
+          className="relative mx-auto grid w-full max-w-[1200px] grid-cols-1 overflow-hidden rounded-[2.5rem] bg-white shadow-[0_30px_80px_rgba(0,0,0,0.8)] lg:grid-cols-12"
         >
-          <div className="flex h-full w-full flex-col items-center justify-center rounded-[1.3rem] bg-white sm:rounded-[2.2rem]">
-            <h3 className="font-avenir-black text-2xl text-gray-800 sm:text-4xl">Available Now!</h3>
-            <p className="font-lato-regular mt-4 text-center text-gray-600 sm:text-lg">
-              Get all the information you need about <br />
-              180DC Case Competition 2026.
-            </p>
-          </div>
-        </div>
+          {/* Left Side: PDF Viewer (Iframe) */}
+          <div className="relative h-[450px] w-full bg-[#1e1e1e] sm:h-[600px] lg:col-span-7 lg:h-[750px]">
+            <div className="absolute inset-0 z-0 bg-[url('/img/videocasecomp/bg-vcc.webp')] bg-cover bg-center opacity-20" />
+            
+            {/* Loading state indicator for iframe */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-white/40">
+                <div className="h-12 w-12 animate-spin rounded-full border-4 border-white/10 border-t-[#8ADF60]" />
+                <span className="font-lato-bold text-sm">Loading Guidebook Viewer...</span>
+            </div>
 
-        <div
-          data-aos="fade-up"
-          data-aos-duration="700"
-          data-aos-delay="250"
-          data-aos-once="true"
-          className="mt-8 sm:mt-12"
-        >
-          <Button180
-            text="Download Guidebook"
-            href="https://180dcugm.com/GuidebookCC"
-            color="green"
-            size="md"
-          />
+            <iframe
+              src="/file/Guidebook180DCCC.pdf#toolbar=0"
+              className="relative z-10 h-full w-full"
+              title="180DC Case Competition 2026 Guidebook"
+              loading="lazy"
+            />
+            
+            {/* Gradient overlays to blend the edges */}
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-24 bg-gradient-to-t from-black/20 to-transparent" />
+          </div>
+
+          {/* Right Side: Content & Action */}
+          <div className="flex flex-col justify-center p-8 sm:p-12 lg:col-span-5 lg:p-16">
+            <div className="mb-6 flex items-center gap-2">
+                <div className="h-1 w-8 rounded-full bg-[#8ADF60]" />
+                <span className="font-lato-bold text-xs tracking-[0.2em] text-[#58B9D1] uppercase">Official Guide</span>
+            </div>
+            
+            <h3 className="font-avenir-black text-3xl leading-tight text-[#2B2B2B] sm:text-4xl">Everything You Need to Know</h3>
+            <p className="font-lato-regular mt-4 text-gray-600 sm:text-lg">
+              Get comprehensive details about the 180DC Case Competition 2026. This official guidebook covers everything from rules to technical requirements.
+            </p>
+            
+            <ul className="mt-10 space-y-5">
+                {[
+                    "Competition Rules & Eligibility",
+                    "Case Theme & Focus Areas",
+                    "Submission & Format Guidelines",
+                    "Judging Criteria & Scoring",
+                    "Award & Prize Details"
+                ].map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-4 font-lato-bold text-gray-700">
+                        <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#8ADF60]/20">
+                            <ArrowRight className="h-3 w-3 text-[#73B743]" />
+                        </div>
+                        <span className="leading-tight">{item}</span>
+                    </li>
+                ))}
+            </ul>
+
+            <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+              <Button180
+                text="Download PDF"
+                href="/file/Guidebook180DCCC.pdf"
+                color="green"
+                size="md"
+                className="font-avenir-heavy w-full rounded-full px-10 py-4 shadow-lg active:scale-95 sm:w-auto"
+              />
+              <a 
+                href="/file/Guidebook180DCCC.pdf" 
+                target="_blank" 
+                className="flex items-center justify-center rounded-full border border-gray-200 px-10 py-4 font-avenir-heavy text-[#2B2B2B] transition-colors hover:bg-gray-50 active:scale-95"
+              >
+                Open in Full Screen
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
