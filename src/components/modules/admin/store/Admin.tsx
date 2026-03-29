@@ -272,7 +272,7 @@ export function AdminOrders({ orders, adminUser }: { orders: OrderData[], adminU
                 </select>
               </div>
             </div>
-            <Button onClick={exportToCSV} className="flex items-center gap-2 text-white">
+            <Button onClick={exportToCSV} className="flex items-center gap-2 text-white bg-green-300">
               <Download className="h-4 w-4" />
               Export CSV
             </Button>
