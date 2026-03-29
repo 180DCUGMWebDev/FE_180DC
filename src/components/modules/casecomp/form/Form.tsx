@@ -104,17 +104,36 @@ export default function FormCC() {
     setFormData((prev) => ({ ...prev, ...data }));
   };
 
-  const handleNext = (nextSlide?: number, latestData?: RegistrationFormData) => {
-    let targetSlide = nextSlide || currentSlide + 1;
-    const currentRegType = latestData?.regType || formData.regType;
+  const handleNext = (nextSlide?: number, latestData?: Partial<RegistrationFormData>) => {
+    // Sync the local state with any data passed from the current slide
+    if (latestData) {
+      setFormData((prev) => {
+        const updated = { ...prev, ...latestData };
+        
+        let targetSlide = nextSlide || currentSlide + 1;
+        const currentRegType = updated.regType || "team";
 
-    // Skip member info slides if individual registration
-    if (currentSlide === 1 && currentRegType === "individual") {
-      targetSlide = 3; // Jump to Attachments (Slide 4)
+        // Skip member info slides if individual registration
+        if (currentSlide === 1 && currentRegType === "individual") {
+          targetSlide = 3; // Jump to Attachments (Slide 4)
+        }
+
+        setSlideHistory((h) => [...h, targetSlide]);
+        setCurrentSlide(targetSlide);
+        
+        return updated;
+      });
+    } else {
+      let targetSlide = nextSlide || currentSlide + 1;
+      const currentRegType = formData.regType || "team";
+
+      if (currentSlide === 1 && currentRegType === "individual") {
+        targetSlide = 3;
+      }
+
+      setSlideHistory((prev) => [...prev, targetSlide]);
+      setCurrentSlide(targetSlide);
     }
-
-    setSlideHistory((prev) => [...prev, targetSlide]);
-    setCurrentSlide(targetSlide);
   };
 
   const handlePrevious = () => {
@@ -299,10 +318,8 @@ export default function FormCC() {
             <div className="mb-4 flex items-center justify-between">
               <div className="text-sm font-medium text-gray-600">
                 {currentSlide === 5
-                  ? "Review & Payment"
-                  : currentSlide === 6
-                    ? "Complete"
-                    : `Step ${slideHistory.length} of ${formData.teamSize === "2" ? 4 : 5}`}
+                  ? "Registration Successful"
+                  : `Step ${slideHistory.length} of ${formData.regType === "individual" ? 3 : (formData.teamSize === "2" ? 4 : 5)}`}
               </div>
             </div>
             <Progress value={getProgressPercentage()} className="h-2 w-full bg-gray-200" />
@@ -310,7 +327,7 @@ export default function FormCC() {
           <div className="pb-8">
             <div className="flex min-h-[400px] flex-col">
               <div className="mb-6 flex-1">{renderSlide()}</div>
-              {currentSlide !== 6 && (
+              {currentSlide < 5 && (
                 <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                   <Button
                     variant="outline"

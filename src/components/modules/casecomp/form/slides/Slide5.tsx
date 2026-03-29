@@ -161,7 +161,8 @@ const Slide5 = ({ formData, updateFormData, onNext, isSubmitting, onSubmit }) =>
               </p>
               <div className="mt-3 space-y-2">
                 <p className="font-lato-regular text-sm text-gray-600">
-                  Bank Name: <span className="font-lato-bold text-gray-900">BNI (Bank Negara Indonesia)</span>
+                  Bank Name:{" "}
+                  <span className="font-lato-bold text-gray-900">BNI (Bank Negara Indonesia)</span>
                 </p>
                 <p className="font-lato-regular text-sm text-gray-600">
                   SWIFT Code: <span className="font-lato-bold text-gray-900">BNINIDJAXXX</span>
@@ -170,10 +171,12 @@ const Slide5 = ({ formData, updateFormData, onNext, isSubmitting, onSubmit }) =>
                   Account Number: <span className="font-lato-bold text-gray-900">2022144115</span>
                 </p>
                 <p className="font-lato-regular text-sm text-gray-600">
-                  Beneficiary: <span className="font-lato-bold text-gray-900">Zufar Purwa Sanosuke</span>
+                  Beneficiary:{" "}
+                  <span className="font-lato-bold text-gray-900">Zufar Purwa Sanosuke</span>
                 </p>
                 <p className="font-lato-regular text-sm text-gray-600">
-                  Transfer amount: <span className="font-lato-bold text-gray-900">${priceUSD}.00 USD</span>
+                  Transfer amount:{" "}
+                  <span className="font-lato-bold text-gray-900">${priceUSD}.00 USD</span>
                 </p>
               </div>
             </div>
@@ -181,7 +184,8 @@ const Slide5 = ({ formData, updateFormData, onNext, isSubmitting, onSubmit }) =>
 
           <div>
             <Label className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700">
-              Payment Proof (Transfer {paymentType === "national" ? `Rp ${priceIDR},00` : `$${priceUSD},00 USD`}) *
+              Payment Proof (Transfer{" "}
+              {paymentType === "national" ? `Rp ${priceIDR},00` : `$${priceUSD},00 USD`}) *
             </Label>
             <div
               onClick={() => fileInputRef.current?.click()}
@@ -201,9 +205,7 @@ const Slide5 = ({ formData, updateFormData, onNext, isSubmitting, onSubmit }) =>
               <span
                 className={`font-lato-regular truncate text-sm ${buktiPembayaranFile ? "text-green-700" : "text-gray-500"}`}
               >
-                {buktiPembayaranFile
-                  ? buktiPembayaranFile.name
-                  : "Click to upload payment proof"}
+                {buktiPembayaranFile ? buktiPembayaranFile.name : "Click to upload payment proof"}
               </span>
             </div>
             <input
