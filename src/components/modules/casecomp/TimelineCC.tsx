@@ -4,11 +4,6 @@ import { ArrowRight, ArrowDown } from "lucide-react";
 
 const timelineSteps = [
   {
-    title: "Open Registration",
-    date: "29 Maret - 27 April 2026",
-    description: "(Dibuka sampai 30 April)",
-  },
-  {
     title: "Early Bird",
     date: "29 March - 8 April 2026",
     description: "",
@@ -49,14 +44,14 @@ const timelineSteps = [
     description: "",
   },
   {
-    title: "Company Visit",
+    title: "Company Visit & Final Mentoring",
     date: "27 June 2026",
-    description: "& Final Mentoring",
+    description: "",
   },
   {
-    title: "Final Presentation",
+    title: "Final Presentation & Awarding",
     date: "4 July 2026",
-    description: "& Awarding",
+    description: "",
   },
 ];
 
