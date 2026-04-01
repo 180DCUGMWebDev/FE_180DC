@@ -27,10 +27,7 @@ export default async function Merch() {
           </>
         }
         primaryButtonText="Buy Now"
-        primaryButtonAction={() => {
-          window.location.href =
-            "https://docs.google.com/forms/d/e/1FAIpQLScOuHT1hdVMUeLNjxFaLC8zAcgERZnL5b2qZgjcWBdaRSi4NQ/viewform";
-        }}
+        primaryButtonHref="https://docs.google.com/forms/d/e/1FAIpQLScOuHT1hdVMUeLNjxFaLC8zAcgERZnL5b2qZgjcWBdaRSi4NQ/viewform"
         decoration="shard"
       />
     </main>
