@@ -29,10 +29,7 @@ export default function Casebook() {
           </>
         }
         primaryButtonText="Buy Now"
-        primaryButtonAction={() => {
-          window.location.href =
-            "https://docs.google.com/forms/d/e/1FAIpQLSf9lMS6EHYZPyo6IL80EcYrdxVglOv1PnpZnTS29Ew0jBHEMw/viewform";
-        }}
+        primaryButtonHref="https://docs.google.com/forms/d/e/1FAIpQLSf9lMS6EHYZPyo6IL80EcYrdxVglOv1PnpZnTS29Ew0jBHEMw/viewform"
         decoration="shard"
       />
     </main>

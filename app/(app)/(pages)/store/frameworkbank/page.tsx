@@ -27,9 +27,7 @@ export default function frameworkbank() {
           </>
         }
         primaryButtonText="Buy Now"
-        primaryButtonAction={() => {
-          window.location.href = "https://lynk.id/180dcugm/wxwNY7V";
-        }}
+        primaryButtonHref="https://lynk.id/180dcugm/wxwNY7V"
         decoration="shard"
       />
     </main>
