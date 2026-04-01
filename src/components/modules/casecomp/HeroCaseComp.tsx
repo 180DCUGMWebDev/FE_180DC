@@ -80,13 +80,6 @@ export function HeroCaseComps() {
                 text="Guidebook"
                 href="https://drive.google.com/drive/folders/10IN3FGK5FtsdEBzRAWKQkweIHIiShDy-"
               />
-              {/* <Image
-                src="/img/casecomp/HeroMainOrnament.png"
-                alt="background"
-                width={2000}
-                height={2000}
-                className="mt-[20vw] w-full scale-[2] lg:hidden"
-              /> */}
             </div>
           </div>
         </div>

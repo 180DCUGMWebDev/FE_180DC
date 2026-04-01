@@ -7,6 +7,7 @@ import Container from "@/components/layout/Container";
 import type { Hero as HeroType } from "@/payload-types";
 import { NavbarResolver } from "@/components/elements/Navbar/NavbarResolver";
 import { ArrowUpRight, Phone } from "lucide-react";
+import ContactUsButton180 from "@/components/elements/ContactUsButton180";
 
 export function Hero({ heroData }: { heroData: Partial<HeroType> }) {
   const newsTitle = heroData?.newsTitle || "180DC UGM Consulting Bootcamp";
@@ -38,7 +39,7 @@ export function Hero({ heroData }: { heroData: Partial<HeroType> }) {
         <Container className="flex flex-col">
           <NavbarResolver />
           {/* Hero Content */}
-          <div className="relative z-20 flex w-full flex-col gap-8 py-5 text-white lg:min-h-[50vh] lg:flex-row lg:items-center lg:justify-between lg:gap-0 lg:pt-5">
+          <div className="relative z-20 flex w-full flex-col gap-8 py-5 text-white lg:min-h-[60vh] lg:flex-row lg:items-center lg:justify-between lg:gap-0 lg:pt-15">
             {/* Kolom Kiri */}
             <div className="flex w-full flex-col justify-center gap-10 max-lg:items-center">
               {/* Teks */}
@@ -58,7 +59,11 @@ export function Hero({ heroData }: { heroData: Partial<HeroType> }) {
                 </div>
               </div>
               {/* Tombol */}
-              <div className="flex flex-col gap-2 max-lg:w-full max-lg:justify-center md:flex-row md:gap-8" data-aos="fade-up" data-aos-delay="200">
+              <div
+                className="flex flex-col gap-2 max-lg:w-full max-lg:justify-center md:flex-row md:gap-8"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 <Button180
                   icon={<ArrowUpRight />}
                   href="/apply"
@@ -66,18 +71,16 @@ export function Hero({ heroData }: { heroData: Partial<HeroType> }) {
                   color="green"
                   text="Consult Now!"
                 />
-                <Button180
-                  color="gray"
-                  text="Contact Us"
-                  size="lg"
-                  icon={<Phone />}
-                  href="https://wa.me/6281227136311"
-                />
+                <ContactUsButton180 />
               </div>
             </div>
 
             {/* Kolom Kanan */}
-            <div className="flex w-full items-center justify-center lg:w-[52%] lg:justify-end" data-aos="fade-left" data-aos-delay="400">
+            <div
+              className="flex w-full items-center justify-center lg:w-[52%] lg:justify-end"
+              data-aos="fade-left"
+              data-aos-delay="400"
+            >
               <div className="relative h-[480px] w-full sm:h-[430px] lg:w-[860px]">
                 <div className="relative h-full w-full">
                   {/* Green News Tab */}
@@ -143,7 +146,11 @@ export function Hero({ heroData }: { heroData: Partial<HeroType> }) {
           </div>
 
           {/* Marquee Section */}
-          <div className="relative z-20 flex w-full flex-col items-center gap-6 py-4 lg:pt-14 lg:pb-6" data-aos="fade-up" data-aos-delay="600">
+          <div
+            className="relative z-20 flex w-full flex-col items-center gap-6 py-4 lg:pt-6 lg:pb-6"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
             <p className="font-avenir-heavy text-lg text-white">Our Previous Clients</p>
 
             <div className="relative h-[90px] w-full overflow-hidden">

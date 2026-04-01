@@ -1,5 +1,5 @@
 import { HomeStore, VisitSpotify, HomeJoinUs } from "@/components/modules/homepage";
-import LookForward from "@/components/layout/LookForward";
+import CTASection180 from "@/components/elements/CTASection180";
 import { Hero } from "@/components/modules/homepage";
 import { WhatIs } from "@/components/modules/homepage";
 import { OurClients } from "@/components/modules/homepage";
@@ -41,7 +41,12 @@ export default async function Home() {
       <OurClients cards={telescope.docs} />
       <HomeStore />
       <VisitSpotify />
-      <LookForward theme="dark" />
+      <CTASection180 
+        title={<>We Look Forward to<br/>Speaking with You</>}
+        subtitle={<>Explore our different services offerings, and<br className="hidden sm:block" /> reach out to us for a discussion.</>}
+        primaryButtonText="Consult Now!"
+        primaryButtonHref="/apply"
+      />
     </>
   );
 }

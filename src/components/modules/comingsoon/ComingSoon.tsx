@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Button180 from "@/components/elements/Button180";
+import ContactUsButton180 from "@/components/elements/ContactUsButton180";
 
 export default function ComingSoon() {
   return (
@@ -39,13 +40,14 @@ export default function ComingSoon() {
                 <p className="text-center text-[4vw] text-gray-300 lg:text-[1.25vw]">
                   We&apos;re working hard to bring you <br /> something amazing. Stay tuned!
                 </p>
-                <div className="mt-4 flex w-full justify-center gap-2 whitespace-nowrap">
+                <div className="mt-4 flex w-full flex-wrap justify-center gap-2">
                   <Link href="/">
                     <Button180 color="white" text="Back to Home" />
                   </Link>
                   <Link href="/about/us">
                     <Button180 color="green" text="About Us" />
                   </Link>
+                  <ContactUsButton180 />
                 </div>
               </div>
             </div>
@@ -114,13 +116,14 @@ export default function ComingSoon() {
               <p className="mb-4 text-center text-sm text-gray-300 lg:text-[2.188vw]">
                 We&apos;re working hard to bring you <br /> something amazing. Stay tuned!
               </p>
-              <div className="flex justify-center gap-2 whitespace-nowrap">
+              <div className="flex flex-wrap justify-center gap-2">
                 <Link href="/">
                   <Button180 color="white" text="Back to Home" />
                 </Link>
                 <Link href="/about/us">
                   <Button180 color="green" text="About Us" />
                 </Link>
+                <ContactUsButton180 />
               </div>
             </div>
           </div>

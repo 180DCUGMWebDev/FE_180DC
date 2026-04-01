@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Button180 from "@/components/elements/Button180";
+import ContactUsButton180 from "@/components/elements/ContactUsButton180";
 
 export default function Closed() {
   return (
@@ -39,7 +40,7 @@ export default function Closed() {
                 <p className="text-center text-[4vw] text-gray-300 lg:text-[1.25vw]">
                   Sorry registration is closed. Stay tuned for future opportunities!
                 </p>
-                <div className="mt-4 flex w-full justify-center gap-2 whitespace-nowrap">
+                <div className="mt-4 flex w-full flex-wrap justify-center gap-2">
                   <Link href="/">
                     <Button180
                       color="white"
@@ -54,6 +55,9 @@ export default function Closed() {
                       addClass="h-fit py-[1.563vw] lg:py-[0.9vw] w-full text-[1.2vw] mt-[1.25vw] px-6 font-bold transition-all duration-700 ease-in-out hover:scale-[102%] hover:bg-[#73B743] hover:text-white"
                     />
                   </Link>
+                  <ContactUsButton180 
+                    addClass="h-fit py-[1.563vw] lg:py-[0.9vw] w-full text-[1.2vw] mt-[1.25vw] px-6 font-bold transition-all duration-700 ease-in-out hover:scale-[102%]"
+                  />
                 </div>
               </div>
             </div>
@@ -122,7 +126,7 @@ export default function Closed() {
               <p className="mb-4 text-center text-sm text-gray-300 lg:text-[2.188vw]">
                 Sorry, registration is closed. Stay tuned for future opportunities!
               </p>
-              <div className="flex justify-center gap-2 whitespace-nowrap">
+              <div className="flex flex-wrap justify-center gap-2">
                 <Link href="/">
                   <Button180
                     color="white"
@@ -137,6 +141,9 @@ export default function Closed() {
                     addClass="w-full px-6 h-fit py-[1.563vw] text-[2.9vw] mt-[6.154vw] lg:mt-[1.25vw] font-bold"
                   />
                 </Link>
+                <ContactUsButton180 
+                   addClass="w-full px-6 h-fit py-[1.563vw] text-[2.9vw] mt-[6.154vw] lg:mt-[1.25vw] font-bold"
+                />
               </div>
             </div>
           </div>

@@ -112,14 +112,14 @@ export function Hero() {
                   <div className="relative mt-[4.5%] hidden flex-row gap-x-2 lg:flex">
                     <Button180
                       color="green"
-                      className="font-avenir-heavy w-[43%] rounded-[24.23px] py-[17px] md:text-[14px] lg:text-[clamp(16px,1.5vw,24.23px)]"
+                      className="font-avenir-heavy w-[30%] rounded-[24.23px] py-[17px] md:text-[14px] lg:text-[clamp(16px,1.5vw,24.23px)]"
                       text="Enroll Me"
                       icon={<Play />}
                       href="/events/bootcamp/registration"
                     />
                     <Button180
                       color="white"
-                      className="font-avenir-heavy w-[43%] rounded-[24.23px] py-[17px] md:text-[14px] lg:text-[clamp(16px,1.5vw,24.23px)]"
+                      className="font-avenir-heavy w-[30%] rounded-[24.23px] py-[17px] md:text-[14px] lg:text-[clamp(16px,1.5vw,24.23px)]"
                       text="Guidebook"
                       href="https://drive.google.com/drive/folders/1AW7jYbjcmmGORcJJZLi0MePEtwwi6NU8?usp=drive_link"
                     />
@@ -243,7 +243,7 @@ export function Hero() {
               </div>
               {/* Mobile Button 180 */}
               <div data-aos="fade-up" className="w-full lg:hidden">
-                <div className="relative mx-[6.7%] mt-[8%] flex items-center justify-center md:mt-[5%]">
+                <div className="relative mx-[6.7%] mt-[8%] flex flex-col gap-4 items-center justify-center md:mt-[5%]">
                   <Button180
                     color="green"
                     className="font-avenir-heavy h-[59px] w-full text-[24.23px]"
