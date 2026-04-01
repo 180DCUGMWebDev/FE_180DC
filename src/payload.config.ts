@@ -13,6 +13,7 @@ import { Media } from "./collections/Media";
 import { Telescope } from "./collections/Telescope";
 import { Links } from "./collections/Links";
 import { TelescopeComments } from "./collections/TelescopeComments";
+import { AIKnowledge } from "./collections/AIKnowledge";
 import { Hero } from "./collections/Hero";
 import { AIKnowledge } from "./collections/AIKnowledge";
 

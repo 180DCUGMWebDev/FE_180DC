@@ -44,6 +44,13 @@ const dashboardCards = [
     href: "/dashboard/25-26/vcc",
     type: "Competition",
   },
+  {
+    id: "cc-2025",
+    title: "Case Competition",
+    description: "Case Competition registrations & team management",
+    href: "/dashboard/25-26/casecomp",
+    type: "Competition",
+  },
 ];
 
 export default function AdminPage() {

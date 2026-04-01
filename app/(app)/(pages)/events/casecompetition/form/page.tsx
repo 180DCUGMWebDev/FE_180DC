@@ -1,15 +1,13 @@
-import { FormCaseComp } from "@/components/modules/casecomp/FormCaseCompetition";
-import ComingSoon from "@/components/modules/casecomp/ComingSoon";
+import FormCC from "@/components/modules/casecomp/form/Form";
 
 export const metadata = {
-  title: "APAC | 180 Degrees Consulting UGM",
+  title: "180DC Case Competition | 180 Degrees Consulting UGM",
 };
 
 export default function CaseComp() {
   return (
-    <main className="bg-[#E8E8E8]">
-      <FormCaseComp />
-      {/* <ComingSoon /> */}
-    </main>
+    <>
+      <FormCC />
+    </>
   );
 }
