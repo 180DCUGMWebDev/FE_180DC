@@ -15,14 +15,13 @@ export default function EightyChatbot() {
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
-    // OMIT on certain routes
+    // Check excluded routes (but do NOT return early before hooks)
     const excludedRoutes = ['/login', '/form', '/oprec'];
-    if (excludedRoutes.some(route => pathname?.startsWith(route))) {
-        return null;
-    }
+    const isExcluded = excludedRoutes.some(route => pathname?.startsWith(route));
 
-    // Persistence Logic
+    // Persistence Logic — ALL hooks must be called before any conditional return
     useEffect(() => {
+        if (isExcluded) return;
         const savedData = localStorage.getItem('eighty_chat_history');
         if (savedData) {
             try {
@@ -38,25 +37,28 @@ export default function EightyChatbot() {
                 console.error("Failed to parse chat history", e);
             }
         }
-    }, []);
+    }, [isExcluded]);
 
     useEffect(() => {
+        if (isExcluded) return;
         if (messages.length > 0) {
             localStorage.setItem('eighty_chat_history', JSON.stringify({
                 messages,
                 timestamp: Date.now()
             }));
         }
-    }, [messages]);
+    }, [messages, isExcluded]);
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
 
     useEffect(() => {
         scrollToBottom();
-    }, [messages, scrollToBottom]);
+    }, [messages]);
+
+    // Now safe to do conditional return AFTER all hooks
+    if (isExcluded) return null;
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -64,11 +66,10 @@ export default function EightyChatbot() {
 
         const userMessage = input.trim();
         
-        // Context: Send last assistant message and its trigger user message if they exist
-        // to give the model some conversation memory.
+        // Context: Send last 1 Q&A pair for conversation memory
         const historyContext = messages.slice(-2).map(msg => ({
-            role: msg.role === 'assistant' ? 'model' : 'user',
-            parts: [{ text: msg.content }]
+            role: msg.role,
+            content: msg.content
         }));
 
         setInput('');

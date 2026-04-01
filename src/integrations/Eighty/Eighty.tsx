@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { GoogleGenAI } from "@google/genai";
 import Groq from "groq-sdk"
-import { createClient } from "@/integrations/supabase/client";
+import { createClient } from "@/integrations/supabase/server";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY });
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
@@ -104,13 +104,14 @@ export async function POST(req: NextRequest) {
                 - If the information is absolutely not present in the context and cannot be reasonably inferred, only then use this exact fallback: "We apologize, but that information is not yet available in our database. Please contact us at ugm@180dc.org or via Instagram @180dcugm".`
         });
 
-        // Build previous conversation string from history (last 1 Q&A pair)
+        // Build previous conversation from history (last 1 Q&A pair)
         if (history && history.length > 0) {
             history.forEach((msg: any) => {
-                const role = msg.role === 'model' ? 'assistant' : 'user';
-                const content = msg.parts?.map((p: any) => p.text).join('') || '';
-                if (content) {
-                    messages.push({ role, content });
+                if (msg.content) {
+                    messages.push({
+                        role: msg.role === 'assistant' ? 'assistant' : 'user',
+                        content: msg.content
+                    });
                 }
             });
         }
