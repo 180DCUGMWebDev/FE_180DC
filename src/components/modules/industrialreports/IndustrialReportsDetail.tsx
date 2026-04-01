@@ -5,6 +5,7 @@ import { IndustrialReport } from "./data";
 import { Download, ExternalLink } from "lucide-react";
 import Container from "@/components/layout/Container";
 import Button180 from "@/components/elements/Button180";
+import ContactUsButton180 from "@/components/elements/ContactUsButton180";
 
 interface IndustrialReportsDetailProps {
   report: IndustrialReport;
@@ -74,6 +75,7 @@ export default function IndustrialReportsDetail({ report }: IndustrialReportsDet
           <div className="mt-5 flex flex-col items-center justify-center gap-4 sm:flex-row lg:gap-5">
             <Button180 onClick={handleDownload} text="Download PDF" icon={<Download />} />
             <Button180 onClick={redirectToDrive} text="View on Drive" icon={<ExternalLink />} />
+            <ContactUsButton180 />
           </div>
 
           {/* Mobile Message */}

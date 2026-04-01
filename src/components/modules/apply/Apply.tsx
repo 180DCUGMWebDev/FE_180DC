@@ -3,6 +3,7 @@
 import { useContext, useEffect, useState } from "react";
 import { FaPlay } from "react-icons/fa";
 import Button180 from "@/components/elements/Button180";
+import ContactUsButton180 from "@/components/elements/ContactUsButton180";
 import ImageAction from "@/components/elements/ImageAction";
 import ProjectStructureList from "@/contents/ProjectStructureList";
 import { createBackground } from "@/config/Functions";
@@ -331,7 +332,7 @@ export default function Apply() {
                 </div>
               ))}
 
-              <div className="flex w-full max-lg:mt-[1.5vh] max-lg:justify-center">
+              <div className="flex w-full items-center gap-4 max-lg:mt-[1.5vh] max-lg:justify-center">
                 <Button180
                   color="green"
                   text="Submit"
@@ -341,6 +342,10 @@ export default function Apply() {
                     "w-[18vw] lg:w-[9vw] max-lg:py-[0.5vh] h-fit lg:h-[30px] text-[2.8vw] lg:text-[1.1vw] 2xl:w-[138px] 2xl:text-[16.8px] " +
                     (!formComplete ? "opacity-70" : "")
                   }
+                />
+                <ContactUsButton180 
+                  addClass="w-[18vw] lg:w-[9vw] max-lg:py-[0.5vh] h-fit lg:h-[30px] text-[2.8vw] lg:text-[1.1vw] 2xl:w-[138px] 2xl:text-[16.8px]"
+                  size="sm"
                 />
               </div>
             </form>
