@@ -43,7 +43,7 @@ export function WhatIs() {
               very forefront of desirable change, 180 Degrees Consulting UGM has helped various
               entities in overcoming the challenges they face at extremely affordable costs.
             </p>
-            <div className="mt-8 flex justify-center lg:mt-10">
+            <div className="mt-8 flex justify-center gap-4 lg:mt-10">
               <Button180 color="green" size="md" href="/about/us" text="Read More" />
             </div>
           </div>
