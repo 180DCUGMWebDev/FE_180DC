@@ -15,7 +15,6 @@ import { Links } from "./collections/Links";
 import { TelescopeComments } from "./collections/TelescopeComments";
 import { AIKnowledge } from "./collections/AIKnowledge";
 import { Hero } from "./collections/Hero";
-import { AIKnowledge } from "./collections/AIKnowledge";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
