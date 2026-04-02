@@ -195,7 +195,7 @@ export default function EightyChatbot() {
                                             <MessageCircle className="w-10 h-10 text-green-300 opacity-80" />
                                         </div>
                                         <p className="font-lato-light text-[16px] px-6 text-gray-300">
-                                            Hello! I'am <span className="font-lato-bold text-white">Eighty</span>, AI assistant virtual 180DC UGM.<br /><br />Ask me anything about 180DC UGM!
+                                            Hello! I&apos;m <span className="font-lato-bold text-white">Eighty</span>, AI assistant virtual 180DC UGM.<br /><br />Ask me anything about 180DC UGM!
                                         </p>
                                     </div>
                                 )}
