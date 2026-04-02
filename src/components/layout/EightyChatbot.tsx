@@ -15,24 +15,63 @@ export default function EightyChatbot() {
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
-    // OMIT on certain routes
+    // Check excluded routes (but do NOT return early before hooks)
     const excludedRoutes = ['/login', '/form', '/oprec'];
     const isExcluded = excludedRoutes.some(route => pathname?.startsWith(route));
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // Persistence Logic — ALL hooks must be called before any conditional return
+    useEffect(() => {
+        if (isExcluded) return;
+        const savedData = localStorage.getItem('eighty_chat_history');
+        if (savedData) {
+            try {
+                const { messages: savedMessages, timestamp } = JSON.parse(savedData);
+                const thirtyMinutes = 30 * 60 * 1000;
+                
+                if (Date.now() - timestamp < thirtyMinutes) {
+                    setMessages(savedMessages);
+                } else {
+                    localStorage.removeItem('eighty_chat_history');
+                }
+            } catch (e) {
+                console.error("Failed to parse chat history", e);
+            }
+        }
+    }, [isExcluded]);
+
+    useEffect(() => {
+        if (isExcluded) return;
+        if (messages.length > 0) {
+            localStorage.setItem('eighty_chat_history', JSON.stringify({
+                messages,
+                timestamp: Date.now()
+            }));
+        }
+    }, [messages, isExcluded]);
+
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
 
     useEffect(() => {
         scrollToBottom();
-    }, [messages, scrollToBottom]);
+    }, [messages]);
+
+    // Now safe to do conditional return AFTER all hooks
+    if (isExcluded) return null;
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!input.trim() || isLoading) return;
 
         const userMessage = input.trim();
+        
+        // Context: Send last 1 Q&A pair for conversation memory
+        const historyContext = messages.slice(-2).map(msg => ({
+            role: msg.role,
+            content: msg.content
+        }));
+
         setInput('');
         setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
         setIsLoading(true);
@@ -44,7 +83,10 @@ export default function EightyChatbot() {
             const response = await fetch('/api/eighty', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: userMessage }),
+                body: JSON.stringify({ 
+                    message: userMessage,
+                    history: historyContext 
+                }),
             });
 
             if (!response.ok) throw new Error('API Error');
@@ -80,7 +122,7 @@ export default function EightyChatbot() {
                 const lastIndex = newMessages.length - 1;
                 newMessages[lastIndex] = {
                     ...newMessages[lastIndex],
-                    content: "Maaf, terjadi kesalahan saat menghubungi server. Silakan coba lagi."
+                    content: "Sorry, an error occurred while connecting to the server. Please try again."
                 };
                 return newMessages;
             });
@@ -88,8 +130,6 @@ export default function EightyChatbot() {
             setIsLoading(false);
         }
     };
-
-    if (isExcluded) return null;
 
     return (
         <>
@@ -105,7 +145,7 @@ export default function EightyChatbot() {
                     >
                         <MessageCircle className="w-6 h-6 mr-0 group-hover:mr-2 text-green-300 transition-all duration-300" />
                         <span className="font-lato-bold max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-300 whitespace-nowrap text-sm text-green-300">
-                            Tanya Eighty
+                            Ask Eighty
                         </span>
                     </motion.button>
                 )}
@@ -136,7 +176,7 @@ export default function EightyChatbot() {
                                 <div className="flex items-center space-x-4">
                                     <div>
                                         <h3 className="font-avenir-black text-green-300 text-[22px] leading-tight">Eighty</h3>
-                                        <p className="font-lato-regular text-sm text-gray-400">Asisten 180DC UGM</p>
+                                        <p className="font-lato-regular text-sm text-gray-400">Assistant 180DC UGM</p>
                                     </div>
                                 </div>
                                 <button
@@ -155,7 +195,7 @@ export default function EightyChatbot() {
                                             <MessageCircle className="w-10 h-10 text-green-300 opacity-80" />
                                         </div>
                                         <p className="font-lato-light text-[16px] px-6 text-gray-300">
-                                            Halo! Saya <span className="font-lato-bold text-white">Eighty</span>, model AI asisten virtual 180DC UGM.<br /><br />Ada yang bisa saya bantu terkait organisasi kami?
+                                            Hello! I&apos;m <span className="font-lato-bold text-white">Eighty</span>, AI assistant virtual 180DC UGM.<br /><br />Ask me anything about 180DC UGM!
                                         </p>
                                     </div>
                                 )}
