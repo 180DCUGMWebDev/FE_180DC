@@ -1,4 +1,8 @@
 import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const textStroke = require("@designbycode/tailwindcss-text-stroke");
+import typography from "@tailwindcss/typography";
 
 const config: Config = {
   content: [
@@ -122,7 +126,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@designbycode/tailwindcss-text-stroke")],
+  plugins: [animate, textStroke, typography],
 };
 
 export default config;

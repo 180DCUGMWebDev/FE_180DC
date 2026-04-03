@@ -16,6 +16,10 @@ export const AIKnowledge: CollectionConfig = {
     defaultColumns: ["title", "knowledge", "uploader", "createdAt", "updatedAt"],
     group: "AI Knowledge",
   },
+  labels: {
+    singular: "AI Knowledge",
+    plural: "AI Knowledges",
+  },
   access: {
     read: () => true,
     create: ({ req: { user }}) => !!user,
@@ -71,40 +75,86 @@ export const AIKnowledge: CollectionConfig = {
     },
   ],
   hooks: {
-    afterChange: [
-      async ({ doc, operation }) => {
-      if (operation === 'create' || operation === 'update') {
-        try {
-          if (operation === 'update') {
-            await supabase
-              .from('knowledge_base')
-              .delete()
-              .eq('metadata->>payload_id', String(doc.id));
-          }
+    beforeChange: [
+      async ({ data, req, operation, originalDoc }) => {
+        if (operation === 'create' || operation === 'update') {
 
-          const response = await ai.models.embedContent({
-            model: 'gemini-embedding-2-preview',
-            contents: doc.knowledge,
-            config: {
-              taskType: 'RETRIEVAL_DOCUMENT',
-            },
-          });
-          
-          const vector = response.embeddings[0].values;
-          const { error } = await supabase.from('knowledge_base').insert({
-            content: doc.knowledge,
-            embedding: vector,
-            metadata: { 
-              payload_id: doc.id, 
-              title: doc.title 
+          const hasChanged = operation === 'create' || (operation === 'update' && data.knowledge !== originalDoc?.knowledge);
+
+          if (data.knowledge && hasChanged) {
+            try {
+              console.log(`[AIKnowledge] Generating embedding for ${operation} operation...`);
+              // 1. Generate Vektor dengan Gemini API
+              const response = await ai.models.embedContent({
+                model: 'gemini-embedding-001',
+                contents: data.knowledge as string,
+                config: {
+                  taskType: 'RETRIEVAL_DOCUMENT',
+                  outputDimensionality: 3072, // Pastikan sesuai dengan konfigurasi Supabase
+                },
+              });
+              
+              const vector = response.embeddings[0].values;
+
+              // 2. Simpan vector sementara di req untuk dipakai di afterChange
+              (req as any).temp_embedding_vector = vector; 
+
+            } catch (err) {
+              console.error("Kesalahan Gemini API di AIKnowledge beforeChange:", err);
+              if (err instanceof Error) {
+                throw new Error(`Gagal memproses AI Embedding: ${err.message}`);
+              }
+              throw new Error('Gagal memproses AI Embedding.');
             }
-          });
-          if (error) console.error("Gagal kirim ke Supabase:", error);
-        } catch (err) {
-          console.error("Gagal bikin vektor di Gemini:", err);
+          } else if (operation === 'update' && !hasChanged) {
+             console.log("[AIKnowledge] Content unchanged, skipping embedding API call.");
+          }
         }
-      }
-      return doc;
+        return data;
+      },
+    ],
+    afterChange: [
+      async ({ doc, req, operation }) => {
+        if (operation === 'create' || operation === 'update') {
+          try {
+            // Ambil vector yang tadi di-generate di beforeChange
+            const vector = (req as any).temp_embedding_vector;
+
+            if (!vector) return doc; // Skip jika tidak ada vektor baru yang perlu di-upload
+
+            // 1. Hapus referensi lama (jika update)
+            if (operation === 'update') {
+              await supabase
+                .from('knowledge_base')
+                .delete()
+                .eq('metadata->>payload_id', String(doc.id));
+            }
+
+            // 2. Masukkan data ke Supabase SEKARANG (karena doc.id sudah tersedia dan valid)
+            const { error: insertError } = await supabase.from('knowledge_base').insert({
+              content: doc.knowledge,
+              embedding: vector,
+              metadata: { 
+                payload_id: doc.id, 
+                title: doc.title 
+              }
+            });
+
+            if (insertError) {
+              console.error("Gagal kirim ke Supabase:", insertError);
+              throw new Error(`Data gagal disimpan di Supabase setelah Payload menyimpannya: ${insertError.message}`);
+            }
+
+          } catch (err) {
+            console.error("Kesalahan sinkronisasi Supabase di afterChange:", err);
+            // Error yang terlempar di sini akan memicu Payload otomatis ROLLBACK document yang baru dibuat
+            if (err instanceof Error) {
+              throw new Error(`Transaksi dibatalkan otomatis (Rollback berjalan): ${err.message}`);
+            }
+            throw new Error('Transaksi dibatalkan otomatis karena terjadi kegagalan saat sinkronisasi Supabase.');
+          }
+        }
+        return doc;
       },
     ],
     afterDelete: [

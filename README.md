@@ -30,4 +30,4 @@ https://www.figma.com/design/xt7c7TejHyzyCQZinaBwKv/180DC-Website-24%2F25?node-i
 
 ## Notes
 
-- kalo branch mu udah di merge, jangan lupa juga buat hapus branch mu dari github (biar rapi :>)
+- kalo branch mu udah di merge, jangan lupa juga buat hapus branch mu dari github (biar rapi hehe :>)
