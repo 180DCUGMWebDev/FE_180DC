@@ -16,8 +16,7 @@ export const acceptedParticipantHTML = (teamLeader) => {
             <h1>Registration Approved!</h1>
             <p>Dear <strong>${teamLeader.name}</strong>,</p>
             <p>You are successfully registered for the 180DC Case Competition! 🎉</p>
-            <p>A confirmation email will be sent to the Team Leader’s email address in 1x24 hours. Please check your inbox carefully, including Spam or Junk folders. If you have not received the email, kindly contact our contact persons for assistance.</p>
-            <p>Thank you and we are excited to have you join the competition!</p>
+            <p>We are excited to officially welcome you and your team to this journey! 🚀</p>
             <p><strong>Next Step</strong></p>
             <p>Please ensure that your team leader joins our WhatsApp group to stay updated with announcements and further instructions regarding the competition:</p>
             <p><strong>📌 WhatsApp Group</strong><br>
@@ -87,12 +86,11 @@ export const rejectedParticipantHTML = (teamLeader, reason) => `
             <p>Dear <strong>${teamLeader.name}</strong>,</p>
             <p>Your registration for the <strong>180DC Case Competition</strong> has not been approved.</p>
             <p>This may be due to incomplete registration requirements or unsuccessful payment verification.</p>
-            <p><strong>Rejection Detail:</strong> ${reason}</p>
             
             <p>If you believe this was a mistake or have any questions regarding your registration, please contact our contact persons for further assistance.</p>
             <p>Thank you for your interest in the 180DC Case Competition.</p>
 
-            <p>Best regards,<br><strong>180DC Case Competition 2026</strong></p>
+            <p>Warm regards,<br><strong>180DC Case Competition 2026</strong></p>
         </div>
         <div class="footer">
             <p>&copy; 2026 180 Degrees Consulting UGM. All rights reserved.</p>
