@@ -39,21 +39,6 @@ const nextConfig = {
     ],
   },
 
-  async redirects() {
-    return [
-      {
-        source: "/GuidebookCC",
-        destination: "/file/Guidebook180DCCC.pdf",
-        permanent: true,
-      },
-      {
-        source: "/GuidebookVCC",
-        destination: "/file/Guidebook180DCVCC.pdf",
-        permanent: true,
-      },
-    ];
-  },
-
   webpack: (config) => {
     // Set mainFields order for module resolution
     config.resolve.mainFields = ["browser", "module", "main"];
