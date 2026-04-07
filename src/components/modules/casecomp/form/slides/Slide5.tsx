@@ -21,7 +21,7 @@ const Slide5 = ({ formData, updateFormData, onNext, isSubmitting, onSubmit }) =>
 
   // Phase Handling
   const now = new Date();
-  const earlyEnd = new Date("2026-04-05T23:59:59+07:00");
+  const earlyEnd = new Date("2026-04-11T23:59:59+07:00");
   const normalEnd = new Date("2026-04-27T23:59:59+07:00");
 
   let phaseName = "Normal";

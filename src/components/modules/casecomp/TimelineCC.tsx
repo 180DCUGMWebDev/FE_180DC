@@ -5,12 +5,12 @@ import { ArrowRight, ArrowDown } from "lucide-react";
 const timelineSteps = [
   {
     title: "Early Bird",
-    date: "29 March - 8 April 2026",
+    date: "29 March - 11 April 2026",
     description: "",
   },
   {
     title: "Normal",
-    date: "9 April - 27 April 2026",
+    date: "12 April - 27 April 2026",
     description: "",
   },
   {
