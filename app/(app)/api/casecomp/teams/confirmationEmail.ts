@@ -4,23 +4,25 @@ export const acceptedParticipantHTML = (teamLeader) => {
 
   const content = isIndividual
     ? `
-            <h1>🎉 Congratulations! Your registration has been accepted.</h1>
             <p>Dear <strong>${teamLeader.name}</strong>,</p>
             <p>Your registration has been successfully recorded. Thank you for registering for the 180DC Case Competition 2026 by 180DC UGM. We are excited to officially welcome you and your team to this journey! 🚀</p>
             <p><strong>Next Step</strong></p>
-            <p>Please ensure that you join WhatsApp group to stay updated with announcements and further instructions regarding the competition:</p>
+            <p>Please ensure that you join the WhatsApp group and Google Classroom to stay updated with announcements and further instructions regarding the competition:</p>
             <p><strong>📌 WhatsApp Group</strong><br>
-            <a href="https://180dcugm.com/WAGPreliminaryCC">180dcugm.com/WAGPreliminaryCC</a><br>
-            <a href="https://180dcugm.com/WAGMatchmaking">180dcugm.com/WAGMatchmaking</a></p>`
+            WAG Prelim: <a href="https://180dcugm.com/WAGPreliminaryCC">180dcugm.com/WAGPreliminaryCC</a><br><br>
+            WAG Matchmaking: <a href="https://180dcugm.com/WAGMatchmaking">180dcugm.com/WAGMatchmaking</a></p>
+            <p><strong>📌 Google Classroom</strong><br>
+            <a href="https://180dcugm.com/ClassroomCC">180dcugm.com/ClassroomCC</a></p>`
     : `
-            <h1>Registration Approved!</h1>
             <p>Dear <strong>${teamLeader.name}</strong>,</p>
             <p>You are successfully registered for the 180DC Case Competition! 🎉</p>
             <p>We are excited to officially welcome you and your team to this journey! 🚀</p>
             <p><strong>Next Step</strong></p>
-            <p>Please ensure that your team leader joins our WhatsApp group to stay updated with announcements and further instructions regarding the competition:</p>
+            <p>Please ensure that your team leader joins our WhatsApp group and Google Classroom to stay updated with announcements and further instructions regarding the competition:</p>
             <p><strong>📌 WhatsApp Group</strong><br>
-            WAG prelim: <a href="https://180dcugm.com/WAGPreliminaryCC">180dcugm.com/WAGPreliminaryCC</a></p>`;
+            WAG Prelim: <a href="https://180dcugm.com/WAGPreliminaryCC">180dcugm.com/WAGPreliminaryCC</a></p>
+            <p><strong>📌 Google Classroom</strong><br>
+            <a href="https://180dcugm.com/ClassroomCC">180dcugm.com/ClassroomCC</a></p>`;
 
   return `
 <!DOCTYPE html>
@@ -38,7 +40,7 @@ export const acceptedParticipantHTML = (teamLeader) => {
 <body>
     <div class="container">
         <div class="header">
-            ${isIndividual ? "<h1>Registration Accepted!</h1>" : "<h1>Registration Approved!</h1>"}
+            ${isIndividual ? "<h1>🎉 Congratulations!</h1>" : "<h1>🎉 Congratulations!</h1>"}
         </div>
         <div class="content">
             ${content}

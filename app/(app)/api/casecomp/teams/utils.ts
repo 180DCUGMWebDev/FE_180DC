@@ -23,7 +23,7 @@ export const sendAcceptedEmail = async ({ teamLeader }) => {
     await transporter.sendMail({
       from: `"180DC Case Competition" <${process.env.APP_EMAIL}>`,
       to: teamLeader.email,
-      subject: "Registration Accepted - 180 Case Competition",
+      subject: "Registration Accepted - 180DC Case Competition 2026",
       html: acceptedParticipantHTML(teamLeader),
     });
   } catch (error) {

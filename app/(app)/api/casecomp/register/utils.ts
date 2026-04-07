@@ -179,7 +179,7 @@ export const sendEmail = async ({ teamLeader }) => {
       transporter.sendMail({
         from: `"180DC Case Competition" <${process.env.APP_EMAIL}>`,
         to: teamLeader.email,
-        subject: "Registration Received - 180 Case Competition",
+        subject: "Registration Received - 180DC Case Competition 2026",
         html: participantHTML(teamLeader),
       }),
       transporter.sendMail({
