@@ -22,7 +22,7 @@ export const acceptedParticipantHTML = (teamLeader: any) => `<!DOCTYPE html>
       <p>And here are the documents! Please make sure to review the Guidebook, Casebook, and Submission Form carefully as they contain essential information for your participation:</p>
 
       <p style="margin-bottom: 4px;"><strong>📖 Guidebook</strong><br/>
-      <a href="https://180dcugm.com/file/Guidebook180DCVCC.pdf" style="color: #6faa26; text-decoration: none;">180dcugm.com/file/Guidebook180DCVCC.pdf</a></p>
+      <a href="https://180dcugm.com/GuidebookVCC" style="color: #6faa26; text-decoration: none;">180dcugm.com/GuidebookVCC</a></p>
 
       <p style="margin-bottom: 4px;"><strong>📘 Casebook</strong><br/>
       <a href="https://180dcugm.com/CasebookVCC" style="color: #6faa26; text-decoration: none;">180dcugm.com/CasebookVCC</a></p>
