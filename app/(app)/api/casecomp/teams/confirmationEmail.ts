@@ -46,7 +46,7 @@ export const acceptedParticipantHTML = (teamLeader) => {
             ${content}
             
             <p><strong>📖 Guidebook</strong><br>
-            <a href="https://180dcugm.com/GuidebookCC">180dcugm.com/GuidebookCC</a></p>
+            <a href="https://180dcugm.com/file/Guidebook180DCCC.pdf">180dcugm.com/file/Guidebook180DCCC.pdf</a></p>
 
             <div class="contact-box">
                 <p><strong>Contact Persons</strong></p>
