@@ -70,7 +70,7 @@ export function GuidebookVCC() {
         >
           <Button180
             text="Download Guidebook"
-            href="https://180dcugm.com/GuidebookVCC"
+            href="/file/Guidebook180DCVCC.pdf"
             color="green"
             size="md"
           />
