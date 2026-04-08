@@ -52,7 +52,22 @@ export async function POST(request) {
   try {
     const form = await request.formData();
     const payment = form.get("payment");
-    const registrationPhase = form.get("registrationPhase") || "normal";
+    
+    // Server-side registration phase logic
+    const now = new Date();
+    const earlyEnd = new Date("2026-04-11T23:59:59+07:00");
+    const normalEnd = new Date("2026-04-27T23:59:59+07:00");
+
+    let serverRegistrationPhase = "normal";
+    if (now <= earlyEnd) {
+      serverRegistrationPhase = "early";
+    } else if (now <= normalEnd) {
+      serverRegistrationPhase = "normal";
+    } else {
+      serverRegistrationPhase = "late";
+    }
+    
+    const registrationPhase = serverRegistrationPhase;
 
     const [auth, oauth] = await Promise.all([GetJWTAuth(), GetOAuth()]);
     const drive = google.drive({ version: "v3", auth: oauth });
