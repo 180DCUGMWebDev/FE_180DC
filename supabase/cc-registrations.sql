@@ -17,6 +17,13 @@ CREATE TABLE IF NOT EXISTS "casecomp-registrations" (
   -- Registration Phase: early, normal, late
   registration_phase TEXT,
 
+  -- Referral & Pricing
+  bundle TEXT DEFAULT 'none',
+  referral_code TEXT DEFAULT '-',
+  final_fees TEXT DEFAULT '-',
+  is_bundle BOOLEAN DEFAULT FALSE,
+  is_referral BOOLEAN DEFAULT FALSE,
+
   -- Team info
   team_name TEXT,
 

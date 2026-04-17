@@ -21,19 +21,14 @@ const SubmitSlide = ({ formData }) => {
 
       <div className="mx-auto max-w-2xl text-gray-600">
         <p className="font-lato-bold text-lg text-green-600">
-          You are successfully registered for the 180DC Case Competition!
+          You are successfully registered for the 180DC Case Competition! 🎉
         </p>
         <p className="font-lato-regular mt-4 text-base">
-          Our committee will review your submission and payment within 1x24 hours. A confirmation
-          email will be sent to{" "}
+          A confirmation email will be sent to{" "}
           <span className="font-bold underline text-green-600">
             {isIndividual ? "your" : "the Team Leader’s"}
           </span>{" "}
-          email address shortly.
-        </p>
-        <p className="font-lato-regular mt-6">
-          Please check your inbox carefully, including Spam or Junk folders. If you have not
-          received the email within 24 hours, kindly contact our contact persons for assistance.
+          email address in 1x24 hours. Please check your inbox carefully, including Spam or Junk folders. If you have not received the email, kindly contact our contact persons for assistance.
         </p>
         <p className="font-avenir-heavy mt-8 text-lg">
           Thank you and we are excited to have you join the competition!

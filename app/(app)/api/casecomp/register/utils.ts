@@ -17,11 +17,66 @@ export const driveFolderId = {
   spreadsheet: "18XtOIz8LAw05swyzNWX9jBx8y3ZJs4zo09BID_a87cE",
 };
 
+export const validateReferralCode = async (code: string, supabase: any) => {
+  const normalizedCode = code.trim().toUpperCase();
+  if (!normalizedCode || normalizedCode === "" || normalizedCode === "-") {
+    return { valid: true, discount: 0 };
+  }
+
+  // 1. Fetch code data from dynamic referral_codes table
+  const { data: referral, error: fetchError } = await supabase
+    .from("referral_codes")
+    .select("*")
+    .eq("code", normalizedCode)
+    .eq("is_active", true)
+    .single();
+
+  if (fetchError || !referral) {
+    return { valid: false, message: "Invalid or inactive referral code." };
+  }
+
+  // 2. Check total max_uses if defined (total attempts)
+  if (referral.max_uses !== null && referral.current_uses >= referral.max_uses) {
+    return { valid: false, message: "This referral code has reached its maximum total usage." };
+  }
+
+  // 3. Check specific team usage limit (e.g. max 2 successful teams per code)
+  if (referral.usage_limit_team !== null) {
+    const { count, error: countError } = await supabase
+      .from("casecomp-registrations")
+      .select("*", { count: "exact", head: true })
+      .eq("referral_code", normalizedCode)
+      .neq("status", "rejected");
+
+    if (!countError && count !== null && count >= referral.usage_limit_team) {
+      return {
+        valid: false,
+        message: `This code has already been used by ${referral.usage_limit_team} teams.`,
+      };
+    }
+  }
+
+  return { 
+    valid: true, 
+    discount: referral.discount_percentage / 100,
+    label: referral.discount_percentage === 100 ? "FREE Registration applied" : `${referral.discount_percentage}% discount applied`
+  };
+};
+
 import { getGoogleAuth, getGoogleOAuth } from "@/lib/googleAuth";
 export const GetJWTAuth = async () => getGoogleAuth();
 export const GetOAuth = async () => getGoogleOAuth();
 
-export const uploadData = async (sheet, payment, teamLeader, teamMember, link, bukti, registrationPhase) => {
+export const uploadData = async (
+  sheet,
+  payment,
+  teamLeader,
+  teamMember,
+  link,
+  bukti,
+  registrationPhase,
+  bundleInfo
+) => {
   try {
     await sheet.addRow({
       timestamp: moment().startOf("second").format("YYYY-MM-DD HH:mm:ss").toString(),
@@ -29,6 +84,9 @@ export const uploadData = async (sheet, payment, teamLeader, teamMember, link, b
       "Enrollment Type": teamLeader.regType || "team",
       Role: teamLeader.role || "leader",
       Payment: payment,
+      Bundle: bundleInfo?.bundle || "-",
+      "Referral Code": bundleInfo?.referralCode || "-",
+      "Final Fees": bundleInfo?.finalFees || "-",
       "Registration Phase": registrationPhase || "normal",
       "Team Name": teamLeader.namaTim,
       "Leader's Name": teamLeader.namaLengkap,
@@ -179,7 +237,7 @@ export const sendEmail = async ({ teamLeader }) => {
       transporter.sendMail({
         from: `"180DC Case Competition" <${process.env.APP_EMAIL}>`,
         to: teamLeader.email,
-        subject: "Registration Received - 180 Case Competition",
+        subject: "Registration Received - 180DC Case Competition 2026",
         html: participantHTML(teamLeader),
       }),
       transporter.sendMail({

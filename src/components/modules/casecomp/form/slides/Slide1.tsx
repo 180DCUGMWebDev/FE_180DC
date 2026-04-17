@@ -28,7 +28,6 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
   const [leaderEmail, setLeaderEmail] = useState(formData.leaderEmail || "");
   const [leaderNomorHP, setLeaderNomorHP] = useState(formData.leaderNomorHP || "");
   const [showErrors, setShowErrors] = useState(false);
-
   const handleNext = () => {
     if (!isValid) {
       setShowErrors(true);
@@ -98,7 +97,10 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
                 <input
                   type="radio"
                   checked={regType === "individual"}
-                  onChange={() => setRegType("individual")}
+                  onChange={() => {
+                    setRegType("individual");
+                    setTeamSize("1");
+                  }}
                   className="h-4 w-4 text-green-600 focus:ring-green-500"
                 />
                 <span className="font-lato-regular text-gray-700">Individual</span>

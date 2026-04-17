@@ -43,10 +43,16 @@ interface RegistrationFormData {
   twibbonLink?: string;
   buktiPembayaranFile?: File;
   rekening?: string;
+  isBundle?: boolean;
+  isReferral?: boolean;
   paymentType?: "national" | "international";
   regType?: "individual" | "team";
   role?: "leader" | "member";
   registrationPhase?: string;
+  bundle?: string;
+  referralCode?: string;
+  finalPrice?: string;
+  revenue?: number;
 }
 
 export default function FormCC() {
@@ -231,8 +237,15 @@ export default function FormCC() {
       submitFormData.append("teamMembers", JSON.stringify(membersPayload));
       submitFormData.append("payment", merged.paymentType || "national");
       submitFormData.append("competition", "180DC Case Competition");
-      submitFormData.append("rekening", merged.rekening || "");
       submitFormData.append("registrationPhase", (merged as any).registrationPhase || "normal");
+      
+      submitFormData.append("rekening", merged.rekening || "");
+      submitFormData.append("bundle", merged.bundle || "none");
+      submitFormData.append("referralCode", merged.referralCode || "-");
+      submitFormData.append("finalPrice", merged.finalPrice || "-");
+      submitFormData.append("revenue", String(merged.revenue || 0));
+      submitFormData.append("isBundle", String(!!merged.isBundle));
+      submitFormData.append("isReferral", String(!!merged.isReferral));
 
       if (merged.idCardLink) submitFormData.append("idCard", merged.idCardLink);
       if (merged.cvLink) submitFormData.append("cv", merged.cvLink);
@@ -261,6 +274,21 @@ export default function FormCC() {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const competitionName = "180DC Case Competition";
+
+  const REFERRAL_CODES_DATA = {
+    FREE: ["FREESLOT_180APAC", "FREESLOT_APACCC", "FREESLOT_GMBCC"],
+    "15%": ["REF_180APAC", "REF_180ID", "REF_GMBCC"],
+    "10%": ["REF_IDCC"],
+    // Keeping old ones just in case? Or should I remove them? 
+    // The user said "ga di define" so I'll replace them for now.
+    "180DC Case Competition": [
+      "FREESLOT_180APAC", "FREESLOT_APACCC", "FREESLOT_GMBCC",
+      "REF_180APAC", "REF_180ID", "REF_GMBCC",
+      "REF_IDCC"
+    ]
   };
 
   const renderSlide = () => {
@@ -297,7 +325,7 @@ export default function FormCC() {
       case 3:
         return <Slide4 {...slideProps} />;
       case 4:
-        return <Slide5 {...slideProps} />;
+        return <Slide5 {...slideProps} validCodes={REFERRAL_CODES_DATA[competitionName] || []} />;
       case 5:
         return <SubmitSlide formData={formData} />;
       default:
