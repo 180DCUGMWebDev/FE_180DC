@@ -22,6 +22,8 @@ import { useRouter } from "next/navigation";
 import { RejectModal } from "./RejectModal";
 import { BroadcastModal } from "./BroadcastModal";
 import { ConfirmModal } from "./ConfirmModal";
+import { ReferralManagement } from "./ReferralManagement";
+import { LayoutDashboard, Tag } from "lucide-react";
 
 interface CCSubmission {
   id: string;
@@ -53,6 +55,12 @@ interface CCSubmission {
   doc_twibbon: string | null;
   doc_bukti_pembayaran: string | null;
   rekening: string | null;
+  bundle: string | null;
+  referral_code: string | null;
+  final_fees: string | null;
+  is_bundle: boolean | null;
+  is_referral: boolean | null;
+  revenue: number | null;
   registration_phase: string | null;
   submitted_at: string;
   reviewed_at: string | null;
@@ -68,6 +76,8 @@ export function CCAdmin({
   const [submissions, setSubmissions] = useState<CCSubmission[]>(initialSubmissions);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("all");
+  const [selectedBundle, setSelectedBundle] = useState("all");
+  const [selectedReferral, setSelectedReferral] = useState("all");
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const [processingId, setProcessingId] = useState<string | null>(null);
   const [acceptModalOpen, setAcceptModalOpen] = useState(false);
@@ -75,6 +85,7 @@ export function CCAdmin({
   const [broadcastModalOpen, setBroadcastModalOpen] = useState(false);
   const [isBroadcasting, setIsBroadcasting] = useState(false);
   const [selectedSubmission, setSelectedSubmission] = useState<CCSubmission | null>(null);
+  const [activeTab, setActiveTab] = useState<"registrations" | "referrals">("registrations");
   const router = useRouter();
   const supabase = createClient();
 
@@ -94,14 +105,40 @@ export function CCAdmin({
         s.member2_name?.toLowerCase().includes(search);
 
       const matchesStatus = selectedStatus === "all" || s.status === selectedStatus;
+      
+      const matchesBundle = 
+        selectedBundle === "all" || 
+        (selectedBundle === "none" && (!s.bundle || s.bundle === "none")) ||
+        s.bundle === selectedBundle;
 
-      return matchesSearch && matchesStatus;
+      const matchesReferral = 
+        selectedReferral === "all" || 
+        (selectedReferral === "yes" && s.is_referral) ||
+        (selectedReferral === "no" && !s.is_referral);
+
+      return matchesSearch && matchesStatus && matchesBundle && matchesReferral;
     });
   }, [submissions, searchTerm, selectedStatus]);
 
   const pendingCount = submissions.filter((s) => s.status === "pending").length;
   const acceptedCount = submissions.filter((s) => s.status === "accepted").length;
   const rejectedCount = submissions.filter((s) => s.status === "rejected").length;
+
+  const { totalIDR, totalUSD } = useMemo(() => {
+    let idr = 0;
+    let usd = 0;
+    submissions.filter(s => s.status === "accepted").forEach(s => {
+      if (s.payment === "national") {
+        // Use revenue field if available, fallback to parsing final_fees
+        const amount = s.revenue ?? parseInt(s.final_fees?.replace(/[^0-9]/g, "") || "0");
+        idr += amount;
+      } else {
+        const amount = s.revenue ?? parseFloat(s.final_fees?.replace(/[^0-9.]/g, "") || "0");
+        usd += amount;
+      }
+    });
+    return { totalIDR: idr, totalUSD: usd };
+  }, [submissions]);
 
   function confirmAccept(submission: CCSubmission) {
     setSelectedSubmission(submission);
@@ -258,8 +295,11 @@ export function CCAdmin({
     const headers = [
       "Submitted At",
       "Status",
-      "Phase",
-      "Payment",
+      "Registration Phase",
+      "Payment Path",
+      "Bundle",
+      "Referral Code",
+      "Final Fees",
       "Team Name",
       "Leader Name",
       "Leader University",
@@ -290,6 +330,9 @@ export function CCAdmin({
           `"${s.status}"`,
           `"${s.registration_phase || ""}"`,
           `"${s.payment || ""}"`,
+          `"${s.bundle || "none"}"`,
+          `"${s.referral_code || "-"}"`,
+          `"${s.final_fees || "-"}"`,
           `"${s.team_name}"`,
           `"${s.leader_name}"`,
           `"${s.leader_university || ""}"`,
@@ -393,8 +436,36 @@ export function CCAdmin({
           </div>
         </div>
 
-        {/* Stats Grid */}
-        <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-4">
+        {/* Tabs */}
+        <div className="mb-8 flex gap-2 border-b border-gray-100 pb-0 shadow-xs rounded-t-xl bg-white overflow-hidden">
+          <button
+            onClick={() => setActiveTab("registrations")}
+            className={`flex items-center gap-2 px-6 py-4 text-sm font-avenir-heavy transition-all ${
+              activeTab === "registrations"
+                ? "border-b-2 border-green-500 bg-green-50/50 text-green-600"
+                : "text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+            }`}
+          >
+            <LayoutDashboard className="h-4 w-4" />
+            Registrations
+          </button>
+          <button
+            onClick={() => setActiveTab("referrals")}
+            className={`flex items-center gap-2 px-6 py-4 text-sm font-avenir-heavy transition-all ${
+              activeTab === "referrals"
+                ? "border-b-2 border-green-500 bg-green-50/50 text-green-600"
+                : "text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+            }`}
+          >
+            <Tag className="h-4 w-4" />
+            Referral Codes
+          </button>
+        </div>
+
+        {activeTab === "registrations" ? (
+          <>
+            {/* Stats Grid */}
+            <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-4">
           <div className="rounded-lg border border-neutral-200 bg-white/90 p-6 shadow-sm backdrop-blur-xs">
             <div className="flex items-center justify-between">
               <div>
@@ -441,6 +512,36 @@ export function CCAdmin({
           </div>
         </div>
 
+        {/* Financial Overview */}
+        {activeTab === "registrations" && (
+          <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="rounded-xl border border-blue-100 bg-blue-50/20 p-6 shadow-sm">
+              <div className="flex items-center gap-4">
+                <div className="rounded-full bg-blue-500/10 p-3 text-blue-600">
+                  <Tag className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-blue-500 opacity-70">Total Revenue (IDR)</p>
+                  <p className="text-3xl font-avenir-black text-blue-700">Rp {totalIDR.toLocaleString("id-ID")}</p>
+                  <p className="text-[10px] text-blue-400 mt-1">* Sum of accepted national registrations</p>
+                </div>
+              </div>
+            </div>
+            <div className="rounded-xl border-green-100 bg-green-50/20 p-6 shadow-sm">
+              <div className="flex items-center gap-4">
+                <div className="rounded-full bg-green-500/10 p-3 text-green-600">
+                  <Tag className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-green-500 opacity-70">Total Revenue (USD)</p>
+                  <p className="text-3xl font-avenir-black text-green-700">${totalUSD.toFixed(2)}</p>
+                  <p className="text-[10px] text-green-400 mt-1">* Sum of accepted international registrations</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Filters and Search */}
         <div className="mb-6 rounded-lg border border-neutral-200 bg-white/90 p-6 shadow-sm backdrop-blur-xs">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
@@ -465,6 +566,32 @@ export function CCAdmin({
                   <option value="pending">Pending</option>
                   <option value="accepted">Accepted</option>
                   <option value="rejected">Rejected</option>
+                </select>
+              </div>
+              <div className="flex items-center gap-2">
+                <Filter className="h-4 w-4 text-gray-400" />
+                <select
+                  value={selectedBundle}
+                  onChange={(e) => setSelectedBundle(e.target.value)}
+                  className="font-lato-regular rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-green-500 focus:ring-1 focus:ring-green-500 focus:outline-hidden"
+                >
+                  <option value="all">Any Bundle</option>
+                  <option value="none">No Bundle</option>
+                  <option value="casebook">Casebook</option>
+                  <option value="framework">Frameworks</option>
+                  <option value="all">Full Bundle</option>
+                </select>
+              </div>
+              <div className="flex items-center gap-2">
+                <Tag className="h-4 w-4 text-gray-400" />
+                <select
+                  value={selectedReferral}
+                  onChange={(e) => setSelectedReferral(e.target.value)}
+                  className="font-lato-regular rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-green-500 focus:ring-1 focus:ring-green-500 focus:outline-hidden"
+                >
+                  <option value="all">Referral Status</option>
+                  <option value="yes">With Referral</option>
+                  <option value="no">Without Referral</option>
                 </select>
               </div>
             </div>
@@ -519,6 +646,16 @@ export function CCAdmin({
                       {s.registration_phase && (
                         <span className="rounded-full bg-blue-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-blue-600 border border-blue-100">
                           {s.registration_phase}
+                        </span>
+                      )}
+                      {s.is_bundle && (
+                        <span className="rounded-full bg-purple-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-purple-600 border border-purple-100 italic">
+                          Bundle
+                        </span>
+                      )}
+                      {s.is_referral && (
+                        <span className="rounded-full bg-orange-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-orange-600 border border-orange-100 italic font-avenir-heavy">
+                          Referral
                         </span>
                       )}
                     </div>
@@ -644,17 +781,34 @@ export function CCAdmin({
                   </div>
                 </div>
 
-                {/* Rekening */}
-                {s.rekening && (
-                  <div className="mt-4 border-t border-gray-200 pt-3">
-                    <p className="font-lato-regular text-sm text-gray-500">
-                      <span className="font-lato-bold">Rekening:</span> {s.rekening}
-                    </p>
-                    <p className="font-lato-regular text-sm text-gray-500">
-                      <span className="font-lato-bold">Payment Path:</span> {s.payment === "national" ? "IDR (QRIS/Transfer)" : "USD (SWIFT)"}
-                    </p>
+                {/* Payment & Metadata */}
+                <div className="mt-4 border-t border-gray-200 pt-3">
+                  {s.rekening && (
+                    <div className="mb-3">
+                      <p className="font-lato-regular text-sm text-gray-500">
+                        <span className="font-lato-bold text-gray-700">Rekening:</span> {s.rekening}
+                      </p>
+                      <p className="font-lato-regular text-sm text-gray-500">
+                        <span className="font-lato-bold text-gray-700">Payment Path:</span> {s.payment === "national" ? "IDR (QRIS/Transfer)" : "USD (SWIFT/PayPal)"}
+                      </p>
+                    </div>
+                  )}
+                  
+                  <div className="grid grid-cols-1 gap-2 md:grid-cols-3">
+                    <div className="rounded-md bg-gray-50 p-2 border border-gray-100">
+                      <p className="text-[10px] uppercase text-gray-400 font-lato-bold">Bundle</p>
+                      <p className="text-sm font-avenir-heavy text-gray-700">{s.bundle && s.bundle !== 'none' ? s.bundle : 'Normal Registration'}</p>
+                    </div>
+                    <div className={`rounded-md p-2 border ${s.is_referral ? 'bg-green-50 border-green-100' : 'bg-gray-50 border-gray-100'}`}>
+                      <p className={`text-[10px] uppercase font-lato-bold ${s.is_referral ? 'text-green-600' : 'text-gray-400'}`}>Referral Code</p>
+                      <p className={`text-sm font-avenir-heavy ${s.is_referral ? 'text-green-700' : 'text-gray-700'}`}>{s.referral_code || "-"}</p>
+                    </div>
+                    <div className={`rounded-md p-2 border ${s.final_fees && s.final_fees !== '-' ? 'bg-blue-50 border-blue-100' : 'bg-gray-50 border-gray-100'}`}>
+                      <p className={`text-[10px] uppercase font-lato-bold ${s.final_fees && s.final_fees !== '-' ? 'text-blue-600' : 'text-gray-400'}`}>Final Fees</p>
+                      <p className={`text-sm font-avenir-heavy ${s.final_fees && s.final_fees !== '-' ? 'text-blue-700' : 'text-gray-700'}`}>{s.final_fees || "-"}</p>
+                    </div>
                   </div>
-                )}
+                </div>
 
                 {/* Rejection Reason */}
                 {s.status === "rejected" && s.rejection_reason && (
@@ -668,7 +822,11 @@ export function CCAdmin({
             ))
           )}
         </div>
-      </div>
+      </>
+    ) : (
+      <ReferralManagement />
+    )}
+  </div>
 
       {/* Accept Confirm Modal */}
       <ConfirmModal
