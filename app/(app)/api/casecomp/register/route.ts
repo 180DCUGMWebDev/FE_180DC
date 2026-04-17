@@ -7,6 +7,7 @@ import {
   saveFileToDrive,
   sendEmail,
   uploadData,
+  validateReferralCode,
 } from "./utils";
 import { google } from "googleapis";
 import { createClient } from "@/integrations/supabase/server";
@@ -20,6 +21,9 @@ const SHEET_HEADERS = [
   "Enrollment Type",
   "Role",
   "Payment",
+  "Bundle",
+  "Referral Code",
+  "Final Fees",
   "Registration Phase",
   "Team Name",
   "Leader's Name",
@@ -52,7 +56,28 @@ export async function POST(request) {
   try {
     const form = await request.formData();
     const payment = form.get("payment");
-    
+    const bundle = form.get("bundle") || "none";
+    const referralCode = form.get("referralCode") || "-";
+    const finalFees = form.get("finalPrice") || "-";
+    const isBundle = form.get("isBundle") === "true";
+    const isReferral = form.get("isReferral") === "true";
+    const revenue = parseFloat(form.get("revenue") as string || "0");
+
+    console.log("=== CC Registration Attempt ===");
+    console.log("Bundle:", bundle);
+    console.log("Referral Code:", referralCode);
+    console.log("Final Fees:", finalFees);
+    console.log("Revenue:", revenue);
+    console.log("===============================");
+
+    const supabase = createClient();
+
+    // Server-side referral validation
+    const referralResult = await validateReferralCode(referralCode as string, supabase);
+    if (!referralResult.valid) {
+      return NextResponse.json({ message: referralResult.message }, { status: 400 });
+    }
+
     // Server-side registration phase logic
     const now = new Date();
     const earlyEnd = new Date("2026-04-11T23:59:59+07:00");
@@ -66,7 +91,7 @@ export async function POST(request) {
     } else {
       serverRegistrationPhase = "late";
     }
-    
+
     const registrationPhase = serverRegistrationPhase;
 
     const [auth, oauth] = await Promise.all([GetJWTAuth(), GetOAuth()]);
@@ -82,7 +107,10 @@ export async function POST(request) {
     // ✅ Validate required fields (now links except buktiPembayaran)
     const requiredFields: string[] = ["idCard", "cv", "follow", "twibbon"];
     const missingFields = requiredFields.filter((field) => !form.get(field));
-    if (payment !== "international" && !form.get("buktiPembayaran")) {
+    
+    // Skip buktiPembayaran if free
+    const isFree = referralResult.discount === 1;
+    if (!isFree && payment !== "international" && !form.get("buktiPembayaran")) {
       missingFields.push("buktiPembayaran");
     }
 
@@ -100,54 +128,65 @@ export async function POST(request) {
     const followLink = form.get("follow");
     const twibbonLink = form.get("twibbon");
 
-    // ✅ Run only file uploads for buktiPembayaran AND spreadsheet loading in parallel
     const [buktiLink] = await Promise.all([
       saveFileToDrive(fileBaseName, "buktiPembayaran", drive, form, true), // optional = true
-      doc.loadInfo(),
     ]);
 
-    // Resolve sheet (create/fix if needed)
-    const TARGET_SHEET = "Data";
-    let sheet = doc.sheetsByTitle[TARGET_SHEET];
-
-    if (!sheet) {
-      const defaultSheet = doc.sheetsByIndex[0];
-      if (defaultSheet && defaultSheet.title === "Sheet1") {
-        await defaultSheet.updateProperties({ title: TARGET_SHEET });
-        if (defaultSheet.columnCount < 31) {
-          await defaultSheet.resize({ rowCount: defaultSheet.rowCount, columnCount: 32 });
-        }
-        await defaultSheet.setHeaderRow(SHEET_HEADERS);
-        sheet = defaultSheet;
-      } else {
-        sheet = await doc.addSheet({ title: TARGET_SHEET, headerValues: SHEET_HEADERS });
-      }
-    } else {
-      if (sheet.columnCount < 31) {
-        await sheet.resize({ rowCount: sheet.rowCount, columnCount: 32 });
-      }
-      await sheet.loadHeaderRow().catch(() => sheet.setHeaderRow(SHEET_HEADERS));
-    }
-
-    // Write to Google Sheets (blocking — must complete before returning)
-    await uploadData(
-      sheet,
-      payment,
-      teamLeader,
-      teamMember,
-      { idCard: idCardLink, cv: cvLink, follow: followLink, twibbon: twibbonLink },
-      { buktiPembayaran: buktiLink, rekening: form.get("rekening") },
-      registrationPhase as string
-    );
-
-    // ✅ Run Supabase insert + email in parallel (both non-critical for response)
-    const supabase = createClient();
+    // ✅ Execute all backend tasks in parallel to minimize response time
     await Promise.all([
+      // 1. Google Sheets Task
+      (async () => {
+        try {
+          await doc.loadInfo();
+          const TARGET_SHEET = "Data";
+          let sheet = doc.sheetsByTitle[TARGET_SHEET];
+
+          if (!sheet) {
+            const defaultSheet = doc.sheetsByIndex[0];
+            if (defaultSheet && defaultSheet.title === "Sheet1") {
+              await defaultSheet.updateProperties({ title: TARGET_SHEET });
+              if (defaultSheet.columnCount < 34) {
+                await defaultSheet.resize({ rowCount: defaultSheet.rowCount, columnCount: 35 });
+              }
+              await defaultSheet.setHeaderRow(SHEET_HEADERS);
+              sheet = defaultSheet;
+            } else {
+              sheet = await doc.addSheet({ title: TARGET_SHEET, headerValues: SHEET_HEADERS });
+            }
+          } else {
+            if (sheet.columnCount < 34) {
+              await sheet.resize({ rowCount: sheet.rowCount, columnCount: 35 });
+            }
+            await sheet.loadHeaderRow().catch(() => sheet.setHeaderRow(SHEET_HEADERS));
+          }
+
+          await uploadData(
+            sheet,
+            payment,
+            teamLeader,
+            teamMember,
+            { idCard: idCardLink, cv: cvLink, follow: followLink, twibbon: twibbonLink },
+            { buktiPembayaran: buktiLink, rekening: form.get("rekening") },
+            registrationPhase as string,
+            { bundle, referralCode, finalFees }
+          );
+        } catch (e) {
+          console.error("Critical: Google Sheets failure:", e);
+        }
+      })(),
+
+      // 2. Supabase Task
       supabase
         .from("casecomp-registrations")
         .insert({
           status: "pending",
           payment,
+          bundle,
+          referral_code: referralCode,
+          final_fees: finalFees,
+          revenue: revenue,
+          is_bundle: isBundle,
+          is_referral: isReferral,
           team_name: teamLeader.namaTim,
           leader_name: teamLeader.namaLengkap,
           leader_university: teamLeader.universitas,
@@ -178,6 +217,8 @@ export async function POST(request) {
         .then(({ error }) => {
           if (error) console.error("Supabase insert error:", error);
         }),
+
+      // 3. Email Task
       sendEmail({ teamLeader }).catch((e) => {
         console.error("Failed to send email:", e);
       }),
