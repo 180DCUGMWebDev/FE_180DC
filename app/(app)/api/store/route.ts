@@ -1,8 +1,7 @@
 // --- IMPORTS ---
 import { createClient } from "@/integrations/supabase/server"
-import { appendToSheet } from "@/integrations/google-sheets/client"
 import { NextResponse } from "next/server"
-import { getGoogleOAuth } from "@/lib/googleAuth"
+import { getGoogleOAuth, getGoogleAuth } from "@/lib/googleAuth"
 import { google } from "googleapis"
 import { Readable } from "stream"
 
@@ -32,6 +31,7 @@ interface CleanOrderData {
   area: string | null;
   order_items: OrderItem[];
   total_price: number;
+  revenue: number;
   payment_proof_url: string;
   refund_account: string;
   refund_number: string;
@@ -39,6 +39,17 @@ interface CleanOrderData {
 
 const TABLE_NAME = "merch_orders"
 const STORAGE_BUCKET = "merch-order-2526"
+
+// Store Configuration Constants
+const STORE_DRIVE_FOLDER_ID = "1Tuwe33KthtFnhPm7lvGTuDF0HiAY_4TJ";
+const STORE_SPREADSHEET_ID = "1aUZrllOVb5AIRPhKiaifJHkEluJ7zHb7m7YM8ayCizQ";
+const STORE_SHEETS_TAB = "Store Orders";
+
+/**
+ * SQL for database preparation:
+ * ALTER TABLE merch_orders ADD COLUMN revenue NUMERIC;
+ * ALTER TABLE merch_orders ADD COLUMN status TEXT DEFAULT 'pending';
+ */
 
 export async function POST (request: Request) {
   try {
@@ -92,6 +103,7 @@ export async function POST (request: Request) {
 
       // Payment
       total_price: rawData.totalPrice,
+      revenue: rawData.totalPrice, // Use total price as initial revenue
       payment_proof_url: rawData.paymentProofUrl,
       refund_account: rawData.refundAccount,
       refund_number: rawData.refundNumber
@@ -107,81 +119,50 @@ export async function POST (request: Request) {
 
     if (error) throw error;
 
-    // 4. Migrate Payment Proof to Google Drive & Cleanup Supabase
+    // 4. Migrate Payment Proof to Permanent Supabase Storage
     let finalProofUrl = extractedData.payment_proof_url;
 
     if (finalPaymentProofUrl && storedFileName && finalPaymentProofUrl.includes('/temp/')) {
       try {
-        console.log("📥 Fetching temp file from Supabase...");
-        const fileRes = await fetch(finalPaymentProofUrl);
-        if (!fileRes.ok) throw new Error("Failed to fetch temp file");
+        console.log("📦 Moving file from temp to public in Supabase bucket...");
         
-        const arrayBuffer = await fileRes.arrayBuffer();
-        const buffer = Buffer.from(arrayBuffer);
-        const stream = Readable.from(buffer);
+        // Move file to public directory
+        const { error: moveError } = await supabase.storage
+          .from(STORAGE_BUCKET)
+          .move(`temp/${storedFileName}`, `public/${storedFileName}`);
 
-        // SOLUTION: Use OAuth (real google account) instead of Service Account to avoid 0GB quota limit!
-        const auth = getGoogleOAuth();
-        const drive = google.drive({ version: 'v3', auth });
+        if (moveError) throw moveError;
 
-        console.log("📤 Uploading to Google Drive as regular OAuth user...");
-        const driveFolderId = process.env.STORE_DRIVE_FOLDER_ID;
-        
-        if (!driveFolderId) throw new Error("STORE_DRIVE_FOLDER_ID missing in .env");
+        // Get permanent public URL
+        const { data: publicUrlData } = supabase.storage
+          .from(STORAGE_BUCKET)
+          .getPublicUrl(`public/${storedFileName}`);
 
-        const uploadedFile = await drive.files.create({
-          requestBody: {
-            name: `Store_${extractedData.transaction_id}_${storedFileName}`,
-            parents: [driveFolderId]
-          },
-          media: {
-            mimeType: fileRes.headers.get('content-type') || 'application/octet-stream',
-            body: stream
-          },
-          fields: "id",
-          supportsAllDrives: true,
-        });
-
-        // Set file permission to anyone with link
-        await drive.permissions.create({
-          fileId: uploadedFile.data.id!,
-          requestBody: { type: "anyone", role: "reader" },
-          supportsAllDrives: true,
-        });
-
-        finalProofUrl = `https://drive.google.com/file/d/${uploadedFile.data.id}/view`;
+        finalProofUrl = publicUrlData.publicUrl;
         extractedData.payment_proof_url = finalProofUrl;
-        
-        // Update Supabase DB to use Drive URL
+
+        // Update database with permanent URL
         await supabase
           .from(TABLE_NAME)
           .update({ payment_proof_url: finalProofUrl })
           .eq('transaction_id', extractedData.transaction_id);
 
-        console.log("✅ Drive upload successful:", finalProofUrl);
+        console.log("✅ Supabase permanent storage successful:", finalProofUrl);
 
-        // Delete temp file from Supabase to save space
-        await supabase.storage
-          .from(STORAGE_BUCKET)
-          .remove([`temp/${storedFileName}`]);
-          
       } catch (err: any) {
-        console.error("❌ Failed to migrate to Google Drive:", err.message);
-        // Fallback: move to public if Drive upload fails
-        await supabase.storage.from(STORAGE_BUCKET).move(`temp/${storedFileName}`, `public/${storedFileName}`);
-        const { data: publicUrlData } = supabase.storage.from(STORAGE_BUCKET).getPublicUrl(`public/${storedFileName}`);
-        finalProofUrl = publicUrlData.publicUrl;
-        extractedData.payment_proof_url = finalProofUrl;
-        await supabase.from(TABLE_NAME).update({ payment_proof_url: finalProofUrl }).eq('transaction_id', extractedData.transaction_id);
+        console.error("❌ Failed to move to permanent storage:", err.message);
       }
     }
 
-    // 5. Dual-write to Google Sheets
+    // 5. Dual-write to Google Sheets (Using OAuth 2.0)
     try {
-      const spreadsheetId = process.env.STORE_SPREADSHEET_ID;
-      const sheetTab = process.env.STORE_SHEETS_TAB || "Store Orders";
+      const spreadsheetId = STORE_SPREADSHEET_ID;
+      const sheetTab = STORE_SHEETS_TAB;
 
       if (spreadsheetId) {
+        const auth = getGoogleOAuth();
+        const sheets = google.sheets({ version: "v4", auth });
+
         // Flatten items into readable string
         const itemsString = extractedData.order_items
           .map((item) => {
@@ -201,22 +182,60 @@ export async function POST (request: Request) {
           extractedData.name,
           extractedData.email,
           extractedData.whatsapp,
+          itemsString,
+          extractedData.total_price.toString(),
           extractedData.is_delivery ? "Delivery" : "Pickup",
           extractedData.full_address || "-",
           extractedData.area || "-",
-          itemsString,
-          extractedData.total_price.toString(),
           extractedData.payment_proof_url || "-",
           extractedData.refund_account,
           extractedData.refund_number,
+          extractedData.revenue,
         ];
 
-        await appendToSheet(spreadsheetId, `${sheetTab}!A:M`, [row]);
-        console.log("✅ Appended to Google Sheets");
+        try {
+          // OPTIMIZATION: Attempt direct append first. If it fails (e.g. sheet empty), then handle headers.
+          // This saves 1 network round-trip to Google for every successful order.
+          await sheets.spreadsheets.values.append({
+            spreadsheetId,
+            range: `'${sheetTab}'!A1`,
+            valueInputOption: "USER_ENTERED",
+            insertDataOption: "INSERT_ROWS",
+            requestBody: { values: [row] },
+          });
+          console.log("✅ Data appended to Google Sheets successfully");
+        } catch (sheetErr: any) {
+          console.log("📝 Initialization needed or error occurred:", sheetErr.message);
+          
+          try {
+            // Re-verify headers if append failed
+            const headers = [
+              "Transaction ID", "Timestamp", "Customer Name", "Email", "WhatsApp", 
+              "Order Details", "Total Price", "Shipping Method", "Address", "Area", 
+              "Payment Proof URL", "Refund Account", "Refund Number", "Revenue"
+            ];
+            await sheets.spreadsheets.values.update({
+              spreadsheetId,
+              range: `'${sheetTab}'!A1`,
+              valueInputOption: "USER_ENTERED",
+              requestBody: { values: [headers] },
+            });
+            
+            // Try append again
+            await sheets.spreadsheets.values.append({
+              spreadsheetId,
+              range: `'${sheetTab}'!A1`,
+              valueInputOption: "USER_ENTERED",
+              insertDataOption: "INSERT_ROWS",
+              requestBody: { values: [row] },
+            });
+          } catch (initErr: any) {
+            console.error("❌ Google Sheets critical failure:", initErr.message);
+          }
+        }
       }
     } catch (sheetsError) {
-      // Don't fail the request if Sheets append fails
-      console.error("Google Sheets append failed (non-blocking):", sheetsError);
+      console.error("❌ Google Sheets append failed (non-blocking):", sheetsError);
     }
 
     return NextResponse.json({ 

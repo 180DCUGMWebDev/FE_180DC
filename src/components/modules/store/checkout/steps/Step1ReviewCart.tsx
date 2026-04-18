@@ -230,7 +230,7 @@ export default function Step1ReviewCart({ onNext }: Step1Props) {
                     required: isDelivery ? "Full address is required" : false,
                     onChange: () => handleFieldValidation("fullAddress"),
                   })}
-                  placeholder="Enter your full address"
+                  placeholder="Enter your full address (Street, Building, etc.)"
                   className={`${inputClass("fullAddress")} resize-none`}
                 />
                 {errors.fullAddress && (
@@ -241,24 +241,59 @@ export default function Step1ReviewCart({ onNext }: Step1Props) {
               </div>
               <div>
                 <label className="mb-2 block text-sm font-semibold text-gray-300">
-                  Area <span className="text-red-400">*</span>
+                  Area / Region <span className="text-red-400">*</span>
                 </label>
-                <input
-                  type="text"
+                <select
                   {...register("area", {
                     required: isDelivery ? "Area is required" : false,
-                    onChange: () => handleFieldValidation("area"),
+                    onChange: (e) => {
+                      handleFieldValidation("area");
+                    },
                   })}
-                  placeholder="e.g. Sleman, Yogyakarta"
                   className={inputClass("area")}
-                />
+                >
+                  <option value="">Select your area</option>
+                  <option value="jabodetabek_west_java">Jabodetabek & West Java (Rp 23.000)</option>
+                  <option value="central_east_java">Central & East Java (Rp 20.000)</option>
+                  <option value="yogyakarta">Yogyakarta (Gosend self-order - Rp 0)</option>
+                </select>
                 {errors.area && (
                   <p className="mt-1 text-sm text-red-400">{errors.area.message as string}</p>
                 )}
               </div>
+              
+              <div className="rounded-xl border border-blue-500/30 bg-blue-500/10 p-4">
+                <p className="font-avenir-heavy mb-2 text-xs text-blue-300 uppercase tracking-widest">Order Summary</p>
+                <div className="flex flex-col gap-2 text-sm">
+                  <div className="flex justify-between text-gray-400">
+                    <span>Subtotal</span>
+                    <span>IDR {totalPrice.toLocaleString("id-ID")}</span>
+                  </div>
+                  <div className="flex justify-between text-gray-400">
+                    <span>Shipping Fee</span>
+                    <span>
+                      {watch("area") === "jabodetabek_west_java" ? "IDR 23.000" : 
+                       watch("area") === "central_east_java" ? "IDR 20.000" : "IDR 0"}
+                    </span>
+                  </div>
+                  <div className="mt-2 flex justify-between border-t border-white/10 pt-2 font-avenir-black text-white">
+                    <span>Total Amount</span>
+                    <span className="text-[#75C44D]">
+                      IDR {(totalPrice + 
+                        (watch("area") === "jabodetabek_west_java" ? 23000 : 
+                         watch("area") === "central_east_java" ? 20000 : 0)
+                      ).toLocaleString("id-ID")}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
               <div className="rounded-lg border border-yellow-500/50 bg-yellow-500/10 p-3 text-xs text-yellow-200">
-                ⚠️ <strong>Note:</strong> Shipping cost is borne by the user and will be calculated
-                by the admin upon confirmation.
+                {watch("area") === "yogyakarta" ? (
+                  <>📍 <strong>Gosend:</strong> Delivery for Yogyakarta area is via Gosend (self-order/paid by you).</>
+                ) : (
+                  <>⚠️ <strong>Note:</strong> Shipping cost is fixed based on your region. If your area is not listed, please contact our CP!</>
+                )}
               </div>
             </div>
           )}

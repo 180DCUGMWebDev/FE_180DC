@@ -9,9 +9,10 @@ import FormUploadField from "../components/FormUploadField";
 interface Step2Props {
   onPrev: () => void;
   isSubmitting: boolean;
+  grandTotal: number;
 }
 
-export default function Step2Payment({ onPrev, isSubmitting }: Step2Props) {
+export default function Step2Payment({ onPrev, isSubmitting, grandTotal }: Step2Props) {
   const { totalPrice } = useCart();
   const {
     register,
@@ -52,8 +53,8 @@ export default function Step2Payment({ onPrev, isSubmitting }: Step2Props) {
 
         {/* Total */}
         <div className="mb-6 rounded-xl bg-[#222222] p-5">
-          <p className="font-avenir-regular text-sm text-gray-400">Total Payment</p>
-          <p className="font-avenir-black mt-1 text-3xl text-white">{formatPrice(totalPrice)}</p>
+          <p className="font-avenir-regular text-sm text-gray-400">Total Payment (incl. Shipping)</p>
+          <p className="font-avenir-black mt-1 text-3xl text-white">{formatPrice(grandTotal)}</p>
         </div>
 
         {/* Bank Info */}

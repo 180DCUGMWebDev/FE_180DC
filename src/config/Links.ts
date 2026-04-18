@@ -3,17 +3,13 @@ export const navLinks = {
   Home: "/",
   "About Us": "/about/us",
   "Our Clients": "/about/services",
-  Store: "/store/merch",
+  Store: "/store",
   Event: "/casecompetition",
   Academy: "/academy",
   Telescope: "/article/telescope",
 };
 
 export const childLink = {
-  Store: {
-    Casebook: "/store/casebook",
-    Merch: "/store/merch",
-  },
   Event: {
     Bootcamp: "/bootcamp",
     "Cycle 2": "/cycle2oprec",
