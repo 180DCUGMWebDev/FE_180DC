@@ -193,10 +193,12 @@ export default function ProductDetailSheet({ product, isOpen, onClose }: Product
         {/* Size Selector */}
         {needsSize && product.sizes && (
           <div>
-            <p className="font-avenir-heavy mb-2 text-sm text-white">
-              Pilih Size <span className="text-red-400">*</span>
-            </p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex items-center justify-between mb-2">
+              <p className="font-avenir-heavy text-sm text-white">
+                Pilih Size <span className="text-red-400">*</span>
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2 mb-4">
               {product.sizes.map((size) => (
                 <button
                   key={size}
@@ -214,8 +216,26 @@ export default function ProductDetailSheet({ product, isOpen, onClose }: Product
                 </button>
               ))}
             </div>
+            
+            {/* Direct Size Chart Display */}
+            {product.sizeChartImage && (
+              <div className="mb-4 overflow-hidden rounded-xl border border-white/10 bg-black/20">
+                <div className="bg-white/5 px-3 py-1.5 flex items-center justify-between">
+                  <span className="text-[10px] uppercase tracking-widest text-gray-400 font-avenir-heavy">Size Guide</span>
+                </div>
+                <div className="relative aspect-[4/3] w-full">
+                  <Image 
+                    src={product.sizeChartImage}
+                    alt="Size Chart"
+                    fill
+                    className="object-contain p-2"
+                  />
+                </div>
+              </div>
+            )}
+
             {sizeError && (
-              <p className="mt-2 text-xs text-red-400">Pilih size terlebih dahulu</p>
+              <p className="mt-2 text-xs text-red-400 font-lato-regular">Pilih size terlebih dahulu</p>
             )}
           </div>
         )}

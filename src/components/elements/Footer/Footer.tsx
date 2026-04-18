@@ -257,7 +257,7 @@ export default function Footer() {
       }
     };
 
-    const containDropdown = ["Store", "Event", "Telescope"];
+    const containDropdown = ["Event", "Telescope"];
 
     return (
       <div className={ulClass + " select-none"}>

@@ -10,6 +10,7 @@ export interface Product {
   description?: string;
   details?: string[];
   sizes?: string[];
+  sizeChartImage?: string;
   bundleContents?: string[];
 }
 
@@ -27,11 +28,13 @@ export const merchandiseProducts: Product[] = [
       "/img/store/products/half-zip/slide-1.png",
       "/img/store/products/half-zip/slide-2.jpeg",
       "/img/store/products/half-zip/slide-3.jpeg",
+      "/img/store/sizecharthalfzip.jpg",
     ],
     description:
       "Premium half zip jacket dari 180DC UGM. Nyaman dipakai sehari-hari dengan bahan berkualitas tinggi.",
     details: ["Bahan premium", "Desain eksklusif 180DC UGM"],
     sizes: [...HALFZIP_SIZES],
+    sizeChartImage: "/img/store/sizecharthalfzip.jpg",
   },
   {
     id: 2,
@@ -66,10 +69,7 @@ export const merchandiseProducts: Product[] = [
     price: 4000,
     type: "merch",
     image: "/img/store/products/sticker/slide-1.png",
-    images: [
-      "/img/store/products/sticker/slide-1.png",
-      "/img/store/products/sticker/slide-2.jpeg",
-    ],
+    images: ["/img/store/products/sticker/slide-1.png", "/img/store/products/sticker/slide-2.jpeg"],
     description: "Sticker 180DC UGM. Tempel di laptop, botol minum, atau di mana saja!",
     details: ["Waterproof vinyl", "Desain eksklusif"],
   },
@@ -88,11 +88,7 @@ export const specialProducts: Product[] = [
     images: ["/img/store/casebook/HeroImageBook-c.png"],
     description:
       "Casebook 180DC UGM — kumpulan studi kasus consulting untuk mengasah problem-solving dan persiapan case interview.",
-    details: [
-      "Real-world consulting cases",
-      "Structured frameworks",
-      "Digital PDF format",
-    ],
+    details: ["Real-world consulting cases", "Structured frameworks", "Digital PDF format"],
   },
   {
     id: 6,
@@ -107,11 +103,7 @@ export const specialProducts: Product[] = [
     ],
     description:
       "Framework Bank 180DC UGM — koleksi framework consulting terkurasi untuk memperkuat strategy toolkit-mu.",
-    details: [
-      "Curated consulting frameworks",
-      "Visual & structured format",
-      "Digital PDF format",
-    ],
+    details: ["Curated consulting frameworks", "Visual & structured format", "Digital PDF format"],
   },
 ];
 
@@ -125,10 +117,7 @@ export const bundleProducts: Product[] = [
     price: 15000,
     type: "bundle",
     image: "/img/store/products/sticker/slide-1.png",
-    images: [
-      "/img/store/products/sticker/slide-1.png",
-      "/img/store/products/sticker/slide-2.jpeg",
-    ],
+    images: ["/img/store/products/sticker/slide-1.png", "/img/store/products/sticker/slide-2.jpeg"],
     description: "Paket hemat 5 sticker 180DC UGM. Lebih hemat daripada beli satuan!",
     details: ["5 sticker dalam 1 paket", "Hemat Rp5.000 dari harga satuan"],
     bundleContents: ["5x Sticker"],
@@ -147,12 +136,7 @@ export const bundleProducts: Product[] = [
     ],
     description:
       "Paket starter untuk kamu yang baru bergabung! Lengkap dengan cap, pin, dan sticker bundle.",
-    details: [
-      "1x Cap",
-      "2x Acrylic Pin",
-      "1x Sticker Bundle (isi 5)",
-      "Hemat dari harga satuan",
-    ],
+    details: ["1x Cap", "2x Acrylic Pin", "1x Sticker Bundle (isi 5)", "Hemat dari harga satuan"],
     bundleContents: ["1x Cap", "2x Acrylic Pin", "1x Sticker Bundle (isi 5)"],
   },
   {
@@ -168,8 +152,7 @@ export const bundleProducts: Product[] = [
       "/img/store/products/sticker/slide-1.png",
       "/img/store/products/acrylic-pin/slide-1.png",
     ],
-    description:
-      "Paket lengkap merchandise 180DC UGM — half zip, sticker, cap, dan pin!",
+    description: "Paket lengkap merchandise 180DC UGM — half zip, sticker, cap, dan pin!",
     details: [
       "1x Half Zip (pilih size)",
       "1x Sticker",

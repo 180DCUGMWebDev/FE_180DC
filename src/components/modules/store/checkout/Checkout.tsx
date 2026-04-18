@@ -116,12 +116,19 @@ const Checkout = () => {
     }
 
     setIsSubmitting(true);
+    
+    // Calculate final total including shipping
+    const shippingFee = data.isDelivery ? (
+      data.area === "jabodetabek_west_java" ? 23000 :
+      data.area === "central_east_java" ? 20000 : 0
+    ) : 0;
+    const grandTotal = totalPrice + shippingFee;
 
     try {
       const orderPayload = {
         ...data,
         order: cartToOrderItems(cart),
-        totalPrice,
+        totalPrice: grandTotal, // Submit correct total with shipping
       };
 
       const response = await fetch("/api/store", {
@@ -179,7 +186,18 @@ const Checkout = () => {
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             {currentStep === 1 && <Step1ReviewCart onNext={handleNextStep} />}
             {currentStep === 2 && (
-              <Step2Payment onPrev={handlePrevStep} isSubmitting={isSubmitting} />
+              <Step2Payment 
+                onPrev={handlePrevStep} 
+                isSubmitting={isSubmitting} 
+                grandTotal={
+                  totalPrice + (
+                    watchedData.isDelivery ? (
+                      watchedData.area === "jabodetabek_west_java" ? 23000 :
+                      watchedData.area === "central_east_java" ? 20000 : 0
+                    ) : 0
+                  )
+                }
+              />
             )}
             {currentStep === 3 && <Step3Complete transactionId={transactionId} />}
           </form>

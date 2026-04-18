@@ -199,47 +199,46 @@ export function AdminOrders({ orders, adminUser }: { orders: OrderData[], adminU
 
         {/* Stats Grid */}
         <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-4">
-          {/* Stats Cards (Same as before) */}
-          <div className="rounded-lg border border-neutral-200 bg-white/90 p-6 shadow-sm backdrop-blur-xs">
+          <div className="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm transition-all hover:shadow-md">
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-lato-regular text-sm font-medium text-gray-600">Total Orders</p>
-                <p className="font-avenir-black text-3xl text-gray-800">{orders.length}</p>
+                <p className="font-lato-regular text-xs font-bold uppercase tracking-wider text-gray-400">Total Orders</p>
+                <p className="font-avenir-black text-3xl text-gray-900">{orders.length}</p>
               </div>
-              <div className="rounded-full bg-gray-200/50 p-3">
+              <div className="rounded-xl bg-gray-100 p-3">
                 <ShoppingBag className="h-6 w-6 text-gray-600" />
               </div>
             </div>
           </div>
-          <div className="rounded-lg border border-neutral-200 bg-white/90 p-6 shadow-sm backdrop-blur-xs">
+          <div className="rounded-xl border border-blue-100 bg-blue-50/20 p-6 shadow-sm transition-all hover:shadow-md">
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-lato-regular text-sm font-medium text-gray-600">Delivery</p>
-                <p className="font-avenir-black text-3xl text-blue-400">{deliveryCount}</p>
+                <p className="font-lato-regular text-xs font-bold uppercase tracking-wider text-blue-500">Delivery Orders</p>
+                <p className="font-avenir-black text-3xl text-blue-600">{deliveryCount}</p>
               </div>
-              <div className="rounded-full bg-blue-100 p-3">
+              <div className="rounded-xl bg-blue-100 p-3">
                 <Truck className="h-6 w-6 text-blue-500" />
               </div>
             </div>
           </div>
-          <div className="rounded-lg border border-neutral-200 bg-white/90 p-6 shadow-sm backdrop-blur-xs">
+          <div className="rounded-xl border border-orange-100 bg-orange-50/20 p-6 shadow-sm transition-all hover:shadow-md">
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-lato-regular text-sm font-medium text-gray-600">Pickup</p>
-                <p className="font-avenir-black text-3xl text-orange-400">{pickupCount}</p>
+                <p className="font-lato-regular text-xs font-bold uppercase tracking-wider text-orange-500">Pickup Orders</p>
+                <p className="font-avenir-black text-3xl text-orange-600">{pickupCount}</p>
               </div>
-              <div className="rounded-full bg-orange-100 p-3">
+              <div className="rounded-xl bg-orange-100 p-3">
                 <Store className="h-6 w-6 text-orange-500" />
               </div>
             </div>
           </div>
-          <div className="rounded-lg border border-neutral-200 bg-white/90 p-6 shadow-sm backdrop-blur-xs">
+          <div className="rounded-xl border border-green-100 bg-green-50/20 p-6 shadow-sm transition-all hover:shadow-md">
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-lato-regular text-sm font-medium text-gray-600">Total Revenue</p>
-                <p className="font-avenir-black text-2xl text-green-500">{formatCurrency(totalRevenue)}</p>
+                <p className="font-lato-regular text-xs font-bold uppercase tracking-wider text-green-600">Total Revenue</p>
+                <p className="font-avenir-black text-2xl text-green-600">{formatCurrency(totalRevenue)}</p>
               </div>
-              <div className="rounded-full bg-green-100 p-3">
+              <div className="rounded-xl bg-green-100 p-3">
                 <DollarSign className="h-6 w-6 text-green-600" />
               </div>
             </div>
@@ -247,16 +246,16 @@ export function AdminOrders({ orders, adminUser }: { orders: OrderData[], adminU
         </div>
 
         {/* Filters and Search */}
-        <div className="mb-6 rounded-lg border border-neutral-200 bg-white/90 p-6 shadow-sm backdrop-blur-xs">
+        <div className="mb-6 rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div className="flex flex-1 items-center gap-4">
               <div className="relative max-w-md flex-1">
                 <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-gray-400" />
                 <Input
-                  placeholder="Search ID, name, email, or area..."
+                  placeholder="Search by ID, name, email..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10"
+                  className="pl-10 border-gray-200 focus:border-green-300 focus:ring-green-300/20"
                 />
               </div>
               <div className="flex items-center gap-2">
@@ -264,15 +263,18 @@ export function AdminOrders({ orders, adminUser }: { orders: OrderData[], adminU
                 <select
                   value={selectedOrderType}
                   onChange={(e) => setSelectedOrderType(e.target.value)}
-                  className="font-lato-regular rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-400 focus:ring-1 focus:ring-blue-400 focus:outline-hidden"
+                  className="font-lato-regular rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm focus:border-green-300 focus:ring-2 focus:ring-green-300/20 focus:outline-none transition-all"
                 >
-                  <option value="all">All Types</option>
-                  <option value="delivery">Delivery Only</option>
-                  <option value="pickup">Pickup Only</option>
+                  <option value="all">All Delivery Types</option>
+                  <option value="delivery">Delivery</option>
+                  <option value="pickup">Pickup</option>
                 </select>
               </div>
             </div>
-            <Button onClick={exportToCSV} className="flex items-center gap-2 text-white bg-green-300">
+            <Button 
+              onClick={exportToCSV} 
+              className="flex items-center gap-2 bg-green-300 text-white transition-all hover:bg-green-400 hover:scale-105"
+            >
               <Download className="h-4 w-4" />
               Export CSV
             </Button>
@@ -321,6 +323,15 @@ export function AdminOrders({ orders, adminUser }: { orders: OrderData[], adminU
                         ) : (
                           <> <Store className="h-3 w-3" /> PICKUP </>
                         )}
+                      </span>
+                      <span
+                        className={`flex items-center gap-1 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider ${
+                          (order as any).status === 'completed' 
+                            ? "bg-green-100 text-green-600" 
+                            : "bg-yellow-100 text-yellow-600"
+                        }`}
+                      >
+                        {(order as any).status || 'PENDING'}
                       </span>
                     </div>
                     <div className="font-lato-regular mt-2 flex items-center gap-4 text-sm text-gray-500">
