@@ -4,7 +4,7 @@ import React from "react";
 interface ContainerProps {
   children?: React.ReactNode;
   className?: string;
-  color?: "light" | "dark" | "green";
+  color?: "light" | "dark" | "green" | "transparent";
 }
 
 const Container = ({ children, className, color }: ContainerProps) => {
@@ -15,7 +15,9 @@ const Container = ({ children, className, color }: ContainerProps) => {
         ? "bg-black-300"
         : color === "green"
           ? "bg-green-300"
-          : "";
+          : color === "transparent"
+            ? "bg-transparent"
+            : "";
 
   return (
     <section

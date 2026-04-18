@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/elements/Form/button";
 import { Input } from "@/components/elements/Form/input";
 import { Label } from "@/components/elements/Form/label";
@@ -33,11 +33,7 @@ export function ReferralManagement() {
 
   const supabase = createClient();
 
-  useEffect(() => {
-    fetchCodes();
-  }, []);
-
-  async function fetchCodes() {
+  const fetchCodes = useCallback(async () => {
     setLoading(true);
     const { data, error } = await supabase
       .from("referral_codes")
@@ -50,7 +46,11 @@ export function ReferralManagement() {
       setCodes(data || []);
     }
     setLoading(false);
-  }
+  }, [supabase]);
+
+  useEffect(() => {
+    fetchCodes();
+  }, [fetchCodes]);
 
   async function handleAddCode(e: React.FormEvent) {
     e.preventDefault();

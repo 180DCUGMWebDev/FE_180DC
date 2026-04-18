@@ -20,7 +20,6 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/elements/Navbar/navigation-menu";
-import Container from "@/components/layout/Container";
 
 export default function Navbar({ notification }: { notification?: string }) {
   const [isNotificationVisible, setIsNotificationVisible] = useState(true);
@@ -143,27 +142,16 @@ export default function Navbar({ notification }: { notification?: string }) {
                         </NavigationMenuLink>
                       </NavigationMenuItem>
                       <NavigationMenuItem>
-                        <NavigationMenuTrigger>Store</NavigationMenuTrigger>
-                        <NavigationMenuContent>
-                          <motion.div
-                            key="store-accordion"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.5 }}
-                            className="w-[300px]"
+                        <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                          <Link
+                            href="/store"
+                            className={`hover:text-black-300 transition-all duration-300 hover:bg-white ${
+                              pathname.startsWith("/store") ? "text-black-300 bg-white" : ""
+                            }`}
                           >
-                            <ListItem href="/store/casebook" title="Casebook">
-                              Casebook of 180DC UGM.
-                            </ListItem>
-                            <ListItem href="/store/merch" title="Merch">
-                              Explore our merchandise.
-                            </ListItem>
-                            <ListItem href="/store/frameworkbank" title="Framework Bank">
-                              Explore our collection of consulting frameworks.
-                            </ListItem>
-                          </motion.div>
-                        </NavigationMenuContent>
+                            <p className="text-base">Store</p>
+                          </Link>
+                        </NavigationMenuLink>
                       </NavigationMenuItem>
                     </NavigationMenuList>
                   </AnimatePresence>
@@ -265,56 +253,16 @@ export default function Navbar({ notification }: { notification?: string }) {
               </div>
 
               {/* Store */}
-              <div
-                key="store-wrapper"
-                className="font-avenir-regular relative flex w-full flex-col items-start"
-              >
-                <div
-                  className={`flex w-full cursor-pointer items-center justify-between p-2 ${
-                    pathname.startsWith("/store") ? "font-semibold text-green-300" : ""
-                  }`}
-                  onClick={() => toggleAccordion("store")}
-                >
-                  <span>Store</span>
-                  <motion.span
-                    animate={{ rotate: activeAccordion === "store" ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
+              <div key="store-wrapper">
+                <Link href="/store" onClick={closeMobileMenu}>
+                  <div
+                    className={`font-avenir-regular w-full p-2 ${
+                      pathname.startsWith("/store") ? "font-semibold text-green-300" : ""
+                    }`}
                   >
-                    <ChevronDown size={24} />
-                  </motion.span>
-                </div>
-
-                <AnimatePresence>
-                  {activeAccordion === "store" && (
-                    <motion.div
-                      key="store-accordion"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="z-101 ml-3 flex w-fit flex-col gap-3 border-l-1 py-1 pl-3"
-                    >
-                      <Link href="/store/casebook" onClick={closeMobileMenu}>
-                        <div className="font-avenir-regular flex flex-col items-start text-base hover:text-white">
-                          <span className="font-lato-bold">Casebook</span>
-                          <span>Casebook of 180DC UGM.</span>
-                        </div>
-                      </Link>
-                      <Link href="/store/merch" onClick={closeMobileMenu}>
-                        <div className="font-avenir-regular flex flex-col items-start text-base hover:text-white">
-                          <span className="font-lato-bold">Merch</span>
-                          <span>Explore our merchandise.</span>
-                        </div>
-                      </Link>
-                      <Link href="/store/frameworkbank" onClick={closeMobileMenu}>
-                        <div className="font-avenir-regular flex flex-col items-start text-base hover:text-white">
-                          <span className="font-lato-bold">Framework Bank</span>
-                          <span>Explore our collection of consulting frameworks.</span>
-                        </div>
-                      </Link>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                    Store
+                  </div>
+                </Link>
               </div>
             </div>
           </AnimatePresence>
@@ -345,10 +293,10 @@ export default function Navbar({ notification }: { notification?: string }) {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className={cn(
                 "z-10 flex w-full flex-row items-center justify-around overflow-hidden bg-[#73B743] py-1 shadow-md",
-                isScrolled && "md:rounded-b-2xl shadow-lg"
+                isScrolled && "shadow-lg md:rounded-b-2xl"
               )}
             >
-              <p className="font-avenir-heavy text-lg text-black lg:text-xl">{notification}</p>
+              <p className="font-avenir-heavy text-base text-black lg:text-xl">{notification}</p>
               <button onClick={() => setIsNotificationVisible(false)}>
                 <X color="black" />
               </button>

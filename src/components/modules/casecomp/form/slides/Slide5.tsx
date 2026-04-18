@@ -220,7 +220,7 @@ const Slide5 = ({
               </div>
             </div>
             <p className="mt-2 text-[10px] text-gray-400 font-lato-regular">
-              Choose "Normal Registration" to apply a referral code. Bundles already include a special price.
+              Choose &quot;Normal Registration&quot; to apply a referral code. Bundles already include a special price.
             </p>
           </div>
 
