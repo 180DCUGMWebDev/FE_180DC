@@ -6,8 +6,9 @@ export type CartItem = {
   name: string;
   price: number;
   image: string;
-  slugLink: string;
   quantity: number;
+  type: "merch" | "digital" | "bundle";
+  size?: string;
   variant?: string;
 };
 
@@ -17,10 +18,17 @@ interface CartContextType {
   totalItems: number;
   totalPrice: number;
   addToCart: (item: Omit<CartItem, "quantity">, qty?: number) => void;
-  updateQuantity: (id: number, qty: number) => void;
-  removeFromCart: (id: number) => void;
+  updateQuantity: (cartKey: string, qty: number) => void;
+  removeFromCart: (cartKey: string) => void;
   clearCart: () => void;
 }
+
+/**
+ * Unique key for a cart item.
+ * Items with same id but different size are separate entries.
+ */
+export const getCartKey = (item: { id: number; size?: string }): string =>
+  item.size ? `${item.id}-${item.size}` : `${item.id}`;
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
@@ -50,25 +58,26 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const addToCart = useCallback((item: Omit<CartItem, "quantity">, qty: number = 1) => {
     setCart((prev) => {
-      const existing = prev.find((p) => p.id === item.id);
+      const key = getCartKey(item);
+      const existing = prev.find((p) => getCartKey(p) === key);
       if (existing) {
-        return prev.map((p) => (p.id === item.id ? { ...p, quantity: p.quantity + qty } : p));
+        return prev.map((p) => (getCartKey(p) === key ? { ...p, quantity: p.quantity + qty } : p));
       }
       return [...prev, { ...item, quantity: qty }];
     });
   }, []);
 
-  const updateQuantity = useCallback((id: number, qty: number) => {
+  const updateQuantity = useCallback((cartKey: string, qty: number) => {
     setCart((prev) => {
       if (qty <= 0) {
-        return prev.filter((p) => p.id !== id);
+        return prev.filter((p) => getCartKey(p) !== cartKey);
       }
-      return prev.map((p) => (p.id === id ? { ...p, quantity: qty } : p));
+      return prev.map((p) => (getCartKey(p) === cartKey ? { ...p, quantity: qty } : p));
     });
   }, []);
 
-  const removeFromCart = useCallback((id: number) => {
-    setCart((prev) => prev.filter((p) => p.id !== id));
+  const removeFromCart = useCallback((cartKey: string) => {
+    setCart((prev) => prev.filter((p) => getCartKey(p) !== cartKey));
   }, []);
 
   const clearCart = useCallback(() => {
