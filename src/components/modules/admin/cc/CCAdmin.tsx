@@ -118,7 +118,7 @@ export function CCAdmin({
 
       return matchesSearch && matchesStatus && matchesBundle && matchesReferral;
     });
-  }, [submissions, searchTerm, selectedStatus]);
+  }, [submissions, searchTerm, selectedStatus, selectedBundle, selectedReferral]);
 
   const pendingCount = submissions.filter((s) => s.status === "pending").length;
   const acceptedCount = submissions.filter((s) => s.status === "accepted").length;

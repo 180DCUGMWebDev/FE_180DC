@@ -20,7 +20,7 @@ const Slide3 = ({ formData, updateFormData, onNext, showButtons = true }) => {
       member2Email,
       member2NomorHP,
     });
-  }, [member2NamaLengkap, member2AsalSekolah, member2Batch, member2Email, member2NomorHP]);
+  }, [member2NamaLengkap, member2AsalSekolah, member2Batch, member2Email, member2NomorHP, updateFormData]);
 
   const handleNext = () => {
     if (!isValid) {

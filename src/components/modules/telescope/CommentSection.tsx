@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Container from "@/components/layout/Container";
 import Button180 from "@/components/elements/Button180";
 import { ChevronRight } from "lucide-react";
@@ -18,7 +18,7 @@ const CommentSection = ({ telescopeId }: { telescopeId: number }) => {
   const [comment, setComment] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const fetchComments = async () => {
+  const fetchComments = useCallback(async () => {
     try {
       const res = await fetch(`/api/comment?telescopeId=${telescopeId}`);
       const data = await res.json();
@@ -27,11 +27,11 @@ const CommentSection = ({ telescopeId }: { telescopeId: number }) => {
     } catch (error) {
       console.error("Error fetching comments:", error);
     }
-  };
+  }, [telescopeId]);
 
   useEffect(() => {
     fetchComments();
-  }, [telescopeId]);
+  }, [fetchComments]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
