@@ -1,17 +1,9 @@
-import AcademyHero from "@/components/modules/academy/AcademyHero";
-import PresidentRemarks from "@/components/modules/academy/PresidentRemarks";
-import CourseSection from "@/components/modules/academy/CourseSection";
+import StoreLanding from "@/components/modules/store/store-landing/StoreLanding";
 
 export const metadata = {
   title: "Store | 180 Degrees Consulting UGM",
 };
 
 export default async function Store() {
-  return (
-    <main>
-      <AcademyHero />
-      <PresidentRemarks />
-      <CourseSection />
-    </main>
-  );
+  return <StoreLanding />;
 }

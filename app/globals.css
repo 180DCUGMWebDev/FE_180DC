@@ -145,6 +145,15 @@
   background: white !important;
 }
 
+/* Hide scrollbar tapi tetap bisa di-scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE & Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
+}
+
 /* GSAP initial state */
 .gsap-initial {
   opacity: 0.8337;

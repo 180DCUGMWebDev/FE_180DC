@@ -1,4 +1,4 @@
-/** @type {import('next').NextConfig} */
+  /** @type {import('next').NextConfig} */
 const { withPayload } = require("@payloadcms/next/withPayload");
 
 const nextConfig = {
@@ -34,6 +34,11 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "gvwdpmgyinzctwyzqqdy.supabase.co",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
         pathname: "/**",
       },
     ],
