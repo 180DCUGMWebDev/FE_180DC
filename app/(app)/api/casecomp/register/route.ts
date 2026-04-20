@@ -100,6 +100,17 @@ export async function POST(request) {
     const teamLeader = JSON.parse(form.get("teamLeader"));
     const teamMember = JSON.parse(form.get("teamMembers"));
 
+    // ✅ Server-side individual registration deadline check
+    const INDIVIDUAL_DEADLINE = new Date("2026-04-18T00:00:00+07:00");
+    if (teamLeader.regType === "individual" && new Date() > INDIVIDUAL_DEADLINE) {
+      return NextResponse.json(
+        { 
+          message: "Individual registration for this competition closed on April 18th. Please register as a team instead." 
+        }, 
+        { status: 400 }
+      );
+    }
+
     const formattedDate = new Date().toISOString().replace(/:/g, "-").split(".")[0];
     const fileBaseName = `${teamLeader.namaLengkap} - ${formattedDate}`;
     const doc = new GoogleSpreadsheet(driveFolderId.spreadsheet, auth);
