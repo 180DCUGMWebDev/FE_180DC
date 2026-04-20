@@ -5,7 +5,12 @@ import { Label } from "@/components/elements/Form/label";
 import { ChevronRight } from "lucide-react";
 
 const Slide1 = ({ formData, updateFormData, onNext }) => {
-  const [regType, setRegType] = useState(formData.regType || "team");
+  const INDIVIDUAL_DEADLINE = new Date("2026-04-18T00:00:00+07:00");
+  const isIndividualClosed = new Date() > INDIVIDUAL_DEADLINE;
+
+  const [regType, setRegType] = useState(
+    isIndividualClosed ? "team" : (formData.regType || "team")
+  );
   const [role, setRole] = useState(formData.role || "leader");
   const [namaTim, setNamaTim] = useState(formData.namaTim || "");
   const [teamSize, setTeamSize] = useState(formData.teamSize || "3");
@@ -93,19 +98,32 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
                 />
                 <span className="font-lato-regular text-gray-700">Team</span>
               </label>
-              <label className="flex cursor-pointer items-center space-x-3">
+              <label 
+                className={`flex items-center space-x-3 ${isIndividualClosed ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`}
+                title={isIndividualClosed ? "Individual registration is closed" : ""}
+              >
                 <input
                   type="radio"
+                  disabled={isIndividualClosed}
                   checked={regType === "individual"}
                   onChange={() => {
-                    setRegType("individual");
-                    setTeamSize("1");
+                    if (!isIndividualClosed) {
+                      setRegType("individual");
+                      setTeamSize("1");
+                    }
                   }}
                   className="h-4 w-4 text-green-600 focus:ring-green-500"
                 />
-                <span className="font-lato-regular text-gray-700">Individual</span>
+                <span className="font-lato-regular text-gray-700">
+                  Individual {isIndividualClosed && "(Closed)"}
+                </span>
               </label>
             </div>
+            {isIndividualClosed && (
+              <p className="mt-2 text-xs text-orange-600 font-lato-regular italic">
+                * Individual registration closed on Saturday, April 18th (00:00). Only Team registration is currently available.
+              </p>
+            )}
           </div>
 
           {regType === "team" && (

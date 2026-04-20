@@ -78,14 +78,28 @@ export default function FormCC() {
           isSubmitted: savedIsSubmitted,
         } = JSON.parse(savedProgress);
 
-        setFormData(savedFormData || {});
-        setSlideHistory(savedHistory || [1]);
+        const INDIVIDUAL_DEADLINE = new Date("2026-04-18T00:00:00+07:00");
+        const isIndividualClosed = new Date() > INDIVIDUAL_DEADLINE;
+
+        let finalFormData = savedFormData || {};
+        let finalSlide = savedSlide || 1;
+        let finalHistory = savedHistory || [1];
+
+        if (isIndividualClosed && finalFormData.regType === "individual") {
+          finalFormData.regType = "team";
+          finalFormData.teamSize = "3";
+          finalSlide = 1;
+          finalHistory = [1];
+        }
+
+        setFormData(finalFormData);
+        setSlideHistory(finalHistory);
 
         if (savedIsSubmitted) {
           setIsSubmitted(true);
           setCurrentSlide(5);
         } else {
-          setCurrentSlide(savedSlide || 1);
+          setCurrentSlide(finalSlide);
         }
       } catch (error) {
         console.error("Error loading saved progress:", error);
