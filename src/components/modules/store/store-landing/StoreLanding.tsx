@@ -19,6 +19,8 @@ const StoreLanding = () => {
   const router = useRouter();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isDetailOpen, setIsDetailOpen] = useState(false);
+  const isMerchOpen = false;
+  const isBundleOpen = false;
 
   const handleOpenDetail = (product: Product) => {
     setSelectedProduct(product);
@@ -33,14 +35,16 @@ const StoreLanding = () => {
     <StoreLayout>
       <div className="relative pb-2">
         <div className="mt-12 flex flex-col gap-12">
-          <ProductSection
-            title="Merchandise."
-            subtitle="Tunjukkan identitasmu sebagai bagian dari 180DC UGM, semua hadir dalam kualitas premium."
-          >
-            {merchandiseProducts.map((p) => (
-              <ProductCard key={`merch-${p.id}`} product={p} onOpenDetail={handleOpenDetail} />
-            ))}
-          </ProductSection>
+          {isMerchOpen && (
+            <ProductSection
+              title="Merchandise."
+              subtitle="Tunjukkan identitasmu sebagai bagian dari 180DC UGM, semua hadir dalam kualitas premium."
+            >
+              {merchandiseProducts.map((p) => (
+                <ProductCard key={`merch-${p.id}`} product={p} onOpenDetail={handleOpenDetail} />
+              ))}
+            </ProductSection>
+          )}
 
           <ProductSection
             title="Special Products."
@@ -51,14 +55,16 @@ const StoreLanding = () => {
             ))}
           </ProductSection>
 
-          <ProductSection
-            title="Paket Bundle."
-            subtitle="Paket lengkap dan eksklusif dari 180DC UGM — lebih hemat dari beli satuan!"
-          >
-            {bundleProducts.map((p) => (
-              <ProductCard key={`bundle-${p.id}`} product={p} onOpenDetail={handleOpenDetail} />
-            ))}
-          </ProductSection>
+          {isBundleOpen && (
+            <ProductSection
+              title="Paket Bundle."
+              subtitle="Paket lengkap dan eksklusif dari 180DC UGM — lebih hemat dari beli satuan!"
+            >
+              {bundleProducts.map((p) => (
+                <ProductCard key={`bundle-${p.id}`} product={p} onOpenDetail={handleOpenDetail} />
+              ))}
+            </ProductSection>
+          )}
         </div>
 
         {/* Floating Cart Button */}
