@@ -1,4 +1,4 @@
-import FormCC from "@/components/modules/casecomp/form/Form";
+import Closed from "@/components/modules/closed/Closed";
 
 export const metadata = {
   title: "180DC Case Competition | 180 Degrees Consulting UGM",
@@ -7,7 +7,7 @@ export const metadata = {
 export default function CaseComp() {
   return (
     <>
-      <FormCC />
+      <Closed />
     </>
   );
 }
