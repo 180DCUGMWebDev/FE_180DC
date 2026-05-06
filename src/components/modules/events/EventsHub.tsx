@@ -44,7 +44,7 @@ const programs = [
     icon: Calendar,
     image:
       "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1500&auto=format&fit=crop", // team working on computers/data
-    available: true,
+    available: false,
   },
   {
     title: "Video Case Competition",
@@ -54,7 +54,7 @@ const programs = [
     icon: Video,
     image:
       "https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?q=80&w=1500&auto=format&fit=crop", // videography/camera setup
-    available: true,
+    available: false,
   },
 ];
 

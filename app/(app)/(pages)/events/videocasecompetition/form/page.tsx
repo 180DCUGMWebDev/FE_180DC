@@ -1,5 +1,4 @@
-import Form from "@/components/modules/videocasecompetition/form/Form";
-import ComingSoon from "@/components/modules/videocasecompetition/ComingSoon";
+import Closed from "@/components/modules/closed/Closed";
 
 export const metadata = {
   title: "Video Case Competition | 180 Degrees Consulting UGM",
@@ -8,8 +7,7 @@ export const metadata = {
 export default function VideoCaseComp() {
   return (
     <>
-      <Form />
-      {/* <ComingSoon /> */}
+      <Closed />
     </>
   );
 }
