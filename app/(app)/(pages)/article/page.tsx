@@ -2,6 +2,7 @@ import { HeroArticle, FeaturedTelescope, FeaturedReports } from "@/components/mo
 import { getPayload } from "payload";
 import config from "@payload-config";
 import CTASection180 from "@/components/elements/CTASection180";
+import PageHeader from "@/components/elements/PageHeader";
 
 export const metadata = {
   title: "Article Hub | 180 Degrees Consulting UGM",
@@ -18,16 +19,20 @@ export default async function ArticleHubPage() {
   });
 
   return (
-    <>
-      <HeroArticle />
+    <section className="relative w-full bg-black">
+      <PageHeader
+        title="Our thoughts"
+        subtitle="Explore our latest publications, ranging from in-depth industry analysis in Industrial Reports to insightful articles in the Telescope."
+      />
+      {/* <HeroArticle /> */}
       <FeaturedTelescope articles={telescope.docs} />
       <FeaturedReports />
-      <CTASection180 
-        title={<>We Look Forward to<br/>Speaking with You</>}
+      <CTASection180
+        title={<>We Look Forward to<br />Speaking with You</>}
         subtitle={<>Explore our different services offerings, and<br className="hidden sm:block" /> reach out to us for a discussion.</>}
         primaryButtonText="Consult Now!"
         primaryButtonHref="/apply"
       />
-    </>
+    </section>
   );
 }
