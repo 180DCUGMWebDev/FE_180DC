@@ -3,9 +3,46 @@
 import { useState, useRef, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
-import { MessageCircle, X, Send, Loader2 } from 'lucide-react';
+import { MessageCircle, X, Send, Loader2, Briefcase, ClipboardList, ShoppingBag, ChevronLeft, RotateCcw } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+
+// Starter menu shown when the chat has no messages yet.
+const TOPICS = [
+    {
+        id: 'client',
+        label: 'Client',
+        description: 'Our services & partnerships',
+        icon: Briefcase,
+        questions: [
+            'What consulting services does 180DC UGM offer?',
+            'How can my organization become a client of 180DC UGM?',
+            'Who are the previous clients of 180DC UGM?',
+        ],
+    },
+    {
+        id: 'registration',
+        label: 'Registration',
+        description: 'Recruitment, bootcamp & competitions',
+        icon: ClipboardList,
+        questions: [
+            'How can I join 180DC UGM as a member?',
+            'What are the requirements and timeline for the recruitment?',
+            'Which events of 180DC UGM are open for registration?',
+        ],
+    },
+    {
+        id: 'store',
+        label: 'Store',
+        description: 'Merchandise & Framework Bank',
+        icon: ShoppingBag,
+        questions: [
+            'What is available in the 180DC UGM store?',
+            'What is the Framework Bank?',
+            'How do I order and pay for the merchandise?',
+        ],
+    },
+] as const;
 
 export default function EightyChatbot() {
     const pathname = usePathname();
@@ -13,6 +50,7 @@ export default function EightyChatbot() {
     const [messages, setMessages] = useState<{ role: 'user' | 'assistant', content: string }[]>([]);
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [activeTopic, setActiveTopic] = useState<string | null>(null);
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
     // Check excluded routes (but do NOT return early before hooks)
@@ -60,19 +98,24 @@ export default function EightyChatbot() {
     // Now safe to do conditional return AFTER all hooks
     if (isExcluded) return null;
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!input.trim() || isLoading) return;
+    const resetChat = () => {
+        setMessages([]);
+        setActiveTopic(null);
+        localStorage.removeItem('eighty_chat_history');
+    };
 
-        const userMessage = input.trim();
-        
-        // Context: Send last 1 Q&A pair for conversation memory
-        const historyContext = messages.slice(-2).map(msg => ({
+    const sendMessage = async (text: string) => {
+        const userMessage = text.trim();
+        if (!userMessage || isLoading) return;
+
+        // Context: send the last 3 Q&A pairs so follow-up questions keep their thread
+        const historyContext = messages.slice(-6).map(msg => ({
             role: msg.role,
             content: msg.content
         }));
 
         setInput('');
+        setActiveTopic(null);
         setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
         setIsLoading(true);
 
@@ -131,6 +174,11 @@ export default function EightyChatbot() {
         }
     };
 
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        sendMessage(input);
+    };
+
     return (
         <>
             {/* Floating Action Button */}
@@ -179,24 +227,96 @@ export default function EightyChatbot() {
                                         <p className="font-lato-regular text-sm text-gray-400">Assistant 180DC UGM</p>
                                     </div>
                                 </div>
-                                <button
-                                    onClick={() => setIsOpen(false)}
-                                    className="p-2 text-gray-400 hover:bg-white/10 hover:text-white rounded-full transition-colors"
-                                >
-                                    <X className="w-6 h-6" />
-                                </button>
+                                <div className="flex items-center">
+                                    {messages.length > 0 && (
+                                        <button
+                                            onClick={resetChat}
+                                            title="Start a new chat"
+                                            className="p-2 text-gray-400 hover:bg-white/10 hover:text-white rounded-full transition-colors"
+                                        >
+                                            <RotateCcw className="w-5 h-5" />
+                                        </button>
+                                    )}
+                                    <button
+                                        onClick={() => setIsOpen(false)}
+                                        className="p-2 text-gray-400 hover:bg-white/10 hover:text-white rounded-full transition-colors"
+                                    >
+                                        <X className="w-6 h-6" />
+                                    </button>
+                                </div>
                             </div>
 
                             {/* Chat Messages */}
                             <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-black">
                                 {messages.length === 0 && (
-                                    <div className="text-center text-gray-400 mt-12 space-y-5">
-                                        <div className="w-20 h-20 mx-auto bg-white/5 rounded-full flex items-center justify-center border border-white/10">
-                                            <MessageCircle className="w-10 h-10 text-green-300 opacity-80" />
+                                    <div className="text-gray-400 mt-6 space-y-6">
+                                        <div className="text-center space-y-5">
+                                            <div className="w-20 h-20 mx-auto bg-white/5 rounded-full flex items-center justify-center border border-white/10">
+                                                <MessageCircle className="w-10 h-10 text-green-300 opacity-80" />
+                                            </div>
+                                            <p className="font-lato-light text-[16px] px-6 text-gray-300">
+                                                Hello! I&apos;m <span className="font-lato-bold text-white">Eighty</span>, AI assistant virtual 180DC UGM.<br /><br />Pick a topic below, or just say hi.
+                                            </p>
                                         </div>
-                                        <p className="font-lato-light text-[16px] px-6 text-gray-300">
-                                            Hello! I&apos;m <span className="font-lato-bold text-white">Eighty</span>, AI assistant virtual 180DC UGM.<br /><br />Ask me anything about 180DC UGM!
-                                        </p>
+
+                                        {/* Starter menu: topics, then example questions */}
+                                        <AnimatePresence mode="wait">
+                                            {activeTopic === null ? (
+                                                <motion.div
+                                                    key="topics"
+                                                    initial={{ opacity: 0, y: 8 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: -8 }}
+                                                    transition={{ duration: 0.15 }}
+                                                    className="space-y-2.5"
+                                                >
+                                                    {TOPICS.map((topic) => {
+                                                        const Icon = topic.icon;
+                                                        return (
+                                                            <button
+                                                                key={topic.id}
+                                                                onClick={() => setActiveTopic(topic.id)}
+                                                                className="w-full flex items-center gap-4 text-left bg-black-300 border border-white/10 hover:border-green-300/60 hover:bg-white/5 rounded-[16px] px-4 py-3.5 transition-colors group"
+                                                            >
+                                                                <span className="w-10 h-10 shrink-0 rounded-full bg-green-300/10 border border-green-300/20 flex items-center justify-center">
+                                                                    <Icon className="w-5 h-5 text-green-300" />
+                                                                </span>
+                                                                <span className="min-w-0">
+                                                                    <span className="block font-lato-bold text-[15px] text-white group-hover:text-green-300 transition-colors">{topic.label}</span>
+                                                                    <span className="block font-lato-light text-[12px] text-gray-400 truncate">{topic.description}</span>
+                                                                </span>
+                                                            </button>
+                                                        );
+                                                    })}
+                                                </motion.div>
+                                            ) : (
+                                                <motion.div
+                                                    key={activeTopic}
+                                                    initial={{ opacity: 0, y: 8 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: -8 }}
+                                                    transition={{ duration: 0.15 }}
+                                                    className="space-y-2.5"
+                                                >
+                                                    <button
+                                                        onClick={() => setActiveTopic(null)}
+                                                        className="flex items-center gap-1 font-lato-regular text-[13px] text-gray-400 hover:text-green-300 transition-colors"
+                                                    >
+                                                        <ChevronLeft className="w-4 h-4" /> All topics
+                                                    </button>
+                                                    {TOPICS.find((topic) => topic.id === activeTopic)?.questions.map((question) => (
+                                                        <button
+                                                            key={question}
+                                                            onClick={() => sendMessage(question)}
+                                                            disabled={isLoading}
+                                                            className="w-full text-left font-lato-regular text-[14px] leading-relaxed text-gray-200 bg-black-300 border border-white/10 hover:border-green-300/60 hover:text-green-300 rounded-[16px] px-4 py-3 transition-colors disabled:opacity-50"
+                                                        >
+                                                            {question}
+                                                        </button>
+                                                    ))}
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
                                     </div>
                                 )}
 
