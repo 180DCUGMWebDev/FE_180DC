@@ -21,6 +21,32 @@ interface RecruitmentBatch {
 
 const batches: RecruitmentBatch[] = [
   {
+    id: "26-27-consulting-cycle-1",
+    title: "Open Recruitment Consulting Analyst",
+    cycle: "Cycle 1",
+    batchYear: "26/27",
+    type: "Consulting Analyst",
+    description:
+      "Work with real clients on impactful projects. Develop problem-solving, analytical, and communication skills while making a difference for social impact organizations.",
+    status: "Closed",
+    period: "August 2026",
+    image: "/img/opreccycle/bgHeroOprec.png",
+    href: "/events/oprec/26-27/consulting/cycle1",
+  },
+  {
+    id: "26-27-functional-cycle-1",
+    title: "Open Recruitment Functional Analyst",
+    cycle: "Cycle 1",
+    batchYear: "26/27",
+    type: "Functional Analyst",
+    description:
+      "Drive internal excellence across Marketing, Human Resources, Finance, and Technology. Build leadership skills while strengthening our organization's foundation.",
+    status: "Closed",
+    period: "August 2026",
+    image: "/img/homepage/hero1.png",
+    href: "/events/oprec/26-27/functional",
+  },
+  {
     id: "25-26-consulting-cycle-2",
     title: "Open Recruitment Consulting Analyst",
     cycle: "Cycle 2",
@@ -44,7 +70,7 @@ const batches: RecruitmentBatch[] = [
     status: "Closed",
     period: "August 2025",
     image: "/img/opreccycle/bgHeroOprec.png",
-    href: "/oprec/25-26/consulting/cycle1",
+    href: "/events/oprec/25-26/consulting/cycle1",
   },
   {
     id: "25-26-functional-cycle-1",
@@ -57,7 +83,7 @@ const batches: RecruitmentBatch[] = [
     status: "Closed",
     period: "August 2025",
     image: "/img/homepage/hero1.png",
-    href: "/oprec/25-26/functional",
+    href: "/events/oprec/25-26/functional",
   },
   {
     id: "24-25-consulting-cycle-2",
@@ -76,22 +102,33 @@ const batches: RecruitmentBatch[] = [
 
 type FilterStatus = "All" | "Open" | "Closed";
 
+// Land on the open batches when there are any, otherwise "Open" would greet
+// visitors with an empty list.
+const defaultFilterStatus: FilterStatus = batches.some((batch) => batch.status === "Open")
+  ? "Open"
+  : "All";
+
 export default function Oprec() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [filterStatus, setFilterStatus] = useState<FilterStatus>("All");
+  const [filterStatus, setFilterStatus] = useState<FilterStatus>(defaultFilterStatus);
 
-  // Filter batches based on search and status
+  // Filter batches based on search and status, keeping open ones on top
   const filteredBatches = useMemo(() => {
-    return batches.filter((batch) => {
-      const matchesSearch =
-        batch.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        batch.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        batch.type.toLowerCase().includes(searchQuery.toLowerCase());
+    return batches
+      .filter((batch) => {
+        const matchesSearch =
+          batch.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          batch.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          batch.type.toLowerCase().includes(searchQuery.toLowerCase());
 
-      const matchesStatus = filterStatus === "All" || batch.status === filterStatus;
+        const matchesStatus = filterStatus === "All" || batch.status === filterStatus;
 
-      return matchesSearch && matchesStatus;
-    });
+        return matchesSearch && matchesStatus;
+      })
+      .sort((a, b) => {
+        if (a.status === b.status) return 0;
+        return a.status === "Open" ? -1 : 1;
+      });
   }, [searchQuery, filterStatus]);
 
   return (
