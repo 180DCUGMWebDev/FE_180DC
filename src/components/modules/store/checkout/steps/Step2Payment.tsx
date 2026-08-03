@@ -68,11 +68,11 @@ export default function Step2Payment({ onPrev, isSubmitting, grandTotal }: Step2
             </div>
             <div className="flex flex-wrap items-center gap-2 border-t border-white/5 pt-3">
               <span className="text-gray-400">Account Number:</span>
-              <span className="font-avenir-black text-lg text-[#75C44D]">0072 6270 9150</span>
+              <span className="font-avenir-black text-lg text-[#75C44D]">0067 7373 7713</span>
               <button
                 type="button"
                 onClick={() => {
-                  navigator.clipboard.writeText("007262709150");
+                  navigator.clipboard.writeText("006773737713");
                   toast.success("Account number copied!");
                 }}
                 className="rounded-md bg-[#75C44D]/20 px-3 py-1 text-xs font-medium text-[#75C44D] transition-colors hover:bg-[#75C44D]/30"
@@ -82,7 +82,7 @@ export default function Step2Payment({ onPrev, isSubmitting, grandTotal }: Step2
             </div>
             <div className="flex items-center gap-2 border-t border-white/5 pt-3">
               <span className="text-gray-400">Account Holder:</span>
-              <span className="font-semibold text-white">Keyra Audrey Annabelle Christian</span>
+              <span className="font-semibold text-white">Amilia Windy Trihapsari</span>
             </div>
           </div>
 
@@ -146,7 +146,7 @@ export default function Step2Payment({ onPrev, isSubmitting, grandTotal }: Step2
               },
               onChange: () => handleFieldValidation("refundNumber"),
             })}
-            placeholder="ex: 007262709150"
+            placeholder="ex: 1234567890"
             className={inputClass("refundNumber")}
           />
           {errors.refundNumber && (
