@@ -4,6 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
+# this project installs with pnpm; a second lockfile makes the package manager
+# ambiguous for Vercel's detection
+package-lock.json
 
 # testing
 /coverage
@@ -35,3 +38,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# ad hoc sql run by hand against Supabase, not part of a deploy
+supabase/rls-hardening.sql
