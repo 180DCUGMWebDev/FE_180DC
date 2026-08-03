@@ -13,8 +13,8 @@ import Slide5 from "../form/slides/Slide5";
 import Slide6 from "../form/slides/Slide6";
 import SubmitSlide from "../form/slides/SubmitSlide";
 
-const STORAGE_KEY = "180DC-consulting-25-26-cycle-1";
-const API_ENDPOINT = "/api/oprec/25-26/consulting/cycle1/submit";
+const STORAGE_KEY = "180DC-consulting-26-27-cycle-1";
+const API_ENDPOINT = "/api/oprec/26-27/consulting/cycle1/submit";
 
 export default function Form() {
   const [currentSlide, setCurrentSlide] = useState(1);

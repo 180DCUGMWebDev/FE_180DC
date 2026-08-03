@@ -5,16 +5,16 @@ import { Progress } from "@/components/elements/Form/progress";
 import { Button } from "@/components/elements/Form/button";
 import { ChevronLeft } from "lucide-react";
 import { toast } from "sonner";
-import Slide1 from "../form/slides/Slide1";
-import Slide2 from "../form/slides/Slide2";
-import Slide3 from "../form/slides/Slide3";
-import Slide4 from "../form/slides/Slide4";
-import Slide5 from "../form/slides/Slide5";
-import Slide6 from "../form/slides/Slide6";
-import SubmitSlide from "../form/slides/SubmitSlide";
+import Slide1 from "./slides/Slide1";
+import Slide2 from "./slides/Slide2";
+import Slide3 from "./slides/Slide3";
+import Slide4 from "./slides/Slide4";
+import Slide5 from "./slides/Slide5";
+import Slide6 from "./slides/Slide6";
+import Slide7 from "./slides/Slide7";
+import SubmitSlide from "./slides/SubmitSlide";
 
-const STORAGE_KEY = "180DC-consulting-25-26-cycle-1";
-const API_ENDPOINT = "/api/oprec/25-26/consulting/cycle1/submit";
+const STORAGE_KEY = "180DC-functional-analyst-26-27";
 
 export default function Form() {
   const [currentSlide, setCurrentSlide] = useState(1);
@@ -23,7 +23,7 @@ export default function Form() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const totalSlides = 5;
+  const totalSlides = 7;
 
   // Load progress from localStorage on component mount
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function Form() {
         // If user has already submitted, always direct to submit slide
         if (savedIsSubmitted) {
           setIsSubmitted(true);
-          setCurrentSlide(6);
+          setCurrentSlide(8);
         } else {
           setCurrentSlide(savedSlide || 1);
         }
@@ -71,6 +71,14 @@ export default function Form() {
   };
 
   const handleNext = (nextSlide) => {
+    if ("secondChoice" in formData) {
+      if (
+        (formData.secondChoice === "No second choice" || !formData.secondChoice) &&
+        currentSlide === 4
+      ) {
+        nextSlide = 6; // Skip to Slide 6 if no second choice
+      }
+    }
     const targetSlide = nextSlide || currentSlide + 1;
     setSlideHistory((prev) => [...prev, targetSlide]);
     setCurrentSlide(targetSlide);
@@ -78,7 +86,7 @@ export default function Form() {
 
   const handlePrevious = () => {
     // If user has submitted, don't allow navigation away from success slide
-    if (isSubmitted && currentSlide === 6) {
+    if (isSubmitted && currentSlide === 8) {
       return;
     }
 
@@ -92,7 +100,7 @@ export default function Form() {
   };
 
   const getProgressPercentage = () => {
-    if (currentSlide === 6) return 100;
+    if (currentSlide === 8) return 100;
     return (currentSlide / totalSlides) * 100;
   };
 
@@ -115,7 +123,7 @@ export default function Form() {
         }
       });
 
-      const response = await fetch(API_ENDPOINT, {
+      const response = await fetch("/api/oprec/26-27/functional/submit", {
         method: "POST",
         body: submitFormData, // Send as FormData, not JSON
       });
@@ -126,9 +134,11 @@ export default function Form() {
         throw new Error(result.error || "Failed to submit form via API");
       }
 
+      // Success - navigate to success page
       console.log("Form submitted successfully via API:", result.message);
       setIsSubmitted(true);
-      setCurrentSlide(6); // SubmitSlide
+      setCurrentSlide(8); // Go to SubmitSlide (case 7) after successful submission
+      // Keep localStorage data - don't clear it
 
       toast("Success!", {
         description: result.message || "Your application has been submitted successfully.",
@@ -162,11 +172,13 @@ export default function Form() {
         return <Slide3 {...slideProps} />;
       case 4:
         return <Slide4 {...slideProps} />;
-      // case 5:
-      //   return <Slide5 {...slideProps} onSubmit={handleSubmit} isSubmitting={isSubmitting} />;
       case 5:
-        return <Slide6 {...slideProps} onSubmit={handleSubmit} isSubmitting={isSubmitting} />;
+        return <Slide5 {...slideProps} />;
       case 6:
+        return <Slide6 {...slideProps} />;
+      case 7:
+        return <Slide7 {...slideProps} />;
+      case 8:
         return <SubmitSlide formData={formData} /*onBack={handlePrevious}*/ />;
       default:
         return <Slide1 {...slideProps} />;
@@ -180,9 +192,9 @@ export default function Form() {
           <div className="pb-4">
             <div className="mb-4 flex items-center justify-between">
               <div className="text-sm font-medium text-gray-600">
-                {currentSlide === 5
+                {currentSlide === 7
                   ? "Review"
-                  : currentSlide === 6
+                  : currentSlide === 8
                     ? "Complete"
                     : `Step ${currentSlide} of ${totalSlides}`}
               </div>
@@ -192,7 +204,7 @@ export default function Form() {
           <div className="pb-8">
             <div className="flex min-h-[400px] flex-col">
               <div className="mb-6 flex-1">{renderSlide()}</div>
-              {currentSlide !== 6 && (
+              {currentSlide !== 8 && (
                 <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                   <Button
                     variant="outline"
