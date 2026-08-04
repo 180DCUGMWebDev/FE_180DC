@@ -15,9 +15,25 @@ const ROLE_LABELS = [
   ["frontend", "Frontend Developer"],
   ["backend", "Backend Developer"],
   ["uiux", "UI/UX Designer"],
-  ["sngCeoCC", "CEO of 180DC Case Competition (CEO CC)"],
-  ["sngAnalyst", "SNG Analyst"],
+  ["sngCeoCC", "CEO of 180DC Case Competition 2027 Track"],
+  ["sngAnalyst", "S&G Functional Analyst Track"],
 ];
+
+// The checkbox list arrives comma separated. "Other" carries a free text answer
+// in its own field, which is folded back in here so the whole answer lives in
+// one column, readable as "Instagram, Other: campus expo".
+function formatHearAboutUs(sources, other) {
+  const selected = String(sources || "")
+    .split(",")
+    .map((source) => source.trim())
+    .filter(Boolean);
+
+  const otherText = String(other || "").trim();
+
+  return selected
+    .map((source) => (source === "Other" && otherText ? `Other: ${otherText}` : source))
+    .join(", ");
+}
 
 function selectedRoles(submissionData, prefix) {
   return ROLE_LABELS.filter(([key]) => submissionData[`${prefix}_${key}`])
@@ -89,6 +105,14 @@ export async function POST(request) {
       // Social Media Requirements
       twibbonPostLink: formData.get("twibbonPostLink"),
       twibbonProofLink: formData.get("twibbonProofLink"),
+
+      // Discovery and 180UNLOCKED
+      hearAboutUs: formatHearAboutUs(
+        formData.get("hearAboutUs"),
+        formData.get("hearAboutUsOther")
+      ),
+      unlockedProofLink: formData.get("unlockedProofLink") || "",
+      unlockedAcknowledged: formData.get("unlockedAcknowledged") === "true",
 
       // Consent and Meta Information
       consentAgreed: formData.get("consentAgreed") === "true", // Convert to boolean
@@ -218,12 +242,15 @@ export async function POST(request) {
           submissionData.second_portfolioLink || "",
           submissionData.twibbonPostLink,
           submissionData.twibbonProofLink,
+          submissionData.hearAboutUs || "",
+          submissionData.unlockedProofLink || "",
+          submissionData.unlockedAcknowledged ? "Yes" : "No",
           submissionData.consentAgreed ? "Yes" : "No",
           submissionData.ip_address,
           submissionData.user_agent,
         ];
 
-        await appendToSheet(spreadsheetId, `${SHEET_TAB}!A:AA`, [sheetRow]);
+        await appendToSheet(spreadsheetId, `${SHEET_TAB}!A:AD`, [sheetRow]);
         console.log("Successfully submitted to Google Sheets");
       } else {
         console.warn("Google Sheets ID not configured, skipping Google Sheets submission");

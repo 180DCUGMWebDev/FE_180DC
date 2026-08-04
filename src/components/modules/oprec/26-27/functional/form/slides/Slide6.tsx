@@ -6,23 +6,45 @@ import { ChevronRight } from "lucide-react";
 import { Checkbox } from "@/components/elements/Form/checkbox";
 import Link from "next/link";
 
+const hearAboutUsOptions = ["Instagram", "LinkedIn", "Facebook", "180DC member/analyst"];
+const HEAR_ABOUT_US_OTHER = "Other";
+
 const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
   // Updated state to match the actual requirements
   const [twibbonPostLink, setTwibbonPostLink] = useState(formData.twibbonPostLink || "");
   const [twibbonProofLink, setTwibbonProofLink] = useState(formData.twibbonProofLink || "");
+  const [hearAboutUs, setHearAboutUs] = useState(formData.hearAboutUs || []);
+  const [hearAboutUsOther, setHearAboutUsOther] = useState(formData.hearAboutUsOther || "");
   const [consentAgreed, setConsentAgreed] = useState(formData.consentAgreed || false);
 
   const handleNext = () => {
     updateFormData({
       twibbonPostLink,
       twibbonProofLink,
+      hearAboutUs,
+      hearAboutUsOther,
       consentAgreed,
     });
     onNext();
   };
 
-  // Updated validation to include all required fields
-  const isValid = twibbonPostLink.trim() && twibbonProofLink.trim() && consentAgreed;
+  const handleHearAboutUsChange = (source, checked) => {
+    if (checked) {
+      setHearAboutUs((prev) => [...prev, source]);
+    } else {
+      setHearAboutUs((prev) => prev.filter((item) => item !== source));
+    }
+  };
+
+  const otherIsIncomplete =
+    hearAboutUs.includes(HEAR_ABOUT_US_OTHER) && !hearAboutUsOther.trim();
+
+  const isValid =
+    twibbonPostLink.trim() &&
+    twibbonProofLink.trim() &&
+    hearAboutUs.length > 0 &&
+    !otherIsIncomplete &&
+    consentAgreed;
 
   return (
     <div className="animate-fade-in space-y-6">
@@ -142,6 +164,59 @@ const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
             />
           </div>
 
+          {/* How did you hear about us */}
+          <div className="space-y-4">
+            <h2 className="font-avenir-regular font-bold">
+              How did you first hear about 180DC UGM? *
+            </h2>
+            <p className="font-lato-regular text-sm text-gray-500">
+              Please select all sources that apply to how you learned about 180DC UGM.
+            </p>
+
+            <div className="grid grid-cols-1 gap-3">
+              {hearAboutUsOptions.map((option) => (
+                <div key={option} className="flex items-center space-x-2">
+                  <Checkbox
+                    id={`hear-${option}`}
+                    checked={hearAboutUs.includes(option)}
+                    onCheckedChange={(checked) => handleHearAboutUsChange(option, checked)}
+                    className="text-white"
+                  />
+                  <Label htmlFor={`hear-${option}`} className="font-lato-regular text-gray-600">
+                    {option}
+                  </Label>
+                </div>
+              ))}
+
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="hear-Other"
+                  checked={hearAboutUs.includes(HEAR_ABOUT_US_OTHER)}
+                  onCheckedChange={(checked) =>
+                    handleHearAboutUsChange(HEAR_ABOUT_US_OTHER, checked)
+                  }
+                  className="text-white"
+                />
+                <Label htmlFor="hear-Other" className="font-lato-regular text-gray-600">
+                  Other:
+                </Label>
+                <Input
+                  value={hearAboutUsOther}
+                  onChange={(e) => setHearAboutUsOther(e.target.value)}
+                  disabled={!hearAboutUs.includes(HEAR_ABOUT_US_OTHER)}
+                  placeholder="Please specify"
+                  className="font-lato-regular h-8 flex-1 border-0 border-b border-gray-300 bg-transparent transition-all duration-200 focus:ring-0 disabled:opacity-50"
+                />
+              </div>
+            </div>
+
+            {otherIsIncomplete && (
+              <p className="font-lato-regular text-sm text-red-600">
+                Please specify where you heard about us.
+              </p>
+            )}
+          </div>
+
           {/* Consent Agreement */}
           <div>
             <div className="flex items-start space-x-3">
@@ -161,6 +236,7 @@ const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
               </Label>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -170,7 +246,7 @@ const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
           disabled={!isValid}
           className="font-avenir-regular disabled:text-black-300 ml-auto flex items-center gap-2 bg-green-300 text-white transition-all duration-200 hover:scale-105 hover:bg-green-300/90 disabled:opacity-50 disabled:hover:scale-100"
         >
-          Review Submission
+          Continue to Next Step
           <ChevronRight className="h-4 w-4" />
         </Button>
       </div>

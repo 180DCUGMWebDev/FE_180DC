@@ -9,6 +9,26 @@ import { NavbarResolver } from "@/components/elements/Navbar/NavbarResolver";
 import { ArrowUpRight, Phone } from "lucide-react";
 import ContactUsButton180 from "@/components/elements/ContactUsButton180";
 
+// Previous clients shown in the homepage marquee, in display order. Each logo
+// was trimmed of its margins and padded onto an identical 400x140 canvas, so
+// they all render at the same height instead of at whatever size their source
+// file happened to be.
+const previousClients = [
+  {
+    name: "National Geographic Society",
+    logo: "/img/homepage/marquee/national-geographic-society.webp",
+  },
+  { name: "The Nature Conservancy", logo: "/img/homepage/marquee/the-nature-conservancy.webp" },
+  { name: "Kitabisa", logo: "/img/homepage/marquee/kitabisa.webp" },
+  { name: "Gili Eco Trust", logo: "/img/homepage/marquee/gili-eco-trust.webp" },
+  { name: "Tersalur", logo: "/img/homepage/marquee/tersalur.webp" },
+  { name: "Planet Protector", logo: "/img/homepage/marquee/planet-protector.webp" },
+  { name: "Extern", logo: "/img/homepage/marquee/extern.webp" },
+  { name: "Berbagi Beras", logo: "/img/homepage/marquee/berbagi-beras.webp" },
+  { name: "Foras Palestine", logo: "/img/homepage/marquee/foras-palestine.webp" },
+  { name: "FlashCampus", logo: "/img/homepage/marquee/flashcampus.webp" },
+];
+
 export function Hero({ heroData }: { heroData: Partial<HeroType> }) {
   const newsTitle = heroData?.newsTitle || "180DC UGM Consulting Bootcamp";
   const newsContent =
@@ -153,20 +173,15 @@ export function Hero({ heroData }: { heroData: Partial<HeroType> }) {
           >
             <p className="font-avenir-heavy text-lg text-white">Our Previous Clients</p>
 
-            <div className="relative h-[90px] w-full overflow-hidden">
+            <div className="relative h-[120px] w-full overflow-hidden">
               <div className="animate-marquee absolute flex items-center gap-14 border-y border-white/5 py-6">
                 {/* Double the items for a seamless loop */}
-                {[...Array(20)].map((_, i) => (
+                {[...previousClients, ...previousClients].map((client, i) => (
                   <div
-                    key={i}
-                    className="relative mt-2 h-10 w-40 shrink-0 opacity-65 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                    key={`${client.name}-${i}`}
+                    className="relative mt-2 h-14 w-44 shrink-0 opacity-80 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
                   >
-                    <Image
-                      src="/img/homepage/marquee/deloitte.png"
-                      alt="Deloitte"
-                      fill
-                      className="object-contain"
-                    />
+                    <Image src={client.logo} alt={client.name} fill className="object-contain" />
                   </div>
                 ))}
               </div>

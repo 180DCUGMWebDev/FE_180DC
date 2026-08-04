@@ -1,7 +1,7 @@
 "use client";
 import { Label } from "@/components/elements/Form/label";
 import { Input } from "@/components/elements/Form/input";
-import { Checkbox } from "@/components/elements/Form/checkbox";
+import { RadioGroup, RadioGroupItem } from "@/components/elements/Form/radioGroup";
 
 const SlideSG = ({
   formData,
@@ -23,6 +23,15 @@ const SlideSG = ({
   const choiceText = isSecondChoice ? "Second Choice" : "First Choice";
   const stepNumber = isSecondChoice ? "4" : "3";
   const hasSelectedRole = sngCeoCC || sngAnalyst;
+
+  // Only one role may be picked here, but it is still stored as the same pair
+  // of booleans the rest of the form and the database already use.
+  const selectedRole = sngCeoCC ? "sngCeoCC" : sngAnalyst ? "sngAnalyst" : "";
+
+  const handleRoleChange = (role) => {
+    setSngCeoCC(role === "sngCeoCC");
+    setSngAnalyst(role === "sngAnalyst");
+  };
 
   return (
     <div className="animate-fade-in space-y-6">
@@ -54,42 +63,35 @@ const SlideSG = ({
         <div className="space-y-6">
           <div>
             <Label className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700">
-              Desired Role in Strategy and Growth *
+              Desired Track for Strategy &amp; Growth *
             </Label>
             <p className="font-lato-regular mb-3 text-sm text-gray-500">
-              You can pick more than one role that you are interested in! (Minimum 1 role required)
+              Select your track based on your interest, contribute as an SnG Functional Analyst or
+              take on an additional leadership role as CEO of Case Competition 2027.
             </p>
-            <div
+            <RadioGroup
+              value={selectedRole}
+              onValueChange={handleRoleChange}
               className={`flex flex-col gap-2 rounded-lg p-3 ${!hasSelectedRole ? "border-2 border-red-300 bg-red-50" : "border border-gray-200"}`}
             >
               <div className="flex flex-row items-center gap-2">
-                <Checkbox
-                  id="sngCeoCC"
-                  checked={sngCeoCC}
-                  onCheckedChange={(checked) => setSngCeoCC(checked)}
-                  className="text-white"
-                />
-                <Label htmlFor="sngCeoCC">
-                  <p className="font-lato-regular text-gray-600">
-                    CEO of 180DC Case Competition (CEO CC)
-                  </p>
+                <RadioGroupItem value="sngAnalyst" id="sngAnalyst" />
+                <Label htmlFor="sngAnalyst">
+                  <p className="font-lato-regular text-gray-600">S&amp;G Functional Analyst Track</p>
                 </Label>
               </div>
               <div className="flex flex-row items-center gap-2">
-                <Checkbox
-                  id="sngAnalyst"
-                  checked={sngAnalyst}
-                  onCheckedChange={(checked) => setSngAnalyst(checked)}
-                  className="text-white"
-                />
-                <Label htmlFor="sngAnalyst">
-                  <p className="font-lato-regular text-gray-600">SNG Analyst</p>
+                <RadioGroupItem value="sngCeoCC" id="sngCeoCC" />
+                <Label htmlFor="sngCeoCC">
+                  <p className="font-lato-regular text-gray-600">
+                    CEO of 180DC Case Competition 2027 Track
+                  </p>
                 </Label>
               </div>
-            </div>
+            </RadioGroup>
             {!hasSelectedRole && (
               <p className="font-lato-regular mt-2 text-sm text-red-600">
-                Please select at least one role you are interested in.
+                Please select the track you are interested in.
               </p>
             )}
           </div>

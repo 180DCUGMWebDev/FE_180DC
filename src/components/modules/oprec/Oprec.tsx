@@ -28,7 +28,7 @@ const batches: RecruitmentBatch[] = [
     type: "Consulting Analyst",
     description:
       "Work with real clients on impactful projects. Develop problem-solving, analytical, and communication skills while making a difference for social impact organizations.",
-    status: "Open",
+    status: "Closed",
     period: "August 2026",
     image: "/img/opreccycle/bgHeroOprec.png",
     href: "/events/oprec/26-27/consulting/cycle1",
@@ -151,7 +151,9 @@ export default function Oprec() {
           <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             {/* Search Bar */}
             <div className="relative flex-1 sm:max-w-md">
-              <Search className="h-4 w-4 text-white" />
+              {/* z-10 is required: the input's backdrop-blur creates a stacking
+                  context, so without it the later sibling paints over the icon */}
+              <Search className="pointer-events-none absolute top-1/2 left-4 z-10 h-4 w-4 -translate-y-1/2 text-white/60" />
               <input
                 type="text"
                 placeholder="Search recruitment..."

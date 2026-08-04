@@ -4,7 +4,7 @@ import { Button } from "@/components/elements/Form/button";
 import { ChevronRight, User, GraduationCap, Briefcase, Upload, Loader2 } from "lucide-react";
 import Link from "next/link";
 
-const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
+const Slide8 = ({ formData, onSubmit, isSubmitting }) => {
   // Updated validation to match exact formData structure
   const isValid =
     formData.name &&
@@ -19,6 +19,8 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
     formData.first_documentLink &&
     formData.twibbonPostLink &&
     formData.twibbonProofLink &&
+    formData.hearAboutUs?.length > 0 &&
+    formData.unlockedAcknowledged &&
     formData.consentAgreed;
 
   const handleSubmit = async (e) => {
@@ -247,12 +249,12 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                       <>
                         {formData.first_sngCeoCC && (
                           <span className="inline-block rounded-full bg-green-300/10 px-3 py-1 text-sm text-green-300">
-                            CEO of 180DC Case Competition (CEO CC)
+                            CEO of 180DC Case Competition 2027 Track
                           </span>
                         )}
                         {formData.first_sngAnalyst && (
                           <span className="inline-block rounded-full bg-green-300/10 px-3 py-1 text-sm text-green-300">
-                            SNG Analyst
+                            S&G Functional Analyst Track
                           </span>
                         )}
                       </>
@@ -413,12 +415,12 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
                         <>
                           {formData.second_sngCeoCC && (
                             <span className="inline-block rounded-full bg-cyan-300/10 px-3 py-1 text-sm text-cyan-300">
-                              CEO of 180DC Case Competition (CEO CC)
+                              CEO of 180DC Case Competition 2027 Track
                             </span>
                           )}
                           {formData.second_sngAnalyst && (
                             <span className="inline-block rounded-full bg-cyan-300/10 px-3 py-1 text-sm text-cyan-300">
-                              SNG Analyst
+                              S&G Functional Analyst Track
                             </span>
                           )}
                         </>
@@ -554,6 +556,55 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
               )}
             </p>
           </div>
+          <div className="md:col-span-2">
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">
+              How you first heard about us:
+            </span>
+            <p className="font-lato-regular text-gray-600">
+              {formData.hearAboutUs && formData.hearAboutUs.length > 0 ? (
+                formData.hearAboutUs
+                  .map((source) =>
+                    source === "Other" && formData.hearAboutUsOther
+                      ? `Other: ${formData.hearAboutUsOther}`
+                      : source
+                  )
+                  .join(", ")
+              ) : (
+                <span className="text-red-500">Not provided (Required)</span>
+              )}
+            </p>
+          </div>
+          <div className="md:col-span-2">
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">
+              180UNLOCKED Registration Proof:
+            </span>
+            <p className="font-lato-regular text-gray-600">
+              {formData.unlockedProofLink ? (
+                <Link
+                  href={formData.unlockedProofLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-green-300 hover:underline"
+                >
+                  View Proof ({formData.unlockedProofLink})
+                </Link>
+              ) : (
+                <span className="text-gray-400 italic">Not provided (Optional)</span>
+              )}
+            </p>
+          </div>
+          <div>
+            <span className="font-avenir-regular text-sm font-medium text-gray-700">
+              180UNLOCKED Acknowledgement:
+            </span>
+            <p className="font-lato-regular text-gray-600">
+              {formData.unlockedAcknowledged ? (
+                <span className="font-medium text-green-300">Acknowledged</span>
+              ) : (
+                <span className="text-red-500">Not acknowledged</span>
+              )}
+            </p>
+          </div>
           <div>
             <span className="font-avenir-regular text-sm font-medium text-gray-700">
               Consent Agreement:
@@ -670,4 +721,4 @@ const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
   );
 };
 
-export default Slide7;
+export default Slide8;
