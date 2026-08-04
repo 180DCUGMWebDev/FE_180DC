@@ -24,7 +24,22 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
   const [activeStudent, setActiveStudent] = useState(formData.activeStudent || false);
 
   const handleNext = () => {
-    // Update form data with current values
+    // Check if user is not an active student
+    if (!activeStudent) {
+      updateFormData({
+        name,
+        email,
+        batch,
+        phone,
+        faculty,
+        major,
+        gpa,
+        activeStudent: false,
+      });
+      return;
+    }
+
+    // If active student, proceed normally to Slide 2
     updateFormData({
       name,
       email,
@@ -35,17 +50,6 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
       gpa,
       activeStudent,
     });
-
-    // Check if user is not an active student
-    if (!activeStudent) {
-      // Show alert or handle non-active student case
-      alert(
-        "This recruitment is only open for active UGM students. Please contact us if you believe this is an error."
-      );
-      return;
-    }
-
-    // If active student and all validations pass, proceed to next slide
     onNext();
   };
 
@@ -59,7 +63,8 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
     major.trim() &&
     gpa.trim() &&
     parseFloat(gpa) >= 0 &&
-    parseFloat(gpa) <= 100;
+    parseFloat(gpa) <= 100 &&
+    activeStudent;
 
   return (
     <div className="abatchate-fade-in space-y-6">
@@ -273,14 +278,6 @@ const Slide1 = ({ formData, updateFormData, onNext }) => {
               </p>
             </Label>
           </div>
-          {!activeStudent && (
-            <div className="mt-2 rounded-md border border-yellow-200 bg-yellow-50 p-3">
-              <p className="font-lato-regular text-sm text-yellow-800">
-                ⚠️ This recruitment is only open for active UGM students. You must be an active
-                student to proceed with the application.
-              </p>
-            </div>
-          )}
         </div>
       </div>
       <div className="flex justify-end pt-4">
