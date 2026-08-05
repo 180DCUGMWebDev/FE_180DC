@@ -86,7 +86,7 @@ const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
               <br />
               1. Open the drive:{" "}
               <Link
-                href="https://drive.google.com/drive/folders/1qvKOOsRm_bRliho4et3pulZLyJwrBRyG?usp=sharing"
+                href="https://drive.google.com/drive/folders/1RRP5ropmuKM_36sL6ByU5Dc19Q_BJbIj?usp=drive_link"
                 className="text-cyan-600 underline"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -141,7 +141,7 @@ const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
                 <br />
                 2. Uploading this image on your story →{" "}
                 <Link
-                  href="https://drive.google.com/file/d/10lhYjHuwREvf983wXc1kT4GCdOln3EBp/view?usp=drive_link"
+                  href="https://drive.google.com/drive/folders/14osZbjU6gUweu4aANyNU0EjbUcBqzsu1?usp=drive_link"
                   className="text-cyan-600 underline"
                   target="_blank"
                   rel="noopener noreferrer"
