@@ -131,7 +131,7 @@ const Slide6 = ({ formData, updateFormData, onNext, onPrevious }) => {
               <p>
                 1. Tagging 3 friends on this post →{" "}
                 <Link
-                  href="https://www.instagram.com/p/DNDBGBBTvnv/?utm_source=ig_web_copy_link&igsh=MWVyeTRhdGdhYWtjZQ=="
+                  href="https://www.instagram.com/p/DbpaevIEyFA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
                   className="text-cyan-600 underline"
                   target="_blank"
                   rel="noopener noreferrer"
