@@ -134,7 +134,9 @@ export default function Oprec() {
   return (
     <>
       {/* Recruitment List Section */}
-      <section className="relative bg-black px-[5%] py-20 sm:px-[10%] lg:px-[4%]">
+      {/* flex-1 lets the black fill whatever space is left when only a couple of
+          batches match, so it meets the footer instead of stopping short */}
+      <section className="relative flex-1 bg-black px-[5%] py-20 sm:px-[10%] lg:px-[4%]">
         <NavbarResolver />
         <div className="mx-auto max-w-6xl">
           {/* Section Header */}
