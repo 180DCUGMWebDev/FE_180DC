@@ -6,6 +6,11 @@ import { OurClients } from "@/components/modules/homepage";
 import { getPayload } from "payload";
 import config from "@payload-config";
 
+// This page reads Payload at render time. Without this it is prerendered once
+// at build, so CMS edits only appear after the next deploy. Revalidating keeps
+// it cached while picking up content changes within a minute.
+export const revalidate = 60;
+
 const DUMMY = {
   notification: "You have 3 Notifications!",
   contact: "wa.me/628111478173",
