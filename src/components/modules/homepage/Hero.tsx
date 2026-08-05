@@ -179,7 +179,7 @@ export function Hero({ heroData }: { heroData: Partial<HeroType> }) {
                 {[...previousClients, ...previousClients].map((client, i) => (
                   <div
                     key={`${client.name}-${i}`}
-                    className="relative mt-2 h-14 w-44 shrink-0 opacity-80 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                    className="relative mt-2 h-14 w-44 shrink-0 transition-transform duration-300 hover:scale-105"
                   >
                     <Image src={client.logo} alt={client.name} fill className="object-contain" />
                   </div>
