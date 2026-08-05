@@ -79,7 +79,9 @@ export default async function RootLayout({ children }) {
       </Script>
       <body
         className={cn(
-          "select-none",
+          // matches the footer, so short pages show dark under it rather than
+          // a strip of white page background
+          "bg-black-300 select-none",
           mulishLight.variable,
           mulishRegular.variable,
           mulishSemibold.variable,
@@ -103,9 +105,14 @@ export default async function RootLayout({ children }) {
       >
         <UtilsProvider>
           {/* Content > 250px */}
-          <main className="hidden flex-col overflow-clip min-[250px]:flex">
+          {/* min-h-screen + a growing content wrapper keeps the footer resting
+              at the bottom of the viewport on short pages, so the page
+              background is never exposed beneath it */}
+          <main className="hidden min-h-screen flex-col overflow-clip min-[250px]:flex">
             <Navbar notification={notification as string | undefined} />
-            <AnimationProvider>{children}</AnimationProvider>
+            <div className="flex flex-1 flex-col">
+              <AnimationProvider>{children}</AnimationProvider>
+            </div>
             <Footer />
           </main>
           {/* Second Option < 250px*/}

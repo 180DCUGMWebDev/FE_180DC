@@ -8,6 +8,10 @@ export const metadata = {
   title: "Article Hub | 180 Degrees Consulting UGM",
 };
 
+// Reads Payload at render time, so revalidate rather than prerender once at
+// build: newly published articles appear without a redeploy.
+export const revalidate = 60;
+
 export default async function ArticleHubPage() {
   const payload = await getPayload({ config });
 

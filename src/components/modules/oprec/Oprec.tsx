@@ -41,7 +41,7 @@ const batches: RecruitmentBatch[] = [
     type: "Functional Analyst",
     description:
       "Drive internal excellence across Marketing, Human Resources, Finance, and Technology. Build leadership skills while strengthening our organization's foundation.",
-    status: "Closed",
+    status: "Open",
     period: "August 2026",
     image: "/img/homepage/hero1.png",
     href: "/events/oprec/26-27/functional",
@@ -134,7 +134,9 @@ export default function Oprec() {
   return (
     <>
       {/* Recruitment List Section */}
-      <section className="relative bg-black px-[5%] py-20 sm:px-[10%] lg:px-[4%]">
+      {/* flex-1 lets the black fill whatever space is left when only a couple of
+          batches match, so it meets the footer instead of stopping short */}
+      <section className="relative flex-1 bg-black px-[5%] py-20 sm:px-[10%] lg:px-[4%]">
         <NavbarResolver />
         <div className="mx-auto max-w-6xl">
           {/* Section Header */}
@@ -151,7 +153,9 @@ export default function Oprec() {
           <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             {/* Search Bar */}
             <div className="relative flex-1 sm:max-w-md">
-              <Search className="h-4 w-4 text-white" />
+              {/* z-10 is required: the input's backdrop-blur creates a stacking
+                  context, so without it the later sibling paints over the icon */}
+              <Search className="pointer-events-none absolute top-1/2 left-4 z-10 h-4 w-4 -translate-y-1/2 text-white/60" />
               <input
                 type="text"
                 placeholder="Search recruitment..."

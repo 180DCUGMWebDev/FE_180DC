@@ -1,672 +1,176 @@
-"use client";
-
+import React, { useState } from "react";
+import Image from "next/image";
 import { Button } from "@/components/elements/Form/button";
-import { ChevronRight, User, GraduationCap, Briefcase, Upload, Loader2 } from "lucide-react";
+import { Input } from "@/components/elements/Form/input";
+import { Label } from "@/components/elements/Form/label";
+import { ChevronRight } from "lucide-react";
+import { Checkbox } from "@/components/elements/Form/checkbox";
 import Link from "next/link";
 
-const Slide7 = ({ formData, onSubmit, isSubmitting }) => {
-  // Updated validation to match exact formData structure
-  const isValid =
-    formData.name &&
-    formData.email &&
-    formData.phone &&
-    formData.faculty &&
-    formData.major &&
-    formData.batch &&
-    formData.gpa &&
-    formData.firstChoice &&
-    formData.first_cvLink &&
-    formData.first_documentLink &&
-    formData.twibbonPostLink &&
-    formData.twibbonProofLink &&
-    formData.consentAgreed;
+// Swap this for the Payload media URL once the poster is uploaded there.
+const UNLOCKED_POSTER = "/img/oprec/180unlocked.webp";
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!isValid) return;
+const Slide7 = ({ formData, updateFormData, onNext, onPrevious }) => {
+  const [unlockedProofLink, setUnlockedProofLink] = useState(formData.unlockedProofLink || "");
+  const [unlockedAcknowledged, setUnlockedAcknowledged] = useState(
+    formData.unlockedAcknowledged || false
+  );
 
-    // Call the parent's submit handler
-    await onSubmit();
+  const handleNext = () => {
+    updateFormData({
+      unlockedProofLink,
+      unlockedAcknowledged,
+    });
+    onNext();
   };
 
+  // The proof link is deliberately optional: attending is encouraged, not
+  // mandatory, so requiring it would block applicants who cannot make the date.
+  const isValid = unlockedAcknowledged;
+
   return (
-    <form onSubmit={handleSubmit} className="animate-fade-in space-y-6">
+    <div className="animate-fade-in space-y-6">
       <div className="text-center">
         <h2 className="font-avenir-black mt-2 mb-1 text-2xl leading-snug text-green-300 lg:text-3xl">
-          Review Your Application
+          Register for 180UNLOCKED
         </h2>
         <p className="font-lato-regular text-gray-600">
-          Please review all information before submitting your application
+          Registering for 180UNLOCKED is highly encouraged and will be viewed positively in your
+          application.
         </p>
       </div>
 
-      {/* Personal Information */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
-        <div className="mb-4 flex items-center justify-between">
-          <h3 className="font-avenir-black flex items-center gap-2 text-xl text-gray-800">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
-              <User className="h-3 w-3 text-white" />
-            </div>
-            Personal Information
-          </h3>
-        </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <div>
-            <span className="font-avenir-regular text-sm font-medium text-gray-700">
-              Full Name:
-            </span>
-            <p className="font-lato-regular text-gray-600">{formData.name || "Not provided"}</p>
+        <h3 className="font-avenir-black mb-1 flex items-center gap-2 text-xl text-gray-800">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
+            <span className="text-sm font-bold text-white">6</span>
           </div>
+          180UNLOCKED
+        </h3>
+
+        <div className="space-y-6">
+          {/* Event Details */}
           <div>
-            <span className="font-avenir-regular text-sm font-medium text-gray-700">Email:</span>
-            <p className="font-lato-regular text-gray-600">{formData.email || "Not provided"}</p>
-          </div>
-          <div>
-            <span className="font-avenir-regular text-sm font-medium text-gray-700">
-              Phone Number:
-            </span>
-            <p className="font-lato-regular text-gray-600">{formData.phone || "Not provided"}</p>
-          </div>
-          <div>
-            <span className="font-avenir-regular text-sm font-medium text-gray-700">Faculty:</span>
-            <p className="font-lato-regular text-gray-600">{formData.faculty || "Not provided"}</p>
-          </div>
-          <div>
-            <span className="font-avenir-regular text-sm font-medium text-gray-700">Major:</span>
-            <p className="font-lato-regular text-gray-600">{formData.major || "Not provided"}</p>
-          </div>
-          <div>
-            <span className="font-avenir-regular text-sm font-medium text-gray-700">Batch:</span>
-            <p className="font-lato-regular text-gray-600">{formData.batch || "Not provided"}</p>
-          </div>
-          <div>
-            <span className="font-avenir-regular text-sm font-medium text-gray-700">
-              Current GPA:
-            </span>
-            <p className="font-lato-regular text-gray-600">{formData.gpa || "Not provided"}</p>
-          </div>
-          <div>
-            <span className="font-avenir-regular text-sm font-medium text-gray-700">
-              Active UGM Student:
-            </span>
-            <p className="font-lato-regular text-gray-600">
-              {formData.activeStudent ? "Yes" : "No"}
+            <p className="font-avenir-black text-black-300 mb-1">
+              180UNLOCKED: Consulting and Your First Step For It!
             </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Alumni Information */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
-        <div className="mb-4 flex items-center justify-between">
-          <h3 className="font-avenir-black flex items-center gap-2 text-xl text-gray-800">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
-              <User className="h-3 w-3 text-white" />
-            </div>
-            180DC Alumni Information
-          </h3>
-        </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          <div>
-            <span className="font-avenir-regular text-sm font-medium text-gray-700">
-              180DC Alumni Status:
-            </span>
-            <p className="font-lato-regular text-gray-600">
-              {formData.is180DCAlumni === true
-                ? "Yes, former member"
-                : formData.is180DCAlumni === false
-                  ? "No, not a former member"
-                  : "No, not a former member"}
+            <p className="font-lato-regular text-sm text-gray-600">
+              🔓 <strong>UNLOCK WHAT&apos;S NEXT!</strong> 🔓
+              <br />
+              <br />
+              Curious about joining a community where you can learn, grow, and thrive? Did you know
+              that 180 Degrees Consulting UGM is opening its{" "}
+              <strong>New Member Recruitment</strong>… soon! 🤫
+              <br />
+              <br />
+              1️⃣ Through <strong>180UNLOCKED</strong>, get a sneak peek into 180DC UGM and hear
+              inspiring alumni stories:
+              <br />
+              1. <strong>How to Build a Competitive Profile</strong>, with Kak Schalke Anindya,
+              Indonesia&apos;s Most Outstanding Student 2023 (Ex-President 180DC UGM)
+              <br />
+              2. <strong>From 180DC to Consulting</strong>, with Kak Radiansyah, Intern VE at PwC
+              South East Asia Consulting (Ex-VP 180DC UGM)
+              <br />
+              <br />
+              2️⃣ Explore divisions that match your potential through our{" "}
+              <strong>Open House</strong> — from Consulting, Strategy &amp; Growth, Finance, Client
+              Engagement, HR, Marketing-IT, Legal, to Knowledge Team.
+              <br />
+              <br />
+              <strong>SAVE THE DATE</strong>
+              <br />
+              📅 7 August 2026
+              <br />
+              🕒 17.45–20.40 WIB
+              <br />
+              📍 Zoom Meeting (TBA)
+              <br />
+              <br />
+              <strong>REGISTER NOW</strong>
+              <br />
+              🔗{" "}
+              <Link
+                href="https://180dcugm.com/180UNLOCKEDRegistration"
+                className="text-cyan-600 underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                180dcugm.com/180UNLOCKEDRegistration
+              </Link>
+              <br />
+              <br />
+              🚪 <em>The doors are waiting. Are you ready to unlock yours?</em> 🔓
             </p>
-          </div>
-          {formData.is180DCAlumni && (
-            <>
-              <div>
-                <span className="font-avenir-regular text-sm font-medium text-gray-700">
-                  Past Position:
-                </span>
-                <p className="font-lato-regular text-gray-600">
-                  {formData.pastPosition || "Not provided"}
-                </p>
-              </div>
-              <div>
-                <span className="font-avenir-regular text-sm font-medium text-gray-700">
-                  Past Batch/Year:
-                </span>
-                <p className="font-lato-regular text-gray-600">
-                  {formData.pastBatch || "Not provided"}
-                </p>
-              </div>
-            </>
-          )}
-        </div>
-      </div>
 
-      {/* Position Preferences */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
-        <div className="mb-4 flex items-center justify-between">
-          <h3 className="font-avenir-black flex items-center gap-2 text-xl text-gray-800">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
-              <GraduationCap className="h-3 w-3 text-white" />
-            </div>
-            Position Preferences
-          </h3>
-        </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div>
-            <span className="font-avenir-regular text-sm font-medium text-gray-700">
-              First Choice:
-            </span>
-            <p className="font-lato-regular text-gray-600">
-              {formData.firstChoice || "Not provided"}
-            </p>
-          </div>
-
-          <div>
-            <span className="font-avenir-regular text-sm font-medium text-gray-700">
-              Second Choice:
-            </span>
-            <p className="font-lato-regular text-gray-600">
-              {formData.secondChoice || "Not provided"}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* First Choice Documents */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
-        <div className="mb-4 flex items-center justify-between">
-          <h3 className="font-avenir-black flex items-center gap-2 text-xl text-gray-800">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
-              <Briefcase className="h-3 w-3 text-white" />
-            </div>
-            First Choice: {formData.firstChoice || "Not selected"}
-          </h3>
-        </div>
-        <div className="space-y-4">
-          {/* Division and Role Information */}
-          <div className="rounded-lg bg-gray-50 p-4">
-            <h4 className="font-avenir-regular mb-3 text-sm font-medium text-gray-700">
-              Selected Division & Roles:
-            </h4>
-            <div className="space-y-2">
-              <p className="font-lato-regular text-gray-800">
-                <span className="font-medium">Division:</span>{" "}
-                {formData.firstChoice || "Not selected"}
-              </p>
-              {(formData.firstChoice === "Marketing" ||
-                formData.firstChoice === "IT" ||
-                formData.firstChoice === "Strategy and Growth") && (
-                <div>
-                  <span className="font-medium text-gray-700">Role Preferences:</span>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {formData.firstChoice === "Marketing" && (
-                      <>
-                        {formData.first_content && (
-                          <span className="inline-block rounded-full bg-green-300/10 px-3 py-1 text-sm text-green-300">
-                            Content
-                          </span>
-                        )}
-                        {formData.first_graphicDesigner && (
-                          <span className="inline-block rounded-full bg-green-300/10 px-3 py-1 text-sm text-green-300">
-                            Graphic Designer
-                          </span>
-                        )}
-                        {formData.first_videographer && (
-                          <span className="inline-block rounded-full bg-green-300/10 px-3 py-1 text-sm text-green-300">
-                            Videographer
-                          </span>
-                        )}
-                        {formData.first_partnership && (
-                          <span className="inline-block rounded-full bg-green-300/10 px-3 py-1 text-sm text-green-300">
-                            Partnership
-                          </span>
-                        )}
-                      </>
-                    )}
-                    {formData.firstChoice === "IT" && (
-                      <>
-                        {formData.first_frontend && (
-                          <span className="inline-block rounded-full bg-green-300/10 px-3 py-1 text-sm text-green-300">
-                            Frontend Developer
-                          </span>
-                        )}
-                        {formData.first_backend && (
-                          <span className="inline-block rounded-full bg-green-300/10 px-3 py-1 text-sm text-green-300">
-                            Backend Developer
-                          </span>
-                        )}
-                        {formData.first_uiux && (
-                          <span className="inline-block rounded-full bg-green-300/10 px-3 py-1 text-sm text-green-300">
-                            UI/UX Designer
-                          </span>
-                        )}
-                      </>
-                    )}
-                    {formData.firstChoice === "Strategy and Growth" && (
-                      <>
-                        {formData.first_sngCeoCC && (
-                          <span className="inline-block rounded-full bg-green-300/10 px-3 py-1 text-sm text-green-300">
-                            CEO of 180DC Case Competition (CEO CC)
-                          </span>
-                        )}
-                        {formData.first_sngAnalyst && (
-                          <span className="inline-block rounded-full bg-green-300/10 px-3 py-1 text-sm text-green-300">
-                            SNG Analyst
-                          </span>
-                        )}
-                      </>
-                    )}
-                    {((formData.firstChoice === "Marketing" &&
-                      !formData.first_content &&
-                      !formData.first_graphicDesigner &&
-                      !formData.first_videographer &&
-                      !formData.first_partnership) ||
-                      (formData.firstChoice === "IT" &&
-                        !formData.first_frontend &&
-                        !formData.first_backend &&
-                        !formData.first_uiux) ||
-                      (formData.firstChoice === "Strategy and Growth" &&
-                        !formData.first_sngCeoCC &&
-                        !formData.first_sngAnalyst)) && (
-                      <span className="text-gray-400 italic">No specific roles selected</span>
-                    )}
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Documents */}
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            <div className="md:col-span-2">
-              <span className="font-avenir-regular text-sm font-medium text-gray-700">
-                CV/Resume:
-              </span>
-              <p className="font-lato-regular text-gray-600">
-                {formData.first_cvLink ? (
-                  <Link
-                    href={formData.first_cvLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-green-300 hover:underline"
-                  >
-                    View CV ({formData.first_cvLink})
-                  </Link>
-                ) : (
-                  <span className="text-red-500">Not provided (Required)</span>
-                )}
-              </p>
-            </div>
-            <div className="md:col-span-2">
-              <span className="font-avenir-regular text-sm font-medium text-gray-700">
-                Additional Document:
-              </span>
-              <p className="font-lato-regular text-gray-600">
-                {formData.first_documentLink ? (
-                  <Link
-                    href={formData.first_documentLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-green-300 hover:underline"
-                  >
-                    View Document ({formData.first_documentLink})
-                  </Link>
-                ) : (
-                  <span className="text-red-500">Not provided (Required)</span>
-                )}
-              </p>
-            </div>
-            {formData.first_portfolioLink && (
-              <div className="md:col-span-2">
-                <span className="font-avenir-regular text-sm font-medium text-gray-700">
-                  Portfolio:
-                </span>
-                <p className="font-lato-regular text-gray-600">
-                  <Link
-                    href={formData.first_portfolioLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-green-300 hover:underline"
-                  >
-                    View Portfolio ({formData.first_portfolioLink})
-                  </Link>
-                </p>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* Second Choice Documents */}
-      {formData.secondChoice && formData.secondChoice !== "No second choice" && (
-        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
-          <div className="mb-4 flex items-center justify-between">
-            <h3 className="font-avenir-black flex items-center gap-2 text-xl text-gray-800">
-              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
-                <Upload className="h-3 w-3 text-white" />
-              </div>
-              Second Choice: {formData.secondChoice || "Not selected"}
-            </h3>
-          </div>
-          <div className="space-y-4">
-            {/* Division and Role Information */}
-            <div className="rounded-lg bg-gray-50 p-4">
-              <h4 className="font-avenir-regular mb-3 text-sm font-medium text-gray-700">
-                Selected Division & Roles:
-              </h4>
-              <div className="space-y-2">
-                <p className="font-lato-regular text-gray-800">
-                  <span className="font-medium">Division:</span>{" "}
-                  {formData.secondChoice || "Not selected"}
-                </p>
-                {(formData.secondChoice === "Marketing" ||
-                  formData.secondChoice === "IT" ||
-                  formData.secondChoice === "Strategy and Growth") && (
-                  <div>
-                    <span className="font-medium text-gray-700">Role Preferences:</span>
-                    <div className="mt-2 flex flex-wrap gap-2">
-                      {formData.secondChoice === "Marketing" && (
-                        <>
-                          {formData.second_content && (
-                            <span className="inline-block rounded-full bg-cyan-300/10 px-3 py-1 text-sm text-cyan-300">
-                              Content
-                            </span>
-                          )}
-                          {formData.second_graphicDesigner && (
-                            <span className="inline-block rounded-full bg-cyan-300/10 px-3 py-1 text-sm text-cyan-300">
-                              Graphic Designer
-                            </span>
-                          )}
-                          {formData.second_videographer && (
-                            <span className="inline-block rounded-full bg-cyan-300/10 px-3 py-1 text-sm text-cyan-300">
-                              Videographer
-                            </span>
-                          )}
-                          {formData.second_partnership && (
-                            <span className="inline-block rounded-full bg-cyan-300/10 px-3 py-1 text-sm text-cyan-300">
-                              Partnership
-                            </span>
-                          )}
-                        </>
-                      )}
-                      {formData.secondChoice === "IT" && (
-                        <>
-                          {formData.second_frontend && (
-                            <span className="inline-block rounded-full bg-cyan-300/10 px-3 py-1 text-sm text-cyan-300">
-                              Frontend Developer
-                            </span>
-                          )}
-                          {formData.second_backend && (
-                            <span className="inline-block rounded-full bg-cyan-300/10 px-3 py-1 text-sm text-cyan-300">
-                              Backend Developer
-                            </span>
-                          )}
-                          {formData.second_uiux && (
-                            <span className="inline-block rounded-full bg-cyan-300/10 px-3 py-1 text-sm text-cyan-300">
-                              UI/UX Designer
-                            </span>
-                          )}
-                        </>
-                      )}
-                      {formData.secondChoice === "Strategy and Growth" && (
-                        <>
-                          {formData.second_sngCeoCC && (
-                            <span className="inline-block rounded-full bg-cyan-300/10 px-3 py-1 text-sm text-cyan-300">
-                              CEO of 180DC Case Competition (CEO CC)
-                            </span>
-                          )}
-                          {formData.second_sngAnalyst && (
-                            <span className="inline-block rounded-full bg-cyan-300/10 px-3 py-1 text-sm text-cyan-300">
-                              SNG Analyst
-                            </span>
-                          )}
-                        </>
-                      )}
-                      {((formData.secondChoice === "Marketing" &&
-                        !formData.second_content &&
-                        !formData.second_graphicDesigner &&
-                        !formData.second_videographer &&
-                        !formData.second_partnership) ||
-                        (formData.secondChoice === "IT" &&
-                          !formData.second_frontend &&
-                          !formData.second_backend &&
-                          !formData.second_uiux) ||
-                        (formData.secondChoice === "Strategy and Growth" &&
-                          !formData.second_sngCeoCC &&
-                          !formData.second_sngAnalyst)) && (
-                        <span className="text-gray-400 italic">No specific roles selected</span>
-                      )}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-
-            {/* Documents */}
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              <div className="md:col-span-2">
-                <span className="font-avenir-regular text-sm font-medium text-gray-700">
-                  CV/Resume:
-                </span>
-                <p className="font-lato-regular text-gray-600">
-                  {formData.second_cvLink ? (
-                    <Link
-                      href={formData.second_cvLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-green-300 hover:underline"
-                    >
-                      View CV ({formData.second_cvLink})
-                    </Link>
-                  ) : (
-                    <span className="text-gray-400 italic">Not provided</span>
-                  )}
-                </p>
-              </div>
-              <div className="md:col-span-2">
-                <span className="font-avenir-regular text-sm font-medium text-gray-700">
-                  Additional Document:
-                </span>
-                <p className="font-lato-regular text-gray-600">
-                  {formData.second_documentLink ? (
-                    <Link
-                      href={formData.second_documentLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-green-300 hover:underline"
-                    >
-                      View Document ({formData.second_documentLink})
-                    </Link>
-                  ) : (
-                    <span className="text-gray-400 italic">Not provided</span>
-                  )}
-                </p>
-              </div>
-              {formData.second_portfolioLink && (
-                <div className="md:col-span-2">
-                  <span className="font-avenir-regular text-sm font-medium text-gray-700">
-                    Portfolio:
-                  </span>
-                  <p className="font-lato-regular text-gray-600">
-                    <Link
-                      href={formData.second_portfolioLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-green-300 hover:underline"
-                    >
-                      View Portfolio ({formData.second_portfolioLink})
-                    </Link>
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Social Media Requirements */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
-        <div className="mb-4 flex items-center justify-between">
-          <h3 className="font-avenir-black flex items-center gap-2 text-xl text-gray-800">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
-              <Upload className="h-3 w-3 text-white" />
-            </div>
-            Social Media Requirements
-          </h3>
-        </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div className="md:col-span-2">
-            <span className="font-avenir-regular text-sm font-medium text-gray-700">
-              Twibbon Post Link:
-            </span>
-            <p className="font-lato-regular text-gray-600">
-              {formData.twibbonPostLink ? (
-                <Link
-                  href={formData.twibbonPostLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-green-300 hover:underline"
-                >
-                  View Post ({formData.twibbonPostLink})
-                </Link>
-              ) : (
-                <span className="text-red-500">Not provided (Required)</span>
-              )}
-            </p>
-          </div>
-          <div className="md:col-span-2">
-            <span className="font-avenir-regular text-sm font-medium text-gray-700">
-              Instagram Story Proof:
-            </span>
-            <p className="font-lato-regular text-gray-600">
-              {formData.twibbonProofLink ? (
-                <Link
-                  href={formData.twibbonProofLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-green-300 hover:underline"
-                >
-                  View Proof ({formData.twibbonProofLink})
-                </Link>
-              ) : (
-                <span className="text-red-500">Not provided (Required)</span>
-              )}
-            </p>
-          </div>
-          <div>
-            <span className="font-avenir-regular text-sm font-medium text-gray-700">
-              Consent Agreement:
-            </span>
-            <p className="font-lato-regular text-gray-600">
-              {formData.consentAgreed ? (
-                <span className="font-medium text-green-300">Agreed</span>
-              ) : (
-                <span className="text-red-500">Not agreed</span>
-              )}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Validation Summary */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
-        <div className="mb-4">
-          <h3 className="font-avenir-black text-xl text-gray-800">Application Status</h3>
-        </div>
-        <div className="space-y-2">
-          <div className="flex items-center gap-2">
-            <div
-              className={`h-2 w-2 rounded-full ${formData.name ? "bg-green-300" : "bg-red-500"}`}
-            ></div>
-            <span className="font-avenir-regular text-sm">
-              Personal Information:{" "}
-              {formData.name &&
-              formData.email &&
-              formData.phone &&
-              formData.faculty &&
-              formData.major &&
-              formData.batch &&
-              formData.gpa
-                ? "Complete"
-                : "Incomplete"}
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div
-              className={`h-2 w-2 rounded-full ${formData.firstChoice && formData.first_cvLink && formData.first_documentLink ? "bg-green-300" : "bg-red-500"}`}
-            />
-            <span className="font-avenir-regular text-sm">
-              First Choice Documents:{" "}
-              {formData.first_cvLink && formData.first_documentLink ? "Complete" : "Incomplete"}
-            </span>
-          </div>
-          {formData.secondChoice && (
-            <div className="flex items-center gap-2">
-              <div
-                className={`h-2 w-2 rounded-full ${formData.second_cvLink && formData.second_documentLink ? "bg-green-300" : "bg-red-500"}`}
+            <div className="mt-4">
+              <Image
+                src={UNLOCKED_POSTER}
+                alt="180UNLOCKED — 7 August 2026, 17.45–20.40 WIB, Zoom Meeting"
+                width={1000}
+                height={1250}
+                className="h-auto w-full max-w-md rounded-lg"
               />
-              <span className="font-avenir-regular text-sm">
-                Second Choice Documents:{" "}
-                {formData.second_cvLink && formData.second_documentLink ? "Complete" : "Incomplete"}
-              </span>
             </div>
-          )}
-          <div className="flex items-center gap-2">
-            <div
-              className={`h-2 w-2 rounded-full ${formData.twibbonPostLink && formData.twibbonProofLink ? "bg-green-300" : "bg-red-500"}`}
-            ></div>
-            <span className="font-avenir-regular text-sm">
-              Social Media Requirements:{" "}
-              {formData.twibbonPostLink && formData.twibbonProofLink ? "Complete" : "Incomplete"}
-            </span>
           </div>
-          <div className="flex items-center gap-2">
-            <div
-              className={`h-2 w-2 rounded-full ${formData.consentAgreed ? "bg-green-300" : "bg-red-500"}`}
-            ></div>
-            <span className="font-avenir-regular text-sm">
-              Consent Agreement: {formData.consentAgreed ? "Agreed" : "Not Agreed"}
-            </span>
+
+          {/* Registration Proof */}
+          <div>
+            <Label className="font-avenir-regular mb-2 block text-sm font-medium text-gray-700">
+              Upload proof of your registration!
+            </Label>
+            <p className="font-lato-regular mb-3 text-sm text-gray-500">
+              Please upload the proof to a Google Drive, ensure the access settings are set to{" "}
+              <span className="font-lato-bold text-black-300">
+                &quot;Anyone with the link can view,&quot;
+              </span>{" "}
+              and paste the link in the space provided below.
+            </p>
+            <Input
+              value={unlockedProofLink}
+              onChange={(e) => setUnlockedProofLink(e.target.value)}
+              placeholder="https://drive.google.com/your-registration-proof"
+              className="font-lato-regular border-gray-300 transition-all duration-200 focus:ring-2 focus:ring-green-300/50"
+            />
+          </div>
+
+          {/* Acknowledgement */}
+          <div className="rounded-lg border border-gray-200 p-4">
+            <p className="font-lato-regular mb-3 leading-relaxed text-gray-600">
+              I acknowledge that attending 180UNLOCKED is strongly encouraged as part of my
+              application and that attending will positively support my application in the
+              recruitment process, while not participating may limit my chances of advancing.{" "}
+              <span className="text-red-600">*</span>
+            </p>
+            <div className="flex items-start space-x-3">
+              <Checkbox
+                id="unlockedAcknowledged"
+                checked={unlockedAcknowledged}
+                onCheckedChange={setUnlockedAcknowledged}
+                className="mt-1 text-white"
+              />
+              <Label
+                htmlFor="unlockedAcknowledged"
+                className="font-lato-regular leading-relaxed text-gray-600"
+              >
+                I understand and wish to proceed
+              </Label>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Validation Warning */}
-      {!isValid && (
-        <div className="rounded-lg border border-red-200 bg-red-50 p-4">
-          <div className="flex items-center gap-2">
-            <div className="flex h-5 w-5 items-center justify-center rounded-full bg-red-600">
-              <span className="text-xs font-bold text-white">!</span>
-            </div>
-            <p className="font-avenir-regular text-sm font-medium text-red-800">
-              Please complete all required fields before submitting your application.
-            </p>
-          </div>
-        </div>
-      )}
-
-      {/* Navigation */}
-      <div className="flex justify-end pt-4">
+      <div className="flex justify-between pt-4">
         <Button
-          type="submit"
-          disabled={!isValid || isSubmitting}
-          className="font-avenir-regular disabled:text-black-300 flex items-center gap-2 bg-green-300 text-white transition-all duration-200 hover:scale-105 hover:bg-green-300/90 disabled:opacity-50 disabled:hover:scale-100"
+          onClick={handleNext}
+          disabled={!isValid}
+          className="font-avenir-regular disabled:text-black-300 ml-auto flex items-center gap-2 bg-green-300 text-white transition-all duration-200 hover:scale-105 hover:bg-green-300/90 disabled:opacity-50 disabled:hover:scale-100"
         >
-          {isSubmitting ? (
-            <>
-              <Loader2 className="h-4 w-4 animate-spin" />
-              Submitting...
-            </>
-          ) : (
-            <>
-              Submit Application
-              <ChevronRight className="h-4 w-4" />
-            </>
-          )}
+          Review Submission
+          <ChevronRight className="h-4 w-4" />
         </Button>
       </div>
-    </form>
+    </div>
   );
 };
 

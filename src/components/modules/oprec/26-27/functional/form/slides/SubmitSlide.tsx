@@ -20,7 +20,7 @@ const SubmitSlide = ({ formData }) => {
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <h3 className="font-avenir-black mb-6 flex items-center gap-2 text-xl text-gray-800">
           <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
-            <span className="text-sm font-bold text-white">6</span>
+            <span className="text-sm font-bold text-white">7</span>
           </div>
           Next Steps
         </h3>
@@ -44,20 +44,20 @@ const SubmitSlide = ({ formData }) => {
             </p>
             <div className="space-y-2">
               <Link
-                href="https://bit.ly/180DCUGMCOMMUNITY1"
+                href="https://180dcugm.com/180DCCommunity"
                 target="_blank"
                 className="font-avenir-regular mr-2 inline-flex items-center gap-2 rounded-md bg-cyan-300 px-4 py-2 text-sm text-white transition-all duration-200 hover:bg-cyan-700"
               >
                 <ExternalLink className="h-4 w-4" />
-                bit.ly/180DCUGMCOMMUNITY1
+                180dcugm.com/180DCCommunity
               </Link>
               <Link
-                href="https://bit.ly/180DC-FARecruitment2526"
+                href="https://180dcugm.com/FARecruitmentGroup-2627"
                 target="_blank"
                 className="font-avenir-regular inline-flex items-center gap-2 rounded-md bg-green-300 px-4 py-2 text-sm text-white transition-all duration-200 hover:bg-cyan-800"
               >
                 <ExternalLink className="h-4 w-4" />
-                bit.ly/180DC-FARecruitment2526
+                180dcugm.com/FARecruitmentGroup-2627
               </Link>
             </div>
           </div>
@@ -77,7 +77,7 @@ const SubmitSlide = ({ formData }) => {
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
         <h3 className="font-avenir-black mb-6 flex items-center gap-2 text-xl text-gray-800">
           <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-300">
-            <span className="text-sm font-bold text-white">7</span>
+            <span className="text-sm font-bold text-white">8</span>
           </div>
           Application Summary
         </h3>
