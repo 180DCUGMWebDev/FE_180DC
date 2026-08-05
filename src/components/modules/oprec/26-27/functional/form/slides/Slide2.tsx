@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@/components/elements/Form/button";
 import { Label } from "@/components/elements/Form/label";
-import { Input } from "@/components/elements/Form/input";
 import {
   Select,
   SelectContent,
@@ -126,15 +125,24 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
                   >
                     Past Position in 180DC UGM *
                   </Label>
-                  <Input
-                    id="pastPosition"
+                  <Select
                     value={pastPosition}
-                    onChange={(e) => {
-                      setPastPosition(e.target.value);
-                      updateFormData({ pastPosition: e.target.value });
+                    onValueChange={(value) => {
+                      setPastPosition(value);
+                      updateFormData({ pastPosition: value });
                     }}
-                    placeholder="Enter your past position"
-                  />
+                  >
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Past Position" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Project Leader">Project Leader</SelectItem>
+                      <SelectItem value="Project Analyst">Project Analyst</SelectItem>
+                      <SelectItem value="Research Leader">Research Leader</SelectItem>
+                      <SelectItem value="Research Analyst">Research Analyst</SelectItem>
+                      <SelectItem value="Functional Analyst">Functional Analyst</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <div>
@@ -155,9 +163,6 @@ const Slide2 = ({ formData, updateFormData, onNext }) => {
                       <SelectValue placeholder="Past Batch/Year" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="2020-2021">2020-2021</SelectItem>
-                      <SelectItem value="2021-2022">2021-2022</SelectItem>
-                      <SelectItem value="2022-2023">2022-2023</SelectItem>
                       <SelectItem value="2023-2024">2023-2024</SelectItem>
                       <SelectItem value="2024-2025">2024-2025</SelectItem>
                       <SelectItem value="2025-2026">2025-2026</SelectItem>
